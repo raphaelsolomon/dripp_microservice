@@ -11,6 +11,10 @@ COPY . .
 
 RUN yarn run build
 
+RUN npm install -g shx
+
+RUN yarn run postbuild
+
 FROM node:alpine AS production
 
 ARG NODE_ENV=production

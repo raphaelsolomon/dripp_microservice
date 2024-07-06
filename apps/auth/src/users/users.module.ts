@@ -10,12 +10,18 @@ import { UserDocument, UserSchema } from './models/user.schema';
 import { UserRepository } from './users.repository';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { ConfigService } from '@nestjs/config';
+import {
+  VerificationDocument,
+  VerificationSchema,
+} from './models/verification.schema';
+import { VerificationRepository } from './verification.repository';
 
 @Module({
   imports: [
     DatabaseModule,
     DatabaseModule.forFeature([
       { name: UserDocument.name, schema: UserSchema },
+      { name: VerificationDocument.name, schema: VerificationSchema },
     ]),
     ClientsModule.registerAsync([
       {
@@ -43,7 +49,7 @@ import { ConfigService } from '@nestjs/config';
     ]),
   ],
   controllers: [UsersController],
-  providers: [UsersService, UserRepository],
+  providers: [UsersService, UserRepository, VerificationRepository],
   exports: [UsersService, UserRepository],
 })
 export class UsersModule {}

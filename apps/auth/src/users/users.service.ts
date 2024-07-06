@@ -1,5 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {
+  HttpCode,
+  HttpException,
+  HttpStatus,
   Inject,
   Injectable,
   UnauthorizedException,
@@ -11,14 +14,21 @@ import * as bcrypt from 'bcryptjs';
 import { UserDocument } from './models/user.schema';
 import { getUserDto } from './dto/get-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { BUSINESS_SERVICE, NOTIFICATION_SERVICE } from '@app/common';
+import {
+  BUSINESS_SERVICE,
+  generateRandomCode,
+  NOTIFICATION_SERVICE,
+} from '@app/common';
 import { ClientProxy } from '@nestjs/microservices';
 import { map, tap } from 'rxjs';
+import { VerificationRepository } from './verification.repository';
+import { VerifyEmailDto } from './dto/verify-email.dto';
 
 @Injectable()
 export class UsersService {
   constructor(
     private readonly userRepository: UserRepository,
+    private readonly verificationRepository: VerificationRepository,
     @Inject(NOTIFICATION_SERVICE) private notificationClientProxy: ClientProxy,
     @Inject(BUSINESS_SERVICE) private businessClientProxy: ClientProxy,
   ) {}
@@ -31,8 +41,73 @@ export class UsersService {
       username,
       password: await bcrypt.hash(createUserDto.password, 10),
     });
-    this.notificationClientProxy.emit('mail_register', { email: user.email });
+    const verification = await this.verificationRepository.create({
+      email: user.email,
+      code: generateRandomCode(5).toUpperCase(),
+      expires_at: new Date().getTime() + 7 * 60 * 1000, // expires at 7 mins,
+    });
+    this.notificationClientProxy.emit('mail_verify', {
+      email: verification.email,
+      name: createUserDto.fullname ?? username,
+      code: verification.code,
+    });
     return { status: true, user: this.destructureUser(user) };
+  }
+
+  async resendEmail(email: string) {
+    try {
+      const user = await this.userRepository.findOne({ email });
+      const verification = await this.verificationRepository.findOneAndUpdate(
+        {
+          email: user.email,
+        },
+        {
+          code: generateRandomCode(5).toUpperCase(),
+          expires_at: new Date().getTime() + 7 * 60 * 1000, // expires at 7 mins,
+        },
+      );
+      this.notificationClientProxy.emit('mail_verify', {
+        email: verification.email,
+        name: user.fullname ?? user.username,
+        code: verification.code,
+      });
+      return { status: true, message: 'verification code sent successfully' };
+    } catch (err) {
+      throw new HttpException('Record not found', HttpStatus.NOT_FOUND);
+    }
+  }
+
+  async verifyAccount(verifyEmailDto: VerifyEmailDto) {
+    try {
+      const verification = await this.verificationRepository.findOne({
+        email: verifyEmailDto.email,
+      });
+
+      if (verification.code !== verifyEmailDto.code) {
+        throw new HttpException('Invalid code', HttpStatus.BAD_REQUEST);
+      }
+
+      if (new Date().getTime() > verification.expires_at) {
+        throw new HttpException(
+          'This code is no longer valid',
+          HttpStatus.BAD_REQUEST,
+        );
+      }
+
+      await this.verificationRepository.findOneAndDelete({
+        email: verifyEmailDto.email,
+      });
+
+      const user = await this.userRepository.findOneAndUpdate(
+        {
+          email: verifyEmailDto.email,
+        },
+        { email_verified: true },
+      );
+      return this.destructureUser(user);
+    } catch (err) {
+      throw new HttpException('Record not found', HttpStatus.NOT_FOUND);
+    }
   }
 
   private async validateCreateUserDto(createUserDto: CreateUserDto) {
@@ -148,6 +223,23 @@ export class UsersService {
     const user = await this.userRepository.findOne({ email });
     if (user) {
       console.log('reset password');
+    }
+  }
+
+  async forgotPassword(email: string) {
+    try {
+      const token = generateRandomCode(100);
+      await this.userRepository.findOneAndUpdate(
+        { email },
+        { password_reset: token },
+      );
+      this.notificationClientProxy.emit('reset_password', {
+        email: email,
+        token: token,
+      });
+      return { status: true, message: 'password reset link sent to ' + email };
+    } catch (err) {
+      throw new HttpException('User not found', HttpStatus.BAD_REQUEST);
     }
   }
 }

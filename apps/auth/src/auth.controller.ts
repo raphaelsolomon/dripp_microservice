@@ -17,22 +17,35 @@ import { UsersService } from './users/users.service';
 import { CreateUserDto } from './users/dto/create-user.dto';
 import { CurrentUser } from '@app/common';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
-import { JwtService } from '@nestjs/jwt';
 import { GoogleAuthGuard } from './guards/google-auth.guard';
 import { FacebookAuthGuard } from './guards/facebook-auth.guard';
+import { VerifyEmailDto } from './users/dto/verify-email.dto';
 
 @Controller('auth')
 export class AuthController {
   constructor(
     private readonly usersService: UsersService,
     private readonly authService: AuthService,
-    private readonly jwtsService: JwtService,
   ) {}
 
   @Post('/register')
   async createUser(@Body() createUserDto: CreateUserDto) {
-    console.log(createUserDto);
     return this.usersService.create(createUserDto);
+  }
+
+  @Post('/verify')
+  async verifyAccount(@Body() verifyEmailDto: VerifyEmailDto) {
+    return this.usersService.verifyAccount(verifyEmailDto);
+  }
+
+  @Post('/resend-email')
+  async resendEmail(@Body() { email }: { [key: string]: string }) {
+    return this.usersService.resendEmail(email);
+  }
+
+  @Post('/forgot-password')
+  async forgotPassword(@Body() { email }: { [key: string]: string }) {
+    return this.usersService.forgotPassword(email);
   }
 
   @UseGuards(LocalAuthGuard)

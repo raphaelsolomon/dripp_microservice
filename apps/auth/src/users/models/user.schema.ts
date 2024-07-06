@@ -38,5 +38,8 @@ export class UserDocument extends AbstractDocument {
 
   @Prop({ required: false })
   business_id?: string;
+
+  @Prop({ required: false, select: false })
+  password_reset?: string;
 }
 export const UserSchema = SchemaFactory.createForClass(UserDocument);
