@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  auth:
+    container_name: auth_container
+    build:
+      context: .
+      dockerfile: ./apps/auth/Dockerfile
+      target: development
+    command: yarn run start:dev auth
+    env_file:
+      - ./apps/auth/.env
+    ports:
+      - 3000:3000
+    volumes: 
+      - .:/app
+    networks:
+      - dripp_network
+
+  
+  business:
+    container_name: business_container
+    build:
+      context: .
+      dockerfile: ./apps/business/Dockerfile
+      target: development
+    command: yarn run start:dev business
+    env_file:
+      - ./apps/business/.env
+    ports:
+      - 2000:2000
+    volumes: 
+      - .:/app
+    networks:
+      - dripp_network
+  
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo_container
+    ports:
+      - 27017:27017
+    volumes:
+      - ./database:/data/db
+    networks:
+      - dripp_network
+
+networks:
+  dripp_network:
