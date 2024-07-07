@@ -3,6 +3,7 @@ import { UsersController } from './users.controller';
 import { UsersService } from './users.service';
 import {
   BUSINESS_SERVICE,
+  CloudinaryModule,
   DatabaseModule,
   NOTIFICATION_SERVICE,
 } from '@app/common';
@@ -47,6 +48,7 @@ import { VerificationRepository } from './verification.repository';
         inject: [ConfigService],
       },
     ]),
+    CloudinaryModule,
   ],
   controllers: [UsersController],
   providers: [UsersService, UserRepository, VerificationRepository],

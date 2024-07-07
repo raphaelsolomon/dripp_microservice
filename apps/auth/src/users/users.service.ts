@@ -16,6 +16,7 @@ import { getUserDto } from './dto/get-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import {
   BUSINESS_SERVICE,
+  CloudinaryService,
   generateRandomCode,
   NOTIFICATION_SERVICE,
 } from '@app/common';
@@ -30,6 +31,7 @@ import { UpdatePasswordDto } from './dto/update-password.dto';
 export class UsersService {
   constructor(
     private readonly userRepository: UserRepository,
+    private readonly cloudinaryService: CloudinaryService,
     private readonly verificationRepository: VerificationRepository,
     @Inject(NOTIFICATION_SERVICE) private notificationClientProxy: ClientProxy,
     @Inject(BUSINESS_SERVICE) private businessClientProxy: ClientProxy,
@@ -304,5 +306,17 @@ export class UsersService {
     } catch (err) {
       throw new HttpException(`${err}`, HttpStatus.NOT_FOUND);
     }
+  }
+
+  async uploadAvatar(userInfo: UserDocument, file: any) {
+    const result = await this.cloudinaryService.uploadFile(
+      file,
+      'profileImage',
+    );
+    const user = await this.userRepository.findOneAndUpdate(
+      { uuid: userInfo.uuid },
+      { avatar: result.url },
+    );
+    return this.destructureUser(user);
   }
 }
