@@ -16,9 +16,11 @@ import {
   VerificationSchema,
 } from './models/verification.schema';
 import { VerificationRepository } from './verification.repository';
+import { NestjsFormDataModule } from 'nestjs-form-data';
 
 @Module({
   imports: [
+    NestjsFormDataModule,
     DatabaseModule,
     DatabaseModule.forFeature([
       { name: UserDocument.name, schema: UserSchema },

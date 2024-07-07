@@ -17,7 +17,7 @@ async function bootstrap() {
     },
   });
   app.use(cookieParser());
-  app.useGlobalPipes(new ValidationPipe({ whitelist: false }));
+  app.useGlobalPipes(new ValidationPipe({ whitelist: false, transform: true }));
   app.useLogger(app.get(Logger));
   await app.startAllMicroservices();
   await app.listen(configService.get<number>('AUTH_HTTP_PORT'));
