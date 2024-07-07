@@ -5,6 +5,7 @@ import { CurrentUser } from '../../../../libs/common/src/decorators/current-user
 import { UserDocument } from './models/user.schema';
 import { JwtAuthGuard } from '../guards/jwt-auth.guard';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { UpdatePasswordDto } from './dto/update-password.dto';
 
 @Controller('user')
 export class UsersController {
@@ -22,8 +23,12 @@ export class UsersController {
     return await this.usersService.updateUser(updateDto);
   }
 
-  @Post('/reset/password')
-  async resetPassword(@Body() { email }: { [key: string]: string }) {
-    return await this.usersService.resetPassword(email);
+  @Post('/update-password')
+  @UseGuards(JwtAuthGuard)
+  async resetPassword(
+    @CurrentUser() user: UserDocument,
+    @Body() updatePasswordDto: UpdatePasswordDto,
+  ) {
+    return await this.usersService.updatePassword(user, updatePasswordDto);
   }
 }

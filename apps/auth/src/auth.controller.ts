@@ -20,6 +20,7 @@ import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { GoogleAuthGuard } from './guards/google-auth.guard';
 import { FacebookAuthGuard } from './guards/facebook-auth.guard';
 import { VerifyEmailDto } from './users/dto/verify-email.dto';
+import { ResetpasswordDto } from './users/dto/reset-password.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -46,6 +47,14 @@ export class AuthController {
   @Post('/forgot-password')
   async forgotPassword(@Body() { email }: { [key: string]: string }) {
     return this.usersService.forgotPassword(email);
+  }
+
+  @Post('/reset-password')
+  async resetPassword(
+    @Body()
+    resetpasswordDto: ResetpasswordDto,
+  ) {
+    return this.usersService.resetPassword(resetpasswordDto);
   }
 
   @UseGuards(LocalAuthGuard)

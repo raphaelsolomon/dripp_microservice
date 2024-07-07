@@ -40,6 +40,6 @@ export class UserDocument extends AbstractDocument {
   business_id?: string;
 
   @Prop({ required: false, select: false })
-  password_reset?: string;
+  password_reset_token?: string;
 }
 export const UserSchema = SchemaFactory.createForClass(UserDocument);

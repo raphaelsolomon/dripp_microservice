@@ -23,6 +23,8 @@ import { ClientProxy } from '@nestjs/microservices';
 import { map, tap } from 'rxjs';
 import { VerificationRepository } from './verification.repository';
 import { VerifyEmailDto } from './dto/verify-email.dto';
+import { ResetpasswordDto } from './dto/reset-password.dto';
+import { UpdatePasswordDto } from './dto/update-password.dto';
 
 @Injectable()
 export class UsersService {
@@ -137,7 +139,7 @@ export class UsersService {
   }
 
   destructureUser(user: UserDocument) {
-    const { password, ...details } = user;
+    const { password, password_reset_token, ...details } = user;
     return details;
   }
 
@@ -219,19 +221,12 @@ export class UsersService {
     }
   }
 
-  async resetPassword(email: string) {
-    const user = await this.userRepository.findOne({ email });
-    if (user) {
-      console.log('reset password');
-    }
-  }
-
   async forgotPassword(email: string) {
     try {
       const token = generateRandomCode(100);
       await this.userRepository.findOneAndUpdate(
         { email },
-        { password_reset: token },
+        { password_reset_token: token },
       );
       this.notificationClientProxy.emit('reset_password', {
         email: email,
@@ -239,7 +234,75 @@ export class UsersService {
       });
       return { status: true, message: 'password reset link sent to ' + email };
     } catch (err) {
-      throw new HttpException('User not found', HttpStatus.BAD_REQUEST);
+      throw new HttpException('User not found', HttpStatus.NOT_FOUND);
+    }
+  }
+
+  async resetPassword(resetpasswordDto: ResetpasswordDto) {
+    try {
+      await this.userRepository.findOne(
+        {
+          password_reset_token: resetpasswordDto.token,
+        },
+        '+password_reset_token',
+      );
+
+      if (resetpasswordDto.new_password !== resetpasswordDto.confirm_password) {
+        throw new HttpException(
+          'Password does not match',
+          HttpStatus.BAD_REQUEST,
+        );
+      }
+
+      const new_password = await bcrypt.hash(resetpasswordDto.new_password, 10);
+      this.userRepository.findOneAndUpdate(
+        { password_reset_token: resetpasswordDto.token },
+        { password: new_password, password_reset_token: null },
+      );
+      return { status: true, message: 'Password changed successfully' };
+    } catch (err) {
+      throw new HttpException('Record not found', HttpStatus.NOT_FOUND);
+    }
+  }
+
+  async updatePassword(
+    userInfo: UserDocument,
+    updatePasswordDto: UpdatePasswordDto,
+  ) {
+    try {
+      const user = await this.userRepository.findOne(
+        { uuid: userInfo.uuid },
+        '+password',
+      );
+
+      const passwordIsValid = await bcrypt.compare(
+        updatePasswordDto.old_password,
+        user.password,
+      );
+
+      if (
+        updatePasswordDto.new_password !== updatePasswordDto.confirm_password
+      ) {
+        throw new HttpException(
+          'Password does not match',
+          HttpStatus.BAD_REQUEST,
+        );
+      }
+
+      if (!passwordIsValid) {
+        throw new HttpException('Wrong password', HttpStatus.BAD_REQUEST);
+      }
+
+      const newPassword = await bcrypt.hash(updatePasswordDto.new_password, 10);
+
+      await this.userRepository.findOneAndUpdate(
+        { uuid: user.uuid },
+        { password: newPassword },
+      );
+
+      return { status: true, message: 'Password updated successfully' };
+    } catch (err) {
+      throw new HttpException(`${err}`, HttpStatus.NOT_FOUND);
     }
   }
 }

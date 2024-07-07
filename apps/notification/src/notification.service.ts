@@ -39,7 +39,11 @@ export class NotificationService {
     const template = await ejs.renderFile(templatePath, {
       ...verifyMailDto,
     });
-    await this.sendMail(verifyMailDto.email, 'Verify your account', template);
+    try {
+      await this.sendMail(verifyMailDto.email, 'Verify your account', template);
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   async sendResetPassword(data: { [key: string]: string }) {
@@ -53,6 +57,10 @@ export class NotificationService {
     const template = await ejs.renderFile(templatePath, {
       url: `${this.configService.get<string>('CLIENT_URL')}/${data.token}`,
     });
-    await this.sendMail(data.email, 'Reset password', template);
+    try {
+      await this.sendMail(data.email, 'Reset password', template);
+    } catch (err) {
+      console.error(err);
+    }
   }
 }
