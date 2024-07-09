@@ -20,8 +20,11 @@ export class UsersController {
 
   @Patch('/update')
   @UseGuards(JwtAuthGuard)
-  async updateUser(@Body() updateDto: UpdateUserDto) {
-    return await this.usersService.updateUser(updateDto);
+  async updateUser(
+    @CurrentUser() user: UserDocument,
+    @Body() updateDto: UpdateUserDto,
+  ) {
+    return await this.usersService.updateUser(user, updateDto);
   }
 
   @Post('/update/password')

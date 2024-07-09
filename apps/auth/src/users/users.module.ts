@@ -6,6 +6,7 @@ import {
   CloudinaryModule,
   DatabaseModule,
   NOTIFICATION_SERVICE,
+  WALLET_SERVICE,
 } from '@app/common';
 import { UserDocument, UserSchema } from './models/user.schema';
 import { UserRepository } from './users.repository';
@@ -45,6 +46,17 @@ import { NestjsFormDataModule } from 'nestjs-form-data';
           options: {
             host: configService.get<string>('NOTIFICATION_HOST'),
             port: configService.get<number>('NOTIFICATION_TCP_PORT'),
+          },
+        }),
+        inject: [ConfigService],
+      },
+      {
+        name: WALLET_SERVICE,
+        useFactory: (configService: ConfigService) => ({
+          transport: Transport.TCP,
+          options: {
+            host: configService.get<string>('WALLET_TCP_HOST'),
+            port: configService.get<number>('WALLET_TCP_PORT'),
           },
         }),
         inject: [ConfigService],

@@ -19,6 +19,7 @@ import {
   CloudinaryService,
   generateRandomCode,
   NOTIFICATION_SERVICE,
+  WALLET_SERVICE,
 } from '@app/common';
 import { ClientProxy } from '@nestjs/microservices';
 import { map, tap } from 'rxjs';
@@ -34,6 +35,7 @@ export class UsersService {
     private readonly cloudinaryService: CloudinaryService,
     private readonly verificationRepository: VerificationRepository,
     @Inject(NOTIFICATION_SERVICE) private notificationClientProxy: ClientProxy,
+    @Inject(WALLET_SERVICE) private walletClientProxy: ClientProxy,
     @Inject(BUSINESS_SERVICE) private businessClientProxy: ClientProxy,
   ) {}
 
@@ -45,16 +47,28 @@ export class UsersService {
       username,
       password: await bcrypt.hash(createUserDto.password, 10),
     });
+    /* create a new verification entry containing the verification token & expiry time */
     const verification = await this.verificationRepository.create({
       email: user.email,
       code: generateRandomCode(5).toUpperCase(),
       expires_at: new Date().getTime() + 7 * 60 * 1000, // expires at 7 mins,
     });
-    this.notificationClientProxy.emit('mail_verify', {
-      email: verification.email,
-      name: createUserDto.fullname ?? username,
-      code: verification.code,
-    });
+    /* create the wallet and attach the wallet uuid to the user */
+    this.walletClientProxy
+      .send('create_wallet', {})
+      .subscribe(async (wallet) => {
+        /* Update the user with the wallet gotten from the message pattern */
+        await this.userRepository.findOneAndUpdate(
+          { uuid: user.uuid },
+          { wallet_uuid: wallet.uuid },
+        );
+      }),
+      /* send the user a verification, in other to verify their account */
+      this.notificationClientProxy.emit('mail_verify', {
+        email: verification.email,
+        name: createUserDto.fullname ?? username,
+        code: verification.code,
+      });
     return { status: true, user: this.destructureUser(user) };
   }
 
@@ -90,25 +104,6 @@ export class UsersService {
       if (verification.code !== verifyEmailDto.code) {
         throw new HttpException('Invalid code', HttpStatus.BAD_REQUEST);
       }
-
-      if (new Date().getTime() > verification.expires_at) {
-        throw new HttpException(
-          'This code is no longer valid',
-          HttpStatus.BAD_REQUEST,
-        );
-      }
-
-      await this.verificationRepository.findOneAndDelete({
-        email: verifyEmailDto.email,
-      });
-
-      const user = await this.userRepository.findOneAndUpdate(
-        {
-          email: verifyEmailDto.email,
-        },
-        { email_verified: true },
-      );
-      return this.destructureUser(user);
     } catch (err) {
       throw new HttpException('Record not found', HttpStatus.NOT_FOUND);
     }
@@ -145,36 +140,34 @@ export class UsersService {
     return details;
   }
 
-  async updateUser(updateDto: UpdateUserDto) {
-    const user = await this.userRepository.findOne({ _id: updateDto._id });
+  async updateUser(userInfo: UserDocument, updateDto: UpdateUserDto) {
+    const user = await this.userRepository.findOne({ _id: userInfo._id });
     if (user.account_type !== 'user' && updateDto.account_type === 'business') {
-      return this.businessClientProxy
-        .send('create_business', { userId: user._id })
-        .pipe(
-          tap((response) => console.log(response)),
-          map(async (response) => {
-            const { password, email, ...details } = updateDto;
-            const user = await this.userRepository.findOneAndUpdate(
-              { _id: updateDto._id },
-              { ...details, business_id: response.uuid },
-            );
-            return this.destructureUser(user);
-          }),
-        );
+      return this.businessClientProxy.send('create_business', {}).pipe(
+        tap((response) => console.log('Done creating business')),
+        map(async (response) => {
+          const { password, email, ...details } = updateDto;
+          const user = await this.userRepository.findOneAndUpdate(
+            { _id: userInfo._id },
+            { ...details, business_uuid: response.uuid },
+          );
+          return this.destructureUser(user);
+        }),
+      );
     } else if (
       user.account_type !== 'business' &&
       updateDto.account_type === 'user'
     ) {
       const { password, email, ...details } = updateDto;
       const user = await this.userRepository.findOneAndUpdate(
-        { _id: updateDto._id },
+        { _id: userInfo._id },
         { ...details },
       );
       return this.destructureUser(user);
     } else {
       const { password, email, account_type, ...details } = updateDto;
       const user = await this.userRepository.findOneAndUpdate(
-        { _id: updateDto._id },
+        { _id: userInfo._id },
         { ...details },
       );
       return this.destructureUser(user);

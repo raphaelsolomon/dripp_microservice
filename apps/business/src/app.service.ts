@@ -1,26 +1,25 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { BusinessRepository } from './business.repository';
+import { UserDto } from '@app/common';
+import { UpdateBusinessDto } from './dto/update-business.dto';
 
 @Injectable()
 export class AppService {
   constructor(private readonly businessRepository: BusinessRepository) {}
 
   async createBusiness(payload: any) {
-    const getBusiness = await this.validateCreateBusinessUser(payload.userId);
-    if (getBusiness) return { ...getBusiness };
     const business = await this.businessRepository.create({ ...payload });
     return { ...business };
   }
 
-  private async validateCreateBusinessUser(userId: string) {
+  async updateBusiness(user: UserDto, updateBusinessDto: UpdateBusinessDto) {
     try {
-      return await this.businessRepository.findOne({ userId: userId });
+      return await this.businessRepository.findOneAndUpdate(
+        { uuid: user.business_uuid },
+        { ...updateBusinessDto },
+      );
     } catch (err) {
-      return null;
+      throw new HttpException('Record not found', HttpStatus.NOT_FOUND);
     }
-  }
-
-  getHello(): string {
-    return 'Hello World!';
   }
 }

@@ -37,7 +37,10 @@ export class UserDocument extends AbstractDocument {
   account_type: AccountType;
 
   @Prop({ required: false })
-  business_id?: string;
+  business_uuid?: string;
+
+  @Prop({ required: false })
+  wallet_uuid?: string;
 
   @Prop({ required: false, select: false })
   password_reset_token?: string;

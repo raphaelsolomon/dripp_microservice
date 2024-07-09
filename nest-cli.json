@@ -35,13 +35,13 @@
         "tsConfigPath": "apps/auth/tsconfig.app.json"
       }
     },
-    "payment": {
+    "wallet": {
       "type": "application",
-      "root": "apps/payment",
+      "root": "apps/wallet",
       "entryFile": "main",
-      "sourceRoot": "apps/payment/src",
+      "sourceRoot": "apps/wallet/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/payment/tsconfig.app.json"
+        "tsConfigPath": "apps/wallet/tsconfig.app.json"
       }
     },
     "notification": {

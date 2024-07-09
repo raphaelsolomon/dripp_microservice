@@ -1,25 +1,26 @@
 import { Module } from '@nestjs/common';
-import { PaymentController } from './payment.controller';
-import { PaymentService } from './payment.service';
-import { AUTH_SERVICE, DatabaseModule, LoggerModule } from '@app/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as Joi from 'joi';
+import { FlutterwaveService } from './flutterwave.service';
+import { FlutterwaveController } from './flutterwave.controller';
 import { ClientsModule, Transport } from '@nestjs/microservices';
+import { AUTH_SERVICE, DatabaseModule } from '@app/common';
+import { TransactionRepository } from './transaction.repository';
+import {
+  TransactionDocument,
+  TransactionSchema,
+} from './models/transaction.schema';
 
 @Module({
   imports: [
-    DatabaseModule,
-    LoggerModule,
+    DatabaseModule.forFeature([
+      { name: TransactionDocument.name, schema: TransactionSchema },
+    ]),
     ConfigModule.forRoot({
       isGlobal: true,
       validationSchema: Joi.object({
-        MONGODB_URI: Joi.string().required(),
-        PAYMENT_PORT: Joi.string().required(),
-        FLUTTERWAVE_URL: Joi.string().required(),
+        FLUTTERWAVE_PUBLIC_KEY: Joi.string().required(),
         FLUTTERWAVE_SECRET_KEY: Joi.string().required(),
-        REDIRECT_URL: Joi.string().required(),
-        AUTH_HOST: Joi.string().required(),
-        AUTH_PORT: Joi.string().required(),
       }),
     }),
     ClientsModule.registerAsync([
@@ -36,7 +37,8 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
       },
     ]),
   ],
-  controllers: [PaymentController],
-  providers: [PaymentService],
+  controllers: [FlutterwaveController],
+  providers: [FlutterwaveService, TransactionRepository],
+  exports: [TransactionRepository],
 })
-export class PaymentModule {}
+export class FlutterwaveModule {}

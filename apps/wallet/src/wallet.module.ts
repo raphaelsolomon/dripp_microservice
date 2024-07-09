@@ -1,30 +1,32 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { DatabaseModule, LoggerModule, AUTH_SERVICE } from '@app/common';
+import { AUTH_SERVICE, DatabaseModule, LoggerModule } from '@app/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as Joi from 'joi';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { BusinessRepository } from './business.repository';
-import { BusinessDocument, BusinessSchema } from './models/business.schema';
-import { NestjsFormDataModule } from 'nestjs-form-data';
+import { FlutterwaveModule } from './flutterwave/flutterwave.module';
+import { WalletController } from './wallet.controller';
+import { WalletService } from './wallet.service';
+import { WalletRepository } from './wallet.repository';
+import { WalletDocument, WalletSchema } from './models/wallet.schema';
 
 @Module({
   imports: [
-    NestjsFormDataModule,
     DatabaseModule,
     DatabaseModule.forFeature([
-      { name: BusinessDocument.name, schema: BusinessSchema },
+      { name: WalletDocument.name, schema: WalletSchema },
     ]),
     LoggerModule,
+    FlutterwaveModule,
     ConfigModule.forRoot({
       isGlobal: true,
       validationSchema: Joi.object({
         MONGODB_URI: Joi.string().required(),
-        BUSINESS_HTTP_PORT: Joi.number().required(),
-        BUSINESS_TCP_PORT: Joi.number().required(),
+        WALLET_HTTP_PORT: Joi.string().required(),
+        FLUTTERWAVE_URL: Joi.string().required(),
+        FLUTTERWAVE_SECRET_KEY: Joi.string().required(),
+        REDIRECT_URL: Joi.string().required(),
         AUTH_HOST: Joi.string().required(),
-        AUTH_PORT: Joi.number().required(),
+        AUTH_PORT: Joi.string().required(),
       }),
     }),
     ClientsModule.registerAsync([
@@ -41,7 +43,7 @@ import { NestjsFormDataModule } from 'nestjs-form-data';
       },
     ]),
   ],
-  controllers: [AppController],
-  providers: [AppService, BusinessRepository],
+  controllers: [WalletController],
+  providers: [WalletService, WalletRepository],
 })
-export class AppModule {}
+export class WalletModule {}
