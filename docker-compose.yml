@@ -14,10 +14,10 @@ services:
       - 3000:3000
     volumes: 
       - .:/app
+      - /app/node_modules/
     networks:
       - dripp_network
 
-  
   business:
     container_name: business_container
     build:
@@ -31,6 +31,41 @@ services:
       - 2000:2000
     volumes: 
       - .:/app
+      - /app/node_modules/
+    networks:
+      - dripp_network
+
+  notification:
+    container_name: notification_container
+    build:
+      context: .
+      dockerfile: ./apps/notification/Dockerfile
+      target: development
+    command: yarn run start:dev notification
+    env_file:
+      - ./apps/notification/.env
+    ports:
+      - 1000:1000
+    volumes: 
+      - .:/app
+      - /app/node_modules/
+    networks:
+      - dripp_network
+
+  wallet:
+    container_name: wallet_container
+    build:
+      context: .
+      dockerfile: ./apps/wallet/Dockerfile
+      target: development
+    command: yarn run start:dev wallet
+    env_file:
+      - ./apps/wallet/.env
+    ports:
+      - 4000:4000
+    volumes: 
+      - .:/app
+      - /app/node_modules/
     networks:
       - dripp_network
   
@@ -54,6 +89,22 @@ services:
       - ./database:/data
     networks:
       - dripp_network
+
+  webserver:
+    build:
+      context: ./webserver
+      dockerfile: Dockerfile
+    container_name: webserver_container
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - dripp_network
+    restart: always
+    depends_on:
+      - auth
+      - business
+      - wallet
 
 networks:
   dripp_network:

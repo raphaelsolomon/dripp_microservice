@@ -22,7 +22,7 @@ import {
   WALLET_SERVICE,
 } from '@app/common';
 import { ClientProxy } from '@nestjs/microservices';
-import { map, tap } from 'rxjs';
+import { firstValueFrom, map, tap } from 'rxjs';
 import { VerificationRepository } from './verification.repository';
 import { VerifyEmailDto } from './dto/verify-email.dto';
 import { ResetpasswordDto } from './dto/reset-password.dto';
@@ -40,8 +40,11 @@ export class UsersService {
   ) {}
 
   async create(createUserDto: CreateUserDto) {
+    // Check if user already exists
     await this.validateCreateUserDto(createUserDto);
+    // Create username from the email address
     const username = createUserDto.email.split('@')[0];
+    // create a new entry for the user on the database
     const user = await this.userRepository.create({
       ...createUserDto,
       username,
@@ -50,26 +53,30 @@ export class UsersService {
     /* create a new verification entry containing the verification token & expiry time */
     const verification = await this.verificationRepository.create({
       email: user.email,
-      code: generateRandomCode(5).toUpperCase(),
+      code: generateRandomCode(5).toUpperCase(), // token used for verification
       expires_at: new Date().getTime() + 7 * 60 * 1000, // expires at 7 mins,
     });
-    /* create the wallet and attach the wallet uuid to the user */
-    this.walletClientProxy
-      .send('create_wallet', {})
-      .subscribe(async (wallet) => {
-        /* Update the user with the wallet gotten from the message pattern */
-        await this.userRepository.findOneAndUpdate(
-          { uuid: user.uuid },
-          { wallet_uuid: wallet.uuid },
-        );
-      }),
+    try {
+      /* create the wallet and attach the wallet uuid to the user */
+      const wallet = await firstValueFrom(
+        this.walletClientProxy.send('create_wallet', {}),
+      );
+      /* Update the user with the wallet gotten from the message pattern */
+      await this.userRepository.findOneAndUpdate(
+        { uuid: user.uuid },
+        { wallet_uuid: wallet.uuid },
+      );
       /* send the user a verification, in other to verify their account */
       this.notificationClientProxy.emit('mail_verify', {
         email: verification.email,
         name: createUserDto.fullname ?? username,
         code: verification.code,
       });
-    return { status: true, user: this.destructureUser(user) };
+      // send the user results as response to the client request
+      return { status: true, user: this.destructureUser(user) };
+    } catch (err) {
+      throw new Error(err);
+    }
   }
 
   async resendEmail(email: string) {
@@ -104,6 +111,11 @@ export class UsersService {
       if (verification.code !== verifyEmailDto.code) {
         throw new HttpException('Invalid code', HttpStatus.BAD_REQUEST);
       }
+
+      return await this.userRepository.findOneAndUpdate(
+        { email: verifyEmailDto.email },
+        { email_verified: true },
+      );
     } catch (err) {
       throw new HttpException('Record not found', HttpStatus.NOT_FOUND);
     }

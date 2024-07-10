@@ -11,7 +11,6 @@ import * as Joi from 'joi';
     ConfigModule.forRoot({
       isGlobal: true,
       validationSchema: Joi.object({
-        MONGODB_URI: Joi.string().required(),
         NOTIFICATION_TCP_PORT: Joi.number().required(),
         NOTIFICATION_HTTP_PORT: Joi.number().required(),
         SMTP_USER: Joi.string().required(),

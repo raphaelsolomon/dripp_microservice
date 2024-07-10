@@ -36,6 +36,7 @@ export class NotificationService {
       'verify.template',
       'verify.template.ejs',
     );
+
     const template = await ejs.renderFile(templatePath, {
       ...verifyMailDto,
     });

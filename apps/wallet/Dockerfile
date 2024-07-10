@@ -26,4 +26,4 @@ RUN yarn install --prod
 
 COPY --from=development /app/dist ./dist
 
-CMD ["node", "dist/app/notification/main"]
+CMD ["node", "dist/app/wallet/main"]
