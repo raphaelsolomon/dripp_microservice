@@ -7,6 +7,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { UpdatePasswordDto } from './dto/update-password.dto';
 import { FormDataRequest } from 'nestjs-form-data';
 import { UploadImageDto } from './dto/upload-image.dto';
+import { MessagePattern, Payload } from '@nestjs/microservices';
 
 @Controller('user')
 export class UsersController {
@@ -45,5 +46,10 @@ export class UsersController {
     @Body() uploadImageDto: UploadImageDto,
   ) {
     return await this.usersService.uploadAvatar(user, uploadImageDto.file);
+  }
+
+  @MessagePattern('get_user')
+  getUserByUuid(@Payload() { user_uuid }: { [key: string]: string }) {
+    return this.usersService.getUserByUuid(user_uuid);
   }
 }

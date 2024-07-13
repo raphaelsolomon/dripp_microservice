@@ -1,11 +1,11 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "apps/business/src",
+  "sourceRoot": "apps/brand/src",
   "compilerOptions": {
     "deleteOutDir": true,
     "webpack": true,
-    "tsConfigPath": "apps/business/tsconfig.app.json",
+    "tsConfigPath": "apps/brand/tsconfig.app.json",
     "assets": [
       "templates/**/*"
     ],
@@ -21,13 +21,13 @@
         "tsConfigPath": "libs/common/tsconfig.lib.json"
       }
     },
-    "business": {
+    "brand": {
       "type": "application",
-      "root": "apps/business",
+      "root": "apps/brand",
       "entryFile": "main",
-      "sourceRoot": "apps/business/src",
+      "sourceRoot": "apps/brand/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/business/tsconfig.app.json"
+        "tsConfigPath": "apps/brand/tsconfig.app.json"
       }
     },
     "auth": {
@@ -59,5 +59,5 @@
     }
   },
   "monorepo": true,
-  "root": "apps/business"
+  "root": "apps/brand"
 }

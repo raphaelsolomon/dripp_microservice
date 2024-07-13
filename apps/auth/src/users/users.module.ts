@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { UsersController } from './users.controller';
 import { UsersService } from './users.service';
 import {
-  BUSINESS_SERVICE,
+  BRAND_SERVICE,
   CloudinaryModule,
   DatabaseModule,
   NOTIFICATION_SERVICE,
@@ -29,12 +29,12 @@ import { NestjsFormDataModule } from 'nestjs-form-data';
     ]),
     ClientsModule.registerAsync([
       {
-        name: BUSINESS_SERVICE,
+        name: BRAND_SERVICE,
         useFactory: (configService: ConfigService) => ({
           transport: Transport.TCP,
           options: {
-            host: configService.get<string>('BUSINESS_HOST'),
-            port: configService.get<number>('BUSINESS_TCP_PORT'),
+            host: configService.get<string>('BRAND_HOST'),
+            port: configService.get<number>('BRAND_TCP_PORT'),
           },
         }),
         inject: [ConfigService],

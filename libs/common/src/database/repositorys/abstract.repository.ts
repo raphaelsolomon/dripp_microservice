@@ -1,5 +1,5 @@
 import { FilterQuery, Model, Types, UpdateQuery } from 'mongoose';
-import { AbstractDocument } from './abstract.schema';
+import { AbstractDocument } from '../models/abstract.schema';
 import { Logger, NotFoundException } from '@nestjs/common';
 
 export abstract class AbstractRepository<TDocument extends AbstractDocument> {
@@ -53,5 +53,34 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
     filterQuery: FilterQuery<TDocument>,
   ): Promise<TDocument> {
     return this.model.findOneAndDelete(filterQuery).lean<TDocument>(true);
+  }
+
+  async getPaginatedDocuments(
+    first: number,
+    page: number,
+    filterQuery: FilterQuery<TDocument>,
+    select?: string,
+    column?: string,
+  ) {
+    const total = await this.model.countDocuments(filterQuery);
+    const documents = await this.model
+      .find(filterQuery)
+      .select(select)
+      .lean<TDocument[]>(true)
+      .populate(column)
+      .skip(((page ?? 1) - 1) * (first ?? 20))
+      .sort({ created_at: -1 })
+      .limit(first ?? 20)
+      .exec();
+    return {
+      data: documents,
+      paginationInfo: {
+        total,
+        currentPage: page ?? 1,
+        lastPage: Math.ceil(total / (first ?? 20)),
+        perPage: first ?? 20,
+        hasMorePages: Math.ceil(total / (first ?? 20)) > (page ?? 1),
+      },
+    };
   }
 }

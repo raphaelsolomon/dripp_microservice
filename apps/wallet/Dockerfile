@@ -1,9 +1,9 @@
 FROM node:alpine AS development
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
-COPY package.json /app
-COPY yarn.lock /app
+COPY package.json ./
+COPY yarn.lock ./
 
 RUN yarn install
 
@@ -16,14 +16,14 @@ FROM node:alpine AS production
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
-COPY package.json /app
-COPY yarn.lock /app
+COPY package.json ./
+COPY yarn.lock ./
 
 
 RUN yarn install --prod
 
-COPY --from=development /app/dist ./dist
+COPY --from=development /usr/src/app/dist ./dist
 
 CMD ["node", "dist/app/wallet/main"]

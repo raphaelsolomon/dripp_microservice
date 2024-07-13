@@ -1,5 +1,6 @@
 dist/
 node_modules/
-apps/auth/.env
-apps/dripp/.env
+.history/
+webserver/
+database/
 .env

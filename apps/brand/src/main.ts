@@ -13,13 +13,13 @@ async function bootstrap() {
     transport: Transport.TCP,
     options: {
       host: '0.0.0.0',
-      port: configService.get<number>('BUSINESS_TCP_PORT'),
+      port: configService.get<number>('BRAND_TCP_PORT'),
     },
   });
   app.use(cookieParser());
   app.useGlobalPipes(new ValidationPipe({ whitelist: false, transform: true }));
   app.useLogger(app.get(Logger));
   await app.startAllMicroservices();
-  await app.listen(configService.get('BUSINESS_HTTP_PORT'));
+  await app.listen(configService.get('BRAND_HTTP_PORT'));
 }
 bootstrap();

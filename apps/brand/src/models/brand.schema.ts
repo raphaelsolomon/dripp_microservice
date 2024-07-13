@@ -3,12 +3,12 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { v4 as uuidv4 } from 'uuid';
 
 @Schema({ versionKey: false })
-export class BusinessDocument extends AbstractDocument {
+export class BrandDocument extends AbstractDocument {
   @Prop({ unique: true, default: uuidv4 })
   uuid: string;
 
   @Prop({ default: null })
-  business_name?: string;
+  brand_name?: string;
 
   @Prop({ default: null })
   bio?: string;
@@ -17,4 +17,4 @@ export class BusinessDocument extends AbstractDocument {
   industry?: string;
 }
 
-export const BusinessSchema = SchemaFactory.createForClass(BusinessDocument);
+export const BrandSchema = SchemaFactory.createForClass(BrandDocument);

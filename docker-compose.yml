@@ -7,31 +7,31 @@ services:
       context: .
       dockerfile: ./apps/auth/Dockerfile
       target: development
-    command: yarn run start:dev auth
+    command: yarn start:dev auth
     env_file:
       - ./apps/auth/.env
     ports:
       - 3000:3000
     volumes: 
-      - .:/app
-      - /app/node_modules/
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
     networks:
       - dripp_network
 
-  business:
-    container_name: business_container
+  brand:
+    container_name: brand_container
     build:
       context: .
-      dockerfile: ./apps/business/Dockerfile
+      dockerfile: ./apps/brand/Dockerfile
       target: development
-    command: yarn run start:dev business
+    command: yarn start:dev brand
     env_file:
-      - ./apps/business/.env
+      - ./apps/brand/.env
     ports:
       - 2000:2000
     volumes: 
-      - .:/app
-      - /app/node_modules/
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
     networks:
       - dripp_network
 
@@ -41,14 +41,14 @@ services:
       context: .
       dockerfile: ./apps/notification/Dockerfile
       target: development
-    command: yarn run start:dev notification
+    command: yarn start:dev notification
     env_file:
       - ./apps/notification/.env
     ports:
       - 1000:1000
     volumes: 
-      - .:/app
-      - /app/node_modules/
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
     networks:
       - dripp_network
 
@@ -58,14 +58,14 @@ services:
       context: .
       dockerfile: ./apps/wallet/Dockerfile
       target: development
-    command: yarn run start:dev wallet
+    command: yarn start:dev wallet
     env_file:
       - ./apps/wallet/.env
     ports:
       - 4000:4000
     volumes: 
-      - .:/app
-      - /app/node_modules/
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
     networks:
       - dripp_network
   
@@ -103,8 +103,14 @@ services:
     restart: always
     depends_on:
       - auth
-      - business
+      - brand
       - wallet
+
+  rabbitmq:
+    image: rabbitmq
+    container_name: rabbitmq_container
+    ports:
+      - 5672:5672
 
 networks:
   dripp_network:

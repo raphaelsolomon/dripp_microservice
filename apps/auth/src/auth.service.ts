@@ -10,6 +10,7 @@ import { UsersService } from './users/users.service';
 type SocialType = {
   user: object;
   accessToken: string;
+  expiresIn: number;
 };
 
 @Injectable()
@@ -37,7 +38,7 @@ export class AuthService {
       httpOnly: true,
     });
     const { password, ...details } = userInfo;
-    return { user: details, accessToken: token };
+    return { user: details, accessToken: token, expiresIn: 86400 };
   };
 
   async googleLogin(req: Request, res: Response): Promise<SocialType> {

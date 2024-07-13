@@ -1,6 +1,6 @@
 export const AUTH_SERVICE = 'auth';
 
-export const BUSINESS_SERVICE = 'business';
+export const BRAND_SERVICE = 'brand';
 
 export const WALLET_SERVICE = 'wallet';
 

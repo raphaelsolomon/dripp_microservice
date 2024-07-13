@@ -37,12 +37,15 @@ export class UserDocument extends AbstractDocument {
   account_type: AccountType;
 
   @Prop({ required: false })
-  business_uuid?: string;
+  brand_uuid?: string;
 
   @Prop({ required: false })
   wallet_uuid?: string;
 
   @Prop({ required: false, select: false })
   password_reset_token?: string;
+
+  @Prop({ required: false })
+  industries?: [string];
 }
 export const UserSchema = SchemaFactory.createForClass(UserDocument);

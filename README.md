@@ -71,3 +71,6 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+Run this on terminal to gerate ssl
+  - openssl req -newkey rsa:2048 -nodes -keyout gateway.key -x509 -days 365 -out gateway.crt

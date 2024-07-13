@@ -15,7 +15,7 @@ import { UserDocument } from './models/user.schema';
 import { getUserDto } from './dto/get-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import {
-  BUSINESS_SERVICE,
+  BRAND_SERVICE,
   CloudinaryService,
   generateRandomCode,
   NOTIFICATION_SERVICE,
@@ -36,7 +36,7 @@ export class UsersService {
     private readonly verificationRepository: VerificationRepository,
     @Inject(NOTIFICATION_SERVICE) private notificationClientProxy: ClientProxy,
     @Inject(WALLET_SERVICE) private walletClientProxy: ClientProxy,
-    @Inject(BUSINESS_SERVICE) private businessClientProxy: ClientProxy,
+    @Inject(BRAND_SERVICE) private brandClientProxy: ClientProxy,
   ) {}
 
   async create(createUserDto: CreateUserDto) {
@@ -154,14 +154,24 @@ export class UsersService {
 
   async updateUser(userInfo: UserDocument, updateDto: UpdateUserDto) {
     const user = await this.userRepository.findOne({ _id: userInfo._id });
+    // emit an event to brand service to update brands with the new member
+    if (
+      updateDto?.brand_uuids?.length > 0 &&
+      (user?.account_type === 'user' || updateDto?.account_type === 'user')
+    ) {
+      this.brandClientProxy.emit('add_member', {
+        brand_uuids: updateDto?.brand_uuids,
+        user_uuid: user.uuid,
+      });
+    }
     if (user.account_type !== 'user' && updateDto.account_type === 'business') {
-      return this.businessClientProxy.send('create_business', {}).pipe(
-        tap((response) => console.log('Done creating business')),
+      return this.brandClientProxy.send('create_brand', {}).pipe(
+        tap((_) => console.log('Done creating brand')),
         map(async (response) => {
-          const { password, email, ...details } = updateDto;
+          const { password, email, industries, ...details } = updateDto;
           const user = await this.userRepository.findOneAndUpdate(
             { _id: userInfo._id },
-            { ...details, business_uuid: response.uuid },
+            { ...details, brand_uuid: response.uuid },
           );
           return this.destructureUser(user);
         }),
@@ -175,6 +185,7 @@ export class UsersService {
         { _id: userInfo._id },
         { ...details },
       );
+
       return this.destructureUser(user);
     } else {
       const { password, email, account_type, ...details } = updateDto;
@@ -182,6 +193,7 @@ export class UsersService {
         { _id: userInfo._id },
         { ...details },
       );
+
       return this.destructureUser(user);
     }
   }
@@ -316,12 +328,15 @@ export class UsersService {
   async uploadAvatar(userInfo: UserDocument, file: any) {
     const result = await this.cloudinaryService.uploadFile(
       file,
-      'profileImage',
+      'profile-images',
     );
     const user = await this.userRepository.findOneAndUpdate(
       { uuid: userInfo.uuid },
       { avatar: result.url },
     );
     return this.destructureUser(user);
+  }
+  async getUserByUuid(user_uuid: string) {
+    return this.userRepository.findOne({ uuid: user_uuid });
   }
 }
