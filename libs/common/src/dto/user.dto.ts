@@ -4,6 +4,7 @@ export interface UserDto {
   email: string;
   fullname: string;
   username: string;
+  status?: boolean;
   brand_uuid?: string;
   wallet_uuid?: string;
 }

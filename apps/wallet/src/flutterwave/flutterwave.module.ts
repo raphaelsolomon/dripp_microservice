@@ -10,11 +10,14 @@ import {
   TransactionDocument,
   TransactionSchema,
 } from './models/transaction.schema';
+import { WalletRepository } from '../wallet.repository';
+import { WalletDocument, WalletSchema } from '../models/wallet.schema';
 
 @Module({
   imports: [
     DatabaseModule.forFeature([
       { name: TransactionDocument.name, schema: TransactionSchema },
+      { name: WalletDocument.name, schema: WalletSchema },
     ]),
     ConfigModule.forRoot({
       isGlobal: true,
@@ -38,7 +41,7 @@ import {
     ]),
   ],
   controllers: [FlutterwaveController],
-  providers: [FlutterwaveService, TransactionRepository],
+  providers: [FlutterwaveService, TransactionRepository, WalletRepository],
   exports: [TransactionRepository],
 })
 export class FlutterwaveModule {}

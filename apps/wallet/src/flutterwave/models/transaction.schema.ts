@@ -1,11 +1,6 @@
 import { AbstractDocument } from '@app/common';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-
-const enum TransactionType {
-  'topup' = 'topup',
-  'withdraw' = 'withdraw',
-  'transfer' = 'transfer',
-}
+import { Types } from 'mongoose';
 
 @Schema({ versionKey: false })
 export class TransactionDocument extends AbstractDocument {
@@ -13,13 +8,16 @@ export class TransactionDocument extends AbstractDocument {
   wallet_uuid: string;
 
   @Prop({ required: true })
-  tx_ref: string;
+  amount: number;
 
-  @Prop({ default: new Date() })
-  created_at: Date;
+  @Prop({ required: true, type: Types.Map })
+  transaction_details: Record<string, any>;
 
   @Prop({ required: true })
-  transaction_type: TransactionType;
+  tx_ref: string;
+
+  @Prop({ required: true })
+  transaction_type: 'topup' | 'withdraw' | 'transfer';
 }
 
 export const TransactionSchema =

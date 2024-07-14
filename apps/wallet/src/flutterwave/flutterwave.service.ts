@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { UserDto } from '@app/common';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
@@ -7,11 +8,17 @@ import { createClient, RedisClientType } from 'redis';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import { InitiatePaymentDto } from '../dto/intiate-payment.dto';
+import { TransactionRepository } from './transaction.repository';
+import { WalletRepository } from '../wallet.repository';
 
 @Injectable()
 export class FlutterwaveService {
   private client: RedisClientType;
-  constructor(private configService: ConfigService) {
+  constructor(
+    private readonly transactionRepository: TransactionRepository,
+    private readonly walletRepository: WalletRepository,
+    private readonly configService: ConfigService,
+  ) {
     this.connectRedit(configService.get<string>('REDIS_CONNECT_URL'));
   }
 
@@ -112,26 +119,42 @@ export class FlutterwaveService {
     return res.json({ message: 'payment failed' });
   }
 
-  async directChargeRedirect(req: Request, res: Response) {
-    if (req.query.status === 'successful' || req.query.status === 'pending') {
-      const txRef = req.query.tx_ref;
-      const transactionId = await this.client.get(`txref-${txRef}`);
-      const transaction = this.flw.Transaction.verify({
-        id: transactionId,
+  async directChargeVerifyFund(req: Request, res: Response, user: UserDto) {
+    const tx_ref = req.query.tx_ref.toString();
+    const tx_id = await this.client.get(`txref-${tx_ref}`);
+    const id = req.query.transaction_id ?? tx_id;
+    const transaction = await this.flw.Transaction.verify({ id });
+    const wallet_uuid = user.wallet_uuid;
+    const filterQuery = { tx_id, wallet_uuid };
+    try {
+      await this.transactionRepository.findOne(filterQuery);
+    } catch (err) {
+      const { meta, account_id, ...details } = transaction.data;
+      await this.transactionRepository.create({
+        wallet_uuid: user.wallet_uuid,
+        tx_ref: tx_ref,
+        amount: transaction.data.amount,
+        transaction_type: 'topup',
+        transaction_details: { ...details },
       });
-      return this.transactionDetails(transaction, res);
+      const wallet = await this.walletRepository.findOne({ uuid: wallet_uuid });
+      let { amount } = wallet;
+      amount = amount + transaction.data.amount_settled;
+      await this.walletRepository.findOneAndUpdate(
+        { uuid: wallet_uuid },
+        { amount },
+      );
     }
-
-    return res.json({ message: 'payment failed' });
+    return this.transactionDetails(transaction, res);
   }
 
   transactionDetails(transaction: any, res: Response) {
     if (transaction.data.status == 'successful') {
-      return res.json({ status: 'success', data: transaction.data });
+      return res.json({ ...transaction.data });
     } else if (transaction.data.status == 'pending') {
-      return res.json({ status: 'pending', data: transaction.data });
+      return res.json({ ...transaction.data });
     } else {
-      return res.json({ status: 'failed', data: transaction.data });
+      return res.json({ ...transaction.data });
     }
   }
 
@@ -150,7 +173,9 @@ export class FlutterwaveService {
           tx_ref: 'MC-' + Date.now() + '_' + uuidv4(),
           amount: initiatePaymentDto.amount, //number
           currency: `${initiatePaymentDto.currency}`.toUpperCase() ?? 'NGN',
-          redirect_url: this.configService.get<string>('REDIRECT_URL'),
+          redirect_url:
+            initiatePaymentDto.redirect_url ??
+            this.configService.get<string>('REDIRECT_URL'),
           customer: {
             email: user.email,
             name: user.fullname,

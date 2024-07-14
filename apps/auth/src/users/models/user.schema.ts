@@ -43,5 +43,8 @@ export class UserDocument extends AbstractDocument {
 
   @Prop({ required: false })
   industries?: [string];
+
+  @Prop({ default: true })
+  status?: boolean;
 }
 export const UserSchema = SchemaFactory.createForClass(UserDocument);

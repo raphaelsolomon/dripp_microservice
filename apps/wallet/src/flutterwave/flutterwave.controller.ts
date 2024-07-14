@@ -1,10 +1,18 @@
 import { CurrentUser, JwtAuthGuard, UserDto } from '@app/common';
-import { Body, Controller, Post, Req, Res, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  Req,
+  Res,
+  UseGuards,
+} from '@nestjs/common';
 import { FlutterwaveService } from './flutterwave.service';
 import { Request, Response } from 'express';
 import { InitiatePaymentDto } from '../dto/intiate-payment.dto';
 
-@Controller('direct')
+@Controller('fund')
 export class FlutterwaveController {
   constructor(private readonly flutterwaveService: FlutterwaveService) {}
 
@@ -36,10 +44,20 @@ export class FlutterwaveController {
     return this.flutterwaveService.directChargeValidate(req, res);
   }
 
-  @Post('/redirect')
+  // @Get('/redirect')
+  // @UseGuards(JwtAuthGuard)
+  // async directChargeRedirect(@Req() req: Request, @Res() res: Response) {
+  //   return this.flutterwaveService.directChargeRedirect(req, res);
+  // }
+
+  @Get('/verify')
   @UseGuards(JwtAuthGuard)
-  async directChargeRedirect(@Req() req: Request, @Res() res: Response) {
-    return this.flutterwaveService.directChargeRedirect(req, res);
+  async directChargeVerifyFund(
+    @CurrentUser() user: UserDto,
+    @Req() req: Request,
+    @Res() res: Response,
+  ) {
+    return this.flutterwaveService.directChargeVerifyFund(req, res, user);
   }
 
   @Post('/checkout-url')

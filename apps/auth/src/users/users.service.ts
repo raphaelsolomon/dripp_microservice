@@ -81,7 +81,8 @@ export class UsersService {
 
   async resendEmail(email: string) {
     try {
-      const user = await this.userRepository.findOne({ email });
+      const user = await this.userRepository.findOne({ email, status: true });
+
       const verification = await this.verificationRepository.findOneAndUpdate(
         {
           email: user.email,
@@ -113,7 +114,7 @@ export class UsersService {
       }
 
       return await this.userRepository.findOneAndUpdate(
-        { email: verifyEmailDto.email },
+        { email: verifyEmailDto.email, status: true },
         { email_verified: true },
       );
     } catch (err) {
@@ -135,6 +136,9 @@ export class UsersService {
       { $or: [{ email: identifier }, { username: identifier }] },
       '+password',
     );
+    if (user.status === false) {
+      throw new HttpException('Could not find user', HttpStatus.NOT_ACCEPTABLE);
+    }
     const passwordIsValid = await bcrypt.compare(password, user.password);
     if (!passwordIsValid) {
       throw new UnauthorizedException('credentials are not valid');
@@ -144,6 +148,9 @@ export class UsersService {
 
   async getUser(getUserDto: getUserDto) {
     const user = await this.userRepository.findOne(getUserDto);
+    if (user.status === false) {
+      throw new HttpException('Could not find user', HttpStatus.NOT_ACCEPTABLE);
+    }
     return user;
   }
 
@@ -154,6 +161,9 @@ export class UsersService {
 
   async updateUser(userInfo: UserDocument, updateDto: UpdateUserDto) {
     const user = await this.userRepository.findOne({ _id: userInfo._id });
+    if (user.status === false) {
+      throw new HttpException('Could not find user', HttpStatus.NOT_ACCEPTABLE);
+    }
     // emit an event to brand service to update brands with the new member
     if (
       updateDto?.brand_uuids?.length > 0 &&
@@ -201,7 +211,14 @@ export class UsersService {
   async authenticateGoogle(profile: any) {
     const email: string = profile?._json?.email;
     try {
-      return await this.userRepository.findOne({ email });
+      const user = await this.userRepository.findOne({ email });
+      if (user.status === false) {
+        throw new HttpException(
+          'Could not find user',
+          HttpStatus.NOT_ACCEPTABLE,
+        );
+      }
+      return user;
     } catch (err) {
       const createUserDto = new CreateUserDto();
       createUserDto.email = email;
@@ -221,7 +238,14 @@ export class UsersService {
   async authenticateFacebook(profile: Record<string, any>) {
     const email: string = profile?._json?.email;
     try {
-      return await this.userRepository.findOne({ email });
+      const user = await this.userRepository.findOne({ email });
+      if (user.status === false) {
+        throw new HttpException(
+          'Could not find user',
+          HttpStatus.NOT_ACCEPTABLE,
+        );
+      }
+      return user;
     } catch (err) {
       const name: string = `${profile?._json?.first_name} ${profile?._json?.last_name}`;
       const createUserDto = new CreateUserDto();
@@ -243,8 +267,15 @@ export class UsersService {
   async forgotPassword(email: string) {
     try {
       const token = generateRandomCode(100);
+      const user = await this.userRepository.findOne({ email });
+      if (user.status === false) {
+        throw new HttpException(
+          'Could not find user',
+          HttpStatus.NOT_ACCEPTABLE,
+        );
+      }
       await this.userRepository.findOneAndUpdate(
-        { email },
+        { email: user.email, status: true },
         { password_reset_token: token },
       );
       this.notificationClientProxy.emit('reset_password', {
@@ -262,6 +293,7 @@ export class UsersService {
       await this.userRepository.findOne(
         {
           password_reset_token: resetpasswordDto.token,
+          status: true,
         },
         '+password_reset_token',
       );
@@ -331,7 +363,7 @@ export class UsersService {
       'profile-images',
     );
     const user = await this.userRepository.findOneAndUpdate(
-      { uuid: userInfo.uuid },
+      { uuid: userInfo.uuid, status: true },
       { avatar: result.url },
     );
     return this.destructureUser(user);
