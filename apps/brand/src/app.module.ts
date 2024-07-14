@@ -13,8 +13,12 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
 import { BrandRepository } from './repositories/brand.repository';
 import { BrandDocument, BrandSchema } from './models/brand.schema';
 import { NestjsFormDataModule } from 'nestjs-form-data';
-import { MemberDocument, MemberSchema } from './models/members.schema';
+import { MemberDocument, MemberSchema } from './models/member.schema';
 import { MemberRepository } from './repositories/member.repository';
+import { PostDocument, PostSchema } from './models/post.schema';
+import { PostRepository } from './repositories/post.repository';
+import { TaskDocument, TaskSchema } from './models/task.schema';
+import { TaskRepository } from './repositories/task.repository';
 
 @Module({
   imports: [
@@ -23,6 +27,8 @@ import { MemberRepository } from './repositories/member.repository';
     DatabaseModule.forFeature([
       { name: BrandDocument.name, schema: BrandSchema },
       { name: MemberDocument.name, schema: MemberSchema },
+      { name: PostDocument.name, schema: PostSchema },
+      { name: TaskDocument.name, schema: TaskSchema },
     ]),
     LoggerModule,
     ConfigModule.forRoot({
@@ -51,6 +57,12 @@ import { MemberRepository } from './repositories/member.repository';
     CloudinaryModule,
   ],
   controllers: [AppController],
-  providers: [AppService, BrandRepository, MemberRepository],
+  providers: [
+    AppService,
+    BrandRepository,
+    MemberRepository,
+    PostRepository,
+    TaskRepository,
+  ],
 })
 export class AppModule {}

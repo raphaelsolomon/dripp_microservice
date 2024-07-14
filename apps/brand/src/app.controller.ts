@@ -1,12 +1,22 @@
-import { Body, Controller, Get, Post, Req } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Patch,
+  Post,
+  Req,
+} from '@nestjs/common';
 import { AppService } from './app.service';
 import { UseGuards } from '@nestjs/common';
 import { CurrentUser, JwtAuthGuard, UserDto } from '@app/common';
 import { EventPattern, MessagePattern, Payload } from '@nestjs/microservices';
 import { UpdateBrandDto } from './dto/update-brand.dto';
-import { CreateTaskDto } from './dto/create-task.dto';
+import { CreateTaskDto } from './dto/task/create-task.dto';
 import { FormDataRequest } from 'nestjs-form-data';
 import { Request } from 'express';
+import { UpdatePostDto } from './dto/post/update-post.dto';
+import { CreatePostDto } from './dto/post/create-post.dto';
 
 @Controller('brand')
 export class AppController {
@@ -28,12 +38,51 @@ export class AppController {
   }
 
   @UseGuards(JwtAuthGuard)
+  @Post('/post')
+  @FormDataRequest()
+  createBrandPost(
+    @CurrentUser() user: UserDto,
+    @Body() createPostDto: CreatePostDto,
+  ) {
+    return this.appService.createPost(createPostDto, user);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Patch('/post')
+  @FormDataRequest()
+  updateBrandPost(
+    @CurrentUser() user: UserDto,
+    @Body() updatePostDto: UpdatePostDto,
+  ) {
+    return this.appService.updatePost(updatePostDto, user);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Delete('/post')
+  deleteBrandPost(@CurrentUser() user: UserDto, @Body() uuid: string) {
+    return this.appService.deletePost(uuid, user);
+  }
+
+  @UseGuards(JwtAuthGuard)
   @Get('/members/:first/:page')
   getBrandMembers(@CurrentUser() user: UserDto, @Req() req: Request) {
     return this.appService.getBrandMembers(user, req);
   }
 
-  @Post('/task/create')
+  @UseGuards(JwtAuthGuard)
+  @Get('/posts/:first/:page')
+  getBrandPosts(@CurrentUser() user: UserDto, @Req() req: Request) {
+    return this.appService.getPosts(user, req);
+  }
+
+  @Get('/tasks/:first/:page')
+  @UseGuards(JwtAuthGuard)
+  @FormDataRequest()
+  getBrandTask(@CurrentUser() user: UserDto, @Req() req: Request) {
+    return this.appService.getBrandTask(user, req);
+  }
+
+  @Post('/task')
   @UseGuards(JwtAuthGuard)
   @FormDataRequest()
   createTask(
@@ -49,10 +98,7 @@ export class AppController {
   }
 
   @EventPattern('add_member')
-  addMember(
-    @CurrentUser() user: UserDto,
-    @Payload() payload: { [key: string]: [string] },
-  ) {
+  addMember(@Payload() payload: { [key: string]: [string] }) {
     this.appService.addMember(payload);
   }
 }

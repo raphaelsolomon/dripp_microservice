@@ -1,6 +1,5 @@
 import { AbstractDocument } from '@app/common';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { v4 as uuidv4 } from 'uuid';
 
 export enum AccountType {
   user = 'user',
@@ -14,9 +13,6 @@ export class UserDocument extends AbstractDocument {
 
   @Prop({ required: false })
   fullname: string;
-
-  @Prop({ unique: true, default: uuidv4 })
-  uuid?: string;
 
   @Prop({ required: true })
   email: string;

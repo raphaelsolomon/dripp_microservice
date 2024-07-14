@@ -3,22 +3,22 @@ import { HasMimeType, IsFile, MaxFileSize } from 'nestjs-form-data';
 export class CreateTaskDto {
   @IsFile()
   @MaxFileSize(1e6)
-  @HasMimeType(['image/jpeg', 'image/png'])
+  @HasMimeType(['image/jpeg', 'image/png', 'image/webp'])
   campaign_banner: Express.Multer.File;
 
   campaign_title: string;
 
-  campaign_state: string;
+  state: string;
 
-  campaign_country: string;
+  country: string;
 
-  campaign_type: string;
+  campaign_type: Record<string, any>;
 
-  submission_type: string;
+  submission_type: 'file_upload' | 'url_submission';
 
   non_member_reward?: string;
 
   member_reward?: string;
 
-  campaign_amount: string;
+  campaign_amount: number;
 }
