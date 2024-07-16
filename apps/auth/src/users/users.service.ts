@@ -27,6 +27,7 @@ import { VerificationRepository } from './verification.repository';
 import { VerifyEmailDto } from './dto/verify-email.dto';
 import { ResetpasswordDto } from './dto/reset-password.dto';
 import { UpdatePasswordDto } from './dto/update-password.dto';
+import { Request } from 'express';
 
 @Injectable()
 export class UsersService {
@@ -169,7 +170,7 @@ export class UsersService {
       updateDto?.brand_uuids?.length > 0 &&
       (user?.account_type === 'user' || updateDto?.account_type === 'user')
     ) {
-      this.brandClientProxy.emit('add_member', {
+      this.brandClientProxy.emit('add_member_to_multiple_brands', {
         brand_uuids: updateDto?.brand_uuids,
         user_uuid: user.uuid,
       });
@@ -370,5 +371,52 @@ export class UsersService {
   }
   async getUserByUuid(user_uuid: string) {
     return this.userRepository.findOne({ uuid: user_uuid });
+  }
+
+  //==================================EVENTS============================================
+  async getChannels(user: UserDocument, req: Request) {
+    if (user.account_type !== 'user') {
+      throw new HttpException(
+        'Action not supported on the account type.',
+        HttpStatus.NOT_ACCEPTABLE,
+      );
+    }
+
+    const page = Number(req?.params?.page ?? '1');
+    const first = Number(req?.params?.first ?? '20');
+    const user_uuid = user.uuid;
+    return await firstValueFrom(
+      this.brandClientProxy.send('get_channels', { first, page, user_uuid }),
+    );
+  }
+
+  async subscribeChannel(user: UserDocument, brand_uuid: string) {
+    if (user.account_type !== 'user') {
+      throw new HttpException(
+        'Action not supported on the account type.',
+        HttpStatus.NOT_ACCEPTABLE,
+      );
+    }
+    return await firstValueFrom(
+      this.brandClientProxy.send('add_member_to_single_brand', {
+        member_uuid: user.uuid,
+        brand_uuid,
+      }),
+    );
+  }
+
+  async unsubscribeChannel(user: UserDocument, brand_uuid: string) {
+    if (user.account_type !== 'user') {
+      throw new HttpException(
+        'Action not supported on the account type.',
+        HttpStatus.NOT_ACCEPTABLE,
+      );
+    }
+    return await firstValueFrom(
+      this.brandClientProxy.send('remove_member_from_brand', {
+        member_uuid: user.uuid,
+        brand_uuid,
+      }),
+    );
   }
 }

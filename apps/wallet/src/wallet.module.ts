@@ -3,11 +3,12 @@ import { AUTH_SERVICE, DatabaseModule, LoggerModule } from '@app/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as Joi from 'joi';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { FlutterwaveModule } from './flutterwave/flutterwave.module';
 import { WalletController } from './wallet.controller';
 import { WalletService } from './wallet.service';
-import { WalletRepository } from './wallet.repository';
+import { WalletRepository } from './repositories/wallet.repository';
 import { WalletDocument, WalletSchema } from './models/wallet.schema';
+import { FundModule } from './fund/fund.module';
+import { WithdrawalModule } from './withdraw/withdrawal.module';
 
 @Module({
   imports: [
@@ -16,7 +17,8 @@ import { WalletDocument, WalletSchema } from './models/wallet.schema';
       { name: WalletDocument.name, schema: WalletSchema },
     ]),
     LoggerModule,
-    FlutterwaveModule,
+    FundModule,
+    WithdrawalModule,
     ConfigModule.forRoot({
       isGlobal: true,
       validationSchema: Joi.object({

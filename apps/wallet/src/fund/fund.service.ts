@@ -8,11 +8,11 @@ import { createClient, RedisClientType } from 'redis';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import { InitiatePaymentDto } from '../dto/intiate-payment.dto';
-import { TransactionRepository } from './transaction.repository';
-import { WalletRepository } from '../wallet.repository';
+import { TransactionRepository } from '../repositories/transaction.repository';
+import { WalletRepository } from '../repositories/wallet.repository';
 
 @Injectable()
-export class FlutterwaveService {
+export class FundService {
   private client: RedisClientType;
   constructor(
     private readonly transactionRepository: TransactionRepository,
@@ -165,12 +165,12 @@ export class FlutterwaveService {
     try {
       const response = await axios.request({
         method: 'POST',
-        url: this.configService.get<string>('FLUTTERWAVE_URL'),
+        url: this.configService.get<string>('FLUTTERWAVE_URL') + '/payments',
         headers: {
           Authorization: `Bearer ${this.configService.get<string>('FLUTTERWAVE_SECRET_KEY')}`,
         },
         data: {
-          tx_ref: 'MC-' + Date.now() + '_' + uuidv4(),
+          tx_ref: 'FD-' + Date.now() + '_' + uuidv4(),
           amount: initiatePaymentDto.amount, //number
           currency: `${initiatePaymentDto.currency}`.toUpperCase() ?? 'NGN',
           redirect_url:

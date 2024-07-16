@@ -7,4 +7,5 @@ export interface UserDto {
   status?: boolean;
   brand_uuid?: string;
   wallet_uuid?: string;
+  account_type?: string;
 }

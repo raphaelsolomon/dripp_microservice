@@ -97,8 +97,23 @@ export class AppController {
     return this.appService.createBrand(payload);
   }
 
-  @EventPattern('add_member')
-  addMember(@Payload() payload: { [key: string]: [string] }) {
-    this.appService.addMember(payload);
+  @EventPattern('add_member_to_multiple_brands')
+  addMemberToBrands(@Payload() payload: { [key: string]: [string] }) {
+    this.appService.addMemberToBrands(payload);
+  }
+
+  @MessagePattern('add_member_to_single_brand')
+  addMemberToBrand(@Payload() payload: { [key: string]: string }) {
+    return this.appService.addMemberToBrand(payload);
+  }
+
+  @MessagePattern('remove_member_from_brand')
+  removeMemberFromBrand(@Payload() payload: { [key: string]: string }) {
+    return this.appService.removeMemberFromBrand(payload);
+  }
+
+  @MessagePattern('get_channels')
+  getChannels(@Payload() payload: { [key: string]: number }) {
+    return this.appService.getChannels(payload);
   }
 }

@@ -8,13 +8,13 @@ import {
   Res,
   UseGuards,
 } from '@nestjs/common';
-import { FlutterwaveService } from './flutterwave.service';
 import { Request, Response } from 'express';
 import { InitiatePaymentDto } from '../dto/intiate-payment.dto';
+import { FundService } from './fund.service';
 
 @Controller('fund')
-export class FlutterwaveController {
-  constructor(private readonly flutterwaveService: FlutterwaveService) {}
+export class FundController {
+  constructor(private readonly fundService: FundService) {}
 
   @Post('/charge')
   @UseGuards(JwtAuthGuard)
@@ -24,30 +24,25 @@ export class FlutterwaveController {
     @Req() req: Request,
     @Res() res: Response,
   ) {
-    return this.flutterwaveService.fundWalletDirectCharge(
-      payload,
-      req,
-      res,
-      user,
-    );
+    return this.fundService.fundWalletDirectCharge(payload, req, res, user);
   }
 
   @Post('/authorize')
   @UseGuards(JwtAuthGuard)
   async directChargeAuthorize(@Req() req: Request, @Res() res: Response) {
-    return this.flutterwaveService.directChargeAuthorize(req, res);
+    return this.fundService.directChargeAuthorize(req, res);
   }
 
   @Post('/validate')
   @UseGuards(JwtAuthGuard)
   async directChargeValidate(@Req() req: Request, @Res() res: Response) {
-    return this.flutterwaveService.directChargeValidate(req, res);
+    return this.fundService.directChargeValidate(req, res);
   }
 
   // @Get('/redirect')
   // @UseGuards(JwtAuthGuard)
   // async directChargeRedirect(@Req() req: Request, @Res() res: Response) {
-  //   return this.flutterwaveService.directChargeRedirect(req, res);
+  //   return this.fundService.directChargeRedirect(req, res);
   // }
 
   @Get('/verify')
@@ -57,7 +52,7 @@ export class FlutterwaveController {
     @Req() req: Request,
     @Res() res: Response,
   ) {
-    return this.flutterwaveService.directChargeVerifyFund(req, res, user);
+    return this.fundService.directChargeVerifyFund(req, res, user);
   }
 
   @Post('/checkout-url')
@@ -66,9 +61,6 @@ export class FlutterwaveController {
     @Body() initiatePaymentDto: InitiatePaymentDto,
     @CurrentUser() user: UserDto,
   ) {
-    return this.flutterwaveService.directChargeCheckout(
-      initiatePaymentDto,
-      user,
-    );
+    return this.fundService.directChargeCheckout(initiatePaymentDto, user);
   }
 }

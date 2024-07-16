@@ -83,4 +83,17 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
       },
     };
   }
+
+  async findOneOrCreate(
+    filterQuery: FilterQuery<TDocument>,
+    document: Omit<TDocument, '_id'>,
+  ): Promise<TDocument> {
+    const documentRecord = await this.model
+      .findOne(filterQuery)
+      .lean<TDocument>(true);
+    if (!documentRecord) {
+      return this.model.create({ ...document, _id: new Types.ObjectId() });
+    }
+    return documentRecord;
+  }
 }

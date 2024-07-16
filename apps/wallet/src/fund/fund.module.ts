@@ -1,17 +1,17 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as Joi from 'joi';
-import { FlutterwaveService } from './flutterwave.service';
-import { FlutterwaveController } from './flutterwave.controller';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { AUTH_SERVICE, DatabaseModule } from '@app/common';
-import { TransactionRepository } from './transaction.repository';
+import { TransactionRepository } from '../repositories/transaction.repository';
 import {
   TransactionDocument,
   TransactionSchema,
-} from './models/transaction.schema';
-import { WalletRepository } from '../wallet.repository';
+} from '../models/transaction.schema';
+import { WalletRepository } from '../repositories/wallet.repository';
 import { WalletDocument, WalletSchema } from '../models/wallet.schema';
+import { FundController } from './fund.controller';
+import { FundService } from './fund.service';
 
 @Module({
   imports: [
@@ -40,8 +40,8 @@ import { WalletDocument, WalletSchema } from '../models/wallet.schema';
       },
     ]),
   ],
-  controllers: [FlutterwaveController],
-  providers: [FlutterwaveService, TransactionRepository, WalletRepository],
+  controllers: [FundController],
+  providers: [FundService, TransactionRepository, WalletRepository],
   exports: [TransactionRepository],
 })
-export class FlutterwaveModule {}
+export class FundModule {}

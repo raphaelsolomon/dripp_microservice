@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { WalletRepository } from './wallet.repository';
+import { WalletRepository } from './repositories/wallet.repository';
 
 @Injectable()
 export class WalletService {

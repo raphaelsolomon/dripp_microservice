@@ -1,4 +1,13 @@
-import { Body, Controller, Get, Patch, Post, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Patch,
+  Post,
+  Req,
+  UseGuards,
+} from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CurrentUser } from '../../../../libs/common/src/decorators/current-user.decorator';
 import { UserDocument } from './models/user.schema';
@@ -8,6 +17,7 @@ import { UpdatePasswordDto } from './dto/update-password.dto';
 import { FormDataRequest } from 'nestjs-form-data';
 import { UploadImageDto } from './dto/upload-image.dto';
 import { MessagePattern, Payload } from '@nestjs/microservices';
+import { Request } from 'express';
 
 @Controller('user')
 export class UsersController {
@@ -35,6 +45,27 @@ export class UsersController {
     @Body() updatePasswordDto: UpdatePasswordDto,
   ) {
     return await this.usersService.updatePassword(user, updatePasswordDto);
+  }
+
+  @Post('/subscribe-channel/:brand_uuid')
+  @UseGuards(JwtAuthGuard)
+  async joinChannel(@CurrentUser() user: UserDocument, @Req() req: Request) {
+    return this.usersService.subscribeChannel(user, req?.params?.brand_uuid);
+  }
+
+  @Delete('/unsubscribe-channel/:brand_uuid')
+  @UseGuards(JwtAuthGuard)
+  async unsubscribeChannel(
+    @CurrentUser() user: UserDocument,
+    @Req() req: Request,
+  ) {
+    return this.usersService.unsubscribeChannel(user, req?.params?.brand_uuid);
+  }
+
+  @Get('/channels/:first/:page')
+  @UseGuards(JwtAuthGuard)
+  async getChannels(@CurrentUser() user: UserDocument, @Req() req: Request) {
+    return this.usersService.getChannels(user, req);
   }
 
   @Post('/update/avatar')
