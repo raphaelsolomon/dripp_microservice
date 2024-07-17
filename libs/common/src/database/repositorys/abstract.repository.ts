@@ -67,14 +67,14 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
     page: number,
     filterQuery: FilterQuery<TDocument>,
     select?: string,
-    column?: string,
+    populate?: PopulateDto,
   ) {
     const total = await this.model.countDocuments(filterQuery);
     const documents = await this.model
       .find(filterQuery)
       .select(select)
       .lean<TDocument[]>(true)
-      .populate(column)
+      .populate(populate)
       .skip(((page ?? 1) - 1) * (first ?? 20))
       .sort({ created_at: -1 })
       .limit(first ?? 20)

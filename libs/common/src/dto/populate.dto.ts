@@ -3,4 +3,5 @@ export interface PopulateDto {
   model: string;
   localField: string;
   foreignField: string;
+  select?: string;
 }

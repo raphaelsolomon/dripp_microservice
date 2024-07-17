@@ -369,12 +369,13 @@ export class UsersService {
     );
     return this.destructureUser(user);
   }
+
   async getUserByUuid(user_uuid: string) {
     return this.userRepository.findOne({ uuid: user_uuid });
   }
 
   //==================================EVENTS============================================
-  async getChannels(user: UserDocument, req: Request) {
+  async getChannels(user: UserDocument, payload: { [key: string]: number }) {
     if (user.account_type !== 'user') {
       throw new HttpException(
         'Action not supported on the account type.',
@@ -382,8 +383,8 @@ export class UsersService {
       );
     }
 
-    const page = Number(req?.params?.page ?? '1');
-    const first = Number(req?.params?.first ?? '20');
+    const page: number = payload?.page ?? 1;
+    const first: number = payload?.first ?? 20;
     const user_uuid = user.uuid;
     return await firstValueFrom(
       this.brandClientProxy.send('get_channels', { first, page, user_uuid }),
@@ -420,18 +421,22 @@ export class UsersService {
     );
   }
 
-  async getTasks(user: UserDocument, req: Request) {
+  async getTasks(user: UserDocument, payload: { [key: string]: number }) {
     if (user.account_type !== 'user') {
       throw new HttpException(
         'Action not supported on the account type.',
         HttpStatus.NOT_ACCEPTABLE,
       );
     }
+
+    const page: number = payload?.page ?? 1;
+    const first: number = payload?.first ?? 20;
+
     return await firstValueFrom(
       this.brandClientProxy.send('get_task_from_brands', {
         member_uuid: user.uuid,
-        first: Number.parseInt(req?.params?.first ?? '20'),
-        page: Number.parseInt(req?.params?.page ?? '20'),
+        first,
+        page,
       }),
     );
   }

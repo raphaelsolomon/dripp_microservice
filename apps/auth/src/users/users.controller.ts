@@ -5,6 +5,7 @@ import {
   Get,
   Patch,
   Post,
+  Query,
   Req,
   UseGuards,
 } from '@nestjs/common';
@@ -62,16 +63,22 @@ export class UsersController {
     return this.usersService.unsubscribeChannel(user, req?.params?.brand_uuid);
   }
 
-  @Get('/channels/:first/:page')
+  @Get('/channels/')
   @UseGuards(JwtAuthGuard)
-  async getChannels(@CurrentUser() user: UserDocument, @Req() req: Request) {
-    return this.usersService.getChannels(user, req);
+  async getChannels(
+    @CurrentUser() user: UserDocument,
+    @Query() payload: { [key: string]: number },
+  ) {
+    return this.usersService.getChannels(user, payload);
   }
 
-  @Get('/tasks/:first/:page')
+  @Get('/tasks/')
   @UseGuards(JwtAuthGuard)
-  async getTasks(@CurrentUser() user: UserDocument, @Req() req: Request) {
-    return this.usersService.getTasks(user, req);
+  async getTasks(
+    @CurrentUser() user: UserDocument,
+    @Query() payload: { [key: string]: number },
+  ) {
+    return this.usersService.getTasks(user, payload);
   }
 
   @Post('/update/avatar')

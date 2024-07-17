@@ -9,7 +9,6 @@ import {
 import { UpdateBrandDto } from './dto/update-brand.dto';
 import { CreateTaskDto } from './dto/task/create-task.dto';
 import { MemberRepository } from './repositories/member.repository';
-import { Request } from 'express';
 import { firstValueFrom } from 'rxjs';
 import { ClientProxy } from '@nestjs/microservices';
 import { CreatePostDto } from './dto/post/create-post.dto';
@@ -18,6 +17,8 @@ import { UpdatePostDto } from './dto/post/update-post.dto';
 import { TaskRepository } from './repositories/task.repository';
 import { UpdateTaskDto } from './dto/task/update-task.dto';
 import { BrandDocument } from './models/brand.schema';
+import { CreateDiscountDto } from './dto/discount/create-discount.dto';
+import { DiscountRepository } from './repositories/discount.repository';
 
 @Injectable()
 export class AppService {
@@ -27,6 +28,7 @@ export class AppService {
     private readonly postRepository: PostRepository,
     private readonly taskRepository: TaskRepository,
     private readonly cloudinaryService: CloudinaryService,
+    private readonly discountRepository: DiscountRepository,
     @Inject(AUTH_SERVICE) private readonly authClientproxy: ClientProxy,
   ) {}
 
@@ -105,24 +107,52 @@ export class AppService {
     }
   }
 
-  async getPosts(user: UserDto, req: Request) {
+  async getPosts(user: UserDto, payload: { [key: string]: number }) {
+    if (user.account_type === 'user') {
+      throw new HttpException(
+        `Action not supported on the account type.`,
+        HttpStatus.NOT_FOUND,
+      );
+    }
+    const populate: PopulateDto = {
+      path: 'brand',
+      model: BrandDocument.name,
+      localField: 'brand',
+      foreignField: 'uuid',
+    };
+
+    const first: number = payload.first ?? 20;
+    const page: number = payload.page ?? 1;
+
     const posts = await this.postRepository.getPaginatedDocuments(
-      Number.parseInt(req.params.first ?? '20'),
-      Number.parseInt(req.params.page ?? '1'),
+      first,
+      page,
       {
         brand: user.brand_uuid,
       },
+      null,
+      populate,
     );
     return { ...posts };
   }
 
-  async getBrandMembers(user: UserDto, req: Request) {
+  async getBrandMembers(user: UserDto, payload: { [key: string]: number }) {
+    if (user.account_type === 'users') {
+      throw new HttpException(
+        `Action not allowed on this account type`,
+        HttpStatus.NOT_ACCEPTABLE,
+      );
+    }
+
+    const first: number = payload.first ?? 20;
+    const page: number = payload.page ?? 1;
+
     const { brand_uuid } = user;
     const members = await this.memberRepository.getPaginatedDocuments(
-      Number.parseInt(req.params.first ?? '20'),
-      Number.parseInt(req.params.page ?? '1'),
+      first,
+      page,
       {
-        brand_uuid,
+        brand: brand_uuid,
       },
       null,
       null,
@@ -214,11 +244,36 @@ export class AppService {
     }
   }
 
-  async getBrandTask(user: UserDto, req: Request) {
+  async getDiscount(user: UserDto, payload: { [key: string]: number }) {
+    if (user.account_type === 'user') {
+      throw new HttpException(
+        `Action not allowed on this account type`,
+        HttpStatus.NOT_ACCEPTABLE,
+      );
+    }
+    const first: number = payload.first;
+    const page: number = payload.page;
+    return await this.discountRepository.getPaginatedDocuments(first, page, {
+      brand: user.brand_uuid,
+    });
+  }
+
+  async getBrandTask(user: UserDto, payload: { [key: string]: number }) {
+    const populate: PopulateDto = {
+      path: 'brand',
+      model: BrandDocument.name,
+      localField: 'brand',
+      foreignField: 'uuid',
+    };
+    const first: number = payload.first ?? 20;
+    const page: number = payload.page ?? 1;
+
     return await this.taskRepository.getPaginatedDocuments(
-      Number.parseInt(req?.params?.first ?? '20'),
-      Number.parseInt(req?.params?.page ?? '1'),
+      first,
+      page,
       { brand: user.brand_uuid },
+      null,
+      populate,
     );
   }
 
@@ -288,12 +343,12 @@ export class AppService {
       populate,
     );
 
-    // const unsubscribeTasks = await this.taskRepository.find(
-    //   {
-    //     brand: { $nin: subscribeBrandsUuids },
-    //   },
-    //   populate,
-    // );
+    const unsubscribeTasks = await this.taskRepository.find(
+      {
+        brand: { $nin: subscribeBrandsUuids },
+      },
+      populate,
+    );
 
     for (let i = subscribedTasks.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -303,6 +358,19 @@ export class AppService {
       ];
     }
 
-    return [...subscribedTasks];
+    return [...subscribedTasks, ...unsubscribeTasks];
+  }
+
+  async createDiscount(user: UserDto, createDiscountDto: CreateDiscountDto) {
+    if (user.account_type === 'user') {
+      throw new HttpException(
+        `Action not allowed on this account type`,
+        HttpStatus.NOT_ACCEPTABLE,
+      );
+    }
+    return await this.discountRepository.create({
+      ...createDiscountDto,
+      brand: user.brand_uuid,
+    });
   }
 }

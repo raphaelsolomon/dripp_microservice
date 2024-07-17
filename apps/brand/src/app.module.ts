@@ -19,6 +19,8 @@ import { PostDocument, PostSchema } from './models/post.schema';
 import { PostRepository } from './repositories/post.repository';
 import { TaskDocument, TaskSchema } from './models/task.schema';
 import { TaskRepository } from './repositories/task.repository';
+import { DiscountDocument, DiscountSchema } from './models/discount.schema';
+import { DiscountRepository } from './repositories/discount.repository';
 
 @Module({
   imports: [
@@ -29,6 +31,7 @@ import { TaskRepository } from './repositories/task.repository';
       { name: MemberDocument.name, schema: MemberSchema },
       { name: PostDocument.name, schema: PostSchema },
       { name: TaskDocument.name, schema: TaskSchema },
+      { name: DiscountDocument.name, schema: DiscountSchema },
     ]),
     LoggerModule,
     ConfigModule.forRoot({
@@ -63,6 +66,7 @@ import { TaskRepository } from './repositories/task.repository';
     MemberRepository,
     PostRepository,
     TaskRepository,
+    DiscountRepository,
   ],
 })
 export class AppModule {}

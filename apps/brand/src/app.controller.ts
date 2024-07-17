@@ -5,7 +5,7 @@ import {
   Get,
   Patch,
   Post,
-  Req,
+  Query,
 } from '@nestjs/common';
 import { AppService } from './app.service';
 import { UseGuards } from '@nestjs/common';
@@ -14,9 +14,9 @@ import { EventPattern, MessagePattern, Payload } from '@nestjs/microservices';
 import { UpdateBrandDto } from './dto/update-brand.dto';
 import { CreateTaskDto } from './dto/task/create-task.dto';
 import { FormDataRequest } from 'nestjs-form-data';
-import { Request } from 'express';
 import { UpdatePostDto } from './dto/post/update-post.dto';
 import { CreatePostDto } from './dto/post/create-post.dto';
+import { CreateDiscountDto } from './dto/discount/create-discount.dto';
 
 @Controller('brand')
 export class AppController {
@@ -29,7 +29,7 @@ export class AppController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Post('/update')
+  @Patch('/update')
   updateBrand(
     @CurrentUser() user: UserDto,
     @Body() updateBrandDto: UpdateBrandDto,
@@ -64,22 +64,40 @@ export class AppController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get('/members/:first/:page')
-  getBrandMembers(@CurrentUser() user: UserDto, @Req() req: Request) {
-    return this.appService.getBrandMembers(user, req);
+  @Get('/members/')
+  getBrandMembers(
+    @CurrentUser() user: UserDto,
+    @Query() payload: { [key: string]: number },
+  ) {
+    return this.appService.getBrandMembers(user, payload);
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get('/posts/:first/:page')
-  getBrandPosts(@CurrentUser() user: UserDto, @Req() req: Request) {
-    return this.appService.getPosts(user, req);
+  @Get('/posts/')
+  getBrandPosts(
+    @CurrentUser() user: UserDto,
+    @Query() payload: { [key: string]: number },
+  ) {
+    return this.appService.getPosts(user, payload);
   }
 
-  @Get('/tasks/:first/:page')
+  @Get('/tasks/')
   @UseGuards(JwtAuthGuard)
   @FormDataRequest()
-  getBrandTask(@CurrentUser() user: UserDto, @Req() req: Request) {
-    return this.appService.getBrandTask(user, req);
+  getBrandTask(
+    @CurrentUser() user: UserDto,
+    @Query() payload: { [key: string]: number },
+  ) {
+    return this.appService.getBrandTask(user, payload);
+  }
+
+  @Get('/discount/')
+  @UseGuards(JwtAuthGuard)
+  getDicounts(
+    @CurrentUser() user: UserDto,
+    @Query() payload: { [key: string]: number },
+  ) {
+    return this.appService.getDiscount(user, payload);
   }
 
   @Post('/task')
@@ -90,6 +108,15 @@ export class AppController {
     @Body() createTaskDto: CreateTaskDto,
   ) {
     return this.appService.createBrandTask(user, createTaskDto);
+  }
+
+  @Post('/discount')
+  @UseGuards(JwtAuthGuard)
+  createDiscount(
+    @CurrentUser() user: UserDto,
+    @Body() createDiscountDto: CreateDiscountDto,
+  ) {
+    return this.appService.createDiscount(user, createDiscountDto);
   }
 
   @MessagePattern('create_brand')
