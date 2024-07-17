@@ -7,7 +7,7 @@ export class MemberDocument extends AbstractDocument {
   member_uuid?: string;
 
   @Prop({ default: null })
-  brand_uuid?: string;
+  brand?: string;
 }
 
 export const MemberSchema = SchemaFactory.createForClass(MemberDocument);

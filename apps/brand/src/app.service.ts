@@ -1,6 +1,11 @@
 import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
 import { BrandRepository } from './repositories/brand.repository';
-import { AUTH_SERVICE, CloudinaryService, UserDto } from '@app/common';
+import {
+  AUTH_SERVICE,
+  CloudinaryService,
+  PopulateDto,
+  UserDto,
+} from '@app/common';
 import { UpdateBrandDto } from './dto/update-brand.dto';
 import { CreateTaskDto } from './dto/task/create-task.dto';
 import { MemberRepository } from './repositories/member.repository';
@@ -12,6 +17,7 @@ import { PostRepository } from './repositories/post.repository';
 import { UpdatePostDto } from './dto/post/update-post.dto';
 import { TaskRepository } from './repositories/task.repository';
 import { UpdateTaskDto } from './dto/task/update-task.dto';
+import { BrandDocument } from './models/brand.schema';
 
 @Injectable()
 export class AppService {
@@ -54,7 +60,7 @@ export class AppService {
         createPostDto.mediaUrl = cloudinary.url;
       }
       return await this.postRepository.create({
-        brand_uuid: user.brand_uuid,
+        brand: user.brand_uuid,
         ...createPostDto,
       });
     } catch (err) {
@@ -74,7 +80,7 @@ export class AppService {
       return await this.postRepository.findOneAndUpdate(
         {
           uuid: updatePostDto.post_uuid,
-          brand_uuid: user.brand_uuid,
+          brand: user.brand_uuid,
         },
         { ...updatePostDto },
       );
@@ -87,7 +93,7 @@ export class AppService {
     try {
       await this.postRepository.findOneAndDelete({
         uuid,
-        brand_uuid: user.brand_uuid,
+        brand: user.brand_uuid,
       });
 
       return {
@@ -104,7 +110,7 @@ export class AppService {
       Number.parseInt(req.params.first ?? '20'),
       Number.parseInt(req.params.page ?? '1'),
       {
-        brand_uuid: user.brand_uuid,
+        brand: user.brand_uuid,
       },
     );
     return { ...posts };
@@ -155,7 +161,7 @@ export class AppService {
     if (cloudinary) {
       return await this.taskRepository.create({
         campaign_banner_url: cloudinary.url,
-        brand_uuid: user.brand_uuid,
+        brand: user.brand_uuid,
         ...createTaskDto,
       });
     }
@@ -173,7 +179,7 @@ export class AppService {
     return await this.taskRepository.findOneAndUpdate(
       {
         uuid: updateTaskDto.task_uuid,
-        brand_uuid: user.brand_uuid,
+        brand: user.brand_uuid,
       },
       { ...updateTaskDto },
     );
@@ -182,7 +188,7 @@ export class AppService {
   async addMemberToBrands(payload: { [key: string]: string | [string] }) {
     for (const brand_uuid of payload.brand_uuids) {
       await this.memberRepository.create({
-        brand_uuid,
+        brand: brand_uuid,
         member_uuid: payload.user_uuid as string,
       });
     }
@@ -191,8 +197,8 @@ export class AppService {
 
   async addMemberToBrand(payload: { [key: string]: string }) {
     const result = await this.memberRepository.findOneOrCreate(
-      { ...payload },
-      { ...payload },
+      { ...payload, brand: payload.brand_uuid },
+      { ...payload, brand: payload.brand_uuid },
     );
     return result;
   }
@@ -212,7 +218,7 @@ export class AppService {
     return await this.taskRepository.getPaginatedDocuments(
       Number.parseInt(req?.params?.first ?? '20'),
       Number.parseInt(req?.params?.page ?? '1'),
-      { brand_uuid: user.brand_uuid },
+      { brand: user.brand_uuid },
     );
   }
 
@@ -258,5 +264,45 @@ export class AppService {
       data,
       paginationInfo,
     };
+  }
+
+  async getTaskFromBrands(payload: { [key: string]: string | number }) {
+    const member_uuid: string = <string>payload.member_uuid;
+    const populate: PopulateDto = {
+      path: 'brand',
+      model: BrandDocument.name,
+      localField: 'brand',
+      foreignField: 'uuid',
+    };
+    // const first: number = <number>payload.first;
+    // const page: number = <number>payload.page;
+
+    /* get channel/brands users are subscribed to and also brands they are not subscribed to */
+    const subscribeBrands = await this.memberRepository.find({ member_uuid });
+    const subscribeBrandsUuids = subscribeBrands.map((member) => member.brand);
+    console.log(subscribeBrandsUuids);
+    const subscribedTasks = await this.taskRepository.find(
+      {
+        brand: { $in: subscribeBrandsUuids },
+      },
+      populate,
+    );
+
+    // const unsubscribeTasks = await this.taskRepository.find(
+    //   {
+    //     brand: { $nin: subscribeBrandsUuids },
+    //   },
+    //   populate,
+    // );
+
+    for (let i = subscribedTasks.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [subscribedTasks[i], subscribedTasks[j]] = [
+        subscribedTasks[j],
+        subscribedTasks[i],
+      ];
+    }
+
+    return [...subscribedTasks];
   }
 }

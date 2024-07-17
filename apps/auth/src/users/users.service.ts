@@ -419,4 +419,20 @@ export class UsersService {
       }),
     );
   }
+
+  async getTasks(user: UserDocument, req: Request) {
+    if (user.account_type !== 'user') {
+      throw new HttpException(
+        'Action not supported on the account type.',
+        HttpStatus.NOT_ACCEPTABLE,
+      );
+    }
+    return await firstValueFrom(
+      this.brandClientProxy.send('get_task_from_brands', {
+        member_uuid: user.uuid,
+        first: Number.parseInt(req?.params?.first ?? '20'),
+        page: Number.parseInt(req?.params?.page ?? '20'),
+      }),
+    );
+  }
 }

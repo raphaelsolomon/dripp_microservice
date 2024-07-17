@@ -68,6 +68,12 @@ export class UsersController {
     return this.usersService.getChannels(user, req);
   }
 
+  @Get('/tasks/:first/:page')
+  @UseGuards(JwtAuthGuard)
+  async getTasks(@CurrentUser() user: UserDocument, @Req() req: Request) {
+    return this.usersService.getTasks(user, req);
+  }
+
   @Post('/update/avatar')
   // @UseInterceptors(FileInterceptor('file'))
   @FormDataRequest()

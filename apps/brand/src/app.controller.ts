@@ -116,4 +116,9 @@ export class AppController {
   getChannels(@Payload() payload: { [key: string]: number }) {
     return this.appService.getChannels(payload);
   }
+
+  @MessagePattern('get_task_from_brands')
+  getTaskFromBrands(@Payload() payload: { [key: string]: string }) {
+    return this.appService.getTaskFromBrands(payload);
+  }
 }

@@ -1,6 +1,7 @@
 import { FilterQuery, Model, Types, UpdateQuery } from 'mongoose';
 import { AbstractDocument } from '../models/abstract.schema';
 import { Logger, NotFoundException } from '@nestjs/common';
+import { PopulateDto } from '@app/common/dto';
 
 export abstract class AbstractRepository<TDocument extends AbstractDocument> {
   protected abstract readonly logger: Logger;
@@ -45,8 +46,14 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
     return document;
   }
 
-  async find(filterQuery: FilterQuery<TDocument>): Promise<TDocument[]> {
-    return this.model.find(filterQuery).lean<TDocument[]>(true);
+  async find(
+    filterQuery: FilterQuery<TDocument>,
+    populate?: PopulateDto,
+  ): Promise<TDocument[]> {
+    return this.model
+      .find(filterQuery)
+      .populate(populate)
+      .lean<TDocument[]>(true);
   }
 
   async findOneAndDelete(
