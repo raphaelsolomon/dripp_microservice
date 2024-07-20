@@ -4,3 +4,5 @@ node_modules/
 webserver/
 database/
 .env
+/tools/database
+/tools/.env

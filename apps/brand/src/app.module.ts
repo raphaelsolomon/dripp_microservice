@@ -6,6 +6,7 @@ import {
   LoggerModule,
   AUTH_SERVICE,
   CloudinaryModule,
+  WALLET_SERVICE,
 } from '@app/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as Joi from 'joi';
@@ -42,6 +43,8 @@ import { DiscountRepository } from './repositories/discount.repository';
         BRAND_TCP_PORT: Joi.number().required(),
         AUTH_HOST: Joi.string().required(),
         AUTH_PORT: Joi.number().required(),
+        WALLET_TCP_HOST: Joi.string().required(),
+        WALLET_TCP_PORT: Joi.number().required(),
       }),
     }),
     ClientsModule.registerAsync([
@@ -52,6 +55,17 @@ import { DiscountRepository } from './repositories/discount.repository';
           options: {
             host: configService.get<string>('AUTH_HOST'),
             port: configService.get<number>('AUTH_PORT'),
+          },
+        }),
+        inject: [ConfigService],
+      },
+      {
+        name: WALLET_SERVICE,
+        useFactory: (configService: ConfigService) => ({
+          transport: Transport.TCP,
+          options: {
+            host: configService.get<string>('WALLET_TCP_HOST'),
+            port: configService.get<number>('WALLET_TCP_PORT'),
           },
         }),
         inject: [ConfigService],

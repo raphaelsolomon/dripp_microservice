@@ -5,6 +5,7 @@ import {
   CloudinaryService,
   PopulateDto,
   UserDto,
+  WALLET_SERVICE,
 } from '@app/common';
 import { UpdateBrandDto } from './dto/update-brand.dto';
 import { CreateTaskDto } from './dto/task/create-task.dto';
@@ -30,6 +31,7 @@ export class AppService {
     private readonly cloudinaryService: CloudinaryService,
     private readonly discountRepository: DiscountRepository,
     @Inject(AUTH_SERVICE) private readonly authClientproxy: ClientProxy,
+    @Inject(WALLET_SERVICE) private readonly walletClientproxy: ClientProxy,
   ) {}
 
   async getBrand(user: UserDto) {
@@ -368,9 +370,23 @@ export class AppService {
         HttpStatus.NOT_ACCEPTABLE,
       );
     }
-    return await this.discountRepository.create({
-      ...createDiscountDto,
-      brand: user.brand_uuid,
-    });
+    // get wallet balance from wallet service...
+    try {
+      const wallet = await firstValueFrom(
+        this.walletClientproxy.send('get_wallet', { uuid: user.wallet_uuid }),
+      );
+      if (createDiscountDto.discount_amount > wallet.amount) {
+        throw new HttpException(
+          'Insufficient wallet balance',
+          HttpStatus.NOT_ACCEPTABLE,
+        );
+      }
+      return await this.discountRepository.create({
+        ...createDiscountDto,
+        brand: user.brand_uuid,
+      });
+    } catch (error) {
+      throw new HttpException(error, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
   }
 }

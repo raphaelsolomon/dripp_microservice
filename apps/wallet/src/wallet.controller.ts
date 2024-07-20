@@ -10,4 +10,9 @@ export class WalletController {
   createWallet(@Payload() payload: { [key: string]: string }) {
     return this.walletService.createWallet(payload);
   }
+
+  @MessagePattern('get_wallet')
+  getWallet(@Payload() payload: { [key: string]: string }) {
+    return this.walletService.getWallet(payload);
+  }
 }

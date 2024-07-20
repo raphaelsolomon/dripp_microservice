@@ -68,27 +68,6 @@ services:
       - /usr/src/app/node_modules
     networks:
       - dripp_network
-  
-
-  mongo:
-    image: mongo:latest
-    container_name: mongo_container
-    ports:
-      - 27017:27017
-    volumes:
-      - ./database:/data/db
-    networks:
-      - dripp_network
-  
-  redis:
-    image: redis:latest
-    container_name: redis_container
-    ports:
-      - "6379:6379"
-    volumes:
-      - ./database:/data
-    networks:
-      - dripp_network
 
   webserver:
     build:
@@ -101,16 +80,6 @@ services:
     networks:
       - dripp_network
     restart: always
-    depends_on:
-      - auth
-      - brand
-      - wallet
-
-  rabbitmq:
-    image: rabbitmq
-    container_name: rabbitmq_container
-    ports:
-      - 5672:5672
 
 networks:
   dripp_network:
