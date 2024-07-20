@@ -88,3 +88,4 @@ services:
 
 networks:
   dripp_network:
+    external: true

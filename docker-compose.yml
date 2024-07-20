@@ -80,6 +80,12 @@ services:
     networks:
       - dripp_network
     restart: always
+    depends_on:
+      - auth
+      - wallet
+      - brand
+      - notification
 
 networks:
   dripp_network:
+    external: true
