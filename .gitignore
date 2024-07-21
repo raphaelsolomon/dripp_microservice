@@ -53,6 +53,6 @@ pids
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 .history/
 
-/webserver/gateway*
-/tools/database
-/tools/.env
+./webserver/gateway*
+dripp-tools/database/
+dripp-tools/.env

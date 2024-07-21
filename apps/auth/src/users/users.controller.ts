@@ -72,6 +72,15 @@ export class UsersController {
     return this.usersService.getChannels(user, payload);
   }
 
+  @Get('/recommended-channels')
+  @UseGuards(JwtAuthGuard)
+  async getRecommededChannels(
+    @CurrentUser() user: UserDocument,
+    @Query() payload: { [key: string]: number },
+  ) {
+    return this.usersService.getRecommededChannels(user, payload);
+  }
+
   @Get('/tasks/')
   @UseGuards(JwtAuthGuard)
   async getTasks(

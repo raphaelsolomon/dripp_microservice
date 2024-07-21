@@ -9,12 +9,18 @@ import { WalletRepository } from './repositories/wallet.repository';
 import { WalletDocument, WalletSchema } from './models/wallet.schema';
 import { FundModule } from './fund/fund.module';
 import { WithdrawalModule } from './withdraw/withdrawal.module';
+import { TransactionRepository } from './repositories/transaction.repository';
+import {
+  TransactionDocument,
+  TransactionSchema,
+} from './models/transaction.schema';
 
 @Module({
   imports: [
     DatabaseModule,
     DatabaseModule.forFeature([
       { name: WalletDocument.name, schema: WalletSchema },
+      { name: TransactionDocument.name, schema: TransactionSchema },
     ]),
     LoggerModule,
     FundModule,
@@ -51,6 +57,6 @@ import { WithdrawalModule } from './withdraw/withdrawal.module';
     ]),
   ],
   controllers: [WalletController],
-  providers: [WalletService, WalletRepository],
+  providers: [WalletService, WalletRepository, TransactionRepository],
 })
 export class WalletModule {}

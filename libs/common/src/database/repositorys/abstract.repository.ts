@@ -1,4 +1,11 @@
-import { FilterQuery, Model, Types, UpdateQuery } from 'mongoose';
+import {
+  AggregateOptions,
+  FilterQuery,
+  Model,
+  PipelineStage,
+  Types,
+  UpdateQuery,
+} from 'mongoose';
 import { AbstractDocument } from '../models/abstract.schema';
 import { Logger, NotFoundException } from '@nestjs/common';
 import { PopulateDto } from '@app/common/dto';
@@ -62,6 +69,13 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
     return this.model.findOneAndDelete(filterQuery).lean<TDocument>(true);
   }
 
+  async aggregate(
+    pipeline?: PipelineStage[],
+    options?: AggregateOptions,
+  ): Promise<TDocument[]> {
+    return this.model.aggregate(pipeline, options);
+  }
+
   async getPaginatedDocuments(
     first: number,
     page: number,
@@ -95,12 +109,13 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
     filterQuery: FilterQuery<TDocument>,
     document: Omit<TDocument, '_id'>,
   ): Promise<TDocument> {
-    const documentRecord = await this.model
-      .findOne(filterQuery)
-      .lean<TDocument>(true);
-    if (!documentRecord) {
-      return this.model.create({ ...document, _id: new Types.ObjectId() });
-    }
+    const documentRecord = await this.model.findOne(filterQuery);
+    if (documentRecord) return documentRecord;
+    return this.model.create({ ...document, _id: new Types.ObjectId() });
+  }
+
+  async distinct(field: string, filter?: FilterQuery<TDocument>) {
+    const documentRecord = await this.model.distinct(field, filter);
     return documentRecord;
   }
 }

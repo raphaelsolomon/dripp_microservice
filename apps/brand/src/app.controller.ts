@@ -17,16 +17,13 @@ import { FormDataRequest } from 'nestjs-form-data';
 import { UpdatePostDto } from './dto/post/update-post.dto';
 import { CreatePostDto } from './dto/post/create-post.dto';
 import { CreateDiscountDto } from './dto/discount/create-discount.dto';
+import { CreateGiftCardDto } from './dto/giftcard/create-giftcard.dto';
+import { UpdateGiftCardDto } from './dto/giftcard/update-giftcard.dto';
+import { UpdateDiscountDto } from './dto/discount/update-discount.dto';
 
 @Controller('brand')
 export class AppController {
   constructor(private readonly appService: AppService) {}
-
-  @UseGuards(JwtAuthGuard)
-  @Get('/')
-  getBrand(@CurrentUser() user: UserDto) {
-    return this.appService.getBrand(user);
-  }
 
   @UseGuards(JwtAuthGuard)
   @Patch('/update')
@@ -38,16 +35,6 @@ export class AppController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Post('/post')
-  @FormDataRequest()
-  createBrandPost(
-    @CurrentUser() user: UserDto,
-    @Body() createPostDto: CreatePostDto,
-  ) {
-    return this.appService.createPost(createPostDto, user);
-  }
-
-  @UseGuards(JwtAuthGuard)
   @Patch('/post')
   @FormDataRequest()
   updateBrandPost(
@@ -55,6 +42,24 @@ export class AppController {
     @Body() updatePostDto: UpdatePostDto,
   ) {
     return this.appService.updatePost(updatePostDto, user);
+  }
+
+  @Patch('/giftcard')
+  @UseGuards(JwtAuthGuard)
+  updateGiftCard(
+    @CurrentUser() user: UserDto,
+    @Body() updateGiftCardDto: UpdateGiftCardDto,
+  ) {
+    return this.appService.updateGiftCard(user, updateGiftCardDto);
+  }
+
+  @Patch('/discount')
+  @UseGuards(JwtAuthGuard)
+  updateDiscount(
+    @CurrentUser() user: UserDto,
+    @Body() updateDiscountDto: UpdateDiscountDto,
+  ) {
+    return this.appService.updateDiscount(user, updateDiscountDto);
   }
 
   @UseGuards(JwtAuthGuard)
@@ -70,6 +75,12 @@ export class AppController {
     @Query() payload: { [key: string]: number },
   ) {
     return this.appService.getBrandMembers(user, payload);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('/')
+  getBrand(@CurrentUser() user: UserDto) {
+    return this.appService.getBrand(user);
   }
 
   @UseGuards(JwtAuthGuard)
@@ -91,13 +102,23 @@ export class AppController {
     return this.appService.getBrandTask(user, payload);
   }
 
-  @Get('/discount/')
+  @Get('/discount')
   @UseGuards(JwtAuthGuard)
   getDicounts(
     @CurrentUser() user: UserDto,
     @Query() payload: { [key: string]: number },
   ) {
     return this.appService.getDiscount(user, payload);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Post('/post')
+  @FormDataRequest()
+  createBrandPost(
+    @CurrentUser() user: UserDto,
+    @Body() createPostDto: CreatePostDto,
+  ) {
+    return this.appService.createPost(createPostDto, user);
   }
 
   @Post('/task')
@@ -117,6 +138,15 @@ export class AppController {
     @Body() createDiscountDto: CreateDiscountDto,
   ) {
     return this.appService.createDiscount(user, createDiscountDto);
+  }
+
+  @Post('/giftcard')
+  @UseGuards(JwtAuthGuard)
+  createGiftCard(
+    @CurrentUser() user: UserDto,
+    @Body() createGiftCardDto: CreateGiftCardDto,
+  ) {
+    return this.appService.createGiftCard(user, createGiftCardDto);
   }
 
   @MessagePattern('create_brand')
@@ -142,6 +172,11 @@ export class AppController {
   @MessagePattern('get_channels')
   getChannels(@Payload() payload: { [key: string]: number }) {
     return this.appService.getChannels(payload);
+  }
+
+  @MessagePattern('get_recommended_channels')
+  getRecommendedChannels(@Payload() payload: { [key: string]: string }) {
+    return this.appService.getRecommendedChannels(payload);
   }
 
   @MessagePattern('get_task_from_brands')

@@ -391,6 +391,29 @@ export class UsersService {
     );
   }
 
+  async getRecommededChannels(
+    user: UserDocument,
+    payload: { [key: string]: number },
+  ) {
+    if (user.account_type !== 'user') {
+      throw new HttpException(
+        'Action not supported on the account type.',
+        HttpStatus.NOT_ACCEPTABLE,
+      );
+    }
+
+    const page: number = payload?.page ?? 1;
+    const first: number = payload?.first ?? 20;
+
+    return await firstValueFrom(
+      this.brandClientProxy.send('get_recommended_channels', {
+        first,
+        page,
+        member_uuid: user.uuid,
+      }),
+    );
+  }
+
   async subscribeChannel(user: UserDocument, brand_uuid: string) {
     if (user.account_type !== 'user') {
       throw new HttpException(
@@ -437,6 +460,7 @@ export class UsersService {
         member_uuid: user.uuid,
         first,
         page,
+        user,
       }),
     );
   }

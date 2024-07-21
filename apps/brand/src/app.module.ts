@@ -22,6 +22,8 @@ import { TaskDocument, TaskSchema } from './models/task.schema';
 import { TaskRepository } from './repositories/task.repository';
 import { DiscountDocument, DiscountSchema } from './models/discount.schema';
 import { DiscountRepository } from './repositories/discount.repository';
+import { GiftCardRepository } from './repositories/giftcard.repository';
+import { GiftCardDocument, GiftCardSchema } from './models/giftcard.schema';
 
 @Module({
   imports: [
@@ -33,6 +35,7 @@ import { DiscountRepository } from './repositories/discount.repository';
       { name: PostDocument.name, schema: PostSchema },
       { name: TaskDocument.name, schema: TaskSchema },
       { name: DiscountDocument.name, schema: DiscountSchema },
+      { name: GiftCardDocument.name, schema: GiftCardSchema },
     ]),
     LoggerModule,
     ConfigModule.forRoot({
@@ -81,6 +84,7 @@ import { DiscountRepository } from './repositories/discount.repository';
     PostRepository,
     TaskRepository,
     DiscountRepository,
+    GiftCardRepository,
   ],
 })
 export class AppModule {}

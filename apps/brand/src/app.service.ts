@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
 import { BrandRepository } from './repositories/brand.repository';
 import {
@@ -20,6 +21,11 @@ import { UpdateTaskDto } from './dto/task/update-task.dto';
 import { BrandDocument } from './models/brand.schema';
 import { CreateDiscountDto } from './dto/discount/create-discount.dto';
 import { DiscountRepository } from './repositories/discount.repository';
+import { CreateGiftCardDto } from './dto/giftcard/create-giftcard.dto';
+import { GiftCardRepository } from './repositories/giftcard.repository';
+import { UpdateGiftCardDto } from './dto/giftcard/update-giftcard.dto';
+import { UpdateDiscountDto } from './dto/discount/update-discount.dto';
+import { use } from 'passport';
 
 @Injectable()
 export class AppService {
@@ -30,6 +36,7 @@ export class AppService {
     private readonly taskRepository: TaskRepository,
     private readonly cloudinaryService: CloudinaryService,
     private readonly discountRepository: DiscountRepository,
+    private readonly giftcardRepository: GiftCardRepository,
     @Inject(AUTH_SERVICE) private readonly authClientproxy: ClientProxy,
     @Inject(WALLET_SERVICE) private readonly walletClientproxy: ClientProxy,
   ) {}
@@ -228,9 +235,12 @@ export class AppService {
   }
 
   async addMemberToBrand(payload: { [key: string]: string }) {
+    const member_uuid: string = payload.member_uuid;
+    const brand: string = payload.brand_uuid;
+
     const result = await this.memberRepository.findOneOrCreate(
-      { ...payload, brand: payload.brand_uuid },
-      { ...payload, brand: payload.brand_uuid },
+      { member_uuid, brand },
+      { member_uuid, brand },
     );
     return result;
   }
@@ -388,5 +398,85 @@ export class AppService {
     } catch (error) {
       throw new HttpException(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+  }
+
+  async createGiftCard(user: UserDto, createGiftCardDto: CreateGiftCardDto) {
+    if (user.account_type === 'user') {
+      throw new HttpException(
+        `Action not allowed on this account type`,
+        HttpStatus.NOT_ACCEPTABLE,
+      );
+    }
+    // get wallet balance from wallet service...
+    try {
+      const wallet = await firstValueFrom(
+        this.walletClientproxy.send('get_wallet', { uuid: user.wallet_uuid }),
+      );
+      if (createGiftCardDto.gift_card_campaign_amount > wallet.amount) {
+        throw new HttpException(
+          'Insufficient wallet balance',
+          HttpStatus.NOT_ACCEPTABLE,
+        );
+      }
+      return await this.giftcardRepository.create({
+        ...createGiftCardDto,
+        brand: user.brand_uuid,
+      });
+    } catch (error) {
+      throw new HttpException(error, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+  }
+
+  async updateGiftCard(user: UserDto, updateGiftCardDto: UpdateGiftCardDto) {
+    if (user.account_type === 'user') {
+      throw new HttpException(
+        `Action not allowed on this account type`,
+        HttpStatus.NOT_ACCEPTABLE,
+      );
+    }
+
+    const { gift_card_campaign_amount, ...details } = updateGiftCardDto;
+    return await this.giftcardRepository.findOneAndUpdate(
+      { uuid: updateGiftCardDto.gift_card_uuid, brand: user.brand_uuid },
+      details,
+    );
+  }
+
+  async updateDiscount(user: UserDto, updateDiscountDto: UpdateDiscountDto) {
+    if (user.account_type === 'user') {
+      throw new HttpException(
+        `Action not allowed on this account type`,
+        HttpStatus.NOT_ACCEPTABLE,
+      );
+    }
+    const { discount_amount, ...details } = updateDiscountDto;
+    return await this.discountRepository.findOneAndUpdate(
+      { uuid: updateDiscountDto.discount_uuid, brand: user.brand_uuid },
+      { ...details },
+    );
+  }
+
+  async getRecommendedChannels(payload: { [key: string]: number | string }) {
+    const first: number = <number>payload.first ?? 20;
+    const page: number = <number>payload.page ?? 1;
+
+    const { data, paginationInfo } =
+      await this.memberRepository.getPaginatedDocuments(first, page, {
+        brand: { $ne: null },
+      });
+
+    const memberCounts = data.reduce((acc, member) => {
+      acc[member.brand] = (acc[member.brand] || 0) + 1;
+      return acc;
+    }, {});
+
+    const sortedBrandIds = Object.keys(memberCounts)
+      .sort((a, b) => memberCounts[b] - memberCounts[a])
+      .slice(0, 10);
+
+    const recommendedBrands = await this.brandRepository.find({
+      uuid: { $in: sortedBrandIds },
+    });
+    return { data: recommendedBrands, paginationInfo };
   }
 }

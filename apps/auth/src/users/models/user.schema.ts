@@ -29,6 +29,12 @@ export class UserDocument extends AbstractDocument {
   @Prop({ required: false, default: null })
   gender: string;
 
+  @Prop({ required: false, default: null })
+  state?: string;
+
+  @Prop({ required: false, default: null })
+  country?: string;
+
   @Prop({ default: null })
   account_type: AccountType;
 
