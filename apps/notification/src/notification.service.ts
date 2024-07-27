@@ -4,10 +4,16 @@ import { ConfigService } from '@nestjs/config';
 import * as path from 'path';
 import * as ejs from 'ejs';
 import { VerifyMailDto } from './dto/verify-email.dto';
+import { NotifcationRepository } from './repositories/notification.repository';
+import { UserDto } from '@app/common';
+import { Request } from 'express';
 
 @Injectable()
 export class NotificationService {
-  constructor(private readonly configService: ConfigService) {}
+  constructor(
+    private readonly configService: ConfigService,
+    private readonly notificationRepository: NotifcationRepository,
+  ) {}
   private readonly transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -63,5 +69,32 @@ export class NotificationService {
     } catch (err) {
       console.error(err);
     }
+  }
+
+  async sendmemberShipMail(data: { [key: string]: any }) {
+    const notification = {
+      title: data.title,
+      body: data.body,
+      type: data.type,
+      to: data.to,
+      from: data.from,
+    };
+    await this.notificationRepository.create({ ...notification });
+  }
+
+  async getNotifications(user: UserDto, req: Request) {
+    const first: number = Number.parseInt(`${req.query.first ?? 20}`);
+    const page: number = Number.parseInt(`${req.query.page ?? 1}`);
+    return await this.notificationRepository.getPaginatedDocuments(
+      first,
+      page,
+      {
+        to: user.uuid,
+      },
+    );
+  }
+
+  async sendfundNotification(data: { [key: string]: any }) {
+    console.log(data);
   }
 }

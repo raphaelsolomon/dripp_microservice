@@ -370,8 +370,8 @@ export class UsersService {
     return this.destructureUser(user);
   }
 
-  async getUserByUuid(user_uuid: string) {
-    return this.userRepository.findOne({ uuid: user_uuid });
+  async getUserBy(payload: { [key: string]: string }) {
+    return this.userRepository.findOne({ ...payload });
   }
 
   //==================================EVENTS============================================
@@ -463,5 +463,42 @@ export class UsersService {
         user,
       }),
     );
+  }
+
+  async updateUsername(payload: { [key: string]: string }) {
+    const user = await this.userRepository.findOne({
+      username: payload.username,
+    });
+    if (user._id.toString() !== payload._id) {
+      throw new HttpException(
+        `User with username already exists`,
+        HttpStatus.NOT_ACCEPTABLE,
+      );
+    }
+    return await this.userRepository.findOneAndUpdate(
+      { _id: payload._id },
+      { username: payload.username },
+    );
+  }
+
+  async deactivateAccount(user: UserDocument, password: string) {
+    const userDocument = await this.userRepository.findOne(
+      { _id: user._id },
+      '+password',
+    );
+    const passwordIsValid = await bcrypt.compare(
+      password,
+      userDocument.password,
+    );
+    if (!passwordIsValid) {
+      throw new UnauthorizedException('credentials are not valid');
+    }
+    await this.userRepository.findOneAndUpdate(
+      { _id: user._id },
+      { status: false },
+    );
+
+    //TODO: emit event to other services to delette record attacht to this user
+    console.log(userDocument);
   }
 }

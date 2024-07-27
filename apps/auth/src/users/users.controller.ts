@@ -7,6 +7,7 @@ import {
   Post,
   Query,
   Req,
+  Res,
   UseGuards,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
@@ -18,7 +19,7 @@ import { UpdatePasswordDto } from './dto/update-password.dto';
 import { FormDataRequest } from 'nestjs-form-data';
 import { UploadImageDto } from './dto/upload-image.dto';
 import { MessagePattern, Payload } from '@nestjs/microservices';
-import { Request } from 'express';
+import { Request, Response } from 'express';
 
 @Controller('user')
 export class UsersController {
@@ -28,6 +29,11 @@ export class UsersController {
   @UseGuards(JwtAuthGuard)
   async getUser(@CurrentUser() user: UserDocument) {
     return user;
+  }
+
+  @Get('/healthcheck')
+  healthCheck(@Res() res: Response) {
+    return res.sendStatus(200);
   }
 
   @Patch('/update')
@@ -52,6 +58,15 @@ export class UsersController {
   @UseGuards(JwtAuthGuard)
   async joinChannel(@CurrentUser() user: UserDocument, @Req() req: Request) {
     return this.usersService.subscribeChannel(user, req?.params?.brand_uuid);
+  }
+
+  @Post('/deactivate')
+  @UseGuards(JwtAuthGuard)
+  async deactivateAccount(
+    @CurrentUser() user: UserDocument,
+    @Body('password') password: string,
+  ) {
+    return this.usersService.deactivateAccount(user, password);
   }
 
   @Delete('/unsubscribe-channel/:brand_uuid')
@@ -102,7 +117,12 @@ export class UsersController {
   }
 
   @MessagePattern('get_user')
-  getUserByUuid(@Payload() { user_uuid }: { [key: string]: string }) {
-    return this.usersService.getUserByUuid(user_uuid);
+  getUserBy(@Payload() payload: { [key: string]: string }) {
+    return this.usersService.getUserBy(payload);
+  }
+
+  @MessagePattern('update_username')
+  updateUserByUuid(@Payload() payload: { [key: string]: string }) {
+    return this.usersService.updateUsername(payload);
   }
 }

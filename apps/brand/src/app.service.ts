@@ -4,6 +4,7 @@ import { BrandRepository } from './repositories/brand.repository';
 import {
   AUTH_SERVICE,
   CloudinaryService,
+  NOTIFICATION_SERVICE,
   PopulateDto,
   UserDto,
   WALLET_SERVICE,
@@ -25,7 +26,12 @@ import { CreateGiftCardDto } from './dto/giftcard/create-giftcard.dto';
 import { GiftCardRepository } from './repositories/giftcard.repository';
 import { UpdateGiftCardDto } from './dto/giftcard/update-giftcard.dto';
 import { UpdateDiscountDto } from './dto/discount/update-discount.dto';
-import { use } from 'passport';
+import { CreateMemberShipMailDto } from './dto/membership-mail/create-membership-mail.dto';
+import { MemberShipMailRepository } from './repositories/membership-mail.repository';
+import { UpdateMemberShipMailDto } from './dto/membership-mail/update-membership-mail.dto';
+import { CardRepository } from './repositories/card.repository';
+import { Request } from 'express';
+import { CardDto } from './dto/card/card.dto';
 
 @Injectable()
 export class AppService {
@@ -37,7 +43,11 @@ export class AppService {
     private readonly cloudinaryService: CloudinaryService,
     private readonly discountRepository: DiscountRepository,
     private readonly giftcardRepository: GiftCardRepository,
+    private readonly membershipMailRepository: MemberShipMailRepository,
+    private readonly cardRepository: CardRepository,
     @Inject(AUTH_SERVICE) private readonly authClientproxy: ClientProxy,
+    @Inject(NOTIFICATION_SERVICE)
+    private readonly notificationClientProxy: ClientProxy,
     @Inject(WALLET_SERVICE) private readonly walletClientproxy: ClientProxy,
   ) {}
 
@@ -52,12 +62,20 @@ export class AppService {
 
   async updatebrand(user: UserDto, updatebrandDto: UpdateBrandDto) {
     try {
+      if (updatebrandDto.username) {
+        await firstValueFrom(
+          this.authClientproxy.send('update_username', {
+            username: updatebrandDto.username,
+            _id: user._id,
+          }),
+        );
+      }
       return await this.brandRepository.findOneAndUpdate(
         { uuid: user.brand_uuid },
         { ...updatebrandDto },
       );
     } catch (err) {
-      throw new HttpException('Record not found', HttpStatus.NOT_FOUND);
+      throw new HttpException(err, HttpStatus.NOT_FOUND);
     }
   }
 
@@ -170,9 +188,7 @@ export class AppService {
     const { paginationInfo, data } = members;
     for (let i = 0; i < data.length; i++) {
       const member: UserDto = await firstValueFrom(
-        this.authClientproxy.send('get_user', {
-          user_uuid: data[i].member_uuid,
-        }),
+        this.authClientproxy.send('get_user', { uuid: data[i].member_uuid }),
       );
       if (user) {
         const { fullname, email, avatar, username, wallet_uuid } = member;
@@ -230,6 +246,20 @@ export class AppService {
         brand: brand_uuid,
         member_uuid: payload.user_uuid as string,
       });
+      try {
+        const memberShip = await this.membershipMailRepository.findOne({
+          brand: brand_uuid,
+        });
+        this.notificationClientProxy.emit('membership_mail', {
+          title: memberShip.title,
+          body: memberShip.body,
+          type: 'membership-mail',
+          to: payload.user_uuid as string,
+          from: { isbrand: true, sender: brand_uuid },
+        });
+      } catch (error) {
+        console.log('No membership email found');
+      }
     }
     console.log('member added');
   }
@@ -242,6 +272,19 @@ export class AppService {
       { member_uuid, brand },
       { member_uuid, brand },
     );
+    try {
+      const memberShip = await this.membershipMailRepository.findOne({ brand });
+      this.notificationClientProxy.emit('membership_mail', {
+        title: memberShip.title,
+        body: memberShip.body,
+        type: 'membership-mail',
+        to: member_uuid,
+        from: { isbrand: true, sender: brand },
+      });
+    } catch (error) {
+      console.log('No membership email found');
+    }
+
     return result;
   }
 
@@ -317,9 +360,9 @@ export class AppService {
         data[i]['isSubscribed'] = false;
       }
       for (const member of members) {
-        const user_uuid = member.member_uuid;
+        const uuid = member.member_uuid;
         const memberData: UserDto = await firstValueFrom(
-          this.authClientproxy.send('get_user', { user_uuid }),
+          this.authClientproxy.send('get_user', { uuid }),
         );
         brandMembers.push(memberData);
       }
@@ -478,5 +521,99 @@ export class AppService {
       uuid: { $in: sortedBrandIds },
     });
     return { data: recommendedBrands, paginationInfo };
+  }
+
+  async createMemberShipMail(
+    user: UserDto,
+    createMemberShipMailDto: CreateMemberShipMailDto,
+  ) {
+    if (user.account_type === 'user') {
+      throw new HttpException(
+        `Action not allowed on this account type`,
+        HttpStatus.NOT_ACCEPTABLE,
+      );
+    }
+
+    try {
+      return await this.membershipMailRepository.findOne({
+        brand: user.brand_uuid,
+      });
+    } catch (e) {
+      return await this.membershipMailRepository.create({
+        ...createMemberShipMailDto,
+        brand: user.brand_uuid,
+      });
+    }
+  }
+
+  async updateMemberShipMail(
+    user: UserDto,
+    updateMemberShipMailDto: UpdateMemberShipMailDto,
+  ) {
+    if (user.account_type === 'user') {
+      throw new HttpException(
+        `Action not allowed on this account type`,
+        HttpStatus.NOT_ACCEPTABLE,
+      );
+    }
+
+    try {
+      return await this.membershipMailRepository.findOneAndUpdate(
+        { brand: user.brand_uuid },
+        { ...updateMemberShipMailDto },
+      );
+    } catch (e) {
+      throw new HttpException(
+        'This brand does not exist',
+        HttpStatus.NOT_FOUND,
+      );
+    }
+  }
+
+  async getPaymentCard(user: UserDto, req: Request) {
+    if (user.account_type === 'user') {
+      throw new HttpException(
+        `Action not supported on the account type.`,
+        HttpStatus.NOT_FOUND,
+      );
+    }
+
+    const first: number = Number.parseInt(`${req.query.first}`) ?? 20;
+    const page: number = Number.parseInt(`${req.query.page}`) ?? 1;
+    return await this.cardRepository.getPaginatedDocuments(first, page, {
+      brand: user.brand_uuid,
+    });
+  }
+
+  async deletePaymentCard(uuid: string, user: UserDto) {
+    if (user.account_type === 'user') {
+      throw new HttpException(
+        `Action not supported on the account type.`,
+        HttpStatus.NOT_FOUND,
+      );
+    }
+    try {
+      await this.cardRepository.findOneAndDelete({
+        uuid,
+        brand: user.brand_uuid,
+      });
+      return { status: true, message: 'Card deleted successfully' };
+    } catch (e) {
+      throw new HttpException('Card was not found', HttpStatus.NOT_FOUND);
+    }
+  }
+
+  async addCard(cardDto: CardDto, user: UserDto) {
+    if (user.account_type === 'user') {
+      throw new HttpException(
+        `Action not supported on the account type.`,
+        HttpStatus.NOT_FOUND,
+      );
+    }
+
+    return await this.cardRepository.create({
+      ...cardDto,
+      brand: user.brand_uuid,
+    });
   }
 }

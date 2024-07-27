@@ -11,13 +11,16 @@ export class TransactionDocument extends AbstractDocument {
   amount: number;
 
   @Prop({ required: true, type: Types.Map })
-  transaction_details: Record<string, any>;
+  transaction_details?: Record<string, any>;
 
   @Prop({ required: true })
   tx_ref: string;
 
   @Prop({ required: true })
   transaction_type: 'topup' | 'withdraw' | 'transfer';
+
+  @Prop()
+  transaction: 'debit' | 'credit';
 }
 
 export const TransactionSchema =

@@ -6,6 +6,8 @@ import {
   Patch,
   Post,
   Query,
+  Req,
+  Res,
 } from '@nestjs/common';
 import { AppService } from './app.service';
 import { UseGuards } from '@nestjs/common';
@@ -20,10 +22,19 @@ import { CreateDiscountDto } from './dto/discount/create-discount.dto';
 import { CreateGiftCardDto } from './dto/giftcard/create-giftcard.dto';
 import { UpdateGiftCardDto } from './dto/giftcard/update-giftcard.dto';
 import { UpdateDiscountDto } from './dto/discount/update-discount.dto';
+import { CreateMemberShipMailDto } from './dto/membership-mail/create-membership-mail.dto';
+import { UpdateMemberShipMailDto } from './dto/membership-mail/update-membership-mail.dto';
+import { Request, Response } from 'express';
+import { CardDto } from './dto/card/card.dto';
 
 @Controller('brand')
 export class AppController {
   constructor(private readonly appService: AppService) {}
+
+  @Get('/healthcheck')
+  healthCheck(@Res() res: Response) {
+    return res.sendStatus(200);
+  }
 
   @UseGuards(JwtAuthGuard)
   @Patch('/update')
@@ -42,6 +53,15 @@ export class AppController {
     @Body() updatePostDto: UpdatePostDto,
   ) {
     return this.appService.updatePost(updatePostDto, user);
+  }
+
+  @Patch('/membership-mail')
+  @UseGuards(JwtAuthGuard)
+  updateMemberShipMail(
+    @CurrentUser() user: UserDto,
+    @Body() updateMemberShipMailDto: UpdateMemberShipMailDto,
+  ) {
+    return this.appService.updateMemberShipMail(user, updateMemberShipMailDto);
   }
 
   @Patch('/giftcard')
@@ -69,6 +89,12 @@ export class AppController {
   }
 
   @UseGuards(JwtAuthGuard)
+  @Delete('/paymant-card')
+  deletePaymentCard(@CurrentUser() user: UserDto, @Body('uuid') uuid: string) {
+    return this.appService.deletePaymentCard(uuid, user);
+  }
+
+  @UseGuards(JwtAuthGuard)
   @Get('/members/')
   getBrandMembers(
     @CurrentUser() user: UserDto,
@@ -84,7 +110,7 @@ export class AppController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get('/posts/')
+  @Get('/posts')
   getBrandPosts(
     @CurrentUser() user: UserDto,
     @Query() payload: { [key: string]: number },
@@ -92,7 +118,13 @@ export class AppController {
     return this.appService.getPosts(user, payload);
   }
 
-  @Get('/tasks/')
+  @UseGuards(JwtAuthGuard)
+  @Get('/payment-cards')
+  getPaymentCard(@CurrentUser() user: UserDto, @Req() req: Request) {
+    return this.appService.getPaymentCard(user, req);
+  }
+
+  @Get('/tasks')
   @UseGuards(JwtAuthGuard)
   @FormDataRequest()
   getBrandTask(
@@ -121,6 +153,13 @@ export class AppController {
     return this.appService.createPost(createPostDto, user);
   }
 
+  @UseGuards(JwtAuthGuard)
+  @Post('/payment-card')
+  @FormDataRequest()
+  addCard(@CurrentUser() user: UserDto, @Body() cardDto: CardDto) {
+    return this.appService.addCard(cardDto, user);
+  }
+
   @Post('/task')
   @UseGuards(JwtAuthGuard)
   @FormDataRequest()
@@ -147,6 +186,15 @@ export class AppController {
     @Body() createGiftCardDto: CreateGiftCardDto,
   ) {
     return this.appService.createGiftCard(user, createGiftCardDto);
+  }
+
+  @Post('/membership-mail')
+  @UseGuards(JwtAuthGuard)
+  createMemberShipMail(
+    @CurrentUser() user: UserDto,
+    @Body() createMemberShipMailDto: CreateMemberShipMailDto,
+  ) {
+    return this.appService.createMemberShipMail(user, createMemberShipMailDto);
   }
 
   @MessagePattern('create_brand')

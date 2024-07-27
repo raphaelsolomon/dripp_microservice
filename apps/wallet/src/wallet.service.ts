@@ -1,8 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { WalletRepository } from './repositories/wallet.repository';
-import { UserDto } from '@app/common';
+import { AUTH_SERVICE, NOTIFICATION_SERVICE, UserDto } from '@app/common';
 import { TransactionRepository } from './repositories/transaction.repository';
+import { ClientProxy } from '@nestjs/microservices';
+import { firstValueFrom } from 'rxjs';
+import { SendFundDto } from './dto/send-fund.dto';
 
 @Injectable()
 export class WalletService {
@@ -10,6 +13,9 @@ export class WalletService {
     private readonly configService: ConfigService,
     private readonly walletRepository: WalletRepository,
     private readonly transactionRepository: TransactionRepository,
+    @Inject(AUTH_SERVICE) private readonly authClientProxy: ClientProxy,
+    @Inject(NOTIFICATION_SERVICE)
+    private readonly notificationClientProxy: ClientProxy,
   ) {}
 
   async createWallet(payload: { [key: string]: string }) {
@@ -36,5 +42,86 @@ export class WalletService {
       { wallet_uuid },
     );
     return transactions;
+  }
+
+  async sendFundToUser(user: UserDto, sendFundDto: SendFundDto) {
+    const username = sendFundDto.username;
+    if (user.account_type === 'user') {
+      throw new HttpException(
+        'Action not supported on this account type',
+        HttpStatus.NOT_ACCEPTABLE,
+      );
+    }
+    if (user.username === username) {
+      throw new HttpException(
+        'Action not supported',
+        HttpStatus.NOT_ACCEPTABLE,
+      );
+    }
+    const brandWallet = await this.walletRepository.findOne({
+      uuid: user.wallet_uuid,
+    });
+
+    if (brandWallet.amount <= sendFundDto.amount) {
+      throw new HttpException('Insufficient funds', HttpStatus.NOT_ACCEPTABLE);
+    }
+
+    if (brandWallet.pin !== sendFundDto.pin) {
+      throw new HttpException('Wrong Pin', HttpStatus.NOT_ACCEPTABLE);
+    }
+
+    try {
+      const receiverInfo = await firstValueFrom(
+        this.authClientProxy.send('get_user', { username }),
+      );
+
+      const receiverWallet = await this.walletRepository.findOne({
+        uuid: receiverInfo.wallet_uuid,
+      });
+
+      //update the receiverWallet with the amount sent
+      await this.walletRepository.findOneAndUpdate(
+        { uuid: receiverWallet.uuid },
+        { amount: receiverWallet.amount + sendFundDto.amount },
+      );
+
+      //update the send amount on the sender wallet
+      await this.walletRepository.findOneAndUpdate(
+        { uuid: brandWallet.uuid },
+        { amount: brandWallet.amount - sendFundDto.amount - 50 }, //$50 transaction fee
+      );
+
+      //save the transaction for the receiver
+      const receiveTransaction = await this.transactionRepository.create({
+        wallet_uuid: receiverWallet.uuid,
+        amount: sendFundDto.amount,
+        transaction_details: {},
+        tx_ref: new Date().toString(),
+        transaction_type: 'transfer',
+        transaction: 'credit',
+      });
+
+      //save the transaction for the sender
+      const senderTransaction = await this.transactionRepository.create({
+        wallet_uuid: brandWallet.uuid,
+        amount: sendFundDto.amount,
+        transaction_details: {},
+        tx_ref: new Date().toString(),
+        transaction_type: 'transfer',
+        transaction: 'debit',
+      });
+
+      //notify the receiver of the transaction
+      this.notificationClientProxy.emit('send_fund', {
+        receiveTransaction,
+        senderTransaction,
+      });
+      return {
+        status: true,
+        message: `${sendFundDto.amount} has been sent to ${receiverInfo.username}`,
+      };
+    } catch (err) {
+      console.log(err);
+    }
   }
 }

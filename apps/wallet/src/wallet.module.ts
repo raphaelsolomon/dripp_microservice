@@ -1,5 +1,10 @@
 import { Module } from '@nestjs/common';
-import { AUTH_SERVICE, DatabaseModule, LoggerModule } from '@app/common';
+import {
+  AUTH_SERVICE,
+  DatabaseModule,
+  LoggerModule,
+  NOTIFICATION_SERVICE,
+} from '@app/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as Joi from 'joi';
 import { ClientsModule, Transport } from '@nestjs/microservices';
@@ -39,7 +44,9 @@ import {
         REDIRECT_URL: Joi.string().required(),
         WALLET_SESSION_SECRET: Joi.string().required(),
         AUTH_HOST: Joi.string().required(),
-        AUTH_PORT: Joi.string().required(),
+        AUTH_TCP_PORT: Joi.string().required(),
+        NOTIFICATION_HOST: Joi.string().required(),
+        NOTIFICATION_TCP_PORT: Joi.number().required(),
       }),
     }),
     ClientsModule.registerAsync([
@@ -49,7 +56,18 @@ import {
           transport: Transport.TCP,
           options: {
             host: configService.get<string>('AUTH_HOST'),
-            port: configService.get<number>('AUTH_PORT'),
+            port: configService.get<number>('AUTH_TCP_PORT'),
+          },
+        }),
+        inject: [ConfigService],
+      },
+      {
+        name: NOTIFICATION_SERVICE,
+        useFactory: (configService: ConfigService) => ({
+          transport: Transport.TCP,
+          options: {
+            host: configService.get<string>('NOTIFICATION_HOST'),
+            port: configService.get<number>('NOTIFICATION_TCP_PORT'),
           },
         }),
         inject: [ConfigService],

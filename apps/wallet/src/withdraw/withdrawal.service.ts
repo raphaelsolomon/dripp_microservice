@@ -79,6 +79,7 @@ export class WithdrawalService {
         amount: response?.data?.amount,
         transaction_type: 'withdraw',
         transaction_details: { ...response },
+        transaction: 'debit',
       });
     }
     return response;

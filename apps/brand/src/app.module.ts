@@ -7,6 +7,7 @@ import {
   AUTH_SERVICE,
   CloudinaryModule,
   WALLET_SERVICE,
+  NOTIFICATION_SERVICE,
 } from '@app/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as Joi from 'joi';
@@ -24,6 +25,13 @@ import { DiscountDocument, DiscountSchema } from './models/discount.schema';
 import { DiscountRepository } from './repositories/discount.repository';
 import { GiftCardRepository } from './repositories/giftcard.repository';
 import { GiftCardDocument, GiftCardSchema } from './models/giftcard.schema';
+import {
+  MemberShipMailDocument,
+  MemberShipMailSchema,
+} from './models/membership-mail.schema';
+import { CardDocument, CardSchema } from './models/card.schema';
+import { CardRepository } from './repositories/card.repository';
+import { MemberShipMailRepository } from './repositories/membership-mail.repository';
 
 @Module({
   imports: [
@@ -35,7 +43,9 @@ import { GiftCardDocument, GiftCardSchema } from './models/giftcard.schema';
       { name: PostDocument.name, schema: PostSchema },
       { name: TaskDocument.name, schema: TaskSchema },
       { name: DiscountDocument.name, schema: DiscountSchema },
+      { name: MemberShipMailDocument.name, schema: MemberShipMailSchema },
       { name: GiftCardDocument.name, schema: GiftCardSchema },
+      { name: CardDocument.name, schema: CardSchema },
     ]),
     LoggerModule,
     ConfigModule.forRoot({
@@ -45,9 +55,11 @@ import { GiftCardDocument, GiftCardSchema } from './models/giftcard.schema';
         BRAND_HTTP_PORT: Joi.number().required(),
         BRAND_TCP_PORT: Joi.number().required(),
         AUTH_HOST: Joi.string().required(),
-        AUTH_PORT: Joi.number().required(),
+        AUTH_TCP_PORT: Joi.number().required(),
         WALLET_TCP_HOST: Joi.string().required(),
         WALLET_TCP_PORT: Joi.number().required(),
+        NOTIFICATION_HOST: Joi.string().required(),
+        NOTIFICATION_TCP_PORT: Joi.number().required(),
       }),
     }),
     ClientsModule.registerAsync([
@@ -57,7 +69,7 @@ import { GiftCardDocument, GiftCardSchema } from './models/giftcard.schema';
           transport: Transport.TCP,
           options: {
             host: configService.get<string>('AUTH_HOST'),
-            port: configService.get<number>('AUTH_PORT'),
+            port: configService.get<number>('AUTH_TCP_PORT'),
           },
         }),
         inject: [ConfigService],
@@ -69,6 +81,17 @@ import { GiftCardDocument, GiftCardSchema } from './models/giftcard.schema';
           options: {
             host: configService.get<string>('WALLET_TCP_HOST'),
             port: configService.get<number>('WALLET_TCP_PORT'),
+          },
+        }),
+        inject: [ConfigService],
+      },
+      {
+        name: NOTIFICATION_SERVICE,
+        useFactory: (configService: ConfigService) => ({
+          transport: Transport.TCP,
+          options: {
+            host: configService.get<string>('NOTIFICATION_HOST'),
+            port: configService.get<number>('NOTIFICATION_TCP_PORT'),
           },
         }),
         inject: [ConfigService],
@@ -85,6 +108,8 @@ import { GiftCardDocument, GiftCardSchema } from './models/giftcard.schema';
     TaskRepository,
     DiscountRepository,
     GiftCardRepository,
+    CardRepository,
+    MemberShipMailRepository,
   ],
 })
 export class AppModule {}

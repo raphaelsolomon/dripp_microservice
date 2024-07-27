@@ -4,6 +4,9 @@ services:
   mongo:
     image: mongo:latest
     container_name: mongo_container
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: phoenix
+      MONGO_INITDB_ROOT_PASSWORD: phoenix
     ports:
       - 27017:27017
     volumes:

@@ -44,6 +44,9 @@ export class UserDocument extends AbstractDocument {
   @Prop({ required: false })
   wallet_uuid?: string;
 
+  @Prop({ required: false })
+  chat_uuid?: string;
+
   @Prop({ required: false, select: false })
   password_reset_token?: string;
 

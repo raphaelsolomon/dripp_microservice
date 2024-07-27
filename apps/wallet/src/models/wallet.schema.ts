@@ -5,6 +5,12 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 export class WalletDocument extends AbstractDocument {
   @Prop({ default: 0.0 })
   amount?: number;
+
+  @Prop({ default: 1111, length: 4 })
+  pin?: number;
+
+  @Prop({ default: false })
+  ischanged?: boolean;
 }
 
 export const WalletSchema = SchemaFactory.createForClass(WalletDocument);

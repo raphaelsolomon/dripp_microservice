@@ -29,6 +29,11 @@ export class AuthController {
     private readonly authService: AuthService,
   ) {}
 
+  @Get('/healthcheck')
+  healthCheck(@Res() res: Response) {
+    return res.sendStatus(200);
+  }
+
   @Post('/register')
   async createUser(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);

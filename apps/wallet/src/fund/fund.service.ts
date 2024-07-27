@@ -136,6 +136,7 @@ export class FundService {
         amount: transaction.data.amount,
         transaction_type: 'topup',
         transaction_details: { ...details },
+        transaction: 'credit',
       });
       const wallet = await this.walletRepository.findOne({ uuid: wallet_uuid });
       let { amount } = wallet;
