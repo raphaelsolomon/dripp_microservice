@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 855321186399.dkr.ecr.us-east-1.amazonaws.com
+  build:
+    commands:
+      - docker build -t auth -f ./apps/auth/Dockerfile .
+      - docker tag auth:latest 855321186399.dkr.ecr.us-east-1.amazonaws.com/auth:latest
+
+      - docker build -t brand -f ./apps/brand/Dockerfile .
+      - docker tag brand:latest 855321186399.dkr.ecr.us-east-1.amazonaws.com/brand:latest
+
+      - docker build -t notification -f ./apps/notification/Dockerfile .
+      - docker tag notification:latest 855321186399.dkr.ecr.us-east-1.amazonaws.com/notification:latest
+
+      - docker build -t wallet -f ./apps/wallet/Dockerfile .
+      - docker tag wallet:latest 855321186399.dkr.ecr.us-east-1.amazonaws.com/wallet:latest
+  post_build:
+    commands:
+      - docker push 855321186399.dkr.ecr.us-east-1.amazonaws.com/auth:latest
+      - docker push 855321186399.dkr.ecr.us-east-1.amazonaws.com/brand:latest
+      - docker push 855321186399.dkr.ecr.us-east-1.amazonaws.com/notification:latest
+      - docker push 855321186399.dkr.ecr.us-east-1.amazonaws.com/wallet:latest

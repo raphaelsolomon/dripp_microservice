@@ -52,6 +52,7 @@ import { MemberShipMailRepository } from './repositories/membership-mail.reposit
       isGlobal: true,
       validationSchema: Joi.object({
         MONGODB_URI: Joi.string().required(),
+        MONGODB_NAME: Joi.string().required(),
         BRAND_HTTP_PORT: Joi.number().required(),
         BRAND_TCP_PORT: Joi.number().required(),
         AUTH_HOST: Joi.string().required(),

@@ -17,6 +17,7 @@ import { FacebookStrategy } from './strategies/facebook.strategy';
       isGlobal: true,
       validationSchema: Joi.object({
         MONGODB_URI: Joi.string().required(),
+        MONGODB_NAME: Joi.string().required(),
         JWT_SECRET: Joi.string().required(),
         JWT_EXPIRATION: Joi.string().required(),
         AUTH_HTTP_PORT: Joi.number().required(),

@@ -34,6 +34,7 @@ import {
       isGlobal: true,
       validationSchema: Joi.object({
         MONGODB_URI: Joi.string().required(),
+        MONGODB_NAME: Joi.string().required(),
         WALLET_HTTP_PORT: Joi.string().required(),
         WALLET_TCP_PORT: Joi.string().required(),
         REDIS_CONNECT_URL: Joi.string().required(),
