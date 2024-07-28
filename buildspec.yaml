@@ -19,7 +19,7 @@ phases:
       - docker tag wallet:latest 855321186399.dkr.ecr.us-east-1.amazonaws.com/wallet:latest
   post_build:
     commands:
-      - docker push 855321186399.dkr.ecr.us-east-1.amazonaws.com/auth:latest
       - docker push 855321186399.dkr.ecr.us-east-1.amazonaws.com/brand:latest
+      - docker push 855321186399.dkr.ecr.us-east-1.amazonaws.com/auth:latest
       - docker push 855321186399.dkr.ecr.us-east-1.amazonaws.com/notification:latest
       - docker push 855321186399.dkr.ecr.us-east-1.amazonaws.com/wallet:latest
