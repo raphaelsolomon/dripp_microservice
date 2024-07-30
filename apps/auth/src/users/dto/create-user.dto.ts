@@ -1,4 +1,4 @@
-import { AccountType } from '../models/user.schema';
+import { AccountType } from '@app/common';
 
 export class CreateUserDto {
   email: string;

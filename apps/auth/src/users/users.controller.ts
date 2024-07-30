@@ -12,7 +12,7 @@ import {
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CurrentUser } from '../../../../libs/common/src/decorators/current-user.decorator';
-import { UserDocument } from './models/user.schema';
+import { UserDocument } from '@app/common';
 import { JwtAuthGuard } from '../guards/jwt-auth.guard';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UpdatePasswordDto } from './dto/update-password.dto';

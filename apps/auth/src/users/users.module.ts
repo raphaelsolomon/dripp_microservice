@@ -8,7 +8,7 @@ import {
   NOTIFICATION_SERVICE,
   WALLET_SERVICE,
 } from '@app/common';
-import { UserDocument, UserSchema } from './models/user.schema';
+import { UserDocument, UserSchema } from '@app/common';
 import { UserRepository } from './users.repository';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { ConfigService } from '@nestjs/config';

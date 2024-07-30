@@ -11,7 +11,7 @@ import {
 import { CreateUserDto } from './dto/create-user.dto';
 import { UserRepository } from './users.repository';
 import * as bcrypt from 'bcryptjs';
-import { UserDocument } from './models/user.schema';
+import { UserDocument } from '@app/common';
 import { getUserDto } from './dto/get-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import {

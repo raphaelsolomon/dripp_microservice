@@ -6,3 +6,4 @@ export * from './decorators';
 export * from './dto';
 export * from './utils';
 export * from './cloudinary';
+export * from './model';
