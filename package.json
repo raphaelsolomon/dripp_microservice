@@ -53,14 +53,14 @@
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "pino-http": "^10.1.0",
-    "pino-multi-stream": "^6.0.0",
     "pino-pretty": "^11.2.1",
     "pino-socket": "^7.3.0",
     "pino-tcp": "^1.0.6",
     "redis": "^4.6.15",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
-    "streamifier": "^0.1.1"
+    "streamifier": "^0.1.1",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",

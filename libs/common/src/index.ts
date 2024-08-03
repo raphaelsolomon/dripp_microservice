@@ -7,3 +7,4 @@ export * from './dto';
 export * from './utils';
 export * from './cloudinary';
 export * from './model';
+export * from './exception';

@@ -6,6 +6,7 @@ import { Logger } from 'nestjs-pino';
 import * as session from 'express-session';
 import { Transport } from '@nestjs/microservices';
 import { WalletModule } from './wallet.module';
+import { AllExceptionsFilter } from '@app/common';
 
 const sessionData = {
   resave: false,
@@ -27,6 +28,7 @@ async function bootstrap() {
   app.use(cookieParser());
   app.use(session({ ...sessionData, secret }));
   app.useGlobalPipes(new ValidationPipe({ whitelist: false }));
+  app.useGlobalFilters(new AllExceptionsFilter());
   app.useLogger(app.get(Logger));
   await app.startAllMicroservices();
   await app.listen(configService.get<number>('WALLET_HTTP_PORT'));

@@ -5,6 +5,7 @@ import { ConfigService } from '@nestjs/config';
 import * as cookieParser from 'cookie-parser';
 import { Transport } from '@nestjs/microservices';
 import { NotificationModule } from './notification.module';
+import { AllExceptionsFilter } from '@app/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(NotificationModule);
@@ -18,6 +19,7 @@ async function bootstrap() {
   });
   app.use(cookieParser());
   app.useGlobalPipes(new ValidationPipe({ whitelist: false }));
+  app.useGlobalFilters(new AllExceptionsFilter());
   app.useLogger(app.get(Logger));
   await app.startAllMicroservices();
   await app.listen(configService.get<number>('NOTIFICATION_HTTP_PORT'));
