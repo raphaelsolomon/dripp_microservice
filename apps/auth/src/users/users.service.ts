@@ -254,9 +254,9 @@ export class UsersService {
 
       const user = await this.userRepository.create({
         ...createUserDto,
-        avatar: profile?._json?.picture,
+        avatar: profile?._json?.profile_image_url,
         username: email.split('@')[0],
-        email_verified: profile?._json?.email_verified,
+        email_verified: profile?._json?.verified,
         password: await bcrypt.hash('randompassword', 10),
       });
       return user;
