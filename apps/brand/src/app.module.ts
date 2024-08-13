@@ -8,6 +8,10 @@ import {
   CloudinaryModule,
   WALLET_SERVICE,
   NOTIFICATION_SERVICE,
+  UserGiftCardDocument,
+  UserGiftCardSchema,
+  UserDiscountDocument,
+  UserDiscountSchema,
 } from '@app/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as Joi from 'joi';
@@ -21,10 +25,8 @@ import { PostDocument, PostSchema } from './models/post.schema';
 import { PostRepository } from './repositories/post.repository';
 import { TaskDocument, TaskSchema } from './models/task.schema';
 import { TaskRepository } from './repositories/task.repository';
-import { DiscountDocument, DiscountSchema } from './models/discount.schema';
 import { DiscountRepository } from './repositories/discount.repository';
 import { GiftCardRepository } from './repositories/giftcard.repository';
-import { GiftCardDocument, GiftCardSchema } from './models/giftcard.schema';
 import {
   MemberShipMailDocument,
   MemberShipMailSchema,
@@ -32,6 +34,17 @@ import {
 import { CardDocument, CardSchema } from './models/card.schema';
 import { CardRepository } from './repositories/card.repository';
 import { MemberShipMailRepository } from './repositories/membership-mail.repository';
+import {
+  BrandGiftCardDocument,
+  BrandGiftCardSchema,
+} from './models/giftcard.schema';
+import {
+  BrandDiscountDocument,
+  BrandDiscountSchema,
+} from './models/discount.schema';
+
+import { GiftCardRepository as UserGiftCardRepository } from '@app/common';
+import { DiscountRepository as UserDiscountRepository } from '@app/common';
 
 @Module({
   imports: [
@@ -42,10 +55,12 @@ import { MemberShipMailRepository } from './repositories/membership-mail.reposit
       { name: MemberDocument.name, schema: MemberSchema },
       { name: PostDocument.name, schema: PostSchema },
       { name: TaskDocument.name, schema: TaskSchema },
-      { name: DiscountDocument.name, schema: DiscountSchema },
+      { name: BrandDiscountDocument.name, schema: BrandDiscountSchema },
       { name: MemberShipMailDocument.name, schema: MemberShipMailSchema },
-      { name: GiftCardDocument.name, schema: GiftCardSchema },
+      { name: BrandGiftCardDocument.name, schema: BrandGiftCardSchema },
       { name: CardDocument.name, schema: CardSchema },
+      { name: UserGiftCardDocument.name, schema: UserGiftCardSchema },
+      { name: UserDiscountDocument.name, schema: UserDiscountSchema },
     ]),
     LoggerModule,
     ConfigModule.forRoot({
@@ -111,6 +126,8 @@ import { MemberShipMailRepository } from './repositories/membership-mail.reposit
     GiftCardRepository,
     CardRepository,
     MemberShipMailRepository,
+    UserGiftCardRepository,
+    UserDiscountRepository,
   ],
 })
 export class AppModule {}

@@ -10,6 +10,8 @@ import { Localstrategy } from './strategies/local.strategy';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { GoogleStrategy } from './strategies/google.strategy';
 import { FacebookStrategy } from './strategies/facebook.strategy';
+import { SearchModule } from './search/search.module';
+import { XTwitterStrategy } from './strategies/twitter.strategy';
 
 @Module({
   imports: [
@@ -49,6 +51,7 @@ import { FacebookStrategy } from './strategies/facebook.strategy';
       inject: [ConfigService],
     }),
     UsersModule,
+    SearchModule,
     LoggerModule,
   ],
   controllers: [AuthController],
@@ -58,6 +61,7 @@ import { FacebookStrategy } from './strategies/facebook.strategy';
     JwtStrategy,
     GoogleStrategy,
     FacebookStrategy,
+    XTwitterStrategy,
   ],
 })
 export class AuthModule {}

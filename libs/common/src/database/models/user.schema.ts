@@ -1,5 +1,5 @@
-import { AbstractDocument } from '@app/common';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { AbstractDocument } from './abstract.schema';
 
 export enum AccountType {
   user = 'user',

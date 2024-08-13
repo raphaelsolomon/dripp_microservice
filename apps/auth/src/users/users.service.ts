@@ -9,7 +9,7 @@ import {
   UnprocessableEntityException,
 } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
-import { UserRepository } from './users.repository';
+import { UserRepository } from './repositories/users.repository';
 import * as bcrypt from 'bcryptjs';
 import { UserDocument } from '@app/common';
 import { getUserDto } from './dto/get-user.dto';
@@ -210,6 +210,33 @@ export class UsersService {
   }
 
   async authenticateGoogle(profile: any) {
+    const email: string = profile?._json?.email;
+    try {
+      const user = await this.userRepository.findOne({ email });
+      if (user.status === false) {
+        throw new HttpException(
+          'Could not find user',
+          HttpStatus.NOT_ACCEPTABLE,
+        );
+      }
+      return user;
+    } catch (err) {
+      const createUserDto = new CreateUserDto();
+      createUserDto.email = email;
+      createUserDto.fullname = profile?._json?.name;
+
+      const user = await this.userRepository.create({
+        ...createUserDto,
+        avatar: profile?._json?.picture,
+        username: email.split('@')[0],
+        email_verified: profile?._json?.email_verified,
+        password: await bcrypt.hash('randompassword', 10),
+      });
+      return user;
+    }
+  }
+
+  async authenticateX(profile: Record<string, any>) {
     const email: string = profile?._json?.email;
     try {
       const user = await this.userRepository.findOne({ email });

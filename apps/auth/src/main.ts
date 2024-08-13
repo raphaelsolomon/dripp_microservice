@@ -6,6 +6,7 @@ import { ConfigService } from '@nestjs/config';
 import * as cookieParser from 'cookie-parser';
 import { Transport } from '@nestjs/microservices';
 import { AllExceptionsFilter } from '@app/common';
+import * as session from 'express-session';
 
 async function bootstrap() {
   const app = await NestFactory.create(AuthModule);
@@ -17,6 +18,14 @@ async function bootstrap() {
       port: configService.get<number>('AUTH_TCP_PORT'),
     },
   });
+  app.use(
+    session({
+      secret: 'dripp',
+      resave: false,
+      saveUninitialized: false,
+      cookie: { secure: false },
+    }),
+  );
   app.use(cookieParser());
   app.useGlobalPipes(new ValidationPipe({ whitelist: false, transform: true }));
   app.useGlobalFilters(new AllExceptionsFilter());

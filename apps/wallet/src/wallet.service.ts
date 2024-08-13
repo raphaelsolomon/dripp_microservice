@@ -124,4 +124,126 @@ export class WalletService {
       console.log(err);
     }
   }
+
+  async createCampaign({ uuid, amount }: { [key: string]: string }) {
+    try {
+      const wallet = await this.walletRepository.findOne({ uuid });
+      if (wallet.amount < Number(amount)) {
+        return 'insufficient_amount';
+      }
+
+      const newAmount = wallet.amount - Number.parseInt(amount);
+      await this.walletRepository.findOneAndUpdate(
+        { uuid },
+        { amount: newAmount },
+      );
+
+      const transaction = await this.transactionRepository.create({
+        wallet_uuid: uuid,
+        amount: Number(amount),
+        transaction_details: {},
+        tx_ref: new Date().toString(),
+        transaction_type: 'transfer',
+        transaction: 'debit',
+      });
+
+      this.notificationClientProxy.emit('campaign_created', transaction);
+      return 'success';
+    } catch (err) {
+      return 'not_found';
+    }
+  }
+
+  async createGiftCard({ uuid, amount, receiver }: { [key: string]: string }) {
+    try {
+      const wallet = await this.walletRepository.findOne({ uuid });
+      if (wallet.amount < Number(amount)) {
+        return 'insufficient_amount';
+      }
+
+      const newAmount = wallet.amount - Number.parseInt(amount);
+      await this.walletRepository.findOneAndUpdate(
+        { uuid },
+        { amount: newAmount },
+      );
+      // if this giftcard is for a particular user instead of community
+      if (receiver) {
+        const userReceiver: UserDto = await firstValueFrom(
+          this.authClientProxy.send('get_user', { uuid: receiver }),
+        );
+
+        const transaction = await this.transactionRepository.create({
+          wallet_uuid: userReceiver.wallet_uuid,
+          amount: Number(amount),
+          transaction_details: {},
+          tx_ref: new Date().toString(),
+          transaction_type: 'transfer',
+          transaction: 'credit',
+        });
+
+        this.notificationClientProxy.emit('gift_received', transaction);
+      }
+
+      const transaction = await this.transactionRepository.create({
+        wallet_uuid: uuid,
+        amount: Number(amount),
+        transaction_details: {},
+        tx_ref: new Date().toString(),
+        transaction_type: 'transfer',
+        transaction: 'debit',
+      });
+
+      this.notificationClientProxy.emit('gift_created', transaction);
+      return 'success';
+    } catch (err) {
+      return 'not_found';
+    }
+  }
+
+  async createDiscount({ uuid, amount, receiver }: { [key: string]: string }) {
+    try {
+      const wallet = await this.walletRepository.findOne({ uuid });
+      if (wallet.amount < Number(amount)) {
+        return 'insufficient_amount';
+      }
+
+      const newAmount = wallet.amount - Number.parseInt(amount);
+      await this.walletRepository.findOneAndUpdate(
+        { uuid },
+        { amount: newAmount },
+      );
+
+      // if this giftcard is for a particular user instead of community
+      if (receiver) {
+        const userReceiver: UserDto = await firstValueFrom(
+          this.authClientProxy.send('get_user', { uuid: receiver }),
+        );
+
+        const transaction = await this.transactionRepository.create({
+          wallet_uuid: userReceiver.wallet_uuid,
+          amount: Number(amount),
+          transaction_details: {},
+          tx_ref: new Date().toString(),
+          transaction_type: 'transfer',
+          transaction: 'credit',
+        });
+
+        this.notificationClientProxy.emit('discount_received', transaction);
+      }
+
+      const transaction = await this.transactionRepository.create({
+        wallet_uuid: uuid,
+        amount: Number(amount),
+        transaction_details: {},
+        tx_ref: new Date().toString(),
+        transaction_type: 'transfer',
+        transaction: 'debit',
+      });
+
+      this.notificationClientProxy.emit('discount_created', transaction);
+      return 'success';
+    } catch (err) {
+      return 'not_found';
+    }
+  }
 }

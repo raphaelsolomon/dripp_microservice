@@ -3,7 +3,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { BrandDocument } from './brand.schema';
 
 @Schema({ versionKey: false })
-export class DiscountDocument extends AbstractDocument {
+export class BrandDiscountDocument extends AbstractDocument {
   @Prop({ required: true })
   product_name: string;
 
@@ -29,4 +29,6 @@ export class DiscountDocument extends AbstractDocument {
   brand: string;
 }
 
-export const DiscountSchema = SchemaFactory.createForClass(DiscountDocument);
+export const BrandDiscountSchema = SchemaFactory.createForClass(
+  BrandDiscountDocument,
+);

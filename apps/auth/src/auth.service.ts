@@ -50,4 +50,9 @@ export class AuthService {
     const user = await this.userService.authenticateFacebook(req.user);
     return await this.getUserAndToken(user, res);
   }
+
+  async xLogin(req: Request, res: Response): Promise<SocialType> {
+    const user = await this.userService.authenticateX(req.user);
+    return await this.getUserAndToken(user, res);
+  }
 }

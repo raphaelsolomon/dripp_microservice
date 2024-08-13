@@ -26,6 +26,8 @@ import { CreateMemberShipMailDto } from './dto/membership-mail/create-membership
 import { UpdateMemberShipMailDto } from './dto/membership-mail/update-membership-mail.dto';
 import { Request, Response } from 'express';
 import { CardDto } from './dto/card/card.dto';
+import { GiftUserCardDto } from './dto/giftcard/gift-user-card.dto';
+import { GiftUserDiscountDto } from './dto/discount/gift-user-discount.dto';
 
 @Controller('brand')
 export class AppController {
@@ -134,13 +136,22 @@ export class AppController {
     return this.appService.getBrandTask(user, payload);
   }
 
-  @Get('/discount')
+  @Get('/discounts')
   @UseGuards(JwtAuthGuard)
   getDicounts(
     @CurrentUser() user: UserDto,
     @Query() payload: { [key: string]: number },
   ) {
-    return this.appService.getDiscount(user, payload);
+    return this.appService.getDiscounts(user, payload);
+  }
+
+  @Get('/giftcards')
+  @UseGuards(JwtAuthGuard)
+  getGiftCards(
+    @CurrentUser() user: UserDto,
+    @Query() payload: { [key: string]: number },
+  ) {
+    return this.appService.getGiftCards(user, payload);
   }
 
   @UseGuards(JwtAuthGuard)
@@ -179,6 +190,15 @@ export class AppController {
     return this.appService.createDiscount(user, createDiscountDto);
   }
 
+  @Post('/discount/user')
+  @UseGuards(JwtAuthGuard)
+  createDiscountToUser(
+    @CurrentUser() user: UserDto,
+    @Body() input: GiftUserDiscountDto,
+  ) {
+    return this.appService.createDiscountToUser(user, input);
+  }
+
   @Post('/giftcard')
   @UseGuards(JwtAuthGuard)
   createGiftCard(
@@ -186,6 +206,15 @@ export class AppController {
     @Body() createGiftCardDto: CreateGiftCardDto,
   ) {
     return this.appService.createGiftCard(user, createGiftCardDto);
+  }
+
+  @Post('/giftcard/user')
+  @UseGuards(JwtAuthGuard)
+  createGiftCardToUser(
+    @CurrentUser() user: UserDto,
+    @Body() input: GiftUserCardDto,
+  ) {
+    return this.appService.createGiftCardToUser(user, input);
   }
 
   @Post('/membership-mail')
@@ -230,5 +259,10 @@ export class AppController {
   @MessagePattern('get_task_from_brands')
   getTaskFromBrands(@Payload() payload: { [key: string]: string }) {
     return this.appService.getTaskFromBrands(payload);
+  }
+
+  @MessagePattern('search')
+  searchFunction(@Payload() { input }: { [key: string]: string }) {
+    return this.appService.searchFunction(input);
   }
 }

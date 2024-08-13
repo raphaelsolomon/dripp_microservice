@@ -17,6 +17,8 @@ services:
       - /usr/src/app/node_modules
     networks:
       - dripp_network
+    depends_on:
+      - mongo
 
   brand:
     container_name: brand_container
@@ -34,6 +36,8 @@ services:
       - /usr/src/app/node_modules
     networks:
       - dripp_network
+    depends_on:
+      - mongo
 
   notification:
     container_name: notification_container
@@ -51,6 +55,8 @@ services:
       - /usr/src/app/node_modules
     networks:
       - dripp_network
+    depends_on:
+      - mongo
 
   wallet:
     container_name: wallet_container
@@ -68,6 +74,9 @@ services:
       - /usr/src/app/node_modules
     networks:
       - dripp_network
+    depends_on:
+      - mongo
+      - redis  
 
   webserver:
     build:

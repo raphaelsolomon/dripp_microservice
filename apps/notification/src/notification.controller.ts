@@ -41,6 +41,12 @@ export class NotificationController {
     this.notificationService.sendfundNotification(data);
   }
 
+  @UsePipes(new ValidationPipe())
+  @EventPattern('campaign_created')
+  async campaignCreated(@Payload() data: { [key: string]: any }) {
+    this.notificationService.sendfundNotification(data);
+  }
+
   @Get('/')
   @UseGuards(JwtAuthGuard)
   getNotification(@CurrentUser() user: UserDto, @Req() req: Request) {

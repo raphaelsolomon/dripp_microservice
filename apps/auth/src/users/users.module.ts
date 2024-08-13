@@ -5,11 +5,17 @@ import {
   BRAND_SERVICE,
   CloudinaryModule,
   DatabaseModule,
+  DiscountRepository,
+  GiftCardRepository,
   NOTIFICATION_SERVICE,
+  UserDiscountDocument,
+  UserDiscountSchema,
+  UserGiftCardDocument,
+  UserGiftCardSchema,
   WALLET_SERVICE,
 } from '@app/common';
 import { UserDocument, UserSchema } from '@app/common';
-import { UserRepository } from './users.repository';
+import { UserRepository } from './repositories/users.repository';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { ConfigService } from '@nestjs/config';
 import {
@@ -26,6 +32,8 @@ import { NestjsFormDataModule } from 'nestjs-form-data';
     DatabaseModule.forFeature([
       { name: UserDocument.name, schema: UserSchema },
       { name: VerificationDocument.name, schema: VerificationSchema },
+      { name: UserGiftCardDocument.name, schema: UserGiftCardSchema },
+      { name: UserDiscountDocument.name, schema: UserDiscountSchema },
     ]),
     ClientsModule.registerAsync([
       {
@@ -65,7 +73,13 @@ import { NestjsFormDataModule } from 'nestjs-form-data';
     CloudinaryModule,
   ],
   controllers: [UsersController],
-  providers: [UsersService, UserRepository, VerificationRepository],
+  providers: [
+    UsersService,
+    UserRepository,
+    VerificationRepository,
+    DiscountRepository,
+    GiftCardRepository,
+  ],
   exports: [UsersService, UserRepository],
 })
 export class UsersModule {}

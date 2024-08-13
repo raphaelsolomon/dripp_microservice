@@ -39,11 +39,28 @@ export class WalletController {
 
   @MessagePattern('create_wallet')
   createWallet(@Payload() payload: { [key: string]: string }) {
+    console.log(payload);
     return this.walletService.createWallet(payload);
   }
 
   @MessagePattern('get_wallet')
   getWallet(@Payload() payload: { [key: string]: string }) {
     return this.walletService.getWallet(payload);
+  }
+
+  // =======================TASK, DISCOUNT & GIFT CARD =================
+  @MessagePattern('create_campaign')
+  createCampaign(@Payload() payload: { [key: string]: string }) {
+    return this.walletService.createCampaign(payload);
+  }
+
+  @MessagePattern('create_giftcard')
+  createGiftCard(@Payload() payload: { [key: string]: string }) {
+    return this.walletService.createGiftCard(payload);
+  }
+
+  @MessagePattern('create_discount')
+  createDiscount(@Payload() payload: { [key: string]: string }) {
+    return this.walletService.createDiscount(payload);
   }
 }

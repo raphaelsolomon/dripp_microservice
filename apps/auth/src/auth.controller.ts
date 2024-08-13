@@ -21,6 +21,7 @@ import { GoogleAuthGuard } from './guards/google-auth.guard';
 import { FacebookAuthGuard } from './guards/facebook-auth.guard';
 import { VerifyEmailDto } from './users/dto/verify-email.dto';
 import { ResetpasswordDto } from './users/dto/reset-password.dto';
+import { XTwitterAuthGuard } from './guards/twitter-auth.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -94,6 +95,17 @@ export class AuthController {
   @UseGuards(GoogleAuthGuard)
   async googleAuthRedirect(@Req() req: Request, @Res() res: Response) {
     const result = await this.authService.googleLogin(req, res);
+    res.json(result);
+  }
+
+  @Get('/x/oauth')
+  @UseGuards(XTwitterAuthGuard)
+  async xAuth(@Req() req: Request) {}
+
+  @Get('/x/redirect')
+  @UseGuards(XTwitterAuthGuard)
+  async xAuthRedirect(@Req() req: Request, @Res() res: Response) {
+    const result = await this.authService.xLogin(req, res);
     res.json(result);
   }
 

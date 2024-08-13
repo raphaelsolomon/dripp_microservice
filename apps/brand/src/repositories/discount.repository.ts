@@ -1,15 +1,16 @@
 import { AbstractRepository } from '@app/common';
 import { Injectable, Logger } from '@nestjs/common';
-import { DiscountDocument } from '../models/discount.schema';
+import { BrandDiscountDocument } from '../models/discount.schema';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
 @Injectable()
-export class DiscountRepository extends AbstractRepository<DiscountDocument> {
-  protected readonly logger = new Logger(DiscountDocument.name);
+export class DiscountRepository extends AbstractRepository<BrandDiscountDocument> {
+  protected readonly logger = new Logger(DiscountRepository.name);
 
   constructor(
-    @InjectModel(DiscountDocument.name) discountModel: Model<DiscountDocument>,
+    @InjectModel(BrandDiscountDocument.name)
+    discountModel: Model<BrandDiscountDocument>,
   ) {
     super(discountModel);
   }

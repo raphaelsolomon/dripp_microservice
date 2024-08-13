@@ -32,6 +32,10 @@ import { UpdateMemberShipMailDto } from './dto/membership-mail/update-membership
 import { CardRepository } from './repositories/card.repository';
 import { Request } from 'express';
 import { CardDto } from './dto/card/card.dto';
+import { GiftUserCardDto } from './dto/giftcard/gift-user-card.dto';
+import { GiftCardRepository as UserGiftCardRepository } from '@app/common';
+import { DiscountRepository as UserDiscountRepository } from '@app/common';
+import { GiftUserDiscountDto } from './dto/discount/gift-user-discount.dto';
 
 @Injectable()
 export class AppService {
@@ -45,6 +49,8 @@ export class AppService {
     private readonly giftcardRepository: GiftCardRepository,
     private readonly membershipMailRepository: MemberShipMailRepository,
     private readonly cardRepository: CardRepository,
+    private readonly userGiftCardRepository: UserGiftCardRepository,
+    private readonly userDiscountRepository: UserDiscountRepository,
     @Inject(AUTH_SERVICE) private readonly authClientproxy: ClientProxy,
     @Inject(NOTIFICATION_SERVICE)
     private readonly notificationClientProxy: ClientProxy,
@@ -208,16 +214,35 @@ export class AppService {
     };
   }
 
-  async createBrandTask(user: UserDto, createTaskDto: CreateTaskDto) {
+  async createBrandTask(user: UserDto, input: CreateTaskDto) {
+    if (user.account_type === 'user') {
+      throw new HttpException(
+        `Action not allowed on this account type`,
+        HttpStatus.NOT_ACCEPTABLE,
+      );
+    }
+
     const cloudinary = await this.cloudinaryService.uploadFile(
-      createTaskDto.campaign_banner,
+      input.campaign_banner,
       'campaign-banners',
     );
     if (cloudinary) {
+      // send the request to wallet service to confirm the wallet balance.
+      const walletResult: string = await firstValueFrom(
+        this.walletClientproxy.send('create_campaign', {
+          uuid: user.wallet_uuid,
+          amount: input.campaign_amount,
+        }),
+      );
+
+      if (walletResult !== 'success') {
+        throw new HttpException(walletResult, HttpStatus.NOT_FOUND);
+      }
+
       return await this.taskRepository.create({
         campaign_banner_url: cloudinary.url,
         brand: user.brand_uuid,
-        ...createTaskDto,
+        ...input,
       });
     }
     throw new Error('Unable to upload campaign banner');
@@ -299,7 +324,7 @@ export class AppService {
     }
   }
 
-  async getDiscount(user: UserDto, payload: { [key: string]: number }) {
+  async getDiscounts(user: UserDto, payload: { [key: string]: number }) {
     if (user.account_type === 'user') {
       throw new HttpException(
         `Action not allowed on this account type`,
@@ -309,6 +334,20 @@ export class AppService {
     const first: number = payload.first;
     const page: number = payload.page;
     return await this.discountRepository.getPaginatedDocuments(first, page, {
+      brand: user.brand_uuid,
+    });
+  }
+
+  async getGiftCards(user: UserDto, payload: { [key: string]: number }) {
+    if (user.account_type === 'user') {
+      throw new HttpException(
+        `Action not allowed on this account type`,
+        HttpStatus.NOT_ACCEPTABLE,
+      );
+    }
+    const first: number = payload.first;
+    const page: number = payload.page;
+    return await this.giftcardRepository.getPaginatedDocuments(first, page, {
       brand: user.brand_uuid,
     });
   }
@@ -351,8 +390,7 @@ export class AppService {
 
     for (let i = 0; i < data.length; i++) {
       const brandMembers = [];
-      const brand_uuid = data[i].uuid;
-      const members = await this.memberRepository.find({ brand_uuid });
+      const members = await this.memberRepository.find({ brand: data[i].uuid });
       const index = members.findIndex((v) => v.member_uuid === user_uuid);
       if (index > -1) {
         data[i]['isSubscribed'] = true;
@@ -390,7 +428,6 @@ export class AppService {
     /* get channel/brands users are subscribed to and also brands they are not subscribed to */
     const subscribeBrands = await this.memberRepository.find({ member_uuid });
     const subscribeBrandsUuids = subscribeBrands.map((member) => member.brand);
-    console.log(subscribeBrandsUuids);
     const subscribedTasks = await this.taskRepository.find(
       {
         brand: { $in: subscribeBrandsUuids },
@@ -416,7 +453,7 @@ export class AppService {
     return [...subscribedTasks, ...unsubscribeTasks];
   }
 
-  async createDiscount(user: UserDto, createDiscountDto: CreateDiscountDto) {
+  async createDiscount(user: UserDto, input: CreateDiscountDto) {
     if (user.account_type === 'user') {
       throw new HttpException(
         `Action not allowed on this account type`,
@@ -425,17 +462,19 @@ export class AppService {
     }
     // get wallet balance from wallet service...
     try {
-      const wallet = await firstValueFrom(
-        this.walletClientproxy.send('get_wallet', { uuid: user.wallet_uuid }),
+      const walletResult = await firstValueFrom(
+        this.walletClientproxy.send('create_discount', {
+          uuid: user.wallet_uuid,
+          amount: input.discount_amount,
+        }),
       );
-      if (createDiscountDto.discount_amount > wallet.amount) {
-        throw new HttpException(
-          'Insufficient wallet balance',
-          HttpStatus.NOT_ACCEPTABLE,
-        );
+
+      if (walletResult !== 'success') {
+        throw new HttpException(walletResult, HttpStatus.NOT_FOUND);
       }
+
       return await this.discountRepository.create({
-        ...createDiscountDto,
+        ...input,
         brand: user.brand_uuid,
       });
     } catch (error) {
@@ -443,7 +482,7 @@ export class AppService {
     }
   }
 
-  async createGiftCard(user: UserDto, createGiftCardDto: CreateGiftCardDto) {
+  async createGiftCard(user: UserDto, input: CreateGiftCardDto) {
     if (user.account_type === 'user') {
       throw new HttpException(
         `Action not allowed on this account type`,
@@ -452,21 +491,23 @@ export class AppService {
     }
     // get wallet balance from wallet service...
     try {
-      const wallet = await firstValueFrom(
-        this.walletClientproxy.send('get_wallet', { uuid: user.wallet_uuid }),
+      const walletResult = await firstValueFrom(
+        this.walletClientproxy.send('create_giftcard', {
+          uuid: user.wallet_uuid,
+          amount: input.gift_card_amount,
+        }),
       );
-      if (createGiftCardDto.gift_card_campaign_amount > wallet.amount) {
-        throw new HttpException(
-          'Insufficient wallet balance',
-          HttpStatus.NOT_ACCEPTABLE,
-        );
+
+      if (walletResult !== 'success') {
+        throw new HttpException(walletResult, HttpStatus.NOT_FOUND);
       }
       return await this.giftcardRepository.create({
-        ...createGiftCardDto,
+        ...input,
         brand: user.brand_uuid,
       });
     } catch (error) {
-      throw new HttpException(error, HttpStatus.INTERNAL_SERVER_ERROR);
+      console.log(error);
+      //throw new HttpException(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
 
@@ -485,16 +526,16 @@ export class AppService {
     );
   }
 
-  async updateDiscount(user: UserDto, updateDiscountDto: UpdateDiscountDto) {
+  async updateDiscount(user: UserDto, input: UpdateDiscountDto) {
     if (user.account_type === 'user') {
       throw new HttpException(
         `Action not allowed on this account type`,
         HttpStatus.NOT_ACCEPTABLE,
       );
     }
-    const { discount_amount, ...details } = updateDiscountDto;
+    const { discount_amount, ...details } = input;
     return await this.discountRepository.findOneAndUpdate(
-      { uuid: updateDiscountDto.discount_uuid, brand: user.brand_uuid },
+      { uuid: input.discount_uuid, brand: user.brand_uuid },
       { ...details },
     );
   }
@@ -523,10 +564,7 @@ export class AppService {
     return { data: recommendedBrands, paginationInfo };
   }
 
-  async createMemberShipMail(
-    user: UserDto,
-    createMemberShipMailDto: CreateMemberShipMailDto,
-  ) {
+  async createMemberShipMail(user: UserDto, input: CreateMemberShipMailDto) {
     if (user.account_type === 'user') {
       throw new HttpException(
         `Action not allowed on this account type`,
@@ -540,16 +578,13 @@ export class AppService {
       });
     } catch (e) {
       return await this.membershipMailRepository.create({
-        ...createMemberShipMailDto,
+        ...input,
         brand: user.brand_uuid,
       });
     }
   }
 
-  async updateMemberShipMail(
-    user: UserDto,
-    updateMemberShipMailDto: UpdateMemberShipMailDto,
-  ) {
+  async updateMemberShipMail(user: UserDto, input: UpdateMemberShipMailDto) {
     if (user.account_type === 'user') {
       throw new HttpException(
         `Action not allowed on this account type`,
@@ -560,7 +595,7 @@ export class AppService {
     try {
       return await this.membershipMailRepository.findOneAndUpdate(
         { brand: user.brand_uuid },
-        { ...updateMemberShipMailDto },
+        { ...input },
       );
     } catch (e) {
       throw new HttpException(
@@ -615,5 +650,87 @@ export class AppService {
       ...cardDto,
       brand: user.brand_uuid,
     });
+  }
+
+  async createDiscountToUser(user: UserDto, input: GiftUserDiscountDto) {
+    if (user.account_type === 'user') {
+      throw new HttpException(
+        `Action not supported on the account type.`,
+        HttpStatus.NOT_FOUND,
+      );
+    }
+    const walletResult = await firstValueFrom(
+      this.walletClientproxy.send('create_discount', {
+        uuid: user.wallet_uuid,
+        amount: input.discount_amount,
+        receiver: input.receiver_user_uuid,
+      }),
+    );
+
+    if (walletResult !== 'success') {
+      throw new HttpException(walletResult, HttpStatus.NOT_FOUND);
+    }
+
+    await this.userDiscountRepository.create({
+      ...input,
+      user_uuid: input.receiver_user_uuid,
+      brand_uuid: user.brand_uuid,
+    });
+
+    return {
+      status: true,
+      message: `Gifted ${input.receiver_user_uuid} with ${input.discount_amount} Discounts`,
+    };
+  }
+
+  async createGiftCardToUser(user: UserDto, input: GiftUserCardDto) {
+    if (user.account_type === 'user') {
+      throw new HttpException(
+        `Action not supported on the account type.`,
+        HttpStatus.NOT_FOUND,
+      );
+    }
+    const walletResult = await firstValueFrom(
+      this.walletClientproxy.send('create_giftcard', {
+        uuid: user.wallet_uuid,
+        amount: input.gift_card_amount,
+        receiver: input.receiver_user_uuid,
+      }),
+    );
+
+    if (walletResult !== 'success') {
+      throw new HttpException(walletResult, HttpStatus.NOT_FOUND);
+    }
+
+    await this.userGiftCardRepository.create({
+      ...input,
+      user_uuid: input.receiver_user_uuid,
+      brand_uuid: user.brand_uuid,
+    });
+
+    return {
+      status: true,
+      message: `Gifted ${input.receiver_user_uuid} with ${input.gift_card_amount} Gift card`,
+    };
+  }
+
+  async searchFunction(input: string) {
+    const tasks = await this.taskRepository.find({
+      campaign_title: { $regex: input, $options: 'i' },
+    });
+    const brands = await this.brandRepository.find({
+      brand_name: { $regex: input, $options: 'i' },
+    });
+    const discounts = await this.discountRepository.find({
+      product_name: { $regex: input, $options: 'i' },
+    });
+    const giftCards = await this.giftcardRepository.find({
+      gift_card_product: { $regex: input, $options: 'i' },
+    });
+    const posts = await this.postRepository.find({
+      post_title: { $regex: input, $options: 'i' },
+    });
+
+    return { tasks, brands, discounts, giftCards, posts };
   }
 }
