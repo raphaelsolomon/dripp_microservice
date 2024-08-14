@@ -5,12 +5,19 @@ import {
   BRAND_SERVICE,
   DatabaseModule,
   NOTIFICATION_SERVICE,
+  UserDiscountDocument,
+  UserDiscountSchema,
   UserDocument,
+  UserGiftCardDocument,
+  UserGiftCardSchema,
   UserSchema,
 } from '@app/common';
 import { UserRepository } from '../users/repositories/users.repository';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { ConfigService } from '@nestjs/config';
+
+import { GiftCardRepository as UserGiftCardRepository } from '@app/common';
+import { DiscountRepository as UserDiscountRepository } from '@app/common';
 
 @Module({
   imports: [
@@ -18,6 +25,14 @@ import { ConfigService } from '@nestjs/config';
       {
         name: UserDocument.name,
         schema: UserSchema,
+      },
+      {
+        name: UserDiscountDocument.name,
+        schema: UserDiscountSchema,
+      },
+      {
+        name: UserGiftCardDocument.name,
+        schema: UserGiftCardSchema,
       },
     ]),
     ClientsModule.registerAsync([
@@ -46,6 +61,11 @@ import { ConfigService } from '@nestjs/config';
     ]),
   ],
   controllers: [SearchController],
-  providers: [SearchService, UserRepository],
+  providers: [
+    SearchService,
+    UserRepository,
+    UserGiftCardRepository,
+    UserDiscountRepository,
+  ],
 })
 export class SearchModule {}

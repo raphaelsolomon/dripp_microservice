@@ -714,23 +714,44 @@ export class AppService {
     };
   }
 
-  async searchFunction(input: string) {
-    const tasks = await this.taskRepository.find({
-      campaign_title: { $regex: input, $options: 'i' },
-    });
-    const brands = await this.brandRepository.find({
-      brand_name: { $regex: input, $options: 'i' },
-    });
-    const discounts = await this.discountRepository.find({
-      product_name: { $regex: input, $options: 'i' },
-    });
-    const giftCards = await this.giftcardRepository.find({
-      gift_card_product: { $regex: input, $options: 'i' },
-    });
-    const posts = await this.postRepository.find({
-      post_title: { $regex: input, $options: 'i' },
-    });
+  async searchFunction(input: string, user: UserDto) {
+    if (user.account_type === 'user') {
+      const tasks = await this.taskRepository.find({
+        campaign_title: { $regex: input, $options: 'i' },
+      });
+      const brands = await this.brandRepository.find({
+        brand_name: { $regex: input, $options: 'i' },
+      });
+      const posts = await this.postRepository.find({
+        post_title: { $regex: input, $options: 'i' },
+      });
 
-    return { tasks, brands, discounts, giftCards, posts };
+      return { tasks, brands, posts };
+    } else {
+      const discounts = await this.discountRepository.find({
+        product_name: { $regex: input, $options: 'i' },
+        brand: user.brand_uuid,
+      });
+      const giftCards = await this.giftcardRepository.find({
+        gift_card_product: { $regex: input, $options: 'i' },
+        brand: user.brand_uuid,
+      });
+      const posts = await this.postRepository.find({
+        post_title: { $regex: input, $options: 'i' },
+        brand: user.brand_uuid,
+      });
+      const members = await this.memberRepository.find({
+        brand: user.brand_uuid,
+      });
+
+      const member_uuids: string[] = members.map((m) => m.member_uuid);
+
+      const tasks = await this.taskRepository.find({
+        campaign_title: { $regex: input, $options: 'i' },
+        brand: user.brand_uuid,
+      });
+
+      return { tasks, discounts, giftCards, posts, member_uuids };
+    }
   }
 }

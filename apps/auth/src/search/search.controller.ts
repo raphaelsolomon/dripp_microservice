@@ -1,8 +1,7 @@
-import { Controller, Get, Req, UseGuards } from '@nestjs/common';
+import { Controller, Get, Param, UseGuards } from '@nestjs/common';
 import { SearchService } from './search.service';
 import { JwtAuthGuard } from '../guards/jwt-auth.guard';
 import { CurrentUser, UserDto } from '@app/common';
-import { Request } from 'express';
 
 @Controller('search')
 export class SearchController {
@@ -10,7 +9,7 @@ export class SearchController {
 
   @Get('/:input')
   @UseGuards(JwtAuthGuard)
-  searchDocuments(@CurrentUser() user: UserDto, @Req() req: Request) {
-    return this.searchService.searchDocuments(user, req.params?.input);
+  searchDocuments(@CurrentUser() user: UserDto, @Param('input') s: string) {
+    return this.searchService.searchDocuments(user, s);
   }
 }

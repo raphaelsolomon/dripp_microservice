@@ -262,7 +262,7 @@ export class AppController {
   }
 
   @MessagePattern('search')
-  searchFunction(@Payload() { input }: { [key: string]: string }) {
-    return this.appService.searchFunction(input);
+  searchFunction(@Payload() { input, user }: Record<string, any>) {
+    return this.appService.searchFunction(input, user);
   }
 }
