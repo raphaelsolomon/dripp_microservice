@@ -45,6 +45,7 @@ import {
 
 import { GiftCardRepository as UserGiftCardRepository } from '@app/common';
 import { DiscountRepository as UserDiscountRepository } from '@app/common';
+import { GraphModule } from './graph/graph.module';
 
 @Module({
   imports: [
@@ -72,7 +73,7 @@ import { DiscountRepository as UserDiscountRepository } from '@app/common';
         BRAND_TCP_PORT: Joi.number().required(),
         AUTH_HOST: Joi.string().required(),
         AUTH_TCP_PORT: Joi.number().required(),
-        WALLET_TCP_HOST: Joi.string().required(),
+        WALLET_HOST: Joi.string().required(),
         WALLET_TCP_PORT: Joi.number().required(),
         NOTIFICATION_HOST: Joi.string().required(),
         NOTIFICATION_TCP_PORT: Joi.number().required(),
@@ -114,6 +115,7 @@ import { DiscountRepository as UserDiscountRepository } from '@app/common';
       },
     ]),
     CloudinaryModule,
+    GraphModule,
   ],
   controllers: [AppController],
   providers: [

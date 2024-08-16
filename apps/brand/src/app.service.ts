@@ -1,5 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  HttpException,
+  HttpStatus,
+  Inject,
+  Injectable,
+} from '@nestjs/common';
 import { BrandRepository } from './repositories/brand.repository';
 import {
   AUTH_SERVICE,
@@ -142,10 +148,7 @@ export class AppService {
 
   async getPosts(user: UserDto, payload: { [key: string]: number }) {
     if (user.account_type === 'user') {
-      throw new HttpException(
-        `Action not supported on the account type.`,
-        HttpStatus.NOT_FOUND,
-      );
+      throw new BadRequestException(`Action not allowed on this account type.`);
     }
     const populate: PopulateDto = {
       path: 'brand',
@@ -171,10 +174,7 @@ export class AppService {
 
   async getBrandMembers(user: UserDto, payload: { [key: string]: number }) {
     if (user.account_type === 'users') {
-      throw new HttpException(
-        `Action not allowed on this account type`,
-        HttpStatus.NOT_ACCEPTABLE,
-      );
+      throw new BadRequestException(`Action not allowed on this account type`);
     }
 
     const first: number = payload.first ?? 20;
@@ -216,10 +216,7 @@ export class AppService {
 
   async createBrandTask(user: UserDto, input: CreateTaskDto) {
     if (user.account_type === 'user') {
-      throw new HttpException(
-        `Action not allowed on this account type`,
-        HttpStatus.NOT_ACCEPTABLE,
-      );
+      throw new BadRequestException(`Action not allowed on this account type`);
     }
 
     const cloudinary = await this.cloudinaryService.uploadFile(
@@ -236,7 +233,7 @@ export class AppService {
       );
 
       if (walletResult !== 'success') {
-        throw new HttpException(walletResult, HttpStatus.NOT_FOUND);
+        throw new BadRequestException(walletResult);
       }
 
       return await this.taskRepository.create({
@@ -326,10 +323,7 @@ export class AppService {
 
   async getDiscounts(user: UserDto, payload: { [key: string]: number }) {
     if (user.account_type === 'user') {
-      throw new HttpException(
-        `Action not allowed on this account type`,
-        HttpStatus.NOT_ACCEPTABLE,
-      );
+      throw new BadRequestException(`Action not allowed on this account type`);
     }
     const first: number = payload.first;
     const page: number = payload.page;
@@ -340,10 +334,7 @@ export class AppService {
 
   async getGiftCards(user: UserDto, payload: { [key: string]: number }) {
     if (user.account_type === 'user') {
-      throw new HttpException(
-        `Action not allowed on this account type`,
-        HttpStatus.NOT_ACCEPTABLE,
-      );
+      throw new BadRequestException(`Action not allowed on this account type`);
     }
     const first: number = payload.first;
     const page: number = payload.page;
@@ -455,10 +446,7 @@ export class AppService {
 
   async createDiscount(user: UserDto, input: CreateDiscountDto) {
     if (user.account_type === 'user') {
-      throw new HttpException(
-        `Action not allowed on this account type`,
-        HttpStatus.NOT_ACCEPTABLE,
-      );
+      throw new BadRequestException(`Action not allowed on this account type`);
     }
     // get wallet balance from wallet service...
     try {
@@ -470,7 +458,7 @@ export class AppService {
       );
 
       if (walletResult !== 'success') {
-        throw new HttpException(walletResult, HttpStatus.NOT_FOUND);
+        throw new BadRequestException(walletResult);
       }
 
       return await this.discountRepository.create({
@@ -478,16 +466,13 @@ export class AppService {
         brand: user.brand_uuid,
       });
     } catch (error) {
-      throw new HttpException(error, HttpStatus.INTERNAL_SERVER_ERROR);
+      throw new BadRequestException(error);
     }
   }
 
   async createGiftCard(user: UserDto, input: CreateGiftCardDto) {
     if (user.account_type === 'user') {
-      throw new HttpException(
-        `Action not allowed on this account type`,
-        HttpStatus.NOT_ACCEPTABLE,
-      );
+      throw new BadRequestException(`Action not allowed on this account type`);
     }
     // get wallet balance from wallet service...
     try {
@@ -499,24 +484,20 @@ export class AppService {
       );
 
       if (walletResult !== 'success') {
-        throw new HttpException(walletResult, HttpStatus.NOT_FOUND);
+        throw new BadRequestException(walletResult);
       }
       return await this.giftcardRepository.create({
         ...input,
         brand: user.brand_uuid,
       });
     } catch (error) {
-      console.log(error);
-      //throw new HttpException(error, HttpStatus.INTERNAL_SERVER_ERROR);
+      throw new BadRequestException(error);
     }
   }
 
   async updateGiftCard(user: UserDto, updateGiftCardDto: UpdateGiftCardDto) {
     if (user.account_type === 'user') {
-      throw new HttpException(
-        `Action not allowed on this account type`,
-        HttpStatus.NOT_ACCEPTABLE,
-      );
+      throw new BadRequestException(`Action not allowed on this account type`);
     }
 
     const { gift_card_campaign_amount, ...details } = updateGiftCardDto;
@@ -528,10 +509,7 @@ export class AppService {
 
   async updateDiscount(user: UserDto, input: UpdateDiscountDto) {
     if (user.account_type === 'user') {
-      throw new HttpException(
-        `Action not allowed on this account type`,
-        HttpStatus.NOT_ACCEPTABLE,
-      );
+      throw new BadRequestException(`Action not allowed on this account type`);
     }
     const { discount_amount, ...details } = input;
     return await this.discountRepository.findOneAndUpdate(
@@ -566,10 +544,7 @@ export class AppService {
 
   async createMemberShipMail(user: UserDto, input: CreateMemberShipMailDto) {
     if (user.account_type === 'user') {
-      throw new HttpException(
-        `Action not allowed on this account type`,
-        HttpStatus.NOT_ACCEPTABLE,
-      );
+      throw new BadRequestException(`Action not allowed on this account type`);
     }
 
     try {
@@ -586,10 +561,7 @@ export class AppService {
 
   async updateMemberShipMail(user: UserDto, input: UpdateMemberShipMailDto) {
     if (user.account_type === 'user') {
-      throw new HttpException(
-        `Action not allowed on this account type`,
-        HttpStatus.NOT_ACCEPTABLE,
-      );
+      throw new BadRequestException(`Action not allowed on this account type`);
     }
 
     try {
@@ -598,19 +570,13 @@ export class AppService {
         { ...input },
       );
     } catch (e) {
-      throw new HttpException(
-        'This brand does not exist',
-        HttpStatus.NOT_FOUND,
-      );
+      throw new BadRequestException('This brand does not exist');
     }
   }
 
   async getPaymentCard(user: UserDto, req: Request) {
     if (user.account_type === 'user') {
-      throw new HttpException(
-        `Action not supported on the account type.`,
-        HttpStatus.NOT_FOUND,
-      );
+      throw new BadRequestException(`Action not allowed on this account type.`);
     }
 
     const first: number = Number.parseInt(`${req.query.first}`) ?? 20;
@@ -622,10 +588,7 @@ export class AppService {
 
   async deletePaymentCard(uuid: string, user: UserDto) {
     if (user.account_type === 'user') {
-      throw new HttpException(
-        `Action not supported on the account type.`,
-        HttpStatus.NOT_FOUND,
-      );
+      throw new BadRequestException(`Action not allowed on this account type.`);
     }
     try {
       await this.cardRepository.findOneAndDelete({
@@ -634,16 +597,13 @@ export class AppService {
       });
       return { status: true, message: 'Card deleted successfully' };
     } catch (e) {
-      throw new HttpException('Card was not found', HttpStatus.NOT_FOUND);
+      throw new BadRequestException('Card was not found');
     }
   }
 
   async addCard(cardDto: CardDto, user: UserDto) {
     if (user.account_type === 'user') {
-      throw new HttpException(
-        `Action not supported on the account type.`,
-        HttpStatus.NOT_FOUND,
-      );
+      throw new BadRequestException(`Action not allowed on this account type.`);
     }
 
     return await this.cardRepository.create({
@@ -654,10 +614,7 @@ export class AppService {
 
   async createDiscountToUser(user: UserDto, input: GiftUserDiscountDto) {
     if (user.account_type === 'user') {
-      throw new HttpException(
-        `Action not supported on the account type.`,
-        HttpStatus.NOT_FOUND,
-      );
+      throw new BadRequestException(`Action not allowed on this account type.`);
     }
     const walletResult = await firstValueFrom(
       this.walletClientproxy.send('create_discount', {
@@ -668,7 +625,7 @@ export class AppService {
     );
 
     if (walletResult !== 'success') {
-      throw new HttpException(walletResult, HttpStatus.NOT_FOUND);
+      throw new BadRequestException(walletResult);
     }
 
     await this.userDiscountRepository.create({
@@ -685,10 +642,7 @@ export class AppService {
 
   async createGiftCardToUser(user: UserDto, input: GiftUserCardDto) {
     if (user.account_type === 'user') {
-      throw new HttpException(
-        `Action not supported on the account type.`,
-        HttpStatus.NOT_FOUND,
-      );
+      throw new BadRequestException(`Action not allowed on this account type.`);
     }
     const walletResult = await firstValueFrom(
       this.walletClientproxy.send('create_giftcard', {
@@ -699,7 +653,7 @@ export class AppService {
     );
 
     if (walletResult !== 'success') {
-      throw new HttpException(walletResult, HttpStatus.NOT_FOUND);
+      throw new BadRequestException(walletResult);
     }
 
     await this.userGiftCardRepository.create({

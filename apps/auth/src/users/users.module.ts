@@ -63,7 +63,7 @@ import { NestjsFormDataModule } from 'nestjs-form-data';
         useFactory: (configService: ConfigService) => ({
           transport: Transport.TCP,
           options: {
-            host: configService.get<string>('WALLET_TCP_HOST'),
+            host: configService.get<string>('WALLET_HOST'),
             port: configService.get<number>('WALLET_TCP_PORT'),
           },
         }),

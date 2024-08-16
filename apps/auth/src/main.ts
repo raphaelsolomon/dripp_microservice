@@ -20,10 +20,10 @@ async function bootstrap() {
   });
   app.use(
     session({
-      secret: 'dripp',
+      secret: configService.get<string>('SESSION_SECRET'),
       resave: false,
       saveUninitialized: false,
-      cookie: { secure: false },
+      cookie: { secure: true },
     }),
   );
   app.use(cookieParser());

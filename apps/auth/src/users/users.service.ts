@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {
+  BadRequestException,
   HttpCode,
   HttpException,
   HttpStatus,
@@ -404,9 +405,8 @@ export class UsersService {
   //==================================EVENTS============================================
   async getChannels(user: UserDocument, payload: { [key: string]: number }) {
     if (user.account_type !== 'user') {
-      throw new HttpException(
+      throw new BadRequestException(
         'Action not supported on the account type.',
-        HttpStatus.NOT_ACCEPTABLE,
       );
     }
 
@@ -423,9 +423,8 @@ export class UsersService {
     payload: { [key: string]: number },
   ) {
     if (user.account_type !== 'user') {
-      throw new HttpException(
+      throw new BadRequestException(
         'Action not supported on the account type.',
-        HttpStatus.NOT_ACCEPTABLE,
       );
     }
 
@@ -443,9 +442,8 @@ export class UsersService {
 
   async subscribeChannel(user: UserDocument, brand_uuid: string) {
     if (user.account_type !== 'user') {
-      throw new HttpException(
+      throw new BadRequestException(
         'Action not supported on the account type.',
-        HttpStatus.NOT_ACCEPTABLE,
       );
     }
     return await firstValueFrom(
@@ -458,9 +456,8 @@ export class UsersService {
 
   async unsubscribeChannel(user: UserDocument, brand_uuid: string) {
     if (user.account_type !== 'user') {
-      throw new HttpException(
+      throw new BadRequestException(
         'Action not supported on the account type.',
-        HttpStatus.NOT_ACCEPTABLE,
       );
     }
     return await firstValueFrom(
@@ -473,9 +470,8 @@ export class UsersService {
 
   async getTasks(user: UserDocument, payload: { [key: string]: number }) {
     if (user.account_type !== 'user') {
-      throw new HttpException(
+      throw new BadRequestException(
         'Action not supported on the account type.',
-        HttpStatus.NOT_ACCEPTABLE,
       );
     }
 
@@ -497,10 +493,7 @@ export class UsersService {
       username: payload.username,
     });
     if (user._id.toString() !== payload._id) {
-      throw new HttpException(
-        `User with username already exists`,
-        HttpStatus.NOT_ACCEPTABLE,
-      );
+      throw new BadRequestException(`User with username already exists`);
     }
     return await this.userRepository.findOneAndUpdate(
       { _id: payload._id },

@@ -78,7 +78,7 @@ export class UsersController {
     return this.usersService.unsubscribeChannel(user, req?.params?.brand_uuid);
   }
 
-  @Get('/channels/')
+  @Get('/channels')
   @UseGuards(JwtAuthGuard)
   async getChannels(
     @CurrentUser() user: UserDocument,
@@ -96,7 +96,7 @@ export class UsersController {
     return this.usersService.getRecommededChannels(user, payload);
   }
 
-  @Get('/tasks/')
+  @Get('/tasks')
   @UseGuards(JwtAuthGuard)
   async getTasks(
     @CurrentUser() user: UserDocument,
