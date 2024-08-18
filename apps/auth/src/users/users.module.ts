@@ -8,6 +8,12 @@ import {
   DiscountRepository,
   GiftCardRepository,
   NOTIFICATION_SERVICE,
+  SubmissionRepository,
+  TaskCompletionDocument,
+  TaskCompletionRepository,
+  TaskCompletionSchema,
+  TaskSubmissionDocument,
+  TaskSubmissionSchema,
   UserDiscountDocument,
   UserDiscountSchema,
   UserGiftCardDocument,
@@ -22,9 +28,8 @@ import {
   VerificationDocument,
   VerificationSchema,
 } from './models/verification.schema';
-import { VerificationRepository } from './verification.repository';
+import { VerificationRepository } from './repositories/verification.repository';
 import { NestjsFormDataModule } from 'nestjs-form-data';
-
 @Module({
   imports: [
     NestjsFormDataModule,
@@ -34,6 +39,8 @@ import { NestjsFormDataModule } from 'nestjs-form-data';
       { name: VerificationDocument.name, schema: VerificationSchema },
       { name: UserGiftCardDocument.name, schema: UserGiftCardSchema },
       { name: UserDiscountDocument.name, schema: UserDiscountSchema },
+      { name: TaskSubmissionDocument.name, schema: TaskSubmissionSchema },
+      { name: TaskCompletionDocument.name, schema: TaskCompletionSchema },
     ]),
     ClientsModule.registerAsync([
       {
@@ -79,6 +86,8 @@ import { NestjsFormDataModule } from 'nestjs-form-data';
     VerificationRepository,
     DiscountRepository,
     GiftCardRepository,
+    SubmissionRepository,
+    TaskCompletionRepository,
   ],
   exports: [UsersService, UserRepository],
 })

@@ -12,6 +12,11 @@ import {
   UserGiftCardSchema,
   UserDiscountDocument,
   UserDiscountSchema,
+  UserDocument,
+  UserSchema,
+  TaskSubmissionDocument,
+  TaskSubmissionSchema,
+  SubmissionRepository,
 } from '@app/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as Joi from 'joi';
@@ -53,6 +58,7 @@ import { GraphModule } from './graph/graph.module';
     DatabaseModule,
     DatabaseModule.forFeature([
       { name: BrandDocument.name, schema: BrandSchema },
+      { name: UserDocument.name, schema: UserSchema },
       { name: MemberDocument.name, schema: MemberSchema },
       { name: PostDocument.name, schema: PostSchema },
       { name: TaskDocument.name, schema: TaskSchema },
@@ -60,6 +66,7 @@ import { GraphModule } from './graph/graph.module';
       { name: MemberShipMailDocument.name, schema: MemberShipMailSchema },
       { name: BrandGiftCardDocument.name, schema: BrandGiftCardSchema },
       { name: CardDocument.name, schema: CardSchema },
+      { name: TaskSubmissionDocument.name, schema: TaskSubmissionSchema },
       { name: UserGiftCardDocument.name, schema: UserGiftCardSchema },
       { name: UserDiscountDocument.name, schema: UserDiscountSchema },
     ]),
@@ -130,6 +137,7 @@ import { GraphModule } from './graph/graph.module';
     MemberShipMailRepository,
     UserGiftCardRepository,
     UserDiscountRepository,
+    SubmissionRepository,
   ],
 })
 export class AppModule {}

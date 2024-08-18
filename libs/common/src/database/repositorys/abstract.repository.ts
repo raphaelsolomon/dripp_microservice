@@ -81,18 +81,31 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
     page: number,
     filterQuery: FilterQuery<TDocument>,
     select?: string,
-    populate?: PopulateDto,
+    populate?: PopulateDto | PopulateDto[],
   ) {
     const total = await this.model.countDocuments(filterQuery);
-    const documents = await this.model
+
+    const query = this.model
       .find(filterQuery)
       .select(select)
       .lean<TDocument[]>(true)
-      .populate(populate)
       .skip(((page ?? 1) - 1) * (first ?? 20))
       .sort({ created_at: -1 })
-      .limit(first ?? 20)
-      .exec();
+      .limit(first ?? 20);
+
+    // Handle population, if provided
+    if (populate) {
+      if (Array.isArray(populate)) {
+        // Populate multiple fields
+        populate.forEach((pop) => query.populate(pop));
+      } else {
+        // Populate a single field
+        query.populate(populate);
+      }
+    }
+
+    const documents = await query.exec();
+
     return {
       data: documents,
       paginationInfo: {

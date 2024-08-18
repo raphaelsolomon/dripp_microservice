@@ -3,8 +3,10 @@ import {
   Controller,
   Delete,
   Get,
+  Param,
   Patch,
   Post,
+  Put,
   Query,
   Req,
   Res,
@@ -217,6 +219,28 @@ export class AppController {
     return this.appService.createGiftCardToUser(user, input);
   }
 
+  @Get('/task-submission/:task_uuid/:member_uuid')
+  @UseGuards(JwtAuthGuard)
+  getSubmissionByTask(
+    @CurrentUser() user: UserDto,
+    @Param() input: { [key: string]: string },
+  ) {
+    return this.appService.getSubmissionByTask(
+      user,
+      input.task_uuid,
+      input.member_uuid,
+    );
+  }
+
+  @Put('/task-submission/review')
+  @UseGuards(JwtAuthGuard)
+  approveSubmission(
+    @CurrentUser() user: UserDto,
+    @Body() input: { [key: string]: string },
+  ) {
+    return this.appService.approveSubmission(user, input);
+  }
+
   @Post('/membership-mail')
   @UseGuards(JwtAuthGuard)
   createMemberShipMail(
@@ -265,5 +289,15 @@ export class AppController {
   @MessagePattern('search')
   searchFunction(@Payload() { input, user }: Record<string, any>) {
     return this.appService.searchFunction(input, user);
+  }
+
+  @MessagePattern('get_task')
+  getTask(@Payload() { uuid }: Record<string, string>) {
+    return this.appService.getTask(uuid);
+  }
+
+  @EventPattern('update_task_completed')
+  updateTaskCompleted(@Payload() payload: Record<string, any>) {
+    return this.appService.updateTaskReview(payload);
   }
 }

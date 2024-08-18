@@ -9,9 +9,12 @@ import {
 import { BrandRepository } from './repositories/brand.repository';
 import {
   AUTH_SERVICE,
+  CloudinaryResponse,
   CloudinaryService,
   NOTIFICATION_SERVICE,
   PopulateDto,
+  SubmissionRepository,
+  UserDocument,
   UserDto,
   WALLET_SERVICE,
 } from '@app/common';
@@ -57,6 +60,7 @@ export class AppService {
     private readonly cardRepository: CardRepository,
     private readonly userGiftCardRepository: UserGiftCardRepository,
     private readonly userDiscountRepository: UserDiscountRepository,
+    private readonly submissionRepository: SubmissionRepository,
     @Inject(AUTH_SERVICE) private readonly authClientproxy: ClientProxy,
     @Inject(NOTIFICATION_SERVICE)
     private readonly notificationClientProxy: ClientProxy,
@@ -219,46 +223,77 @@ export class AppService {
       throw new BadRequestException(`Action not allowed on this account type`);
     }
 
-    const cloudinary = await this.cloudinaryService.uploadFile(
-      input.campaign_banner,
-      'campaign-banners',
-    );
-    if (cloudinary) {
-      // send the request to wallet service to confirm the wallet balance.
-      const walletResult: string = await firstValueFrom(
-        this.walletClientproxy.send('create_campaign', {
-          uuid: user.wallet_uuid,
-          amount: input.campaign_amount,
-        }),
-      );
+    let cloudinary: CloudinaryResponse = undefined;
 
-      if (walletResult !== 'success') {
-        throw new BadRequestException(walletResult);
-      }
-
-      return await this.taskRepository.create({
-        campaign_banner_url: cloudinary.url,
-        brand: user.brand_uuid,
-        ...input,
-      });
-    }
-    throw new Error('Unable to upload campaign banner');
-  }
-
-  async updateBrandTask(user: UserDto, updateTaskDto: UpdateTaskDto) {
-    if (updateTaskDto.campaign_banner) {
-      const cloudinary = await this.cloudinaryService.uploadFile(
-        updateTaskDto.campaign_banner,
+    if (input.campaign_banner) {
+      cloudinary = await this.cloudinaryService.uploadFile(
+        input.campaign_banner,
         'campaign-banners',
       );
-      updateTaskDto.bannerUrl = cloudinary.url;
     }
+
+    // send the request to wallet service to confirm the wallet balance.
+    const walletResult: string = await firstValueFrom(
+      this.walletClientproxy.send('create_campaign', {
+        uuid: user.wallet_uuid,
+        amount: input.campaign_amount,
+      }),
+    );
+
+    if (walletResult !== 'success') {
+      throw new BadRequestException(walletResult);
+    }
+
+    const campaign_type = JSON.parse(input.campaign_type);
+    if (Object.keys(campaign_type).length <= 0) {
+      throw new BadRequestException(`Campaign type is required..`);
+    }
+
+    console.log(Object.keys(campaign_type).length);
+
+    return await this.taskRepository.create({
+      campaign_banner_url: cloudinary !== undefined ? cloudinary.url : '',
+      brand: user.brand_uuid,
+      ...input,
+      campaign_type,
+      total_task: Object.keys(campaign_type).length,
+    });
+  }
+
+  async updateBrandTask(user: UserDto, input: UpdateTaskDto) {
+    if (input.campaign_banner) {
+      const cloudinary = await this.cloudinaryService.uploadFile(
+        input.campaign_banner,
+        'campaign-banners',
+      );
+      input.bannerUrl = cloudinary.url;
+    }
+
+    if (input.campaign_type) {
+      const campaign_type = JSON.parse(input.campaign_type);
+      if (Object.keys(campaign_type).length <= 0) {
+        throw new BadRequestException(`Campaign type is required..`);
+      }
+
+      return await this.taskRepository.findOneAndUpdate(
+        {
+          uuid: input.task_uuid,
+          brand: user.brand_uuid,
+        },
+        {
+          ...input,
+          campaign_type,
+          total_task: Object.keys(campaign_type).length,
+        },
+      );
+    }
+
     return await this.taskRepository.findOneAndUpdate(
       {
-        uuid: updateTaskDto.task_uuid,
+        uuid: input.task_uuid,
         brand: user.brand_uuid,
       },
-      { ...updateTaskDto },
+      { ...input },
     );
   }
 
@@ -344,10 +379,16 @@ export class AppService {
   }
 
   async getBrandTask(user: UserDto, payload: { [key: string]: number }) {
-    const populate: PopulateDto = {
+    const brandPopulate: PopulateDto = {
       path: 'brand',
       model: BrandDocument.name,
       localField: 'brand',
+      foreignField: 'uuid',
+    };
+    const userPopulate: PopulateDto = {
+      path: 'members_completed',
+      model: UserDocument.name,
+      localField: 'members_completed',
       foreignField: 'uuid',
     };
     const first: number = payload.first ?? 20;
@@ -358,7 +399,7 @@ export class AppService {
       page,
       { brand: user.brand_uuid },
       null,
-      populate,
+      [brandPopulate, userPopulate],
     );
   }
 
@@ -707,5 +748,139 @@ export class AppService {
 
       return { tasks, discounts, giftCards, posts, member_uuids };
     }
+  }
+
+  async getTask(uuid: string) {
+    try {
+      const task = await this.taskRepository.findOne({ uuid });
+      return task;
+    } catch (err) {
+      throw new BadRequestException(err);
+    }
+  }
+
+  async updateTaskReview(payload: Record<string, any>) {
+    const { task_uuid, user_uuid } = payload;
+
+    const task = await this.taskRepository.findOne({ uuid: task_uuid });
+    if (!task.members_review.includes(user_uuid)) {
+      const members_review = task.members_review;
+      members_review.push(user_uuid);
+      await this.taskRepository.findOneAndUpdate(
+        { uuid: task_uuid },
+        { members_review },
+      );
+    }
+  }
+
+  async getSubmissionByTask(
+    user: UserDto,
+    task_uuid: string,
+    member_uuid: string,
+  ) {
+    if (user.account_type === 'user') {
+      throw new BadRequestException(
+        'Action not supported on the account type.',
+      );
+    }
+
+    const result: { [key: string]: any } = {};
+
+    try {
+      const submissions = await this.submissionRepository.find({
+        task_uuid,
+        user_uuid: member_uuid,
+      });
+
+      // Initialize the member's category in the result
+      result[member_uuid] = {};
+
+      // Categorize submissions
+      for (const submission of submissions) {
+        let campaignType = submission.campaign_type;
+
+        // If campaignType is a JSON string, parse it
+        try {
+          campaignType = JSON.parse(<string>submission.campaign_type);
+        } catch (e) {
+          // If parsing fails, use the campaignType as is (assuming it's a string)
+        }
+
+        if (typeof campaignType === 'object') {
+          for (const [key, value] of Object.entries(campaignType)) {
+            // If the key doesn't exist, create it
+            if (!result[member_uuid][key]) {
+              result[member_uuid][key] = {};
+            }
+
+            // If value is an object, iterate over it to set the submission URL
+            if (typeof value === 'object') {
+              for (const subKey in value) {
+                result[member_uuid][key][subKey] = {
+                  submission_url: submission.submission_url,
+                };
+              }
+            } else {
+              result[member_uuid][key][value] = {
+                submission_url: submission.submission_url,
+              };
+            }
+          }
+        } else {
+          // If campaignType is not an object, categorize directly
+          if (!result[member_uuid][campaignType]) {
+            result[member_uuid][campaignType] = {};
+          }
+          result[member_uuid][campaignType] = {
+            submission_url: submission.submission_url,
+          };
+        }
+      }
+
+      return result;
+    } catch (err) {
+      throw new BadRequestException(err);
+    }
+  }
+
+  async approveSubmission(user: UserDto, input: { [key: string]: string }) {
+    if (user.account_type === 'user') {
+      throw new BadRequestException(
+        'Action not supported on the account type.',
+      );
+    }
+
+    const { task_uuid, member_uuid, is_approved } = input;
+
+    const task = await this.taskRepository.findOne({
+      uuid: task_uuid,
+      brand: user.brand_uuid,
+      members_review: { $in: [member_uuid] },
+    });
+    if (is_approved) {
+      let members_review: string[] = task.members_review;
+      const members_completed = task.members_completed;
+      if (members_review.includes(member_uuid)) {
+        members_review = members_review.filter((m) => member_uuid !== m);
+      }
+      if (!members_completed.includes(member_uuid)) {
+        members_completed.push(member_uuid);
+      }
+      await this.taskRepository.findOneAndUpdate(
+        { uuid: task_uuid },
+        { members_review, members_completed },
+      );
+    } else {
+      let members_review: string[] = task.members_review;
+      if (members_review.includes(member_uuid)) {
+        members_review = members_review.filter((m) => member_uuid !== m);
+      }
+
+      await this.taskRepository.findOneAndUpdate(
+        { uuid: task_uuid },
+        { members_review },
+      );
+    }
+    return this.taskRepository.findOne({ uuid: task_uuid });
   }
 }

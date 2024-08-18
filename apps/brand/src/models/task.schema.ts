@@ -1,7 +1,12 @@
-import { AbstractDocument } from '@app/common';
+import { AbstractDocument, UserDocument } from '@app/common';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Types } from 'mongoose';
+import { SchemaTypes, Types } from 'mongoose';
 import { BrandDocument } from './brand.schema';
+
+export class SubmissionType {
+  @Prop({ enum: ['file_upload', 'url_submission'], default: 'url_submission' })
+  submission_type: string;
+}
 
 @Schema({ versionKey: false })
 export class TaskDocument extends AbstractDocument {
@@ -17,11 +22,14 @@ export class TaskDocument extends AbstractDocument {
   @Prop({ required: true })
   country: string;
 
-  @Prop({ type: Types.Map })
-  campaign_type: Record<string, any>;
+  @Prop({ required: false, default: 0 })
+  total_task?: number;
 
-  @Prop({ enum: ['file_upload', 'url_submission'], default: 'file_upload' })
-  submission_type: string;
+  @Prop({ type: Types.Map })
+  campaign_type: Record<
+    string,
+    Record<string | 'submission_type', string | SubmissionType>
+  >;
 
   @Prop({ default: null })
   non_member_reward?: string;
@@ -31,6 +39,21 @@ export class TaskDocument extends AbstractDocument {
 
   @Prop({ default: 0, required: true })
   campaign_amount: number;
+
+  @Prop({
+    type: [{ ref: UserDocument.name, type: SchemaTypes.String }],
+    default: [],
+  })
+  members_completed?: [string];
+
+  @Prop({
+    type: [{ ref: UserDocument.name, type: SchemaTypes.String }],
+    default: [],
+  })
+  members_review?: [string];
+
+  @Prop({ default: 0, required: false })
+  campaign_engagement?: number;
 
   @Prop({ ref: BrandDocument.name })
   brand?: string;

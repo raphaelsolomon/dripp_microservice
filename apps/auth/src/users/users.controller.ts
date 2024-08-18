@@ -20,6 +20,7 @@ import { FormDataRequest } from 'nestjs-form-data';
 import { UploadImageDto } from './dto/upload-image.dto';
 import { MessagePattern, Payload } from '@nestjs/microservices';
 import { Request, Response } from 'express';
+import { TaskSubmissionDto } from './dto/submit-task.dto';
 
 @Controller('user')
 export class UsersController {
@@ -103,6 +104,16 @@ export class UsersController {
     @Query() payload: { [key: string]: number },
   ) {
     return this.usersService.getTasks(user, payload);
+  }
+
+  @Post('/task-submission')
+  @FormDataRequest()
+  @UseGuards(JwtAuthGuard)
+  async submitTask(
+    @CurrentUser() user: UserDocument,
+    @Body() payload: TaskSubmissionDto,
+  ) {
+    return this.usersService.submitTask(user, payload);
   }
 
   @Post('/update/avatar')

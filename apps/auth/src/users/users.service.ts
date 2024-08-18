@@ -12,7 +12,12 @@ import {
 import { CreateUserDto } from './dto/create-user.dto';
 import { UserRepository } from './repositories/users.repository';
 import * as bcrypt from 'bcryptjs';
-import { UserDocument } from '@app/common';
+import {
+  SubmissionRepository,
+  TaskCompletionDocument,
+  TaskCompletionRepository,
+  UserDocument,
+} from '@app/common';
 import { getUserDto } from './dto/get-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import {
@@ -24,15 +29,17 @@ import {
 } from '@app/common';
 import { ClientProxy } from '@nestjs/microservices';
 import { firstValueFrom, map, tap } from 'rxjs';
-import { VerificationRepository } from './verification.repository';
+import { VerificationRepository } from './repositories/verification.repository';
 import { VerifyEmailDto } from './dto/verify-email.dto';
 import { ResetpasswordDto } from './dto/reset-password.dto';
 import { UpdatePasswordDto } from './dto/update-password.dto';
-import { Request } from 'express';
+import { TaskSubmissionDto } from './dto/submit-task.dto';
 
 @Injectable()
 export class UsersService {
   constructor(
+    private readonly taskCompletionRepository: TaskCompletionRepository,
+    private readonly submissionRepository: SubmissionRepository,
     private readonly userRepository: UserRepository,
     private readonly cloudinaryService: CloudinaryService,
     private readonly verificationRepository: VerificationRepository,
@@ -520,5 +527,181 @@ export class UsersService {
 
     //TODO: emit event to other services to delette record attacht to this user
     console.log(userDocument);
+  }
+
+  async submitTask(user: UserDocument, input: TaskSubmissionDto) {
+    if (user.account_type !== 'user') {
+      throw new BadRequestException(
+        'Action not supported on the account type.',
+      );
+    }
+
+    const task = await firstValueFrom(
+      this.brandClientProxy.send('get_task', { uuid: input.task_uuid }),
+    );
+
+    const is_social: boolean = this.isJsonParsable(input.campaign_type);
+    const uuid: string = task.uuid;
+    const user_uuid: string = user.uuid;
+
+    if (is_social) {
+      const campaign_type = JSON.parse(input.campaign_type);
+      // check if thre task contains a social media engagement task.
+      if (!task.campaign_type.hasOwnProperty('social_media_engagement')) {
+        throw new BadRequestException('Invalid campaign type on task');
+      }
+
+      const social_type = campaign_type.social_media_engagement;
+      const task_social_type = task.campaign_type.social_media_engagement;
+      const task_social_length = Object.keys(task_social_type).length;
+
+      //check if the social media provided is also part of the task.
+      if (!task_social_type.hasOwnProperty(social_type)) {
+        throw new BadRequestException('Invalid social media type on task');
+      }
+
+      //check if user has sumbitted for this task with exact camapign type
+      const submission_type = task_social_type[social_type].submission_type;
+      if (await this.isTaskSubmitted(uuid, user_uuid, input.campaign_type)) {
+        throw new BadRequestException('task has already been submitted');
+      }
+
+      //get the kind of submission required for that task
+      const getType = await this.getSubmissionType(submission_type, input);
+      // then submit the task for the user.
+      const result = await this.submissionRepository.create({
+        task_uuid: uuid,
+        user_uuid: user.uuid,
+        campaign_type: input.campaign_type,
+        ...getType,
+      });
+
+      //get total social tasks submitted by user
+      const socialSubmittedLength = await this.submissionRepository.find({
+        task_uuid: uuid,
+        user_uuid: user.uuid,
+        campaign_type: { $regex: /social_media_engagement/, $options: 'i' },
+      });
+
+      //check if user has completed all social media tasks.
+      if (socialSubmittedLength.length >= task_social_length)
+        await this.findAndCreateOrUpdateTaskCompletion(uuid, user_uuid, task);
+
+      return result;
+    } else {
+      // if task is a non social media task
+      const campaign_type = input.campaign_type;
+      const task_campaign_type = task.campaign_type;
+
+      //check if the social media provided is also part of the task.
+      if (!task_campaign_type.hasOwnProperty(campaign_type)) {
+        throw new BadRequestException('Invalid campaign type on task');
+      }
+
+      //check if user has sumbitted for this task with exact camapign type
+      const submission_type = task_campaign_type[campaign_type].submission_type;
+      if (await this.isTaskSubmitted(uuid, user_uuid, input.campaign_type)) {
+        throw new BadRequestException('task has already been submitted');
+      }
+
+      //get the kind of submission required for that task
+      const getType = await this.getSubmissionType(submission_type, input);
+      // then submit the task for the user.
+      const result = await this.submissionRepository.create({
+        task_uuid: uuid,
+        user_uuid: user.uuid,
+        campaign_type: input.campaign_type,
+        ...getType,
+      });
+
+      //update the task completion.
+      await this.findAndCreateOrUpdateTaskCompletion(uuid, user_uuid, task);
+      return result;
+    }
+  }
+
+  async isTaskSubmitted(
+    task_uuid: string,
+    user_uuid: string,
+    campaign_type: string,
+  ): Promise<boolean> {
+    try {
+      await this.submissionRepository.findOne({
+        task_uuid,
+        user_uuid,
+        campaign_type,
+      });
+      return true;
+    } catch (err) {
+      return false;
+    }
+  }
+
+  isJsonParsable(campaign_type: string): boolean {
+    try {
+      const parsed = JSON.parse(campaign_type);
+      return typeof parsed === 'object' && parsed !== null;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  async getSubmissionType(submission_type: string, input: TaskSubmissionDto) {
+    const submissionPayload = { submission_url: '' };
+    if (submission_type === 'submission_url') {
+      if (!input.submission_url)
+        throw new BadRequestException('submission url is required');
+
+      if (input.submission_file)
+        throw new BadRequestException('submission file not allowed');
+
+      submissionPayload.submission_url = input.submission_url;
+    } else {
+      if (input.submission_url)
+        throw new BadRequestException('submission url not allowed');
+
+      if (!input.submission_file)
+        throw new BadRequestException('submission file is required');
+
+      const cloudinary = await this.cloudinaryService.uploadFile(
+        input.submission_file,
+        'task-submissions',
+      );
+      if (cloudinary) {
+        submissionPayload.submission_url = cloudinary.url;
+      } else {
+        throw new BadRequestException('unable to upload task file');
+      }
+    }
+
+    return { submission_url: submissionPayload.submission_url };
+  }
+
+  async findAndCreateOrUpdateTaskCompletion(
+    task_uuid: string,
+    user_uuid: string,
+    task: Record<string, any>,
+  ) {
+    const input = { task_uuid, user_uuid };
+    let completion: TaskCompletionDocument;
+    try {
+      const complete = await this.taskCompletionRepository.findOne(input);
+      const filterQuery = { uuid: complete.uuid };
+      const updateQuery = { total_completed: complete.total_completed + 1 };
+      completion = await this.taskCompletionRepository.findOneAndUpdate(
+        filterQuery,
+        updateQuery,
+      );
+    } catch (err) {
+      completion = await this.taskCompletionRepository.create(input);
+    } finally {
+      const total_task: number = Object.keys(task.campaign_type).length;
+      if (completion.total_completed >= total_task) {
+        this.brandClientProxy.emit('update_task_completed', {
+          user_uuid,
+          task_uuid,
+        });
+      }
+    }
   }
 }

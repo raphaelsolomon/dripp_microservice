@@ -129,7 +129,7 @@ export class WalletService {
     try {
       const wallet = await this.walletRepository.findOne({ uuid });
       if (wallet.amount < Number(amount)) {
-        return 'insufficient_amount';
+        return 'wallet_insufficient_amount';
       }
 
       const newAmount = wallet.amount - Number.parseInt(amount);
@@ -150,7 +150,8 @@ export class WalletService {
       this.notificationClientProxy.emit('campaign_created', transaction);
       return 'success';
     } catch (err) {
-      return 'not_found';
+      console.log(err);
+      return 'wallet_not_found';
     }
   }
 
@@ -158,7 +159,7 @@ export class WalletService {
     try {
       const wallet = await this.walletRepository.findOne({ uuid });
       if (wallet.amount < Number(amount)) {
-        return 'insufficient_amount';
+        return 'wallet_insufficient_amount';
       }
 
       const newAmount = wallet.amount - Number.parseInt(amount);
@@ -196,7 +197,7 @@ export class WalletService {
       this.notificationClientProxy.emit('gift_created', transaction);
       return 'success';
     } catch (err) {
-      return 'not_found';
+      return 'wallet_not_found';
     }
   }
 
@@ -204,7 +205,7 @@ export class WalletService {
     try {
       const wallet = await this.walletRepository.findOne({ uuid });
       if (wallet.amount < Number(amount)) {
-        return 'insufficient_amount';
+        return 'wallet_insufficient_amount';
       }
 
       const newAmount = wallet.amount - Number.parseInt(amount);
@@ -243,7 +244,7 @@ export class WalletService {
       this.notificationClientProxy.emit('discount_created', transaction);
       return 'success';
     } catch (err) {
-      return 'not_found';
+      return 'wallet_not_found';
     }
   }
 }
