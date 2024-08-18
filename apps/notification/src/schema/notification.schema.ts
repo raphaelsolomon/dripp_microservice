@@ -1,5 +1,6 @@
 import { AbstractDocument } from '@app/common';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Types } from 'mongoose';
 
 class FromSender {
   @Prop()
@@ -27,6 +28,9 @@ export class NotificationDocument extends AbstractDocument {
 
   @Prop({ type: FromSenderSchema })
   from: FromSender;
+
+  @Prop({ type: Types.Map, required: false, default: {} })
+  metadata?: Record<string, any>;
 }
 
 export const NotificationSchema =

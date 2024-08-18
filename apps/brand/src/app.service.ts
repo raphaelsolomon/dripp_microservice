@@ -45,6 +45,7 @@ import { GiftUserCardDto } from './dto/giftcard/gift-user-card.dto';
 import { GiftCardRepository as UserGiftCardRepository } from '@app/common';
 import { DiscountRepository as UserDiscountRepository } from '@app/common';
 import { GiftUserDiscountDto } from './dto/discount/gift-user-discount.dto';
+import { MemberDocument } from './models/member.schema';
 
 @Injectable()
 export class AppService {
@@ -850,7 +851,7 @@ export class AppService {
       );
     }
 
-    const { task_uuid, member_uuid, is_approved } = input;
+    const { task_uuid, member_uuid, is_approved, reason } = input;
 
     const task = await this.taskRepository.findOne({
       uuid: task_uuid,
@@ -870,6 +871,39 @@ export class AppService {
         { uuid: task_uuid },
         { members_review, members_completed },
       );
+
+      //send the reward to the user's wallet
+      const memberDetails = await firstValueFrom(
+        this.authClientproxy.send('get_user', { uuid: member_uuid }),
+      );
+      let newcampaignAmount = task.campaign_amount;
+
+      //check if user is a member of this brand
+      const isMember = await this.isMember(member_uuid);
+      let rewardPrice: number = 0;
+      //check if task contains membership or non membership rewards.
+      if (isMember && task.member_reward) {
+        newcampaignAmount = newcampaignAmount - Number(task.member_reward);
+        rewardPrice = Number.parseInt(task.member_reward);
+      } else if (!isMember && task.non_member_reward) {
+        newcampaignAmount = newcampaignAmount - Number(task.non_member_reward);
+        rewardPrice = Number.parseInt(task.non_member_reward);
+      } else {
+        newcampaignAmount = newcampaignAmount - Number(task.general_reward);
+        rewardPrice = Number(task.general_reward);
+      }
+      //senf the reward to the member wallet
+      this.walletClientproxy.emit('send_award', {
+        amount: rewardPrice,
+        wallet_uuid: memberDetails.wallet_uuid,
+        receiver: member_uuid,
+        task: task,
+      });
+      // update the task with the new campaign amount balance amount
+      await this.taskRepository.findOneAndUpdate(
+        { _id: task._id },
+        { campaign_amount: newcampaignAmount },
+      );
     } else {
       let members_review: string[] = task.members_review;
       if (members_review.includes(member_uuid)) {
@@ -880,7 +914,25 @@ export class AppService {
         { uuid: task_uuid },
         { members_review },
       );
+
+      const payload = {
+        to: member_uuid,
+        from: { isBrand: true, sender: task.brand },
+        title: `${task.campaign_title} Task Submission was rejected`,
+        type: 'task',
+        body: reason,
+        metadata: {},
+      };
+      this.notificationClientProxy.emit('create_notification', { ...payload });
     }
     return this.taskRepository.findOne({ uuid: task_uuid });
+  }
+
+  async isMember(member_uuid: string): Promise<MemberDocument | boolean> {
+    try {
+      return this.memberRepository.findOne({ member_uuid });
+    } catch (err) {
+      return false;
+    }
   }
 }

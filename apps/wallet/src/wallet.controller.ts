@@ -63,4 +63,9 @@ export class WalletController {
   createDiscount(@Payload() payload: { [key: string]: string }) {
     return this.walletService.createDiscount(payload);
   }
+
+  @MessagePattern('send_award')
+  sendAward(@Payload() payload: { [key: string]: any }) {
+    return this.walletService.sendAward(payload);
+  }
 }

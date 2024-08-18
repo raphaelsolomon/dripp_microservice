@@ -94,6 +94,18 @@ export class NotificationService {
     );
   }
 
+  async createNotification(data: { [key: string]: any }) {
+    const { to, from, title, body, type, metadata } = data;
+    await this.notificationRepository.create({
+      to,
+      from,
+      title,
+      body,
+      type,
+      metadata,
+    });
+  }
+
   async sendfundNotification(data: { [key: string]: any }) {
     console.log(data);
   }

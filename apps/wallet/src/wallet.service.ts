@@ -155,6 +155,45 @@ export class WalletService {
     }
   }
 
+  async sendAward(payload: { [key: string]: any }) {
+    const { amount, wallet_uuid, receiver } = payload;
+    const task: { [key: string]: any } = payload.task;
+    const wallet = await this.walletRepository.findOne({ uuid: wallet_uuid });
+    const newAmount = wallet.amount - Number.parseInt(amount);
+    await this.walletRepository.findOneAndUpdate(
+      { uuid: wallet_uuid },
+      { amount: newAmount },
+    );
+    const userReceiver: UserDto = await firstValueFrom(
+      this.authClientProxy.send('get_user', { uuid: receiver }),
+    );
+
+    const transaction = await this.transactionRepository.create({
+      wallet_uuid: userReceiver.wallet_uuid,
+      amount: Number(amount),
+      transaction_details: {},
+      tx_ref: new Date().toString(),
+      transaction_type: 'transfer',
+      transaction: 'credit',
+    });
+
+    // struect the notification payload to be sent to the member
+    const notificationPayload = {
+      to: receiver,
+      from: { isBrand: true, sender: task?.brand },
+      title: `${task.campaign_title} Task Submission was approved`,
+      type: 'task',
+      body: `You have been rewared with #${amount} for completing the ${task.campaign_title} task`,
+      metadata: { ...transaction },
+    };
+
+    //emit an event to the notification service
+    this.notificationClientProxy.emit(
+      'create_notification',
+      notificationPayload,
+    );
+  }
+
   async createGiftCard({ uuid, amount, receiver }: { [key: string]: string }) {
     try {
       const wallet = await this.walletRepository.findOne({ uuid });

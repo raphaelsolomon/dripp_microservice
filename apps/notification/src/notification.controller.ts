@@ -36,6 +36,12 @@ export class NotificationController {
   }
 
   @UsePipes(new ValidationPipe())
+  @EventPattern('create_notification')
+  async createNotification(@Payload() data: { [key: string]: any }) {
+    this.notificationService.createNotification(data);
+  }
+
+  @UsePipes(new ValidationPipe())
   @EventPattern('send_fund')
   async sendfund(@Payload() data: { [key: string]: any }) {
     this.notificationService.sendfundNotification(data);

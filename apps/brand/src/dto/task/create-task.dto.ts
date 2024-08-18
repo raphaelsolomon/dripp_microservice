@@ -29,5 +29,7 @@ export class CreateTaskDto {
 
   member_reward?: string;
 
+  general_reward?: number;
+
   campaign_amount: number;
 }

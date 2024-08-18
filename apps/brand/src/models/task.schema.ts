@@ -37,6 +37,9 @@ export class TaskDocument extends AbstractDocument {
   @Prop({ default: null })
   member_reward?: string;
 
+  @Prop({ default: 0, required: false })
+  general_reward?: number;
+
   @Prop({ default: 0, required: true })
   campaign_amount: number;
 
