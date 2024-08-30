@@ -404,6 +404,65 @@ export class AppService {
     );
   }
 
+  async getPostsFromBrands(payload: { [key: string]: any }) {
+    const limit: number = parseInt(payload.first) || 20;
+    const page: number = parseInt(payload.page) || 1;
+
+    const user: UserDocument = payload.user as UserDocument;
+
+    const member_uuid: string = user.uuid;
+    let getSubcribedBrandUuids: string[] = [];
+    let subscribedBrands: MemberDocument[] = [];
+
+    subscribedBrands = await this.memberRepository.find({ member_uuid });
+    getSubcribedBrandUuids = subscribedBrands.map((b) => b.uuid);
+
+    const countFilter = {
+      $or: [
+        { brand: { $in: getSubcribedBrandUuids } },
+        { brand: { $nin: getSubcribedBrandUuids } },
+      ],
+    };
+
+    const aggregationPipeline: any[] = [
+      {
+        $match: {
+          $or: [
+            { brand: { $in: getSubcribedBrandUuids } },
+            { brand: { $nin: getSubcribedBrandUuids } },
+          ],
+        },
+      },
+      {
+        $addFields: {
+          priority: {
+            $cond: [{ $in: ['$brand', getSubcribedBrandUuids] }, 1, 2],
+          },
+        },
+      },
+      {
+        $sort: {
+          priority: 1,
+          createdAt: -1,
+        },
+      },
+      { $skip: (page - 1) * limit },
+      { $limit: limit },
+    ];
+
+    const result = await this.postRepository.aggregate(
+      aggregationPipeline,
+      null,
+      countFilter,
+    );
+
+    const totalPostsCount = <number>result.count;
+    const totalPages = Math.ceil(totalPostsCount / limit);
+    const hasMorePages = page < totalPages;
+
+    return { totalPages, hasMorePages, data: result.data };
+  }
+
   async getChannels(payload: { [key: string]: number | string }) {
     const page: number = <number>payload.page;
     const first: number = <number>payload.first;
@@ -447,7 +506,7 @@ export class AppService {
     };
   }
 
-  async getTaskFromBrands(payload: { [key: string]: string | number }) {
+  async getTasksFromBrands(payload: { [key: string]: string | number }) {
     const member_uuid: string = <string>payload.member_uuid;
     const populate: PopulateDto = {
       path: 'brand',
@@ -926,6 +985,26 @@ export class AppService {
       this.notificationClientProxy.emit('create_notification', { ...payload });
     }
     return this.taskRepository.findOne({ uuid: task_uuid });
+  }
+
+  async postReaction(payload: Record<string, any>) {
+    const { user_uuid, post_uuid } = payload;
+
+    try {
+      const post = await this.postRepository.findOne({ uuid: post_uuid });
+      let post_likes: string[] = post.post_likes;
+      if (post_likes.includes(user_uuid)) {
+        post_likes = post_likes.filter((e) => e !== user_uuid);
+      } else {
+        post_likes.push(user_uuid);
+      }
+      return this.postRepository.findOneAndUpdate(
+        { _id: post._id },
+        { post_likes },
+      );
+    } catch (err) {
+      throw new BadRequestException(err);
+    }
   }
 
   async isMember(member_uuid: string): Promise<MemberDocument | boolean> {

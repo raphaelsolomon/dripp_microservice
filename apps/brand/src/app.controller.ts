@@ -281,9 +281,14 @@ export class AppController {
   }
 
   @MessagePattern('get_task_from_brands')
-  getTaskFromBrands(@Payload() payload: { [key: string]: string }) {
+  getTasksFromBrands(@Payload() payload: { [key: string]: string }) {
     console.log(payload);
-    return this.appService.getTaskFromBrands(payload);
+    return this.appService.getTasksFromBrands(payload);
+  }
+
+  @MessagePattern('get_post_from_brands')
+  getPostsFromBrands(@Payload() payload: { [key: string]: any }) {
+    return this.appService.getPostsFromBrands(payload);
   }
 
   @MessagePattern('search')
@@ -299,5 +304,10 @@ export class AppController {
   @EventPattern('update_task_completed')
   updateTaskCompleted(@Payload() payload: Record<string, any>) {
     return this.appService.updateTaskReview(payload);
+  }
+
+  @MessagePattern('post_reaction')
+  postReaction(@Payload() payload: Record<string, any>) {
+    return this.appService.postReaction(payload);
   }
 }

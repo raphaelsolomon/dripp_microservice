@@ -58,7 +58,7 @@ export class TaskDocument extends AbstractDocument {
   @Prop({ default: 0, required: false })
   campaign_engagement?: number;
 
-  @Prop({ ref: BrandDocument.name })
+  @Prop({ ref: BrandDocument.name, type: SchemaTypes.String })
   brand?: string;
 }
 

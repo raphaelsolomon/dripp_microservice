@@ -1,6 +1,7 @@
-import { AbstractDocument } from '@app/common';
+import { AbstractDocument, UserDocument } from '@app/common';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { BrandDocument } from './brand.schema';
+import { SchemaTypes } from 'mongoose';
 
 @Schema({ versionKey: false })
 export class PostDocument extends AbstractDocument {
@@ -19,7 +20,7 @@ export class PostDocument extends AbstractDocument {
   @Prop({ ref: BrandDocument.name })
   brand: string;
 
-  @Prop({ default: [] })
+  @Prop({ default: [{ ref: UserDocument.name, type: SchemaTypes.String }] })
   post_likes?: [string];
 }
 

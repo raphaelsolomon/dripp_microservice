@@ -495,6 +495,40 @@ export class UsersService {
     );
   }
 
+  async getPosts(user: UserDocument, payload: { [key: string]: string }) {
+    if (user.account_type !== 'user') {
+      throw new BadRequestException(
+        'Action not supported on the account type.',
+      );
+    }
+
+    const page = payload?.page ?? '1';
+    const first = payload?.first ?? '20';
+
+    return await firstValueFrom(
+      this.brandClientProxy.send('get_post_from_brands', {
+        member_uuid: user.uuid,
+        first,
+        page,
+        user,
+      }),
+    );
+  }
+
+  async postReaction(user: UserDocument, input: string) {
+    if (user.account_type !== 'user') {
+      throw new BadRequestException('action not supported ontthis acount type');
+    }
+    const result = await firstValueFrom(
+      this.brandClientProxy.send('post_reaction', {
+        post_uuid: input,
+        user_uuid: user.uuid,
+      }),
+    );
+
+    return result;
+  }
+
   async updateUsername(payload: { [key: string]: string }) {
     const user = await this.userRepository.findOne({
       username: payload.username,

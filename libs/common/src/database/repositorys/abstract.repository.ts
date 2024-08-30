@@ -72,8 +72,16 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
   async aggregate(
     pipeline?: PipelineStage[],
     options?: AggregateOptions,
-  ): Promise<TDocument[]> {
-    return this.model.aggregate(pipeline, options);
+    countfilter?: FilterQuery<TDocument>,
+  ): Promise<{ [key: string]: number | TDocument[] }> {
+    if (countfilter) {
+      const count = await this.model.countDocuments(countfilter).exec();
+      const data = await this.model.aggregate(pipeline, options).exec();
+      return { count, data };
+    } else {
+      const data = await this.model.aggregate(pipeline, options).exec();
+      return { data };
+    }
   }
 
   async getPaginatedDocuments(

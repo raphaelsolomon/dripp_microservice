@@ -3,8 +3,10 @@ import {
   Controller,
   Delete,
   Get,
+  Param,
   Patch,
   Post,
+  Put,
   Query,
   Req,
   Res,
@@ -32,12 +34,12 @@ export class UsersController {
     return user;
   }
 
-  @Get('/healthcheck')
+  @Get('healthcheck')
   healthCheck(@Res() res: Response) {
     return res.sendStatus(200);
   }
 
-  @Patch('/update')
+  @Patch('update')
   @UseGuards(JwtAuthGuard)
   async updateUser(
     @CurrentUser() user: UserDocument,
@@ -46,7 +48,7 @@ export class UsersController {
     return await this.usersService.updateUser(user, updateDto);
   }
 
-  @Post('/update/password')
+  @Post('update/password')
   @UseGuards(JwtAuthGuard)
   async resetPassword(
     @CurrentUser() user: UserDocument,
@@ -55,13 +57,13 @@ export class UsersController {
     return await this.usersService.updatePassword(user, updatePasswordDto);
   }
 
-  @Post('/subscribe-channel/:brand_uuid')
+  @Post('subscribe-channel/:brand_uuid')
   @UseGuards(JwtAuthGuard)
   async joinChannel(@CurrentUser() user: UserDocument, @Req() req: Request) {
     return this.usersService.subscribeChannel(user, req?.params?.brand_uuid);
   }
 
-  @Post('/deactivate')
+  @Post('deactivate')
   @UseGuards(JwtAuthGuard)
   async deactivateAccount(
     @CurrentUser() user: UserDocument,
@@ -70,7 +72,7 @@ export class UsersController {
     return this.usersService.deactivateAccount(user, password);
   }
 
-  @Delete('/unsubscribe-channel/:brand_uuid')
+  @Delete('unsubscribe-channel/:brand_uuid')
   @UseGuards(JwtAuthGuard)
   async unsubscribeChannel(
     @CurrentUser() user: UserDocument,
@@ -79,7 +81,7 @@ export class UsersController {
     return this.usersService.unsubscribeChannel(user, req?.params?.brand_uuid);
   }
 
-  @Get('/channels')
+  @Get('channels')
   @UseGuards(JwtAuthGuard)
   async getChannels(
     @CurrentUser() user: UserDocument,
@@ -88,7 +90,7 @@ export class UsersController {
     return this.usersService.getChannels(user, payload);
   }
 
-  @Get('/recommended-channels')
+  @Get('recommended-channels')
   @UseGuards(JwtAuthGuard)
   async getRecommededChannels(
     @CurrentUser() user: UserDocument,
@@ -97,7 +99,7 @@ export class UsersController {
     return this.usersService.getRecommededChannels(user, payload);
   }
 
-  @Get('/tasks')
+  @Get('tasks')
   @UseGuards(JwtAuthGuard)
   async getTasks(
     @CurrentUser() user: UserDocument,
@@ -106,7 +108,16 @@ export class UsersController {
     return this.usersService.getTasks(user, payload);
   }
 
-  @Post('/task-submission')
+  @Get('posts')
+  @UseGuards(JwtAuthGuard)
+  async getPosts(
+    @CurrentUser() user: UserDocument,
+    @Query() payload: { [key: string]: string },
+  ) {
+    return this.usersService.getPosts(user, payload);
+  }
+
+  @Post('task-submission')
   @FormDataRequest()
   @UseGuards(JwtAuthGuard)
   async submitTask(
@@ -116,15 +127,24 @@ export class UsersController {
     return this.usersService.submitTask(user, payload);
   }
 
-  @Post('/update/avatar')
-  // @UseInterceptors(FileInterceptor('file'))
+  @Post('update/avatar')
   @FormDataRequest()
   @UseGuards(JwtAuthGuard)
   async updateAvatar(
     @CurrentUser() user: UserDocument,
     @Body() uploadImageDto: UploadImageDto,
   ) {
-    return await this.usersService.uploadAvatar(user, uploadImageDto.file);
+    return this.usersService.uploadAvatar(user, uploadImageDto.file);
+  }
+
+  @Put('post/react/:post_uuid')
+  @FormDataRequest()
+  @UseGuards(JwtAuthGuard)
+  async postReaction(
+    @CurrentUser() user: UserDocument,
+    @Param('post_uuid') input: string,
+  ) {
+    return this.usersService.postReaction(user, input);
   }
 
   @MessagePattern('get_user')
