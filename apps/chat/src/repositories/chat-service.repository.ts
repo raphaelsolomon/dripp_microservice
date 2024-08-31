@@ -6,10 +6,10 @@ import { ChatServiceDocument } from '../models/chatservice.schema';
 
 @Injectable()
 export class ChatServiceRepository extends AbstractRepository<ChatServiceDocument> {
-  protected readonly logger = new Logger(ChatServiceDocument.name);
+  protected readonly logger = new Logger(ChatServiceRepository.name);
 
   constructor(
-    @InjectModel(ChatServiceRepository.name) model: Model<ChatServiceDocument>,
+    @InjectModel(ChatServiceDocument.name) model: Model<ChatServiceDocument>,
   ) {
     super(model);
   }

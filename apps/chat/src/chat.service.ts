@@ -1,9 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Server, Socket } from 'socket.io';
 import { CreateMessageDto } from './dto/create-message.dto';
-import { ArchiveSingleRoomDto } from './dto/archive-single-room.dto';
-import { MarkReadMsgsDto } from './dto/mark-msgs-read.dto';
-import { ArchiveMultipleRoomDto } from './dto/archive-mutliple-room.dto';
 import { IsTypingDto } from './dto/istyping.dto';
 import { MarkReadMsgDto } from './dto/mark-msg-read.dto';
 import { ChatServiceRepository } from './repositories/chat-service.repository';
@@ -16,21 +13,38 @@ import { MessageDocument } from './models/message.schema';
 import { ChatRoomRepository } from './repositories/chat-room.repository';
 import { WsException } from '@nestjs/websockets';
 import { ClientProxy } from '@nestjs/microservices';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable()
 export class ChatService {
   constructor(
-    private readonly chatServiceRpository: ChatServiceRepository,
+    private readonly chatServiceRepository: ChatServiceRepository,
     private readonly messageRepository: MessageRepository,
     private readonly chatRoomRepository: ChatRoomRepository,
     @Inject(AUTH_SERVICE) private readonly authClientproxy: ClientProxy,
   ) {}
 
+  async createChatService(payload: { [key: string]: string } | UserDocument) {
+    const result = await this.chatServiceRepository.create({});
+    if (Object.keys(payload).length > 0) {
+      return await firstValueFrom(
+        this.authClientproxy.send('update_chat_uuid', {
+          chat_uuid: result.uuid,
+          _id: payload._id,
+        }),
+      );
+    }
+    return result;
+  }
+
   async handleConnection(socket: Socket, server: Server) {
-    const uuid: string = socket.handshake.query?.chatUuid as string;
+    const uuid: string = socket.handshake.query?.chatuuid as string;
     if (uuid) {
       const updatePayload = { clientId: socket.id, status: true };
-      await this.chatServiceRpository.findOneAndUpdate({ uuid }, updatePayload);
+      await this.chatServiceRepository.findOneAndUpdate(
+        { uuid },
+        updatePayload,
+      );
       socket.join(uuid);
       const filterQueryMessage = { receiver_uuid: uuid, status: 'SENT' };
       const updateQuery = { status: 'DELIVERED' };
@@ -44,17 +58,18 @@ export class ChatService {
   }
 
   async handleDisconnection(socket: Socket, server: Server) {
-    const uuid: string = socket.handshake.query?.chatUuid as string;
+    const uuid: string = socket.handshake.query?.chatuuid as string;
     const payload = { type: 'offline', status: false };
     const updateQuery = { clientId: null, status: false };
-    await this.chatServiceRpository.findOneAndUpdate({ uuid }, updateQuery);
+    await this.chatServiceRepository.findOneAndUpdate({ uuid }, updateQuery);
     payload['uuid'] = uuid;
     server.emit(ChatEventEnum.USER_STATUS_CHANGED, payload);
     // this.logger.log('A user disconnected:', uuid ?? socket.id);
   }
 
   async createMessage(input: CreateMessageDto, socket: Socket) {
-    let selectedChatMessage: ChatRoomDocument = undefined;
+    let room: ChatRoomDocument = undefined;
+    let message: MessageDocument = undefined;
     /*
       check if the this two user have had a conversion earlier,
       if yes get the room for that message.
@@ -67,7 +82,7 @@ export class ChatService {
       check if the this two user have had a conversion earlier,
       if no then create a new for this users
     */
-    selectedChatMessage = await this.chatRoomRepository.findOneOrCreate(
+    room = await this.chatRoomRepository.findOneOrCreate(
       {
         participants: {
           $all: [sender_uuid, receiver_uuid],
@@ -77,11 +92,11 @@ export class ChatService {
     );
 
     // Create a new message instance with appropriate metadata
-    const message = await this.messageRepository.create({
+    message = await this.messageRepository.create({
       sender_uuid,
       receiver_uuid,
       content_type,
-      chat: selectedChatMessage._id.toString(),
+      chat: room._id.toString(),
       content: {
         sender_uuid: input.content.sender_uuid,
         is_brand: input.content.is_brand,
@@ -94,17 +109,24 @@ export class ChatService {
       and check if the user is online update the
       message to DELIVERED
     */
-    const filterQuery = { uuid: receiver_uuid, status: true };
-    await this.chatServiceRpository.findOneAndUpdate(filterQuery, {
-      status: 'DELIVERED',
-    });
+    const filterQuery = { uuid: receiver_uuid };
+    const getReceiver = await this.chatServiceRepository.findOne(filterQuery);
+    if (getReceiver.status) {
+      message = await this.messageRepository.findOneAndUpdate(
+        { _id: message._id },
+        { status: 'DELIVERED' },
+      );
+    }
 
-    await this.chatRoomRepository.findOneAndUpdate(selectedChatMessage._id, {
-      lastMessage: message._id,
-    });
+    await this.chatRoomRepository.findOneAndUpdate(
+      { _id: room._id },
+      {
+        lastMessage: message._id,
+      },
+    );
 
     // logic to emit socket event about the new message created to the other participants
-    selectedChatMessage.participants.forEach((uuid: string) => {
+    room.participants.forEach((uuid: string) => {
       if (uuid.toString() === sender_uuid) {
         // emit the message back to the sender.
         socket.emit(ChatEventEnum.MESSAGE_RECEIVED_EVENT, message);
@@ -115,21 +137,23 @@ export class ChatService {
   }
 
   async setIsTyping(isTypingDto: IsTypingDto, socket: Socket) {
-    const id = isTypingDto.room_id;
-    const chatRoom = await this.chatRoomRepository.findOne({ _id: id });
+    const _id = isTypingDto.room_id;
+    const sender_uuid: string = socket.handshake.query?.chatuuid as string;
+    const chatRoom = await this.chatRoomRepository.findOne({ _id });
     chatRoom.participants.forEach((uuid: string) => {
-      if (uuid.toString() === isTypingDto.sender_uuid) return;
+      if (uuid.toString() === sender_uuid) return;
       // emit the receive message event to the other participants with received message as the payload
       socket.in(uuid).emit('isTyping', {
-        participant_uuid: isTypingDto.sender_uuid,
+        participant_uuid: sender_uuid,
         isTyping: isTypingDto.isTyping,
-        room_id: id,
+        room_id: _id,
       });
     });
     return;
   }
 
-  async getAllChats(input: ChatUsersBody) {
+  async getAllChats(input: ChatUsersBody, socket: Socket) {
+    const chat_uuid: string = socket.handshake.query?.chatuuid as string;
     const page: number = input.page ?? 1;
     const first: number = input.first ?? 20;
 
@@ -151,8 +175,8 @@ export class ChatService {
       first,
       page,
       {
-        participants: { $in: [input.chat_uuid] },
-        isArchivedFor: { $nin: [input.chat_uuid] },
+        participants: { $in: [chat_uuid] },
+        isArchivedFor: { $nin: [chat_uuid] },
       },
       '-updatedAt -__v -createdAt',
       [populateMessage, populateUsers],
@@ -161,7 +185,7 @@ export class ChatService {
     for (let i = 0; i < chatRooms.data.length; i++) {
       const unReadMsgCount = await this.messageRepository.countDocs({
         chat: chatRooms.data[i]._id,
-        receiver_uuid: input.chat_uuid,
+        receiver_uuid: chat_uuid,
         $or: [{ status: 'SENT' }, { status: 'DELIVERED' }],
       });
       chatRooms.data[i].unReadCount = unReadMsgCount;
@@ -170,8 +194,9 @@ export class ChatService {
     return chatRooms;
   }
 
-  async getChatMessages(input: ChatMessagesBody) {
-    const { first, page, room_id, chat_uuid } = input;
+  async getChatMessages(input: ChatMessagesBody, socket: Socket) {
+    const uuid: string = socket.handshake.query?.chatuuid as string;
+    const { first, page, room_id } = input;
 
     const defaultResponse = {
       data: [],
@@ -185,9 +210,7 @@ export class ChatService {
     };
 
     try {
-      await this.chatServiceRpository.findOne({
-        uuid: chat_uuid,
-      });
+      await this.chatServiceRepository.findOne({ uuid });
 
       const getChatRoom = await this.chatRoomRepository.findOne({
         _id: room_id,
@@ -200,7 +223,8 @@ export class ChatService {
     }
   }
 
-  async getArchivedRooms(input: ChatUsersBody) {
+  async getArchivedRooms(input: ChatUsersBody, socket: Socket) {
+    const chat_uuid: string = socket.handshake.query?.chatuuid as string;
     const page: number = input.page ?? 1;
     const first: number = input.first ?? 20;
 
@@ -222,8 +246,8 @@ export class ChatService {
       first,
       page,
       {
-        participants: { $in: [input.chat_uuid] },
-        isArchivedFor: { $in: [input.chat_uuid] },
+        participants: { $in: [chat_uuid] },
+        isArchivedFor: { $in: [chat_uuid] },
       },
       '-updatedAt -__v -createdAt',
       [populateMessage, populateUsers],
@@ -232,7 +256,7 @@ export class ChatService {
     for (let i = 0; i < chatRooms.data.length; i++) {
       const unReadMsgCount = await this.messageRepository.countDocs({
         chat: chatRooms.data[i]._id,
-        receiver_uuid: input.chat_uuid,
+        receiver_uuid: chat_uuid,
         $or: [{ status: 'SENT' }, { status: 'DELIVERED' }],
       });
       chatRooms.data[i].unReadCount = unReadMsgCount;
@@ -241,37 +265,36 @@ export class ChatService {
     return chatRooms;
   }
 
-  async archiveChatByChat(input: ArchiveSingleRoomDto) {
-    const chat_uuid = input.chat_uuid;
-    const uuid = input.room_uuid;
+  async archiveChatByChat(_id: string, socket: Socket) {
+    const chat_uuid: string = socket.handshake.query?.chatuuid as string;
 
-    const chatRoom = await this.chatRoomRepository.findOne({ uuid });
+    const chatRoom = await this.chatRoomRepository.findOne({ _id });
     if (!chatRoom) return;
 
     const archivedUsers = chatRoom.isArchivedFor;
     if (!archivedUsers.includes(chat_uuid)) archivedUsers.push(chat_uuid);
 
     return this.chatRoomRepository.findOneAndUpdate(
-      { uuid },
+      { _id },
       { isArchivedFor: archivedUsers },
     );
   }
 
-  async unArchiveChatByChat(input: ArchiveSingleRoomDto) {
-    const chat_uuid = input.chat_uuid;
-    const uuid = input.room_uuid;
+  async unArchiveChatByChat(_id: string, socket: Socket) {
+    const chat_uuid: string = socket.handshake.query?.chatuuid as string;
 
-    const chatRoom = await this.chatRoomRepository.findOne({ uuid });
+    const chatRoom = await this.chatRoomRepository.findOne({ _id });
     if (!chatRoom) return;
     const archivedUsers = chatRoom.isArchivedFor.filter((e) => e !== chat_uuid);
 
     return this.chatRoomRepository.findOneAndUpdate(
-      { uuid },
+      { _id },
       { isArchivedFor: archivedUsers },
     );
   }
 
-  async getArchivedRoomsCount(chat_uuid: string) {
+  async getArchivedRoomsCount(socket: Socket) {
+    const chat_uuid: string = socket.handshake.query?.chatuuid as string;
     const count = await this.chatRoomRepository.countDocs({
       participants: { $in: [chat_uuid] },
       isArchivedFor: { $in: [chat_uuid] },
@@ -279,21 +302,25 @@ export class ChatService {
     return count;
   }
 
-  async markMessagesAsRead(input: MarkReadMsgsDto) {
-    input.room_ids.forEach(async (id) => {
+  async markMessagesAsRead(_ids: string[], socket: Socket) {
+    const chat_uuid: string = socket.handshake.query?.chatuuid as string;
+    for (const id of _ids) {
       await this.messageRepository.updateMany(
         {
           chat: id,
-          receiver_uuid: input.chat_uuid,
+          receiver_uuid: chat_uuid,
           $or: [{ status: 'SENT' }, { status: 'DELIVERED' }],
         },
         { status: 'READ' },
       );
-    });
+    }
+
     return;
   }
 
   async markMessageAsRead(input: MarkReadMsgDto, socket: Socket) {
+    const chat_uuid: string = socket.handshake.query?.chatuuid as string;
+
     const _id = input.room_id;
     const message_id = input.message_id;
 
@@ -303,28 +330,25 @@ export class ChatService {
       {
         chat: chatRoom._id,
         _id: message_id,
-        receiver_uuid: input.chat_uuid,
+        receiver_uuid: chat_uuid,
       },
       { status: 'READ' },
     );
     const message = await this.messageRepository.findOne({ _id: message_id });
 
     chatRoom.participants.forEach((uuid) => {
-      if (uuid === input.chat_uuid) return;
+      if (uuid === chat_uuid) return;
       socket.in(uuid).emit(ChatEventEnum.MESSAGE_READ, { chatRoom, message });
     });
-    return;
+    return message;
   }
 
-  async archiveMultipleRooms(input: ArchiveMultipleRoomDto) {
-    const chat_uuid = input.chat_uuid;
-    const room_uuids = input.room_uuids;
+  async archiveMultipleRooms(_ids: string[], socket: Socket) {
+    const chat_uuid: string = socket.handshake.query?.chatuuid as string;
     const archivedRooms: string[] = [];
 
-    for (let i = 0; i < room_uuids.length; i++) {
-      const chatRoom = await this.chatRoomRepository.findOne({
-        uuid: room_uuids[i],
-      });
+    for (const _id of _ids) {
+      const chatRoom = await this.chatRoomRepository.findOne({ _id });
       if (!chatRoom) return;
       const archivedUsers = chatRoom.isArchivedFor;
       if (!archivedUsers.includes(chat_uuid)) {
@@ -332,7 +356,7 @@ export class ChatService {
         archivedRooms.push(chatRoom.uuid);
       }
       await this.chatRoomRepository.findOneAndUpdate(
-        { uuid: room_uuids[i] },
+        { _id },
         { isArchivedFor: archivedUsers },
       );
     }

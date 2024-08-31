@@ -1,12 +1,16 @@
 import { Module } from '@nestjs/common';
 import { ChatService } from './chat.service';
 import { ChatServiceRepository } from './repositories/chat-service.repository';
-import { ChatRoomRepository } from './repositories/chat-room.repository';
-import { MessageRepository } from './repositories/message.repository';
 import { ChatGateway } from './chat.gateway';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as Joi from 'joi';
-import { AUTH_SERVICE, DatabaseModule, LoggerModule } from '@app/common';
+import {
+  AUTH_SERVICE,
+  DatabaseModule,
+  LoggerModule,
+  UserDocument,
+  UserSchema,
+} from '@app/common';
 import {
   ChatServiceDocument,
   ChatServiceSchema,
@@ -14,6 +18,9 @@ import {
 import { ChatRoomDocument, ChatRoomSchema } from './models/chatroom.schema';
 import { MessageDocument, MessageSchema } from './models/message.schema';
 import { ClientsModule, Transport } from '@nestjs/microservices';
+import { ChatController } from './chat.controller';
+import { ChatRoomRepository } from './repositories/chat-room.repository';
+import { MessageRepository } from './repositories/message.repository';
 
 @Module({
   imports: [
@@ -33,6 +40,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
       { name: MessageDocument.name, schema: MessageSchema },
       { name: ChatServiceDocument.name, schema: ChatServiceSchema },
       { name: ChatRoomDocument.name, schema: ChatRoomSchema },
+      { name: UserDocument.name, schema: UserSchema },
     ]),
     ClientsModule.registerAsync([
       {
@@ -49,6 +57,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
     ]),
     LoggerModule,
   ],
+  controllers: [ChatController],
   providers: [
     ChatGateway,
     ChatService,

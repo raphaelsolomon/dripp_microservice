@@ -1,6 +1,5 @@
 import { AbstractDocument, UserDocument } from '@app/common';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-// import { MessageDocument } from './message.schema';
 import { SchemaTypes } from 'mongoose';
 
 @Schema()
@@ -11,7 +10,7 @@ export class ChatRoomDocument extends AbstractDocument {
   @Prop({ type: Boolean, default: false })
   isGroupChat?: boolean;
 
-  @Prop({ type: SchemaTypes.ObjectId, ref: 'MessageDocument.name' })
+  @Prop({ ref: 'messagedocuments', type: SchemaTypes.ObjectId })
   lastMessage?: string;
 
   @Prop({ default: [{ ref: UserDocument.name, type: SchemaTypes.String }] })

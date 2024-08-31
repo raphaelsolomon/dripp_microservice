@@ -12,13 +12,10 @@ import { Server, Socket } from 'socket.io';
 import { ChatEventEnum } from './constants/chats.enums';
 import { CreateMessageDto } from './dto/create-message.dto';
 import { IsTypingDto } from './dto/istyping.dto';
-import { ArchiveSingleRoomDto } from './dto/archive-single-room.dto';
-import { MarkReadMsgsDto } from './dto/mark-msgs-read.dto';
 import { MarkReadMsgDto } from './dto/mark-msg-read.dto';
-import { ArchiveMultipleRoomDto } from './dto/archive-mutliple-room.dto';
 import { ChatMessagesBody, ChatUsersBody } from './constants/types.constant';
 
-@WebSocketGateway({ namespace: 'message', cors: { origin: '*' } })
+@WebSocketGateway({ namespace: 'chat', cors: { origin: '*' } })
 export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
   @WebSocketServer()
   server: Server;
@@ -53,44 +50,62 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
   /* Get list of all chat user websocket event */
   @SubscribeMessage(ChatEventEnum.GET_CHAT_USERS_EVENT)
-  getAllChats(@MessageBody() body: ChatUsersBody) {
-    return this.chatService.getAllChats(body);
+  getAllChats(
+    @MessageBody() body: ChatUsersBody,
+    @ConnectedSocket() socket: Socket,
+  ) {
+    return this.chatService.getAllChats(body, socket);
   }
 
   /* Get archive chat websocket event */
   @SubscribeMessage(ChatEventEnum.GET_ARCHIVED_CHAT_EVENT)
-  getArchivedRooms(@MessageBody() body: ChatUsersBody) {
-    return this.chatService.getArchivedRooms(body);
+  getArchivedRooms(
+    @MessageBody() body: ChatUsersBody,
+    @ConnectedSocket() socket: Socket,
+  ) {
+    return this.chatService.getArchivedRooms(body, socket);
   }
 
   /* Get message betwen two users websocket event */
   @SubscribeMessage(ChatEventEnum.GET_MESSAGES_EVENT)
-  getChatMessages(@MessageBody() body: ChatMessagesBody) {
-    return this.chatService.getChatMessages(body);
+  getChatMessages(
+    @MessageBody() body: ChatMessagesBody,
+    @ConnectedSocket() socket: Socket,
+  ) {
+    return this.chatService.getChatMessages(body, socket);
   }
 
   /* Archive chat websocket event */
   @SubscribeMessage(ChatEventEnum.ARCHIVE_ROOM_EVENT)
-  archiveChatByChatUuid(@MessageBody() archivedChat: ArchiveSingleRoomDto) {
-    return this.chatService.archiveChatByChat(archivedChat);
+  archiveChatByChatUuid(
+    @MessageBody('room_id') _id: string,
+    @ConnectedSocket() socket: Socket,
+  ) {
+    return this.chatService.archiveChatByChat(_id, socket);
   }
 
   /* Unarchive chat websocket event */
   @SubscribeMessage(ChatEventEnum.UNARCHIVE_ROOM_EVENT)
-  unArchiveChatByChatUuid(@MessageBody() archivedChat: ArchiveSingleRoomDto) {
-    return this.chatService.unArchiveChatByChat(archivedChat);
+  unArchiveChatByChatUuid(
+    @MessageBody('room_id') _id: string,
+    @ConnectedSocket() socket: Socket,
+  ) {
+    return this.chatService.unArchiveChatByChat(_id, socket);
   }
 
   /* Get archive chat count websocket event */
   @SubscribeMessage(ChatEventEnum.GET_ARCHIVED_CHAT_COUNT_EVENT)
-  getArchivedRoomsCount(@MessageBody('chat_uuid') chat_uuid: string) {
-    return this.chatService.getArchivedRoomsCount(chat_uuid);
+  getArchivedRoomsCount(@ConnectedSocket() socket: Socket) {
+    return this.chatService.getArchivedRoomsCount(socket);
   }
 
   /* mark chats as read websocket event */
   @SubscribeMessage(ChatEventEnum.MARK_MESSAGES_AS_READ)
-  markMessagesAsRead(@MessageBody() input: MarkReadMsgsDto) {
-    return this.chatService.markMessagesAsRead(input);
+  markMessagesAsRead(
+    @MessageBody('room_ids') _ids: string[],
+    @ConnectedSocket() socket: Socket,
+  ) {
+    return this.chatService.markMessagesAsRead(_ids, socket);
   }
 
   /* mark chats as read websocket event */
@@ -104,7 +119,10 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
   /* archive multiple chat rooms websocket event */
   @SubscribeMessage(ChatEventEnum.ARCHIVE_MULTIPLE_ROOM_EVENT)
-  archiveMultipleRooms(@MessageBody() input: ArchiveMultipleRoomDto) {
-    return this.chatService.archiveMultipleRooms(input);
+  archiveMultipleRooms(
+    @MessageBody('room_ids') _ids: string[],
+    @ConnectedSocket() socket: Socket,
+  ) {
+    return this.chatService.archiveMultipleRooms(_ids, socket);
   }
 }

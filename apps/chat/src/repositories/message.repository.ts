@@ -6,10 +6,10 @@ import { MessageDocument } from '../models/message.schema';
 
 @Injectable()
 export class MessageRepository extends AbstractRepository<MessageDocument> {
-  protected readonly logger = new Logger(MessageDocument.name);
+  protected readonly logger = new Logger(MessageRepository.name);
 
   constructor(
-    @InjectModel(MessageRepository.name) model: Model<MessageDocument>,
+    @InjectModel(MessageDocument.name) model: Model<MessageDocument>,
   ) {
     super(model);
   }

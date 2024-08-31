@@ -13,6 +13,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UserRepository } from './repositories/users.repository';
 import * as bcrypt from 'bcryptjs';
 import {
+  CHAT_SERVICE,
   SubmissionRepository,
   TaskCompletionDocument,
   TaskCompletionRepository,
@@ -46,6 +47,7 @@ export class UsersService {
     @Inject(NOTIFICATION_SERVICE) private notificationClientProxy: ClientProxy,
     @Inject(WALLET_SERVICE) private walletClientProxy: ClientProxy,
     @Inject(BRAND_SERVICE) private brandClientProxy: ClientProxy,
+    @Inject(CHAT_SERVICE) private chatServiceProxy: ClientProxy,
   ) {}
 
   async create(createUserDto: CreateUserDto) {
@@ -70,10 +72,16 @@ export class UsersService {
       const wallet = await firstValueFrom(
         this.walletClientProxy.send('create_wallet', {}),
       );
-      /* Update the user with the wallet gotten from the message pattern */
+
+      /* create the chatUUID and attach the chatUUID to the user */
+      const chat = await firstValueFrom(
+        this.chatServiceProxy.send('create_chat', {}),
+      );
+
+      /* Update the user with the wallet & chat gotten from the message patterns */
       await this.userRepository.findOneAndUpdate(
         { uuid: user.uuid },
-        { wallet_uuid: wallet.uuid },
+        { wallet_uuid: wallet.uuid, chat_uuid: chat.uuid },
       );
       /* send the user a verification, in other to verify their account */
       this.notificationClientProxy.emit('mail_verify', {
@@ -539,6 +547,13 @@ export class UsersService {
     return await this.userRepository.findOneAndUpdate(
       { _id: payload._id },
       { username: payload.username },
+    );
+  }
+
+  async updateChatUuid(payload: { [key: string]: string }) {
+    return await this.userRepository.findOneAndUpdate(
+      { _id: payload._id },
+      { chat_uuid: payload.chat_uuid },
     );
   }
 

@@ -6,10 +6,10 @@ import { ChatRoomDocument } from '../models/chatroom.schema';
 
 @Injectable()
 export class ChatRoomRepository extends AbstractRepository<ChatRoomDocument> {
-  protected readonly logger = new Logger(ChatRoomDocument.name);
+  protected readonly logger = new Logger(ChatRoomRepository.name);
 
   constructor(
-    @InjectModel(ChatRoomRepository.name) model: Model<ChatRoomDocument>,
+    @InjectModel(ChatRoomDocument.name) model: Model<ChatRoomDocument>,
   ) {
     super(model);
   }

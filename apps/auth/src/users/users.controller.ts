@@ -156,4 +156,9 @@ export class UsersController {
   updateUserByUuid(@Payload() payload: { [key: string]: string }) {
     return this.usersService.updateUsername(payload);
   }
+
+  @MessagePattern('update_chat_uuid')
+  updateChatUuid(@Payload() payload: { [key: string]: string }) {
+    return this.usersService.updateChatUuid(payload);
+  }
 }
