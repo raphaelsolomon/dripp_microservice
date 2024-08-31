@@ -27,6 +27,8 @@ import { XTwitterStrategy } from './strategies/twitter.strategy';
         AUTH_TCP_PORT: Joi.number().required(),
         BRAND_HOST: Joi.string().required(),
         BRAND_TCP_PORT: Joi.number().required(),
+        CHAT_HOST: Joi.string().required(),
+        CHAT_TCP_PORT: Joi.number().required(),
         NOTIFICATION_HOST: Joi.string().required(),
         NOTIFICATION_TCP_PORT: Joi.number().required(),
         GOOGLE_OAUTH_CLIENT_ID: Joi.string().required(),

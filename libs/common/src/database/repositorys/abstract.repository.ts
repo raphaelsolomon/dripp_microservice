@@ -5,6 +5,7 @@ import {
   PipelineStage,
   Types,
   UpdateQuery,
+  UpdateWriteOpResult,
 } from 'mongoose';
 import { AbstractDocument } from '../models/abstract.schema';
 import { Logger, NotFoundException } from '@nestjs/common';
@@ -55,7 +56,7 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
 
   async find(
     filterQuery: FilterQuery<TDocument>,
-    populate?: PopulateDto,
+    populate?: PopulateDto | PopulateDto[],
   ): Promise<TDocument[]> {
     return this.model
       .find(filterQuery)
@@ -138,5 +139,16 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
   async distinct(field: string, filter?: FilterQuery<TDocument>) {
     const documentRecord = await this.model.distinct(field, filter);
     return documentRecord;
+  }
+
+  async updateMany(
+    filter?: FilterQuery<TDocument>,
+    update?: UpdateQuery<TDocument>,
+  ): Promise<UpdateWriteOpResult> {
+    return this.model.updateMany(filter, update);
+  }
+
+  async countDocs(filter?: FilterQuery<TDocument>): Promise<number> {
+    return this.model.countDocuments(filter);
   }
 }

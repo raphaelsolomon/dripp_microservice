@@ -3,6 +3,7 @@ import { UsersController } from './users.controller';
 import { UsersService } from './users.service';
 import {
   BRAND_SERVICE,
+  CHAT_SERVICE,
   CloudinaryModule,
   DatabaseModule,
   DiscountRepository,
@@ -72,6 +73,17 @@ import { NestjsFormDataModule } from 'nestjs-form-data';
           options: {
             host: configService.get<string>('WALLET_HOST'),
             port: configService.get<number>('WALLET_TCP_PORT'),
+          },
+        }),
+        inject: [ConfigService],
+      },
+      {
+        name: CHAT_SERVICE,
+        useFactory: (configService: ConfigService) => ({
+          transport: Transport.TCP,
+          options: {
+            host: configService.get<string>('CHAT_HOST'),
+            port: configService.get<number>('CHAT_TCP_PORT'),
           },
         }),
         inject: [ConfigService],
