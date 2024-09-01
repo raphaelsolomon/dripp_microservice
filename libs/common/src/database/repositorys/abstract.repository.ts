@@ -85,6 +85,13 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
     }
   }
 
+  async aggregateToArray(
+    pipeline?: PipelineStage[],
+    options?: AggregateOptions,
+  ) {
+    return this.model.aggregate(pipeline, options);
+  }
+
   async getPaginatedDocuments(
     first: number,
     page: number,

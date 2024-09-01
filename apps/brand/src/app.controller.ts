@@ -256,6 +256,12 @@ export class AppController {
     return this.appService.getMembershipMetrics(user);
   }
 
+  @Get('graph/task-with-engagement')
+  @UseGuards(JwtAuthGuard)
+  getTasksWithTotalEngagement(@CurrentUser() user: UserDocument) {
+    return this.appService.getTasksWithTotalEngagement(user);
+  }
+
   @MessagePattern('create_brand')
   createBrand(@Payload() payload: any) {
     return this.appService.createBrand(payload);

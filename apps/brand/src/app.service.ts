@@ -49,32 +49,6 @@ import { MemberDocument } from './models/member.schema';
 
 @Injectable()
 export class AppService {
-  async getMembershipMetrics(user: UserDocument) {
-    if (user.account_type === 'user') {
-      throw new BadRequestException('Action not allowed on this account type.');
-    }
-    return this.memberRepository.aggregate([
-      {
-        $match: {
-          brand: user.brand_uuid,
-        },
-      },
-      {
-        $group: {
-          _id: { $dateToString: { format: '%Y-%m-%d', date: '$created_at' } },
-          count: { $sum: 1 },
-        },
-      },
-      { $sort: { _id: 1 } },
-      {
-        $project: {
-          date: '$_id',
-          members: '$count',
-          _id: 0,
-        },
-      },
-    ]);
-  }
   constructor(
     private readonly brandRepository: BrandRepository,
     private readonly memberRepository: MemberRepository,
@@ -849,12 +823,14 @@ export class AppService {
     const { task_uuid, user_uuid } = payload;
 
     const task = await this.taskRepository.findOne({ uuid: task_uuid });
+    let campaign_engagement: number = task.campaign_engagement;
     if (!task.members_review.includes(user_uuid)) {
       const members_review = task.members_review;
       members_review.push(user_uuid);
+      campaign_engagement = campaign_engagement + 1;
       await this.taskRepository.findOneAndUpdate(
         { uuid: task_uuid },
-        { members_review },
+        { members_review, campaign_engagement },
       );
     }
   }
@@ -1064,6 +1040,71 @@ export class AppService {
       },
       null,
       [populate],
+    );
+  }
+
+  async getMembershipMetrics(user: UserDocument) {
+    if (user.account_type === 'user') {
+      throw new BadRequestException('Action not allowed on this account type.');
+    }
+    /* 
+      {{ $match }} is like where condition brand equal uuid.
+      {{ $group }} is like transformation which filters the by the date the member join the brand
+       threby seting the date as an id sum up the member that joined on that paticular date
+      {{  $project }} is like transformation which reshapes result of the query to a desired value
+    */
+    return this.memberRepository.aggregate([
+      {
+        $match: {
+          brand: user.brand_uuid,
+        },
+      },
+      {
+        $group: {
+          _id: { $dateToString: { format: '%Y-%m-%d', date: '$created_at' } },
+          count: { $sum: 1 },
+        },
+      },
+      { $sort: { _id: 1 } },
+      {
+        $project: {
+          date: '$_id',
+          members: '$count',
+          _id: 0,
+        },
+      },
+    ]);
+  }
+
+  async getTasksWithTotalEngagement(user: UserDocument) {
+    if (user.account_type === 'user') {
+      throw new BadRequestException('Action not allowed on this account type.');
+    }
+    const brand: string = user.brand_uuid;
+    const page: number = 1;
+    const first: number = 20;
+
+    const populate: PopulateDto = {
+      path: 'brand',
+      model: BrandDocument.name,
+      localField: 'brand',
+      foreignField: 'uuid',
+    };
+    const userPopulate: PopulateDto = {
+      path: 'members_completed',
+      model: UserDocument.name,
+      localField: 'members_completed',
+      foreignField: 'uuid',
+    };
+
+    return this.taskRepository.getPaginatedDocuments(
+      first,
+      page,
+      { brand },
+      `-non_member_reward -member_reward -general_reward 
+      -campaign_type -state -country -updated_at 
+      -campaign_banner_url -campaign_amount`,
+      [populate, userPopulate],
     );
   }
 }
