@@ -64,6 +64,10 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
       .lean<TDocument[]>(true);
   }
 
+  getModel() {
+    return this.model;
+  }
+
   async findOneAndDelete(
     filterQuery: FilterQuery<TDocument>,
   ): Promise<TDocument> {

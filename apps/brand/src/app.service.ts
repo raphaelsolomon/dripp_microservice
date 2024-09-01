@@ -14,6 +14,7 @@ import {
   NOTIFICATION_SERVICE,
   PopulateDto,
   SubmissionRepository,
+  TaskCompletionRepository,
   UserDocument,
   UserDto,
   WALLET_SERVICE,
@@ -62,6 +63,7 @@ export class AppService {
     private readonly userGiftCardRepository: UserGiftCardRepository,
     private readonly userDiscountRepository: UserDiscountRepository,
     private readonly submissionRepository: SubmissionRepository,
+    private readonly taskCompletionRepository: TaskCompletionRepository,
     @Inject(AUTH_SERVICE) private readonly authClientproxy: ClientProxy,
     @Inject(NOTIFICATION_SERVICE)
     private readonly notificationClientProxy: ClientProxy,
@@ -1106,5 +1108,100 @@ export class AppService {
       -campaign_banner_url -campaign_amount`,
       [populate, userPopulate],
     );
+  }
+
+  async getEngagementsByATask(user: UserDocument, task_uuid: string) {
+    if (user.account_type === 'user') {
+      throw new BadRequestException('Action not allowed on this account type.');
+    }
+    /* 
+      {{ $match }} is like where condition brand equal uuid.
+      {{ $group }} is like transformation which filters the by the date the member join the brand
+       threby seting the date as an id sum up the member that joined on that paticular date
+      {{  $project }} is like transformation which reshapes result of the query to a desired value
+    */
+    const brand: string = user.brand_uuid;
+    const task = await this.taskRepository.findOne({ uuid: task_uuid, brand });
+
+    return this.taskCompletionRepository.aggregate([
+      {
+        $match: {
+          task_uuid: task.uuid,
+        },
+      },
+      {
+        $group: {
+          _id: { $dateToString: { format: '%Y-%m-%d', date: '$created_at' } },
+          count: { $sum: 1 },
+        },
+      },
+      { $sort: { _id: 1 } },
+      {
+        $project: {
+          date: '$_id',
+          engagements: '$count',
+          _id: 0,
+        },
+      },
+    ]);
+  }
+
+  async allTaskWithEngagementsFromCreation(user: UserDocument) {
+    if (user.account_type === 'user') {
+      throw new BadRequestException('Action not allowed on this account type.');
+    }
+
+    return this.taskRepository.aggregate([
+      {
+        $project: {
+          task_uuid: '$uuid',
+          taskName: '$campaign_title',
+          members_review: '$members_review',
+          members_completed: '$members_completed',
+          created_at: { $ifNull: ['$created_at', new Date(0)] }, // Default to Unix epoch if null
+          totalEngagement: {
+            $add: [
+              { $size: { $ifNull: ['$members_review', []] } },
+              { $size: { $ifNull: ['$members_completed', []] } },
+            ],
+          },
+        },
+      },
+      {
+        $group: {
+          _id: {
+            $cond: {
+              if: { $eq: ['$created_at', new Date(0)] },
+              then: 'Unknown',
+              else: { $dateToString: { format: '%Y-%m', date: '$created_at' } },
+            },
+          },
+          tasks: {
+            $push: {
+              task_uuid: '$task_uuid',
+              taskName: '$taskName',
+              members_review: '$members_review',
+              members_completed: '$members_completed',
+              totalEngagement: '$totalEngagement',
+            },
+          },
+          totalMonthlyEngagement: { $sum: '$totalEngagement' },
+        },
+      },
+      {
+        $sort: {
+          _id: 1,
+          'tasks.totalEngagement': -1,
+        },
+      },
+      {
+        $project: {
+          month: '$_id',
+          tasks: 1,
+          totalMonthlyEngagement: 1,
+          _id: 0,
+        },
+      },
+    ]);
   }
 }

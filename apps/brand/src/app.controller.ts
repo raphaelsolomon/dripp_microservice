@@ -256,10 +256,25 @@ export class AppController {
     return this.appService.getMembershipMetrics(user);
   }
 
-  @Get('graph/task-with-engagement')
+  @Get('graph/tasks-with-engagement')
   @UseGuards(JwtAuthGuard)
   getTasksWithTotalEngagement(@CurrentUser() user: UserDocument) {
     return this.appService.getTasksWithTotalEngagement(user);
+  }
+
+  @Get('graph/task-engagement/:task_uuid')
+  @UseGuards(JwtAuthGuard)
+  getEngagementsByATask(
+    @CurrentUser() user: UserDocument,
+    @Param('task_uuid') uuid: string,
+  ) {
+    return this.appService.getEngagementsByATask(user, uuid);
+  }
+
+  @Get('graph/all-task-engagement')
+  @UseGuards(JwtAuthGuard)
+  allTaskWithEngagementsFromCreation(@CurrentUser() user: UserDocument) {
+    return this.appService.allTaskWithEngagementsFromCreation(user);
   }
 
   @MessagePattern('create_brand')

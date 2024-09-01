@@ -17,6 +17,9 @@ import {
   TaskSubmissionDocument,
   TaskSubmissionSchema,
   SubmissionRepository,
+  TaskCompletionDocument,
+  TaskCompletionSchema,
+  TaskCompletionRepository,
 } from '@app/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as Joi from 'joi';
@@ -69,6 +72,7 @@ import { GraphModule } from './graph/graph.module';
       { name: TaskSubmissionDocument.name, schema: TaskSubmissionSchema },
       { name: UserGiftCardDocument.name, schema: UserGiftCardSchema },
       { name: UserDiscountDocument.name, schema: UserDiscountSchema },
+      { name: TaskCompletionDocument.name, schema: TaskCompletionSchema },
     ]),
     LoggerModule,
     ConfigModule.forRoot({
@@ -138,6 +142,7 @@ import { GraphModule } from './graph/graph.module';
     UserGiftCardRepository,
     UserDiscountRepository,
     SubmissionRepository,
+    TaskCompletionRepository,
   ],
 })
 export class AppModule {}
