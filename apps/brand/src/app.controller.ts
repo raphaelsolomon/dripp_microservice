@@ -310,4 +310,9 @@ export class AppController {
   postReaction(@Payload() payload: Record<string, any>) {
     return this.appService.postReaction(payload);
   }
+
+  @MessagePattern('get_completed_tasks')
+  getCompletedTasks(@Payload() payload: Record<string, any>) {
+    return this.appService.getCompletedTasks(payload);
+  }
 }

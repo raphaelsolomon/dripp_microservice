@@ -117,6 +117,15 @@ export class UsersController {
     return this.usersService.getPosts(user, payload);
   }
 
+  @Get('completed-tasks')
+  @UseGuards(JwtAuthGuard)
+  async getCompletedTasks(
+    @CurrentUser() user: UserDocument,
+    @Query() payload: { [key: string]: string },
+  ) {
+    return this.usersService.getCompletedTasks(user, payload);
+  }
+
   @Post('task-submission')
   @FormDataRequest()
   @UseGuards(JwtAuthGuard)

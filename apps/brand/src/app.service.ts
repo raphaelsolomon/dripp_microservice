@@ -1014,4 +1014,30 @@ export class AppService {
       return false;
     }
   }
+
+  async getCompletedTasks(payload: Record<string, any>) {
+    const first: number = parseInt(payload.first ?? '20');
+    const page: number = parseInt(payload.page ?? '1');
+    const member_uuid: string = payload.uuid;
+
+    const populate: PopulateDto = {
+      path: 'brand',
+      model: BrandDocument.name,
+      localField: 'brand',
+      foreignField: 'uuid',
+    };
+
+    return this.taskRepository.getPaginatedDocuments(
+      first,
+      page,
+      {
+        $or: [
+          { members_review: { $in: [member_uuid] } },
+          { members_completed: { $in: [member_uuid] } },
+        ],
+      },
+      null,
+      [populate],
+    );
+  }
 }

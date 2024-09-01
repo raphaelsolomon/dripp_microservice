@@ -726,6 +726,23 @@ export class UsersService {
     return { submission_url: submissionPayload.submission_url };
   }
 
+  async getCompletedTasks(
+    user: UserDocument,
+    payload: { [key: string]: string },
+  ) {
+    if (user.account_type !== 'user') {
+      throw new BadRequestException(
+        'Action not supported on the account type.',
+      );
+    }
+    return await firstValueFrom(
+      this.brandClientProxy.send('get_completed_tasks', {
+        uuid: user.uuid,
+        ...payload,
+      }),
+    );
+  }
+
   async findAndCreateOrUpdateTaskCompletion(
     task_uuid: string,
     user_uuid: string,
