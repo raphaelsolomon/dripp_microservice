@@ -49,6 +49,32 @@ import { MemberDocument } from './models/member.schema';
 
 @Injectable()
 export class AppService {
+  async getMembershipMetrics(user: UserDocument) {
+    if (user.account_type === 'user') {
+      throw new BadRequestException('Action not allowed on this account type.');
+    }
+    return this.memberRepository.aggregate([
+      {
+        $match: {
+          brand: user.brand_uuid,
+        },
+      },
+      {
+        $group: {
+          _id: { $dateToString: { format: '%Y-%m-%d', date: '$created_at' } },
+          count: { $sum: 1 },
+        },
+      },
+      { $sort: { _id: 1 } },
+      {
+        $project: {
+          date: '$_id',
+          members: '$count',
+          _id: 0,
+        },
+      },
+    ]);
+  }
   constructor(
     private readonly brandRepository: BrandRepository,
     private readonly memberRepository: MemberRepository,

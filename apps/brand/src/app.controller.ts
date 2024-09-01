@@ -13,7 +13,7 @@ import {
 } from '@nestjs/common';
 import { AppService } from './app.service';
 import { UseGuards } from '@nestjs/common';
-import { CurrentUser, JwtAuthGuard, UserDto } from '@app/common';
+import { CurrentUser, JwtAuthGuard, UserDocument, UserDto } from '@app/common';
 import { EventPattern, MessagePattern, Payload } from '@nestjs/microservices';
 import { UpdateBrandDto } from './dto/update-brand.dto';
 import { CreateTaskDto } from './dto/task/create-task.dto';
@@ -248,6 +248,12 @@ export class AppController {
     @Body() createMemberShipMailDto: CreateMemberShipMailDto,
   ) {
     return this.appService.createMemberShipMail(user, createMemberShipMailDto);
+  }
+
+  @Get('graph/membership-metrics')
+  @UseGuards(JwtAuthGuard)
+  getMembershipMetrics(@CurrentUser() user: UserDocument) {
+    return this.appService.getMembershipMetrics(user);
   }
 
   @MessagePattern('create_brand')
