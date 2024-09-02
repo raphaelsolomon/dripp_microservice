@@ -1,3 +1,42 @@
 import { AuthGuard } from '@nestjs/passport';
+import {
+  ExecutionContext,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common';
+import * as jwt from 'jsonwebtoken';
+import { UsersService } from '../users/users.service';
 
-export class JwtAuthGuard extends AuthGuard('jwt') {}
+@Injectable()
+export class JwtAuthGuard extends AuthGuard('jwt') {
+  constructor(private readonly authService: UsersService) {
+    super();
+  }
+
+  async canActivate(context: ExecutionContext): Promise<boolean> {
+    const request = context.switchToHttp().getRequest();
+    let accessToken: string =
+      request?.cookies?.Authentication ||
+      request?.Authentication ||
+      request.headers.authorization;
+
+    if (!accessToken) throw new UnauthorizedException('Unauthorized');
+
+    if (accessToken && accessToken.startsWith('Bearer')) {
+      accessToken = accessToken.replace('Bearer ', '');
+    }
+
+    const decode: any = jwt.decode(accessToken);
+    const userId: string = decode.userId;
+    if (userId === undefined) {
+      throw new UnauthorizedException('Unauthorized');
+    }
+    try {
+      await this.authService.getToken(userId, accessToken);
+      const result = await super.canActivate(context);
+      return result as boolean;
+    } catch (err) {
+      throw new UnauthorizedException('Unauthorized');
+    }
+  }
+}

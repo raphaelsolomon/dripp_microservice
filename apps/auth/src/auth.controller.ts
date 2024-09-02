@@ -10,7 +10,7 @@ import {
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './guards/local-auth.guard';
-import { UserDocument } from '@app/common';
+import { UserDocument, UserDto } from '@app/common';
 import { Request, Response } from 'express';
 import { MessagePattern, Payload } from '@nestjs/microservices';
 import { UsersService } from './users/users.service';
@@ -115,6 +115,12 @@ export class AuthController {
     @Res() res: Response,
   ) {
     return this.authService.exchangeRefreshToken(token, res);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('logout')
+  async logout(@CurrentUser() user: UserDto, @Res() res: Response) {
+    return this.authService.logout(user, res);
   }
 
   @UseGuards(JwtAuthGuard)

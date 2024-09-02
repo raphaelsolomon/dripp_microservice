@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { UserDocument } from '@app/common';
+import { UserDocument, UserDto } from '@app/common';
 import { Request, Response } from 'express';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
@@ -15,27 +15,6 @@ type SocialType = {
 
 @Injectable()
 export class AuthService {
-  async exchangeRefreshToken(refresh_token: string, res: Response) {
-    const getToken = await this.userService.getRefreshToken(refresh_token);
-    if (getToken === undefined) {
-      throw new BadRequestException(`Refresh token was not found`);
-    }
-
-    try {
-      const payload = this.jwtService.verify(getToken.refresh_token, {
-        secret: this.configService.get<string>('JWT_REFRESH_SECRET'),
-      });
-
-      const user: UserDocument = getToken.user_id as any;
-      if (payload.userId !== user._id.toString()) {
-        throw new BadRequestException('Invalid token');
-      }
-      const result = await this.getUserAndToken(user, res);
-      return res.status(200).json(result);
-    } catch (err) {
-      throw new Error(err);
-    }
-  }
   constructor(
     private readonly configService: ConfigService,
     private readonly jwtService: JwtService,
@@ -59,7 +38,11 @@ export class AuthService {
       expiresIn: '20d',
     });
     //update the user refresh token in the database
-    this.userService.updateRefreshToken(userInfo._id.toString(), refreshToken);
+    this.userService.updateRefreshToken(
+      userInfo._id.toString(),
+      refreshToken,
+      accessToken,
+    );
     //update cookies session with the access token
     res.cookie('Authentication', accessToken, { httpOnly: true });
     const { password, ...details } = userInfo;
@@ -89,5 +72,44 @@ export class AuthService {
   async xLogin(req: Request, res: Response): Promise<SocialType> {
     const user = await this.userService.authenticateX(req.user);
     return await this.getUserAndToken(user, res);
+  }
+
+  async validateToken(userId: string, authHeader: string) {
+    return this.userService.getToken(userId, authHeader);
+  }
+
+  async exchangeRefreshToken(refresh_token: string, res: Response) {
+    const getToken = await this.userService.getRefreshToken(refresh_token);
+    if (getToken === undefined) {
+      throw new BadRequestException(`Refresh token was not found`);
+    }
+
+    try {
+      const payload = this.jwtService.verify(getToken.refresh_token, {
+        secret: this.configService.get<string>('JWT_REFRESH_SECRET'),
+      });
+
+      const user: UserDocument = getToken.user_id as any;
+      if (payload.userId !== user._id.toString()) {
+        throw new BadRequestException('Invalid token');
+      }
+      const result = await this.getUserAndToken(user, res);
+      return res.status(200).json(result);
+    } catch (err) {
+      throw new Error(err);
+    }
+  }
+
+  async logout(user: UserDto, res: Response) {
+    try {
+      await this.userService.logout(user._id);
+      res.cookie('Authentication', '', {
+        httpOnly: true,
+        expires: new Date(0),
+      });
+      return res.status(200).send({ message: 'Logged out successfully' });
+    } catch (err) {
+      throw new BadRequestException(err);
+    }
   }
 }

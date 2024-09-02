@@ -776,11 +776,15 @@ export class UsersService {
     }
   }
 
-  async updateRefreshToken(user_id: string, refresh_token: string) {
+  async updateRefreshToken(
+    user_id: string,
+    refresh_token: string,
+    access_token: string,
+  ) {
     try {
       await this.tokenRepository.findOneAndUpdate(
         { user_id },
-        { refresh_token },
+        { refresh_token, access_token },
       );
     } catch (err) {
       await this.tokenRepository.create({ user_id, refresh_token });
@@ -797,5 +801,16 @@ export class UsersService {
     } catch (err) {
       return undefined;
     }
+  }
+
+  async getToken(user_id: string, access_token: string) {
+    return this.tokenRepository.findOne({ user_id, access_token });
+  }
+
+  async logout(user_id: string) {
+    await this.tokenRepository.findOneAndUpdate(
+      { user_id },
+      { access_token: null, refresh_token: null },
+    );
   }
 }
