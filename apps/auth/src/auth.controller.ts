@@ -109,6 +109,14 @@ export class AuthController {
     res.json(result);
   }
 
+  @Post('/exchange/refreshtoken')
+  exchangeRefreshToken(
+    @Body('refresh_token') token: string,
+    @Res() res: Response,
+  ) {
+    return this.authService.exchangeRefreshToken(token, res);
+  }
+
   @UseGuards(JwtAuthGuard)
   @MessagePattern('authenticate')
   async authenticate(@Payload() data: any) {

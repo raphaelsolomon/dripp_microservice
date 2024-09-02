@@ -26,10 +26,12 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
   async findOne(
     filterQuery: FilterQuery<TDocument>,
     select?: string,
+    populate?: any,
   ): Promise<TDocument> {
     const document = await this.model
       .findOne(filterQuery)
       .select(select)
+      .populate(populate)
       .lean<TDocument>(true);
     if (!document) {
       this.logger.warn('Document was not found with filterquery', filterQuery);

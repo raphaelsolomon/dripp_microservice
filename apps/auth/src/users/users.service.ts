@@ -35,6 +35,8 @@ import { VerifyEmailDto } from './dto/verify-email.dto';
 import { ResetpasswordDto } from './dto/reset-password.dto';
 import { UpdatePasswordDto } from './dto/update-password.dto';
 import { TaskSubmissionDto } from './dto/submit-task.dto';
+import { TokenRepository } from './repositories/token.repository';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class UsersService {
@@ -44,6 +46,7 @@ export class UsersService {
     private readonly userRepository: UserRepository,
     private readonly cloudinaryService: CloudinaryService,
     private readonly verificationRepository: VerificationRepository,
+    private readonly tokenRepository: TokenRepository,
     @Inject(NOTIFICATION_SERVICE) private notificationClientProxy: ClientProxy,
     @Inject(WALLET_SERVICE) private walletClientProxy: ClientProxy,
     @Inject(BRAND_SERVICE) private brandClientProxy: ClientProxy,
@@ -61,6 +64,8 @@ export class UsersService {
       username,
       password: await bcrypt.hash(createUserDto.password, 10),
     });
+    //create the user refresh token record
+    await this.tokenRepository.create({ user_id: user._id.toString() });
     /* create a new verification entry containing the verification token & expiry time */
     const verification = await this.verificationRepository.create({
       email: user.email,
@@ -768,6 +773,29 @@ export class UsersService {
           task_uuid,
         });
       }
+    }
+  }
+
+  async updateRefreshToken(user_id: string, refresh_token: string) {
+    try {
+      await this.tokenRepository.findOneAndUpdate(
+        { user_id },
+        { refresh_token },
+      );
+    } catch (err) {
+      await this.tokenRepository.create({ user_id, refresh_token });
+    }
+  }
+
+  async getRefreshToken(refresh_token: string) {
+    try {
+      return await this.tokenRepository.findOne(
+        { refresh_token },
+        null,
+        'user_id',
+      );
+    } catch (err) {
+      return undefined;
     }
   }
 }
