@@ -44,7 +44,13 @@ export class AuthService {
       accessToken,
     );
     //update cookies session with the access token
-    res.cookie('Authentication', accessToken, { httpOnly: true });
+    res.cookie('Authentication', accessToken, {
+      httpOnly: true,
+      sameSite: 'strict', // prevent CSRF attacks
+      maxAge: 86400000, //24 hours
+      secure: process.env.NODE_ENV === 'production',
+    });
+    // stripe out unwanted results from user information
     const { password, ...details } = userInfo;
     return {
       user: details,
