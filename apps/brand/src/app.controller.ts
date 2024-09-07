@@ -42,11 +42,8 @@ export class AppController {
 
   @UseGuards(JwtAuthGuard)
   @Patch('/update')
-  updateBrand(
-    @CurrentUser() user: UserDto,
-    @Body() updateBrandDto: UpdateBrandDto,
-  ) {
-    return this.appService.updatebrand(user, updateBrandDto);
+  updateBrand(@CurrentUser() user: UserDto, @Body() input: UpdateBrandDto) {
+    return this.appService.updatebrand(user, input);
   }
 
   @UseGuards(JwtAuthGuard)
@@ -341,5 +338,10 @@ export class AppController {
   @MessagePattern('get_completed_tasks')
   getCompletedTasks(@Payload() payload: Record<string, any>) {
     return this.appService.getCompletedTasks(payload);
+  }
+
+  @MessagePattern('get_brands_by_industries')
+  getBrandsByIndustry(@Payload() payload: { [key: string]: any }) {
+    return this.appService.getBrandsByIndustry(payload);
   }
 }

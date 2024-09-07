@@ -17,12 +17,8 @@ export class NotificationService {
   private readonly transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      type: 'OAuth2',
       user: this.configService.get('SMTP_USER'),
-      clientId: this.configService.get('GOOGLE_OAUTH_CLIENT_ID'),
-      clientSecret: this.configService.get('GOOGLE_OAUTH_CLIENT_SECRET'),
-      refreshToken: this.configService.get('GOOGLE_OAUTH_REFRESH_TOKEN'),
-      accessToken: this.configService.get('GOOGLE_OAUTH_ACCESS_TOKEN'),
+      pass: this.configService.get('SMTP_PASS'),
     },
   });
 

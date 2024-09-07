@@ -6,6 +6,7 @@ import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { TokenPayload } from './interface/token-payload.interface';
 import { UsersService } from './users/users.service';
+import { CreateUserDto } from './users/dto/create-user.dto';
 
 type SocialType = {
   user: object;
@@ -21,14 +22,19 @@ export class AuthService {
     private readonly userService: UsersService,
   ) {}
 
+  async create(input: CreateUserDto, response: Response) {
+    const user = await this.userService.create(input);
+    return await this.getUserAndToken(user, response);
+  }
+
   async login(user: UserDocument, response: Response): Promise<SocialType> {
     return await this.getUserAndToken(user, response);
   }
 
-  getUserAndToken = async (
+  async getUserAndToken(
     userInfo: UserDocument,
     res: Response,
-  ): Promise<SocialType> => {
+  ): Promise<SocialType> {
     const tokenPayload: TokenPayload = {
       userId: userInfo._id.toString(),
     };
@@ -63,7 +69,7 @@ export class AuthService {
         expiresIn: '20d',
       },
     };
-  };
+  }
 
   async googleLogin(req: Request, res: Response): Promise<SocialType> {
     const user = await this.userService.authenticateGoogle(req.user);

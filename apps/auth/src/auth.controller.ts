@@ -36,8 +36,19 @@ export class AuthController {
   }
 
   @Post('/register')
-  async createUser(@Body() createUserDto: CreateUserDto) {
-    return this.usersService.create(createUserDto);
+  async createUser(@Body() input: CreateUserDto, @Res() res: Response) {
+    const result = await this.authService.create(input, res);
+    res.json(result);
+  }
+
+  @UseGuards(LocalAuthGuard)
+  @Post('login')
+  async login(
+    @CurrentUser() user: UserDocument,
+    @Res({ passthrough: true }) response: Response,
+  ) {
+    const result = await this.authService.login(user, response);
+    response.json(result);
   }
 
   @Post('/verify')
@@ -61,16 +72,6 @@ export class AuthController {
     resetpasswordDto: ResetpasswordDto,
   ) {
     return this.usersService.resetPassword(resetpasswordDto);
-  }
-
-  @UseGuards(LocalAuthGuard)
-  @Post('login')
-  async login(
-    @CurrentUser() user: UserDocument,
-    @Res({ passthrough: true }) response: Response,
-  ) {
-    const result = await this.authService.login(user, response);
-    response.json(result);
   }
 
   @Get('/facebook/oauth')

@@ -8,6 +8,9 @@ import {
   DatabaseModule,
   DiscountRepository,
   GiftCardRepository,
+  IndustryDocument,
+  IndustryRepository,
+  IndustrySchema,
   NOTIFICATION_SERVICE,
   SubmissionRepository,
   TaskCompletionDocument,
@@ -33,6 +36,7 @@ import { VerificationRepository } from './repositories/verification.repository';
 import { NestjsFormDataModule } from 'nestjs-form-data';
 import { TokenDocument, TokenSchema } from './models/token.schema';
 import { TokenRepository } from './repositories/token.repository';
+
 @Module({
   imports: [
     NestjsFormDataModule,
@@ -45,6 +49,7 @@ import { TokenRepository } from './repositories/token.repository';
       { name: TaskSubmissionDocument.name, schema: TaskSubmissionSchema },
       { name: TaskCompletionDocument.name, schema: TaskCompletionSchema },
       { name: TokenDocument.name, schema: TokenSchema },
+      { name: IndustryDocument.name, schema: IndustrySchema },
     ]),
     ClientsModule.registerAsync([
       {
@@ -104,6 +109,7 @@ import { TokenRepository } from './repositories/token.repository';
     SubmissionRepository,
     TaskCompletionRepository,
     TokenRepository,
+    IndustryRepository,
   ],
   exports: [UsersService, UserRepository],
 })

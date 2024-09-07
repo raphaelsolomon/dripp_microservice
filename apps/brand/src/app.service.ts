@@ -11,6 +11,7 @@ import {
   AUTH_SERVICE,
   CloudinaryResponse,
   CloudinaryService,
+  IndustryRepository,
   NOTIFICATION_SERVICE,
   PopulateDto,
   SubmissionRepository,
@@ -64,6 +65,7 @@ export class AppService {
     private readonly userDiscountRepository: UserDiscountRepository,
     private readonly submissionRepository: SubmissionRepository,
     private readonly taskCompletionRepository: TaskCompletionRepository,
+    private readonly industryRepository: IndustryRepository,
     @Inject(AUTH_SERVICE) private readonly authClientproxy: ClientProxy,
     @Inject(NOTIFICATION_SERVICE)
     private readonly notificationClientProxy: ClientProxy,
@@ -79,22 +81,27 @@ export class AppService {
     return { ...brand };
   }
 
-  async updatebrand(user: UserDto, updatebrandDto: UpdateBrandDto) {
+  async updatebrand(user: UserDto, input: UpdateBrandDto) {
     try {
-      if (updatebrandDto.username) {
+      if (input.username) {
         await firstValueFrom(
           this.authClientproxy.send('update_username', {
-            username: updatebrandDto.username,
+            username: input.username,
             _id: user._id,
           }),
         );
       }
-      return await this.brandRepository.findOneAndUpdate(
-        { uuid: user.brand_uuid },
-        { ...updatebrandDto },
-      );
+
+      const industry = input.industry;
+      if (industry) {
+        await this.industryRepository.findOne({ name: industry.toLowerCase() });
+        return await this.brandRepository.findOneAndUpdate(
+          { uuid: user.brand_uuid },
+          { ...input, industry: industry.toLowerCase() },
+        );
+      }
     } catch (err) {
-      throw new HttpException(err, HttpStatus.NOT_FOUND);
+      throw new HttpException('Industry not found', HttpStatus.NOT_FOUND);
     }
   }
 
@@ -302,11 +309,13 @@ export class AppService {
 
   async addMemberToBrands(payload: { [key: string]: string | [string] }) {
     for (const brand_uuid of payload.brand_uuids) {
-      await this.memberRepository.create({
-        brand: brand_uuid,
-        member_uuid: payload.user_uuid as string,
-      });
       try {
+        const brand = await this.brandRepository.findOne({ uuid: brand_uuid });
+        await this.memberRepository.create({
+          brand: brand.uuid,
+          member_uuid: payload.user_uuid as string,
+        });
+
         const memberShip = await this.membershipMailRepository.findOne({
           brand: brand_uuid,
         });
@@ -317,11 +326,10 @@ export class AppService {
           to: payload.user_uuid as string,
           from: { isbrand: true, sender: brand_uuid },
         });
-      } catch (error) {
-        console.log('No membership email found');
+      } catch (err) {
+        console.log(err);
       }
     }
-    console.log('member added');
   }
 
   async addMemberToBrand(payload: { [key: string]: string }) {
@@ -1203,5 +1211,25 @@ export class AppService {
         },
       },
     ]);
+  }
+
+  async getBrandsByIndustry(input: { [key: string]: any }) {
+    const page: number = input.page || 1;
+    const first: number = input.first || 20;
+
+    const industries: string[] = input.industries.map((e: string) =>
+      e.toLowerCase(),
+    );
+    const countIndustries = await this.industryRepository.countDocs({
+      name: { $in: industries },
+    });
+    if (countIndustries < industries.length) {
+      return { status: false, result: 'invalid selected industries' };
+    }
+    const { data, paginationInfo } =
+      await this.brandRepository.getPaginatedDocuments(first, page, {
+        industry: { $in: industries },
+      });
+    return { status: true, data, paginationInfo };
   }
 }

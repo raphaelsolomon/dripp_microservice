@@ -14,6 +14,7 @@ import { UserRepository } from './repositories/users.repository';
 import * as bcrypt from 'bcryptjs';
 import {
   CHAT_SERVICE,
+  IndustryRepository,
   SubmissionRepository,
   TaskCompletionDocument,
   TaskCompletionRepository,
@@ -36,10 +37,34 @@ import { ResetpasswordDto } from './dto/reset-password.dto';
 import { UpdatePasswordDto } from './dto/update-password.dto';
 import { TaskSubmissionDto } from './dto/submit-task.dto';
 import { TokenRepository } from './repositories/token.repository';
-import { JwtService } from '@nestjs/jwt';
+import { string } from 'joi';
 
 @Injectable()
 export class UsersService {
+  async getChannelsByIndustries(
+    industries: string[],
+    payload: { [key: string]: number },
+  ) {
+    if (industries.length <= 0) {
+      return [];
+    }
+
+    const page: number = payload.page || 1;
+    const first: number = payload.first || 20;
+
+    const response = await firstValueFrom(
+      this.brandClientProxy.send('get_brands_by_industries', {
+        page,
+        first,
+        industries,
+      }),
+    );
+    if (response.status === false) {
+      throw new BadRequestException(response.result);
+    }
+    return response;
+  }
+
   constructor(
     private readonly taskCompletionRepository: TaskCompletionRepository,
     private readonly submissionRepository: SubmissionRepository,
@@ -47,11 +72,18 @@ export class UsersService {
     private readonly cloudinaryService: CloudinaryService,
     private readonly verificationRepository: VerificationRepository,
     private readonly tokenRepository: TokenRepository,
+    private readonly industryRepository: IndustryRepository,
     @Inject(NOTIFICATION_SERVICE) private notificationClientProxy: ClientProxy,
     @Inject(WALLET_SERVICE) private walletClientProxy: ClientProxy,
     @Inject(BRAND_SERVICE) private brandClientProxy: ClientProxy,
     @Inject(CHAT_SERVICE) private chatServiceProxy: ClientProxy,
   ) {}
+
+  async getIndustries(input: { [key: string]: number }) {
+    const page: number = input.page || 1;
+    const first: number = input.first || 20;
+    return this.industryRepository.getPaginatedDocuments(first, page, {});
+  }
 
   async create(createUserDto: CreateUserDto) {
     // Check if user already exists
@@ -95,7 +127,7 @@ export class UsersService {
         code: verification.code,
       });
       // send the user results as response to the client request
-      return { status: true, user: this.destructureUser(user) };
+      return user;
     } catch (err) {
       throw new Error(err);
     }
@@ -186,16 +218,7 @@ export class UsersService {
     if (user.status === false) {
       throw new HttpException('Could not find user', HttpStatus.NOT_ACCEPTABLE);
     }
-    // emit an event to brand service to update brands with the new member
-    if (
-      updateDto?.brand_uuids?.length > 0 &&
-      (user?.account_type === 'user' || updateDto?.account_type === 'user')
-    ) {
-      this.brandClientProxy.emit('add_member_to_multiple_brands', {
-        brand_uuids: updateDto?.brand_uuids,
-        user_uuid: user.uuid,
-      });
-    }
+
     if (user.account_type !== 'user' && updateDto.account_type === 'business') {
       return this.brandClientProxy.send('create_brand', {}).pipe(
         tap((_) => console.log('Done creating brand')),
@@ -208,25 +231,52 @@ export class UsersService {
           return this.destructureUser(user);
         }),
       );
-    } else if (
-      user.account_type !== 'business' &&
-      updateDto.account_type === 'user'
-    ) {
-      const { password, email, ...details } = updateDto;
-      const user = await this.userRepository.findOneAndUpdate(
-        { _id: userInfo._id },
-        { ...details },
-      );
-
-      return this.destructureUser(user);
     } else {
-      const { password, email, account_type, ...details } = updateDto;
-      const user = await this.userRepository.findOneAndUpdate(
-        { _id: userInfo._id },
-        { ...details },
-      );
+      try {
+        const brands = updateDto.brand_uuids;
+        if (updateDto.industries && updateDto.industries.length > 0) {
+          const industries = updateDto.industries.map((e) => e.toLowerCase());
+          const count = await this.industryRepository.countDocs({
+            name: { $in: industries },
+          });
+          if (count < industries.length)
+            throw new BadRequestException('Invalid industries selected');
+        }
 
-      return this.destructureUser(user);
+        // emit an event to brand service to update brands with the new member
+        if (
+          brands?.length > 0 &&
+          (user?.account_type === 'user' || updateDto?.account_type === 'user')
+        ) {
+          this.brandClientProxy.emit('add_member_to_multiple_brands', {
+            brand_uuids: updateDto?.brand_uuids,
+            user_uuid: user.uuid,
+          });
+        }
+
+        if (
+          user.account_type !== 'business' &&
+          updateDto.account_type === 'user'
+        ) {
+          const { password, email, ...details } = updateDto;
+          const user = await this.userRepository.findOneAndUpdate(
+            { _id: userInfo._id },
+            { ...details },
+          );
+
+          return this.destructureUser(user);
+        } else {
+          const { password, email, account_type, ...details } = updateDto;
+          const user = await this.userRepository.findOneAndUpdate(
+            { _id: userInfo._id },
+            { ...details },
+          );
+
+          return this.destructureUser(user);
+        }
+      } catch (error) {
+        throw new BadRequestException(error);
+      }
     }
   }
 
@@ -424,7 +474,7 @@ export class UsersService {
 
   //==================================EVENTS============================================
   async getChannels(user: UserDocument, payload: { [key: string]: number }) {
-    if (user.account_type !== 'user') {
+    if (user.account_type === 'business') {
       throw new BadRequestException(
         'Action not supported on the account type.',
       );

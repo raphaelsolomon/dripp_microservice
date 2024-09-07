@@ -39,6 +39,12 @@ export class UsersController {
     return res.sendStatus(200);
   }
 
+  @UseGuards(JwtAuthGuard)
+  @Get('industries')
+  getIndustries(@Query() input: { [key: string]: number }) {
+    return this.usersService.getIndustries(input);
+  }
+
   @Patch('update')
   @UseGuards(JwtAuthGuard)
   async updateUser(
@@ -88,6 +94,15 @@ export class UsersController {
     @Query() payload: { [key: string]: number },
   ) {
     return this.usersService.getChannels(user, payload);
+  }
+
+  @Get('industries/channels')
+  @UseGuards(JwtAuthGuard)
+  async getChannelsByIndustries(
+    @Body('industries') industries: string[],
+    @Query() payload: { [key: string]: number },
+  ) {
+    return this.usersService.getChannelsByIndustries(industries, payload);
   }
 
   @Get('recommended-channels')
