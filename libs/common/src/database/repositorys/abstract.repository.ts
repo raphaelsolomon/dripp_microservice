@@ -3,6 +3,7 @@ import {
   FilterQuery,
   Model,
   PipelineStage,
+  ProjectionType,
   Types,
   UpdateQuery,
   UpdateWriteOpResult,
@@ -27,9 +28,10 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
     filterQuery: FilterQuery<TDocument>,
     select?: string,
     populate?: any,
+    projection?: ProjectionType<TDocument>,
   ): Promise<TDocument> {
     const document = await this.model
-      .findOne(filterQuery)
+      .findOne(filterQuery, projection)
       .select(select)
       .populate(populate)
       .lean<TDocument>(true);
@@ -59,9 +61,10 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
   async find(
     filterQuery: FilterQuery<TDocument>,
     populate?: PopulateDto | PopulateDto[],
+    projection?: ProjectionType<TDocument>,
   ): Promise<TDocument[]> {
     return this.model
-      .find(filterQuery)
+      .find(filterQuery, projection)
       .populate(populate)
       .lean<TDocument[]>(true);
   }
@@ -104,11 +107,12 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
     filterQuery: FilterQuery<TDocument>,
     select?: string,
     populate?: PopulateDto | PopulateDto[],
+    projection?: ProjectionType<TDocument>,
   ) {
     const total = await this.model.countDocuments(filterQuery);
 
     const query = this.model
-      .find(filterQuery)
+      .find(filterQuery, projection)
       .select(select)
       .lean<TDocument[]>(true)
       .skip(((page ?? 1) - 1) * (first ?? 20))

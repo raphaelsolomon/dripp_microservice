@@ -233,41 +233,80 @@ export class AppService {
       throw new BadRequestException(`Action not allowed on this account type`);
     }
 
-    let cloudinary: CloudinaryResponse = undefined;
-
-    if (input.campaign_banner) {
-      cloudinary = await this.cloudinaryService.uploadFile(
-        input.campaign_banner,
-        'campaign-banners',
-      );
-    }
-
-    // send the request to wallet service to confirm the wallet balance.
-    const walletResult: string = await firstValueFrom(
-      this.walletClientproxy.send('create_campaign', {
-        uuid: user.wallet_uuid,
-        amount: input.campaign_amount,
-      }),
-    );
-
-    if (walletResult !== 'success') {
-      throw new BadRequestException(walletResult);
-    }
-
-    const campaign_type = JSON.parse(input.campaign_type);
-    if (Object.keys(campaign_type).length <= 0) {
-      throw new BadRequestException(`Campaign type is required..`);
-    }
-
-    console.log(Object.keys(campaign_type).length);
-
-    return await this.taskRepository.create({
-      campaign_banner_url: cloudinary !== undefined ? cloudinary.url : '',
-      brand: user.brand_uuid,
-      ...input,
-      campaign_type,
-      total_task: Object.keys(campaign_type).length,
+    const brandDetails = await this.brandRepository.findOne({
+      uuid: user.brand_uuid,
     });
+
+    try {
+      let countries: string[] = [];
+      let states: string[][] = [];
+      if (input.countries) {
+        countries = input.countries
+          .split(',')
+          .map((e) => e.trim().toLowerCase());
+      }
+
+      if (input.states && countries.length > 0) {
+        const parsedStates: string[] = input.states.split(',');
+        const transformedStates = parsedStates.map((state) => {
+          const countryState = JSON.parse(state);
+          return countryState;
+        });
+        states = transformedStates;
+      }
+
+      let cloudinary: CloudinaryResponse = undefined;
+
+      if (input.campaign_banner) {
+        cloudinary = await this.cloudinaryService.uploadFile(
+          input.campaign_banner,
+          'campaign-banners',
+        );
+      }
+
+      const campaign_type = JSON.parse(input.campaign_type);
+      if (Object.keys(campaign_type).length <= 0) {
+        throw new BadRequestException(`Campaign type is required..`);
+      }
+
+      // console.log(Object.keys(campaign_type).length)
+
+      const task = await this.taskRepository.create({
+        campaign_banner_url: cloudinary !== undefined ? cloudinary.url : '',
+        brand: user.brand_uuid,
+        ...input,
+        campaign_type,
+        countries,
+        states,
+        industry: brandDetails.industry,
+        total_task: Object.keys(campaign_type).length,
+        status: false,
+      });
+
+      if (task.currency === 'FIAT') {
+        // send the request to wallet service to confirm the wallet balance.
+        const walletResult: string = await firstValueFrom(
+          this.walletClientproxy.send('create_campaign', {
+            uuid: user.wallet_uuid,
+            amount: input.campaign_amount,
+          }),
+        );
+
+        if (walletResult !== 'success') {
+          throw new BadRequestException(walletResult);
+        }
+
+        await this.taskRepository.findOneAndUpdate(
+          { _id: task._id },
+          { status: true },
+        );
+        return task;
+      } else {
+        // TODO: this should make them fund with usdt
+      }
+    } catch (err) {
+      throw new BadRequestException(err);
+    }
   }
 
   async updateBrandTask(user: UserDto, input: UpdateTaskDto) {
@@ -289,6 +328,7 @@ export class AppService {
         {
           uuid: input.task_uuid,
           brand: user.brand_uuid,
+          status: true,
         },
         {
           ...input,
@@ -302,6 +342,7 @@ export class AppService {
       {
         uuid: input.task_uuid,
         brand: user.brand_uuid,
+        status: true,
       },
       { ...input },
     );
@@ -408,7 +449,7 @@ export class AppService {
     return await this.taskRepository.getPaginatedDocuments(
       first,
       page,
-      { brand: user.brand_uuid },
+      { brand: user.brand_uuid, status: true },
       null,
       [brandPopulate, userPopulate],
     );
@@ -430,18 +471,13 @@ export class AppService {
     const countFilter = {
       $or: [
         { brand: { $in: getSubcribedBrandUuids } },
-        { brand: { $nin: getSubcribedBrandUuids } },
+        // { brand: { $nin: getSubcribedBrandUuids } },
       ],
     };
 
     const aggregationPipeline: any[] = [
       {
-        $match: {
-          $or: [
-            { brand: { $in: getSubcribedBrandUuids } },
-            { brand: { $nin: getSubcribedBrandUuids } },
-          ],
-        },
+        $match: countFilter,
       },
       {
         $addFields: {
@@ -524,27 +560,103 @@ export class AppService {
       localField: 'brand',
       foreignField: 'uuid',
     };
-    // const first: number = <number>payload.first;
-    // const page: number = <number>payload.page;
+    const first: number = <number>payload.first;
+    const page: number = <number>payload.page;
+
+    let memberState: string = '';
+    let memberCountry: string = '';
+    let memberIndustries: string[] = [];
+
+    const memberDetails = await firstValueFrom(
+      this.authClientproxy.send('get_user', { uuid: member_uuid }),
+    );
+
+    if (memberDetails) {
+      memberState = memberDetails?.state?.toLowerCase();
+      memberCountry = memberDetails?.country?.toLowerCase();
+      memberIndustries = memberDetails?.industries.map((e) => e.toLowerCase());
+    }
 
     /* get channel/brands users are subscribed to and also brands they are not subscribed to */
     const subscribeBrands = await this.memberRepository.find({ member_uuid });
     const subscribeBrandsUuids = subscribeBrands.map((member) => member.brand);
-    const subscribedTasks = await this.taskRepository.find(
+
+    const projection = {
+      uuid: 1,
+      brand: 1,
+      campaign_title: 1,
+      campaign_banner_url: 1,
+      member_reward: 1,
+      non_member_reward: 1,
+      total_task: 1,
+      general_reward: 1,
+      campaign_type: 1,
+    };
+    const subscribedTasks = await this.taskRepository.getPaginatedDocuments(
+      first,
+      page,
       {
         brand: { $in: subscribeBrandsUuids },
+        industry: { $in: memberIndustries },
+        status: true,
+        $or: [
+          {
+            $and: [{ countries: { $size: 0 } }, { states: { $size: 0 } }],
+          },
+          {
+            countries: { $regex: new RegExp(`^${memberCountry}$`, 'i') },
+            $or: [
+              { states: { $size: 0 } },
+              { states: { $in: [[memberState]] } },
+              {
+                states: {
+                  $elemMatch: {
+                    $regex: new RegExp(`^${memberState}$`, 'i'),
+                  },
+                },
+              },
+            ],
+          },
+        ],
       },
+      null,
       populate,
+      projection,
     );
 
-    const unsubscribeTasks = await this.taskRepository.find(
+    const unsubscribeTasks = await this.taskRepository.getPaginatedDocuments(
+      first,
+      page,
       {
         brand: { $nin: subscribeBrandsUuids },
+        industry: { $in: memberIndustries },
+        status: true,
+        $or: [
+          {
+            $and: [{ countries: { $size: 0 } }, { states: { $size: 0 } }],
+          },
+          {
+            countries: memberCountry,
+            $or: [
+              { states: { $size: 0 } },
+              { states: { $in: [[memberState]] } },
+              {
+                states: {
+                  $elemMatch: {
+                    $regex: new RegExp(`^${memberState}$`, 'i'),
+                  },
+                },
+              },
+            ],
+          },
+        ],
       },
+      null,
       populate,
+      projection,
     );
 
-    for (let i = subscribedTasks.length - 1; i > 0; i--) {
+    for (let i = subscribedTasks.data.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [subscribedTasks[i], subscribedTasks[j]] = [
         subscribedTasks[j],
@@ -552,7 +664,24 @@ export class AppService {
       ];
     }
 
-    return [...subscribedTasks, ...unsubscribeTasks];
+    const data = [...subscribedTasks.data, ...unsubscribeTasks.data];
+
+    if (subscribedTasks.paginationInfo.hasMorePages) {
+      return { data, paginationInfo: subscribedTasks.paginationInfo };
+    } else if (unsubscribeTasks.paginationInfo.hasMorePages) {
+      return { data, paginationInfo: unsubscribeTasks.paginationInfo };
+    } else {
+      return {
+        data,
+        paginationInfo: {
+          total: data.length,
+          currentPage: page,
+          lastPage: page,
+          perPage: first,
+          hasMorePages: false,
+        },
+      };
+    }
   }
 
   async createDiscount(user: UserDto, input: CreateDiscountDto) {
@@ -783,6 +912,7 @@ export class AppService {
     if (user.account_type === 'user') {
       const tasks = await this.taskRepository.find({
         campaign_title: { $regex: input, $options: 'i' },
+        status: true,
       });
       const brands = await this.brandRepository.find({
         brand_name: { $regex: input, $options: 'i' },
@@ -814,6 +944,7 @@ export class AppService {
       const tasks = await this.taskRepository.find({
         campaign_title: { $regex: input, $options: 'i' },
         brand: user.brand_uuid,
+        status: true,
       });
 
       return { tasks, discounts, giftCards, posts, member_uuids };
@@ -822,7 +953,7 @@ export class AppService {
 
   async getTask(uuid: string) {
     try {
-      const task = await this.taskRepository.findOne({ uuid });
+      const task = await this.taskRepository.findOne({ uuid, status: true });
       return task;
     } catch (err) {
       throw new BadRequestException(err);
@@ -832,7 +963,10 @@ export class AppService {
   async updateTaskReview(payload: Record<string, any>) {
     const { task_uuid, user_uuid } = payload;
 
-    const task = await this.taskRepository.findOne({ uuid: task_uuid });
+    const task = await this.taskRepository.findOne({
+      uuid: task_uuid,
+      status: false,
+    });
     let campaign_engagement: number = task.campaign_engagement;
     if (!task.members_review.includes(user_uuid)) {
       const members_review = task.members_review;
@@ -928,6 +1062,7 @@ export class AppService {
       uuid: task_uuid,
       brand: user.brand_uuid,
       members_review: { $in: [member_uuid] },
+      status: true,
     });
     if (is_approved) {
       let members_review: string[] = task.members_review;
@@ -939,7 +1074,7 @@ export class AppService {
         members_completed.push(member_uuid);
       }
       await this.taskRepository.findOneAndUpdate(
-        { uuid: task_uuid },
+        { uuid: task_uuid, status: true },
         { members_review, members_completed },
       );
 
@@ -956,12 +1091,9 @@ export class AppService {
       if (isMember && task.member_reward) {
         newcampaignAmount = newcampaignAmount - Number(task.member_reward);
         rewardPrice = Number.parseInt(task.member_reward);
-      } else if (!isMember && task.non_member_reward) {
+      } else {
         newcampaignAmount = newcampaignAmount - Number(task.non_member_reward);
         rewardPrice = Number.parseInt(task.non_member_reward);
-      } else {
-        newcampaignAmount = newcampaignAmount - Number(task.general_reward);
-        rewardPrice = Number(task.general_reward);
       }
       //senf the reward to the member wallet
       this.walletClientproxy.emit('send_award', {
@@ -972,7 +1104,7 @@ export class AppService {
       });
       // update the task with the new campaign amount balance amount
       await this.taskRepository.findOneAndUpdate(
-        { _id: task._id },
+        { _id: task._id, status: true },
         { campaign_amount: newcampaignAmount },
       );
     } else {
@@ -982,7 +1114,7 @@ export class AppService {
       }
 
       await this.taskRepository.findOneAndUpdate(
-        { uuid: task_uuid },
+        { uuid: task_uuid, status: true },
         { members_review },
       );
 
@@ -996,7 +1128,7 @@ export class AppService {
       };
       this.notificationClientProxy.emit('create_notification', { ...payload });
     }
-    return this.taskRepository.findOne({ uuid: task_uuid });
+    return this.taskRepository.findOne({ uuid: task_uuid, status: true });
   }
 
   async postReaction(payload: Record<string, any>) {
@@ -1043,6 +1175,7 @@ export class AppService {
       first,
       page,
       {
+        status: true,
         $or: [
           { members_review: { $in: [member_uuid] } },
           { members_completed: { $in: [member_uuid] } },

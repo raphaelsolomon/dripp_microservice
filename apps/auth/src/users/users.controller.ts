@@ -34,6 +34,11 @@ export class UsersController {
     return user;
   }
 
+  @Get('countries')
+  async getCountries() {
+    return await this.usersService.getCountries();
+  }
+
   @Get('healthcheck')
   healthCheck(@Res() res: Response) {
     return res.sendStatus(200);

@@ -306,7 +306,6 @@ export class AppController {
 
   @MessagePattern('get_task_from_brands')
   getTasksFromBrands(@Payload() payload: { [key: string]: string }) {
-    console.log(payload);
     return this.appService.getTasksFromBrands(payload);
   }
 

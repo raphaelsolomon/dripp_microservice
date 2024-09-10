@@ -16,11 +16,14 @@ export class TaskDocument extends AbstractDocument {
   @Prop({ default: null })
   campaign_banner_url: string;
 
-  @Prop({ required: true })
-  state: string;
+  @Prop({ required: false })
+  industry?: string;
 
   @Prop({ required: true })
-  country: string;
+  states: string[][];
+
+  @Prop({ required: true })
+  countries: string[];
 
   @Prop({ required: false, default: 0 })
   total_task?: number;
@@ -37,8 +40,8 @@ export class TaskDocument extends AbstractDocument {
   @Prop({ default: null })
   member_reward?: string;
 
-  @Prop({ default: 0, required: false })
-  general_reward?: number;
+  @Prop({ default: 'FIAT', enum: ['FIAT', 'USDT'] })
+  currency: string;
 
   @Prop({ default: 0, required: true })
   campaign_amount: number;
@@ -60,6 +63,9 @@ export class TaskDocument extends AbstractDocument {
 
   @Prop({ ref: BrandDocument.name, type: SchemaTypes.String })
   brand?: string;
+
+  @Prop({ type: Boolean, default: false })
+  status: boolean;
 }
 
 export const TaskSchema = SchemaFactory.createForClass(TaskDocument);

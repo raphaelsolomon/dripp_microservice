@@ -19,9 +19,9 @@ export class CreateTaskDto {
 
   campaign_title: string;
 
-  state: string;
+  states: string;
 
-  country: string;
+  countries: string;
 
   campaign_type: string;
 
@@ -29,7 +29,7 @@ export class CreateTaskDto {
 
   member_reward?: string;
 
-  general_reward?: number;
+  currency: 'FIAT' | 'USDT';
 
   campaign_amount: number;
 }
