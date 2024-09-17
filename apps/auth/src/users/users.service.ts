@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   BadRequestException,
+  HttpCode,
   HttpException,
   HttpStatus,
   Inject,
@@ -36,11 +37,14 @@ import { ResetpasswordDto } from './dto/reset-password.dto';
 import { UpdatePasswordDto } from './dto/update-password.dto';
 import { TaskSubmissionDto } from './dto/submit-task.dto';
 import { TokenRepository } from './repositories/token.repository';
-import { countryList } from '../assets/countries';
+import axios from 'axios';
+import { ConfigService } from '@nestjs/config';
+import { name } from 'ejs';
 
 @Injectable()
 export class UsersService {
   constructor(
+    private readonly configService: ConfigService,
     private readonly taskCompletionRepository: TaskCompletionRepository,
     private readonly submissionRepository: SubmissionRepository,
     private readonly userRepository: UserRepository,
@@ -864,6 +868,24 @@ export class UsersService {
   }
 
   async getCountries() {
-    return countryList;
+    const responseWithState = await axios.get(
+      this.configService.get<string>('COUNTRIES_API_URL'),
+    );
+
+    const responseWithFlag = await axios.get(
+      this.configService.get<string>('COUNTRIES_API_WITH_FLAG_URL'),
+    );
+    const withState: Record<string, any>[] = responseWithState.data.data;
+    const withFlag: Record<string, any>[] = responseWithFlag.data.data;
+
+    const result = withState.map((e) => {
+      let flagUrl: string = '';
+      const index = withFlag.findIndex((v) => e.iso3 === v.iso3);
+      if (index > -1) flagUrl = withFlag[index].flag;
+      e['flag'] = flagUrl;
+      return { name: e.name, flag: e.flag, iso2: e.iso2, states: e.states };
+    });
+
+    return result;
   }
 }
