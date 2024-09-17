@@ -1,13 +1,14 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "apps/brand/src",
+  "sourceRoot": "apps/auth/src",
   "compilerOptions": {
     "deleteOutDir": true,
     "webpack": true,
-    "tsConfigPath": "apps/brand/tsconfig.app.json",
+    "tsConfigPath": "apps/auth/tsconfig.app.json",
     "assets": [
-      "templates/**/*"
+      "templates/**/*",
+      "assets/**/*"
     ],
     "watchAssets": true
   },

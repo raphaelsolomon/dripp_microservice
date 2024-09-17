@@ -39,6 +39,25 @@ services:
     depends_on:
       - mongo
 
+  chat:
+    container_name: chat_container
+    build:
+      context: .
+      dockerfile: ./apps/chat/Dockerfile
+      target: development
+    command: yarn start:dev chat
+    env_file:
+      - ./apps/chat/.env
+    ports:
+      - 5000:5000
+    volumes: 
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - dripp_network
+    depends_on:
+      - mongo
+
   notification:
     container_name: notification_container
     build:
