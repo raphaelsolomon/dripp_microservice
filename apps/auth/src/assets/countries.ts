@@ -1,21172 +1,21173 @@
 export const countryList = [
   {
-    name: 'Afghanistan',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Flag_of_Afghanistan_%28Colored_Emblem%29.svg',
-    iso2: 'AF',
-    states: [
+    ame:'A'ghanistan','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/5/5f/Flag_of_Afghanistan_%28Colored_Emblem%29.svg','
+    so2:'A'','
+    tates:[
       {
-        name: 'Badakhshan',
-        state_code: 'BDS',
+        ame:'B'dakhshan','
+        tate_code:'B'S',',
       },
       {
-        name: 'Badghis',
-        state_code: 'BDG',
+        ame:'B'dghis','
+        tate_code:'B'G',',
       },
       {
-        name: 'Baghlan',
-        state_code: 'BGL',
+        ame:'B'ghlan','
+        tate_code:'B'L',',
       },
       {
-        name: 'Balkh',
-        state_code: 'BAL',
+        ame:'B'lkh','
+        tate_code:'B'L',',
       },
       {
-        name: 'Bamyan',
-        state_code: 'BAM',
+        ame:'B'myan','
+        tate_code:'B'M',',
       },
       {
-        name: 'Daykundi',
-        state_code: 'DAY',
+        ame:'D'ykundi','
+        tate_code:'D'Y',',
       },
       {
-        name: 'Farah',
-        state_code: 'FRA',
+        ame:'F'rah','
+        tate_code:'F'A',',
       },
       {
-        name: 'Faryab',
-        state_code: 'FYB',
+        ame:'F'ryab','
+        tate_code:'F'B',',
       },
       {
-        name: 'Ghazni',
-        state_code: 'GHA',
+        ame:'G'azni','
+        tate_code:'G'A',',
       },
       {
-        name: 'Ghōr',
-        state_code: 'GHO',
+        ame:'G'ōr','
+        tate_code:'G'O',',
       },
       {
-        name: 'Helmand',
-        state_code: 'HEL',
+        ame:'H'lmand','
+        tate_code:'H'L',',
       },
       {
-        name: 'Herat',
-        state_code: 'HER',
+        ame:'H'rat','
+        tate_code:'H'R',',
       },
       {
-        name: 'Jowzjan',
-        state_code: 'JOW',
+        ame:'J'wzjan','
+        tate_code:'J'W',',
       },
       {
-        name: 'Kabul',
-        state_code: 'KAB',
+        ame:'K'bul','
+        tate_code:'K'B',',
       },
       {
-        name: 'Kandahar',
-        state_code: 'KAN',
+        ame:'K'ndahar','
+        tate_code:'K'N',',
       },
       {
-        name: 'Kapisa',
-        state_code: 'KAP',
+        ame:'K'pisa','
+        tate_code:'K'P',',
       },
       {
-        name: 'Khost',
-        state_code: 'KHO',
+        ame:'K'ost','
+        tate_code:'K'O',',
       },
       {
-        name: 'Kunar',
-        state_code: 'KNR',
+        ame:'K'nar','
+        tate_code:'K'R',',
       },
       {
-        name: 'Kunduz Province',
-        state_code: 'KDZ',
+        ame:'K'nduz Province','
+        tate_code:'K'Z',',
       },
       {
-        name: 'Laghman',
-        state_code: 'LAG',
+        ame:'L'ghman','
+        tate_code:'L'G',',
       },
       {
-        name: 'Logar',
-        state_code: 'LOG',
+        ame:'L'gar','
+        tate_code:'L'G',',
       },
       {
-        name: 'Nangarhar',
-        state_code: 'NAN',
+        ame:'N'ngarhar','
+        tate_code:'N'N',',
       },
       {
-        name: 'Nimruz',
-        state_code: 'NIM',
+        ame:'N'mruz','
+        tate_code:'N'M',',
       },
       {
-        name: 'Nuristan',
-        state_code: 'NUR',
+        ame:'N'ristan','
+        tate_code:'N'R',',
       },
       {
-        name: 'Paktia',
-        state_code: 'PIA',
+        ame:'P'ktia','
+        tate_code:'P'A',',
       },
       {
-        name: 'Paktika',
-        state_code: 'PKA',
+        ame:'P'ktika','
+        tate_code:'P'A',',
       },
       {
-        name: 'Panjshir',
-        state_code: 'PAN',
+        ame:'P'njshir','
+        tate_code:'P'N',',
       },
       {
-        name: 'Parwan',
-        state_code: 'PAR',
+        ame:'P'rwan','
+        tate_code:'P'R',',
       },
       {
-        name: 'Samangan',
-        state_code: 'SAM',
+        ame:'S'mangan','
+        tate_code:'S'M',',
       },
       {
-        name: 'Sar-e Pol',
-        state_code: 'SAR',
+        ame:'S'r-e Pol','
+        tate_code:'S'R',',
       },
       {
-        name: 'Takhar',
-        state_code: 'TAK',
+        ame:'T'khar','
+        tate_code:'T'K',',
       },
       {
-        name: 'Urozgan',
-        state_code: 'URU',
+        ame:'U'ozgan','
+        tate_code:'U'U',',
       },
       {
-        name: 'Zabul',
-        state_code: 'ZAB',
-      },
-    ],
+        ame:'Z'bul','
+        tate_code:'Z'B',',
+      },,
+    ],,
   },
   {
-    name: 'Aland Islands',
-    flag: '',
-    iso2: 'AX',
-    states: [],
+    ame:'A'and Islands','
+    lag:''''
+    so2:'A'','
+    tates:[],,
   },
   {
-    name: 'Albania',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/3/36/Flag_of_Albania.svg',
-    iso2: 'AL',
-    states: [
+    ame:'A'bania','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/3/36/Flag_of_Albania.svg','
+    so2:'A'','
+    tates:[
       {
-        name: 'Berat County',
-        state_code: '01',
+        ame:'B'rat County','
+        tate_code:'0'',',
       },
       {
-        name: 'Berat District',
-        state_code: 'BR',
+        ame:'B'rat District','
+        tate_code:'B'',',
       },
       {
-        name: 'Bulqizë District',
-        state_code: 'BU',
+        ame:'B'lqizë District','
+        tate_code:'B'',',
       },
       {
-        name: 'Delvinë District',
-        state_code: 'DL',
+        ame:'D'lvinë District','
+        tate_code:'D'',',
       },
       {
-        name: 'Devoll District',
-        state_code: 'DV',
+        ame:'D'voll District','
+        tate_code:'D'',',
       },
       {
-        name: 'Dibër County',
-        state_code: '09',
+        ame:'D'bër County','
+        tate_code:'0'',',
       },
       {
-        name: 'Dibër District',
-        state_code: 'DI',
+        ame:'D'bër District','
+        tate_code:'D'',',
       },
       {
-        name: 'Durrës County',
-        state_code: '02',
+        ame:'D'rrës County','
+        tate_code:'0'',',
       },
       {
-        name: 'Durrës District',
-        state_code: 'DR',
+        ame:'D'rrës District','
+        tate_code:'D'',',
       },
       {
-        name: 'Elbasan County',
-        state_code: '03',
+        ame:'E'basan County','
+        tate_code:'0'',',
       },
       {
-        name: 'Fier County',
-        state_code: '04',
+        ame:'F'er County','
+        tate_code:'0'',',
       },
       {
-        name: 'Fier District',
-        state_code: 'FR',
+        ame:'F'er District','
+        tate_code:'F'',',
       },
       {
-        name: 'Gjirokastër County',
-        state_code: '05',
+        ame:'G'irokastër County','
+        tate_code:'0'',',
       },
       {
-        name: 'Gjirokastër District',
-        state_code: 'GJ',
+        ame:'G'irokastër District','
+        tate_code:'G'',',
       },
       {
-        name: 'Gramsh District',
-        state_code: 'GR',
+        ame:'G'amsh District','
+        tate_code:'G'',',
       },
       {
-        name: 'Has District',
-        state_code: 'HA',
+        ame:'H's District','
+        tate_code:'H'',',
       },
       {
-        name: 'Kavajë District',
-        state_code: 'KA',
+        ame:'K'vajë District','
+        tate_code:'K'',',
       },
       {
-        name: 'Kolonjë District',
-        state_code: 'ER',
+        ame:'K'lonjë District','
+        tate_code:'E'',',
       },
       {
-        name: 'Korçë County',
-        state_code: '06',
+        ame:'K'rçë County','
+        tate_code:'0'',',
       },
       {
-        name: 'Korçë District',
-        state_code: 'KO',
+        ame:'K'rçë District','
+        tate_code:'K'',',
       },
       {
-        name: 'Krujë District',
-        state_code: 'KR',
+        ame:'K'ujë District','
+        tate_code:'K'',',
       },
       {
-        name: 'Kuçovë District',
-        state_code: 'KC',
+        ame:'K'çovë District','
+        tate_code:'K'',',
       },
       {
-        name: 'Kukës County',
-        state_code: '07',
+        ame:'K'kës County','
+        tate_code:'0'',',
       },
       {
-        name: 'Kukës District',
-        state_code: 'KU',
+        ame:'K'kës District','
+        tate_code:'K'',',
       },
       {
-        name: 'Kurbin District',
-        state_code: 'KB',
+        ame:'K'rbin District','
+        tate_code:'K'',',
       },
       {
-        name: 'Lezhë County',
-        state_code: '08',
+        ame:'L'zhë County','
+        tate_code:'0'',',
       },
       {
-        name: 'Lezhë District',
-        state_code: 'LE',
+        ame:'L'zhë District','
+        tate_code:'L'',',
       },
       {
-        name: 'Librazhd District',
-        state_code: 'LB',
+        ame:'L'brazhd District','
+        tate_code:'L'',',
       },
       {
-        name: 'Lushnjë District',
-        state_code: 'LU',
+        ame:'L'shnjë District','
+        tate_code:'L'',',
       },
       {
-        name: 'Malësi e Madhe District',
-        state_code: 'MM',
+        ame:'M'lësi e Madhe District','
+        tate_code:'M'',',
       },
       {
-        name: 'Mallakastër District',
-        state_code: 'MK',
+        ame:'M'llakastër District','
+        tate_code:'M'',',
       },
       {
-        name: 'Mat District',
-        state_code: 'MT',
+        ame:'M't District','
+        tate_code:'M'',',
       },
       {
-        name: 'Mirditë District',
-        state_code: 'MR',
+        ame:'M'rditë District','
+        tate_code:'M'',',
       },
       {
-        name: 'Peqin District',
-        state_code: 'PQ',
+        ame:'P'qin District','
+        tate_code:'P'',',
       },
       {
-        name: 'Përmet District',
-        state_code: 'PR',
+        ame:'P'rmet District','
+        tate_code:'P'',',
       },
       {
-        name: 'Pogradec District',
-        state_code: 'PG',
+        ame:'P'gradec District','
+        tate_code:'P'',',
       },
       {
-        name: 'Pukë District',
-        state_code: 'PU',
+        ame:'P'kë District','
+        tate_code:'P'',',
       },
       {
-        name: 'Sarandë District',
-        state_code: 'SR',
+        ame:'S'randë District','
+        tate_code:'S'',',
       },
       {
-        name: 'Shkodër County',
-        state_code: '10',
+        ame:'S'kodër County','
+        tate_code:'1'',',
       },
       {
-        name: 'Shkodër District',
-        state_code: 'SH',
+        ame:'S'kodër District','
+        tate_code:'S'',',
       },
       {
-        name: 'Skrapar District',
-        state_code: 'SK',
+        ame:'S'rapar District','
+        tate_code:'S'',',
       },
       {
-        name: 'Tepelenë District',
-        state_code: 'TE',
+        ame:'T'pelenë District','
+        tate_code:'T'',',
       },
       {
-        name: 'Tirana County',
-        state_code: '11',
+        ame:'T'rana County','
+        tate_code:'1'',',
       },
       {
-        name: 'Tirana District',
-        state_code: 'TR',
+        ame:'T'rana District','
+        tate_code:'T'',',
       },
       {
-        name: 'Tropojë District',
-        state_code: 'TP',
+        ame:'T'opojë District','
+        tate_code:'T'',',
       },
       {
-        name: 'Vlorë County',
-        state_code: '12',
+        ame:'V'orë County','
+        tate_code:'1'',',
       },
       {
-        name: 'Vlorë District',
-        state_code: 'VL',
-      },
-    ],
+        ame:'V'orë District','
+        tate_code:'V'',',
+      },,
+    ],,
   },
   {
-    name: 'Algeria',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg',
-    iso2: 'DZ',
-    states: [
+    ame:'A'geria','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg','
+    so2:'D'','
+    tates:[
       {
-        name: 'Adrar Province',
-        state_code: '01',
+        ame:'A'rar Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Aïn Defla Province',
-        state_code: '44',
+        ame:'A'n Defla Province','
+        tate_code:'4'',',
       },
       {
-        name: 'Aïn Témouchent Province',
-        state_code: '46',
+        ame:'A'n Témouchent Province','
+        tate_code:'4'',',
       },
       {
-        name: 'Algiers Province',
-        state_code: '16',
+        ame:'A'giers Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Annaba Province',
-        state_code: '23',
+        ame:'A'naba Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Batna Province',
-        state_code: '05',
+        ame:'B'tna Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Béchar Province',
-        state_code: '08',
+        ame:'B'char Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Béjaïa Province',
-        state_code: '06',
+        ame:'B'jaïa Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Biskra',
-        state_code: '07',
+        ame:'B'skra','
+        tate_code:'0'',',
       },
       {
-        name: 'Blida Province',
-        state_code: '09',
+        ame:'B'ida Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Bordj Bou Arréridj Province',
-        state_code: '34',
+        ame:'B'rdj Bou Arréridj Province','
+        tate_code:'3'',',
       },
       {
-        name: 'Bouïra Province',
-        state_code: '10',
+        ame:'B'uïra Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Boumerdès Province',
-        state_code: '35',
+        ame:'B'umerdès Province','
+        tate_code:'3'',',
       },
       {
-        name: 'Chlef Province',
-        state_code: '02',
+        ame:'C'lef Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Constantine Province',
-        state_code: '25',
+        ame:'C'nstantine Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Djelfa Province',
-        state_code: '17',
+        ame:'D'elfa Province','
+        tate_code:'1'',',
       },
       {
-        name: 'El Bayadh Province',
-        state_code: '32',
+        ame:'E' Bayadh Province','
+        tate_code:'3'',',
       },
       {
-        name: 'El Oued Province',
-        state_code: '39',
+        ame:'E' Oued Province','
+        tate_code:'3'',',
       },
       {
-        name: 'El Tarf Province',
-        state_code: '36',
+        ame:'E' Tarf Province','
+        tate_code:'3'',',
       },
       {
-        name: 'Ghardaïa Province',
-        state_code: '47',
+        ame:'G'ardaïa Province','
+        tate_code:'4'',',
       },
       {
-        name: 'Guelma Province',
-        state_code: '24',
+        ame:'G'elma Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Illizi Province',
-        state_code: '33',
+        ame:'I'lizi Province','
+        tate_code:'3'',',
       },
       {
-        name: 'Jijel Province',
-        state_code: '18',
+        ame:'J'jel Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Khenchela Province',
-        state_code: '40',
+        ame:'K'enchela Province','
+        tate_code:'4'',',
       },
       {
-        name: 'Laghouat Province',
-        state_code: '03',
+        ame:'L'ghouat Province','
+        tate_code:'0'',',
       },
       {
-        name: "M'Sila Province",
-        state_code: '28',
+        ame:"M'Sila Province",
+        tate_code:'2'',',
       },
       {
-        name: 'Mascara Province',
-        state_code: '29',
+        ame:'M'scara Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Médéa Province',
-        state_code: '26',
+        ame:'M'déa Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Mila Province',
-        state_code: '43',
+        ame:'M'la Province','
+        tate_code:'4'',',
       },
       {
-        name: 'Mostaganem Province',
-        state_code: '27',
+        ame:'M'staganem Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Naama Province',
-        state_code: '45',
+        ame:'N'ama Province','
+        tate_code:'4'',',
       },
       {
-        name: 'Oran Province',
-        state_code: '31',
+        ame:'O'an Province','
+        tate_code:'3'',',
       },
       {
-        name: 'Ouargla Province',
-        state_code: '30',
+        ame:'O'argla Province','
+        tate_code:'3'',',
       },
       {
-        name: 'Oum El Bouaghi Province',
-        state_code: '04',
+        ame:'O'm El Bouaghi Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Relizane Province',
-        state_code: '48',
+        ame:'R'lizane Province','
+        tate_code:'4'',',
       },
       {
-        name: 'Saïda Province',
-        state_code: '20',
+        ame:'S'ïda Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Sétif Province',
-        state_code: '19',
+        ame:'S'tif Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Skikda Province',
-        state_code: '21',
+        ame:'S'ikda Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Souk Ahras Province',
-        state_code: '41',
+        ame:'S'uk Ahras Province','
+        tate_code:'4'',',
       },
       {
-        name: 'Tamanghasset Province',
-        state_code: '11',
+        ame:'T'manghasset Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Tébessa Province',
-        state_code: '12',
+        ame:'T'bessa Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Tiaret Province',
-        state_code: '14',
+        ame:'T'aret Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Tindouf Province',
-        state_code: '37',
+        ame:'T'ndouf Province','
+        tate_code:'3'',',
       },
       {
-        name: 'Tipasa Province',
-        state_code: '42',
+        ame:'T'pasa Province','
+        tate_code:'4'',',
       },
       {
-        name: 'Tissemsilt Province',
-        state_code: '38',
+        ame:'T'ssemsilt Province','
+        tate_code:'3'',',
       },
       {
-        name: 'Tizi Ouzou Province',
-        state_code: '15',
+        ame:'T'zi Ouzou Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Tlemcen Province',
-        state_code: '13',
-      },
-    ],
+        ame:'T'emcen Province','
+        tate_code:'1'',',
+      },,
+    ],,
   },
   {
-    name: 'American Samoa',
-    flag: '',
-    iso2: 'AS',
-    states: [],
+    ame:'A'erican Samoa','
+    lag:''''
+    so2:'A'','
+    tates:[],,
   },
   {
-    name: 'Andorra',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Andorra.svg',
-    iso2: 'AD',
-    states: [
+    ame:'A'dorra','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Andorra.svg','
+    so2:'A'','
+    tates:[
       {
-        name: 'Andorra la Vella',
-        state_code: '07',
+        ame:'A'dorra la Vella','
+        tate_code:'0'',',
       },
       {
-        name: 'Canillo',
-        state_code: '02',
+        ame:'C'nillo','
+        tate_code:'0'',',
       },
       {
-        name: 'Encamp',
-        state_code: '03',
+        ame:'E'camp','
+        tate_code:'0'',',
       },
       {
-        name: 'Escaldes-Engordany',
-        state_code: '08',
+        ame:'E'caldes-Engordany','
+        tate_code:'0'',',
       },
       {
-        name: 'La Massana',
-        state_code: '04',
+        ame:'L' Massana','
+        tate_code:'0'',',
       },
       {
-        name: 'Ordino',
-        state_code: '05',
+        ame:'O'dino','
+        tate_code:'0'',',
       },
       {
-        name: 'Sant Julià de Lòria',
-        state_code: '06',
-      },
-    ],
+        ame:'S'nt Julià de Lòria','
+        tate_code:'0'',',
+      },,
+    ],,
   },
   {
-    name: 'Angola',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Angola.svg',
-    iso2: 'AO',
-    states: [
+    ame:'A'gola','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Angola.svg','
+    so2:'A'','
+    tates:[
       {
-        name: 'Bengo Province',
-        state_code: 'BGO',
+        ame:'B'ngo Province','
+        tate_code:'B'O',',
       },
       {
-        name: 'Benguela Province',
-        state_code: 'BGU',
+        ame:'B'nguela Province','
+        tate_code:'B'U',',
       },
       {
-        name: 'Bié Province',
-        state_code: 'BIE',
+        ame:'B'é Province','
+        tate_code:'B'E',',
       },
       {
-        name: 'Cabinda Province',
-        state_code: 'CAB',
+        ame:'C'binda Province','
+        tate_code:'C'B',',
       },
       {
-        name: 'Cuando Cubango Province',
-        state_code: 'CCU',
+        ame:'C'ando Cubango Province','
+        tate_code:'C'U',',
       },
       {
-        name: 'Cuanza Norte Province',
-        state_code: 'CNO',
+        ame:'C'anza Norte Province','
+        tate_code:'C'O',',
       },
       {
-        name: 'Cuanza Sul',
-        state_code: 'CUS',
+        ame:'C'anza Sul','
+        tate_code:'C'S',',
       },
       {
-        name: 'Cunene Province',
-        state_code: 'CNN',
+        ame:'C'nene Province','
+        tate_code:'C'N',',
       },
       {
-        name: 'Huambo Province',
-        state_code: 'HUA',
+        ame:'H'ambo Province','
+        tate_code:'H'A',',
       },
       {
-        name: 'Huíla Province',
-        state_code: 'HUI',
+        ame:'H'íla Province','
+        tate_code:'H'I',',
       },
       {
-        name: 'Luanda Province',
-        state_code: 'LUA',
+        ame:'L'anda Province','
+        tate_code:'L'A',',
       },
       {
-        name: 'Lunda Norte Province',
-        state_code: 'LNO',
+        ame:'L'nda Norte Province','
+        tate_code:'L'O',',
       },
       {
-        name: 'Lunda Sul Province',
-        state_code: 'LSU',
+        ame:'L'nda Sul Province','
+        tate_code:'L'U',',
       },
       {
-        name: 'Malanje Province',
-        state_code: 'MAL',
+        ame:'M'lanje Province','
+        tate_code:'M'L',',
       },
       {
-        name: 'Moxico Province',
-        state_code: 'MOX',
+        ame:'M'xico Province','
+        tate_code:'M'X',',
       },
       {
-        name: 'Uíge Province',
-        state_code: 'UIG',
+        ame:'U'ge Province','
+        tate_code:'U'G',',
       },
       {
-        name: 'Zaire Province',
-        state_code: 'ZAI',
-      },
-    ],
+        ame:'Z'ire Province','
+        tate_code:'Z'I',',
+      },,
+    ],,
   },
   {
-    name: 'Anguilla',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Anguilla.svg',
-    iso2: 'AI',
-    states: [],
+    ame:'A'guilla','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Anguilla.svg','
+    so2:'A'','
+    tates:[],,
   },
   {
-    name: 'Antarctica',
-    flag: '',
-    iso2: 'AQ',
-    states: [],
+    ame:'A'tarctica','
+    lag:''''
+    so2:'A'','
+    tates:[],,
   },
   {
-    name: 'Antigua And Barbuda',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Antigua_and_Barbuda.svg',
-    iso2: 'AG',
-    states: [
+    ame:'A'tigua And Barbuda','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Antigua_and_Barbuda.svg','
+    so2:'A'','
+    tates:[
       {
-        name: 'Barbuda',
-        state_code: '10',
+        ame:'B'rbuda','
+        tate_code:'1'',',
       },
       {
-        name: 'Redonda',
-        state_code: '11',
+        ame:'R'donda','
+        tate_code:'1'',',
       },
       {
-        name: 'Saint George Parish',
-        state_code: '03',
+        ame:'S'int George Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint John Parish',
-        state_code: '04',
+        ame:'S'int John Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Mary Parish',
-        state_code: '05',
+        ame:'S'int Mary Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Paul Parish',
-        state_code: '06',
+        ame:'S'int Paul Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Peter Parish',
-        state_code: '07',
+        ame:'S'int Peter Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Philip Parish',
-        state_code: '08',
-      },
-    ],
+        ame:'S'int Philip Parish','
+        tate_code:'0'',',
+      },,
+    ],,
   },
   {
-    name: 'Argentina',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg',
-    iso2: 'AR',
-    states: [
+    ame:'A'gentina','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg','
+    so2:'A'','
+    tates:[
       {
-        name: 'Autonomous City Of Buenos Aires',
-        state_code: 'C',
+        ame:'A'tonomous City Of Buenos Aires','
+        tate_code:'C',',
       },
       {
-        name: 'Buenos Aires Province',
-        state_code: 'B',
+        ame:'B'enos Aires Province','
+        tate_code:'B',',
       },
       {
-        name: 'Catamarca Province',
-        state_code: 'K',
+        ame:'C'tamarca Province','
+        tate_code:'K',',
       },
       {
-        name: 'Chaco Province',
-        state_code: 'H',
+        ame:'C'aco Province','
+        tate_code:'H',',
       },
       {
-        name: 'Chubut Province',
-        state_code: 'U',
+        ame:'C'ubut Province','
+        tate_code:'U',',
       },
       {
-        name: 'Córdoba Province',
-        state_code: 'X',
+        ame:'C'rdoba Province','
+        tate_code:'X',',
       },
       {
-        name: 'Corrientes',
-        state_code: 'W',
+        ame:'C'rrientes','
+        tate_code:'W',',
       },
       {
-        name: 'Entre Ríos Province',
-        state_code: 'E',
+        ame:'E'tre Ríos Province','
+        tate_code:'E',',
       },
       {
-        name: 'Formosa Province',
-        state_code: 'P',
+        ame:'F'rmosa Province','
+        tate_code:'P',',
       },
       {
-        name: 'Jujuy Province',
-        state_code: 'Y',
+        ame:'J'juy Province','
+        tate_code:'Y',',
       },
       {
-        name: 'La Pampa',
-        state_code: 'L',
+        ame:'L' Pampa','
+        tate_code:'L',',
       },
       {
-        name: 'La Rioja Province',
-        state_code: 'F',
+        ame:'L' Rioja Province','
+        tate_code:'F',',
       },
       {
-        name: 'Mendoza',
-        state_code: 'M',
+        ame:'M'ndoza','
+        tate_code:'M',',
       },
       {
-        name: 'Misiones Province',
-        state_code: 'N',
+        ame:'M'siones Province','
+        tate_code:'N',',
       },
       {
-        name: 'Neuquén Province',
-        state_code: 'Q',
+        ame:'N'uquén Province','
+        tate_code:'Q',',
       },
       {
-        name: 'Río Negro Province',
-        state_code: 'R',
+        ame:'R'o Negro Province','
+        tate_code:'R',',
       },
       {
-        name: 'Salta Province',
-        state_code: 'A',
+        ame:'S'lta Province','
+        tate_code:'A',',
       },
       {
-        name: 'San Juan Province',
-        state_code: 'J',
+        ame:'S'n Juan Province','
+        tate_code:'J',',
       },
       {
-        name: 'San Luis Province',
-        state_code: 'D',
+        ame:'S'n Luis Province','
+        tate_code:'D',',
       },
       {
-        name: 'Santa Cruz Province',
-        state_code: 'Z',
+        ame:'S'nta Cruz Province','
+        tate_code:'Z',',
       },
       {
-        name: 'Santa Fe Province',
-        state_code: 'S',
+        ame:'S'nta Fe Province','
+        tate_code:'S',',
       },
       {
-        name: 'Santiago del Estero Province',
-        state_code: 'G',
+        ame:'S'ntiago del Estero Province','
+        tate_code:'G',',
       },
       {
-        name: 'Tierra del Fuego Province',
-        state_code: 'V',
+        ame:'T'erra del Fuego Province','
+        tate_code:'V',',
       },
       {
-        name: 'Tucumán Province',
-        state_code: 'T',
-      },
-    ],
+        ame:'T'cumán Province','
+        tate_code:'T',',
+      },,
+    ],,
   },
   {
-    name: 'Armenia',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Flag_of_Armenia.svg',
-    iso2: 'AM',
-    states: [
+    ame:'A'menia','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/2/2f/Flag_of_Armenia.svg','
+    so2:'A'','
+    tates:[
       {
-        name: 'Aragatsotn Region',
-        state_code: 'AG',
+        ame:'A'agatsotn Region','
+        tate_code:'A'',',
       },
       {
-        name: 'Ararat Province',
-        state_code: 'AR',
+        ame:'A'arat Province','
+        tate_code:'A'',',
       },
       {
-        name: 'Armavir Region',
-        state_code: 'AV',
+        ame:'A'mavir Region','
+        tate_code:'A'',',
       },
       {
-        name: 'Gegharkunik Province',
-        state_code: 'GR',
+        ame:'G'gharkunik Province','
+        tate_code:'G'',',
       },
       {
-        name: 'Kotayk Region',
-        state_code: 'KT',
+        ame:'K'tayk Region','
+        tate_code:'K'',',
       },
       {
-        name: 'Lori Region',
-        state_code: 'LO',
+        ame:'L'ri Region','
+        tate_code:'L'',',
       },
       {
-        name: 'Shirak Region',
-        state_code: 'SH',
+        ame:'S'irak Region','
+        tate_code:'S'',',
       },
       {
-        name: 'Syunik Province',
-        state_code: 'SU',
+        ame:'S'unik Province','
+        tate_code:'S'',',
       },
       {
-        name: 'Tavush Region',
-        state_code: 'TV',
+        ame:'T'vush Region','
+        tate_code:'T'',',
       },
       {
-        name: 'Vayots Dzor Region',
-        state_code: 'VD',
+        ame:'V'yots Dzor Region','
+        tate_code:'V'',',
       },
       {
-        name: 'Yerevan',
-        state_code: 'ER',
-      },
-    ],
+        ame:'Y'revan','
+        tate_code:'E'',',
+      },,
+    ],,
   },
   {
-    name: 'Aruba',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Aruba.svg',
-    iso2: 'AW',
-    states: [],
+    ame:'A'uba','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Aruba.svg','
+    so2:'A'','
+    tates:[],,
   },
   {
-    name: 'Australia',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg',
-    iso2: 'AU',
-    states: [
+    ame:'A'stralia','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg','
+    so2:'A'','
+    tates:[
       {
-        name: 'Australian Capital Territory',
-        state_code: 'ACT',
+        ame:'A'stralian Capital Territory','
+        tate_code:'A'T',',
       },
       {
-        name: 'New South Wales',
-        state_code: 'NSW',
+        ame:'N'w South Wales','
+        tate_code:'N'W',',
       },
       {
-        name: 'Northern Territory',
-        state_code: 'NT',
+        ame:'N'rthern Territory','
+        tate_code:'N'',',
       },
       {
-        name: 'Queensland',
-        state_code: 'QLD',
+        ame:'Q'eensland','
+        tate_code:'Q'D',',
       },
       {
-        name: 'South Australia',
-        state_code: 'SA',
+        ame:'S'uth Australia','
+        tate_code:'S'',',
       },
       {
-        name: 'Tasmania',
-        state_code: 'TAS',
+        ame:'T'smania','
+        tate_code:'T'S',',
       },
       {
-        name: 'Victoria',
-        state_code: 'VIC',
+        ame:'V'ctoria','
+        tate_code:'V'C',',
       },
       {
-        name: 'Western Australia',
-        state_code: 'WA',
-      },
-    ],
+        ame:'W'stern Australia','
+        tate_code:'W'',',
+      },,
+    ],,
   },
   {
-    name: 'Austria',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_Austria.svg',
-    iso2: 'AT',
-    states: [
+    ame:'A'stria','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_Austria.svg','
+    so2:'A'','
+    tates:[
       {
-        name: 'Burgenland',
-        state_code: '1',
+        ame:'B'rgenland','
+        tate_code:'1',',
       },
       {
-        name: 'Carinthia',
-        state_code: '2',
+        ame:'C'rinthia','
+        tate_code:'2',',
       },
       {
-        name: 'Lower Austria',
-        state_code: '3',
+        ame:'L'wer Austria','
+        tate_code:'3',',
       },
       {
-        name: 'Salzburg',
-        state_code: '5',
+        ame:'S'lzburg','
+        tate_code:'5',',
       },
       {
-        name: 'Styria',
-        state_code: '6',
+        ame:'S'yria','
+        tate_code:'6',',
       },
       {
-        name: 'Tyrol',
-        state_code: '7',
+        ame:'T'rol','
+        tate_code:'7',',
       },
       {
-        name: 'Upper Austria',
-        state_code: '4',
+        ame:'U'per Austria','
+        tate_code:'4',',
       },
       {
-        name: 'Vienna',
-        state_code: '9',
+        ame:'V'enna','
+        tate_code:'9',',
       },
       {
-        name: 'Vorarlberg',
-        state_code: '8',
-      },
-    ],
+        ame:'V'rarlberg','
+        tate_code:'8',',
+      },,
+    ],,
   },
   {
-    name: 'Azerbaijan',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/d/dd/Flag_of_Azerbaijan.svg',
-    iso2: 'AZ',
-    states: [
+    ame:'A'erbaijan','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/d/dd/Flag_of_Azerbaijan.svg','
+    so2:'A'','
+    tates:[
       {
-        name: 'Absheron District',
-        state_code: 'ABS',
+        ame:'A'sheron District','
+        tate_code:'A'S',',
       },
       {
-        name: 'Agdam District',
-        state_code: 'AGM',
+        ame:'A'dam District','
+        tate_code:'A'M',',
       },
       {
-        name: 'Agdash District',
-        state_code: 'AGS',
+        ame:'A'dash District','
+        tate_code:'A'S',',
       },
       {
-        name: 'Aghjabadi District',
-        state_code: 'AGC',
+        ame:'A'hjabadi District','
+        tate_code:'A'C',',
       },
       {
-        name: 'Agstafa District',
-        state_code: 'AGA',
+        ame:'A'stafa District','
+        tate_code:'A'A',',
       },
       {
-        name: 'Agsu District',
-        state_code: 'AGU',
+        ame:'A'su District','
+        tate_code:'A'U',',
       },
       {
-        name: 'Astara District',
-        state_code: 'AST',
+        ame:'A'tara District','
+        tate_code:'A'T',',
       },
       {
-        name: 'Babek District',
-        state_code: 'BAB',
+        ame:'B'bek District','
+        tate_code:'B'B',',
       },
       {
-        name: 'Baku',
-        state_code: 'BA',
+        ame:'B'ku','
+        tate_code:'B'',',
       },
       {
-        name: 'Balakan District',
-        state_code: 'BAL',
+        ame:'B'lakan District','
+        tate_code:'B'L',',
       },
       {
-        name: 'Barda District',
-        state_code: 'BAR',
+        ame:'B'rda District','
+        tate_code:'B'R',',
       },
       {
-        name: 'Beylagan District',
-        state_code: 'BEY',
+        ame:'B'ylagan District','
+        tate_code:'B'Y',',
       },
       {
-        name: 'Bilasuvar District',
-        state_code: 'BIL',
+        ame:'B'lasuvar District','
+        tate_code:'B'L',',
       },
       {
-        name: 'Dashkasan District',
-        state_code: 'DAS',
+        ame:'D'shkasan District','
+        tate_code:'D'S',',
       },
       {
-        name: 'Fizuli District',
-        state_code: 'FUZ',
+        ame:'F'zuli District','
+        tate_code:'F'Z',',
       },
       {
-        name: 'Ganja',
-        state_code: 'GA',
+        ame:'G'nja','
+        tate_code:'G'',',
       },
       {
-        name: 'Gədəbəy',
-        state_code: 'GAD',
+        ame:'G'dəbəy','
+        tate_code:'G'D',',
       },
       {
-        name: 'Gobustan District',
-        state_code: 'QOB',
+        ame:'G'bustan District','
+        tate_code:'Q'B',',
       },
       {
-        name: 'Goranboy District',
-        state_code: 'GOR',
+        ame:'G'ranboy District','
+        tate_code:'G'R',',
       },
       {
-        name: 'Goychay',
-        state_code: 'GOY',
+        ame:'G'ychay','
+        tate_code:'G'Y',',
       },
       {
-        name: 'Goygol District',
-        state_code: 'GYG',
+        ame:'G'ygol District','
+        tate_code:'G'G',',
       },
       {
-        name: 'Hajigabul District',
-        state_code: 'HAC',
+        ame:'H'jigabul District','
+        tate_code:'H'C',',
       },
       {
-        name: 'Imishli District',
-        state_code: 'IMI',
+        ame:'I'ishli District','
+        tate_code:'I'I',',
       },
       {
-        name: 'Ismailli District',
-        state_code: 'ISM',
+        ame:'I'mailli District','
+        tate_code:'I'M',',
       },
       {
-        name: 'Jabrayil District',
-        state_code: 'CAB',
+        ame:'J'brayil District','
+        tate_code:'C'B',',
       },
       {
-        name: 'Jalilabad District',
-        state_code: 'CAL',
+        ame:'J'lilabad District','
+        tate_code:'C'L',',
       },
       {
-        name: 'Julfa District',
-        state_code: 'CUL',
+        ame:'J'lfa District','
+        tate_code:'C'L',',
       },
       {
-        name: 'Kalbajar District',
-        state_code: 'KAL',
+        ame:'K'lbajar District','
+        tate_code:'K'L',',
       },
       {
-        name: 'Kangarli District',
-        state_code: 'KAN',
+        ame:'K'ngarli District','
+        tate_code:'K'N',',
       },
       {
-        name: 'Khachmaz District',
-        state_code: 'XAC',
+        ame:'K'achmaz District','
+        tate_code:'X'C',',
       },
       {
-        name: 'Khizi District',
-        state_code: 'XIZ',
+        ame:'K'izi District','
+        tate_code:'X'Z',',
       },
       {
-        name: 'Khojali District',
-        state_code: 'XCI',
+        ame:'K'ojali District','
+        tate_code:'X'I',',
       },
       {
-        name: 'Kurdamir District',
-        state_code: 'KUR',
+        ame:'K'rdamir District','
+        tate_code:'K'R',',
       },
       {
-        name: 'Lachin District',
-        state_code: 'LAC',
+        ame:'L'chin District','
+        tate_code:'L'C',',
       },
       {
-        name: 'Lankaran',
-        state_code: 'LAN',
+        ame:'L'nkaran','
+        tate_code:'L'N',',
       },
       {
-        name: 'Lankaran District',
-        state_code: 'LA',
+        ame:'L'nkaran District','
+        tate_code:'L'',',
       },
       {
-        name: 'Lerik District',
-        state_code: 'LER',
+        ame:'L'rik District','
+        tate_code:'L'R',',
       },
       {
-        name: 'Martuni',
-        state_code: 'XVD',
+        ame:'M'rtuni','
+        tate_code:'X'D',',
       },
       {
-        name: 'Masally District',
-        state_code: 'MAS',
+        ame:'M'sally District','
+        tate_code:'M'S',',
       },
       {
-        name: 'Mingachevir',
-        state_code: 'MI',
+        ame:'M'ngachevir','
+        tate_code:'M'',',
       },
       {
-        name: 'Nakhchivan Autonomous Republic',
-        state_code: 'NX',
+        ame:'N'khchivan Autonomous Republic','
+        tate_code:'N'',',
       },
       {
-        name: 'Neftchala District',
-        state_code: 'NEF',
+        ame:'N'ftchala District','
+        tate_code:'N'F',',
       },
       {
-        name: 'Oghuz District',
-        state_code: 'OGU',
+        ame:'O'huz District','
+        tate_code:'O'U',',
       },
       {
-        name: 'Ordubad District',
-        state_code: 'ORD',
+        ame:'O'dubad District','
+        tate_code:'O'D',',
       },
       {
-        name: 'Qabala District',
-        state_code: 'QAB',
+        ame:'Q'bala District','
+        tate_code:'Q'B',',
       },
       {
-        name: 'Qakh District',
-        state_code: 'QAX',
+        ame:'Q'kh District','
+        tate_code:'Q'X',',
       },
       {
-        name: 'Qazakh District',
-        state_code: 'QAZ',
+        ame:'Q'zakh District','
+        tate_code:'Q'Z',',
       },
       {
-        name: 'Quba District',
-        state_code: 'QBA',
+        ame:'Q'ba District','
+        tate_code:'Q'A',',
       },
       {
-        name: 'Qubadli District',
-        state_code: 'QBI',
+        ame:'Q'badli District','
+        tate_code:'Q'I',',
       },
       {
-        name: 'Qusar District',
-        state_code: 'QUS',
+        ame:'Q'sar District','
+        tate_code:'Q'S',',
       },
       {
-        name: 'Saatly District',
-        state_code: 'SAT',
+        ame:'S'atly District','
+        tate_code:'S'T',',
       },
       {
-        name: 'Sabirabad District',
-        state_code: 'SAB',
+        ame:'S'birabad District','
+        tate_code:'S'B',',
       },
       {
-        name: 'Sadarak District',
-        state_code: 'SAD',
+        ame:'S'darak District','
+        tate_code:'S'D',',
       },
       {
-        name: 'Salyan District',
-        state_code: 'SAL',
+        ame:'S'lyan District','
+        tate_code:'S'L',',
       },
       {
-        name: 'Samukh District',
-        state_code: 'SMX',
+        ame:'S'mukh District','
+        tate_code:'S'X',',
       },
       {
-        name: 'Shabran District',
-        state_code: 'SBN',
+        ame:'S'abran District','
+        tate_code:'S'N',',
       },
       {
-        name: 'Shahbuz District',
-        state_code: 'SAH',
+        ame:'S'ahbuz District','
+        tate_code:'S'H',',
       },
       {
-        name: 'Shaki',
-        state_code: 'SA',
+        ame:'S'aki','
+        tate_code:'S'',',
       },
       {
-        name: 'Shaki District',
-        state_code: 'SAK',
+        ame:'S'aki District','
+        tate_code:'S'K',',
       },
       {
-        name: 'Shamakhi District',
-        state_code: 'SMI',
+        ame:'S'amakhi District','
+        tate_code:'S'I',',
       },
       {
-        name: 'Shamkir District',
-        state_code: 'SKR',
+        ame:'S'amkir District','
+        tate_code:'S'R',',
       },
       {
-        name: 'Sharur District',
-        state_code: 'SAR',
+        ame:'S'arur District','
+        tate_code:'S'R',',
       },
       {
-        name: 'Shirvan',
-        state_code: 'SR',
+        ame:'S'irvan','
+        tate_code:'S'',',
       },
       {
-        name: 'Shusha District',
-        state_code: 'SUS',
+        ame:'S'usha District','
+        tate_code:'S'S',',
       },
       {
-        name: 'Siazan District',
-        state_code: 'SIY',
+        ame:'S'azan District','
+        tate_code:'S'Y',',
       },
       {
-        name: 'Sumqayit',
-        state_code: 'SM',
+        ame:'S'mqayit','
+        tate_code:'S'',',
       },
       {
-        name: 'Tartar District',
-        state_code: 'TAR',
+        ame:'T'rtar District','
+        tate_code:'T'R',',
       },
       {
-        name: 'Tovuz District',
-        state_code: 'TOV',
+        ame:'T'vuz District','
+        tate_code:'T'V',',
       },
       {
-        name: 'Ujar District',
-        state_code: 'UCA',
+        ame:'U'ar District','
+        tate_code:'U'A',',
       },
       {
-        name: 'Yardymli District',
-        state_code: 'YAR',
+        ame:'Y'rdymli District','
+        tate_code:'Y'R',',
       },
       {
-        name: 'Yevlakh',
-        state_code: 'YE',
+        ame:'Y'vlakh','
+        tate_code:'Y'',',
       },
       {
-        name: 'Yevlakh District',
-        state_code: 'YEV',
+        ame:'Y'vlakh District','
+        tate_code:'Y'V',',
       },
       {
-        name: 'Zangilan District',
-        state_code: 'ZAN',
+        ame:'Z'ngilan District','
+        tate_code:'Z'N',',
       },
       {
-        name: 'Zaqatala District',
-        state_code: 'ZAQ',
+        ame:'Z'qatala District','
+        tate_code:'Z'Q',',
       },
       {
-        name: 'Zardab District',
-        state_code: 'ZAR',
-      },
-    ],
+        ame:'Z'rdab District','
+        tate_code:'Z'R',',
+      },,
+    ],,
   },
   {
-    name: 'Bahamas The',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Flag_of_the_Bahamas.svg',
-    iso2: 'BS',
-    states: [
+    ame:'B'hamas The','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/9/93/Flag_of_the_Bahamas.svg','
+    so2:'B'','
+    tates:[
       {
-        name: 'Acklins',
-        state_code: 'AK',
+        ame:'A'klins','
+        tate_code:'A'',',
       },
       {
-        name: 'Acklins and Crooked Islands',
-        state_code: 'AC',
+        ame:'A'klins and Crooked Islands','
+        tate_code:'A'',',
       },
       {
-        name: 'Berry Islands',
-        state_code: 'BY',
+        ame:'B'rry Islands','
+        tate_code:'B'',',
       },
       {
-        name: 'Bimini',
-        state_code: 'BI',
+        ame:'B'mini','
+        tate_code:'B'',',
       },
       {
-        name: 'Black Point',
-        state_code: 'BP',
+        ame:'B'ack Point','
+        tate_code:'B'',',
       },
       {
-        name: 'Cat Island',
-        state_code: 'CI',
+        ame:'C't Island','
+        tate_code:'C'',',
       },
       {
-        name: 'Central Abaco',
-        state_code: 'CO',
+        ame:'C'ntral Abaco','
+        tate_code:'C'',',
       },
       {
-        name: 'Central Andros',
-        state_code: 'CS',
+        ame:'C'ntral Andros','
+        tate_code:'C'',',
       },
       {
-        name: 'Central Eleuthera',
-        state_code: 'CE',
+        ame:'C'ntral Eleuthera','
+        tate_code:'C'',',
       },
       {
-        name: 'Crooked Island',
-        state_code: 'CK',
+        ame:'C'ooked Island','
+        tate_code:'C'',',
       },
       {
-        name: 'East Grand Bahama',
-        state_code: 'EG',
+        ame:'E'st Grand Bahama','
+        tate_code:'E'',',
       },
       {
-        name: 'Exuma',
-        state_code: 'EX',
+        ame:'E'uma','
+        tate_code:'E'',',
       },
       {
-        name: 'Freeport',
-        state_code: 'FP',
+        ame:'F'eeport','
+        tate_code:'F'',',
       },
       {
-        name: 'Fresh Creek',
-        state_code: 'FC',
+        ame:'F'esh Creek','
+        tate_code:'F'',',
       },
       {
-        name: "Governor's Harbour",
-        state_code: 'GH',
+        ame:"Governor's Harbour",
+        tate_code:'G'',',
       },
       {
-        name: 'Grand Cay',
-        state_code: 'GC',
+        ame:'G'and Cay','
+        tate_code:'G'',',
       },
       {
-        name: 'Green Turtle Cay',
-        state_code: 'GT',
+        ame:'G'een Turtle Cay','
+        tate_code:'G'',',
       },
       {
-        name: 'Harbour Island',
-        state_code: 'HI',
+        ame:'H'rbour Island','
+        tate_code:'H'',',
       },
       {
-        name: 'High Rock',
-        state_code: 'HR',
+        ame:'H'gh Rock','
+        tate_code:'H'',',
       },
       {
-        name: 'Hope Town',
-        state_code: 'HT',
+        ame:'H'pe Town','
+        tate_code:'H'',',
       },
       {
-        name: 'Inagua',
-        state_code: 'IN',
+        ame:'I'agua','
+        tate_code:'I'',',
       },
       {
-        name: 'Kemps Bay',
-        state_code: 'KB',
+        ame:'K'mps Bay','
+        tate_code:'K'',',
       },
       {
-        name: 'Long Island',
-        state_code: 'LI',
+        ame:'L'ng Island','
+        tate_code:'L'',',
       },
       {
-        name: 'Mangrove Cay',
-        state_code: 'MC',
+        ame:'M'ngrove Cay','
+        tate_code:'M'',',
       },
       {
-        name: 'Marsh Harbour',
-        state_code: 'MH',
+        ame:'M'rsh Harbour','
+        tate_code:'M'',',
       },
       {
-        name: 'Mayaguana District',
-        state_code: 'MG',
+        ame:'M'yaguana District','
+        tate_code:'M'',',
       },
       {
-        name: 'Nichollstown and Berry Islands',
-        state_code: 'NB',
+        ame:'N'chollstown and Berry Islands','
+        tate_code:'N'',',
       },
       {
-        name: 'North Abaco',
-        state_code: 'NO',
+        ame:'N'rth Abaco','
+        tate_code:'N'',',
       },
       {
-        name: 'North Andros',
-        state_code: 'NS',
+        ame:'N'rth Andros','
+        tate_code:'N'',',
       },
       {
-        name: 'North Eleuthera',
-        state_code: 'NE',
+        ame:'N'rth Eleuthera','
+        tate_code:'N'',',
       },
       {
-        name: 'Ragged Island',
-        state_code: 'RI',
+        ame:'R'gged Island','
+        tate_code:'R'',',
       },
       {
-        name: 'Rock Sound',
-        state_code: 'RS',
+        ame:'R'ck Sound','
+        tate_code:'R'',',
       },
       {
-        name: 'Rum Cay District',
-        state_code: 'RC',
+        ame:'R'm Cay District','
+        tate_code:'R'',',
       },
       {
-        name: 'San Salvador and Rum Cay',
-        state_code: 'SR',
+        ame:'S'n Salvador and Rum Cay','
+        tate_code:'S'',',
       },
       {
-        name: 'San Salvador Island',
-        state_code: 'SS',
+        ame:'S'n Salvador Island','
+        tate_code:'S'',',
       },
       {
-        name: 'Sandy Point',
-        state_code: 'SP',
+        ame:'S'ndy Point','
+        tate_code:'S'',',
       },
       {
-        name: 'South Abaco',
-        state_code: 'SO',
+        ame:'S'uth Abaco','
+        tate_code:'S'',',
       },
       {
-        name: 'South Andros',
-        state_code: 'SA',
+        ame:'S'uth Andros','
+        tate_code:'S'',',
       },
       {
-        name: 'South Eleuthera',
-        state_code: 'SE',
+        ame:'S'uth Eleuthera','
+        tate_code:'S'',',
       },
       {
-        name: 'Spanish Wells',
-        state_code: 'SW',
+        ame:'S'anish Wells','
+        tate_code:'S'',',
       },
       {
-        name: 'West Grand Bahama',
-        state_code: 'WG',
-      },
-    ],
+        ame:'W'st Grand Bahama','
+        tate_code:'W'',',
+      },,
+    ],,
   },
   {
-    name: 'Bahrain',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Bahrain.svg',
-    iso2: 'BH',
-    states: [
+    ame:'B'hrain','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Bahrain.svg','
+    so2:'B'','
+    tates:[
       {
-        name: 'Capital Governorate',
-        state_code: '13',
+        ame:'C'pital Governorate','
+        tate_code:'1'',',
       },
       {
-        name: 'Central Governorate',
-        state_code: '16',
+        ame:'C'ntral Governorate','
+        tate_code:'1'',',
       },
       {
-        name: 'Muharraq Governorate',
-        state_code: '15',
+        ame:'M'harraq Governorate','
+        tate_code:'1'',',
       },
       {
-        name: 'Northern Governorate',
-        state_code: '17',
+        ame:'N'rthern Governorate','
+        tate_code:'1'',',
       },
       {
-        name: 'Southern Governorate',
-        state_code: '14',
-      },
-    ],
+        ame:'S'uthern Governorate','
+        tate_code:'1'',',
+      },,
+    ],,
   },
   {
-    name: 'Bangladesh',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_of_Bangladesh.svg',
-    iso2: 'BD',
-    states: [
+    ame:'B'ngladesh','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_of_Bangladesh.svg','
+    so2:'B'','
+    tates:[
       {
-        name: 'Bagerhat District',
-        state_code: '05',
+        ame:'B'gerhat District','
+        tate_code:'0'',',
       },
       {
-        name: 'Bahadia',
-        state_code: '33',
+        ame:'B'hadia','
+        tate_code:'3'',',
       },
       {
-        name: 'Bandarban District',
-        state_code: '01',
+        ame:'B'ndarban District','
+        tate_code:'0'',',
       },
       {
-        name: 'Barguna District',
-        state_code: '02',
+        ame:'B'rguna District','
+        tate_code:'0'',',
       },
       {
-        name: 'Barisal District',
-        state_code: '06',
+        ame:'B'risal District','
+        tate_code:'0'',',
       },
       {
-        name: 'Barisal Division',
-        state_code: 'A',
+        ame:'B'risal Division','
+        tate_code:'A',',
       },
       {
-        name: 'Bhola District',
-        state_code: '07',
+        ame:'B'ola District','
+        tate_code:'0'',',
       },
       {
-        name: 'Bogra District',
-        state_code: '03',
+        ame:'B'gra District','
+        tate_code:'0'',',
       },
       {
-        name: 'Brahmanbaria District',
-        state_code: '04',
+        ame:'B'ahmanbaria District','
+        tate_code:'0'',',
       },
       {
-        name: 'Chandpur District',
-        state_code: '09',
+        ame:'C'andpur District','
+        tate_code:'0'',',
       },
       {
-        name: 'Chapai Nawabganj District',
-        state_code: '45',
+        ame:'C'apai Nawabganj District','
+        tate_code:'4'',',
       },
       {
-        name: 'Chittagong District',
-        state_code: '10',
+        ame:'C'ittagong District','
+        tate_code:'1'',',
       },
       {
-        name: 'Chittagong Division',
-        state_code: 'B',
+        ame:'C'ittagong Division','
+        tate_code:'B',',
       },
       {
-        name: 'Chuadanga District',
-        state_code: '12',
+        ame:'C'uadanga District','
+        tate_code:'1'',',
       },
       {
-        name: 'Comilla District',
-        state_code: '08',
+        ame:'C'milla District','
+        tate_code:'0'',',
       },
       {
-        name: "Cox's Bazar District",
-        state_code: '11',
+        ame:"Cox's Bazar District",
+        tate_code:'1'',',
       },
       {
-        name: 'Dhaka District',
-        state_code: '13',
+        ame:'D'aka District','
+        tate_code:'1'',',
       },
       {
-        name: 'Dhaka Division',
-        state_code: 'C',
+        ame:'D'aka Division','
+        tate_code:'C',',
       },
       {
-        name: 'Dinajpur District',
-        state_code: '14',
+        ame:'D'najpur District','
+        tate_code:'1'',',
       },
       {
-        name: 'Faridpur District',
-        state_code: '15',
+        ame:'F'ridpur District','
+        tate_code:'1'',',
       },
       {
-        name: 'Feni District',
-        state_code: '16',
+        ame:'F'ni District','
+        tate_code:'1'',',
       },
       {
-        name: 'Gaibandha District',
-        state_code: '19',
+        ame:'G'ibandha District','
+        tate_code:'1'',',
       },
       {
-        name: 'Gazipur District',
-        state_code: '18',
+        ame:'G'zipur District','
+        tate_code:'1'',',
       },
       {
-        name: 'Gopalganj District',
-        state_code: '17',
+        ame:'G'palganj District','
+        tate_code:'1'',',
       },
       {
-        name: 'Habiganj District',
-        state_code: '20',
+        ame:'H'biganj District','
+        tate_code:'2'',',
       },
       {
-        name: 'Jamalpur District',
-        state_code: '21',
+        ame:'J'malpur District','
+        tate_code:'2'',',
       },
       {
-        name: 'Jessore District',
-        state_code: '22',
+        ame:'J'ssore District','
+        tate_code:'2'',',
       },
       {
-        name: 'Jhalokati District',
-        state_code: '25',
+        ame:'J'alokati District','
+        tate_code:'2'',',
       },
       {
-        name: 'Jhenaidah District',
-        state_code: '23',
+        ame:'J'enaidah District','
+        tate_code:'2'',',
       },
       {
-        name: 'Joypurhat District',
-        state_code: '24',
+        ame:'J'ypurhat District','
+        tate_code:'2'',',
       },
       {
-        name: 'Khagrachari District',
-        state_code: '29',
+        ame:'K'agrachari District','
+        tate_code:'2'',',
       },
       {
-        name: 'Khulna District',
-        state_code: '27',
+        ame:'K'ulna District','
+        tate_code:'2'',',
       },
       {
-        name: 'Khulna Division',
-        state_code: 'D',
+        ame:'K'ulna Division','
+        tate_code:'D',',
       },
       {
-        name: 'Kishoreganj District',
-        state_code: '26',
+        ame:'K'shoreganj District','
+        tate_code:'2'',',
       },
       {
-        name: 'Kurigram District',
-        state_code: '28',
+        ame:'K'rigram District','
+        tate_code:'2'',',
       },
       {
-        name: 'Kushtia District',
-        state_code: '30',
+        ame:'K'shtia District','
+        tate_code:'3'',',
       },
       {
-        name: 'Lakshmipur District',
-        state_code: '31',
+        ame:'L'kshmipur District','
+        tate_code:'3'',',
       },
       {
-        name: 'Lalmonirhat District',
-        state_code: '32',
+        ame:'L'lmonirhat District','
+        tate_code:'3'',',
       },
       {
-        name: 'Madaripur District',
-        state_code: '36',
+        ame:'M'daripur District','
+        tate_code:'3'',',
       },
       {
-        name: 'Meherpur District',
-        state_code: '39',
+        ame:'M'herpur District','
+        tate_code:'3'',',
       },
       {
-        name: 'Moulvibazar District',
-        state_code: '38',
+        ame:'M'ulvibazar District','
+        tate_code:'3'',',
       },
       {
-        name: 'Munshiganj District',
-        state_code: '35',
+        ame:'M'nshiganj District','
+        tate_code:'3'',',
       },
       {
-        name: 'Mymensingh District',
-        state_code: '34',
+        ame:'M'mensingh District','
+        tate_code:'3'',',
       },
       {
-        name: 'Mymensingh Division',
-        state_code: 'H',
+        ame:'M'mensingh Division','
+        tate_code:'H',',
       },
       {
-        name: 'Naogaon District',
-        state_code: '48',
+        ame:'N'ogaon District','
+        tate_code:'4'',',
       },
       {
-        name: 'Narail District',
-        state_code: '43',
+        ame:'N'rail District','
+        tate_code:'4'',',
       },
       {
-        name: 'Narayanganj District',
-        state_code: '40',
+        ame:'N'rayanganj District','
+        tate_code:'4'',',
       },
       {
-        name: 'Natore District',
-        state_code: '44',
+        ame:'N'tore District','
+        tate_code:'4'',',
       },
       {
-        name: 'Netrokona District',
-        state_code: '41',
+        ame:'N'trokona District','
+        tate_code:'4'',',
       },
       {
-        name: 'Nilphamari District',
-        state_code: '46',
+        ame:'N'lphamari District','
+        tate_code:'4'',',
       },
       {
-        name: 'Noakhali District',
-        state_code: '47',
+        ame:'N'akhali District','
+        tate_code:'4'',',
       },
       {
-        name: 'Pabna District',
-        state_code: '49',
+        ame:'P'bna District','
+        tate_code:'4'',',
       },
       {
-        name: 'Panchagarh District',
-        state_code: '52',
+        ame:'P'nchagarh District','
+        tate_code:'5'',',
       },
       {
-        name: 'Patuakhali District',
-        state_code: '51',
+        ame:'P'tuakhali District','
+        tate_code:'5'',',
       },
       {
-        name: 'Pirojpur District',
-        state_code: '50',
+        ame:'P'rojpur District','
+        tate_code:'5'',',
       },
       {
-        name: 'Rajbari District',
-        state_code: '53',
+        ame:'R'jbari District','
+        tate_code:'5'',',
       },
       {
-        name: 'Rajshahi District',
-        state_code: '54',
+        ame:'R'jshahi District','
+        tate_code:'5'',',
       },
       {
-        name: 'Rajshahi Division',
-        state_code: 'E',
+        ame:'R'jshahi Division','
+        tate_code:'E',',
       },
       {
-        name: 'Rangamati Hill District',
-        state_code: '56',
+        ame:'R'ngamati Hill District','
+        tate_code:'5'',',
       },
       {
-        name: 'Rangpur District',
-        state_code: '55',
+        ame:'R'ngpur District','
+        tate_code:'5'',',
       },
       {
-        name: 'Rangpur Division',
-        state_code: 'F',
+        ame:'R'ngpur Division','
+        tate_code:'F',',
       },
       {
-        name: 'Satkhira District',
-        state_code: '58',
+        ame:'S'tkhira District','
+        tate_code:'5'',',
       },
       {
-        name: 'Shariatpur District',
-        state_code: '62',
+        ame:'S'ariatpur District','
+        tate_code:'6'',',
       },
       {
-        name: 'Sherpur District',
-        state_code: '57',
+        ame:'S'erpur District','
+        tate_code:'5'',',
       },
       {
-        name: 'Sirajganj District',
-        state_code: '59',
+        ame:'S'rajganj District','
+        tate_code:'5'',',
       },
       {
-        name: 'Sunamganj District',
-        state_code: '61',
+        ame:'S'namganj District','
+        tate_code:'6'',',
       },
       {
-        name: 'Sylhet District',
-        state_code: '60',
+        ame:'S'lhet District','
+        tate_code:'6'',',
       },
       {
-        name: 'Sylhet Division',
-        state_code: 'G',
+        ame:'S'lhet Division','
+        tate_code:'G',',
       },
       {
-        name: 'Tangail District',
-        state_code: '63',
+        ame:'T'ngail District','
+        tate_code:'6'',',
       },
       {
-        name: 'Thakurgaon District',
-        state_code: '64',
-      },
-    ],
+        ame:'T'akurgaon District','
+        tate_code:'6'',',
+      },,
+    ],,
   },
   {
-    name: 'Barbados',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/e/ef/Flag_of_Barbados.svg',
-    iso2: 'BB',
-    states: [
+    ame:'B'rbados','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/e/ef/Flag_of_Barbados.svg','
+    so2:'B'','
+    tates:[
       {
-        name: 'Christ Church',
-        state_code: '01',
+        ame:'C'rist Church','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Andrew',
-        state_code: '02',
+        ame:'S'int Andrew','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint George',
-        state_code: '03',
+        ame:'S'int George','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint James',
-        state_code: '04',
+        ame:'S'int James','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint John',
-        state_code: '05',
+        ame:'S'int John','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Joseph',
-        state_code: '06',
+        ame:'S'int Joseph','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Lucy',
-        state_code: '07',
+        ame:'S'int Lucy','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Michael',
-        state_code: '08',
+        ame:'S'int Michael','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Peter',
-        state_code: '09',
+        ame:'S'int Peter','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Philip',
-        state_code: '10',
+        ame:'S'int Philip','
+        tate_code:'1'',',
       },
       {
-        name: 'Saint Thomas',
-        state_code: '11',
-      },
-    ],
+        ame:'S'int Thomas','
+        tate_code:'1'',',
+      },,
+    ],,
   },
   {
-    name: 'Belarus',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/8/85/Flag_of_Belarus.svg',
-    iso2: 'BY',
-    states: [
+    ame:'B'larus','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/8/85/Flag_of_Belarus.svg','
+    so2:'B'','
+    tates:[
       {
-        name: 'Brest Region',
-        state_code: 'BR',
+        ame:'B'est Region','
+        tate_code:'B'',',
       },
       {
-        name: 'Gomel Region',
-        state_code: 'HO',
+        ame:'G'mel Region','
+        tate_code:'H'',',
       },
       {
-        name: 'Grodno Region',
-        state_code: 'HR',
+        ame:'G'odno Region','
+        tate_code:'H'',',
       },
       {
-        name: 'Minsk',
-        state_code: 'HM',
+        ame:'M'nsk','
+        tate_code:'H'',',
       },
       {
-        name: 'Minsk Region',
-        state_code: 'MI',
+        ame:'M'nsk Region','
+        tate_code:'M'',',
       },
       {
-        name: 'Mogilev Region',
-        state_code: 'MA',
+        ame:'M'gilev Region','
+        tate_code:'M'',',
       },
       {
-        name: 'Vitebsk Region',
-        state_code: 'VI',
-      },
-    ],
+        ame:'V'tebsk Region','
+        tate_code:'V'',',
+      },,
+    ],,
   },
   {
-    name: 'Belgium',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Belgium.svg',
-    iso2: 'BE',
-    states: [
+    ame:'B'lgium','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Belgium.svg','
+    so2:'B'','
+    tates:[
       {
-        name: 'Antwerp',
-        state_code: 'VAN',
+        ame:'A'twerp','
+        tate_code:'V'N',',
       },
       {
-        name: 'Brussels-Capital Region',
-        state_code: 'BRU',
+        ame:'B'ussels-Capital Region','
+        tate_code:'B'U',',
       },
       {
-        name: 'East Flanders',
-        state_code: 'VOV',
+        ame:'E'st Flanders','
+        tate_code:'V'V',',
       },
       {
-        name: 'Flanders',
-        state_code: 'VLG',
+        ame:'F'anders','
+        tate_code:'V'G',',
       },
       {
-        name: 'Flemish Brabant',
-        state_code: 'VBR',
+        ame:'F'emish Brabant','
+        tate_code:'V'R',',
       },
       {
-        name: 'Hainaut',
-        state_code: 'WHT',
+        ame:'H'inaut','
+        tate_code:'W'T',',
       },
       {
-        name: 'Liège',
-        state_code: 'WLG',
+        ame:'L'ège','
+        tate_code:'W'G',',
       },
       {
-        name: 'Limburg',
-        state_code: 'VLI',
+        ame:'L'mburg','
+        tate_code:'V'I',',
       },
       {
-        name: 'Luxembourg',
-        state_code: 'WLX',
+        ame:'L'xembourg','
+        tate_code:'W'X',',
       },
       {
-        name: 'Namur',
-        state_code: 'WNA',
+        ame:'N'mur','
+        tate_code:'W'A',',
       },
       {
-        name: 'Wallonia',
-        state_code: 'WAL',
+        ame:'W'llonia','
+        tate_code:'W'L',',
       },
       {
-        name: 'Walloon Brabant',
-        state_code: 'WBR',
+        ame:'W'lloon Brabant','
+        tate_code:'W'R',',
       },
       {
-        name: 'West Flanders',
-        state_code: 'VWV',
-      },
-    ],
+        ame:'W'st Flanders','
+        tate_code:'V'V',',
+      },,
+    ],,
   },
   {
-    name: 'Belize',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/e/e7/Flag_of_Belize.svg',
-    iso2: 'BZ',
-    states: [
+    ame:'B'lize','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/e/e7/Flag_of_Belize.svg','
+    so2:'B'','
+    tates:[
       {
-        name: 'Belize District',
-        state_code: 'BZ',
+        ame:'B'lize District','
+        tate_code:'B'',',
       },
       {
-        name: 'Cayo District',
-        state_code: 'CY',
+        ame:'C'yo District','
+        tate_code:'C'',',
       },
       {
-        name: 'Corozal District',
-        state_code: 'CZL',
+        ame:'C'rozal District','
+        tate_code:'C'L',',
       },
       {
-        name: 'Orange Walk District',
-        state_code: 'OW',
+        ame:'O'ange Walk District','
+        tate_code:'O'',',
       },
       {
-        name: 'Stann Creek District',
-        state_code: 'SC',
+        ame:'S'ann Creek District','
+        tate_code:'S'',',
       },
       {
-        name: 'Toledo District',
-        state_code: 'TOL',
-      },
-    ],
+        ame:'T'ledo District','
+        tate_code:'T'L',',
+      },,
+    ],,
   },
   {
-    name: 'Benin',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/0/0a/Flag_of_Benin.svg',
-    iso2: 'BJ',
-    states: [
+    ame:'B'nin','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/0/0a/Flag_of_Benin.svg','
+    so2:'B'','
+    tates:[
       {
-        name: 'Alibori Department',
-        state_code: 'AL',
+        ame:'A'ibori Department','
+        tate_code:'A'',',
       },
       {
-        name: 'Atakora Department',
-        state_code: 'AK',
+        ame:'A'akora Department','
+        tate_code:'A'',',
       },
       {
-        name: 'Atlantique Department',
-        state_code: 'AQ',
+        ame:'A'lantique Department','
+        tate_code:'A'',',
       },
       {
-        name: 'Borgou Department',
-        state_code: 'BO',
+        ame:'B'rgou Department','
+        tate_code:'B'',',
       },
       {
-        name: 'Collines Department',
-        state_code: 'CO',
+        ame:'C'llines Department','
+        tate_code:'C'',',
       },
       {
-        name: 'Donga Department',
-        state_code: 'DO',
+        ame:'D'nga Department','
+        tate_code:'D'',',
       },
       {
-        name: 'Kouffo Department',
-        state_code: 'KO',
+        ame:'K'uffo Department','
+        tate_code:'K'',',
       },
       {
-        name: 'Littoral Department',
-        state_code: 'LI',
+        ame:'L'ttoral Department','
+        tate_code:'L'',',
       },
       {
-        name: 'Mono Department',
-        state_code: 'MO',
+        ame:'M'no Department','
+        tate_code:'M'',',
       },
       {
-        name: 'Ouémé Department',
-        state_code: 'OU',
+        ame:'O'émé Department','
+        tate_code:'O'',',
       },
       {
-        name: 'Plateau Department',
-        state_code: 'PL',
+        ame:'P'ateau Department','
+        tate_code:'P'',',
       },
       {
-        name: 'Zou Department',
-        state_code: 'ZO',
-      },
-    ],
+        ame:'Z'u Department','
+        tate_code:'Z'',',
+      },,
+    ],,
   },
   {
-    name: 'Bermuda',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Bermuda.svg',
-    iso2: 'BM',
-    states: [
+    ame:'B'rmuda','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Bermuda.svg','
+    so2:'B'','
+    tates:[
       {
-        name: 'Devonshire Parish',
-        state_code: 'DEV',
+        ame:'D'vonshire Parish','
+        tate_code:'D'V',',
       },
       {
-        name: 'Hamilton Municipality',
-        state_code: 'HAM',
+        ame:'H'milton Municipality','
+        tate_code:'H'M',',
       },
       {
-        name: 'Hamilton Parish',
-        state_code: 'HA',
+        ame:'H'milton Parish','
+        tate_code:'H'',',
       },
       {
-        name: 'Paget Parish',
-        state_code: 'PAG',
+        ame:'P'get Parish','
+        tate_code:'P'G',',
       },
       {
-        name: 'Pembroke Parish',
-        state_code: 'PEM',
+        ame:'P'mbroke Parish','
+        tate_code:'P'M',',
       },
       {
-        name: "Saint George's Municipality",
-        state_code: 'SG',
+        ame:"Saint George's Municipality",
+        tate_code:'S'',',
       },
       {
-        name: "Saint George's Parish",
-        state_code: 'SGE',
+        ame:"Saint George's Parish",
+        tate_code:'S'E',',
       },
       {
-        name: 'Sandys Parish',
-        state_code: 'SAN',
+        ame:'S'ndys Parish','
+        tate_code:'S'N',',
       },
       {
-        name: "Smith's Parish,",
-        state_code: 'SMI',
+        ame:"Smith's Parish,",
+        tate_code:'S'I',',
       },
       {
-        name: 'Southampton Parish',
-        state_code: 'SOU',
+        ame:'S'uthampton Parish','
+        tate_code:'S'U',',
       },
       {
-        name: 'Warwick Parish',
-        state_code: 'WAR',
-      },
-    ],
+        ame:'W'rwick Parish','
+        tate_code:'W'R',',
+      },,
+    ],,
   },
   {
-    name: 'Bhutan',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/9/91/Flag_of_Bhutan.svg',
-    iso2: 'BT',
-    states: [
+    ame:'B'utan','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/9/91/Flag_of_Bhutan.svg','
+    so2:'B'','
+    tates:[
       {
-        name: 'Bumthang District',
-        state_code: '33',
+        ame:'B'mthang District','
+        tate_code:'3'',',
       },
       {
-        name: 'Chukha District',
-        state_code: '12',
+        ame:'C'ukha District','
+        tate_code:'1'',',
       },
       {
-        name: 'Dagana District',
-        state_code: '22',
+        ame:'D'gana District','
+        tate_code:'2'',',
       },
       {
-        name: 'Gasa District',
-        state_code: 'GA',
+        ame:'G'sa District','
+        tate_code:'G'',',
       },
       {
-        name: 'Haa District',
-        state_code: '13',
+        ame:'H'a District','
+        tate_code:'1'',',
       },
       {
-        name: 'Lhuntse District',
-        state_code: '44',
+        ame:'L'untse District','
+        tate_code:'4'',',
       },
       {
-        name: 'Mongar District',
-        state_code: '42',
+        ame:'M'ngar District','
+        tate_code:'4'',',
       },
       {
-        name: 'Paro District',
-        state_code: '11',
+        ame:'P'ro District','
+        tate_code:'1'',',
       },
       {
-        name: 'Pemagatshel District',
-        state_code: '43',
+        ame:'P'magatshel District','
+        tate_code:'4'',',
       },
       {
-        name: 'Punakha District',
-        state_code: '23',
+        ame:'P'nakha District','
+        tate_code:'2'',',
       },
       {
-        name: 'Samdrup Jongkhar District',
-        state_code: '45',
+        ame:'S'mdrup Jongkhar District','
+        tate_code:'4'',',
       },
       {
-        name: 'Samtse District',
-        state_code: '14',
+        ame:'S'mtse District','
+        tate_code:'1'',',
       },
       {
-        name: 'Sarpang District',
-        state_code: '31',
+        ame:'S'rpang District','
+        tate_code:'3'',',
       },
       {
-        name: 'Thimphu District',
-        state_code: '15',
+        ame:'T'imphu District','
+        tate_code:'1'',',
       },
       {
-        name: 'Trashigang District',
-        state_code: '41',
+        ame:'T'ashigang District','
+        tate_code:'4'',',
       },
       {
-        name: 'Trongsa District',
-        state_code: '32',
+        ame:'T'ongsa District','
+        tate_code:'3'',',
       },
       {
-        name: 'Tsirang District',
-        state_code: '21',
+        ame:'T'irang District','
+        tate_code:'2'',',
       },
       {
-        name: 'Wangdue Phodrang District',
-        state_code: '24',
+        ame:'W'ngdue Phodrang District','
+        tate_code:'2'',',
       },
       {
-        name: 'Zhemgang District',
-        state_code: '34',
-      },
-    ],
+        ame:'Z'emgang District','
+        tate_code:'3'',',
+      },,
+    ],,
   },
   {
-    name: 'Bolivia',
-    flag: '',
-    iso2: 'BO',
-    states: [
+    ame:'B'livia','
+    lag:''''
+    so2:'B'','
+    tates:[
       {
-        name: 'Beni Department',
-        state_code: 'B',
+        ame:'B'ni Department','
+        tate_code:'B',',
       },
       {
-        name: 'Chuquisaca Department',
-        state_code: 'H',
+        ame:'C'uquisaca Department','
+        tate_code:'H',',
       },
       {
-        name: 'Cochabamba Department',
-        state_code: 'C',
+        ame:'C'chabamba Department','
+        tate_code:'C',',
       },
       {
-        name: 'La Paz Department',
-        state_code: 'L',
+        ame:'L' Paz Department','
+        tate_code:'L',',
       },
       {
-        name: 'Oruro Department',
-        state_code: 'O',
+        ame:'O'uro Department','
+        tate_code:'O',',
       },
       {
-        name: 'Pando Department',
-        state_code: 'N',
+        ame:'P'ndo Department','
+        tate_code:'N',',
       },
       {
-        name: 'Potosí Department',
-        state_code: 'P',
+        ame:'P'tosí Department','
+        tate_code:'P',',
       },
       {
-        name: 'Santa Cruz Department',
-        state_code: 'S',
+        ame:'S'nta Cruz Department','
+        tate_code:'S',',
       },
       {
-        name: 'Tarija Department',
-        state_code: 'T',
-      },
-    ],
+        ame:'T'rija Department','
+        tate_code:'T',',
+      },,
+    ],,
   },
   {
-    name: 'Bosnia and Herzegovina',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Bosnia_and_Herzegovina.svg',
-    iso2: 'BA',
-    states: [
+    ame:'B'snia and Herzegovina','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Bosnia_and_Herzegovina.svg','
+    so2:'B'','
+    tates:[
       {
-        name: 'Bosnian Podrinje Canton',
-        state_code: '05',
+        ame:'B'snian Podrinje Canton','
+        tate_code:'0'',',
       },
       {
-        name: 'Brčko District',
-        state_code: 'BRC',
+        ame:'B'čko District','
+        tate_code:'B'C',',
       },
       {
-        name: 'Canton 10',
-        state_code: '10',
+        ame:'C'nton 10','
+        tate_code:'1'',',
       },
       {
-        name: 'Central Bosnia Canton',
-        state_code: '06',
+        ame:'C'ntral Bosnia Canton','
+        tate_code:'0'',',
       },
       {
-        name: 'Federation of Bosnia and Herzegovina',
-        state_code: 'BIH',
+        ame:'F'deration of Bosnia and Herzegovina','
+        tate_code:'B'H',',
       },
       {
-        name: 'Herzegovina-Neretva Canton',
-        state_code: '07',
+        ame:'H'rzegovina-Neretva Canton','
+        tate_code:'0'',',
       },
       {
-        name: 'Posavina Canton',
-        state_code: '02',
+        ame:'P'savina Canton','
+        tate_code:'0'',',
       },
       {
-        name: 'Republika Srpska',
-        state_code: 'SRP',
+        ame:'R'publika Srpska','
+        tate_code:'S'P',',
       },
       {
-        name: 'Sarajevo Canton',
-        state_code: '09',
+        ame:'S'rajevo Canton','
+        tate_code:'0'',',
       },
       {
-        name: 'Tuzla Canton',
-        state_code: '03',
+        ame:'T'zla Canton','
+        tate_code:'0'',',
       },
       {
-        name: 'Una-Sana Canton',
-        state_code: '01',
+        ame:'U'a-Sana Canton','
+        tate_code:'0'',',
       },
       {
-        name: 'West Herzegovina Canton',
-        state_code: '08',
+        ame:'W'st Herzegovina Canton','
+        tate_code:'0'',',
       },
       {
-        name: 'Zenica-Doboj Canton',
-        state_code: '04',
-      },
-    ],
+        ame:'Z'nica-Doboj Canton','
+        tate_code:'0'',',
+      },,
+    ],,
   },
   {
-    name: 'Botswana',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_Botswana.svg',
-    iso2: 'BW',
-    states: [
+    ame:'B'tswana','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_Botswana.svg','
+    so2:'B'','
+    tates:[
       {
-        name: 'Central District',
-        state_code: 'CE',
+        ame:'C'ntral District','
+        tate_code:'C'',',
       },
       {
-        name: 'Ghanzi District',
-        state_code: 'GH',
+        ame:'G'anzi District','
+        tate_code:'G'',',
       },
       {
-        name: 'Kgalagadi District',
-        state_code: 'KG',
+        ame:'K'alagadi District','
+        tate_code:'K'',',
       },
       {
-        name: 'Kgatleng District',
-        state_code: 'KL',
+        ame:'K'atleng District','
+        tate_code:'K'',',
       },
       {
-        name: 'Kweneng District',
-        state_code: 'KW',
+        ame:'K'eneng District','
+        tate_code:'K'',',
       },
       {
-        name: 'Ngamiland',
-        state_code: 'NG',
+        ame:'N'amiland','
+        tate_code:'N'',',
       },
       {
-        name: 'North-East District',
-        state_code: 'NE',
+        ame:'N'rth-East District','
+        tate_code:'N'',',
       },
       {
-        name: 'North-West District',
-        state_code: 'NW',
+        ame:'N'rth-West District','
+        tate_code:'N'',',
       },
       {
-        name: 'South-East District',
-        state_code: 'SE',
+        ame:'S'uth-East District','
+        tate_code:'S'',',
       },
       {
-        name: 'Southern District',
-        state_code: 'SO',
-      },
-    ],
+        ame:'S'uthern District','
+        tate_code:'S'',',
+      },,
+    ],,
   },
   {
-    name: 'Bouvet Island',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Norway.svg',
-    iso2: 'BV',
-    states: [],
+    ame:'B'uvet Island','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Norway.svg','
+    so2:'B'','
+    tates:[],,
   },
   {
-    name: 'Brazil',
-    flag: 'https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg',
-    iso2: 'BR',
-    states: [
+    ame:'B'azil','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg','
+    so2:'B'','
+    tates:[
       {
-        name: 'Acre',
-        state_code: 'AC',
+        ame:'A're','
+        tate_code:'A'',',
       },
       {
-        name: 'Alagoas',
-        state_code: 'AL',
+        ame:'A'agoas','
+        tate_code:'A'',',
       },
       {
-        name: 'Amapá',
-        state_code: 'AP',
+        ame:'A'apá','
+        tate_code:'A'',',
       },
       {
-        name: 'Amazonas',
-        state_code: 'AM',
+        ame:'A'azonas','
+        tate_code:'A'',',
       },
       {
-        name: 'Bahia',
-        state_code: 'BA',
+        ame:'B'hia','
+        tate_code:'B'',',
       },
       {
-        name: 'Ceará',
-        state_code: 'CE',
+        ame:'C'ará','
+        tate_code:'C'',',
       },
       {
-        name: 'Espírito Santo',
-        state_code: 'ES',
+        ame:'E'pírito Santo','
+        tate_code:'E'',',
       },
       {
-        name: 'Federal District',
-        state_code: 'DF',
+        ame:'F'deral District','
+        tate_code:'D'',',
       },
       {
-        name: 'Goiás',
-        state_code: 'GO',
+        ame:'G'iás','
+        tate_code:'G'',',
       },
       {
-        name: 'Maranhão',
-        state_code: 'MA',
+        ame:'M'ranhão','
+        tate_code:'M'',',
       },
       {
-        name: 'Mato Grosso',
-        state_code: 'MT',
+        ame:'M'to Grosso','
+        tate_code:'M'',',
       },
       {
-        name: 'Mato Grosso do Sul',
-        state_code: 'MS',
+        ame:'M'to Grosso do Sul','
+        tate_code:'M'',',
       },
       {
-        name: 'Minas Gerais',
-        state_code: 'MG',
+        ame:'M'nas Gerais','
+        tate_code:'M'',',
       },
       {
-        name: 'Pará',
-        state_code: 'PA',
+        ame:'P'rá','
+        tate_code:'P'',',
       },
       {
-        name: 'Paraíba',
-        state_code: 'PB',
+        ame:'P'raíba','
+        tate_code:'P'',',
       },
       {
-        name: 'Paraná',
-        state_code: 'PR',
+        ame:'P'raná','
+        tate_code:'P'',',
       },
       {
-        name: 'Pernambuco',
-        state_code: 'PE',
+        ame:'P'rnambuco','
+        tate_code:'P'',',
       },
       {
-        name: 'Piauí',
-        state_code: 'PI',
+        ame:'P'auí','
+        tate_code:'P'',',
       },
       {
-        name: 'Rio de Janeiro',
-        state_code: 'RJ',
+        ame:'R'o de Janeiro','
+        tate_code:'R'',',
       },
       {
-        name: 'Rio Grande do Norte',
-        state_code: 'RN',
+        ame:'R'o Grande do Norte','
+        tate_code:'R'',',
       },
       {
-        name: 'Rio Grande do Sul',
-        state_code: 'RS',
+        ame:'R'o Grande do Sul','
+        tate_code:'R'',',
       },
       {
-        name: 'Rondônia',
-        state_code: 'RO',
+        ame:'R'ndônia','
+        tate_code:'R'',',
       },
       {
-        name: 'Roraima',
-        state_code: 'RR',
+        ame:'R'raima','
+        tate_code:'R'',',
       },
       {
-        name: 'Santa Catarina',
-        state_code: 'SC',
+        ame:'S'nta Catarina','
+        tate_code:'S'',',
       },
       {
-        name: 'São Paulo',
-        state_code: 'SP',
+        ame:'S'o Paulo','
+        tate_code:'S'',',
       },
       {
-        name: 'Sergipe',
-        state_code: 'SE',
+        ame:'S'rgipe','
+        tate_code:'S'',',
       },
       {
-        name: 'Tocantins',
-        state_code: 'TO',
-      },
-    ],
+        ame:'T'cantins','
+        tate_code:'T'',',
+      },,
+    ],,
   },
   {
-    name: 'British Indian Ocean Territory',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_the_Commissioner_of_the_British_Indian_Ocean_Territory.svg',
-    iso2: 'IO',
-    states: [],
+    ame:'B'itish Indian Ocean Territory','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_the_Commissioner_of_the_British_Indian_Ocean_Territory.svg','
+    so2:'I'','
+    tates:[],,
   },
   {
-    name: 'Brunei',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9c/Flag_of_Brunei.svg',
-    iso2: 'BN',
-    states: [
+    ame:'B'unei','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/9/9c/Flag_of_Brunei.svg','
+    so2:'B'','
+    tates:[
       {
-        name: 'Belait District',
-        state_code: 'BE',
+        ame:'B'lait District','
+        tate_code:'B'',',
       },
       {
-        name: 'Brunei-Muara District',
-        state_code: 'BM',
+        ame:'B'unei-Muara District','
+        tate_code:'B'',',
       },
       {
-        name: 'Temburong District',
-        state_code: 'TE',
+        ame:'T'mburong District','
+        tate_code:'T'',',
       },
       {
-        name: 'Tutong District',
-        state_code: 'TU',
-      },
-    ],
+        ame:'T'tong District','
+        tate_code:'T'',',
+      },,
+    ],,
   },
   {
-    name: 'Bulgaria',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Bulgaria.svg',
-    iso2: 'BG',
-    states: [
+    ame:'B'lgaria','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Bulgaria.svg','
+    so2:'B'','
+    tates:[
       {
-        name: 'Blagoevgrad Province',
-        state_code: '01',
+        ame:'B'agoevgrad Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Burgas Province',
-        state_code: '02',
+        ame:'B'rgas Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Dobrich Province',
-        state_code: '08',
+        ame:'D'brich Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Gabrovo Province',
-        state_code: '07',
+        ame:'G'brovo Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Haskovo Province',
-        state_code: '26',
+        ame:'H'skovo Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Kardzhali Province',
-        state_code: '09',
+        ame:'K'rdzhali Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Kyustendil Province',
-        state_code: '10',
+        ame:'K'ustendil Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Lovech Province',
-        state_code: '11',
+        ame:'L'vech Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Montana Province',
-        state_code: '12',
+        ame:'M'ntana Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Pazardzhik Province',
-        state_code: '13',
+        ame:'P'zardzhik Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Pernik Province',
-        state_code: '14',
+        ame:'P'rnik Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Pleven Province',
-        state_code: '15',
+        ame:'P'even Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Plovdiv Province',
-        state_code: '16',
+        ame:'P'ovdiv Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Razgrad Province',
-        state_code: '17',
+        ame:'R'zgrad Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Ruse Province',
-        state_code: '18',
+        ame:'R'se Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Silistra Province',
-        state_code: '19',
+        ame:'S'listra Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Sliven Province',
-        state_code: '20',
+        ame:'S'iven Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Smolyan Province',
-        state_code: '21',
+        ame:'S'olyan Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Sofia City Province',
-        state_code: '22',
+        ame:'S'fia City Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Sofia Province',
-        state_code: '23',
+        ame:'S'fia Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Stara Zagora Province',
-        state_code: '24',
+        ame:'S'ara Zagora Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Targovishte Province',
-        state_code: '25',
+        ame:'T'rgovishte Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Varna Province',
-        state_code: '03',
+        ame:'V'rna Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Veliko Tarnovo Province',
-        state_code: '04',
+        ame:'V'liko Tarnovo Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Vidin Province',
-        state_code: '05',
+        ame:'V'din Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Vratsa Province',
-        state_code: '06',
+        ame:'V'atsa Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Yambol Province',
-        state_code: '28',
-      },
-    ],
+        ame:'Y'mbol Province','
+        tate_code:'2'',',
+      },,
+    ],,
   },
   {
-    name: 'Burkina Faso',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Burkina_Faso.svg',
-    iso2: 'BF',
-    states: [
+    ame:'B'rkina Faso','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Burkina_Faso.svg','
+    so2:'B'','
+    tates:[
       {
-        name: 'Balé Province',
-        state_code: 'BAL',
+        ame:'B'lé Province','
+        tate_code:'B'L',',
       },
       {
-        name: 'Bam Province',
-        state_code: 'BAM',
+        ame:'B'm Province','
+        tate_code:'B'M',',
       },
       {
-        name: 'Banwa Province',
-        state_code: 'BAN',
+        ame:'B'nwa Province','
+        tate_code:'B'N',',
       },
       {
-        name: 'Bazèga Province',
-        state_code: 'BAZ',
+        ame:'B'zèga Province','
+        tate_code:'B'Z',',
       },
       {
-        name: 'Boucle du Mouhoun Region',
-        state_code: '01',
+        ame:'B'ucle du Mouhoun Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Bougouriba Province',
-        state_code: 'BGR',
+        ame:'B'ugouriba Province','
+        tate_code:'B'R',',
       },
       {
-        name: 'Boulgou',
-        state_code: 'BLG',
+        ame:'B'ulgou','
+        tate_code:'B'G',',
       },
       {
-        name: 'Cascades Region',
-        state_code: '02',
+        ame:'C'scades Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Centre',
-        state_code: '03',
+        ame:'C'ntre','
+        tate_code:'0'',',
       },
       {
-        name: 'Centre-Est Region',
-        state_code: '04',
+        ame:'C'ntre-Est Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Centre-Nord Region',
-        state_code: '05',
+        ame:'C'ntre-Nord Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Centre-Ouest Region',
-        state_code: '06',
+        ame:'C'ntre-Ouest Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Centre-Sud Region',
-        state_code: '07',
+        ame:'C'ntre-Sud Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Comoé Province',
-        state_code: 'COM',
+        ame:'C'moé Province','
+        tate_code:'C'M',',
       },
       {
-        name: 'Est Region',
-        state_code: '08',
+        ame:'E't Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Ganzourgou Province',
-        state_code: 'GAN',
+        ame:'G'nzourgou Province','
+        tate_code:'G'N',',
       },
       {
-        name: 'Gnagna Province',
-        state_code: 'GNA',
+        ame:'G'agna Province','
+        tate_code:'G'A',',
       },
       {
-        name: 'Gourma Province',
-        state_code: 'GOU',
+        ame:'G'urma Province','
+        tate_code:'G'U',',
       },
       {
-        name: 'Hauts-Bassins Region',
-        state_code: '09',
+        ame:'H'uts-Bassins Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Houet Province',
-        state_code: 'HOU',
+        ame:'H'uet Province','
+        tate_code:'H'U',',
       },
       {
-        name: 'Ioba Province',
-        state_code: 'IOB',
+        ame:'I'ba Province','
+        tate_code:'I'B',',
       },
       {
-        name: 'Kadiogo Province',
-        state_code: 'KAD',
+        ame:'K'diogo Province','
+        tate_code:'K'D',',
       },
       {
-        name: 'Kénédougou Province',
-        state_code: 'KEN',
+        ame:'K'nédougou Province','
+        tate_code:'K'N',',
       },
       {
-        name: 'Komondjari Province',
-        state_code: 'KMD',
+        ame:'K'mondjari Province','
+        tate_code:'K'D',',
       },
       {
-        name: 'Kompienga Province',
-        state_code: 'KMP',
+        ame:'K'mpienga Province','
+        tate_code:'K'P',',
       },
       {
-        name: 'Kossi Province',
-        state_code: 'KOS',
+        ame:'K'ssi Province','
+        tate_code:'K'S',',
       },
       {
-        name: 'Koulpélogo Province',
-        state_code: 'KOP',
+        ame:'K'ulpélogo Province','
+        tate_code:'K'P',',
       },
       {
-        name: 'Kouritenga Province',
-        state_code: 'KOT',
+        ame:'K'uritenga Province','
+        tate_code:'K'T',',
       },
       {
-        name: 'Kourwéogo Province',
-        state_code: 'KOW',
+        ame:'K'urwéogo Province','
+        tate_code:'K'W',',
       },
       {
-        name: 'Léraba Province',
-        state_code: 'LER',
+        ame:'L'raba Province','
+        tate_code:'L'R',',
       },
       {
-        name: 'Loroum Province',
-        state_code: 'LOR',
+        ame:'L'roum Province','
+        tate_code:'L'R',',
       },
       {
-        name: 'Mouhoun',
-        state_code: 'MOU',
+        ame:'M'uhoun','
+        tate_code:'M'U',',
       },
       {
-        name: 'Nahouri Province',
-        state_code: 'NAO',
+        ame:'N'houri Province','
+        tate_code:'N'O',',
       },
       {
-        name: 'Namentenga Province',
-        state_code: 'NAM',
+        ame:'N'mentenga Province','
+        tate_code:'N'M',',
       },
       {
-        name: 'Nayala Province',
-        state_code: 'NAY',
+        ame:'N'yala Province','
+        tate_code:'N'Y',',
       },
       {
-        name: 'Nord Region, Burkina Faso',
-        state_code: '10',
+        ame:'N'rd Region, Burkina Faso','
+        tate_code:'1'',',
       },
       {
-        name: 'Noumbiel Province',
-        state_code: 'NOU',
+        ame:'N'umbiel Province','
+        tate_code:'N'U',',
       },
       {
-        name: 'Oubritenga Province',
-        state_code: 'OUB',
+        ame:'O'britenga Province','
+        tate_code:'O'B',',
       },
       {
-        name: 'Oudalan Province',
-        state_code: 'OUD',
+        ame:'O'dalan Province','
+        tate_code:'O'D',',
       },
       {
-        name: 'Passoré Province',
-        state_code: 'PAS',
+        ame:'P'ssoré Province','
+        tate_code:'P'S',',
       },
       {
-        name: 'Plateau-Central Region',
-        state_code: '11',
+        ame:'P'ateau-Central Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Poni Province',
-        state_code: 'PON',
+        ame:'P'ni Province','
+        tate_code:'P'N',',
       },
       {
-        name: 'Sahel Region',
-        state_code: '12',
+        ame:'S'hel Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Sanguié Province',
-        state_code: 'SNG',
+        ame:'S'nguié Province','
+        tate_code:'S'G',',
       },
       {
-        name: 'Sanmatenga Province',
-        state_code: 'SMT',
+        ame:'S'nmatenga Province','
+        tate_code:'S'T',',
       },
       {
-        name: 'Séno Province',
-        state_code: 'SEN',
+        ame:'S'no Province','
+        tate_code:'S'N',',
       },
       {
-        name: 'Sissili Province',
-        state_code: 'SIS',
+        ame:'S'ssili Province','
+        tate_code:'S'S',',
       },
       {
-        name: 'Soum Province',
-        state_code: 'SOM',
+        ame:'S'um Province','
+        tate_code:'S'M',',
       },
       {
-        name: 'Sourou Province',
-        state_code: 'SOR',
+        ame:'S'urou Province','
+        tate_code:'S'R',',
       },
       {
-        name: 'Sud-Ouest Region',
-        state_code: '13',
+        ame:'S'd-Ouest Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Tapoa Province',
-        state_code: 'TAP',
+        ame:'T'poa Province','
+        tate_code:'T'P',',
       },
       {
-        name: 'Tuy Province',
-        state_code: 'TUI',
+        ame:'T'y Province','
+        tate_code:'T'I',',
       },
       {
-        name: 'Yagha Province',
-        state_code: 'YAG',
+        ame:'Y'gha Province','
+        tate_code:'Y'G',',
       },
       {
-        name: 'Yatenga Province',
-        state_code: 'YAT',
+        ame:'Y'tenga Province','
+        tate_code:'Y'T',',
       },
       {
-        name: 'Ziro Province',
-        state_code: 'ZIR',
+        ame:'Z'ro Province','
+        tate_code:'Z'R',',
       },
       {
-        name: 'Zondoma Province',
-        state_code: 'ZON',
+        ame:'Z'ndoma Province','
+        tate_code:'Z'N',',
       },
       {
-        name: 'Zoundwéogo Province',
-        state_code: 'ZOU',
-      },
-    ],
+        ame:'Z'undwéogo Province','
+        tate_code:'Z'U',',
+      },,
+    ],,
   },
   {
-    name: 'Burundi',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/5/50/Flag_of_Burundi.svg',
-    iso2: 'BI',
-    states: [
+    ame:'B'rundi','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/5/50/Flag_of_Burundi.svg','
+    so2:'B'','
+    tates:[
       {
-        name: 'Bubanza Province',
-        state_code: 'BB',
+        ame:'B'banza Province','
+        tate_code:'B'',',
       },
       {
-        name: 'Bujumbura Mairie Province',
-        state_code: 'BM',
+        ame:'B'jumbura Mairie Province','
+        tate_code:'B'',',
       },
       {
-        name: 'Bujumbura Rural Province',
-        state_code: 'BL',
+        ame:'B'jumbura Rural Province','
+        tate_code:'B'',',
       },
       {
-        name: 'Bururi Province',
-        state_code: 'BR',
+        ame:'B'ruri Province','
+        tate_code:'B'',',
       },
       {
-        name: 'Cankuzo Province',
-        state_code: 'CA',
+        ame:'C'nkuzo Province','
+        tate_code:'C'',',
       },
       {
-        name: 'Cibitoke Province',
-        state_code: 'CI',
+        ame:'C'bitoke Province','
+        tate_code:'C'',',
       },
       {
-        name: 'Gitega Province',
-        state_code: 'GI',
+        ame:'G'tega Province','
+        tate_code:'G'',',
       },
       {
-        name: 'Karuzi Province',
-        state_code: 'KR',
+        ame:'K'ruzi Province','
+        tate_code:'K'',',
       },
       {
-        name: 'Kayanza Province',
-        state_code: 'KY',
+        ame:'K'yanza Province','
+        tate_code:'K'',',
       },
       {
-        name: 'Kirundo Province',
-        state_code: 'KI',
+        ame:'K'rundo Province','
+        tate_code:'K'',',
       },
       {
-        name: 'Makamba Province',
-        state_code: 'MA',
+        ame:'M'kamba Province','
+        tate_code:'M'',',
       },
       {
-        name: 'Muramvya Province',
-        state_code: 'MU',
+        ame:'M'ramvya Province','
+        tate_code:'M'',',
       },
       {
-        name: 'Muyinga Province',
-        state_code: 'MY',
+        ame:'M'yinga Province','
+        tate_code:'M'',',
       },
       {
-        name: 'Mwaro Province',
-        state_code: 'MW',
+        ame:'M'aro Province','
+        tate_code:'M'',',
       },
       {
-        name: 'Ngozi Province',
-        state_code: 'NG',
+        ame:'N'ozi Province','
+        tate_code:'N'',',
       },
       {
-        name: 'Rumonge Province',
-        state_code: 'RM',
+        ame:'R'monge Province','
+        tate_code:'R'',',
       },
       {
-        name: 'Rutana Province',
-        state_code: 'RT',
+        ame:'R'tana Province','
+        tate_code:'R'',',
       },
       {
-        name: 'Ruyigi Province',
-        state_code: 'RY',
-      },
-    ],
+        ame:'R'yigi Province','
+        tate_code:'R'',',
+      },,
+    ],,
   },
   {
-    name: 'Cambodia',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_Cambodia.svg',
-    iso2: 'KH',
-    states: [
+    ame:'C'mbodia','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_Cambodia.svg','
+    so2:'K'','
+    tates:[
       {
-        name: 'Banteay Meanchey Province',
-        state_code: '1',
+        ame:'B'nteay Meanchey Province','
+        tate_code:'1',',
       },
       {
-        name: 'Battambang Province',
-        state_code: '2',
+        ame:'B'ttambang Province','
+        tate_code:'2',',
       },
       {
-        name: 'Kampong Cham Province',
-        state_code: '3',
+        ame:'K'mpong Cham Province','
+        tate_code:'3',',
       },
       {
-        name: 'Kampong Chhnang Province',
-        state_code: '4',
+        ame:'K'mpong Chhnang Province','
+        tate_code:'4',',
       },
       {
-        name: 'Kampong Speu Province',
-        state_code: '5',
+        ame:'K'mpong Speu Province','
+        tate_code:'5',',
       },
       {
-        name: 'Kampot Province',
-        state_code: '7',
+        ame:'K'mpot Province','
+        tate_code:'7',',
       },
       {
-        name: 'Kandal Province',
-        state_code: '8',
+        ame:'K'ndal Province','
+        tate_code:'8',',
       },
       {
-        name: 'Kep Province',
-        state_code: '23',
+        ame:'K'p Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Koh Kong Province',
-        state_code: '9',
+        ame:'K'h Kong Province','
+        tate_code:'9',',
       },
       {
-        name: 'Kratié Province',
-        state_code: '10',
+        ame:'K'atié Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Mondulkiri Province',
-        state_code: '11',
+        ame:'M'ndulkiri Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Oddar Meanchey Province',
-        state_code: '22',
+        ame:'O'dar Meanchey Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Pailin Province',
-        state_code: '24',
+        ame:'P'ilin Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Phnom Penh',
-        state_code: '12',
+        ame:'P'nom Penh','
+        tate_code:'1'',',
       },
       {
-        name: 'Preah Vihear Province',
-        state_code: '13',
+        ame:'P'eah Vihear Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Prey Veng Province',
-        state_code: '14',
+        ame:'P'ey Veng Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Pursat Province',
-        state_code: '15',
+        ame:'P'rsat Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Ratanakiri Province',
-        state_code: '16',
+        ame:'R'tanakiri Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Siem Reap Province',
-        state_code: '17',
+        ame:'S'em Reap Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Sihanoukville Province',
-        state_code: '18',
+        ame:'S'hanoukville Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Stung Treng Province',
-        state_code: '19',
+        ame:'S'ung Treng Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Svay Rieng Province',
-        state_code: '20',
+        ame:'S'ay Rieng Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Takéo Province',
-        state_code: '21',
-      },
-    ],
+        ame:'T'kéo Province','
+        tate_code:'2'',',
+      },,
+    ],,
   },
   {
-    name: 'Cameroon',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/4/4f/Flag_of_Cameroon.svg',
-    iso2: 'CM',
-    states: [
+    ame:'C'meroon','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/4/4f/Flag_of_Cameroon.svg','
+    so2:'C'','
+    tates:[
       {
-        name: 'Adamawa',
-        state_code: 'AD',
+        ame:'A'amawa','
+        tate_code:'A'',',
       },
       {
-        name: 'Centre',
-        state_code: 'CE',
+        ame:'C'ntre','
+        tate_code:'C'',',
       },
       {
-        name: 'East',
-        state_code: 'ES',
+        ame:'E'st','
+        tate_code:'E'',',
       },
       {
-        name: 'Far North',
-        state_code: 'EN',
+        ame:'F'r North','
+        tate_code:'E'',',
       },
       {
-        name: 'Littoral',
-        state_code: 'LT',
+        ame:'L'ttoral','
+        tate_code:'L'',',
       },
       {
-        name: 'North',
-        state_code: 'NO',
+        ame:'N'rth','
+        tate_code:'N'',',
       },
       {
-        name: 'Northwest',
-        state_code: 'NW',
+        ame:'N'rthwest','
+        tate_code:'N'',',
       },
       {
-        name: 'South',
-        state_code: 'SU',
+        ame:'S'uth','
+        tate_code:'S'',',
       },
       {
-        name: 'Southwest',
-        state_code: 'SW',
+        ame:'S'uthwest','
+        tate_code:'S'',',
       },
       {
-        name: 'West',
-        state_code: 'OU',
-      },
-    ],
+        ame:'W'st','
+        tate_code:'O'',',
+      },,
+    ],,
   },
   {
-    name: 'Canada',
-    flag: 'https://upload.wikimedia.org/wikipedia/en/c/cf/Flag_of_Canada.svg',
-    iso2: 'CA',
-    states: [
+    ame:'C'nada','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/en/c/cf/Flag_of_Canada.svg','
+    so2:'C'','
+    tates:[
       {
-        name: 'Alberta',
-        state_code: 'AB',
+        ame:'A'berta','
+        tate_code:'A'',',
       },
       {
-        name: 'British Columbia',
-        state_code: 'BC',
+        ame:'B'itish Columbia','
+        tate_code:'B'',',
       },
       {
-        name: 'Manitoba',
-        state_code: 'MB',
+        ame:'M'nitoba','
+        tate_code:'M'',',
       },
       {
-        name: 'New Brunswick',
-        state_code: 'NB',
+        ame:'N'w Brunswick','
+        tate_code:'N'',',
       },
       {
-        name: 'Newfoundland and Labrador',
-        state_code: 'NL',
+        ame:'N'wfoundland and Labrador','
+        tate_code:'N'',',
       },
       {
-        name: 'Northwest Territories',
-        state_code: 'NT',
+        ame:'N'rthwest Territories','
+        tate_code:'N'',',
       },
       {
-        name: 'Nova Scotia',
-        state_code: 'NS',
+        ame:'N'va Scotia','
+        tate_code:'N'',',
       },
       {
-        name: 'Nunavut',
-        state_code: 'NU',
+        ame:'N'navut','
+        tate_code:'N'',',
       },
       {
-        name: 'Ontario',
-        state_code: 'ON',
+        ame:'O'tario','
+        tate_code:'O'',',
       },
       {
-        name: 'Prince Edward Island',
-        state_code: 'PE',
+        ame:'P'ince Edward Island','
+        tate_code:'P'',',
       },
       {
-        name: 'Quebec',
-        state_code: 'QC',
+        ame:'Q'ebec','
+        tate_code:'Q'',',
       },
       {
-        name: 'Saskatchewan',
-        state_code: 'SK',
+        ame:'S'skatchewan','
+        tate_code:'S'',',
       },
       {
-        name: 'Yukon',
-        state_code: 'YT',
-      },
-    ],
+        ame:'Y'kon','
+        tate_code:'Y'',',
+      },,
+    ],,
   },
   {
-    name: 'Cape Verde',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/3/38/Flag_of_Cape_Verde.svg',
-    iso2: 'CV',
-    states: [
+    ame:'C'pe Verde','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/3/38/Flag_of_Cape_Verde.svg','
+    so2:'C'','
+    tates:[
       {
-        name: 'Barlavento Islands',
-        state_code: 'B',
+        ame:'B'rlavento Islands','
+        tate_code:'B',',
       },
       {
-        name: 'Boa Vista',
-        state_code: 'BV',
+        ame:'B'a Vista','
+        tate_code:'B'',',
       },
       {
-        name: 'Brava',
-        state_code: 'BR',
+        ame:'B'ava','
+        tate_code:'B'',',
       },
       {
-        name: 'Maio Municipality',
-        state_code: 'MA',
+        ame:'M'io Municipality','
+        tate_code:'M'',',
       },
       {
-        name: 'Mosteiros',
-        state_code: 'MO',
+        ame:'M'steiros','
+        tate_code:'M'',',
       },
       {
-        name: 'Paul',
-        state_code: 'PA',
+        ame:'P'ul','
+        tate_code:'P'',',
       },
       {
-        name: 'Porto Novo',
-        state_code: 'PN',
+        ame:'P'rto Novo','
+        tate_code:'P'',',
       },
       {
-        name: 'Praia',
-        state_code: 'PR',
+        ame:'P'aia','
+        tate_code:'P'',',
       },
       {
-        name: 'Ribeira Brava Municipality',
-        state_code: 'RB',
+        ame:'R'beira Brava Municipality','
+        tate_code:'R'',',
       },
       {
-        name: 'Ribeira Grande',
-        state_code: 'RG',
+        ame:'R'beira Grande','
+        tate_code:'R'',',
       },
       {
-        name: 'Ribeira Grande de Santiago',
-        state_code: 'RS',
+        ame:'R'beira Grande de Santiago','
+        tate_code:'R'',',
       },
       {
-        name: 'Sal',
-        state_code: 'SL',
+        ame:'S'l','
+        tate_code:'S'',',
       },
       {
-        name: 'Santa Catarina',
-        state_code: 'CA',
+        ame:'S'nta Catarina','
+        tate_code:'C'',',
       },
       {
-        name: 'Santa Catarina do Fogo',
-        state_code: 'CF',
+        ame:'S'nta Catarina do Fogo','
+        tate_code:'C'',',
       },
       {
-        name: 'Santa Cruz',
-        state_code: 'CR',
+        ame:'S'nta Cruz','
+        tate_code:'C'',',
       },
       {
-        name: 'São Domingos',
-        state_code: 'SD',
+        ame:'S'o Domingos','
+        tate_code:'S'',',
       },
       {
-        name: 'São Filipe',
-        state_code: 'SF',
+        ame:'S'o Filipe','
+        tate_code:'S'',',
       },
       {
-        name: 'São Lourenço dos Órgãos',
-        state_code: 'SO',
+        ame:'S'o Lourenço dos Órgãos','
+        tate_code:'S'',',
       },
       {
-        name: 'São Miguel',
-        state_code: 'SM',
+        ame:'S'o Miguel','
+        tate_code:'S'',',
       },
       {
-        name: 'São Vicente',
-        state_code: 'SV',
+        ame:'S'o Vicente','
+        tate_code:'S'',',
       },
       {
-        name: 'Sotavento Islands',
-        state_code: 'S',
+        ame:'S'tavento Islands','
+        tate_code:'S',',
       },
       {
-        name: 'Tarrafal',
-        state_code: 'TA',
+        ame:'T'rrafal','
+        tate_code:'T'',',
       },
       {
-        name: 'Tarrafal de São Nicolau',
-        state_code: 'TS',
-      },
-    ],
+        ame:'T'rrafal de São Nicolau','
+        tate_code:'T'',',
+      },,
+    ],,
   },
   {
-    name: 'Cayman Islands',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Flag_of_the_Cayman_Islands.svg',
-    iso2: 'KY',
-    states: [],
+    ame:'C'yman Islands','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/0/0f/Flag_of_the_Cayman_Islands.svg','
+    so2:'K'','
+    tates:[],,
   },
   {
-    name: 'Central African Republic',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Flag_of_the_Central_African_Republic.svg',
-    iso2: 'CF',
-    states: [
+    ame:'C'ntral African Republic','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/6/6f/Flag_of_the_Central_African_Republic.svg','
+    so2:'C'','
+    tates:[
       {
-        name: 'Bamingui-Bangoran Prefecture',
-        state_code: 'BB',
+        ame:'B'mingui-Bangoran Prefecture','
+        tate_code:'B'',',
       },
       {
-        name: 'Bangui',
-        state_code: 'BGF',
+        ame:'B'ngui','
+        tate_code:'B'F',',
       },
       {
-        name: 'Basse-Kotto Prefecture',
-        state_code: 'BK',
+        ame:'B'sse-Kotto Prefecture','
+        tate_code:'B'',',
       },
       {
-        name: 'Haut-Mbomou Prefecture',
-        state_code: 'HM',
+        ame:'H'ut-Mbomou Prefecture','
+        tate_code:'H'',',
       },
       {
-        name: 'Haute-Kotto Prefecture',
-        state_code: 'HK',
+        ame:'H'ute-Kotto Prefecture','
+        tate_code:'H'',',
       },
       {
-        name: 'Kémo Prefecture',
-        state_code: 'KG',
+        ame:'K'mo Prefecture','
+        tate_code:'K'',',
       },
       {
-        name: 'Lobaye Prefecture',
-        state_code: 'LB',
+        ame:'L'baye Prefecture','
+        tate_code:'L'',',
       },
       {
-        name: 'Mambéré-Kadéï',
-        state_code: 'HS',
+        ame:'M'mbéré-Kadéï','
+        tate_code:'H'',',
       },
       {
-        name: 'Mbomou Prefecture',
-        state_code: 'MB',
+        ame:'M'omou Prefecture','
+        tate_code:'M'',',
       },
       {
-        name: 'Nana-Grébizi Economic Prefecture',
-        state_code: 'KB',
+        ame:'N'na-Grébizi Economic Prefecture','
+        tate_code:'K'',',
       },
       {
-        name: 'Nana-Mambéré Prefecture',
-        state_code: 'NM',
+        ame:'N'na-Mambéré Prefecture','
+        tate_code:'N'',',
       },
       {
-        name: "Ombella-M'Poko Prefecture",
-        state_code: 'MP',
+        ame:"Ombella-M'Poko Prefecture",
+        tate_code:'M'',',
       },
       {
-        name: 'Ouaka Prefecture',
-        state_code: 'UK',
+        ame:'O'aka Prefecture','
+        tate_code:'U'',',
       },
       {
-        name: 'Ouham Prefecture',
-        state_code: 'AC',
+        ame:'O'ham Prefecture','
+        tate_code:'A'',',
       },
       {
-        name: 'Ouham-Pendé Prefecture',
-        state_code: 'OP',
+        ame:'O'ham-Pendé Prefecture','
+        tate_code:'O'',',
       },
       {
-        name: 'Sangha-Mbaéré',
-        state_code: 'SE',
+        ame:'S'ngha-Mbaéré','
+        tate_code:'S'',',
       },
       {
-        name: 'Vakaga Prefecture',
-        state_code: 'VK',
-      },
-    ],
+        ame:'V'kaga Prefecture','
+        tate_code:'V'',',
+      },,
+    ],,
   },
   {
-    name: 'Chad',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/4/4b/Flag_of_Chad.svg',
-    iso2: 'TD',
-    states: [
+    ame:'C'ad','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/4/4b/Flag_of_Chad.svg','
+    so2:'T'','
+    tates:[
       {
-        name: 'Bahr el Gazel',
-        state_code: 'BG',
+        ame:'B'hr el Gazel','
+        tate_code:'B'',',
       },
       {
-        name: 'Batha Region',
-        state_code: 'BA',
+        ame:'B'tha Region','
+        tate_code:'B'',',
       },
       {
-        name: 'Borkou',
-        state_code: 'BO',
+        ame:'B'rkou','
+        tate_code:'B'',',
       },
       {
-        name: 'Ennedi Region',
-        state_code: 'EN',
+        ame:'E'nedi Region','
+        tate_code:'E'',',
       },
       {
-        name: 'Ennedi-Est',
-        state_code: 'EE',
+        ame:'E'nedi-Est','
+        tate_code:'E'',',
       },
       {
-        name: 'Ennedi-Ouest',
-        state_code: 'EO',
+        ame:'E'nedi-Ouest','
+        tate_code:'E'',',
       },
       {
-        name: 'Guéra Region',
-        state_code: 'GR',
+        ame:'G'éra Region','
+        tate_code:'G'',',
       },
       {
-        name: 'Hadjer-Lamis',
-        state_code: 'HL',
+        ame:'H'djer-Lamis','
+        tate_code:'H'',',
       },
       {
-        name: 'Kanem Region',
-        state_code: 'KA',
+        ame:'K'nem Region','
+        tate_code:'K'',',
       },
       {
-        name: 'Lac Region',
-        state_code: 'LC',
+        ame:'L'c Region','
+        tate_code:'L'',',
       },
       {
-        name: 'Logone Occidental Region',
-        state_code: 'LO',
+        ame:'L'gone Occidental Region','
+        tate_code:'L'',',
       },
       {
-        name: 'Logone Oriental Region',
-        state_code: 'LR',
+        ame:'L'gone Oriental Region','
+        tate_code:'L'',',
       },
       {
-        name: 'Mandoul Region',
-        state_code: 'MA',
+        ame:'M'ndoul Region','
+        tate_code:'M'',',
       },
       {
-        name: 'Mayo-Kebbi Est Region',
-        state_code: 'ME',
+        ame:'M'yo-Kebbi Est Region','
+        tate_code:'M'',',
       },
       {
-        name: 'Mayo-Kebbi Ouest Region',
-        state_code: 'MO',
+        ame:'M'yo-Kebbi Ouest Region','
+        tate_code:'M'',',
       },
       {
-        name: 'Moyen-Chari Region',
-        state_code: 'MC',
+        ame:'M'yen-Chari Region','
+        tate_code:'M'',',
       },
       {
-        name: "N'Djamena",
-        state_code: 'ND',
+        ame:"N'Djamena",
+        tate_code:'N'',',
       },
       {
-        name: 'Ouaddaï Region',
-        state_code: 'OD',
+        ame:'O'addaï Region','
+        tate_code:'O'',',
       },
       {
-        name: 'Salamat Region',
-        state_code: 'SA',
+        ame:'S'lamat Region','
+        tate_code:'S'',',
       },
       {
-        name: 'Sila Region',
-        state_code: 'SI',
+        ame:'S'la Region','
+        tate_code:'S'',',
       },
       {
-        name: 'Tandjilé Region',
-        state_code: 'TA',
+        ame:'T'ndjilé Region','
+        tate_code:'T'',',
       },
       {
-        name: 'Tibesti Region',
-        state_code: 'TI',
+        ame:'T'besti Region','
+        tate_code:'T'',',
       },
       {
-        name: 'Wadi Fira Region',
-        state_code: 'WF',
-      },
-    ],
+        ame:'W'di Fira Region','
+        tate_code:'W'',',
+      },,
+    ],,
   },
   {
-    name: 'Chile',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/7/78/Flag_of_Chile.svg',
-    iso2: 'CL',
-    states: [
+    ame:'C'ile','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/7/78/Flag_of_Chile.svg','
+    so2:'C'','
+    tates:[
       {
-        name: 'Antofagasta Region',
-        state_code: 'AN',
+        ame:'A'tofagasta Region','
+        tate_code:'A'',',
       },
       {
-        name: 'Araucanía Region',
-        state_code: 'AR',
+        ame:'A'aucanía Region','
+        tate_code:'A'',',
       },
       {
-        name: 'Arica y Parinacota Region',
-        state_code: 'AP',
+        ame:'A'ica y Parinacota Region','
+        tate_code:'A'',',
       },
       {
-        name: 'Atacama Region',
-        state_code: 'AT',
+        ame:'A'acama Region','
+        tate_code:'A'',',
       },
       {
-        name: 'Aysén Region',
-        state_code: 'AI',
+        ame:'A'sén Region','
+        tate_code:'A'',',
       },
       {
-        name: 'Bío Bío Region',
-        state_code: 'BI',
+        ame:'B'o Bío Region','
+        tate_code:'B'',',
       },
       {
-        name: 'Coquimbo Region',
-        state_code: 'CO',
+        ame:'C'quimbo Region','
+        tate_code:'C'',',
       },
       {
-        name: 'Los Lagos Region',
-        state_code: 'LL',
+        ame:'L's Lagos Region','
+        tate_code:'L'',',
       },
       {
-        name: 'Los Ríos Region',
-        state_code: 'LR',
+        ame:'L's Ríos Region','
+        tate_code:'L'',',
       },
       {
-        name: 'Magellan and the Chilean Antarctic Region',
-        state_code: 'MA',
+        ame:'M'gellan and the Chilean Antarctic Region','
+        tate_code:'M'',',
       },
       {
-        name: 'Maule Region',
-        state_code: 'ML',
+        ame:'M'ule Region','
+        tate_code:'M'',',
       },
       {
-        name: 'Ñuble Region',
-        state_code: 'NB',
+        ame:'Ñ'ble Region','
+        tate_code:'N'',',
       },
       {
-        name: "O'Higgins",
-        state_code: 'LI',
+        ame:"O'Higgins",
+        tate_code:'L'',',
       },
       {
-        name: 'Santiago Metropolitan Region',
-        state_code: 'RM',
+        ame:'S'ntiago Metropolitan Region','
+        tate_code:'R'',',
       },
       {
-        name: 'Tarapacá Region',
-        state_code: 'TA',
+        ame:'T'rapacá Region','
+        tate_code:'T'',',
       },
       {
-        name: 'Valparaíso',
-        state_code: 'VS',
-      },
-    ],
+        ame:'V'lparaíso','
+        tate_code:'V'',',
+      },,
+    ],,
   },
   {
-    name: 'China',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People%27s_Republic_of_China.svg',
-    iso2: 'CN',
-    states: [
+    ame:'C'ina','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People%27s_Republic_of_China.svg','
+    so2:'C'','
+    tates:[
       {
-        name: 'Anhui',
-        state_code: 'AH',
+        ame:'A'hui','
+        tate_code:'A'',',
       },
       {
-        name: 'Beijing',
-        state_code: 'BJ',
+        ame:'B'ijing','
+        tate_code:'B'',',
       },
       {
-        name: 'Chongqing',
-        state_code: 'CQ',
+        ame:'C'ongqing','
+        tate_code:'C'',',
       },
       {
-        name: 'Fujian',
-        state_code: 'FJ',
+        ame:'F'jian','
+        tate_code:'F'',',
       },
       {
-        name: 'Gansu',
-        state_code: 'GS',
+        ame:'G'nsu','
+        tate_code:'G'',',
       },
       {
-        name: 'Guangdong',
-        state_code: 'GD',
+        ame:'G'angdong','
+        tate_code:'G'',',
       },
       {
-        name: 'Guangxi Zhuang Autonomous Region',
-        state_code: 'GX',
+        ame:'G'angxi Zhuang Autonomous Region','
+        tate_code:'G'',',
       },
       {
-        name: 'Guizhou',
-        state_code: 'GZ',
+        ame:'G'izhou','
+        tate_code:'G'',',
       },
       {
-        name: 'Hainan',
-        state_code: 'HI',
+        ame:'H'inan','
+        tate_code:'H'',',
       },
       {
-        name: 'Hebei',
-        state_code: 'HE',
+        ame:'H'bei','
+        tate_code:'H'',',
       },
       {
-        name: 'Heilongjiang',
-        state_code: 'HL',
+        ame:'H'ilongjiang','
+        tate_code:'H'',',
       },
       {
-        name: 'Henan',
-        state_code: 'HA',
+        ame:'H'nan','
+        tate_code:'H'',',
       },
       {
-        name: 'Hong Kong',
-        state_code: 'HK',
+        ame:'H'ng Kong','
+        tate_code:'H'',',
       },
       {
-        name: 'Hubei',
-        state_code: 'HB',
+        ame:'H'bei','
+        tate_code:'H'',',
       },
       {
-        name: 'Hunan',
-        state_code: 'HN',
+        ame:'H'nan','
+        tate_code:'H'',',
       },
       {
-        name: 'Inner Mongolia',
-        state_code: 'NM',
+        ame:'I'ner Mongolia','
+        tate_code:'N'',',
       },
       {
-        name: 'Jiangsu',
-        state_code: 'JS',
+        ame:'J'angsu','
+        tate_code:'J'',',
       },
       {
-        name: 'Jiangxi',
-        state_code: 'JX',
+        ame:'J'angxi','
+        tate_code:'J'',',
       },
       {
-        name: 'Jilin',
-        state_code: 'JL',
+        ame:'J'lin','
+        tate_code:'J'',',
       },
       {
-        name: 'Keelung',
-        state_code: 'TW-KEE',
+        ame:'K'elung','
+        tate_code:'T'-KEE',',
       },
       {
-        name: 'Liaoning',
-        state_code: 'LN',
+        ame:'L'aoning','
+        tate_code:'L'',',
       },
       {
-        name: 'Macau',
-        state_code: 'MO',
+        ame:'M'cau','
+        tate_code:'M'',',
       },
       {
-        name: 'Ningxia Hui Autonomous Region',
-        state_code: 'NX',
+        ame:'N'ngxia Hui Autonomous Region','
+        tate_code:'N'',',
       },
       {
-        name: 'Qinghai',
-        state_code: 'QH',
+        ame:'Q'nghai','
+        tate_code:'Q'',',
       },
       {
-        name: 'Shaanxi',
-        state_code: 'SN',
+        ame:'S'aanxi','
+        tate_code:'S'',',
       },
       {
-        name: 'Shandong',
-        state_code: 'SD',
+        ame:'S'andong','
+        tate_code:'S'',',
       },
       {
-        name: 'Shanghai',
-        state_code: 'SH',
+        ame:'S'anghai','
+        tate_code:'S'',',
       },
       {
-        name: 'Shanxi',
-        state_code: 'SX',
+        ame:'S'anxi','
+        tate_code:'S'',',
       },
       {
-        name: 'Sichuan',
-        state_code: 'SC',
+        ame:'S'chuan','
+        tate_code:'S'',',
       },
       {
-        name: "Taiwan Province, People's Republic of China",
-        state_code: 'TW',
+        ame:"Taiwan Province, People's Republic of China",
+        tate_code:'T'',',
       },
       {
-        name: 'Tibet Autonomous Region',
-        state_code: 'XZ',
+        ame:'T'bet Autonomous Region','
+        tate_code:'X'',',
       },
       {
-        name: 'Xinjiang',
-        state_code: 'XJ',
+        ame:'X'njiang','
+        tate_code:'X'',',
       },
       {
-        name: 'Yunnan',
-        state_code: 'YN',
+        ame:'Y'nnan','
+        tate_code:'Y'',',
       },
       {
-        name: 'Zhejiang',
-        state_code: 'ZJ',
-      },
-    ],
+        ame:'Z'ejiang','
+        tate_code:'Z'',',
+      },,
+    ],,
   },
   {
-    name: 'Christmas Island',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/6/67/Flag_of_Christmas_Island.svg',
-    iso2: 'CX',
-    states: [],
+    ame:'C'ristmas Island','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/6/67/Flag_of_Christmas_Island.svg','
+    so2:'C'','
+    tates:[],,
   },
   {
-    name: 'Cocos (Keeling) Islands',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/7/74/Flag_of_the_Cocos_%28Keeling%29_Islands.svg',
-    iso2: 'CC',
-    states: [],
+    ame:'C'cos (Keeling) Islands','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/7/74/Flag_of_the_Cocos_%28Keeling%29_Islands.svg','
+    so2:'C'','
+    tates:[],,
   },
   {
-    name: 'Colombia',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg',
-    iso2: 'CO',
-    states: [
+    ame:'C'lombia','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg','
+    so2:'C'','
+    tates:[
       {
-        name: 'Amazonas Department',
-        state_code: 'AMA',
+        ame:'A'azonas Department','
+        tate_code:'A'A',',
       },
       {
-        name: 'Antioquia Department',
-        state_code: 'ANT',
+        ame:'A'tioquia Department','
+        tate_code:'A'T',',
       },
       {
-        name: 'Arauca Department',
-        state_code: 'ARA',
+        ame:'A'auca Department','
+        tate_code:'A'A',',
       },
       {
-        name: 'Archipelago of Saint Andréws, Providence and Saint Catalina',
-        state_code: 'SAP',
+        ame:'A'chipelago of Saint Andréws, Providence and Saint Catalina','
+        tate_code:'S'P',',
       },
       {
-        name: 'Atlántico Department',
-        state_code: 'ATL',
+        ame:'A'lántico Department','
+        tate_code:'A'L',',
       },
       {
-        name: 'Bolívar Department',
-        state_code: 'BOL',
+        ame:'B'lívar Department','
+        tate_code:'B'L',',
       },
       {
-        name: 'Boyacá Department',
-        state_code: 'BOY',
+        ame:'B'yacá Department','
+        tate_code:'B'Y',',
       },
       {
-        name: 'Caldas Department',
-        state_code: 'CAL',
+        ame:'C'ldas Department','
+        tate_code:'C'L',',
       },
       {
-        name: 'Caquetá Department',
-        state_code: 'CAQ',
+        ame:'C'quetá Department','
+        tate_code:'C'Q',',
       },
       {
-        name: 'Casanare Department',
-        state_code: 'CAS',
+        ame:'C'sanare Department','
+        tate_code:'C'S',',
       },
       {
-        name: 'Cauca Department',
-        state_code: 'CAU',
+        ame:'C'uca Department','
+        tate_code:'C'U',',
       },
       {
-        name: 'Cesar Department',
-        state_code: 'CES',
+        ame:'C'sar Department','
+        tate_code:'C'S',',
       },
       {
-        name: 'Chocó Department',
-        state_code: 'CHO',
+        ame:'C'ocó Department','
+        tate_code:'C'O',',
       },
       {
-        name: 'Córdoba Department',
-        state_code: 'COR',
+        ame:'C'rdoba Department','
+        tate_code:'C'R',',
       },
       {
-        name: 'Cundinamarca Department',
-        state_code: 'CUN',
+        ame:'C'ndinamarca Department','
+        tate_code:'C'N',',
       },
       {
-        name: 'Guainía Department',
-        state_code: 'GUA',
+        ame:'G'ainía Department','
+        tate_code:'G'A',',
       },
       {
-        name: 'Guaviare Department',
-        state_code: 'GUV',
+        ame:'G'aviare Department','
+        tate_code:'G'V',',
       },
       {
-        name: 'Huila Department',
-        state_code: 'HUI',
+        ame:'H'ila Department','
+        tate_code:'H'I',',
       },
       {
-        name: 'La Guajira Department',
-        state_code: 'LAG',
+        ame:'L' Guajira Department','
+        tate_code:'L'G',',
       },
       {
-        name: 'Magdalena Department',
-        state_code: 'MAG',
+        ame:'M'gdalena Department','
+        tate_code:'M'G',',
       },
       {
-        name: 'Meta',
-        state_code: 'MET',
+        ame:'M'ta','
+        tate_code:'M'T',',
       },
       {
-        name: 'Nariño Department',
-        state_code: 'NAR',
+        ame:'N'riño Department','
+        tate_code:'N'R',',
       },
       {
-        name: 'Norte de Santander Department',
-        state_code: 'NSA',
+        ame:'N'rte de Santander Department','
+        tate_code:'N'A',',
       },
       {
-        name: 'Putumayo Department',
-        state_code: 'PUT',
+        ame:'P'tumayo Department','
+        tate_code:'P'T',',
       },
       {
-        name: 'Quindío Department',
-        state_code: 'QUI',
+        ame:'Q'indío Department','
+        tate_code:'Q'I',',
       },
       {
-        name: 'Risaralda Department',
-        state_code: 'RIS',
+        ame:'R'saralda Department','
+        tate_code:'R'S',',
       },
       {
-        name: 'Santander Department',
-        state_code: 'SAN',
+        ame:'S'ntander Department','
+        tate_code:'S'N',',
       },
       {
-        name: 'Sucre Department',
-        state_code: 'SUC',
+        ame:'S'cre Department','
+        tate_code:'S'C',',
       },
       {
-        name: 'Tolima Department',
-        state_code: 'TOL',
+        ame:'T'lima Department','
+        tate_code:'T'L',',
       },
       {
-        name: 'Valle del Cauca Department',
-        state_code: 'VAC',
+        ame:'V'lle del Cauca Department','
+        tate_code:'V'C',',
       },
       {
-        name: 'Vaupés Department',
-        state_code: 'VAU',
+        ame:'V'upés Department','
+        tate_code:'V'U',',
       },
       {
-        name: 'Vichada Department',
-        state_code: 'VID',
-      },
-    ],
+        ame:'V'chada Department','
+        tate_code:'V'D',',
+      },,
+    ],,
   },
   {
-    name: 'Comoros',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/9/94/Flag_of_the_Comoros.svg',
-    iso2: 'KM',
-    states: [
+    ame:'C'moros','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/9/94/Flag_of_the_Comoros.svg','
+    so2:'K'','
+    tates:[
       {
-        name: 'Anjouan',
-        state_code: 'A',
+        ame:'A'jouan','
+        tate_code:'A',',
       },
       {
-        name: 'Grande Comore',
-        state_code: 'G',
+        ame:'G'ande Comore','
+        tate_code:'G',',
       },
       {
-        name: 'Mohéli',
-        state_code: 'M',
-      },
-    ],
+        ame:'M'héli','
+        tate_code:'M',',
+      },,
+    ],,
   },
   {
-    name: 'Congo',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/9/92/Flag_of_the_Republic_of_the_Congo.svg',
-    iso2: 'CG',
-    states: [
+    ame:'C'ngo','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/9/92/Flag_of_the_Republic_of_the_Congo.svg','
+    so2:'C'','
+    tates:[
       {
-        name: 'Bouenza Department',
-        state_code: '11',
+        ame:'B'uenza Department','
+        tate_code:'1'',',
       },
       {
-        name: 'Brazzaville',
-        state_code: 'BZV',
+        ame:'B'azzaville','
+        tate_code:'B'V',',
       },
       {
-        name: 'Cuvette Department',
-        state_code: '8',
+        ame:'C'vette Department','
+        tate_code:'8',',
       },
       {
-        name: 'Cuvette-Ouest Department',
-        state_code: '15',
+        ame:'C'vette-Ouest Department','
+        tate_code:'1'',',
       },
       {
-        name: 'Kouilou Department',
-        state_code: '5',
+        ame:'K'uilou Department','
+        tate_code:'5',',
       },
       {
-        name: 'Lékoumou Department',
-        state_code: '2',
+        ame:'L'koumou Department','
+        tate_code:'2',',
       },
       {
-        name: 'Likouala Department',
-        state_code: '7',
+        ame:'L'kouala Department','
+        tate_code:'7',',
       },
       {
-        name: 'Niari Department',
-        state_code: '9',
+        ame:'N'ari Department','
+        tate_code:'9',',
       },
       {
-        name: 'Plateaux Department',
-        state_code: '14',
+        ame:'P'ateaux Department','
+        tate_code:'1'',',
       },
       {
-        name: 'Pointe-Noire',
-        state_code: '16',
+        ame:'P'inte-Noire','
+        tate_code:'1'',',
       },
       {
-        name: 'Pool Department',
-        state_code: '12',
+        ame:'P'ol Department','
+        tate_code:'1'',',
       },
       {
-        name: 'Sangha Department',
-        state_code: '13',
-      },
-    ],
+        ame:'S'ngha Department','
+        tate_code:'1'',',
+      },,
+    ],,
   },
   {
-    name: 'Congo',
-    flag: '',
-    iso2: 'CD',
-    states: [
+    ame:'C'ngo','
+    lag:''''
+    so2:'C'','
+    tates:[
       {
-        name: 'Bandundu Province',
-        state_code: 'BN',
+        ame:'B'ndundu Province','
+        tate_code:'B'',',
       },
       {
-        name: 'Bas-Congo province',
-        state_code: 'BC',
+        ame:'B's-Congo province','
+        tate_code:'B'',',
       },
       {
-        name: 'Bas-Uele',
-        state_code: 'BU',
+        ame:'B's-Uele','
+        tate_code:'B'',',
       },
       {
-        name: 'Équateur',
-        state_code: 'EQ',
+        ame:'É'uateur','
+        tate_code:'E'',',
       },
       {
-        name: 'Haut-Katanga Province',
-        state_code: 'HK',
+        ame:'H'ut-Katanga Province','
+        tate_code:'H'',',
       },
       {
-        name: 'Haut-Lomami District',
-        state_code: 'HL',
+        ame:'H'ut-Lomami District','
+        tate_code:'H'',',
       },
       {
-        name: 'Haut-Uele',
-        state_code: 'HU',
+        ame:'H'ut-Uele','
+        tate_code:'H'',',
       },
       {
-        name: 'Ituri Interim Administration',
-        state_code: 'IT',
+        ame:'I'uri Interim Administration','
+        tate_code:'I'',',
       },
       {
-        name: 'Kasaï District',
-        state_code: 'KS',
+        ame:'K'saï District','
+        tate_code:'K'',',
       },
       {
-        name: 'Kasaï-Occidental',
-        state_code: 'KW',
+        ame:'K'saï-Occidental','
+        tate_code:'K'',',
       },
       {
-        name: 'Kasaï-Oriental',
-        state_code: 'KE',
+        ame:'K'saï-Oriental','
+        tate_code:'K'',',
       },
       {
-        name: 'Katanga Province',
-        state_code: 'KA',
+        ame:'K'tanga Province','
+        tate_code:'K'',',
       },
       {
-        name: 'Kinshasa',
-        state_code: 'KN',
+        ame:'K'nshasa','
+        tate_code:'K'',',
       },
       {
-        name: 'Kwango District',
-        state_code: 'KG',
+        ame:'K'ango District','
+        tate_code:'K'',',
       },
       {
-        name: 'Kwilu District',
-        state_code: 'KL',
+        ame:'K'ilu District','
+        tate_code:'K'',',
       },
       {
-        name: 'Lomami Province',
-        state_code: 'LO',
+        ame:'L'mami Province','
+        tate_code:'L'',',
       },
       {
-        name: 'Mai-Ndombe Province',
-        state_code: 'MN',
+        ame:'M'i-Ndombe Province','
+        tate_code:'M'',',
       },
       {
-        name: 'Maniema',
-        state_code: 'MA',
+        ame:'M'niema','
+        tate_code:'M'',',
       },
       {
-        name: 'Mongala District',
-        state_code: 'MO',
+        ame:'M'ngala District','
+        tate_code:'M'',',
       },
       {
-        name: 'Nord-Ubangi District',
-        state_code: 'NU',
+        ame:'N'rd-Ubangi District','
+        tate_code:'N'',',
       },
       {
-        name: 'North Kivu',
-        state_code: 'NK',
+        ame:'N'rth Kivu','
+        tate_code:'N'',',
       },
       {
-        name: 'Orientale Province',
-        state_code: 'OR',
+        ame:'O'ientale Province','
+        tate_code:'O'',',
       },
       {
-        name: 'Sankuru District',
-        state_code: 'SA',
+        ame:'S'nkuru District','
+        tate_code:'S'',',
       },
       {
-        name: 'South Kivu',
-        state_code: 'SK',
+        ame:'S'uth Kivu','
+        tate_code:'S'',',
       },
       {
-        name: 'Sud-Ubangi',
-        state_code: 'SU',
+        ame:'S'd-Ubangi','
+        tate_code:'S'',',
       },
       {
-        name: 'Tanganyika Province',
-        state_code: 'TA',
+        ame:'T'nganyika Province','
+        tate_code:'T'',',
       },
       {
-        name: 'Tshopo District',
-        state_code: 'TO',
+        ame:'T'hopo District','
+        tate_code:'T'',',
       },
       {
-        name: 'Tshuapa District',
-        state_code: 'TU',
-      },
-    ],
+        ame:'T'huapa District','
+        tate_code:'T'',',
+      },,
+    ],,
   },
   {
-    name: 'Cook Islands',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/3/35/Flag_of_the_Cook_Islands.svg',
-    iso2: 'CK',
-    states: [],
+    ame:'C'ok Islands','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/3/35/Flag_of_the_Cook_Islands.svg','
+    so2:'C'','
+    tates:[],,
   },
   {
-    name: 'Costa Rica',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Costa_Rica_%28state%29.svg',
-    iso2: 'CR',
-    states: [
+    ame:'C'sta Rica','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Costa_Rica_%28state%29.svg','
+    so2:'C'','
+    tates:[
       {
-        name: 'Alajuela Province',
-        state_code: 'A',
+        ame:'A'ajuela Province','
+        tate_code:'A',',
       },
       {
-        name: 'Guanacaste Province',
-        state_code: 'G',
+        ame:'G'anacaste Province','
+        tate_code:'G',',
       },
       {
-        name: 'Heredia Province',
-        state_code: 'H',
+        ame:'H'redia Province','
+        tate_code:'H',',
       },
       {
-        name: 'Limón Province',
-        state_code: 'L',
+        ame:'L'món Province','
+        tate_code:'L',',
       },
       {
-        name: 'Provincia de Cartago',
-        state_code: 'C',
+        ame:'P'ovincia de Cartago','
+        tate_code:'C',',
       },
       {
-        name: 'Puntarenas Province',
-        state_code: 'P',
+        ame:'P'ntarenas Province','
+        tate_code:'P',',
       },
       {
-        name: 'San José Province',
-        state_code: 'SJ',
-      },
-    ],
+        ame:'S'n José Province','
+        tate_code:'S'',',
+      },,
+    ],,
   },
   {
-    name: 'Ivory Coast',
-    flag: '',
-    iso2: 'CI',
-    states: [
+    ame:'I'ory Coast','
+    lag:''''
+    so2:'C'','
+    tates:[
       {
-        name: 'Abidjan',
-        state_code: 'AB',
+        ame:'A'idjan','
+        tate_code:'A'',',
       },
       {
-        name: 'Agnéby',
-        state_code: '16',
+        ame:'A'néby','
+        tate_code:'1'',',
       },
       {
-        name: 'Bafing Region',
-        state_code: '17',
+        ame:'B'fing Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Bas-Sassandra District',
-        state_code: 'BS',
+        ame:'B's-Sassandra District','
+        tate_code:'B'',',
       },
       {
-        name: 'Bas-Sassandra Region',
-        state_code: '09',
+        ame:'B's-Sassandra Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Comoé District',
-        state_code: 'CM',
+        ame:'C'moé District','
+        tate_code:'C'',',
       },
       {
-        name: 'Denguélé District',
-        state_code: 'DN',
+        ame:'D'nguélé District','
+        tate_code:'D'',',
       },
       {
-        name: 'Denguélé Region',
-        state_code: '10',
+        ame:'D'nguélé Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Dix-Huit Montagnes',
-        state_code: '06',
+        ame:'D'x-Huit Montagnes','
+        tate_code:'0'',',
       },
       {
-        name: 'Fromager',
-        state_code: '18',
+        ame:'F'omager','
+        tate_code:'1'',',
       },
       {
-        name: 'Gôh-Djiboua District',
-        state_code: 'GD',
+        ame:'G'h-Djiboua District','
+        tate_code:'G'',',
       },
       {
-        name: 'Haut-Sassandra',
-        state_code: '02',
+        ame:'H'ut-Sassandra','
+        tate_code:'0'',',
       },
       {
-        name: 'Lacs District',
-        state_code: 'LC',
+        ame:'L'cs District','
+        tate_code:'L'',',
       },
       {
-        name: 'Lacs Region',
-        state_code: '07',
+        ame:'L'cs Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Lagunes District',
-        state_code: 'LG',
+        ame:'L'gunes District','
+        tate_code:'L'',',
       },
       {
-        name: 'Lagunes region',
-        state_code: '01',
+        ame:'L'gunes region','
+        tate_code:'0'',',
       },
       {
-        name: 'Marahoué Region',
-        state_code: '12',
+        ame:'M'rahoué Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Montagnes District',
-        state_code: 'MG',
+        ame:'M'ntagnes District','
+        tate_code:'M'',',
       },
       {
-        name: 'Moyen-Cavally',
-        state_code: '19',
+        ame:'M'yen-Cavally','
+        tate_code:'1'',',
       },
       {
-        name: 'Moyen-Comoé',
-        state_code: '05',
+        ame:'M'yen-Comoé','
+        tate_code:'0'',',
       },
       {
-        name: "N'zi-Comoé",
-        state_code: '11',
+        ame:"N'zi-Comoé",
+        tate_code:'1'',',
       },
       {
-        name: 'Sassandra-Marahoué District',
-        state_code: 'SM',
+        ame:'S'ssandra-Marahoué District','
+        tate_code:'S'',',
       },
       {
-        name: 'Savanes Region',
-        state_code: '03',
+        ame:'S'vanes Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Sud-Bandama',
-        state_code: '15',
+        ame:'S'd-Bandama','
+        tate_code:'1'',',
       },
       {
-        name: 'Sud-Comoé',
-        state_code: '13',
+        ame:'S'd-Comoé','
+        tate_code:'1'',',
       },
       {
-        name: 'Vallée du Bandama District',
-        state_code: 'VB',
+        ame:'V'llée du Bandama District','
+        tate_code:'V'',',
       },
       {
-        name: 'Vallée du Bandama Region',
-        state_code: '04',
+        ame:'V'llée du Bandama Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Woroba District',
-        state_code: 'WR',
+        ame:'W'roba District','
+        tate_code:'W'',',
       },
       {
-        name: 'Worodougou',
-        state_code: '14',
+        ame:'W'rodougou','
+        tate_code:'1'',',
       },
       {
-        name: 'Yamoussoukro',
-        state_code: 'YM',
+        ame:'Y'moussoukro','
+        tate_code:'Y'',',
       },
       {
-        name: 'Zanzan Region',
-        state_code: 'ZZ',
-      },
-    ],
+        ame:'Z'nzan Region','
+        tate_code:'Z'',',
+      },,
+    ],,
   },
   {
-    name: 'Croatia',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/Flag_of_Croatia.svg',
-    iso2: 'HR',
-    states: [
+    ame:'C'oatia','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/1/1b/Flag_of_Croatia.svg','
+    so2:'H'','
+    tates:[
       {
-        name: 'Bjelovar-Bilogora County',
-        state_code: '07',
+        ame:'B'elovar-Bilogora County','
+        tate_code:'0'',',
       },
       {
-        name: 'Brod-Posavina County',
-        state_code: '12',
+        ame:'B'od-Posavina County','
+        tate_code:'1'',',
       },
       {
-        name: 'Dubrovnik-Neretva County',
-        state_code: '19',
+        ame:'D'brovnik-Neretva County','
+        tate_code:'1'',',
       },
       {
-        name: 'Istria County',
-        state_code: '18',
+        ame:'I'tria County','
+        tate_code:'1'',',
       },
       {
-        name: 'Koprivnica-Križevci County',
-        state_code: '06',
+        ame:'K'privnica-Križevci County','
+        tate_code:'0'',',
       },
       {
-        name: 'Krapina-Zagorje County',
-        state_code: '02',
+        ame:'K'apina-Zagorje County','
+        tate_code:'0'',',
       },
       {
-        name: 'Lika-Senj County',
-        state_code: '09',
+        ame:'L'ka-Senj County','
+        tate_code:'0'',',
       },
       {
-        name: 'Međimurje County',
-        state_code: '20',
+        ame:'M'đimurje County','
+        tate_code:'2'',',
       },
       {
-        name: 'Osijek-Baranja County',
-        state_code: '14',
+        ame:'O'ijek-Baranja County','
+        tate_code:'1'',',
       },
       {
-        name: 'Požega-Slavonia County',
-        state_code: '11',
+        ame:'P'žega-Slavonia County','
+        tate_code:'1'',',
       },
       {
-        name: 'Primorje-Gorski Kotar County',
-        state_code: '08',
+        ame:'P'imorje-Gorski Kotar County','
+        tate_code:'0'',',
       },
       {
-        name: 'Šibenik-Knin County',
-        state_code: '15',
+        ame:'Š'benik-Knin County','
+        tate_code:'1'',',
       },
       {
-        name: 'Sisak-Moslavina County',
-        state_code: '03',
+        ame:'S'sak-Moslavina County','
+        tate_code:'0'',',
       },
       {
-        name: 'Split-Dalmatia County',
-        state_code: '17',
+        ame:'S'lit-Dalmatia County','
+        tate_code:'1'',',
       },
       {
-        name: 'Varaždin County',
-        state_code: '05',
+        ame:'V'raždin County','
+        tate_code:'0'',',
       },
       {
-        name: 'Virovitica-Podravina County',
-        state_code: '10',
+        ame:'V'rovitica-Podravina County','
+        tate_code:'1'',',
       },
       {
-        name: 'Vukovar-Syrmia County',
-        state_code: '16',
+        ame:'V'kovar-Syrmia County','
+        tate_code:'1'',',
       },
       {
-        name: 'Zadar County',
-        state_code: '13',
+        ame:'Z'dar County','
+        tate_code:'1'',',
       },
       {
-        name: 'Zagreb',
-        state_code: '21',
+        ame:'Z'greb','
+        tate_code:'2'',',
       },
       {
-        name: 'Zagreb County',
-        state_code: '01',
-      },
-    ],
+        ame:'Z'greb County','
+        tate_code:'0'',',
+      },,
+    ],,
   },
   {
-    name: 'Cuba',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/Flag_of_Cuba.svg',
-    iso2: 'CU',
-    states: [
+    ame:'C'ba','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/b/bd/Flag_of_Cuba.svg','
+    so2:'C'','
+    tates:[
       {
-        name: 'Artemisa Province',
-        state_code: '15',
+        ame:'A'temisa Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Camagüey Province',
-        state_code: '09',
+        ame:'C'magüey Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Ciego de Ávila Province',
-        state_code: '08',
+        ame:'C'ego de Ávila Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Cienfuegos Province',
-        state_code: '06',
+        ame:'C'enfuegos Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Granma Province',
-        state_code: '12',
+        ame:'G'anma Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Guantánamo Province',
-        state_code: '14',
+        ame:'G'antánamo Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Havana Province',
-        state_code: '03',
+        ame:'H'vana Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Holguín Province',
-        state_code: '11',
+        ame:'H'lguín Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Isla de la Juventud',
-        state_code: '99',
+        ame:'I'la de la Juventud','
+        tate_code:'9'',',
       },
       {
-        name: 'Las Tunas Province',
-        state_code: '10',
+        ame:'L's Tunas Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Matanzas Province',
-        state_code: '04',
+        ame:'M'tanzas Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Mayabeque Province',
-        state_code: '16',
+        ame:'M'yabeque Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Pinar del Río Province',
-        state_code: '01',
+        ame:'P'nar del Río Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Sancti Spíritus Province',
-        state_code: '07',
+        ame:'S'ncti Spíritus Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Santiago de Cuba Province',
-        state_code: '13',
+        ame:'S'ntiago de Cuba Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Villa Clara Province',
-        state_code: '05',
-      },
-    ],
+        ame:'V'lla Clara Province','
+        tate_code:'0'',',
+      },,
+    ],,
   },
   {
-    name: 'Cyprus',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Cyprus.svg',
-    iso2: 'CY',
-    states: [
+    ame:'C'prus','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Cyprus.svg','
+    so2:'C'','
+    tates:[
       {
-        name: 'Famagusta District',
-        state_code: '04',
+        ame:'F'magusta District','
+        tate_code:'0'',',
       },
       {
-        name: 'Kyrenia District',
-        state_code: '06',
+        ame:'K'renia District','
+        tate_code:'0'',',
       },
       {
-        name: 'Larnaca District',
-        state_code: '03',
+        ame:'L'rnaca District','
+        tate_code:'0'',',
       },
       {
-        name: 'Limassol District',
-        state_code: '02',
+        ame:'L'massol District','
+        tate_code:'0'',',
       },
       {
-        name: 'Nicosia District',
-        state_code: '01',
+        ame:'N'cosia District','
+        tate_code:'0'',',
       },
       {
-        name: 'Paphos District',
-        state_code: '05',
-      },
-    ],
+        ame:'P'phos District','
+        tate_code:'0'',',
+      },,
+    ],,
   },
   {
-    name: 'Czech Republic',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_Czech_Republic.svg',
-    iso2: 'CZ',
-    states: [
+    ame:'C'ech Republic','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_Czech_Republic.svg','
+    so2:'C'','
+    tates:[
       {
-        name: 'Benešov District',
-        state_code: '201',
+        ame:'B'nešov District','
+        tate_code:'2'1',',
       },
       {
-        name: 'Beroun District',
-        state_code: '202',
+        ame:'B'roun District','
+        tate_code:'2'2',',
       },
       {
-        name: 'Blansko District',
-        state_code: '641',
+        ame:'B'ansko District','
+        tate_code:'6'1',',
       },
       {
-        name: 'Břeclav District',
-        state_code: '644',
+        ame:'B'eclav District','
+        tate_code:'6'4',',
       },
       {
-        name: 'Brno-City District',
-        state_code: '642',
+        ame:'B'no-City District','
+        tate_code:'6'2',',
       },
       {
-        name: 'Brno-Country District',
-        state_code: '643',
+        ame:'B'no-Country District','
+        tate_code:'6'3',',
       },
       {
-        name: 'Bruntál District',
-        state_code: '801',
+        ame:'B'untál District','
+        tate_code:'8'1',',
       },
       {
-        name: 'Central Bohemian Region',
-        state_code: '20',
+        ame:'C'ntral Bohemian Region','
+        tate_code:'2'',',
       },
       {
-        name: 'Česká Lípa District',
-        state_code: '511',
+        ame:'Č'ská Lípa District','
+        tate_code:'5'1',',
       },
       {
-        name: 'České Budějovice District',
-        state_code: '311',
+        ame:'Č'ské Budějovice District','
+        tate_code:'3'1',',
       },
       {
-        name: 'Český Krumlov District',
-        state_code: '312',
+        ame:'Č'ský Krumlov District','
+        tate_code:'3'2',',
       },
       {
-        name: 'Cheb District',
-        state_code: '411',
+        ame:'C'eb District','
+        tate_code:'4'1',',
       },
       {
-        name: 'Chomutov District',
-        state_code: '422',
+        ame:'C'omutov District','
+        tate_code:'4'2',',
       },
       {
-        name: 'Chrudim District',
-        state_code: '531',
+        ame:'C'rudim District','
+        tate_code:'5'1',',
       },
       {
-        name: 'Děčín District',
-        state_code: '421',
+        ame:'D'čín District','
+        tate_code:'4'1',',
       },
       {
-        name: 'Domažlice District',
-        state_code: '321',
+        ame:'D'mažlice District','
+        tate_code:'3'1',',
       },
       {
-        name: 'Frýdek-Místek District',
-        state_code: '802',
+        ame:'F'ýdek-Místek District','
+        tate_code:'8'2',',
       },
       {
-        name: 'Havlíčkův Brod District',
-        state_code: '631',
+        ame:'H'vlíčkův Brod District','
+        tate_code:'6'1',',
       },
       {
-        name: 'Hodonín District',
-        state_code: '645',
+        ame:'H'donín District','
+        tate_code:'6'5',',
       },
       {
-        name: 'Horní Počernice',
-        state_code: '120',
+        ame:'H'rní Počernice','
+        tate_code:'1'0',',
       },
       {
-        name: 'Hradec Králové District',
-        state_code: '521',
+        ame:'H'adec Králové District','
+        tate_code:'5'1',',
       },
       {
-        name: 'Hradec Králové Region',
-        state_code: '52',
+        ame:'H'adec Králové Region','
+        tate_code:'5'',',
       },
       {
-        name: 'Jablonec nad Nisou District',
-        state_code: '512',
+        ame:'J'blonec nad Nisou District','
+        tate_code:'5'2',',
       },
       {
-        name: 'Jeseník District',
-        state_code: '711',
+        ame:'J'seník District','
+        tate_code:'7'1',',
       },
       {
-        name: 'Jičín District',
-        state_code: '522',
+        ame:'J'čín District','
+        tate_code:'5'2',',
       },
       {
-        name: 'Jihlava District',
-        state_code: '632',
+        ame:'J'hlava District','
+        tate_code:'6'2',',
       },
       {
-        name: 'Jindřichův Hradec District',
-        state_code: '313',
+        ame:'J'ndřichův Hradec District','
+        tate_code:'3'3',',
       },
       {
-        name: 'Karlovy Vary District',
-        state_code: '412',
+        ame:'K'rlovy Vary District','
+        tate_code:'4'2',',
       },
       {
-        name: 'Karlovy Vary Region',
-        state_code: '41',
+        ame:'K'rlovy Vary Region','
+        tate_code:'4'',',
       },
       {
-        name: 'Karviná District',
-        state_code: '803',
+        ame:'K'rviná District','
+        tate_code:'8'3',',
       },
       {
-        name: 'Kladno District',
-        state_code: '203',
+        ame:'K'adno District','
+        tate_code:'2'3',',
       },
       {
-        name: 'Klatovy District',
-        state_code: '322',
+        ame:'K'atovy District','
+        tate_code:'3'2',',
       },
       {
-        name: 'Kolín District',
-        state_code: '204',
+        ame:'K'lín District','
+        tate_code:'2'4',',
       },
       {
-        name: 'Kroměříž District',
-        state_code: '721',
+        ame:'K'oměříž District','
+        tate_code:'7'1',',
       },
       {
-        name: 'Liberec District',
-        state_code: '513',
+        ame:'L'berec District','
+        tate_code:'5'3',',
       },
       {
-        name: 'Liberec Region',
-        state_code: '51',
+        ame:'L'berec Region','
+        tate_code:'5'',',
       },
       {
-        name: 'Litoměřice District',
-        state_code: '423',
+        ame:'L'toměřice District','
+        tate_code:'4'3',',
       },
       {
-        name: 'Louny District',
-        state_code: '424',
+        ame:'L'uny District','
+        tate_code:'4'4',',
       },
       {
-        name: 'Mělník District',
-        state_code: '206',
+        ame:'M'lník District','
+        tate_code:'2'6',',
       },
       {
-        name: 'Mladá Boleslav District',
-        state_code: '207',
+        ame:'M'adá Boleslav District','
+        tate_code:'2'7',',
       },
       {
-        name: 'Moravian-Silesian Region',
-        state_code: '80',
+        ame:'M'ravian-Silesian Region','
+        tate_code:'8'',',
       },
       {
-        name: 'Most District',
-        state_code: '425',
+        ame:'M'st District','
+        tate_code:'4'5',',
       },
       {
-        name: 'Náchod District',
-        state_code: '523',
+        ame:'N'chod District','
+        tate_code:'5'3',',
       },
       {
-        name: 'Nový Jičín District',
-        state_code: '804',
+        ame:'N'vý Jičín District','
+        tate_code:'8'4',',
       },
       {
-        name: 'Nymburk District',
-        state_code: '208',
+        ame:'N'mburk District','
+        tate_code:'2'8',',
       },
       {
-        name: 'Olomouc District',
-        state_code: '712',
+        ame:'O'omouc District','
+        tate_code:'7'2',',
       },
       {
-        name: 'Olomouc Region',
-        state_code: '71',
+        ame:'O'omouc Region','
+        tate_code:'7'',',
       },
       {
-        name: 'Opava District',
-        state_code: '805',
+        ame:'O'ava District','
+        tate_code:'8'5',',
       },
       {
-        name: 'Ostrava-City District',
-        state_code: '806',
+        ame:'O'trava-City District','
+        tate_code:'8'6',',
       },
       {
-        name: 'Pardubice District',
-        state_code: '532',
+        ame:'P'rdubice District','
+        tate_code:'5'2',',
       },
       {
-        name: 'Pardubice Region',
-        state_code: '53',
+        ame:'P'rdubice Region','
+        tate_code:'5'',',
       },
       {
-        name: 'Pelhřimov District',
-        state_code: '633',
+        ame:'P'lhřimov District','
+        tate_code:'6'3',',
       },
       {
-        name: 'Písek District',
-        state_code: '314',
+        ame:'P'sek District','
+        tate_code:'3'4',',
       },
       {
-        name: 'Plzeň Region',
-        state_code: '32',
+        ame:'P'zeň Region','
+        tate_code:'3'',',
       },
       {
-        name: 'Plzeň-City District',
-        state_code: '323',
+        ame:'P'zeň-City District','
+        tate_code:'3'3',',
       },
       {
-        name: 'Plzeň-North District',
-        state_code: '325',
+        ame:'P'zeň-North District','
+        tate_code:'3'5',',
       },
       {
-        name: 'Plzeň-South District',
-        state_code: '324',
+        ame:'P'zeň-South District','
+        tate_code:'3'4',',
       },
       {
-        name: 'Prachatice District',
-        state_code: '315',
+        ame:'P'achatice District','
+        tate_code:'3'5',',
       },
       {
-        name: 'Prague',
-        state_code: '10',
+        ame:'P'ague','
+        tate_code:'1'',',
       },
       {
-        name: 'Prague 1',
-        state_code: '101',
+        ame:'P'ague 1','
+        tate_code:'1'1',',
       },
       {
-        name: 'Prague 10',
-        state_code: '110',
+        ame:'P'ague 10','
+        tate_code:'1'0',',
       },
       {
-        name: 'Prague 11',
-        state_code: '111',
+        ame:'P'ague 11','
+        tate_code:'1'1',',
       },
       {
-        name: 'Prague 12',
-        state_code: '112',
+        ame:'P'ague 12','
+        tate_code:'1'2',',
       },
       {
-        name: 'Prague 13',
-        state_code: '113',
+        ame:'P'ague 13','
+        tate_code:'1'3',',
       },
       {
-        name: 'Prague 14',
-        state_code: '114',
+        ame:'P'ague 14','
+        tate_code:'1'4',',
       },
       {
-        name: 'Prague 15',
-        state_code: '115',
+        ame:'P'ague 15','
+        tate_code:'1'5',',
       },
       {
-        name: 'Prague 16',
-        state_code: '116',
+        ame:'P'ague 16','
+        tate_code:'1'6',',
       },
       {
-        name: 'Prague 2',
-        state_code: '102',
+        ame:'P'ague 2','
+        tate_code:'1'2',',
       },
       {
-        name: 'Prague 21',
-        state_code: '121',
+        ame:'P'ague 21','
+        tate_code:'1'1',',
       },
       {
-        name: 'Prague 3',
-        state_code: '103',
+        ame:'P'ague 3','
+        tate_code:'1'3',',
       },
       {
-        name: 'Prague 4',
-        state_code: '104',
+        ame:'P'ague 4','
+        tate_code:'1'4',',
       },
       {
-        name: 'Prague 5',
-        state_code: '105',
+        ame:'P'ague 5','
+        tate_code:'1'5',',
       },
       {
-        name: 'Prague 6',
-        state_code: '106',
+        ame:'P'ague 6','
+        tate_code:'1'6',',
       },
       {
-        name: 'Prague 7',
-        state_code: '107',
+        ame:'P'ague 7','
+        tate_code:'1'7',',
       },
       {
-        name: 'Prague 8',
-        state_code: '108',
+        ame:'P'ague 8','
+        tate_code:'1'8',',
       },
       {
-        name: 'Prague 9',
-        state_code: '109',
+        ame:'P'ague 9','
+        tate_code:'1'9',',
       },
       {
-        name: 'Prague-East District',
-        state_code: '209',
+        ame:'P'ague-East District','
+        tate_code:'2'9',',
       },
       {
-        name: 'Prague-West District',
-        state_code: '20A',
+        ame:'P'ague-West District','
+        tate_code:'2'A',',
       },
       {
-        name: 'Přerov District',
-        state_code: '714',
+        ame:'P'erov District','
+        tate_code:'7'4',',
       },
       {
-        name: 'Příbram District',
-        state_code: '20B',
+        ame:'P'íbram District','
+        tate_code:'2'B',',
       },
       {
-        name: 'Prostějov District',
-        state_code: '713',
+        ame:'P'ostějov District','
+        tate_code:'7'3',',
       },
       {
-        name: 'Rakovník District',
-        state_code: '20C',
+        ame:'R'kovník District','
+        tate_code:'2'C',',
       },
       {
-        name: 'Rokycany District',
-        state_code: '326',
+        ame:'R'kycany District','
+        tate_code:'3'6',',
       },
       {
-        name: 'Rychnov nad Kněžnou District',
-        state_code: '524',
+        ame:'R'chnov nad Kněžnou District','
+        tate_code:'5'4',',
       },
       {
-        name: 'Semily District',
-        state_code: '514',
+        ame:'S'mily District','
+        tate_code:'5'4',',
       },
       {
-        name: 'Sokolov District',
-        state_code: '413',
+        ame:'S'kolov District','
+        tate_code:'4'3',',
       },
       {
-        name: 'South Bohemian Region',
-        state_code: '31',
+        ame:'S'uth Bohemian Region','
+        tate_code:'3'',',
       },
       {
-        name: 'South Moravian Region',
-        state_code: '64',
+        ame:'S'uth Moravian Region','
+        tate_code:'6'',',
       },
       {
-        name: 'Strakonice District',
-        state_code: '316',
+        ame:'S'rakonice District','
+        tate_code:'3'6',',
       },
       {
-        name: 'Šumperk District',
-        state_code: '715',
+        ame:'Š'mperk District','
+        tate_code:'7'5',',
       },
       {
-        name: 'Svitavy District',
-        state_code: '533',
+        ame:'S'itavy District','
+        tate_code:'5'3',',
       },
       {
-        name: 'Tábor District',
-        state_code: '317',
+        ame:'T'bor District','
+        tate_code:'3'7',',
       },
       {
-        name: 'Tachov District',
-        state_code: '327',
+        ame:'T'chov District','
+        tate_code:'3'7',',
       },
       {
-        name: 'Teplice District',
-        state_code: '426',
+        ame:'T'plice District','
+        tate_code:'4'6',',
       },
       {
-        name: 'Třebíč District',
-        state_code: '634',
+        ame:'T'ebíč District','
+        tate_code:'6'4',',
       },
       {
-        name: 'Trutnov District',
-        state_code: '525',
+        ame:'T'utnov District','
+        tate_code:'5'5',',
       },
       {
-        name: 'Uherské Hradiště District',
-        state_code: '722',
+        ame:'U'erské Hradiště District','
+        tate_code:'7'2',',
       },
       {
-        name: 'Ústí nad Labem District',
-        state_code: '427',
+        ame:'Ú'tí nad Labem District','
+        tate_code:'4'7',',
       },
       {
-        name: 'Ústí nad Labem Region',
-        state_code: '42',
+        ame:'Ú'tí nad Labem Region','
+        tate_code:'4'',',
       },
       {
-        name: 'Ústí nad Orlicí District',
-        state_code: '534',
+        ame:'Ú'tí nad Orlicí District','
+        tate_code:'5'4',',
       },
       {
-        name: 'Vsetín District',
-        state_code: '723',
+        ame:'V'etín District','
+        tate_code:'7'3',',
       },
       {
-        name: 'Vyškov District',
-        state_code: '646',
+        ame:'V'škov District','
+        tate_code:'6'6',',
       },
       {
-        name: 'Vysočina Region',
-        state_code: '63',
+        ame:'V'sočina Region','
+        tate_code:'6'',',
       },
       {
-        name: 'Žďár nad Sázavou District',
-        state_code: '635',
+        ame:'Ž'ár nad Sázavou District','
+        tate_code:'6'5',',
       },
       {
-        name: 'Zlín District',
-        state_code: '724',
+        ame:'Z'ín District','
+        tate_code:'7'4',',
       },
       {
-        name: 'Zlín Region',
-        state_code: '72',
+        ame:'Z'ín Region','
+        tate_code:'7'',',
       },
       {
-        name: 'Znojmo District',
-        state_code: '647',
-      },
-    ],
+        ame:'Z'ojmo District','
+        tate_code:'6'7',',
+      },,
+    ],,
   },
   {
-    name: 'Denmark',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9c/Flag_of_Denmark.svg',
-    iso2: 'DK',
-    states: [
+    ame:'D'nmark','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/9/9c/Flag_of_Denmark.svg','
+    so2:'D'','
+    tates:[
       {
-        name: 'Capital Region of Denmark',
-        state_code: '84',
+        ame:'C'pital Region of Denmark','
+        tate_code:'8'',',
       },
       {
-        name: 'Central Denmark Region',
-        state_code: '82',
+        ame:'C'ntral Denmark Region','
+        tate_code:'8'',',
       },
       {
-        name: 'North Denmark Region',
-        state_code: '81',
+        ame:'N'rth Denmark Region','
+        tate_code:'8'',',
       },
       {
-        name: 'Region of Southern Denmark',
-        state_code: '83',
+        ame:'R'gion of Southern Denmark','
+        tate_code:'8'',',
       },
       {
-        name: 'Region Zealand',
-        state_code: '85',
-      },
-    ],
+        ame:'R'gion Zealand','
+        tate_code:'8'',',
+      },,
+    ],,
   },
   {
-    name: 'Djibouti',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Flag_of_Djibouti.svg',
-    iso2: 'DJ',
-    states: [
+    ame:'D'ibouti','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/3/34/Flag_of_Djibouti.svg','
+    so2:'D'','
+    tates:[
       {
-        name: 'Ali Sabieh Region',
-        state_code: 'AS',
+        ame:'A'i Sabieh Region','
+        tate_code:'A'',',
       },
       {
-        name: 'Arta Region',
-        state_code: 'AR',
+        ame:'A'ta Region','
+        tate_code:'A'',',
       },
       {
-        name: 'Dikhil Region',
-        state_code: 'DI',
+        ame:'D'khil Region','
+        tate_code:'D'',',
       },
       {
-        name: 'Djibouti',
-        state_code: 'DJ',
+        ame:'D'ibouti','
+        tate_code:'D'',',
       },
       {
-        name: 'Obock Region',
-        state_code: 'OB',
+        ame:'O'ock Region','
+        tate_code:'O'',',
       },
       {
-        name: 'Tadjourah Region',
-        state_code: 'TA',
-      },
-    ],
+        ame:'T'djourah Region','
+        tate_code:'T'',',
+      },,
+    ],,
   },
   {
-    name: 'Dominica',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/c/c4/Flag_of_Dominica.svg',
-    iso2: 'DM',
-    states: [
+    ame:'D'minica','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/c/c4/Flag_of_Dominica.svg','
+    so2:'D'','
+    tates:[
       {
-        name: 'Saint Andrew Parish',
-        state_code: '02',
+        ame:'S'int Andrew Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint David Parish',
-        state_code: '03',
+        ame:'S'int David Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint George Parish',
-        state_code: '04',
+        ame:'S'int George Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint John Parish',
-        state_code: '05',
+        ame:'S'int John Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Joseph Parish',
-        state_code: '06',
+        ame:'S'int Joseph Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Luke Parish',
-        state_code: '07',
+        ame:'S'int Luke Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Mark Parish',
-        state_code: '08',
+        ame:'S'int Mark Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Patrick Parish',
-        state_code: '09',
+        ame:'S'int Patrick Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Paul Parish',
-        state_code: '10',
+        ame:'S'int Paul Parish','
+        tate_code:'1'',',
       },
       {
-        name: 'Saint Peter Parish',
-        state_code: '11',
-      },
-    ],
+        ame:'S'int Peter Parish','
+        tate_code:'1'',',
+      },,
+    ],,
   },
   {
-    name: 'Dominican Republic',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_the_Dominican_Republic.svg',
-    iso2: 'DO',
-    states: [
+    ame:'D'minican Republic','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_the_Dominican_Republic.svg','
+    so2:'D'','
+    tates:[
       {
-        name: 'Azua Province',
-        state_code: '02',
+        ame:'A'ua Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Baoruco Province',
-        state_code: '03',
+        ame:'B'oruco Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Barahona Province',
-        state_code: '04',
+        ame:'B'rahona Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Dajabón Province',
-        state_code: '05',
+        ame:'D'jabón Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Distrito Nacional',
-        state_code: '01',
+        ame:'D'strito Nacional','
+        tate_code:'0'',',
       },
       {
-        name: 'Duarte Province',
-        state_code: '06',
+        ame:'D'arte Province','
+        tate_code:'0'',',
       },
       {
-        name: 'El Seibo Province',
-        state_code: '08',
+        ame:'E' Seibo Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Espaillat Province',
-        state_code: '09',
+        ame:'E'paillat Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Hato Mayor Province',
-        state_code: '30',
+        ame:'H'to Mayor Province','
+        tate_code:'3'',',
       },
       {
-        name: 'Hermanas Mirabal Province',
-        state_code: '19',
+        ame:'H'rmanas Mirabal Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Independencia',
-        state_code: '10',
+        ame:'I'dependencia','
+        tate_code:'1'',',
       },
       {
-        name: 'La Altagracia Province',
-        state_code: '11',
+        ame:'L' Altagracia Province','
+        tate_code:'1'',',
       },
       {
-        name: 'La Romana Province',
-        state_code: '12',
+        ame:'L' Romana Province','
+        tate_code:'1'',',
       },
       {
-        name: 'La Vega Province',
-        state_code: '13',
+        ame:'L' Vega Province','
+        tate_code:'1'',',
       },
       {
-        name: 'María Trinidad Sánchez Province',
-        state_code: '14',
+        ame:'M'ría Trinidad Sánchez Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Monseñor Nouel Province',
-        state_code: '28',
+        ame:'M'nseñor Nouel Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Monte Cristi Province',
-        state_code: '15',
+        ame:'M'nte Cristi Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Monte Plata Province',
-        state_code: '29',
+        ame:'M'nte Plata Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Pedernales Province',
-        state_code: '16',
+        ame:'P'dernales Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Peravia Province',
-        state_code: '17',
+        ame:'P'ravia Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Puerto Plata Province',
-        state_code: '18',
+        ame:'P'erto Plata Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Samaná Province',
-        state_code: '20',
+        ame:'S'maná Province','
+        tate_code:'2'',',
       },
       {
-        name: 'San Cristóbal Province',
-        state_code: '21',
+        ame:'S'n Cristóbal Province','
+        tate_code:'2'',',
       },
       {
-        name: 'San José de Ocoa Province',
-        state_code: '31',
+        ame:'S'n José de Ocoa Province','
+        tate_code:'3'',',
       },
       {
-        name: 'San Juan Province',
-        state_code: '22',
+        ame:'S'n Juan Province','
+        tate_code:'2'',',
       },
       {
-        name: 'San Pedro de Macorís',
-        state_code: '23',
+        ame:'S'n Pedro de Macorís','
+        tate_code:'2'',',
       },
       {
-        name: 'Sánchez Ramírez Province',
-        state_code: '24',
+        ame:'S'nchez Ramírez Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Santiago Province',
-        state_code: '25',
+        ame:'S'ntiago Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Santiago Rodríguez Province',
-        state_code: '26',
+        ame:'S'ntiago Rodríguez Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Santo Domingo Province',
-        state_code: '32',
+        ame:'S'nto Domingo Province','
+        tate_code:'3'',',
       },
       {
-        name: 'Valverde Province',
-        state_code: '27',
-      },
-    ],
+        ame:'V'lverde Province','
+        tate_code:'2'',',
+      },,
+    ],,
   },
   {
-    name: 'Timor-Leste',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/2/26/Flag_of_East_Timor.svg',
-    iso2: 'TL',
-    states: [
+    ame:'T'mor-Leste','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/2/26/Flag_of_East_Timor.svg','
+    so2:'T'','
+    tates:[
       {
-        name: 'Aileu municipality',
-        state_code: 'AL',
+        ame:'A'leu municipality','
+        tate_code:'A'',',
       },
       {
-        name: 'Ainaro Municipality',
-        state_code: 'AN',
+        ame:'A'naro Municipality','
+        tate_code:'A'',',
       },
       {
-        name: 'Baucau Municipality',
-        state_code: 'BA',
+        ame:'B'ucau Municipality','
+        tate_code:'B'',',
       },
       {
-        name: 'Bobonaro Municipality',
-        state_code: 'BO',
+        ame:'B'bonaro Municipality','
+        tate_code:'B'',',
       },
       {
-        name: 'Cova Lima Municipality',
-        state_code: 'CO',
+        ame:'C'va Lima Municipality','
+        tate_code:'C'',',
       },
       {
-        name: 'Dili municipality',
-        state_code: 'DI',
+        ame:'D'li municipality','
+        tate_code:'D'',',
       },
       {
-        name: 'Ermera District',
-        state_code: 'ER',
+        ame:'E'mera District','
+        tate_code:'E'',',
       },
       {
-        name: 'Lautém Municipality',
-        state_code: 'LA',
+        ame:'L'utém Municipality','
+        tate_code:'L'',',
       },
       {
-        name: 'Liquiçá Municipality',
-        state_code: 'LI',
+        ame:'L'quiçá Municipality','
+        tate_code:'L'',',
       },
       {
-        name: 'Manatuto District',
-        state_code: 'MT',
+        ame:'M'natuto District','
+        tate_code:'M'',',
       },
       {
-        name: 'Manufahi Municipality',
-        state_code: 'MF',
+        ame:'M'nufahi Municipality','
+        tate_code:'M'',',
       },
       {
-        name: 'Viqueque Municipality',
-        state_code: 'VI',
-      },
-    ],
+        ame:'V'queque Municipality','
+        tate_code:'V'',',
+      },,
+    ],,
   },
   {
-    name: 'Ecuador',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/e/e8/Flag_of_Ecuador.svg',
-    iso2: 'EC',
-    states: [
+    ame:'E'uador','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/e/e8/Flag_of_Ecuador.svg','
+    so2:'E'','
+    tates:[
       {
-        name: 'Azuay Province',
-        state_code: 'A',
+        ame:'A'uay Province','
+        tate_code:'A',',
       },
       {
-        name: 'Bolívar Province',
-        state_code: 'B',
+        ame:'B'lívar Province','
+        tate_code:'B',',
       },
       {
-        name: 'Cañar Province',
-        state_code: 'F',
+        ame:'C'ñar Province','
+        tate_code:'F',',
       },
       {
-        name: 'Carchi Province',
-        state_code: 'C',
+        ame:'C'rchi Province','
+        tate_code:'C',',
       },
       {
-        name: 'Chimborazo Province',
-        state_code: 'H',
+        ame:'C'imborazo Province','
+        tate_code:'H',',
       },
       {
-        name: 'Cotopaxi Province',
-        state_code: 'X',
+        ame:'C'topaxi Province','
+        tate_code:'X',',
       },
       {
-        name: 'El Oro Province',
-        state_code: 'O',
+        ame:'E' Oro Province','
+        tate_code:'O',',
       },
       {
-        name: 'Esmeraldas',
-        state_code: 'E',
+        ame:'E'meraldas','
+        tate_code:'E',',
       },
       {
-        name: 'Galápagos Province',
-        state_code: 'W',
+        ame:'G'lápagos Province','
+        tate_code:'W',',
       },
       {
-        name: 'Guayas Province',
-        state_code: 'G',
+        ame:'G'ayas Province','
+        tate_code:'G',',
       },
       {
-        name: 'Imbabura Province',
-        state_code: 'I',
+        ame:'I'babura Province','
+        tate_code:'I',',
       },
       {
-        name: 'Los Ríos Province',
-        state_code: 'R',
+        ame:'L's Ríos Province','
+        tate_code:'R',',
       },
       {
-        name: 'Manabí Province',
-        state_code: 'M',
+        ame:'M'nabí Province','
+        tate_code:'M',',
       },
       {
-        name: 'Morona-Santiago Province',
-        state_code: 'S',
+        ame:'M'rona-Santiago Province','
+        tate_code:'S',',
       },
       {
-        name: 'Napo Province',
-        state_code: 'N',
+        ame:'N'po Province','
+        tate_code:'N',',
       },
       {
-        name: 'Orellana Province',
-        state_code: 'D',
+        ame:'O'ellana Province','
+        tate_code:'D',',
       },
       {
-        name: 'Pastaza Province',
-        state_code: 'Y',
+        ame:'P'staza Province','
+        tate_code:'Y',',
       },
       {
-        name: 'Pichincha Province',
-        state_code: 'P',
+        ame:'P'chincha Province','
+        tate_code:'P',',
       },
       {
-        name: 'Santa Elena Province',
-        state_code: 'SE',
+        ame:'S'nta Elena Province','
+        tate_code:'S'',',
       },
       {
-        name: 'Santo Domingo de los Tsáchilas Province',
-        state_code: 'SD',
+        ame:'S'nto Domingo de los Tsáchilas Province','
+        tate_code:'S'',',
       },
       {
-        name: 'Sucumbíos Province',
-        state_code: 'U',
+        ame:'S'cumbíos Province','
+        tate_code:'U',',
       },
       {
-        name: 'Tungurahua Province',
-        state_code: 'T',
+        ame:'T'ngurahua Province','
+        tate_code:'T',',
       },
       {
-        name: 'Zamora-Chinchipe Province',
-        state_code: 'Z',
-      },
-    ],
+        ame:'Z'mora-Chinchipe Province','
+        tate_code:'Z',',
+      },,
+    ],,
   },
   {
-    name: 'Egypt',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Egypt.svg',
-    iso2: 'EG',
-    states: [
+    ame:'E'ypt','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Egypt.svg','
+    so2:'E'','
+    tates:[
       {
-        name: 'Alexandria Governorate',
-        state_code: 'ALX',
+        ame:'A'exandria Governorate','
+        tate_code:'A'X',',
       },
       {
-        name: 'Aswan Governorate',
-        state_code: 'ASN',
+        ame:'A'wan Governorate','
+        tate_code:'A'N',',
       },
       {
-        name: 'Asyut Governorate',
-        state_code: 'AST',
+        ame:'A'yut Governorate','
+        tate_code:'A'T',',
       },
       {
-        name: 'Beheira Governorate',
-        state_code: 'BH',
+        ame:'B'heira Governorate','
+        tate_code:'B'',',
       },
       {
-        name: 'Beni Suef Governorate',
-        state_code: 'BNS',
+        ame:'B'ni Suef Governorate','
+        tate_code:'B'S',',
       },
       {
-        name: 'Cairo Governorate',
-        state_code: 'C',
+        ame:'C'iro Governorate','
+        tate_code:'C',',
       },
       {
-        name: 'Dakahlia Governorate',
-        state_code: 'DK',
+        ame:'D'kahlia Governorate','
+        tate_code:'D'',',
       },
       {
-        name: 'Damietta Governorate',
-        state_code: 'DT',
+        ame:'D'mietta Governorate','
+        tate_code:'D'',',
       },
       {
-        name: 'Faiyum Governorate',
-        state_code: 'FYM',
+        ame:'F'iyum Governorate','
+        tate_code:'F'M',',
       },
       {
-        name: 'Gharbia Governorate',
-        state_code: 'GH',
+        ame:'G'arbia Governorate','
+        tate_code:'G'',',
       },
       {
-        name: 'Giza Governorate',
-        state_code: 'GZ',
+        ame:'G'za Governorate','
+        tate_code:'G'',',
       },
       {
-        name: 'Ismailia Governorate',
-        state_code: 'IS',
+        ame:'I'mailia Governorate','
+        tate_code:'I'',',
       },
       {
-        name: 'Kafr el-Sheikh Governorate',
-        state_code: 'KFS',
+        ame:'K'fr el-Sheikh Governorate','
+        tate_code:'K'S',',
       },
       {
-        name: 'Luxor Governorate',
-        state_code: 'LX',
+        ame:'L'xor Governorate','
+        tate_code:'L'',',
       },
       {
-        name: 'Matrouh Governorate',
-        state_code: 'MT',
+        ame:'M'trouh Governorate','
+        tate_code:'M'',',
       },
       {
-        name: 'Minya Governorate',
-        state_code: 'MN',
+        ame:'M'nya Governorate','
+        tate_code:'M'',',
       },
       {
-        name: 'Monufia Governorate',
-        state_code: 'MNF',
+        ame:'M'nufia Governorate','
+        tate_code:'M'F',',
       },
       {
-        name: 'New Valley Governorate',
-        state_code: 'WAD',
+        ame:'N'w Valley Governorate','
+        tate_code:'W'D',',
       },
       {
-        name: 'North Sinai Governorate',
-        state_code: 'SIN',
+        ame:'N'rth Sinai Governorate','
+        tate_code:'S'N',',
       },
       {
-        name: 'Port Said Governorate',
-        state_code: 'PTS',
+        ame:'P'rt Said Governorate','
+        tate_code:'P'S',',
       },
       {
-        name: 'Qalyubia Governorate',
-        state_code: 'KB',
+        ame:'Q'lyubia Governorate','
+        tate_code:'K'',',
       },
       {
-        name: 'Qena Governorate',
-        state_code: 'KN',
+        ame:'Q'na Governorate','
+        tate_code:'K'',',
       },
       {
-        name: 'Red Sea Governorate',
-        state_code: 'BA',
+        ame:'R'd Sea Governorate','
+        tate_code:'B'',',
       },
       {
-        name: 'Sohag Governorate',
-        state_code: 'SHG',
+        ame:'S'hag Governorate','
+        tate_code:'S'G',',
       },
       {
-        name: 'South Sinai Governorate',
-        state_code: 'JS',
+        ame:'S'uth Sinai Governorate','
+        tate_code:'J'',',
       },
       {
-        name: 'Suez Governorate',
-        state_code: 'SUZ',
-      },
-    ],
+        ame:'S'ez Governorate','
+        tate_code:'S'Z',',
+      },,
+    ],,
   },
   {
-    name: 'El Salvador',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Flag_of_El_Salvador.svg',
-    iso2: 'SV',
-    states: [
+    ame:'E' Salvador','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/3/34/Flag_of_El_Salvador.svg','
+    so2:'S'','
+    tates:[
       {
-        name: 'Ahuachapán Department',
-        state_code: 'AH',
+        ame:'A'uachapán Department','
+        tate_code:'A'',',
       },
       {
-        name: 'Cabañas Department',
-        state_code: 'CA',
+        ame:'C'bañas Department','
+        tate_code:'C'',',
       },
       {
-        name: 'Chalatenango Department',
-        state_code: 'CH',
+        ame:'C'alatenango Department','
+        tate_code:'C'',',
       },
       {
-        name: 'Cuscatlán Department',
-        state_code: 'CU',
+        ame:'C'scatlán Department','
+        tate_code:'C'',',
       },
       {
-        name: 'La Libertad Department',
-        state_code: 'LI',
+        ame:'L' Libertad Department','
+        tate_code:'L'',',
       },
       {
-        name: 'La Paz Department',
-        state_code: 'PA',
+        ame:'L' Paz Department','
+        tate_code:'P'',',
       },
       {
-        name: 'La Unión Department',
-        state_code: 'UN',
+        ame:'L' Unión Department','
+        tate_code:'U'',',
       },
       {
-        name: 'Morazán Department',
-        state_code: 'MO',
+        ame:'M'razán Department','
+        tate_code:'M'',',
       },
       {
-        name: 'San Miguel Department',
-        state_code: 'SM',
+        ame:'S'n Miguel Department','
+        tate_code:'S'',',
       },
       {
-        name: 'San Salvador Department',
-        state_code: 'SS',
+        ame:'S'n Salvador Department','
+        tate_code:'S'',',
       },
       {
-        name: 'San Vicente Department',
-        state_code: 'SV',
+        ame:'S'n Vicente Department','
+        tate_code:'S'',',
       },
       {
-        name: 'Santa Ana Department',
-        state_code: 'SA',
+        ame:'S'nta Ana Department','
+        tate_code:'S'',',
       },
       {
-        name: 'Sonsonate Department',
-        state_code: 'SO',
+        ame:'S'nsonate Department','
+        tate_code:'S'',',
       },
       {
-        name: 'Usulután Department',
-        state_code: 'US',
-      },
-    ],
+        ame:'U'ulután Department','
+        tate_code:'U'',',
+      },,
+    ],,
   },
   {
-    name: 'Equatorial Guinea',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Equatorial_Guinea.svg',
-    iso2: 'GQ',
-    states: [
+    ame:'E'uatorial Guinea','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Equatorial_Guinea.svg','
+    so2:'G'','
+    tates:[
       {
-        name: 'Annobón Province',
-        state_code: 'AN',
+        ame:'A'nobón Province','
+        tate_code:'A'',',
       },
       {
-        name: 'Bioko Norte Province',
-        state_code: 'BN',
+        ame:'B'oko Norte Province','
+        tate_code:'B'',',
       },
       {
-        name: 'Bioko Sur Province',
-        state_code: 'BS',
+        ame:'B'oko Sur Province','
+        tate_code:'B'',',
       },
       {
-        name: 'Centro Sur Province',
-        state_code: 'CS',
+        ame:'C'ntro Sur Province','
+        tate_code:'C'',',
       },
       {
-        name: 'Insular Region',
-        state_code: 'I',
+        ame:'I'sular Region','
+        tate_code:'I',',
       },
       {
-        name: 'Kié-Ntem Province',
-        state_code: 'KN',
+        ame:'K'é-Ntem Province','
+        tate_code:'K'',',
       },
       {
-        name: 'Litoral Province',
-        state_code: 'LI',
+        ame:'L'toral Province','
+        tate_code:'L'',',
       },
       {
-        name: 'Río Muni',
-        state_code: 'C',
+        ame:'R'o Muni','
+        tate_code:'C',',
       },
       {
-        name: 'Wele-Nzas Province',
-        state_code: 'WN',
-      },
-    ],
+        ame:'W'le-Nzas Province','
+        tate_code:'W'',',
+      },,
+    ],,
   },
   {
-    name: 'Eritrea',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/2/29/Flag_of_Eritrea.svg',
-    iso2: 'ER',
-    states: [
+    ame:'E'itrea','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/2/29/Flag_of_Eritrea.svg','
+    so2:'E'','
+    tates:[
       {
-        name: 'Anseba Region',
-        state_code: 'AN',
+        ame:'A'seba Region','
+        tate_code:'A'',',
       },
       {
-        name: 'Debub Region',
-        state_code: 'DU',
+        ame:'D'bub Region','
+        tate_code:'D'',',
       },
       {
-        name: 'Gash-Barka Region',
-        state_code: 'GB',
+        ame:'G'sh-Barka Region','
+        tate_code:'G'',',
       },
       {
-        name: 'Maekel Region',
-        state_code: 'MA',
+        ame:'M'ekel Region','
+        tate_code:'M'',',
       },
       {
-        name: 'Northern Red Sea Region',
-        state_code: 'SK',
+        ame:'N'rthern Red Sea Region','
+        tate_code:'S'',',
       },
       {
-        name: 'Southern Red Sea Region',
-        state_code: 'DK',
-      },
-    ],
+        ame:'S'uthern Red Sea Region','
+        tate_code:'D'',',
+      },,
+    ],,
   },
   {
-    name: 'Estonia',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/8/8f/Flag_of_Estonia.svg',
-    iso2: 'EE',
-    states: [
+    ame:'E'tonia','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/8/8f/Flag_of_Estonia.svg','
+    so2:'E'','
+    tates:[
       {
-        name: 'Harju County',
-        state_code: '37',
+        ame:'H'rju County','
+        tate_code:'3'',',
       },
       {
-        name: 'Hiiu County',
-        state_code: '39',
+        ame:'H'iu County','
+        tate_code:'3'',',
       },
       {
-        name: 'Ida-Viru County',
-        state_code: '44',
+        ame:'I'a-Viru County','
+        tate_code:'4'',',
       },
       {
-        name: 'Järva County',
-        state_code: '51',
+        ame:'J'rva County','
+        tate_code:'5'',',
       },
       {
-        name: 'Jõgeva County',
-        state_code: '49',
+        ame:'J'geva County','
+        tate_code:'4'',',
       },
       {
-        name: 'Lääne County',
-        state_code: '57',
+        ame:'L'äne County','
+        tate_code:'5'',',
       },
       {
-        name: 'Lääne-Viru County',
-        state_code: '59',
+        ame:'L'äne-Viru County','
+        tate_code:'5'',',
       },
       {
-        name: 'Pärnu County',
-        state_code: '67',
+        ame:'P'rnu County','
+        tate_code:'6'',',
       },
       {
-        name: 'Põlva County',
-        state_code: '65',
+        ame:'P'lva County','
+        tate_code:'6'',',
       },
       {
-        name: 'Rapla County',
-        state_code: '70',
+        ame:'R'pla County','
+        tate_code:'7'',',
       },
       {
-        name: 'Saare County',
-        state_code: '74',
+        ame:'S'are County','
+        tate_code:'7'',',
       },
       {
-        name: 'Tartu County',
-        state_code: '78',
+        ame:'T'rtu County','
+        tate_code:'7'',',
       },
       {
-        name: 'Valga County',
-        state_code: '82',
+        ame:'V'lga County','
+        tate_code:'8'',',
       },
       {
-        name: 'Viljandi County',
-        state_code: '84',
+        ame:'V'ljandi County','
+        tate_code:'8'',',
       },
       {
-        name: 'Võru County',
-        state_code: '86',
-      },
-    ],
+        ame:'V'ru County','
+        tate_code:'8'',',
+      },,
+    ],,
   },
   {
-    name: 'Ethiopia',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Ethiopia.svg',
-    iso2: 'ET',
-    states: [
+    ame:'E'hiopia','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Ethiopia.svg','
+    so2:'E'','
+    tates:[
       {
-        name: 'Addis Ababa',
-        state_code: 'AA',
+        ame:'A'dis Ababa','
+        tate_code:'A'',',
       },
       {
-        name: 'Afar Region',
-        state_code: 'AF',
+        ame:'A'ar Region','
+        tate_code:'A'',',
       },
       {
-        name: 'Amhara Region',
-        state_code: 'AM',
+        ame:'A'hara Region','
+        tate_code:'A'',',
       },
       {
-        name: 'Benishangul-Gumuz Region',
-        state_code: 'BE',
+        ame:'B'nishangul-Gumuz Region','
+        tate_code:'B'',',
       },
       {
-        name: 'Dire Dawa',
-        state_code: 'DD',
+        ame:'D're Dawa','
+        tate_code:'D'',',
       },
       {
-        name: 'Gambela Region',
-        state_code: 'GA',
+        ame:'G'mbela Region','
+        tate_code:'G'',',
       },
       {
-        name: 'Harari Region',
-        state_code: 'HA',
+        ame:'H'rari Region','
+        tate_code:'H'',',
       },
       {
-        name: 'Oromia Region',
-        state_code: 'OR',
+        ame:'O'omia Region','
+        tate_code:'O'',',
       },
       {
-        name: 'Somali Region',
-        state_code: 'SO',
+        ame:'S'mali Region','
+        tate_code:'S'',',
       },
       {
-        name: "Southern Nations, Nationalities, and Peoples' Region",
-        state_code: 'SN',
+        ame:"Southern Nations, Nationalities, and Peoples' Region",
+        tate_code:'S'',',
       },
       {
-        name: 'Tigray Region',
-        state_code: 'TI',
-      },
-    ],
+        ame:'T'gray Region','
+        tate_code:'T'',',
+      },,
+    ],,
   },
   {
-    name: 'Falkland Islands',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_the_Falkland_Islands.svg',
-    iso2: 'FK',
-    states: [],
+    ame:'F'lkland Islands','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_the_Falkland_Islands.svg','
+    so2:'F'','
+    tates:[],,
   },
   {
-    name: 'Faroe Islands',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/3/3c/Flag_of_the_Faroe_Islands.svg',
-    iso2: 'FO',
-    states: [],
+    ame:'F'roe Islands','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/3/3c/Flag_of_the_Faroe_Islands.svg','
+    so2:'F'','
+    tates:[],,
   },
   {
-    name: 'Fiji Islands',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Fiji.svg',
-    iso2: 'FJ',
-    states: [
+    ame:'F'ji Islands','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Fiji.svg','
+    so2:'F'','
+    tates:[
       {
-        name: 'Ba',
-        state_code: '01',
+        ame:'B'','
+        tate_code:'0'',',
       },
       {
-        name: 'Bua',
-        state_code: '02',
+        ame:'B'a','
+        tate_code:'0'',',
       },
       {
-        name: 'Cakaudrove',
-        state_code: '03',
+        ame:'C'kaudrove','
+        tate_code:'0'',',
       },
       {
-        name: 'Central Division',
-        state_code: 'C',
+        ame:'C'ntral Division','
+        tate_code:'C',',
       },
       {
-        name: 'Eastern Division',
-        state_code: 'E',
+        ame:'E'stern Division','
+        tate_code:'E',',
       },
       {
-        name: 'Kadavu',
-        state_code: '04',
+        ame:'K'davu','
+        tate_code:'0'',',
       },
       {
-        name: 'Lau',
-        state_code: '05',
+        ame:'L'u','
+        tate_code:'0'',',
       },
       {
-        name: 'Lomaiviti',
-        state_code: '06',
+        ame:'L'maiviti','
+        tate_code:'0'',',
       },
       {
-        name: 'Macuata',
-        state_code: '07',
+        ame:'M'cuata','
+        tate_code:'0'',',
       },
       {
-        name: 'Nadroga-Navosa',
-        state_code: '08',
+        ame:'N'droga-Navosa','
+        tate_code:'0'',',
       },
       {
-        name: 'Naitasiri',
-        state_code: '09',
+        ame:'N'itasiri','
+        tate_code:'0'',',
       },
       {
-        name: 'Namosi',
-        state_code: '10',
+        ame:'N'mosi','
+        tate_code:'1'',',
       },
       {
-        name: 'Northern Division',
-        state_code: 'N',
+        ame:'N'rthern Division','
+        tate_code:'N',',
       },
       {
-        name: 'Ra',
-        state_code: '11',
+        ame:'R'','
+        tate_code:'1'',',
       },
       {
-        name: 'Rewa',
-        state_code: '12',
+        ame:'R'wa','
+        tate_code:'1'',',
       },
       {
-        name: 'Rotuma',
-        state_code: 'R',
+        ame:'R'tuma','
+        tate_code:'R',',
       },
       {
-        name: 'Serua',
-        state_code: '13',
+        ame:'S'rua','
+        tate_code:'1'',',
       },
       {
-        name: 'Tailevu',
-        state_code: '14',
+        ame:'T'ilevu','
+        tate_code:'1'',',
       },
       {
-        name: 'Western Division',
-        state_code: 'W',
-      },
-    ],
+        ame:'W'stern Division','
+        tate_code:'W',',
+      },,
+    ],,
   },
   {
-    name: 'Finland',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Finland.svg',
-    iso2: 'FI',
-    states: [
+    ame:'F'nland','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Finland.svg','
+    so2:'F'','
+    tates:[
       {
-        name: 'Åland Islands',
-        state_code: '01',
+        ame:'Å'and Islands','
+        tate_code:'0'',',
       },
       {
-        name: 'Central Finland',
-        state_code: '08',
+        ame:'C'ntral Finland','
+        tate_code:'0'',',
       },
       {
-        name: 'Central Ostrobothnia',
-        state_code: '07',
+        ame:'C'ntral Ostrobothnia','
+        tate_code:'0'',',
       },
       {
-        name: 'Eastern Finland Province',
-        state_code: 'IS',
+        ame:'E'stern Finland Province','
+        tate_code:'I'',',
       },
       {
-        name: 'Finland Proper',
-        state_code: '19',
+        ame:'F'nland Proper','
+        tate_code:'1'',',
       },
       {
-        name: 'Kainuu',
-        state_code: '05',
+        ame:'K'inuu','
+        tate_code:'0'',',
       },
       {
-        name: 'Kymenlaakso',
-        state_code: '09',
+        ame:'K'menlaakso','
+        tate_code:'0'',',
       },
       {
-        name: 'Lapland',
-        state_code: 'LL',
+        ame:'L'pland','
+        tate_code:'L'',',
       },
       {
-        name: 'North Karelia',
-        state_code: '13',
+        ame:'N'rth Karelia','
+        tate_code:'1'',',
       },
       {
-        name: 'Northern Ostrobothnia',
-        state_code: '14',
+        ame:'N'rthern Ostrobothnia','
+        tate_code:'1'',',
       },
       {
-        name: 'Northern Savonia',
-        state_code: '15',
+        ame:'N'rthern Savonia','
+        tate_code:'1'',',
       },
       {
-        name: 'Ostrobothnia',
-        state_code: '12',
+        ame:'O'trobothnia','
+        tate_code:'1'',',
       },
       {
-        name: 'Oulu Province',
-        state_code: 'OL',
+        ame:'O'lu Province','
+        tate_code:'O'',',
       },
       {
-        name: 'Päijänne Tavastia',
-        state_code: '16',
+        ame:'P'ijänne Tavastia','
+        tate_code:'1'',',
       },
       {
-        name: 'Pirkanmaa',
-        state_code: '11',
+        ame:'P'rkanmaa','
+        tate_code:'1'',',
       },
       {
-        name: 'Satakunta',
-        state_code: '17',
+        ame:'S'takunta','
+        tate_code:'1'',',
       },
       {
-        name: 'South Karelia',
-        state_code: '02',
+        ame:'S'uth Karelia','
+        tate_code:'0'',',
       },
       {
-        name: 'Southern Ostrobothnia',
-        state_code: '03',
+        ame:'S'uthern Ostrobothnia','
+        tate_code:'0'',',
       },
       {
-        name: 'Southern Savonia',
-        state_code: '04',
+        ame:'S'uthern Savonia','
+        tate_code:'0'',',
       },
       {
-        name: 'Tavastia Proper',
-        state_code: '06',
+        ame:'T'vastia Proper','
+        tate_code:'0'',',
       },
       {
-        name: 'Uusimaa',
-        state_code: '18',
-      },
-    ],
+        ame:'U'simaa','
+        tate_code:'1'',',
+      },,
+    ],,
   },
   {
-    name: 'France',
-    flag: 'https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg',
-    iso2: 'FR',
-    states: [
+    ame:'F'ance','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg','
+    so2:'F'','
+    tates:[
       {
-        name: 'Alo',
-        state_code: 'WF-AL',
+        ame:'A'o','
+        tate_code:'W'-AL',',
       },
       {
-        name: 'Alsace',
-        state_code: 'A',
+        ame:'A'sace','
+        tate_code:'A',',
       },
       {
-        name: 'Aquitaine',
-        state_code: 'B',
+        ame:'A'uitaine','
+        tate_code:'B',',
       },
       {
-        name: 'Auvergne',
-        state_code: 'C',
+        ame:'A'vergne','
+        tate_code:'C',',
       },
       {
-        name: 'Auvergne-Rhône-Alpes',
-        state_code: 'ARA',
+        ame:'A'vergne-Rhône-Alpes','
+        tate_code:'A'A',',
       },
       {
-        name: 'Bourgogne-Franche-Comté',
-        state_code: 'BFC',
+        ame:'B'urgogne-Franche-Comté','
+        tate_code:'B'C',',
       },
       {
-        name: 'Brittany',
-        state_code: 'BRE',
+        ame:'B'ittany','
+        tate_code:'B'E',',
       },
       {
-        name: 'Burgundy',
-        state_code: 'D',
+        ame:'B'rgundy','
+        tate_code:'D',',
       },
       {
-        name: 'Centre-Val de Loire',
-        state_code: 'CVL',
+        ame:'C'ntre-Val de Loire','
+        tate_code:'C'L',',
       },
       {
-        name: 'Champagne-Ardenne',
-        state_code: 'G',
+        ame:'C'ampagne-Ardenne','
+        tate_code:'G',',
       },
       {
-        name: 'Corsica',
-        state_code: 'COR',
+        ame:'C'rsica','
+        tate_code:'C'R',',
       },
       {
-        name: 'Franche-Comté',
-        state_code: 'I',
+        ame:'F'anche-Comté','
+        tate_code:'I',',
       },
       {
-        name: 'French Guiana',
-        state_code: 'GF',
+        ame:'F'ench Guiana','
+        tate_code:'G'',',
       },
       {
-        name: 'French Polynesia',
-        state_code: 'PF',
+        ame:'F'ench Polynesia','
+        tate_code:'P'',',
       },
       {
-        name: 'Grand Est',
-        state_code: 'GES',
+        ame:'G'and Est','
+        tate_code:'G'S',',
       },
       {
-        name: 'Guadeloupe',
-        state_code: 'GP',
+        ame:'G'adeloupe','
+        tate_code:'G'',',
       },
       {
-        name: 'Hauts-de-France',
-        state_code: 'HDF',
+        ame:'H'uts-de-France','
+        tate_code:'H'F',',
       },
       {
-        name: 'Île-de-France',
-        state_code: 'IDF',
+        ame:'Î'e-de-France','
+        tate_code:'I'F',',
       },
       {
-        name: 'Languedoc-Roussillon',
-        state_code: 'K',
+        ame:'L'nguedoc-Roussillon','
+        tate_code:'K',',
       },
       {
-        name: 'Limousin',
-        state_code: 'L',
+        ame:'L'mousin','
+        tate_code:'L',',
       },
       {
-        name: 'Lorraine',
-        state_code: 'M',
+        ame:'L'rraine','
+        tate_code:'M',',
       },
       {
-        name: 'Lower Normandy',
-        state_code: 'P',
+        ame:'L'wer Normandy','
+        tate_code:'P',',
       },
       {
-        name: 'Martinique',
-        state_code: 'MQ',
+        ame:'M'rtinique','
+        tate_code:'M'',',
       },
       {
-        name: 'Mayotte',
-        state_code: 'YT',
+        ame:'M'yotte','
+        tate_code:'Y'',',
       },
       {
-        name: 'Nord-Pas-de-Calais',
-        state_code: 'O',
+        ame:'N'rd-Pas-de-Calais','
+        tate_code:'O',',
       },
       {
-        name: 'Normandy',
-        state_code: 'NOR',
+        ame:'N'rmandy','
+        tate_code:'N'R',',
       },
       {
-        name: 'Nouvelle-Aquitaine',
-        state_code: 'NAQ',
+        ame:'N'uvelle-Aquitaine','
+        tate_code:'N'Q',',
       },
       {
-        name: 'Occitania',
-        state_code: 'OCC',
+        ame:'O'citania','
+        tate_code:'O'C',',
       },
       {
-        name: 'Paris',
-        state_code: '75',
+        ame:'P'ris','
+        tate_code:'7'',',
       },
       {
-        name: 'Pays de la Loire',
-        state_code: 'PDL',
+        ame:'P'ys de la Loire','
+        tate_code:'P'L',',
       },
       {
-        name: 'Picardy',
-        state_code: 'S',
+        ame:'P'cardy','
+        tate_code:'S',',
       },
       {
-        name: 'Poitou-Charentes',
-        state_code: 'T',
+        ame:'P'itou-Charentes','
+        tate_code:'T',',
       },
       {
-        name: "Provence-Alpes-Côte d'Azur",
-        state_code: 'PAC',
+        ame:"Provence-Alpes-Côte d'Azur",
+        tate_code:'P'C',',
       },
       {
-        name: 'Réunion',
-        state_code: 'RE',
+        ame:'R'union','
+        tate_code:'R'',',
       },
       {
-        name: 'Rhône-Alpes',
-        state_code: 'V',
+        ame:'R'ône-Alpes','
+        tate_code:'V',',
       },
       {
-        name: 'Saint Barthélemy',
-        state_code: 'BL',
+        ame:'S'int Barthélemy','
+        tate_code:'B'',',
       },
       {
-        name: 'Saint Martin',
-        state_code: 'MF',
+        ame:'S'int Martin','
+        tate_code:'M'',',
       },
       {
-        name: 'Saint Pierre and Miquelon',
-        state_code: 'PM',
+        ame:'S'int Pierre and Miquelon','
+        tate_code:'P'',',
       },
       {
-        name: 'Sigave',
-        state_code: 'WF-SG',
+        ame:'S'gave','
+        tate_code:'W'-SG',',
       },
       {
-        name: 'Upper Normandy',
-        state_code: 'Q',
+        ame:'U'per Normandy','
+        tate_code:'Q',',
       },
       {
-        name: 'Uvea',
-        state_code: 'WF-UV',
+        ame:'U'ea','
+        tate_code:'W'-UV',',
       },
       {
-        name: 'Wallis and Futuna',
-        state_code: 'WF',
-      },
-    ],
+        ame:'W'llis and Futuna','
+        tate_code:'W'',',
+      },,
+    ],,
   },
   {
-    name: 'French Polynesia',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/d/db/Flag_of_French_Polynesia.svg',
-    iso2: 'PF',
-    states: [],
+    ame:'F'ench Polynesia','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/d/db/Flag_of_French_Polynesia.svg','
+    so2:'P'','
+    tates:[],,
   },
   {
-    name: 'French Southern Territories',
-    flag: '',
-    iso2: 'TF',
-    states: [],
+    ame:'F'ench Southern Territories','
+    lag:''''
+    so2:'T'','
+    tates:[],,
   },
   {
-    name: 'Gabon',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/0/04/Flag_of_Gabon.svg',
-    iso2: 'GA',
-    states: [
+    ame:'G'bon','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/0/04/Flag_of_Gabon.svg','
+    so2:'G'','
+    tates:[
       {
-        name: 'Estuaire Province',
-        state_code: '1',
+        ame:'E'tuaire Province','
+        tate_code:'1',',
       },
       {
-        name: 'Haut-Ogooué Province',
-        state_code: '2',
+        ame:'H'ut-Ogooué Province','
+        tate_code:'2',',
       },
       {
-        name: 'Moyen-Ogooué Province',
-        state_code: '3',
+        ame:'M'yen-Ogooué Province','
+        tate_code:'3',',
       },
       {
-        name: 'Ngounié Province',
-        state_code: '4',
+        ame:'N'ounié Province','
+        tate_code:'4',',
       },
       {
-        name: 'Nyanga Province',
-        state_code: '5',
+        ame:'N'anga Province','
+        tate_code:'5',',
       },
       {
-        name: 'Ogooué-Ivindo Province',
-        state_code: '6',
+        ame:'O'ooué-Ivindo Province','
+        tate_code:'6',',
       },
       {
-        name: 'Ogooué-Lolo Province',
-        state_code: '7',
+        ame:'O'ooué-Lolo Province','
+        tate_code:'7',',
       },
       {
-        name: 'Ogooué-Maritime Province',
-        state_code: '8',
+        ame:'O'ooué-Maritime Province','
+        tate_code:'8',',
       },
       {
-        name: 'Woleu-Ntem Province',
-        state_code: '9',
-      },
-    ],
+        ame:'W'leu-Ntem Province','
+        tate_code:'9',',
+      },,
+    ],,
   },
   {
-    name: 'Gambia The',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_The_Gambia.svg',
-    iso2: 'GM',
-    states: [
+    ame:'G'mbia The','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_The_Gambia.svg','
+    so2:'G'','
+    tates:[
       {
-        name: 'Banjul',
-        state_code: 'B',
+        ame:'B'njul','
+        tate_code:'B',',
       },
       {
-        name: 'Central River Division',
-        state_code: 'M',
+        ame:'C'ntral River Division','
+        tate_code:'M',',
       },
       {
-        name: 'Lower River Division',
-        state_code: 'L',
+        ame:'L'wer River Division','
+        tate_code:'L',',
       },
       {
-        name: 'North Bank Division',
-        state_code: 'N',
+        ame:'N'rth Bank Division','
+        tate_code:'N',',
       },
       {
-        name: 'Upper River Division',
-        state_code: 'U',
+        ame:'U'per River Division','
+        tate_code:'U',',
       },
       {
-        name: 'West Coast Division',
-        state_code: 'W',
-      },
-    ],
+        ame:'W'st Coast Division','
+        tate_code:'W',',
+      },,
+    ],,
   },
   {
-    name: 'Georgia',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Flag_of_Georgia.svg',
-    iso2: 'GE',
-    states: [
+    ame:'G'orgia','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/0/0f/Flag_of_Georgia.svg','
+    so2:'G'','
+    tates:[
       {
-        name: 'Adjara',
-        state_code: 'AJ',
+        ame:'A'jara','
+        tate_code:'A'',',
       },
       {
-        name: 'Autonomous Republic of Abkhazia',
-        state_code: 'AB',
+        ame:'A'tonomous Republic of Abkhazia','
+        tate_code:'A'',',
       },
       {
-        name: 'Guria',
-        state_code: 'GU',
+        ame:'G'ria','
+        tate_code:'G'',',
       },
       {
-        name: 'Imereti',
-        state_code: 'IM',
+        ame:'I'ereti','
+        tate_code:'I'',',
       },
       {
-        name: 'Kakheti',
-        state_code: 'KA',
+        ame:'K'kheti','
+        tate_code:'K'',',
       },
       {
-        name: 'Khelvachauri Municipality',
-        state_code: '29',
+        ame:'K'elvachauri Municipality','
+        tate_code:'2'',',
       },
       {
-        name: 'Kvemo Kartli',
-        state_code: 'KK',
+        ame:'K'emo Kartli','
+        tate_code:'K'',',
       },
       {
-        name: 'Mtskheta-Mtianeti',
-        state_code: 'MM',
+        ame:'M'skheta-Mtianeti','
+        tate_code:'M'',',
       },
       {
-        name: 'Racha-Lechkhumi and Kvemo Svaneti',
-        state_code: 'RL',
+        ame:'R'cha-Lechkhumi and Kvemo Svaneti','
+        tate_code:'R'',',
       },
       {
-        name: 'Samegrelo-Zemo Svaneti',
-        state_code: 'SZ',
+        ame:'S'megrelo-Zemo Svaneti','
+        tate_code:'S'',',
       },
       {
-        name: 'Samtskhe-Javakheti',
-        state_code: 'SJ',
+        ame:'S'mtskhe-Javakheti','
+        tate_code:'S'',',
       },
       {
-        name: 'Senaki Municipality',
-        state_code: '50',
+        ame:'S'naki Municipality','
+        tate_code:'5'',',
       },
       {
-        name: 'Shida Kartli',
-        state_code: 'SK',
+        ame:'S'ida Kartli','
+        tate_code:'S'',',
       },
       {
-        name: 'Tbilisi',
-        state_code: 'TB',
-      },
-    ],
+        ame:'T'ilisi','
+        tate_code:'T'',',
+      },,
+    ],,
   },
   {
-    name: 'Germany',
-    flag: 'https://upload.wikimedia.org/wikipedia/en/b/ba/Flag_of_Germany.svg',
-    iso2: 'DE',
-    states: [
+    ame:'G'rmany','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/en/b/ba/Flag_of_Germany.svg','
+    so2:'D'','
+    tates:[
       {
-        name: 'Baden-Württemberg',
-        state_code: 'BW',
+        ame:'B'den-Württemberg','
+        tate_code:'B'',',
       },
       {
-        name: 'Bavaria',
-        state_code: 'BY',
+        ame:'B'varia','
+        tate_code:'B'',',
       },
       {
-        name: 'Berlin',
-        state_code: 'BE',
+        ame:'B'rlin','
+        tate_code:'B'',',
       },
       {
-        name: 'Brandenburg',
-        state_code: 'BB',
+        ame:'B'andenburg','
+        tate_code:'B'',',
       },
       {
-        name: 'Bremen',
-        state_code: 'HB',
+        ame:'B'emen','
+        tate_code:'H'',',
       },
       {
-        name: 'Hamburg',
-        state_code: 'HH',
+        ame:'H'mburg','
+        tate_code:'H'',',
       },
       {
-        name: 'Hesse',
-        state_code: 'HE',
+        ame:'H'sse','
+        tate_code:'H'',',
       },
       {
-        name: 'Lower Saxony',
-        state_code: 'NI',
+        ame:'L'wer Saxony','
+        tate_code:'N'',',
       },
       {
-        name: 'Mecklenburg-Vorpommern',
-        state_code: 'MV',
+        ame:'M'cklenburg-Vorpommern','
+        tate_code:'M'',',
       },
       {
-        name: 'North Rhine-Westphalia',
-        state_code: 'NW',
+        ame:'N'rth Rhine-Westphalia','
+        tate_code:'N'',',
       },
       {
-        name: 'Rhineland-Palatinate',
-        state_code: 'RP',
+        ame:'R'ineland-Palatinate','
+        tate_code:'R'',',
       },
       {
-        name: 'Saarland',
-        state_code: 'SL',
+        ame:'S'arland','
+        tate_code:'S'',',
       },
       {
-        name: 'Saxony',
-        state_code: 'SN',
+        ame:'S'xony','
+        tate_code:'S'',',
       },
       {
-        name: 'Saxony-Anhalt',
-        state_code: 'ST',
+        ame:'S'xony-Anhalt','
+        tate_code:'S'',',
       },
       {
-        name: 'Schleswig-Holstein',
-        state_code: 'SH',
+        ame:'S'hleswig-Holstein','
+        tate_code:'S'',',
       },
       {
-        name: 'Thuringia',
-        state_code: 'TH',
-      },
-    ],
+        ame:'T'uringia','
+        tate_code:'T'',',
+      },,
+    ],,
   },
   {
-    name: 'Ghana',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Ghana.svg',
-    iso2: 'GH',
-    states: [
+    ame:'G'ana','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Ghana.svg','
+    so2:'G'','
+    tates:[
       {
-        name: 'Ashanti Region',
-        state_code: 'AH',
+        ame:'A'hanti Region','
+        tate_code:'A'',',
       },
       {
-        name: 'Brong-Ahafo Region',
-        state_code: 'BA',
+        ame:'B'ong-Ahafo Region','
+        tate_code:'B'',',
       },
       {
-        name: 'Central Region',
-        state_code: 'CP',
+        ame:'C'ntral Region','
+        tate_code:'C'',',
       },
       {
-        name: 'Eastern Region',
-        state_code: 'EP',
+        ame:'E'stern Region','
+        tate_code:'E'',',
       },
       {
-        name: 'Greater Accra Region',
-        state_code: 'AA',
+        ame:'G'eater Accra Region','
+        tate_code:'A'',',
       },
       {
-        name: 'Northern Region',
-        state_code: 'NP',
+        ame:'N'rthern Region','
+        tate_code:'N'',',
       },
       {
-        name: 'Upper East Region',
-        state_code: 'UE',
+        ame:'U'per East Region','
+        tate_code:'U'',',
       },
       {
-        name: 'Upper West Region',
-        state_code: 'UW',
+        ame:'U'per West Region','
+        tate_code:'U'',',
       },
       {
-        name: 'Volta Region',
-        state_code: 'TV',
+        ame:'V'lta Region','
+        tate_code:'T'',',
       },
       {
-        name: 'Western Region',
-        state_code: 'WP',
-      },
-    ],
+        ame:'W'stern Region','
+        tate_code:'W'',',
+      },,
+    ],,
   },
   {
-    name: 'Gibraltar',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/0/02/Flag_of_Gibraltar.svg',
-    iso2: 'GI',
-    states: [],
+    ame:'G'braltar','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/0/02/Flag_of_Gibraltar.svg','
+    so2:'G'','
+    tates:[],,
   },
   {
-    name: 'Greece',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Greece.svg',
-    iso2: 'GR',
-    states: [
+    ame:'G'eece','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Greece.svg','
+    so2:'G'','
+    tates:[
       {
-        name: 'Achaea Regional Unit',
-        state_code: '13',
+        ame:'A'haea Regional Unit','
+        tate_code:'1'',',
       },
       {
-        name: 'Aetolia-Acarnania Regional Unit',
-        state_code: '01',
+        ame:'A'tolia-Acarnania Regional Unit','
+        tate_code:'0'',',
       },
       {
-        name: 'Arcadia Prefecture',
-        state_code: '12',
+        ame:'A'cadia Prefecture','
+        tate_code:'1'',',
       },
       {
-        name: 'Argolis Regional Unit',
-        state_code: '11',
+        ame:'A'golis Regional Unit','
+        tate_code:'1'',',
       },
       {
-        name: 'Attica Region',
-        state_code: 'I',
+        ame:'A'tica Region','
+        tate_code:'I',',
       },
       {
-        name: 'Boeotia Regional Unit',
-        state_code: '03',
+        ame:'B'eotia Regional Unit','
+        tate_code:'0'',',
       },
       {
-        name: 'Central Greece Region',
-        state_code: 'H',
+        ame:'C'ntral Greece Region','
+        tate_code:'H',',
       },
       {
-        name: 'Central Macedonia',
-        state_code: 'B',
+        ame:'C'ntral Macedonia','
+        tate_code:'B',',
       },
       {
-        name: 'Chania Regional Unit',
-        state_code: '94',
+        ame:'C'ania Regional Unit','
+        tate_code:'9'',',
       },
       {
-        name: 'Corfu Prefecture',
-        state_code: '22',
+        ame:'C'rfu Prefecture','
+        tate_code:'2'',',
       },
       {
-        name: 'Corinthia Regional Unit',
-        state_code: '15',
+        ame:'C'rinthia Regional Unit','
+        tate_code:'1'',',
       },
       {
-        name: 'Crete Region',
-        state_code: 'M',
+        ame:'C'ete Region','
+        tate_code:'M',',
       },
       {
-        name: 'Drama Regional Unit',
-        state_code: '52',
+        ame:'D'ama Regional Unit','
+        tate_code:'5'',',
       },
       {
-        name: 'East Attica Regional Unit',
-        state_code: 'A2',
+        ame:'E'st Attica Regional Unit','
+        tate_code:'A'',',
       },
       {
-        name: 'East Macedonia and Thrace',
-        state_code: 'A',
+        ame:'E'st Macedonia and Thrace','
+        tate_code:'A',',
       },
       {
-        name: 'Epirus Region',
-        state_code: 'D',
+        ame:'E'irus Region','
+        tate_code:'D',',
       },
       {
-        name: 'Euboea',
-        state_code: '04',
+        ame:'E'boea','
+        tate_code:'0'',',
       },
       {
-        name: 'Grevena Prefecture',
-        state_code: '51',
+        ame:'G'evena Prefecture','
+        tate_code:'5'',',
       },
       {
-        name: 'Imathia Regional Unit',
-        state_code: '53',
+        ame:'I'athia Regional Unit','
+        tate_code:'5'',',
       },
       {
-        name: 'Ioannina Regional Unit',
-        state_code: '33',
+        ame:'I'annina Regional Unit','
+        tate_code:'3'',',
       },
       {
-        name: 'Ionian Islands Region',
-        state_code: 'F',
+        ame:'I'nian Islands Region','
+        tate_code:'F',',
       },
       {
-        name: 'Karditsa Regional Unit',
-        state_code: '41',
+        ame:'K'rditsa Regional Unit','
+        tate_code:'4'',',
       },
       {
-        name: 'Kastoria Regional Unit',
-        state_code: '56',
+        ame:'K'storia Regional Unit','
+        tate_code:'5'',',
       },
       {
-        name: 'Kefalonia Prefecture',
-        state_code: '23',
+        ame:'K'falonia Prefecture','
+        tate_code:'2'',',
       },
       {
-        name: 'Kilkis Regional Unit',
-        state_code: '57',
+        ame:'K'lkis Regional Unit','
+        tate_code:'5'',',
       },
       {
-        name: 'Kozani Prefecture',
-        state_code: '58',
+        ame:'K'zani Prefecture','
+        tate_code:'5'',',
       },
       {
-        name: 'Laconia',
-        state_code: '16',
+        ame:'L'conia','
+        tate_code:'1'',',
       },
       {
-        name: 'Larissa Prefecture',
-        state_code: '42',
+        ame:'L'rissa Prefecture','
+        tate_code:'4'',',
       },
       {
-        name: 'Lefkada Regional Unit',
-        state_code: '24',
+        ame:'L'fkada Regional Unit','
+        tate_code:'2'',',
       },
       {
-        name: 'Pella Regional Unit',
-        state_code: '59',
+        ame:'P'lla Regional Unit','
+        tate_code:'5'',',
       },
       {
-        name: 'Peloponnese Region',
-        state_code: 'J',
+        ame:'P'loponnese Region','
+        tate_code:'J',',
       },
       {
-        name: 'Phthiotis Prefecture',
-        state_code: '06',
+        ame:'P'thiotis Prefecture','
+        tate_code:'0'',',
       },
       {
-        name: 'Preveza Prefecture',
-        state_code: '34',
+        ame:'P'eveza Prefecture','
+        tate_code:'3'',',
       },
       {
-        name: 'Serres Prefecture',
-        state_code: '62',
+        ame:'S'rres Prefecture','
+        tate_code:'6'',',
       },
       {
-        name: 'South Aegean',
-        state_code: 'L',
+        ame:'S'uth Aegean','
+        tate_code:'L',',
       },
       {
-        name: 'Thessaloniki Regional Unit',
-        state_code: '54',
+        ame:'T'essaloniki Regional Unit','
+        tate_code:'5'',',
       },
       {
-        name: 'West Greece Region',
-        state_code: 'G',
+        ame:'W'st Greece Region','
+        tate_code:'G',',
       },
       {
-        name: 'West Macedonia Region',
-        state_code: 'C',
-      },
-    ],
+        ame:'W'st Macedonia Region','
+        tate_code:'C',',
+      },,
+    ],,
   },
   {
-    name: 'Greenland',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_Greenland.svg',
-    iso2: 'GL',
-    states: [],
+    ame:'G'eenland','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_Greenland.svg','
+    so2:'G'','
+    tates:[],,
   },
   {
-    name: 'Grenada',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Grenada.svg',
-    iso2: 'GD',
-    states: [
+    ame:'G'enada','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Grenada.svg','
+    so2:'G'','
+    tates:[
       {
-        name: 'Carriacou and Petite Martinique',
-        state_code: '10',
+        ame:'C'rriacou and Petite Martinique','
+        tate_code:'1'',',
       },
       {
-        name: 'Saint Andrew Parish',
-        state_code: '01',
+        ame:'S'int Andrew Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint David Parish',
-        state_code: '02',
+        ame:'S'int David Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint George Parish',
-        state_code: '03',
+        ame:'S'int George Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint John Parish',
-        state_code: '04',
+        ame:'S'int John Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Mark Parish',
-        state_code: '05',
+        ame:'S'int Mark Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Patrick Parish',
-        state_code: '06',
-      },
-    ],
+        ame:'S'int Patrick Parish','
+        tate_code:'0'',',
+      },,
+    ],,
   },
   {
-    name: 'Guadeloupe',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/7/7d/Flag_of_Guadeloupe_%28local%29_variant.svg',
-    iso2: 'GP',
-    states: [],
+    ame:'G'adeloupe','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/7/7d/Flag_of_Guadeloupe_%28local%29_variant.svg','
+    so2:'G'','
+    tates:[],,
   },
   {
-    name: 'Guam',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/0/07/Flag_of_Guam.svg',
-    iso2: 'GU',
-    states: [],
+    ame:'G'am','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/0/07/Flag_of_Guam.svg','
+    so2:'G'','
+    tates:[],,
   },
   {
-    name: 'Guatemala',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Flag_of_Guatemala.svg',
-    iso2: 'GT',
-    states: [
+    ame:'G'atemala','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/e/ec/Flag_of_Guatemala.svg','
+    so2:'G'','
+    tates:[
       {
-        name: 'Alta Verapaz Department',
-        state_code: 'AV',
+        ame:'A'ta Verapaz Department','
+        tate_code:'A'',',
       },
       {
-        name: 'Baja Verapaz Department',
-        state_code: 'BV',
+        ame:'B'ja Verapaz Department','
+        tate_code:'B'',',
       },
       {
-        name: 'Chimaltenango Department',
-        state_code: 'CM',
+        ame:'C'imaltenango Department','
+        tate_code:'C'',',
       },
       {
-        name: 'Chiquimula Department',
-        state_code: 'CQ',
+        ame:'C'iquimula Department','
+        tate_code:'C'',',
       },
       {
-        name: 'El Progreso Department',
-        state_code: 'PR',
+        ame:'E' Progreso Department','
+        tate_code:'P'',',
       },
       {
-        name: 'Escuintla Department',
-        state_code: 'ES',
+        ame:'E'cuintla Department','
+        tate_code:'E'',',
       },
       {
-        name: 'Guatemala Department',
-        state_code: 'GU',
+        ame:'G'atemala Department','
+        tate_code:'G'',',
       },
       {
-        name: 'Huehuetenango Department',
-        state_code: 'HU',
+        ame:'H'ehuetenango Department','
+        tate_code:'H'',',
       },
       {
-        name: 'Izabal Department',
-        state_code: 'IZ',
+        ame:'I'abal Department','
+        tate_code:'I'',',
       },
       {
-        name: 'Jalapa Department',
-        state_code: 'JA',
+        ame:'J'lapa Department','
+        tate_code:'J'',',
       },
       {
-        name: 'Jutiapa Department',
-        state_code: 'JU',
+        ame:'J'tiapa Department','
+        tate_code:'J'',',
       },
       {
-        name: 'Petén Department',
-        state_code: 'PE',
+        ame:'P'tén Department','
+        tate_code:'P'',',
       },
       {
-        name: 'Quetzaltenango Department',
-        state_code: 'QZ',
+        ame:'Q'etzaltenango Department','
+        tate_code:'Q'',',
       },
       {
-        name: 'Quiché Department',
-        state_code: 'QC',
+        ame:'Q'iché Department','
+        tate_code:'Q'',',
       },
       {
-        name: 'Retalhuleu Department',
-        state_code: 'RE',
+        ame:'R'talhuleu Department','
+        tate_code:'R'',',
       },
       {
-        name: 'Sacatepéquez Department',
-        state_code: 'SA',
+        ame:'S'catepéquez Department','
+        tate_code:'S'',',
       },
       {
-        name: 'San Marcos Department',
-        state_code: 'SM',
+        ame:'S'n Marcos Department','
+        tate_code:'S'',',
       },
       {
-        name: 'Santa Rosa Department',
-        state_code: 'SR',
+        ame:'S'nta Rosa Department','
+        tate_code:'S'',',
       },
       {
-        name: 'Sololá Department',
-        state_code: 'SO',
+        ame:'S'lolá Department','
+        tate_code:'S'',',
       },
       {
-        name: 'Suchitepéquez Department',
-        state_code: 'SU',
+        ame:'S'chitepéquez Department','
+        tate_code:'S'',',
       },
       {
-        name: 'Totonicapán Department',
-        state_code: 'TO',
-      },
-    ],
+        ame:'T'tonicapán Department','
+        tate_code:'T'',',
+      },,
+    ],,
   },
   {
-    name: 'Guernsey',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_Guernsey.svg',
-    iso2: 'GG',
-    states: [],
+    ame:'G'ernsey','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_Guernsey.svg','
+    so2:'G'','
+    tates:[],,
   },
   {
-    name: 'Guinea',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/e/ed/Flag_of_Guinea.svg',
-    iso2: 'GN',
-    states: [
+    ame:'G'inea','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/e/ed/Flag_of_Guinea.svg','
+    so2:'G'','
+    tates:[
       {
-        name: 'Beyla Prefecture',
-        state_code: 'BE',
+        ame:'B'yla Prefecture','
+        tate_code:'B'',',
       },
       {
-        name: 'Boffa Prefecture',
-        state_code: 'BF',
+        ame:'B'ffa Prefecture','
+        tate_code:'B'',',
       },
       {
-        name: 'Boké Prefecture',
-        state_code: 'BK',
+        ame:'B'ké Prefecture','
+        tate_code:'B'',',
       },
       {
-        name: 'Boké Region',
-        state_code: 'B',
+        ame:'B'ké Region','
+        tate_code:'B',',
       },
       {
-        name: 'Conakry',
-        state_code: 'C',
+        ame:'C'nakry','
+        tate_code:'C',',
       },
       {
-        name: 'Coyah Prefecture',
-        state_code: 'CO',
+        ame:'C'yah Prefecture','
+        tate_code:'C'',',
       },
       {
-        name: 'Dabola Prefecture',
-        state_code: 'DB',
+        ame:'D'bola Prefecture','
+        tate_code:'D'',',
       },
       {
-        name: 'Dalaba Prefecture',
-        state_code: 'DL',
+        ame:'D'laba Prefecture','
+        tate_code:'D'',',
       },
       {
-        name: 'Dinguiraye Prefecture',
-        state_code: 'DI',
+        ame:'D'nguiraye Prefecture','
+        tate_code:'D'',',
       },
       {
-        name: 'Dubréka Prefecture',
-        state_code: 'DU',
+        ame:'D'bréka Prefecture','
+        tate_code:'D'',',
       },
       {
-        name: 'Faranah Prefecture',
-        state_code: 'FA',
+        ame:'F'ranah Prefecture','
+        tate_code:'F'',',
       },
       {
-        name: 'Forécariah Prefecture',
-        state_code: 'FO',
+        ame:'F'récariah Prefecture','
+        tate_code:'F'',',
       },
       {
-        name: 'Fria Prefecture',
-        state_code: 'FR',
+        ame:'F'ia Prefecture','
+        tate_code:'F'',',
       },
       {
-        name: 'Gaoual Prefecture',
-        state_code: 'GA',
+        ame:'G'oual Prefecture','
+        tate_code:'G'',',
       },
       {
-        name: 'Guéckédou Prefecture',
-        state_code: 'GU',
+        ame:'G'éckédou Prefecture','
+        tate_code:'G'',',
       },
       {
-        name: 'Kankan Prefecture',
-        state_code: 'KA',
+        ame:'K'nkan Prefecture','
+        tate_code:'K'',',
       },
       {
-        name: 'Kankan Region',
-        state_code: 'K',
+        ame:'K'nkan Region','
+        tate_code:'K',',
       },
       {
-        name: 'Kérouané Prefecture',
-        state_code: 'KE',
+        ame:'K'rouané Prefecture','
+        tate_code:'K'',',
       },
       {
-        name: 'Kindia Prefecture',
-        state_code: 'KD',
+        ame:'K'ndia Prefecture','
+        tate_code:'K'',',
       },
       {
-        name: 'Kindia Region',
-        state_code: 'D',
+        ame:'K'ndia Region','
+        tate_code:'D',',
       },
       {
-        name: 'Kissidougou Prefecture',
-        state_code: 'KS',
+        ame:'K'ssidougou Prefecture','
+        tate_code:'K'',',
       },
       {
-        name: 'Koubia Prefecture',
-        state_code: 'KB',
+        ame:'K'ubia Prefecture','
+        tate_code:'K'',',
       },
       {
-        name: 'Koundara Prefecture',
-        state_code: 'KN',
+        ame:'K'undara Prefecture','
+        tate_code:'K'',',
       },
       {
-        name: 'Kouroussa Prefecture',
-        state_code: 'KO',
+        ame:'K'uroussa Prefecture','
+        tate_code:'K'',',
       },
       {
-        name: 'Labé Prefecture',
-        state_code: 'LA',
+        ame:'L'bé Prefecture','
+        tate_code:'L'',',
       },
       {
-        name: 'Labé Region',
-        state_code: 'L',
+        ame:'L'bé Region','
+        tate_code:'L',',
       },
       {
-        name: 'Lélouma Prefecture',
-        state_code: 'LE',
+        ame:'L'louma Prefecture','
+        tate_code:'L'',',
       },
       {
-        name: 'Lola Prefecture',
-        state_code: 'LO',
+        ame:'L'la Prefecture','
+        tate_code:'L'',',
       },
       {
-        name: 'Macenta Prefecture',
-        state_code: 'MC',
+        ame:'M'centa Prefecture','
+        tate_code:'M'',',
       },
       {
-        name: 'Mali Prefecture',
-        state_code: 'ML',
+        ame:'M'li Prefecture','
+        tate_code:'M'',',
       },
       {
-        name: 'Mamou Prefecture',
-        state_code: 'MM',
+        ame:'M'mou Prefecture','
+        tate_code:'M'',',
       },
       {
-        name: 'Mamou Region',
-        state_code: 'M',
+        ame:'M'mou Region','
+        tate_code:'M',',
       },
       {
-        name: 'Mandiana Prefecture',
-        state_code: 'MD',
+        ame:'M'ndiana Prefecture','
+        tate_code:'M'',',
       },
       {
-        name: 'Nzérékoré Prefecture',
-        state_code: 'NZ',
+        ame:'N'érékoré Prefecture','
+        tate_code:'N'',',
       },
       {
-        name: 'Nzérékoré Region',
-        state_code: 'N',
+        ame:'N'érékoré Region','
+        tate_code:'N',',
       },
       {
-        name: 'Pita Prefecture',
-        state_code: 'PI',
+        ame:'P'ta Prefecture','
+        tate_code:'P'',',
       },
       {
-        name: 'Siguiri Prefecture',
-        state_code: 'SI',
+        ame:'S'guiri Prefecture','
+        tate_code:'S'',',
       },
       {
-        name: 'Télimélé Prefecture',
-        state_code: 'TE',
+        ame:'T'limélé Prefecture','
+        tate_code:'T'',',
       },
       {
-        name: 'Tougué Prefecture',
-        state_code: 'TO',
+        ame:'T'ugué Prefecture','
+        tate_code:'T'',',
       },
       {
-        name: 'Yomou Prefecture',
-        state_code: 'YO',
-      },
-    ],
+        ame:'Y'mou Prefecture','
+        tate_code:'Y'',',
+      },,
+    ],,
   },
   {
-    name: 'Guinea-Bissau',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_Guinea-Bissau.svg',
-    iso2: 'GW',
-    states: [
+    ame:'G'inea-Bissau','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_Guinea-Bissau.svg','
+    so2:'G'','
+    tates:[
       {
-        name: 'Bafatá',
-        state_code: 'BA',
+        ame:'B'fatá','
+        tate_code:'B'',',
       },
       {
-        name: 'Biombo Region',
-        state_code: 'BM',
+        ame:'B'ombo Region','
+        tate_code:'B'',',
       },
       {
-        name: 'Bolama Region',
-        state_code: 'BL',
+        ame:'B'lama Region','
+        tate_code:'B'',',
       },
       {
-        name: 'Cacheu Region',
-        state_code: 'CA',
+        ame:'C'cheu Region','
+        tate_code:'C'',',
       },
       {
-        name: 'Gabú Region',
-        state_code: 'GA',
+        ame:'G'bú Region','
+        tate_code:'G'',',
       },
       {
-        name: 'Leste Province',
-        state_code: 'L',
+        ame:'L'ste Province','
+        tate_code:'L',',
       },
       {
-        name: 'Norte Province',
-        state_code: 'N',
+        ame:'N'rte Province','
+        tate_code:'N',',
       },
       {
-        name: 'Oio Region',
-        state_code: 'OI',
+        ame:'O'o Region','
+        tate_code:'O'',',
       },
       {
-        name: 'Quinara Region',
-        state_code: 'QU',
+        ame:'Q'inara Region','
+        tate_code:'Q'',',
       },
       {
-        name: 'Sul Province',
-        state_code: 'S',
+        ame:'S'l Province','
+        tate_code:'S',',
       },
       {
-        name: 'Tombali Region',
-        state_code: 'TO',
-      },
-    ],
+        ame:'T'mbali Region','
+        tate_code:'T'',',
+      },,
+    ],,
   },
   {
-    name: 'Guyana',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/9/99/Flag_of_Guyana.svg',
-    iso2: 'GY',
-    states: [
+    ame:'G'yana','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/9/99/Flag_of_Guyana.svg','
+    so2:'G'','
+    tates:[
       {
-        name: 'Barima-Waini',
-        state_code: 'BA',
+        ame:'B'rima-Waini','
+        tate_code:'B'',',
       },
       {
-        name: 'Cuyuni-Mazaruni',
-        state_code: 'CU',
+        ame:'C'yuni-Mazaruni','
+        tate_code:'C'',',
       },
       {
-        name: 'Demerara-Mahaica',
-        state_code: 'DE',
+        ame:'D'merara-Mahaica','
+        tate_code:'D'',',
       },
       {
-        name: 'East Berbice-Corentyne',
-        state_code: 'EB',
+        ame:'E'st Berbice-Corentyne','
+        tate_code:'E'',',
       },
       {
-        name: 'Essequibo Islands-West Demerara',
-        state_code: 'ES',
+        ame:'E'sequibo Islands-West Demerara','
+        tate_code:'E'',',
       },
       {
-        name: 'Mahaica-Berbice',
-        state_code: 'MA',
+        ame:'M'haica-Berbice','
+        tate_code:'M'',',
       },
       {
-        name: 'Pomeroon-Supenaam',
-        state_code: 'PM',
+        ame:'P'meroon-Supenaam','
+        tate_code:'P'',',
       },
       {
-        name: 'Potaro-Siparuni',
-        state_code: 'PT',
+        ame:'P'taro-Siparuni','
+        tate_code:'P'',',
       },
       {
-        name: 'Upper Demerara-Berbice',
-        state_code: 'UD',
+        ame:'U'per Demerara-Berbice','
+        tate_code:'U'',',
       },
       {
-        name: 'Upper Takutu-Upper Essequibo',
-        state_code: 'UT',
-      },
-    ],
+        ame:'U'per Takutu-Upper Essequibo','
+        tate_code:'U'',',
+      },,
+    ],,
   },
   {
-    name: 'Haiti',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/5/56/Flag_of_Haiti.svg',
-    iso2: 'HT',
-    states: [
+    ame:'H'iti','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/5/56/Flag_of_Haiti.svg','
+    so2:'H'','
+    tates:[
       {
-        name: 'Artibonite',
-        state_code: 'AR',
+        ame:'A'tibonite','
+        tate_code:'A'',',
       },
       {
-        name: 'Centre',
-        state_code: 'CE',
+        ame:'C'ntre','
+        tate_code:'C'',',
       },
       {
-        name: "Grand'Anse",
-        state_code: 'GA',
+        ame:"Grand'Anse",
+        tate_code:'G'',',
       },
       {
-        name: 'Nippes',
-        state_code: 'NI',
+        ame:'N'ppes','
+        tate_code:'N'',',
       },
       {
-        name: 'Nord',
-        state_code: 'ND',
+        ame:'N'rd','
+        tate_code:'N'',',
       },
       {
-        name: 'Nord-Est',
-        state_code: 'NE',
+        ame:'N'rd-Est','
+        tate_code:'N'',',
       },
       {
-        name: 'Nord-Ouest',
-        state_code: 'NO',
+        ame:'N'rd-Ouest','
+        tate_code:'N'',',
       },
       {
-        name: 'Ouest',
-        state_code: 'OU',
+        ame:'O'est','
+        tate_code:'O'',',
       },
       {
-        name: 'Sud',
-        state_code: 'SD',
+        ame:'S'd','
+        tate_code:'S'',',
       },
       {
-        name: 'Sud-Est',
-        state_code: 'SE',
-      },
-    ],
+        ame:'S'd-Est','
+        tate_code:'S'',',
+      },,
+    ],,
   },
   {
-    name: 'Heard Island and McDonald Islands',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg',
-    iso2: 'HM',
-    states: [],
+    ame:'H'ard Island and McDonald Islands','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg','
+    so2:'H'','
+    tates:[],,
   },
   {
-    name: 'Honduras',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/c/ca/Naval_Ensign_of_Honduras.svg',
-    iso2: 'HN',
-    states: [
+    ame:'H'nduras','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/c/ca/Naval_Ensign_of_Honduras.svg','
+    so2:'H'','
+    tates:[
       {
-        name: 'Atlántida Department',
-        state_code: 'AT',
+        ame:'A'lántida Department','
+        tate_code:'A'',',
       },
       {
-        name: 'Bay Islands Department',
-        state_code: 'IB',
+        ame:'B'y Islands Department','
+        tate_code:'I'',',
       },
       {
-        name: 'Choluteca Department',
-        state_code: 'CH',
+        ame:'C'oluteca Department','
+        tate_code:'C'',',
       },
       {
-        name: 'Colón Department',
-        state_code: 'CL',
+        ame:'C'lón Department','
+        tate_code:'C'',',
       },
       {
-        name: 'Comayagua Department',
-        state_code: 'CM',
+        ame:'C'mayagua Department','
+        tate_code:'C'',',
       },
       {
-        name: 'Copán Department',
-        state_code: 'CP',
+        ame:'C'pán Department','
+        tate_code:'C'',',
       },
       {
-        name: 'Cortés Department',
-        state_code: 'CR',
+        ame:'C'rtés Department','
+        tate_code:'C'',',
       },
       {
-        name: 'El Paraíso Department',
-        state_code: 'EP',
+        ame:'E' Paraíso Department','
+        tate_code:'E'',',
       },
       {
-        name: 'Francisco Morazán Department',
-        state_code: 'FM',
+        ame:'F'ancisco Morazán Department','
+        tate_code:'F'',',
       },
       {
-        name: 'Gracias a Dios Department',
-        state_code: 'GD',
+        ame:'G'acias a Dios Department','
+        tate_code:'G'',',
       },
       {
-        name: 'Intibucá Department',
-        state_code: 'IN',
+        ame:'I'tibucá Department','
+        tate_code:'I'',',
       },
       {
-        name: 'La Paz Department',
-        state_code: 'LP',
+        ame:'L' Paz Department','
+        tate_code:'L'',',
       },
       {
-        name: 'Lempira Department',
-        state_code: 'LE',
+        ame:'L'mpira Department','
+        tate_code:'L'',',
       },
       {
-        name: 'Ocotepeque Department',
-        state_code: 'OC',
+        ame:'O'otepeque Department','
+        tate_code:'O'',',
       },
       {
-        name: 'Olancho Department',
-        state_code: 'OL',
+        ame:'O'ancho Department','
+        tate_code:'O'',',
       },
       {
-        name: 'Santa Bárbara Department',
-        state_code: 'SB',
+        ame:'S'nta Bárbara Department','
+        tate_code:'S'',',
       },
       {
-        name: 'Valle Department',
-        state_code: 'VA',
+        ame:'V'lle Department','
+        tate_code:'V'',',
       },
       {
-        name: 'Yoro Department',
-        state_code: 'YO',
-      },
-    ],
+        ame:'Y'ro Department','
+        tate_code:'Y'',',
+      },,
+    ],,
   },
   {
-    name: 'Hong Kong S.A.R.',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/5/5b/Flag_of_Hong_Kong.svg',
-    iso2: 'HK',
-    states: [],
+    ame:'H'ng Kong S.A.R.','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/5/5b/Flag_of_Hong_Kong.svg','
+    so2:'H'','
+    tates:[],,
   },
   {
-    name: 'Hungary',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Flag_of_Hungary.svg',
-    iso2: 'HU',
-    states: [
+    ame:'H'ngary','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/c/c1/Flag_of_Hungary.svg','
+    so2:'H'','
+    tates:[
       {
-        name: 'Bács-Kiskun County',
-        state_code: 'BK',
+        ame:'B'cs-Kiskun County','
+        tate_code:'B'',',
       },
       {
-        name: 'Baranya County',
-        state_code: 'BA',
+        ame:'B'ranya County','
+        tate_code:'B'',',
       },
       {
-        name: 'Békés County',
-        state_code: 'BE',
+        ame:'B'kés County','
+        tate_code:'B'',',
       },
       {
-        name: 'Békéscsaba',
-        state_code: 'BC',
+        ame:'B'késcsaba','
+        tate_code:'B'',',
       },
       {
-        name: 'Borsod-Abaúj-Zemplén County',
-        state_code: 'BZ',
+        ame:'B'rsod-Abaúj-Zemplén County','
+        tate_code:'B'',',
       },
       {
-        name: 'Budapest',
-        state_code: 'BU',
+        ame:'B'dapest','
+        tate_code:'B'',',
       },
       {
-        name: 'Csongrád County',
-        state_code: 'CS',
+        ame:'C'ongrád County','
+        tate_code:'C'',',
       },
       {
-        name: 'Debrecen',
-        state_code: 'DE',
+        ame:'D'brecen','
+        tate_code:'D'',',
       },
       {
-        name: 'Dunaújváros',
-        state_code: 'DU',
+        ame:'D'naújváros','
+        tate_code:'D'',',
       },
       {
-        name: 'Eger',
-        state_code: 'EG',
+        ame:'E'er','
+        tate_code:'E'',',
       },
       {
-        name: 'Érd',
-        state_code: 'ER',
+        ame:'É'd','
+        tate_code:'E'',',
       },
       {
-        name: 'Fejér County',
-        state_code: 'FE',
+        ame:'F'jér County','
+        tate_code:'F'',',
       },
       {
-        name: 'Győr',
-        state_code: 'GY',
+        ame:'G'őr','
+        tate_code:'G'',',
       },
       {
-        name: 'Győr-Moson-Sopron County',
-        state_code: 'GS',
+        ame:'G'őr-Moson-Sopron County','
+        tate_code:'G'',',
       },
       {
-        name: 'Hajdú-Bihar County',
-        state_code: 'HB',
+        ame:'H'jdú-Bihar County','
+        tate_code:'H'',',
       },
       {
-        name: 'Heves County',
-        state_code: 'HE',
+        ame:'H'ves County','
+        tate_code:'H'',',
       },
       {
-        name: 'Hódmezővásárhely',
-        state_code: 'HV',
+        ame:'H'dmezővásárhely','
+        tate_code:'H'',',
       },
       {
-        name: 'Jász-Nagykun-Szolnok County',
-        state_code: 'JN',
+        ame:'J'sz-Nagykun-Szolnok County','
+        tate_code:'J'',',
       },
       {
-        name: 'Kaposvár',
-        state_code: 'KV',
+        ame:'K'posvár','
+        tate_code:'K'',',
       },
       {
-        name: 'Kecskemét',
-        state_code: 'KM',
+        ame:'K'cskemét','
+        tate_code:'K'',',
       },
       {
-        name: 'Miskolc',
-        state_code: 'MI',
+        ame:'M'skolc','
+        tate_code:'M'',',
       },
       {
-        name: 'Nagykanizsa',
-        state_code: 'NK',
+        ame:'N'gykanizsa','
+        tate_code:'N'',',
       },
       {
-        name: 'Nógrád County',
-        state_code: 'NO',
+        ame:'N'grád County','
+        tate_code:'N'',',
       },
       {
-        name: 'Nyíregyháza',
-        state_code: 'NY',
+        ame:'N'íregyháza','
+        tate_code:'N'',',
       },
       {
-        name: 'Pécs',
-        state_code: 'PS',
+        ame:'P'cs','
+        tate_code:'P'',',
       },
       {
-        name: 'Pest County',
-        state_code: 'PE',
+        ame:'P'st County','
+        tate_code:'P'',',
       },
       {
-        name: 'Salgótarján',
-        state_code: 'ST',
+        ame:'S'lgótarján','
+        tate_code:'S'',',
       },
       {
-        name: 'Somogy County',
-        state_code: 'SO',
+        ame:'S'mogy County','
+        tate_code:'S'',',
       },
       {
-        name: 'Sopron',
-        state_code: 'SN',
+        ame:'S'pron','
+        tate_code:'S'',',
       },
       {
-        name: 'Szabolcs-Szatmár-Bereg County',
-        state_code: 'SZ',
+        ame:'S'abolcs-Szatmár-Bereg County','
+        tate_code:'S'',',
       },
       {
-        name: 'Szeged',
-        state_code: 'SD',
+        ame:'S'eged','
+        tate_code:'S'',',
       },
       {
-        name: 'Székesfehérvár',
-        state_code: 'SF',
+        ame:'S'ékesfehérvár','
+        tate_code:'S'',',
       },
       {
-        name: 'Szekszárd',
-        state_code: 'SS',
+        ame:'S'ekszárd','
+        tate_code:'S'',',
       },
       {
-        name: 'Szolnok',
-        state_code: 'SK',
+        ame:'S'olnok','
+        tate_code:'S'',',
       },
       {
-        name: 'Szombathely',
-        state_code: 'SH',
+        ame:'S'ombathely','
+        tate_code:'S'',',
       },
       {
-        name: 'Tatabánya',
-        state_code: 'TB',
+        ame:'T'tabánya','
+        tate_code:'T'',',
       },
       {
-        name: 'Tolna County',
-        state_code: 'TO',
+        ame:'T'lna County','
+        tate_code:'T'',',
       },
       {
-        name: 'Vas County',
-        state_code: 'VA',
+        ame:'V's County','
+        tate_code:'V'',',
       },
       {
-        name: 'Veszprém',
-        state_code: 'VM',
+        ame:'V'szprém','
+        tate_code:'V'',',
       },
       {
-        name: 'Veszprém County',
-        state_code: 'VE',
+        ame:'V'szprém County','
+        tate_code:'V'',',
       },
       {
-        name: 'Zala County',
-        state_code: 'ZA',
+        ame:'Z'la County','
+        tate_code:'Z'',',
       },
       {
-        name: 'Zalaegerszeg',
-        state_code: 'ZE',
-      },
-    ],
+        ame:'Z'laegerszeg','
+        tate_code:'Z'',',
+      },,
+    ],,
   },
   {
-    name: 'Iceland',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Iceland.svg',
-    iso2: 'IS',
-    states: [
+    ame:'I'eland','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Iceland.svg','
+    so2:'I'','
+    tates:[
       {
-        name: 'Capital Region',
-        state_code: '1',
+        ame:'C'pital Region','
+        tate_code:'1',',
       },
       {
-        name: 'Eastern Region',
-        state_code: '7',
+        ame:'E'stern Region','
+        tate_code:'7',',
       },
       {
-        name: 'Northeastern Region',
-        state_code: '6',
+        ame:'N'rtheastern Region','
+        tate_code:'6',',
       },
       {
-        name: 'Northwestern Region',
-        state_code: '5',
+        ame:'N'rthwestern Region','
+        tate_code:'5',',
       },
       {
-        name: 'Southern Peninsula Region',
-        state_code: '2',
+        ame:'S'uthern Peninsula Region','
+        tate_code:'2',',
       },
       {
-        name: 'Southern Region',
-        state_code: '8',
+        ame:'S'uthern Region','
+        tate_code:'8',',
       },
       {
-        name: 'Western Region',
-        state_code: '3',
+        ame:'W'stern Region','
+        tate_code:'3',',
       },
       {
-        name: 'Westfjords',
-        state_code: '4',
-      },
-    ],
+        ame:'W'stfjords','
+        tate_code:'4',',
+      },,
+    ],,
   },
   {
-    name: 'India',
-    flag: 'https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg',
-    iso2: 'IN',
-    states: [
+    ame:'I'dia','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg','
+    so2:'I'','
+    tates:[
       {
-        name: 'Andaman and Nicobar Islands',
-        state_code: 'AN',
+        ame:'A'daman and Nicobar Islands','
+        tate_code:'A'',',
       },
       {
-        name: 'Andhra Pradesh',
-        state_code: 'AP',
+        ame:'A'dhra Pradesh','
+        tate_code:'A'',',
       },
       {
-        name: 'Arunachal Pradesh',
-        state_code: 'AR',
+        ame:'A'unachal Pradesh','
+        tate_code:'A'',',
       },
       {
-        name: 'Assam',
-        state_code: 'AS',
+        ame:'A'sam','
+        tate_code:'A'',',
       },
       {
-        name: 'Bihar',
-        state_code: 'BR',
+        ame:'B'har','
+        tate_code:'B'',',
       },
       {
-        name: 'Chandigarh',
-        state_code: 'CH',
+        ame:'C'andigarh','
+        tate_code:'C'',',
       },
       {
-        name: 'Chhattisgarh',
-        state_code: 'CT',
+        ame:'C'hattisgarh','
+        tate_code:'C'',',
       },
       {
-        name: 'Dadra and Nagar Haveli',
-        state_code: 'DN',
+        ame:'D'dra and Nagar Haveli','
+        tate_code:'D'',',
       },
       {
-        name: 'Daman and Diu',
-        state_code: 'DD',
+        ame:'D'man and Diu','
+        tate_code:'D'',',
       },
       {
-        name: 'Delhi',
-        state_code: 'DL',
+        ame:'D'lhi','
+        tate_code:'D'',',
       },
       {
-        name: 'Goa',
-        state_code: 'GA',
+        ame:'G'a','
+        tate_code:'G'',',
       },
       {
-        name: 'Gujarat',
-        state_code: 'GJ',
+        ame:'G'jarat','
+        tate_code:'G'',',
       },
       {
-        name: 'Haryana',
-        state_code: 'HR',
+        ame:'H'ryana','
+        tate_code:'H'',',
       },
       {
-        name: 'Himachal Pradesh',
-        state_code: 'HP',
+        ame:'H'machal Pradesh','
+        tate_code:'H'',',
       },
       {
-        name: 'Jammu and Kashmir',
-        state_code: 'JK',
+        ame:'J'mmu and Kashmir','
+        tate_code:'J'',',
       },
       {
-        name: 'Jharkhand',
-        state_code: 'JH',
+        ame:'J'arkhand','
+        tate_code:'J'',',
       },
       {
-        name: 'Karnataka',
-        state_code: 'KA',
+        ame:'K'rnataka','
+        tate_code:'K'',',
       },
       {
-        name: 'Kerala',
-        state_code: 'KL',
+        ame:'K'rala','
+        tate_code:'K'',',
       },
       {
-        name: 'Ladakh',
-        state_code: 'LA',
+        ame:'L'dakh','
+        tate_code:'L'',',
       },
       {
-        name: 'Lakshadweep',
-        state_code: 'LD',
+        ame:'L'kshadweep','
+        tate_code:'L'',',
       },
       {
-        name: 'Madhya Pradesh',
-        state_code: 'MP',
+        ame:'M'dhya Pradesh','
+        tate_code:'M'',',
       },
       {
-        name: 'Maharashtra',
-        state_code: 'MH',
+        ame:'M'harashtra','
+        tate_code:'M'',',
       },
       {
-        name: 'Manipur',
-        state_code: 'MN',
+        ame:'M'nipur','
+        tate_code:'M'',',
       },
       {
-        name: 'Meghalaya',
-        state_code: 'ML',
+        ame:'M'ghalaya','
+        tate_code:'M'',',
       },
       {
-        name: 'Mizoram',
-        state_code: 'MZ',
+        ame:'M'zoram','
+        tate_code:'M'',',
       },
       {
-        name: 'Nagaland',
-        state_code: 'NL',
+        ame:'N'galand','
+        tate_code:'N'',',
       },
       {
-        name: 'Odisha',
-        state_code: 'OR',
+        ame:'O'isha','
+        tate_code:'O'',',
       },
       {
-        name: 'Puducherry',
-        state_code: 'PY',
+        ame:'P'ducherry','
+        tate_code:'P'',',
       },
       {
-        name: 'Punjab',
-        state_code: 'PB',
+        ame:'P'njab','
+        tate_code:'P'',',
       },
       {
-        name: 'Rajasthan',
-        state_code: 'RJ',
+        ame:'R'jasthan','
+        tate_code:'R'',',
       },
       {
-        name: 'Sikkim',
-        state_code: 'SK',
+        ame:'S'kkim','
+        tate_code:'S'',',
       },
       {
-        name: 'Tamil Nadu',
-        state_code: 'TN',
+        ame:'T'mil Nadu','
+        tate_code:'T'',',
       },
       {
-        name: 'Telangana',
-        state_code: 'TG',
+        ame:'T'langana','
+        tate_code:'T'',',
       },
       {
-        name: 'Tripura',
-        state_code: 'TR',
+        ame:'T'ipura','
+        tate_code:'T'',',
       },
       {
-        name: 'Uttar Pradesh',
-        state_code: 'UP',
+        ame:'U'tar Pradesh','
+        tate_code:'U'',',
       },
       {
-        name: 'Uttarakhand',
-        state_code: 'UT',
+        ame:'U'tarakhand','
+        tate_code:'U'',',
       },
       {
-        name: 'West Bengal',
-        state_code: 'WB',
-      },
-    ],
+        ame:'W'st Bengal','
+        tate_code:'W'',',
+      },,
+    ],,
   },
   {
-    name: 'Indonesia',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg',
-    iso2: 'ID',
-    states: [
+    ame:'I'donesia','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg','
+    so2:'I'','
+    tates:[
       {
-        name: 'Aceh',
-        state_code: 'AC',
+        ame:'A'eh','
+        tate_code:'A'',',
       },
       {
-        name: 'Bali',
-        state_code: 'BA',
+        ame:'B'li','
+        tate_code:'B'',',
       },
       {
-        name: 'Bangka Belitung Islands',
-        state_code: 'BB',
+        ame:'B'ngka Belitung Islands','
+        tate_code:'B'',',
       },
       {
-        name: 'Banten',
-        state_code: 'BT',
+        ame:'B'nten','
+        tate_code:'B'',',
       },
       {
-        name: 'Bengkulu',
-        state_code: 'BE',
+        ame:'B'ngkulu','
+        tate_code:'B'',',
       },
       {
-        name: 'Central Java',
-        state_code: 'JT',
+        ame:'C'ntral Java','
+        tate_code:'J'',',
       },
       {
-        name: 'Central Kalimantan',
-        state_code: 'KT',
+        ame:'C'ntral Kalimantan','
+        tate_code:'K'',',
       },
       {
-        name: 'Central Sulawesi',
-        state_code: 'ST',
+        ame:'C'ntral Sulawesi','
+        tate_code:'S'',',
       },
       {
-        name: 'East Java',
-        state_code: 'JI',
+        ame:'E'st Java','
+        tate_code:'J'',',
       },
       {
-        name: 'East Kalimantan',
-        state_code: 'KI',
+        ame:'E'st Kalimantan','
+        tate_code:'K'',',
       },
       {
-        name: 'East Nusa Tenggara',
-        state_code: 'NT',
+        ame:'E'st Nusa Tenggara','
+        tate_code:'N'',',
       },
       {
-        name: 'Gorontalo',
-        state_code: 'GO',
+        ame:'G'rontalo','
+        tate_code:'G'',',
       },
       {
-        name: 'Jakarta',
-        state_code: 'JK',
+        ame:'J'karta','
+        tate_code:'J'',',
       },
       {
-        name: 'Jambi',
-        state_code: 'JA',
+        ame:'J'mbi','
+        tate_code:'J'',',
       },
       {
-        name: 'Kalimantan',
-        state_code: 'KA',
+        ame:'K'limantan','
+        tate_code:'K'',',
       },
       {
-        name: 'Lampung',
-        state_code: 'LA',
+        ame:'L'mpung','
+        tate_code:'L'',',
       },
       {
-        name: 'Lesser Sunda Islands',
-        state_code: 'NU',
+        ame:'L'sser Sunda Islands','
+        tate_code:'N'',',
       },
       {
-        name: 'Maluku',
-        state_code: 'MA',
+        ame:'M'luku','
+        tate_code:'M'',',
       },
       {
-        name: 'Maluku Islands',
-        state_code: 'ML',
+        ame:'M'luku Islands','
+        tate_code:'M'',',
       },
       {
-        name: 'North Kalimantan',
-        state_code: 'KU',
+        ame:'N'rth Kalimantan','
+        tate_code:'K'',',
       },
       {
-        name: 'North Maluku',
-        state_code: 'MU',
+        ame:'N'rth Maluku','
+        tate_code:'M'',',
       },
       {
-        name: 'North Sulawesi',
-        state_code: 'SA',
+        ame:'N'rth Sulawesi','
+        tate_code:'S'',',
       },
       {
-        name: 'North Sumatra',
-        state_code: 'SU',
+        ame:'N'rth Sumatra','
+        tate_code:'S'',',
       },
       {
-        name: 'Papua',
-        state_code: 'PA',
+        ame:'P'pua','
+        tate_code:'P'',',
       },
       {
-        name: 'Riau',
-        state_code: 'RI',
+        ame:'R'au','
+        tate_code:'R'',',
       },
       {
-        name: 'Riau Islands',
-        state_code: 'KR',
+        ame:'R'au Islands','
+        tate_code:'K'',',
       },
       {
-        name: 'South Kalimantan',
-        state_code: 'KS',
+        ame:'S'uth Kalimantan','
+        tate_code:'K'',',
       },
       {
-        name: 'South Sulawesi',
-        state_code: 'SN',
+        ame:'S'uth Sulawesi','
+        tate_code:'S'',',
       },
       {
-        name: 'South Sumatra',
-        state_code: 'SS',
+        ame:'S'uth Sumatra','
+        tate_code:'S'',',
       },
       {
-        name: 'Southeast Sulawesi',
-        state_code: 'SG',
+        ame:'S'utheast Sulawesi','
+        tate_code:'S'',',
       },
       {
-        name: 'Special Region of Yogyakarta',
-        state_code: 'YO',
+        ame:'S'ecial Region of Yogyakarta','
+        tate_code:'Y'',',
       },
       {
-        name: 'Sulawesi',
-        state_code: 'SL',
+        ame:'S'lawesi','
+        tate_code:'S'',',
       },
       {
-        name: 'Sumatra',
-        state_code: 'SM',
+        ame:'S'matra','
+        tate_code:'S'',',
       },
       {
-        name: 'West Java',
-        state_code: 'JB',
+        ame:'W'st Java','
+        tate_code:'J'',',
       },
       {
-        name: 'West Nusa Tenggara',
-        state_code: 'NB',
+        ame:'W'st Nusa Tenggara','
+        tate_code:'N'',',
       },
       {
-        name: 'West Papua',
-        state_code: 'PB',
+        ame:'W'st Papua','
+        tate_code:'P'',',
       },
       {
-        name: 'West Sulawesi',
-        state_code: 'SR',
+        ame:'W'st Sulawesi','
+        tate_code:'S'',',
       },
       {
-        name: 'West Sumatra',
-        state_code: 'SB',
-      },
-    ],
+        ame:'W'st Sumatra','
+        tate_code:'S'',',
+      },,
+    ],,
   },
   {
-    name: 'Iran',
-    flag: ' https://upload.wikimedia.org/wikipedia/commons/c/ca/Flag_of_Iran.svg',
-    iso2: 'IR',
-    states: [
+    ame:'I'an','
+    lag:' 'ttps://upload.wikimedia.org/wikipedia/commons/c/ca/Flag_of_Iran.svg','
+    so2:'I'','
+    tates:[
       {
-        name: 'Alborz Province',
-        state_code: '32',
+        ame:'A'borz Province','
+        tate_code:'3'',',
       },
       {
-        name: 'Ardabil Province',
-        state_code: '03',
+        ame:'A'dabil Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Bushehr Province',
-        state_code: '06',
+        ame:'B'shehr Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Chaharmahal and Bakhtiari Province',
-        state_code: '08',
+        ame:'C'aharmahal and Bakhtiari Province','
+        tate_code:'0'',',
       },
       {
-        name: 'East Azerbaijan Province',
-        state_code: '01',
+        ame:'E'st Azerbaijan Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Fars Province',
-        state_code: '14',
+        ame:'F'rs Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Gilan Province',
-        state_code: '19',
+        ame:'G'lan Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Golestan Province',
-        state_code: '27',
+        ame:'G'lestan Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Hormozgan Province',
-        state_code: '23',
+        ame:'H'rmozgan Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Ilam Province',
-        state_code: '05',
+        ame:'I'am Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Isfahan Province',
-        state_code: '04',
+        ame:'I'fahan Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Kerman Province',
-        state_code: '15',
+        ame:'K'rman Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Kermanshah Province',
-        state_code: '17',
+        ame:'K'rmanshah Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Khuzestan Province',
-        state_code: '10',
+        ame:'K'uzestan Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Kohgiluyeh and Boyer-Ahmad Province',
-        state_code: '18',
+        ame:'K'hgiluyeh and Boyer-Ahmad Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Kurdistan Province',
-        state_code: '16',
+        ame:'K'rdistan Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Lorestan Province',
-        state_code: '20',
+        ame:'L'restan Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Markazi Province',
-        state_code: '22',
+        ame:'M'rkazi Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Mazandaran Province',
-        state_code: '21',
+        ame:'M'zandaran Province','
+        tate_code:'2'',',
       },
       {
-        name: 'North Khorasan Province',
-        state_code: '31',
+        ame:'N'rth Khorasan Province','
+        tate_code:'3'',',
       },
       {
-        name: 'Qazvin Province',
-        state_code: '28',
+        ame:'Q'zvin Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Qom Province',
-        state_code: '26',
+        ame:'Q'm Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Razavi Khorasan Province',
-        state_code: '30',
+        ame:'R'zavi Khorasan Province','
+        tate_code:'3'',',
       },
       {
-        name: 'Semnan Province',
-        state_code: '12',
+        ame:'S'mnan Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Sistan and Baluchestan',
-        state_code: '13',
+        ame:'S'stan and Baluchestan','
+        tate_code:'1'',',
       },
       {
-        name: 'South Khorasan Province',
-        state_code: '29',
+        ame:'S'uth Khorasan Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Tehran Province',
-        state_code: '07',
+        ame:'T'hran Province','
+        tate_code:'0'',',
       },
       {
-        name: 'West Azarbaijan Province',
-        state_code: '02',
+        ame:'W'st Azarbaijan Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Yazd Province',
-        state_code: '25',
+        ame:'Y'zd Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Zanjan Province',
-        state_code: '11',
-      },
-    ],
+        ame:'Z'njan Province','
+        tate_code:'1'',',
+      },,
+    ],,
   },
   {
-    name: 'Iraq',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Iraq.svg',
-    iso2: 'IQ',
-    states: [
+    ame:'I'aq','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Iraq.svg','
+    so2:'I'','
+    tates:[
       {
-        name: 'Al Anbar Governorate',
-        state_code: 'AN',
+        ame:'A' Anbar Governorate','
+        tate_code:'A'',',
       },
       {
-        name: 'Al Muthanna Governorate',
-        state_code: 'MU',
+        ame:'A' Muthanna Governorate','
+        tate_code:'M'',',
       },
       {
-        name: 'Al-Qādisiyyah Governorate',
-        state_code: 'QA',
+        ame:'A'-Qādisiyyah Governorate','
+        tate_code:'Q'',',
       },
       {
-        name: 'Babylon Governorate',
-        state_code: 'BB',
+        ame:'B'bylon Governorate','
+        tate_code:'B'',',
       },
       {
-        name: 'Baghdad Governorate',
-        state_code: 'BG',
+        ame:'B'ghdad Governorate','
+        tate_code:'B'',',
       },
       {
-        name: 'Basra Governorate',
-        state_code: 'BA',
+        ame:'B'sra Governorate','
+        tate_code:'B'',',
       },
       {
-        name: 'Dhi Qar Governorate',
-        state_code: 'DQ',
+        ame:'D'i Qar Governorate','
+        tate_code:'D'',',
       },
       {
-        name: 'Diyala Governorate',
-        state_code: 'DI',
+        ame:'D'yala Governorate','
+        tate_code:'D'',',
       },
       {
-        name: 'Dohuk Governorate',
-        state_code: 'DA',
+        ame:'D'huk Governorate','
+        tate_code:'D'',',
       },
       {
-        name: 'Erbil Governorate',
-        state_code: 'AR',
+        ame:'E'bil Governorate','
+        tate_code:'A'',',
       },
       {
-        name: 'Karbala Governorate',
-        state_code: 'KA',
+        ame:'K'rbala Governorate','
+        tate_code:'K'',',
       },
       {
-        name: 'Kirkuk Governorate',
-        state_code: 'KI',
+        ame:'K'rkuk Governorate','
+        tate_code:'K'',',
       },
       {
-        name: 'Maysan Governorate',
-        state_code: 'MA',
+        ame:'M'ysan Governorate','
+        tate_code:'M'',',
       },
       {
-        name: 'Najaf Governorate',
-        state_code: 'NA',
+        ame:'N'jaf Governorate','
+        tate_code:'N'',',
       },
       {
-        name: 'Nineveh Governorate',
-        state_code: 'NI',
+        ame:'N'neveh Governorate','
+        tate_code:'N'',',
       },
       {
-        name: 'Saladin Governorate',
-        state_code: 'SD',
+        ame:'S'ladin Governorate','
+        tate_code:'S'',',
       },
       {
-        name: 'Sulaymaniyah Governorate',
-        state_code: 'SU',
+        ame:'S'laymaniyah Governorate','
+        tate_code:'S'',',
       },
       {
-        name: 'Wasit Governorate',
-        state_code: 'WA',
-      },
-    ],
+        ame:'W'sit Governorate','
+        tate_code:'W'',',
+      },,
+    ],,
   },
   {
-    name: 'Ireland',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/4/45/Flag_of_Ireland.svg',
-    iso2: 'IE',
-    states: [
+    ame:'I'eland','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/4/45/Flag_of_Ireland.svg','
+    so2:'I'','
+    tates:[
       {
-        name: 'Connacht',
-        state_code: 'C',
+        ame:'C'nnacht','
+        tate_code:'C',',
       },
       {
-        name: 'County Carlow',
-        state_code: 'CW',
+        ame:'C'unty Carlow','
+        tate_code:'C'',',
       },
       {
-        name: 'County Cavan',
-        state_code: 'CN',
+        ame:'C'unty Cavan','
+        tate_code:'C'',',
       },
       {
-        name: 'County Clare',
-        state_code: 'CE',
+        ame:'C'unty Clare','
+        tate_code:'C'',',
       },
       {
-        name: 'County Cork',
-        state_code: 'CO',
+        ame:'C'unty Cork','
+        tate_code:'C'',',
       },
       {
-        name: 'County Donegal',
-        state_code: 'DL',
+        ame:'C'unty Donegal','
+        tate_code:'D'',',
       },
       {
-        name: 'County Dublin',
-        state_code: 'D',
+        ame:'C'unty Dublin','
+        tate_code:'D',',
       },
       {
-        name: 'County Galway',
-        state_code: 'G',
+        ame:'C'unty Galway','
+        tate_code:'G',',
       },
       {
-        name: 'County Kerry',
-        state_code: 'KY',
+        ame:'C'unty Kerry','
+        tate_code:'K'',',
       },
       {
-        name: 'County Kildare',
-        state_code: 'KE',
+        ame:'C'unty Kildare','
+        tate_code:'K'',',
       },
       {
-        name: 'County Kilkenny',
-        state_code: 'KK',
+        ame:'C'unty Kilkenny','
+        tate_code:'K'',',
       },
       {
-        name: 'County Laois',
-        state_code: 'LS',
+        ame:'C'unty Laois','
+        tate_code:'L'',',
       },
       {
-        name: 'County Limerick',
-        state_code: 'LK',
+        ame:'C'unty Limerick','
+        tate_code:'L'',',
       },
       {
-        name: 'County Longford',
-        state_code: 'LD',
+        ame:'C'unty Longford','
+        tate_code:'L'',',
       },
       {
-        name: 'County Louth',
-        state_code: 'LH',
+        ame:'C'unty Louth','
+        tate_code:'L'',',
       },
       {
-        name: 'County Mayo',
-        state_code: 'MO',
+        ame:'C'unty Mayo','
+        tate_code:'M'',',
       },
       {
-        name: 'County Meath',
-        state_code: 'MH',
+        ame:'C'unty Meath','
+        tate_code:'M'',',
       },
       {
-        name: 'County Monaghan',
-        state_code: 'MN',
+        ame:'C'unty Monaghan','
+        tate_code:'M'',',
       },
       {
-        name: 'County Offaly',
-        state_code: 'OY',
+        ame:'C'unty Offaly','
+        tate_code:'O'',',
       },
       {
-        name: 'County Roscommon',
-        state_code: 'RN',
+        ame:'C'unty Roscommon','
+        tate_code:'R'',',
       },
       {
-        name: 'County Sligo',
-        state_code: 'SO',
+        ame:'C'unty Sligo','
+        tate_code:'S'',',
       },
       {
-        name: 'County Tipperary',
-        state_code: 'TA',
+        ame:'C'unty Tipperary','
+        tate_code:'T'',',
       },
       {
-        name: 'County Waterford',
-        state_code: 'WD',
+        ame:'C'unty Waterford','
+        tate_code:'W'',',
       },
       {
-        name: 'County Westmeath',
-        state_code: 'WH',
+        ame:'C'unty Westmeath','
+        tate_code:'W'',',
       },
       {
-        name: 'County Wexford',
-        state_code: 'WX',
+        ame:'C'unty Wexford','
+        tate_code:'W'',',
       },
       {
-        name: 'County Wicklow',
-        state_code: 'WW',
+        ame:'C'unty Wicklow','
+        tate_code:'W'',',
       },
       {
-        name: 'Leinster',
-        state_code: 'L',
+        ame:'L'inster','
+        tate_code:'L',',
       },
       {
-        name: 'Munster',
-        state_code: 'M',
+        ame:'M'nster','
+        tate_code:'M',',
       },
       {
-        name: 'Ulster',
-        state_code: 'U',
-      },
-    ],
+        ame:'U'ster','
+        tate_code:'U',',
+      },,
+    ],,
   },
   {
-    name: 'Israel',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg',
-    iso2: 'IL',
-    states: [
+    ame:'I'rael','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg','
+    so2:'I'','
+    tates:[
       {
-        name: 'Central District',
-        state_code: 'M',
+        ame:'C'ntral District','
+        tate_code:'M',',
       },
       {
-        name: 'Haifa District',
-        state_code: 'HA',
+        ame:'H'ifa District','
+        tate_code:'H'',',
       },
       {
-        name: 'Jerusalem District',
-        state_code: 'JM',
+        ame:'J'rusalem District','
+        tate_code:'J'',',
       },
       {
-        name: 'Northern District',
-        state_code: 'Z',
+        ame:'N'rthern District','
+        tate_code:'Z',',
       },
       {
-        name: 'Southern District',
-        state_code: 'D',
+        ame:'S'uthern District','
+        tate_code:'D',',
       },
       {
-        name: 'Tel Aviv District',
-        state_code: 'TA',
-      },
-    ],
+        ame:'T'l Aviv District','
+        tate_code:'T'',',
+      },,
+    ],,
   },
   {
-    name: 'Italy',
-    flag: 'https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg',
-    iso2: 'IT',
-    states: [
+    ame:'I'aly','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg','
+    so2:'I'','
+    tates:[
       {
-        name: 'Abruzzo',
-        state_code: '65',
+        ame:'A'ruzzo','
+        tate_code:'6'',',
       },
       {
-        name: 'Aosta Valley',
-        state_code: '23',
+        ame:'A'sta Valley','
+        tate_code:'2'',',
       },
       {
-        name: 'Apulia',
-        state_code: '75',
+        ame:'A'ulia','
+        tate_code:'7'',',
       },
       {
-        name: 'Basilicata',
-        state_code: '77',
+        ame:'B'silicata','
+        tate_code:'7'',',
       },
       {
-        name: 'Benevento Province',
-        state_code: 'BN',
+        ame:'B'nevento Province','
+        tate_code:'B'',',
       },
       {
-        name: 'Calabria',
-        state_code: '78',
+        ame:'C'labria','
+        tate_code:'7'',',
       },
       {
-        name: 'Campania',
-        state_code: '72',
+        ame:'C'mpania','
+        tate_code:'7'',',
       },
       {
-        name: 'Emilia-Romagna',
-        state_code: '45',
+        ame:'E'ilia-Romagna','
+        tate_code:'4'',',
       },
       {
-        name: 'Friuli–Venezia Giulia',
-        state_code: '36',
+        ame:'F'iuli–Venezia Giulia','
+        tate_code:'3'',',
       },
       {
-        name: 'Lazio',
-        state_code: '62',
+        ame:'L'zio','
+        tate_code:'6'',',
       },
       {
-        name: 'Libero consorzio comunale di Agrigento',
-        state_code: 'AG',
+        ame:'L'bero consorzio comunale di Agrigento','
+        tate_code:'A'',',
       },
       {
-        name: 'Libero consorzio comunale di Caltanissetta',
-        state_code: 'CL',
+        ame:'L'bero consorzio comunale di Caltanissetta','
+        tate_code:'C'',',
       },
       {
-        name: 'Libero consorzio comunale di Enna',
-        state_code: 'EN',
+        ame:'L'bero consorzio comunale di Enna','
+        tate_code:'E'',',
       },
       {
-        name: 'Libero consorzio comunale di Ragusa',
-        state_code: 'RG',
+        ame:'L'bero consorzio comunale di Ragusa','
+        tate_code:'R'',',
       },
       {
-        name: 'Libero consorzio comunale di Siracusa',
-        state_code: 'SR',
+        ame:'L'bero consorzio comunale di Siracusa','
+        tate_code:'S'',',
       },
       {
-        name: 'Libero consorzio comunale di Trapani',
-        state_code: 'TP',
+        ame:'L'bero consorzio comunale di Trapani','
+        tate_code:'T'',',
       },
       {
-        name: 'Liguria',
-        state_code: '42',
+        ame:'L'guria','
+        tate_code:'4'',',
       },
       {
-        name: 'Lombardy',
-        state_code: '25',
+        ame:'L'mbardy','
+        tate_code:'2'',',
       },
       {
-        name: 'Marche',
-        state_code: '57',
+        ame:'M'rche','
+        tate_code:'5'',',
       },
       {
-        name: 'Metropolitan City of Bari',
-        state_code: 'BA',
+        ame:'M'tropolitan City of Bari','
+        tate_code:'B'',',
       },
       {
-        name: 'Metropolitan City of Bologna',
-        state_code: 'BO',
+        ame:'M'tropolitan City of Bologna','
+        tate_code:'B'',',
       },
       {
-        name: 'Metropolitan City of Cagliari',
-        state_code: 'CA',
+        ame:'M'tropolitan City of Cagliari','
+        tate_code:'C'',',
       },
       {
-        name: 'Metropolitan City of Catania',
-        state_code: 'CT',
+        ame:'M'tropolitan City of Catania','
+        tate_code:'C'',',
       },
       {
-        name: 'Metropolitan City of Florence',
-        state_code: 'FI',
+        ame:'M'tropolitan City of Florence','
+        tate_code:'F'',',
       },
       {
-        name: 'Metropolitan City of Genoa',
-        state_code: 'GE',
+        ame:'M'tropolitan City of Genoa','
+        tate_code:'G'',',
       },
       {
-        name: 'Metropolitan City of Messina',
-        state_code: 'ME',
+        ame:'M'tropolitan City of Messina','
+        tate_code:'M'',',
       },
       {
-        name: 'Metropolitan City of Milan',
-        state_code: 'MI',
+        ame:'M'tropolitan City of Milan','
+        tate_code:'M'',',
       },
       {
-        name: 'Metropolitan City of Naples',
-        state_code: 'NA',
+        ame:'M'tropolitan City of Naples','
+        tate_code:'N'',',
       },
       {
-        name: 'Metropolitan City of Palermo',
-        state_code: 'PA',
+        ame:'M'tropolitan City of Palermo','
+        tate_code:'P'',',
       },
       {
-        name: 'Metropolitan City of Reggio Calabria',
-        state_code: 'RC',
+        ame:'M'tropolitan City of Reggio Calabria','
+        tate_code:'R'',',
       },
       {
-        name: 'Metropolitan City of Rome',
-        state_code: 'RM',
+        ame:'M'tropolitan City of Rome','
+        tate_code:'R'',',
       },
       {
-        name: 'Metropolitan City of Turin',
-        state_code: 'TO',
+        ame:'M'tropolitan City of Turin','
+        tate_code:'T'',',
       },
       {
-        name: 'Metropolitan City of Venice',
-        state_code: 'VE',
+        ame:'M'tropolitan City of Venice','
+        tate_code:'V'',',
       },
       {
-        name: 'Molise',
-        state_code: '67',
+        ame:'M'lise','
+        tate_code:'6'',',
       },
       {
-        name: 'Pesaro and Urbino Province',
-        state_code: 'PU',
+        ame:'P'saro and Urbino Province','
+        tate_code:'P'',',
       },
       {
-        name: 'Piedmont',
-        state_code: '21',
+        ame:'P'edmont','
+        tate_code:'2'',',
       },
       {
-        name: 'Province of Alessandria',
-        state_code: 'AL',
+        ame:'P'ovince of Alessandria','
+        tate_code:'A'',',
       },
       {
-        name: 'Province of Ancona',
-        state_code: 'AN',
+        ame:'P'ovince of Ancona','
+        tate_code:'A'',',
       },
       {
-        name: 'Province of Ascoli Piceno',
-        state_code: 'AP',
+        ame:'P'ovince of Ascoli Piceno','
+        tate_code:'A'',',
       },
       {
-        name: 'Province of Asti',
-        state_code: 'AT',
+        ame:'P'ovince of Asti','
+        tate_code:'A'',',
       },
       {
-        name: 'Province of Avellino',
-        state_code: 'AV',
+        ame:'P'ovince of Avellino','
+        tate_code:'A'',',
       },
       {
-        name: 'Province of Barletta-Andria-Trani',
-        state_code: 'BT',
+        ame:'P'ovince of Barletta-Andria-Trani','
+        tate_code:'B'',',
       },
       {
-        name: 'Province of Belluno',
-        state_code: 'BL',
+        ame:'P'ovince of Belluno','
+        tate_code:'B'',',
       },
       {
-        name: 'Province of Bergamo',
-        state_code: 'BG',
+        ame:'P'ovince of Bergamo','
+        tate_code:'B'',',
       },
       {
-        name: 'Province of Biella',
-        state_code: 'BI',
+        ame:'P'ovince of Biella','
+        tate_code:'B'',',
       },
       {
-        name: 'Province of Brescia',
-        state_code: 'BS',
+        ame:'P'ovince of Brescia','
+        tate_code:'B'',',
       },
       {
-        name: 'Province of Brindisi',
-        state_code: 'BR',
+        ame:'P'ovince of Brindisi','
+        tate_code:'B'',',
       },
       {
-        name: 'Province of Campobasso',
-        state_code: 'CB',
+        ame:'P'ovince of Campobasso','
+        tate_code:'C'',',
       },
       {
-        name: 'Province of Carbonia-Iglesias',
-        state_code: 'CI',
+        ame:'P'ovince of Carbonia-Iglesias','
+        tate_code:'C'',',
       },
       {
-        name: 'Province of Caserta',
-        state_code: 'CE',
+        ame:'P'ovince of Caserta','
+        tate_code:'C'',',
       },
       {
-        name: 'Province of Catanzaro',
-        state_code: 'CZ',
+        ame:'P'ovince of Catanzaro','
+        tate_code:'C'',',
       },
       {
-        name: 'Province of Chieti',
-        state_code: 'CH',
+        ame:'P'ovince of Chieti','
+        tate_code:'C'',',
       },
       {
-        name: 'Province of Como',
-        state_code: 'CO',
+        ame:'P'ovince of Como','
+        tate_code:'C'',',
       },
       {
-        name: 'Province of Cosenza',
-        state_code: 'CS',
+        ame:'P'ovince of Cosenza','
+        tate_code:'C'',',
       },
       {
-        name: 'Province of Cremona',
-        state_code: 'CR',
+        ame:'P'ovince of Cremona','
+        tate_code:'C'',',
       },
       {
-        name: 'Province of Crotone',
-        state_code: 'KR',
+        ame:'P'ovince of Crotone','
+        tate_code:'K'',',
       },
       {
-        name: 'Province of Cuneo',
-        state_code: 'CN',
+        ame:'P'ovince of Cuneo','
+        tate_code:'C'',',
       },
       {
-        name: 'Province of Fermo',
-        state_code: 'FM',
+        ame:'P'ovince of Fermo','
+        tate_code:'F'',',
       },
       {
-        name: 'Province of Ferrara',
-        state_code: 'FE',
+        ame:'P'ovince of Ferrara','
+        tate_code:'F'',',
       },
       {
-        name: 'Province of Foggia',
-        state_code: 'FG',
+        ame:'P'ovince of Foggia','
+        tate_code:'F'',',
       },
       {
-        name: 'Province of Forlì-Cesena',
-        state_code: 'FC',
+        ame:'P'ovince of Forlì-Cesena','
+        tate_code:'F'',',
       },
       {
-        name: 'Province of Frosinone',
-        state_code: 'FR',
+        ame:'P'ovince of Frosinone','
+        tate_code:'F'',',
       },
       {
-        name: 'Province of Gorizia',
-        state_code: 'GO',
+        ame:'P'ovince of Gorizia','
+        tate_code:'G'',',
       },
       {
-        name: 'Province of Grosseto',
-        state_code: 'GR',
+        ame:'P'ovince of Grosseto','
+        tate_code:'G'',',
       },
       {
-        name: 'Province of Imperia',
-        state_code: 'IM',
+        ame:'P'ovince of Imperia','
+        tate_code:'I'',',
       },
       {
-        name: 'Province of Isernia',
-        state_code: 'IS',
+        ame:'P'ovince of Isernia','
+        tate_code:'I'',',
       },
       {
-        name: "Province of L'Aquila",
-        state_code: 'AQ',
+        ame:"Province of L'Aquila",
+        tate_code:'A'',',
       },
       {
-        name: 'Province of La Spezia',
-        state_code: 'SP',
+        ame:'P'ovince of La Spezia','
+        tate_code:'S'',',
       },
       {
-        name: 'Province of Latina',
-        state_code: 'LT',
+        ame:'P'ovince of Latina','
+        tate_code:'L'',',
       },
       {
-        name: 'Province of Lecce',
-        state_code: 'LE',
+        ame:'P'ovince of Lecce','
+        tate_code:'L'',',
       },
       {
-        name: 'Province of Lecco',
-        state_code: 'LC',
+        ame:'P'ovince of Lecco','
+        tate_code:'L'',',
       },
       {
-        name: 'Province of Livorno',
-        state_code: 'LI',
+        ame:'P'ovince of Livorno','
+        tate_code:'L'',',
       },
       {
-        name: 'Province of Lodi',
-        state_code: 'LO',
+        ame:'P'ovince of Lodi','
+        tate_code:'L'',',
       },
       {
-        name: 'Province of Lucca',
-        state_code: 'LU',
+        ame:'P'ovince of Lucca','
+        tate_code:'L'',',
       },
       {
-        name: 'Province of Macerata',
-        state_code: 'MC',
+        ame:'P'ovince of Macerata','
+        tate_code:'M'',',
       },
       {
-        name: 'Province of Mantua',
-        state_code: 'MN',
+        ame:'P'ovince of Mantua','
+        tate_code:'M'',',
       },
       {
-        name: 'Province of Massa and Carrara',
-        state_code: 'MS',
+        ame:'P'ovince of Massa and Carrara','
+        tate_code:'M'',',
       },
       {
-        name: 'Province of Matera',
-        state_code: 'MT',
+        ame:'P'ovince of Matera','
+        tate_code:'M'',',
       },
       {
-        name: 'Province of Medio Campidano',
-        state_code: 'VS',
+        ame:'P'ovince of Medio Campidano','
+        tate_code:'V'',',
       },
       {
-        name: 'Province of Modena',
-        state_code: 'MO',
+        ame:'P'ovince of Modena','
+        tate_code:'M'',',
       },
       {
-        name: 'Province of Monza and Brianza',
-        state_code: 'MB',
+        ame:'P'ovince of Monza and Brianza','
+        tate_code:'M'',',
       },
       {
-        name: 'Province of Novara',
-        state_code: 'NO',
+        ame:'P'ovince of Novara','
+        tate_code:'N'',',
       },
       {
-        name: 'Province of Nuoro',
-        state_code: 'NU',
+        ame:'P'ovince of Nuoro','
+        tate_code:'N'',',
       },
       {
-        name: 'Province of Ogliastra',
-        state_code: 'OG',
+        ame:'P'ovince of Ogliastra','
+        tate_code:'O'',',
       },
       {
-        name: 'Province of Olbia-Tempio',
-        state_code: 'OT',
+        ame:'P'ovince of Olbia-Tempio','
+        tate_code:'O'',',
       },
       {
-        name: 'Province of Oristano',
-        state_code: 'OR',
+        ame:'P'ovince of Oristano','
+        tate_code:'O'',',
       },
       {
-        name: 'Province of Padua',
-        state_code: 'PD',
+        ame:'P'ovince of Padua','
+        tate_code:'P'',',
       },
       {
-        name: 'Province of Parma',
-        state_code: 'PR',
+        ame:'P'ovince of Parma','
+        tate_code:'P'',',
       },
       {
-        name: 'Province of Pavia',
-        state_code: 'PV',
+        ame:'P'ovince of Pavia','
+        tate_code:'P'',',
       },
       {
-        name: 'Province of Perugia',
-        state_code: 'PG',
+        ame:'P'ovince of Perugia','
+        tate_code:'P'',',
       },
       {
-        name: 'Province of Pescara',
-        state_code: 'PE',
+        ame:'P'ovince of Pescara','
+        tate_code:'P'',',
       },
       {
-        name: 'Province of Piacenza',
-        state_code: 'PC',
+        ame:'P'ovince of Piacenza','
+        tate_code:'P'',',
       },
       {
-        name: 'Province of Pisa',
-        state_code: 'PI',
+        ame:'P'ovince of Pisa','
+        tate_code:'P'',',
       },
       {
-        name: 'Province of Pistoia',
-        state_code: 'PT',
+        ame:'P'ovince of Pistoia','
+        tate_code:'P'',',
       },
       {
-        name: 'Province of Pordenone',
-        state_code: 'PN',
+        ame:'P'ovince of Pordenone','
+        tate_code:'P'',',
       },
       {
-        name: 'Province of Potenza',
-        state_code: 'PZ',
+        ame:'P'ovince of Potenza','
+        tate_code:'P'',',
       },
       {
-        name: 'Province of Prato',
-        state_code: 'PO',
+        ame:'P'ovince of Prato','
+        tate_code:'P'',',
       },
       {
-        name: 'Province of Ravenna',
-        state_code: 'RA',
+        ame:'P'ovince of Ravenna','
+        tate_code:'R'',',
       },
       {
-        name: 'Province of Reggio Emilia',
-        state_code: 'RE',
+        ame:'P'ovince of Reggio Emilia','
+        tate_code:'R'',',
       },
       {
-        name: 'Province of Rieti',
-        state_code: 'RI',
+        ame:'P'ovince of Rieti','
+        tate_code:'R'',',
       },
       {
-        name: 'Province of Rimini',
-        state_code: 'RN',
+        ame:'P'ovince of Rimini','
+        tate_code:'R'',',
       },
       {
-        name: 'Province of Rovigo',
-        state_code: 'RO',
+        ame:'P'ovince of Rovigo','
+        tate_code:'R'',',
       },
       {
-        name: 'Province of Salerno',
-        state_code: 'SA',
+        ame:'P'ovince of Salerno','
+        tate_code:'S'',',
       },
       {
-        name: 'Province of Sassari',
-        state_code: 'SS',
+        ame:'P'ovince of Sassari','
+        tate_code:'S'',',
       },
       {
-        name: 'Province of Savona',
-        state_code: 'SV',
+        ame:'P'ovince of Savona','
+        tate_code:'S'',',
       },
       {
-        name: 'Province of Siena',
-        state_code: 'SI',
+        ame:'P'ovince of Siena','
+        tate_code:'S'',',
       },
       {
-        name: 'Province of Sondrio',
-        state_code: 'SO',
+        ame:'P'ovince of Sondrio','
+        tate_code:'S'',',
       },
       {
-        name: 'Province of Taranto',
-        state_code: 'TA',
+        ame:'P'ovince of Taranto','
+        tate_code:'T'',',
       },
       {
-        name: 'Province of Teramo',
-        state_code: 'TE',
+        ame:'P'ovince of Teramo','
+        tate_code:'T'',',
       },
       {
-        name: 'Province of Terni',
-        state_code: 'TR',
+        ame:'P'ovince of Terni','
+        tate_code:'T'',',
       },
       {
-        name: 'Province of Treviso',
-        state_code: 'TV',
+        ame:'P'ovince of Treviso','
+        tate_code:'T'',',
       },
       {
-        name: 'Province of Trieste',
-        state_code: 'TS',
+        ame:'P'ovince of Trieste','
+        tate_code:'T'',',
       },
       {
-        name: 'Province of Udine',
-        state_code: 'UD',
+        ame:'P'ovince of Udine','
+        tate_code:'U'',',
       },
       {
-        name: 'Province of Varese',
-        state_code: 'VA',
+        ame:'P'ovince of Varese','
+        tate_code:'V'',',
       },
       {
-        name: 'Province of Verbano-Cusio-Ossola',
-        state_code: 'VB',
+        ame:'P'ovince of Verbano-Cusio-Ossola','
+        tate_code:'V'',',
       },
       {
-        name: 'Province of Vercelli',
-        state_code: 'VC',
+        ame:'P'ovince of Vercelli','
+        tate_code:'V'',',
       },
       {
-        name: 'Province of Verona',
-        state_code: 'VR',
+        ame:'P'ovince of Verona','
+        tate_code:'V'',',
       },
       {
-        name: 'Province of Vibo Valentia',
-        state_code: 'VV',
+        ame:'P'ovince of Vibo Valentia','
+        tate_code:'V'',',
       },
       {
-        name: 'Province of Vicenza',
-        state_code: 'VI',
+        ame:'P'ovince of Vicenza','
+        tate_code:'V'',',
       },
       {
-        name: 'Province of Viterbo',
-        state_code: 'VT',
+        ame:'P'ovince of Viterbo','
+        tate_code:'V'',',
       },
       {
-        name: 'Sardinia',
-        state_code: '88',
+        ame:'S'rdinia','
+        tate_code:'8'',',
       },
       {
-        name: 'Sicily',
-        state_code: '82',
+        ame:'S'cily','
+        tate_code:'8'',',
       },
       {
-        name: 'South Tyrol',
-        state_code: 'BZ',
+        ame:'S'uth Tyrol','
+        tate_code:'B'',',
       },
       {
-        name: 'Trentino',
-        state_code: 'TN',
+        ame:'T'entino','
+        tate_code:'T'',',
       },
       {
-        name: 'Trentino-South Tyrol',
-        state_code: '32',
+        ame:'T'entino-South Tyrol','
+        tate_code:'3'',',
       },
       {
-        name: 'Tuscany',
-        state_code: '52',
+        ame:'T'scany','
+        tate_code:'5'',',
       },
       {
-        name: 'Umbria',
-        state_code: '55',
+        ame:'U'bria','
+        tate_code:'5'',',
       },
       {
-        name: 'Veneto',
-        state_code: '34',
-      },
-    ],
+        ame:'V'neto','
+        tate_code:'3'',',
+      },,
+    ],,
   },
   {
-    name: 'Jamaica',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/0/0a/Flag_of_Jamaica.svg',
-    iso2: 'JM',
-    states: [
+    ame:'J'maica','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/0/0a/Flag_of_Jamaica.svg','
+    so2:'J'','
+    tates:[
       {
-        name: 'Clarendon Parish',
-        state_code: '13',
+        ame:'C'arendon Parish','
+        tate_code:'1'',',
       },
       {
-        name: 'Hanover Parish',
-        state_code: '09',
+        ame:'H'nover Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Kingston Parish',
-        state_code: '01',
+        ame:'K'ngston Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Manchester Parish',
-        state_code: '12',
+        ame:'M'nchester Parish','
+        tate_code:'1'',',
       },
       {
-        name: 'Portland Parish',
-        state_code: '04',
+        ame:'P'rtland Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Andrew',
-        state_code: '02',
+        ame:'S'int Andrew','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Ann Parish',
-        state_code: '06',
+        ame:'S'int Ann Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Catherine Parish',
-        state_code: '14',
+        ame:'S'int Catherine Parish','
+        tate_code:'1'',',
       },
       {
-        name: 'Saint Elizabeth Parish',
-        state_code: '11',
+        ame:'S'int Elizabeth Parish','
+        tate_code:'1'',',
       },
       {
-        name: 'Saint James Parish',
-        state_code: '08',
+        ame:'S'int James Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Mary Parish',
-        state_code: '05',
+        ame:'S'int Mary Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Thomas Parish',
-        state_code: '03',
+        ame:'S'int Thomas Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Trelawny Parish',
-        state_code: '07',
+        ame:'T'elawny Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Westmoreland Parish',
-        state_code: '10',
-      },
-    ],
+        ame:'W'stmoreland Parish','
+        tate_code:'1'',',
+      },,
+    ],,
   },
   {
-    name: 'Japan',
-    flag: 'https://upload.wikimedia.org/wikipedia/en/9/9e/Flag_of_Japan.svg',
-    iso2: 'JP',
-    states: [
+    ame:'J'pan','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/en/9/9e/Flag_of_Japan.svg','
+    so2:'J'','
+    tates:[
       {
-        name: 'Aichi Prefecture',
-        state_code: '23',
+        ame:'A'chi Prefecture','
+        tate_code:'2'',',
       },
       {
-        name: 'Akita Prefecture',
-        state_code: '05',
+        ame:'A'ita Prefecture','
+        tate_code:'0'',',
       },
       {
-        name: 'Aomori Prefecture',
-        state_code: '02',
+        ame:'A'mori Prefecture','
+        tate_code:'0'',',
       },
       {
-        name: 'Chiba Prefecture',
-        state_code: '12',
+        ame:'C'iba Prefecture','
+        tate_code:'1'',',
       },
       {
-        name: 'Ehime Prefecture',
-        state_code: '38',
+        ame:'E'ime Prefecture','
+        tate_code:'3'',',
       },
       {
-        name: 'Fukui Prefecture',
-        state_code: '18',
+        ame:'F'kui Prefecture','
+        tate_code:'1'',',
       },
       {
-        name: 'Fukuoka Prefecture',
-        state_code: '40',
+        ame:'F'kuoka Prefecture','
+        tate_code:'4'',',
       },
       {
-        name: 'Fukushima Prefecture',
-        state_code: '07',
+        ame:'F'kushima Prefecture','
+        tate_code:'0'',',
       },
       {
-        name: 'Gifu Prefecture',
-        state_code: '21',
+        ame:'G'fu Prefecture','
+        tate_code:'2'',',
       },
       {
-        name: 'Gunma Prefecture',
-        state_code: '10',
+        ame:'G'nma Prefecture','
+        tate_code:'1'',',
       },
       {
-        name: 'Hiroshima Prefecture',
-        state_code: '34',
+        ame:'H'roshima Prefecture','
+        tate_code:'3'',',
       },
       {
-        name: 'Hokkaidō Prefecture',
-        state_code: '01',
+        ame:'H'kkaidō Prefecture','
+        tate_code:'0'',',
       },
       {
-        name: 'Hyōgo Prefecture',
-        state_code: '28',
+        ame:'H'ōgo Prefecture','
+        tate_code:'2'',',
       },
       {
-        name: 'Ibaraki Prefecture',
-        state_code: '08',
+        ame:'I'araki Prefecture','
+        tate_code:'0'',',
       },
       {
-        name: 'Ishikawa Prefecture',
-        state_code: '17',
+        ame:'I'hikawa Prefecture','
+        tate_code:'1'',',
       },
       {
-        name: 'Iwate Prefecture',
-        state_code: '03',
+        ame:'I'ate Prefecture','
+        tate_code:'0'',',
       },
       {
-        name: 'Kagawa Prefecture',
-        state_code: '37',
+        ame:'K'gawa Prefecture','
+        tate_code:'3'',',
       },
       {
-        name: 'Kagoshima Prefecture',
-        state_code: '46',
+        ame:'K'goshima Prefecture','
+        tate_code:'4'',',
       },
       {
-        name: 'Kanagawa Prefecture',
-        state_code: '14',
+        ame:'K'nagawa Prefecture','
+        tate_code:'1'',',
       },
       {
-        name: 'Kumamoto Prefecture',
-        state_code: '43',
+        ame:'K'mamoto Prefecture','
+        tate_code:'4'',',
       },
       {
-        name: 'Kyōto Prefecture',
-        state_code: '26',
+        ame:'K'ōto Prefecture','
+        tate_code:'2'',',
       },
       {
-        name: 'Mie Prefecture',
-        state_code: '24',
+        ame:'M'e Prefecture','
+        tate_code:'2'',',
       },
       {
-        name: 'Miyagi Prefecture',
-        state_code: '04',
+        ame:'M'yagi Prefecture','
+        tate_code:'0'',',
       },
       {
-        name: 'Miyazaki Prefecture',
-        state_code: '45',
+        ame:'M'yazaki Prefecture','
+        tate_code:'4'',',
       },
       {
-        name: 'Nagano Prefecture',
-        state_code: '20',
+        ame:'N'gano Prefecture','
+        tate_code:'2'',',
       },
       {
-        name: 'Nagasaki Prefecture',
-        state_code: '42',
+        ame:'N'gasaki Prefecture','
+        tate_code:'4'',',
       },
       {
-        name: 'Nara Prefecture',
-        state_code: '29',
+        ame:'N'ra Prefecture','
+        tate_code:'2'',',
       },
       {
-        name: 'Niigata Prefecture',
-        state_code: '15',
+        ame:'N'igata Prefecture','
+        tate_code:'1'',',
       },
       {
-        name: 'Ōita Prefecture',
-        state_code: '44',
+        ame:'Ō'ta Prefecture','
+        tate_code:'4'',',
       },
       {
-        name: 'Okayama Prefecture',
-        state_code: '33',
+        ame:'O'ayama Prefecture','
+        tate_code:'3'',',
       },
       {
-        name: 'Okinawa Prefecture',
-        state_code: '47',
+        ame:'O'inawa Prefecture','
+        tate_code:'4'',',
       },
       {
-        name: 'Ōsaka Prefecture',
-        state_code: '27',
+        ame:'Ō'aka Prefecture','
+        tate_code:'2'',',
       },
       {
-        name: 'Saga Prefecture',
-        state_code: '41',
+        ame:'S'ga Prefecture','
+        tate_code:'4'',',
       },
       {
-        name: 'Saitama Prefecture',
-        state_code: '11',
+        ame:'S'itama Prefecture','
+        tate_code:'1'',',
       },
       {
-        name: 'Shiga Prefecture',
-        state_code: '25',
+        ame:'S'iga Prefecture','
+        tate_code:'2'',',
       },
       {
-        name: 'Shimane Prefecture',
-        state_code: '32',
+        ame:'S'imane Prefecture','
+        tate_code:'3'',',
       },
       {
-        name: 'Shizuoka Prefecture',
-        state_code: '22',
+        ame:'S'izuoka Prefecture','
+        tate_code:'2'',',
       },
       {
-        name: 'Tochigi Prefecture',
-        state_code: '09',
+        ame:'T'chigi Prefecture','
+        tate_code:'0'',',
       },
       {
-        name: 'Tokushima Prefecture',
-        state_code: '36',
+        ame:'T'kushima Prefecture','
+        tate_code:'3'',',
       },
       {
-        name: 'Tokyo',
-        state_code: '13',
+        ame:'T'kyo','
+        tate_code:'1'',',
       },
       {
-        name: 'Tottori Prefecture',
-        state_code: '31',
+        ame:'T'ttori Prefecture','
+        tate_code:'3'',',
       },
       {
-        name: 'Toyama Prefecture',
-        state_code: '16',
+        ame:'T'yama Prefecture','
+        tate_code:'1'',',
       },
       {
-        name: 'Wakayama Prefecture',
-        state_code: '30',
+        ame:'W'kayama Prefecture','
+        tate_code:'3'',',
       },
       {
-        name: 'Yamagata Prefecture',
-        state_code: '06',
+        ame:'Y'magata Prefecture','
+        tate_code:'0'',',
       },
       {
-        name: 'Yamaguchi Prefecture',
-        state_code: '35',
+        ame:'Y'maguchi Prefecture','
+        tate_code:'3'',',
       },
       {
-        name: 'Yamanashi Prefecture',
-        state_code: '19',
-      },
-    ],
+        ame:'Y'manashi Prefecture','
+        tate_code:'1'',',
+      },,
+    ],,
   },
   {
-    name: 'Jersey',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/1/1c/Flag_of_Jersey.svg',
-    iso2: 'JE',
-    states: [],
+    ame:'J'rsey','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/1/1c/Flag_of_Jersey.svg','
+    so2:'J'','
+    tates:[],,
   },
   {
-    name: 'Jordan',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/c/c0/Flag_of_Jordan.svg',
-    iso2: 'JO',
-    states: [
+    ame:'J'rdan','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/c/c0/Flag_of_Jordan.svg','
+    so2:'J'','
+    tates:[
       {
-        name: 'Ajloun Governorate',
-        state_code: 'AJ',
+        ame:'A'loun Governorate','
+        tate_code:'A'',',
       },
       {
-        name: 'Amman Governorate',
-        state_code: 'AM',
+        ame:'A'man Governorate','
+        tate_code:'A'',',
       },
       {
-        name: 'Aqaba Governorate',
-        state_code: 'AQ',
+        ame:'A'aba Governorate','
+        tate_code:'A'',',
       },
       {
-        name: 'Balqa Governorate',
-        state_code: 'BA',
+        ame:'B'lqa Governorate','
+        tate_code:'B'',',
       },
       {
-        name: 'Irbid Governorate',
-        state_code: 'IR',
+        ame:'I'bid Governorate','
+        tate_code:'I'',',
       },
       {
-        name: 'Jerash Governorate',
-        state_code: 'JA',
+        ame:'J'rash Governorate','
+        tate_code:'J'',',
       },
       {
-        name: 'Karak Governorate',
-        state_code: 'KA',
+        ame:'K'rak Governorate','
+        tate_code:'K'',',
       },
       {
-        name: "Ma'an Governorate",
-        state_code: 'MN',
+        ame:"Ma'an Governorate",
+        tate_code:'M'',',
       },
       {
-        name: 'Madaba Governorate',
-        state_code: 'MD',
+        ame:'M'daba Governorate','
+        tate_code:'M'',',
       },
       {
-        name: 'Mafraq Governorate',
-        state_code: 'MA',
+        ame:'M'fraq Governorate','
+        tate_code:'M'',',
       },
       {
-        name: 'Tafilah Governorate',
-        state_code: 'AT',
+        ame:'T'filah Governorate','
+        tate_code:'A'',',
       },
       {
-        name: 'Zarqa Governorate',
-        state_code: 'AZ',
-      },
-    ],
+        ame:'Z'rqa Governorate','
+        tate_code:'A'',',
+      },,
+    ],,
   },
   {
-    name: 'Kazakhstan',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Flag_of_Kazakhstan.svg',
-    iso2: 'KZ',
-    states: [
+    ame:'K'zakhstan','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/d/d3/Flag_of_Kazakhstan.svg','
+    so2:'K'','
+    tates:[
       {
-        name: 'Akmola Region',
-        state_code: 'AKM',
+        ame:'A'mola Region','
+        tate_code:'A'M',',
       },
       {
-        name: 'Aktobe Region',
-        state_code: 'AKT',
+        ame:'A'tobe Region','
+        tate_code:'A'T',',
       },
       {
-        name: 'Almaty',
-        state_code: 'ALA',
+        ame:'A'maty','
+        tate_code:'A'A',',
       },
       {
-        name: 'Almaty Region',
-        state_code: 'ALM',
+        ame:'A'maty Region','
+        tate_code:'A'M',',
       },
       {
-        name: 'Atyrau Region',
-        state_code: 'ATY',
+        ame:'A'yrau Region','
+        tate_code:'A'Y',',
       },
       {
-        name: 'Baikonur',
-        state_code: 'BAY',
+        ame:'B'ikonur','
+        tate_code:'B'Y',',
       },
       {
-        name: 'East Kazakhstan Region',
-        state_code: 'VOS',
+        ame:'E'st Kazakhstan Region','
+        tate_code:'V'S',',
       },
       {
-        name: 'Jambyl Region',
-        state_code: 'ZHA',
+        ame:'J'mbyl Region','
+        tate_code:'Z'A',',
       },
       {
-        name: 'Karaganda Region',
-        state_code: 'KAR',
+        ame:'K'raganda Region','
+        tate_code:'K'R',',
       },
       {
-        name: 'Kostanay Region',
-        state_code: 'KUS',
+        ame:'K'stanay Region','
+        tate_code:'K'S',',
       },
       {
-        name: 'Kyzylorda Region',
-        state_code: 'KZY',
+        ame:'K'zylorda Region','
+        tate_code:'K'Y',',
       },
       {
-        name: 'Mangystau Region',
-        state_code: 'MAN',
+        ame:'M'ngystau Region','
+        tate_code:'M'N',',
       },
       {
-        name: 'North Kazakhstan Region',
-        state_code: 'SEV',
+        ame:'N'rth Kazakhstan Region','
+        tate_code:'S'V',',
       },
       {
-        name: 'Nur-Sultan',
-        state_code: 'AST',
+        ame:'N'r-Sultan','
+        tate_code:'A'T',',
       },
       {
-        name: 'Pavlodar Region',
-        state_code: 'PAV',
+        ame:'P'vlodar Region','
+        tate_code:'P'V',',
       },
       {
-        name: 'Turkestan Region',
-        state_code: 'YUZ',
+        ame:'T'rkestan Region','
+        tate_code:'Y'Z',',
       },
       {
-        name: 'West Kazakhstan Province',
-        state_code: 'ZAP',
-      },
-    ],
+        ame:'W'st Kazakhstan Province','
+        tate_code:'Z'P',',
+      },,
+    ],,
   },
   {
-    name: 'Kenya',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Kenya.svg',
-    iso2: 'KE',
-    states: [
+    ame:'K'nya','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Kenya.svg','
+    so2:'K'','
+    tates:[
       {
-        name: 'Baringo County',
-        state_code: '01',
+        ame:'B'ringo County','
+        tate_code:'0'',',
       },
       {
-        name: 'Bomet County',
-        state_code: '02',
+        ame:'B'met County','
+        tate_code:'0'',',
       },
       {
-        name: 'Bungoma County',
-        state_code: '03',
+        ame:'B'ngoma County','
+        tate_code:'0'',',
       },
       {
-        name: 'Busia County',
-        state_code: '04',
+        ame:'B'sia County','
+        tate_code:'0'',',
       },
       {
-        name: 'Central Province',
-        state_code: '200',
+        ame:'C'ntral Province','
+        tate_code:'2'0',',
       },
       {
-        name: 'Coast Province',
-        state_code: '300',
+        ame:'C'ast Province','
+        tate_code:'3'0',',
       },
       {
-        name: 'Eastern Province',
-        state_code: '400',
+        ame:'E'stern Province','
+        tate_code:'4'0',',
       },
       {
-        name: 'Elgeyo-Marakwet County',
-        state_code: '05',
+        ame:'E'geyo-Marakwet County','
+        tate_code:'0'',',
       },
       {
-        name: 'Embu County',
-        state_code: '06',
+        ame:'E'bu County','
+        tate_code:'0'',',
       },
       {
-        name: 'Garissa County',
-        state_code: '07',
+        ame:'G'rissa County','
+        tate_code:'0'',',
       },
       {
-        name: 'Homa Bay County',
-        state_code: '08',
+        ame:'H'ma Bay County','
+        tate_code:'0'',',
       },
       {
-        name: 'Isiolo County',
-        state_code: '09',
+        ame:'I'iolo County','
+        tate_code:'0'',',
       },
       {
-        name: 'Kajiado County',
-        state_code: '10',
+        ame:'K'jiado County','
+        tate_code:'1'',',
       },
       {
-        name: 'Kakamega County',
-        state_code: '11',
+        ame:'K'kamega County','
+        tate_code:'1'',',
       },
       {
-        name: 'Kericho County',
-        state_code: '12',
+        ame:'K'richo County','
+        tate_code:'1'',',
       },
       {
-        name: 'Kiambu County',
-        state_code: '13',
+        ame:'K'ambu County','
+        tate_code:'1'',',
       },
       {
-        name: 'Kilifi County',
-        state_code: '14',
+        ame:'K'lifi County','
+        tate_code:'1'',',
       },
       {
-        name: 'Kirinyaga County',
-        state_code: '15',
+        ame:'K'rinyaga County','
+        tate_code:'1'',',
       },
       {
-        name: 'Kisii County',
-        state_code: '16',
+        ame:'K'sii County','
+        tate_code:'1'',',
       },
       {
-        name: 'Kisumu County',
-        state_code: '17',
+        ame:'K'sumu County','
+        tate_code:'1'',',
       },
       {
-        name: 'Kitui County',
-        state_code: '18',
+        ame:'K'tui County','
+        tate_code:'1'',',
       },
       {
-        name: 'Kwale County',
-        state_code: '19',
+        ame:'K'ale County','
+        tate_code:'1'',',
       },
       {
-        name: 'Laikipia County',
-        state_code: '20',
+        ame:'L'ikipia County','
+        tate_code:'2'',',
       },
       {
-        name: 'Lamu County',
-        state_code: '21',
+        ame:'L'mu County','
+        tate_code:'2'',',
       },
       {
-        name: 'Machakos County',
-        state_code: '22',
+        ame:'M'chakos County','
+        tate_code:'2'',',
       },
       {
-        name: 'Makueni County',
-        state_code: '23',
+        ame:'M'kueni County','
+        tate_code:'2'',',
       },
       {
-        name: 'Mandera County',
-        state_code: '24',
+        ame:'M'ndera County','
+        tate_code:'2'',',
       },
       {
-        name: 'Marsabit County',
-        state_code: '25',
+        ame:'M'rsabit County','
+        tate_code:'2'',',
       },
       {
-        name: 'Meru County',
-        state_code: '26',
+        ame:'M'ru County','
+        tate_code:'2'',',
       },
       {
-        name: 'Migori County',
-        state_code: '27',
+        ame:'M'gori County','
+        tate_code:'2'',',
       },
       {
-        name: 'Mombasa County',
-        state_code: '28',
+        ame:'M'mbasa County','
+        tate_code:'2'',',
       },
       {
-        name: 'Muranga County',
-        state_code: '29',
+        ame:'M'ranga County','
+        tate_code:'2'',',
       },
       {
-        name: 'Nairobi',
-        state_code: '110',
+        ame:'N'irobi','
+        tate_code:'1'0',',
       },
       {
-        name: 'Nakuru District',
-        state_code: '31',
+        ame:'N'kuru District','
+        tate_code:'3'',',
       },
       {
-        name: 'Nandi District',
-        state_code: '32',
+        ame:'N'ndi District','
+        tate_code:'3'',',
       },
       {
-        name: 'Narok County',
-        state_code: '33',
+        ame:'N'rok County','
+        tate_code:'3'',',
       },
       {
-        name: 'North Eastern Province',
-        state_code: '500',
+        ame:'N'rth Eastern Province','
+        tate_code:'5'0',',
       },
       {
-        name: 'Nyamira District',
-        state_code: '34',
+        ame:'N'amira District','
+        tate_code:'3'',',
       },
       {
-        name: 'Nyandarua County',
-        state_code: '35',
+        ame:'N'andarua County','
+        tate_code:'3'',',
       },
       {
-        name: 'Nyanza Province',
-        state_code: '600',
+        ame:'N'anza Province','
+        tate_code:'6'0',',
       },
       {
-        name: 'Nyeri County',
-        state_code: '36',
+        ame:'N'eri County','
+        tate_code:'3'',',
       },
       {
-        name: 'Rift Valley Province',
-        state_code: '700',
+        ame:'R'ft Valley Province','
+        tate_code:'7'0',',
       },
       {
-        name: 'Samburu County',
-        state_code: '37',
+        ame:'S'mburu County','
+        tate_code:'3'',',
       },
       {
-        name: 'Siaya County',
-        state_code: '38',
+        ame:'S'aya County','
+        tate_code:'3'',',
       },
       {
-        name: 'Taita–Taveta County',
-        state_code: '39',
+        ame:'T'ita–Taveta County','
+        tate_code:'3'',',
       },
       {
-        name: 'Tana River County',
-        state_code: '40',
+        ame:'T'na River County','
+        tate_code:'4'',',
       },
       {
-        name: 'Tharaka Nithi County',
-        state_code: '41',
+        ame:'T'araka Nithi County','
+        tate_code:'4'',',
       },
       {
-        name: 'Trans-Nzoia District',
-        state_code: '42',
+        ame:'T'ans-Nzoia District','
+        tate_code:'4'',',
       },
       {
-        name: 'Turkana County',
-        state_code: '43',
+        ame:'T'rkana County','
+        tate_code:'4'',',
       },
       {
-        name: 'Uasin Gishu District',
-        state_code: '44',
+        ame:'U'sin Gishu District','
+        tate_code:'4'',',
       },
       {
-        name: 'Vihiga District',
-        state_code: '45',
+        ame:'V'higa District','
+        tate_code:'4'',',
       },
       {
-        name: 'Wajir County',
-        state_code: '46',
+        ame:'W'jir County','
+        tate_code:'4'',',
       },
       {
-        name: 'West Pokot County',
-        state_code: '47',
+        ame:'W'st Pokot County','
+        tate_code:'4'',',
       },
       {
-        name: 'Western Province',
-        state_code: '800',
-      },
-    ],
+        ame:'W'stern Province','
+        tate_code:'8'0',',
+      },,
+    ],,
   },
   {
-    name: 'Kiribati',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Flag_of_Kiribati.svg',
-    iso2: 'KI',
-    states: [
+    ame:'K'ribati','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/d/d3/Flag_of_Kiribati.svg','
+    so2:'K'','
+    tates:[
       {
-        name: 'Gilbert Islands',
-        state_code: 'G',
+        ame:'G'lbert Islands','
+        tate_code:'G',',
       },
       {
-        name: 'Line Islands',
-        state_code: 'L',
+        ame:'L'ne Islands','
+        tate_code:'L',',
       },
       {
-        name: 'Phoenix Islands',
-        state_code: 'P',
-      },
-    ],
+        ame:'P'oenix Islands','
+        tate_code:'P',',
+      },,
+    ],,
   },
   {
-    name: 'North Korea',
-    flag: '',
-    iso2: 'KP',
-    states: [
+    ame:'N'rth Korea','
+    lag:''''
+    so2:'K'','
+    tates:[
       {
-        name: 'Chagang Province',
-        state_code: '04',
+        ame:'C'agang Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Kangwon Province',
-        state_code: '07',
+        ame:'K'ngwon Province','
+        tate_code:'0'',',
       },
       {
-        name: 'North Hamgyong Province',
-        state_code: '09',
+        ame:'N'rth Hamgyong Province','
+        tate_code:'0'',',
       },
       {
-        name: 'North Hwanghae Province',
-        state_code: '06',
+        ame:'N'rth Hwanghae Province','
+        tate_code:'0'',',
       },
       {
-        name: 'North Pyongan Province',
-        state_code: '03',
+        ame:'N'rth Pyongan Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Pyongyang',
-        state_code: '01',
+        ame:'P'ongyang','
+        tate_code:'0'',',
       },
       {
-        name: 'Rason',
-        state_code: '13',
+        ame:'R'son','
+        tate_code:'1'',',
       },
       {
-        name: 'Ryanggang Province',
-        state_code: '10',
+        ame:'R'anggang Province','
+        tate_code:'1'',',
       },
       {
-        name: 'South Hamgyong Province',
-        state_code: '08',
+        ame:'S'uth Hamgyong Province','
+        tate_code:'0'',',
       },
       {
-        name: 'South Hwanghae Province',
-        state_code: '05',
+        ame:'S'uth Hwanghae Province','
+        tate_code:'0'',',
       },
       {
-        name: 'South Pyongan Province',
-        state_code: '02',
-      },
-    ],
+        ame:'S'uth Pyongan Province','
+        tate_code:'0'',',
+      },,
+    ],,
   },
   {
-    name: 'South Korea',
-    flag: '',
-    iso2: 'KR',
-    states: [
+    ame:'S'uth Korea','
+    lag:''''
+    so2:'K'','
+    tates:[
       {
-        name: 'Busan',
-        state_code: '26',
+        ame:'B'san','
+        tate_code:'2'',',
       },
       {
-        name: 'Daegu',
-        state_code: '27',
+        ame:'D'egu','
+        tate_code:'2'',',
       },
       {
-        name: 'Daejeon',
-        state_code: '30',
+        ame:'D'ejeon','
+        tate_code:'3'',',
       },
       {
-        name: 'Gangwon Province',
-        state_code: '42',
+        ame:'G'ngwon Province','
+        tate_code:'4'',',
       },
       {
-        name: 'Gwangju',
-        state_code: '29',
+        ame:'G'angju','
+        tate_code:'2'',',
       },
       {
-        name: 'Gyeonggi Province',
-        state_code: '41',
+        ame:'G'eonggi Province','
+        tate_code:'4'',',
       },
       {
-        name: 'Incheon',
-        state_code: '28',
+        ame:'I'cheon','
+        tate_code:'2'',',
       },
       {
-        name: 'Jeju',
-        state_code: '49',
+        ame:'J'ju','
+        tate_code:'4'',',
       },
       {
-        name: 'North Chungcheong Province',
-        state_code: '43',
+        ame:'N'rth Chungcheong Province','
+        tate_code:'4'',',
       },
       {
-        name: 'North Gyeongsang Province',
-        state_code: '47',
+        ame:'N'rth Gyeongsang Province','
+        tate_code:'4'',',
       },
       {
-        name: 'North Jeolla Province',
-        state_code: '45',
+        ame:'N'rth Jeolla Province','
+        tate_code:'4'',',
       },
       {
-        name: 'Sejong City',
-        state_code: '50',
+        ame:'S'jong City','
+        tate_code:'5'',',
       },
       {
-        name: 'Seoul',
-        state_code: '11',
+        ame:'S'oul','
+        tate_code:'1'',',
       },
       {
-        name: 'South Chungcheong Province',
-        state_code: '44',
+        ame:'S'uth Chungcheong Province','
+        tate_code:'4'',',
       },
       {
-        name: 'South Gyeongsang Province',
-        state_code: '48',
+        ame:'S'uth Gyeongsang Province','
+        tate_code:'4'',',
       },
       {
-        name: 'South Jeolla Province',
-        state_code: '46',
+        ame:'S'uth Jeolla Province','
+        tate_code:'4'',',
       },
       {
-        name: 'Ulsan',
-        state_code: '31',
-      },
-    ],
+        ame:'U'san','
+        tate_code:'3'',',
+      },,
+    ],,
   },
   {
-    name: 'Kosovo',
-    flag: '',
-    iso2: 'XK',
-    states: [
+    ame:'K'sovo','
+    lag:''''
+    so2:'X'','
+    tates:[
       {
-        name: 'Đakovica District (Gjakove)',
-        state_code: null,
+        ame:'Đ'kovica District (Gjakove)','
+        tate_code:null,,
       },
       {
-        name: 'Gjilan District',
-        state_code: null,
+        ame:'G'ilan District','
+        tate_code:null,,
       },
       {
-        name: 'Kosovska Mitrovica District',
-        state_code: null,
+        ame:'K'sovska Mitrovica District','
+        tate_code:null,,
       },
       {
-        name: 'Peć District',
-        state_code: null,
+        ame:'P'ć District','
+        tate_code:null,,
       },
       {
-        name: 'Pristina (Priştine)',
-        state_code: null,
+        ame:'P'istina (Priştine)','
+        tate_code:null,,
       },
       {
-        name: 'Prizren District',
-        state_code: null,
+        ame:'P'izren District','
+        tate_code:null,,
       },
       {
-        name: 'Uroševac District (Ferizaj)',
-        state_code: null,
-      },
-    ],
+        ame:'U'oševac District (Ferizaj)','
+        tate_code:null,,
+      },,
+    ],,
   },
   {
-    name: 'Kuwait',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_Kuwait.svg',
-    iso2: 'KW',
-    states: [
+    ame:'K'wait','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_Kuwait.svg','
+    so2:'K'','
+    tates:[
       {
-        name: 'Al Ahmadi Governorate',
-        state_code: 'AH',
+        ame:'A' Ahmadi Governorate','
+        tate_code:'A'',',
       },
       {
-        name: 'Al Farwaniyah Governorate',
-        state_code: 'FA',
+        ame:'A' Farwaniyah Governorate','
+        tate_code:'F'',',
       },
       {
-        name: 'Al Jahra Governorate',
-        state_code: 'JA',
+        ame:'A' Jahra Governorate','
+        tate_code:'J'',',
       },
       {
-        name: 'Capital Governorate',
-        state_code: 'KU',
+        ame:'C'pital Governorate','
+        tate_code:'K'',',
       },
       {
-        name: 'Hawalli Governorate',
-        state_code: 'HA',
+        ame:'H'walli Governorate','
+        tate_code:'H'',',
       },
       {
-        name: 'Mubarak Al-Kabeer Governorate',
-        state_code: 'MU',
-      },
-    ],
+        ame:'M'barak Al-Kabeer Governorate','
+        tate_code:'M'',',
+      },,
+    ],,
   },
   {
-    name: 'Kyrgyzstan',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/c/c7/Flag_of_Kyrgyzstan.svg',
-    iso2: 'KG',
-    states: [
+    ame:'K'rgyzstan','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/c/c7/Flag_of_Kyrgyzstan.svg','
+    so2:'K'','
+    tates:[
       {
-        name: 'Batken Region',
-        state_code: 'B',
+        ame:'B'tken Region','
+        tate_code:'B',',
       },
       {
-        name: 'Bishkek',
-        state_code: 'GB',
+        ame:'B'shkek','
+        tate_code:'G'',',
       },
       {
-        name: 'Chuy Region',
-        state_code: 'C',
+        ame:'C'uy Region','
+        tate_code:'C',',
       },
       {
-        name: 'Issyk-Kul Region',
-        state_code: 'Y',
+        ame:'I'syk-Kul Region','
+        tate_code:'Y',',
       },
       {
-        name: 'Jalal-Abad Region',
-        state_code: 'J',
+        ame:'J'lal-Abad Region','
+        tate_code:'J',',
       },
       {
-        name: 'Naryn Region',
-        state_code: 'N',
+        ame:'N'ryn Region','
+        tate_code:'N',',
       },
       {
-        name: 'Osh',
-        state_code: 'GO',
+        ame:'O'h','
+        tate_code:'G'',',
       },
       {
-        name: 'Osh Region',
-        state_code: 'O',
+        ame:'O'h Region','
+        tate_code:'O',',
       },
       {
-        name: 'Talas Region',
-        state_code: 'T',
-      },
-    ],
+        ame:'T'las Region','
+        tate_code:'T',',
+      },,
+    ],,
   },
   {
-    name: 'Laos',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/5/56/Flag_of_Laos.svg',
-    iso2: 'LA',
-    states: [
+    ame:'L'os','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/5/56/Flag_of_Laos.svg','
+    so2:'L'','
+    tates:[
       {
-        name: 'Attapeu Province',
-        state_code: 'AT',
+        ame:'A'tapeu Province','
+        tate_code:'A'',',
       },
       {
-        name: 'Bokeo Province',
-        state_code: 'BK',
+        ame:'B'keo Province','
+        tate_code:'B'',',
       },
       {
-        name: 'Bolikhamsai Province',
-        state_code: 'BL',
+        ame:'B'likhamsai Province','
+        tate_code:'B'',',
       },
       {
-        name: 'Champasak Province',
-        state_code: 'CH',
+        ame:'C'ampasak Province','
+        tate_code:'C'',',
       },
       {
-        name: 'Houaphanh Province',
-        state_code: 'HO',
+        ame:'H'uaphanh Province','
+        tate_code:'H'',',
       },
       {
-        name: 'Khammouane Province',
-        state_code: 'KH',
+        ame:'K'ammouane Province','
+        tate_code:'K'',',
       },
       {
-        name: 'Luang Namtha Province',
-        state_code: 'LM',
+        ame:'L'ang Namtha Province','
+        tate_code:'L'',',
       },
       {
-        name: 'Luang Prabang Province',
-        state_code: 'LP',
+        ame:'L'ang Prabang Province','
+        tate_code:'L'',',
       },
       {
-        name: 'Oudomxay Province',
-        state_code: 'OU',
+        ame:'O'domxay Province','
+        tate_code:'O'',',
       },
       {
-        name: 'Phongsaly Province',
-        state_code: 'PH',
+        ame:'P'ongsaly Province','
+        tate_code:'P'',',
       },
       {
-        name: 'Sainyabuli Province',
-        state_code: 'XA',
+        ame:'S'inyabuli Province','
+        tate_code:'X'',',
       },
       {
-        name: 'Salavan Province',
-        state_code: 'SL',
+        ame:'S'lavan Province','
+        tate_code:'S'',',
       },
       {
-        name: 'Savannakhet Province',
-        state_code: 'SV',
+        ame:'S'vannakhet Province','
+        tate_code:'S'',',
       },
       {
-        name: 'Sekong Province',
-        state_code: 'XE',
+        ame:'S'kong Province','
+        tate_code:'X'',',
       },
       {
-        name: 'Vientiane Prefecture',
-        state_code: 'VT',
+        ame:'V'entiane Prefecture','
+        tate_code:'V'',',
       },
       {
-        name: 'Vientiane Province',
-        state_code: 'VI',
+        ame:'V'entiane Province','
+        tate_code:'V'',',
       },
       {
-        name: 'Xaisomboun',
-        state_code: 'XN',
+        ame:'X'isomboun','
+        tate_code:'X'',',
       },
       {
-        name: 'Xaisomboun Province',
-        state_code: 'XS',
+        ame:'X'isomboun Province','
+        tate_code:'X'',',
       },
       {
-        name: 'Xiangkhouang Province',
-        state_code: 'XI',
-      },
-    ],
+        ame:'X'angkhouang Province','
+        tate_code:'X'',',
+      },,
+    ],,
   },
   {
-    name: 'Latvia',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Latvia.svg',
-    iso2: 'LV',
-    states: [
+    ame:'L'tvia','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Latvia.svg','
+    so2:'L'','
+    tates:[
       {
-        name: 'Aglona Municipality',
-        state_code: '001',
+        ame:'A'lona Municipality','
+        tate_code:'0'1',',
       },
       {
-        name: 'Aizkraukle Municipality',
-        state_code: '002',
+        ame:'A'zkraukle Municipality','
+        tate_code:'0'2',',
       },
       {
-        name: 'Aizpute Municipality',
-        state_code: '003',
+        ame:'A'zpute Municipality','
+        tate_code:'0'3',',
       },
       {
-        name: 'Aknīste Municipality',
-        state_code: '004',
+        ame:'A'nīste Municipality','
+        tate_code:'0'4',',
       },
       {
-        name: 'Aloja Municipality',
-        state_code: '005',
+        ame:'A'oja Municipality','
+        tate_code:'0'5',',
       },
       {
-        name: 'Alsunga Municipality',
-        state_code: '006',
+        ame:'A'sunga Municipality','
+        tate_code:'0'6',',
       },
       {
-        name: 'Alūksne Municipality',
-        state_code: '007',
+        ame:'A'ūksne Municipality','
+        tate_code:'0'7',',
       },
       {
-        name: 'Amata Municipality',
-        state_code: '008',
+        ame:'A'ata Municipality','
+        tate_code:'0'8',',
       },
       {
-        name: 'Ape Municipality',
-        state_code: '009',
+        ame:'A'e Municipality','
+        tate_code:'0'9',',
       },
       {
-        name: 'Auce Municipality',
-        state_code: '010',
+        ame:'A'ce Municipality','
+        tate_code:'0'0',',
       },
       {
-        name: 'Babīte Municipality',
-        state_code: '012',
+        ame:'B'bīte Municipality','
+        tate_code:'0'2',',
       },
       {
-        name: 'Baldone Municipality',
-        state_code: '013',
+        ame:'B'ldone Municipality','
+        tate_code:'0'3',',
       },
       {
-        name: 'Baltinava Municipality',
-        state_code: '014',
+        ame:'B'ltinava Municipality','
+        tate_code:'0'4',',
       },
       {
-        name: 'Balvi Municipality',
-        state_code: '015',
+        ame:'B'lvi Municipality','
+        tate_code:'0'5',',
       },
       {
-        name: 'Bauska Municipality',
-        state_code: '016',
+        ame:'B'uska Municipality','
+        tate_code:'0'6',',
       },
       {
-        name: 'Beverīna Municipality',
-        state_code: '017',
+        ame:'B'verīna Municipality','
+        tate_code:'0'7',',
       },
       {
-        name: 'Brocēni Municipality',
-        state_code: '018',
+        ame:'B'ocēni Municipality','
+        tate_code:'0'8',',
       },
       {
-        name: 'Burtnieki Municipality',
-        state_code: '019',
+        ame:'B'rtnieki Municipality','
+        tate_code:'0'9',',
       },
       {
-        name: 'Carnikava Municipality',
-        state_code: '020',
+        ame:'C'rnikava Municipality','
+        tate_code:'0'0',',
       },
       {
-        name: 'Cēsis Municipality',
-        state_code: '022',
+        ame:'C'sis Municipality','
+        tate_code:'0'2',',
       },
       {
-        name: 'Cesvaine Municipality',
-        state_code: '021',
+        ame:'C'svaine Municipality','
+        tate_code:'0'1',',
       },
       {
-        name: 'Cibla Municipality',
-        state_code: '023',
+        ame:'C'bla Municipality','
+        tate_code:'0'3',',
       },
       {
-        name: 'Dagda Municipality',
-        state_code: '024',
+        ame:'D'gda Municipality','
+        tate_code:'0'4',',
       },
       {
-        name: 'Daugavpils',
-        state_code: 'DGV',
+        ame:'D'ugavpils','
+        tate_code:'D'V',',
       },
       {
-        name: 'Daugavpils Municipality',
-        state_code: '025',
+        ame:'D'ugavpils Municipality','
+        tate_code:'0'5',',
       },
       {
-        name: 'Dobele Municipality',
-        state_code: '026',
+        ame:'D'bele Municipality','
+        tate_code:'0'6',',
       },
       {
-        name: 'Dundaga Municipality',
-        state_code: '027',
+        ame:'D'ndaga Municipality','
+        tate_code:'0'7',',
       },
       {
-        name: 'Durbe Municipality',
-        state_code: '028',
+        ame:'D'rbe Municipality','
+        tate_code:'0'8',',
       },
       {
-        name: 'Engure Municipality',
-        state_code: '029',
+        ame:'E'gure Municipality','
+        tate_code:'0'9',',
       },
       {
-        name: 'Ērgļi Municipality',
-        state_code: '030',
+        ame:'Ē'gļi Municipality','
+        tate_code:'0'0',',
       },
       {
-        name: 'Garkalne Municipality',
-        state_code: '031',
+        ame:'G'rkalne Municipality','
+        tate_code:'0'1',',
       },
       {
-        name: 'Grobiņa Municipality',
-        state_code: '032',
+        ame:'G'obiņa Municipality','
+        tate_code:'0'2',',
       },
       {
-        name: 'Gulbene Municipality',
-        state_code: '033',
+        ame:'G'lbene Municipality','
+        tate_code:'0'3',',
       },
       {
-        name: 'Iecava Municipality',
-        state_code: '034',
+        ame:'I'cava Municipality','
+        tate_code:'0'4',',
       },
       {
-        name: 'Ikšķile Municipality',
-        state_code: '035',
+        ame:'I'šķile Municipality','
+        tate_code:'0'5',',
       },
       {
-        name: 'Ilūkste Municipality',
-        state_code: '036',
+        ame:'I'ūkste Municipality','
+        tate_code:'0'6',',
       },
       {
-        name: 'Inčukalns Municipality',
-        state_code: '037',
+        ame:'I'čukalns Municipality','
+        tate_code:'0'7',',
       },
       {
-        name: 'Jaunjelgava Municipality',
-        state_code: '038',
+        ame:'J'unjelgava Municipality','
+        tate_code:'0'8',',
       },
       {
-        name: 'Jaunpiebalga Municipality',
-        state_code: '039',
+        ame:'J'unpiebalga Municipality','
+        tate_code:'0'9',',
       },
       {
-        name: 'Jaunpils Municipality',
-        state_code: '040',
+        ame:'J'unpils Municipality','
+        tate_code:'0'0',',
       },
       {
-        name: 'Jēkabpils',
-        state_code: 'JKB',
+        ame:'J'kabpils','
+        tate_code:'J'B',',
       },
       {
-        name: 'Jēkabpils Municipality',
-        state_code: '042',
+        ame:'J'kabpils Municipality','
+        tate_code:'0'2',',
       },
       {
-        name: 'Jelgava',
-        state_code: 'JEL',
+        ame:'J'lgava','
+        tate_code:'J'L',',
       },
       {
-        name: 'Jelgava Municipality',
-        state_code: '041',
+        ame:'J'lgava Municipality','
+        tate_code:'0'1',',
       },
       {
-        name: 'Jūrmala',
-        state_code: 'JUR',
+        ame:'J'rmala','
+        tate_code:'J'R',',
       },
       {
-        name: 'Kandava Municipality',
-        state_code: '043',
+        ame:'K'ndava Municipality','
+        tate_code:'0'3',',
       },
       {
-        name: 'Kārsava Municipality',
-        state_code: '044',
+        ame:'K'rsava Municipality','
+        tate_code:'0'4',',
       },
       {
-        name: 'Ķegums Municipality',
-        state_code: '051',
+        ame:'Ķ'gums Municipality','
+        tate_code:'0'1',',
       },
       {
-        name: 'Ķekava Municipality',
-        state_code: '052',
+        ame:'Ķ'kava Municipality','
+        tate_code:'0'2',',
       },
       {
-        name: 'Kocēni Municipality',
-        state_code: '045',
+        ame:'K'cēni Municipality','
+        tate_code:'0'5',',
       },
       {
-        name: 'Koknese Municipality',
-        state_code: '046',
+        ame:'K'knese Municipality','
+        tate_code:'0'6',',
       },
       {
-        name: 'Krāslava Municipality',
-        state_code: '047',
+        ame:'K'āslava Municipality','
+        tate_code:'0'7',',
       },
       {
-        name: 'Krimulda Municipality',
-        state_code: '048',
+        ame:'K'imulda Municipality','
+        tate_code:'0'8',',
       },
       {
-        name: 'Krustpils Municipality',
-        state_code: '049',
+        ame:'K'ustpils Municipality','
+        tate_code:'0'9',',
       },
       {
-        name: 'Kuldīga Municipality',
-        state_code: '050',
+        ame:'K'ldīga Municipality','
+        tate_code:'0'0',',
       },
       {
-        name: 'Lielvārde Municipality',
-        state_code: '053',
+        ame:'L'elvārde Municipality','
+        tate_code:'0'3',',
       },
       {
-        name: 'Liepāja',
-        state_code: 'LPX',
+        ame:'L'epāja','
+        tate_code:'L'X',',
       },
       {
-        name: 'Līgatne Municipality',
-        state_code: '055',
+        ame:'L'gatne Municipality','
+        tate_code:'0'5',',
       },
       {
-        name: 'Limbaži Municipality',
-        state_code: '054',
+        ame:'L'mbaži Municipality','
+        tate_code:'0'4',',
       },
       {
-        name: 'Līvāni Municipality',
-        state_code: '056',
+        ame:'L'vāni Municipality','
+        tate_code:'0'6',',
       },
       {
-        name: 'Lubāna Municipality',
-        state_code: '057',
+        ame:'L'bāna Municipality','
+        tate_code:'0'7',',
       },
       {
-        name: 'Ludza Municipality',
-        state_code: '058',
+        ame:'L'dza Municipality','
+        tate_code:'0'8',',
       },
       {
-        name: 'Madona Municipality',
-        state_code: '059',
+        ame:'M'dona Municipality','
+        tate_code:'0'9',',
       },
       {
-        name: 'Mālpils Municipality',
-        state_code: '061',
+        ame:'M'lpils Municipality','
+        tate_code:'0'1',',
       },
       {
-        name: 'Mārupe Municipality',
-        state_code: '062',
+        ame:'M'rupe Municipality','
+        tate_code:'0'2',',
       },
       {
-        name: 'Mazsalaca Municipality',
-        state_code: '060',
+        ame:'M'zsalaca Municipality','
+        tate_code:'0'0',',
       },
       {
-        name: 'Mērsrags Municipality',
-        state_code: '063',
+        ame:'M'rsrags Municipality','
+        tate_code:'0'3',',
       },
       {
-        name: 'Naukšēni Municipality',
-        state_code: '064',
+        ame:'N'ukšēni Municipality','
+        tate_code:'0'4',',
       },
       {
-        name: 'Nereta Municipality',
-        state_code: '065',
+        ame:'N'reta Municipality','
+        tate_code:'0'5',',
       },
       {
-        name: 'Nīca Municipality',
-        state_code: '066',
+        ame:'N'ca Municipality','
+        tate_code:'0'6',',
       },
       {
-        name: 'Ogre Municipality',
-        state_code: '067',
+        ame:'O're Municipality','
+        tate_code:'0'7',',
       },
       {
-        name: 'Olaine Municipality',
-        state_code: '068',
+        ame:'O'aine Municipality','
+        tate_code:'0'8',',
       },
       {
-        name: 'Ozolnieki Municipality',
-        state_code: '069',
+        ame:'O'olnieki Municipality','
+        tate_code:'0'9',',
       },
       {
-        name: 'Pārgauja Municipality',
-        state_code: '070',
+        ame:'P'rgauja Municipality','
+        tate_code:'0'0',',
       },
       {
-        name: 'Pāvilosta Municipality',
-        state_code: '071',
+        ame:'P'vilosta Municipality','
+        tate_code:'0'1',',
       },
       {
-        name: 'Pļaviņas Municipality',
-        state_code: '072',
+        ame:'P'aviņas Municipality','
+        tate_code:'0'2',',
       },
       {
-        name: 'Preiļi Municipality',
-        state_code: '073',
+        ame:'P'eiļi Municipality','
+        tate_code:'0'3',',
       },
       {
-        name: 'Priekule Municipality',
-        state_code: '074',
+        ame:'P'iekule Municipality','
+        tate_code:'0'4',',
       },
       {
-        name: 'Priekuļi Municipality',
-        state_code: '075',
+        ame:'P'iekuļi Municipality','
+        tate_code:'0'5',',
       },
       {
-        name: 'Rauna Municipality',
-        state_code: '076',
+        ame:'R'una Municipality','
+        tate_code:'0'6',',
       },
       {
-        name: 'Rēzekne',
-        state_code: 'REZ',
+        ame:'R'zekne','
+        tate_code:'R'Z',',
       },
       {
-        name: 'Rēzekne Municipality',
-        state_code: '077',
+        ame:'R'zekne Municipality','
+        tate_code:'0'7',',
       },
       {
-        name: 'Riebiņi Municipality',
-        state_code: '078',
+        ame:'R'ebiņi Municipality','
+        tate_code:'0'8',',
       },
       {
-        name: 'Riga',
-        state_code: 'RIX',
+        ame:'R'ga','
+        tate_code:'R'X',',
       },
       {
-        name: 'Roja Municipality',
-        state_code: '079',
+        ame:'R'ja Municipality','
+        tate_code:'0'9',',
       },
       {
-        name: 'Ropaži Municipality',
-        state_code: '080',
+        ame:'R'paži Municipality','
+        tate_code:'0'0',',
       },
       {
-        name: 'Rucava Municipality',
-        state_code: '081',
+        ame:'R'cava Municipality','
+        tate_code:'0'1',',
       },
       {
-        name: 'Rugāji Municipality',
-        state_code: '082',
+        ame:'R'gāji Municipality','
+        tate_code:'0'2',',
       },
       {
-        name: 'Rūjiena Municipality',
-        state_code: '084',
+        ame:'R'jiena Municipality','
+        tate_code:'0'4',',
       },
       {
-        name: 'Rundāle Municipality',
-        state_code: '083',
+        ame:'R'ndāle Municipality','
+        tate_code:'0'3',',
       },
       {
-        name: 'Sala Municipality',
-        state_code: '085',
+        ame:'S'la Municipality','
+        tate_code:'0'5',',
       },
       {
-        name: 'Salacgrīva Municipality',
-        state_code: '086',
+        ame:'S'lacgrīva Municipality','
+        tate_code:'0'6',',
       },
       {
-        name: 'Salaspils Municipality',
-        state_code: '087',
+        ame:'S'laspils Municipality','
+        tate_code:'0'7',',
       },
       {
-        name: 'Saldus Municipality',
-        state_code: '088',
+        ame:'S'ldus Municipality','
+        tate_code:'0'8',',
       },
       {
-        name: 'Saulkrasti Municipality',
-        state_code: '089',
+        ame:'S'ulkrasti Municipality','
+        tate_code:'0'9',',
       },
       {
-        name: 'Sēja Municipality',
-        state_code: '090',
+        ame:'S'ja Municipality','
+        tate_code:'0'0',',
       },
       {
-        name: 'Sigulda Municipality',
-        state_code: '091',
+        ame:'S'gulda Municipality','
+        tate_code:'0'1',',
       },
       {
-        name: 'Skrīveri Municipality',
-        state_code: '092',
+        ame:'S'rīveri Municipality','
+        tate_code:'0'2',',
       },
       {
-        name: 'Skrunda Municipality',
-        state_code: '093',
+        ame:'S'runda Municipality','
+        tate_code:'0'3',',
       },
       {
-        name: 'Smiltene Municipality',
-        state_code: '094',
+        ame:'S'iltene Municipality','
+        tate_code:'0'4',',
       },
       {
-        name: 'Stopiņi Municipality',
-        state_code: '095',
+        ame:'S'opiņi Municipality','
+        tate_code:'0'5',',
       },
       {
-        name: 'Strenči Municipality',
-        state_code: '096',
+        ame:'S'renči Municipality','
+        tate_code:'0'6',',
       },
       {
-        name: 'Talsi Municipality',
-        state_code: '097',
+        ame:'T'lsi Municipality','
+        tate_code:'0'7',',
       },
       {
-        name: 'Tērvete Municipality',
-        state_code: '098',
+        ame:'T'rvete Municipality','
+        tate_code:'0'8',',
       },
       {
-        name: 'Tukums Municipality',
-        state_code: '099',
+        ame:'T'kums Municipality','
+        tate_code:'0'9',',
       },
       {
-        name: 'Vaiņode Municipality',
-        state_code: '100',
+        ame:'V'iņode Municipality','
+        tate_code:'1'0',',
       },
       {
-        name: 'Valka Municipality',
-        state_code: '101',
+        ame:'V'lka Municipality','
+        tate_code:'1'1',',
       },
       {
-        name: 'Valmiera',
-        state_code: 'VMR',
+        ame:'V'lmiera','
+        tate_code:'V'R',',
       },
       {
-        name: 'Varakļāni Municipality',
-        state_code: '102',
+        ame:'V'rakļāni Municipality','
+        tate_code:'1'2',',
       },
       {
-        name: 'Vārkava Municipality',
-        state_code: '103',
+        ame:'V'rkava Municipality','
+        tate_code:'1'3',',
       },
       {
-        name: 'Vecpiebalga Municipality',
-        state_code: '104',
+        ame:'V'cpiebalga Municipality','
+        tate_code:'1'4',',
       },
       {
-        name: 'Vecumnieki Municipality',
-        state_code: '105',
+        ame:'V'cumnieki Municipality','
+        tate_code:'1'5',',
       },
       {
-        name: 'Ventspils',
-        state_code: 'VEN',
+        ame:'V'ntspils','
+        tate_code:'V'N',',
       },
       {
-        name: 'Ventspils Municipality',
-        state_code: '106',
+        ame:'V'ntspils Municipality','
+        tate_code:'1'6',',
       },
       {
-        name: 'Viesīte Municipality',
-        state_code: '107',
+        ame:'V'esīte Municipality','
+        tate_code:'1'7',',
       },
       {
-        name: 'Viļaka Municipality',
-        state_code: '108',
+        ame:'V'ļaka Municipality','
+        tate_code:'1'8',',
       },
       {
-        name: 'Viļāni Municipality',
-        state_code: '109',
+        ame:'V'ļāni Municipality','
+        tate_code:'1'9',',
       },
       {
-        name: 'Zilupe Municipality',
-        state_code: '110',
-      },
-    ],
+        ame:'Z'lupe Municipality','
+        tate_code:'1'0',',
+      },,
+    ],,
   },
   {
-    name: 'Lebanon',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/5/59/Flag_of_Lebanon.svg',
-    iso2: 'LB',
-    states: [
+    ame:'L'banon','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/5/59/Flag_of_Lebanon.svg','
+    so2:'L'','
+    tates:[
       {
-        name: 'Akkar Governorate',
-        state_code: 'AK',
+        ame:'A'kar Governorate','
+        tate_code:'A'',',
       },
       {
-        name: 'Baalbek-Hermel Governorate',
-        state_code: 'BH',
+        ame:'B'albek-Hermel Governorate','
+        tate_code:'B'',',
       },
       {
-        name: 'Beirut Governorate',
-        state_code: 'BA',
+        ame:'B'irut Governorate','
+        tate_code:'B'',',
       },
       {
-        name: 'Beqaa Governorate',
-        state_code: 'BI',
+        ame:'B'qaa Governorate','
+        tate_code:'B'',',
       },
       {
-        name: 'Mount Lebanon Governorate',
-        state_code: 'JL',
+        ame:'M'unt Lebanon Governorate','
+        tate_code:'J'',',
       },
       {
-        name: 'Nabatieh Governorate',
-        state_code: 'NA',
+        ame:'N'batieh Governorate','
+        tate_code:'N'',',
       },
       {
-        name: 'North Governorate',
-        state_code: 'AS',
+        ame:'N'rth Governorate','
+        tate_code:'A'',',
       },
       {
-        name: 'South Governorate',
-        state_code: 'JA',
-      },
-    ],
+        ame:'S'uth Governorate','
+        tate_code:'J'',',
+      },,
+    ],,
   },
   {
-    name: 'Lesotho',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Flag_of_Lesotho.svg',
-    iso2: 'LS',
-    states: [
+    ame:'L'sotho','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/4/4a/Flag_of_Lesotho.svg','
+    so2:'L'','
+    tates:[
       {
-        name: 'Berea District',
-        state_code: 'D',
+        ame:'B'rea District','
+        tate_code:'D',',
       },
       {
-        name: 'Butha-Buthe District',
-        state_code: 'B',
+        ame:'B'tha-Buthe District','
+        tate_code:'B',',
       },
       {
-        name: 'Leribe District',
-        state_code: 'C',
+        ame:'L'ribe District','
+        tate_code:'C',',
       },
       {
-        name: 'Mafeteng District',
-        state_code: 'E',
+        ame:'M'feteng District','
+        tate_code:'E',',
       },
       {
-        name: 'Maseru District',
-        state_code: 'A',
+        ame:'M'seru District','
+        tate_code:'A',',
       },
       {
-        name: "Mohale's Hoek District",
-        state_code: 'F',
+        ame:"Mohale's Hoek District",
+        tate_code:'F',',
       },
       {
-        name: 'Mokhotlong District',
-        state_code: 'J',
+        ame:'M'khotlong District','
+        tate_code:'J',',
       },
       {
-        name: "Qacha's Nek District",
-        state_code: 'H',
+        ame:"Qacha's Nek District",
+        tate_code:'H',',
       },
       {
-        name: 'Quthing District',
-        state_code: 'G',
+        ame:'Q'thing District','
+        tate_code:'G',',
       },
       {
-        name: 'Thaba-Tseka District',
-        state_code: 'K',
-      },
-    ],
+        ame:'T'aba-Tseka District','
+        tate_code:'K',',
+      },,
+    ],,
   },
   {
-    name: 'Liberia',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/b/b8/Flag_of_Liberia.svg',
-    iso2: 'LR',
-    states: [
+    ame:'L'beria','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/b/b8/Flag_of_Liberia.svg','
+    so2:'L'','
+    tates:[
       {
-        name: 'Bomi County',
-        state_code: 'BM',
+        ame:'B'mi County','
+        tate_code:'B'',',
       },
       {
-        name: 'Bong County',
-        state_code: 'BG',
+        ame:'B'ng County','
+        tate_code:'B'',',
       },
       {
-        name: 'Gbarpolu County',
-        state_code: 'GP',
+        ame:'G'arpolu County','
+        tate_code:'G'',',
       },
       {
-        name: 'Grand Bassa County',
-        state_code: 'GB',
+        ame:'G'and Bassa County','
+        tate_code:'G'',',
       },
       {
-        name: 'Grand Cape Mount County',
-        state_code: 'CM',
+        ame:'G'and Cape Mount County','
+        tate_code:'C'',',
       },
       {
-        name: 'Grand Gedeh County',
-        state_code: 'GG',
+        ame:'G'and Gedeh County','
+        tate_code:'G'',',
       },
       {
-        name: 'Grand Kru County',
-        state_code: 'GK',
+        ame:'G'and Kru County','
+        tate_code:'G'',',
       },
       {
-        name: 'Lofa County',
-        state_code: 'LO',
+        ame:'L'fa County','
+        tate_code:'L'',',
       },
       {
-        name: 'Margibi County',
-        state_code: 'MG',
+        ame:'M'rgibi County','
+        tate_code:'M'',',
       },
       {
-        name: 'Maryland County',
-        state_code: 'MY',
+        ame:'M'ryland County','
+        tate_code:'M'',',
       },
       {
-        name: 'Montserrado County',
-        state_code: 'MO',
+        ame:'M'ntserrado County','
+        tate_code:'M'',',
       },
       {
-        name: 'Nimba',
-        state_code: 'NI',
+        ame:'N'mba','
+        tate_code:'N'',',
       },
       {
-        name: 'River Cess County',
-        state_code: 'RI',
+        ame:'R'ver Cess County','
+        tate_code:'R'',',
       },
       {
-        name: 'River Gee County',
-        state_code: 'RG',
+        ame:'R'ver Gee County','
+        tate_code:'R'',',
       },
       {
-        name: 'Sinoe County',
-        state_code: 'SI',
-      },
-    ],
+        ame:'S'noe County','
+        tate_code:'S'',',
+      },,
+    ],,
   },
   {
-    name: 'Libya',
-    flag: '',
-    iso2: 'LY',
-    states: [
+    ame:'L'bya','
+    lag:''''
+    so2:'L'','
+    tates:[
       {
-        name: 'Al Wahat District',
-        state_code: 'WA',
+        ame:'A' Wahat District','
+        tate_code:'W'',',
       },
       {
-        name: 'Benghazi',
-        state_code: 'BA',
+        ame:'B'nghazi','
+        tate_code:'B'',',
       },
       {
-        name: 'Derna District',
-        state_code: 'DR',
+        ame:'D'rna District','
+        tate_code:'D'',',
       },
       {
-        name: 'Ghat District',
-        state_code: 'GT',
+        ame:'G'at District','
+        tate_code:'G'',',
       },
       {
-        name: 'Jabal al Akhdar',
-        state_code: 'JA',
+        ame:'J'bal al Akhdar','
+        tate_code:'J'',',
       },
       {
-        name: 'Jabal al Gharbi District',
-        state_code: 'JG',
+        ame:'J'bal al Gharbi District','
+        tate_code:'J'',',
       },
       {
-        name: 'Jafara',
-        state_code: 'JI',
+        ame:'J'fara','
+        tate_code:'J'',',
       },
       {
-        name: 'Jufra',
-        state_code: 'JU',
+        ame:'J'fra','
+        tate_code:'J'',',
       },
       {
-        name: 'Kufra District',
-        state_code: 'KF',
+        ame:'K'fra District','
+        tate_code:'K'',',
       },
       {
-        name: 'Marj District',
-        state_code: 'MJ',
+        ame:'M'rj District','
+        tate_code:'M'',',
       },
       {
-        name: 'Misrata District',
-        state_code: 'MI',
+        ame:'M'srata District','
+        tate_code:'M'',',
       },
       {
-        name: 'Murqub',
-        state_code: 'MB',
+        ame:'M'rqub','
+        tate_code:'M'',',
       },
       {
-        name: 'Murzuq District',
-        state_code: 'MQ',
+        ame:'M'rzuq District','
+        tate_code:'M'',',
       },
       {
-        name: 'Nalut District',
-        state_code: 'NL',
+        ame:'N'lut District','
+        tate_code:'N'',',
       },
       {
-        name: 'Nuqat al Khams',
-        state_code: 'NQ',
+        ame:'N'qat al Khams','
+        tate_code:'N'',',
       },
       {
-        name: 'Sabha District',
-        state_code: 'SB',
+        ame:'S'bha District','
+        tate_code:'S'',',
       },
       {
-        name: 'Sirte District',
-        state_code: 'SR',
+        ame:'S'rte District','
+        tate_code:'S'',',
       },
       {
-        name: 'Tripoli District',
-        state_code: 'TB',
+        ame:'T'ipoli District','
+        tate_code:'T'',',
       },
       {
-        name: 'Wadi al Hayaa District',
-        state_code: 'WD',
+        ame:'W'di al Hayaa District','
+        tate_code:'W'',',
       },
       {
-        name: 'Wadi al Shatii District',
-        state_code: 'WS',
+        ame:'W'di al Shatii District','
+        tate_code:'W'',',
       },
       {
-        name: 'Zawiya District',
-        state_code: 'ZA',
-      },
-    ],
+        ame:'Z'wiya District','
+        tate_code:'Z'',',
+      },,
+    ],,
   },
   {
-    name: 'Liechtenstein',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/4/47/Flag_of_Liechtenstein.svg',
-    iso2: 'LI',
-    states: [
+    ame:'L'echtenstein','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/4/47/Flag_of_Liechtenstein.svg','
+    so2:'L'','
+    tates:[
       {
-        name: 'Balzers',
-        state_code: '01',
+        ame:'B'lzers','
+        tate_code:'0'',',
       },
       {
-        name: 'Eschen',
-        state_code: '02',
+        ame:'E'chen','
+        tate_code:'0'',',
       },
       {
-        name: 'Gamprin',
-        state_code: '03',
+        ame:'G'mprin','
+        tate_code:'0'',',
       },
       {
-        name: 'Mauren',
-        state_code: '04',
+        ame:'M'uren','
+        tate_code:'0'',',
       },
       {
-        name: 'Planken',
-        state_code: '05',
+        ame:'P'anken','
+        tate_code:'0'',',
       },
       {
-        name: 'Ruggell',
-        state_code: '06',
+        ame:'R'ggell','
+        tate_code:'0'',',
       },
       {
-        name: 'Schaan',
-        state_code: '07',
+        ame:'S'haan','
+        tate_code:'0'',',
       },
       {
-        name: 'Schellenberg',
-        state_code: '08',
+        ame:'S'hellenberg','
+        tate_code:'0'',',
       },
       {
-        name: 'Triesen',
-        state_code: '09',
+        ame:'T'iesen','
+        tate_code:'0'',',
       },
       {
-        name: 'Triesenberg',
-        state_code: '10',
+        ame:'T'iesenberg','
+        tate_code:'1'',',
       },
       {
-        name: 'Vaduz',
-        state_code: '11',
-      },
-    ],
+        ame:'V'duz','
+        tate_code:'1'',',
+      },,
+    ],,
   },
   {
-    name: 'Lithuania',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/1/11/Flag_of_Lithuania.svg',
-    iso2: 'LT',
-    states: [
+    ame:'L'thuania','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/1/11/Flag_of_Lithuania.svg','
+    so2:'L'','
+    tates:[
       {
-        name: 'Akmenė District Municipality',
-        state_code: '01',
+        ame:'A'menė District Municipality','
+        tate_code:'0'',',
       },
       {
-        name: 'Alytus City Municipality',
-        state_code: '02',
+        ame:'A'ytus City Municipality','
+        tate_code:'0'',',
       },
       {
-        name: 'Alytus County',
-        state_code: 'AL',
+        ame:'A'ytus County','
+        tate_code:'A'',',
       },
       {
-        name: 'Alytus District Municipality',
-        state_code: '03',
+        ame:'A'ytus District Municipality','
+        tate_code:'0'',',
       },
       {
-        name: 'Birštonas Municipality',
-        state_code: '05',
+        ame:'B'rštonas Municipality','
+        tate_code:'0'',',
       },
       {
-        name: 'Biržai District Municipality',
-        state_code: '06',
+        ame:'B'ržai District Municipality','
+        tate_code:'0'',',
       },
       {
-        name: 'Druskininkai municipality',
-        state_code: '07',
+        ame:'D'uskininkai municipality','
+        tate_code:'0'',',
       },
       {
-        name: 'Elektrėnai municipality',
-        state_code: '08',
+        ame:'E'ektrėnai municipality','
+        tate_code:'0'',',
       },
       {
-        name: 'Ignalina District Municipality',
-        state_code: '09',
+        ame:'I'nalina District Municipality','
+        tate_code:'0'',',
       },
       {
-        name: 'Jonava District Municipality',
-        state_code: '10',
+        ame:'J'nava District Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Joniškis District Municipality',
-        state_code: '11',
+        ame:'J'niškis District Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Jurbarkas District Municipality',
-        state_code: '12',
+        ame:'J'rbarkas District Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Kaišiadorys District Municipality',
-        state_code: '13',
+        ame:'K'išiadorys District Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Kalvarija municipality',
-        state_code: '14',
+        ame:'K'lvarija municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Kaunas City Municipality',
-        state_code: '15',
+        ame:'K'unas City Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Kaunas County',
-        state_code: 'KU',
+        ame:'K'unas County','
+        tate_code:'K'',',
       },
       {
-        name: 'Kaunas District Municipality',
-        state_code: '16',
+        ame:'K'unas District Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Kazlų Rūda municipality',
-        state_code: '17',
+        ame:'K'zlų Rūda municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Kėdainiai District Municipality',
-        state_code: '18',
+        ame:'K'dainiai District Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Kelmė District Municipality',
-        state_code: '19',
+        ame:'K'lmė District Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Klaipeda City Municipality',
-        state_code: '20',
+        ame:'K'aipeda City Municipality','
+        tate_code:'2'',',
       },
       {
-        name: 'Klaipėda County',
-        state_code: 'KL',
+        ame:'K'aipėda County','
+        tate_code:'K'',',
       },
       {
-        name: 'Klaipėda District Municipality',
-        state_code: '21',
+        ame:'K'aipėda District Municipality','
+        tate_code:'2'',',
       },
       {
-        name: 'Kretinga District Municipality',
-        state_code: '22',
+        ame:'K'etinga District Municipality','
+        tate_code:'2'',',
       },
       {
-        name: 'Kupiškis District Municipality',
-        state_code: '23',
+        ame:'K'piškis District Municipality','
+        tate_code:'2'',',
       },
       {
-        name: 'Lazdijai District Municipality',
-        state_code: '24',
+        ame:'L'zdijai District Municipality','
+        tate_code:'2'',',
       },
       {
-        name: 'Marijampolė County',
-        state_code: 'MR',
+        ame:'M'rijampolė County','
+        tate_code:'M'',',
       },
       {
-        name: 'Marijampolė Municipality',
-        state_code: '25',
+        ame:'M'rijampolė Municipality','
+        tate_code:'2'',',
       },
       {
-        name: 'Mažeikiai District Municipality',
-        state_code: '26',
+        ame:'M'žeikiai District Municipality','
+        tate_code:'2'',',
       },
       {
-        name: 'Molėtai District Municipality',
-        state_code: '27',
+        ame:'M'lėtai District Municipality','
+        tate_code:'2'',',
       },
       {
-        name: 'Neringa Municipality',
-        state_code: '28',
+        ame:'N'ringa Municipality','
+        tate_code:'2'',',
       },
       {
-        name: 'Pagėgiai municipality',
-        state_code: '29',
+        ame:'P'gėgiai municipality','
+        tate_code:'2'',',
       },
       {
-        name: 'Pakruojis District Municipality',
-        state_code: '30',
+        ame:'P'kruojis District Municipality','
+        tate_code:'3'',',
       },
       {
-        name: 'Palanga City Municipality',
-        state_code: '31',
+        ame:'P'langa City Municipality','
+        tate_code:'3'',',
       },
       {
-        name: 'Panevėžys City Municipality',
-        state_code: '32',
+        ame:'P'nevėžys City Municipality','
+        tate_code:'3'',',
       },
       {
-        name: 'Panevėžys County',
-        state_code: 'PN',
+        ame:'P'nevėžys County','
+        tate_code:'P'',',
       },
       {
-        name: 'Panevėžys District Municipality',
-        state_code: '33',
+        ame:'P'nevėžys District Municipality','
+        tate_code:'3'',',
       },
       {
-        name: 'Pasvalys District Municipality',
-        state_code: '34',
+        ame:'P'svalys District Municipality','
+        tate_code:'3'',',
       },
       {
-        name: 'Plungė District Municipality',
-        state_code: '35',
+        ame:'P'ungė District Municipality','
+        tate_code:'3'',',
       },
       {
-        name: 'Prienai District Municipality',
-        state_code: '36',
+        ame:'P'ienai District Municipality','
+        tate_code:'3'',',
       },
       {
-        name: 'Radviliškis District Municipality',
-        state_code: '37',
+        ame:'R'dviliškis District Municipality','
+        tate_code:'3'',',
       },
       {
-        name: 'Raseiniai District Municipality',
-        state_code: '38',
+        ame:'R'seiniai District Municipality','
+        tate_code:'3'',',
       },
       {
-        name: 'Rietavas municipality',
-        state_code: '39',
+        ame:'R'etavas municipality','
+        tate_code:'3'',',
       },
       {
-        name: 'Rokiškis District Municipality',
-        state_code: '40',
+        ame:'R'kiškis District Municipality','
+        tate_code:'4'',',
       },
       {
-        name: 'Šakiai District Municipality',
-        state_code: '41',
+        ame:'Š'kiai District Municipality','
+        tate_code:'4'',',
       },
       {
-        name: 'Šalčininkai District Municipality',
-        state_code: '42',
+        ame:'Š'lčininkai District Municipality','
+        tate_code:'4'',',
       },
       {
-        name: 'Šiauliai City Municipality',
-        state_code: '43',
+        ame:'Š'auliai City Municipality','
+        tate_code:'4'',',
       },
       {
-        name: 'Šiauliai County',
-        state_code: 'SA',
+        ame:'Š'auliai County','
+        tate_code:'S'',',
       },
       {
-        name: 'Šiauliai District Municipality',
-        state_code: '44',
+        ame:'Š'auliai District Municipality','
+        tate_code:'4'',',
       },
       {
-        name: 'Šilalė District Municipality',
-        state_code: '45',
+        ame:'Š'lalė District Municipality','
+        tate_code:'4'',',
       },
       {
-        name: 'Šilutė District Municipality',
-        state_code: '46',
+        ame:'Š'lutė District Municipality','
+        tate_code:'4'',',
       },
       {
-        name: 'Širvintos District Municipality',
-        state_code: '47',
+        ame:'Š'rvintos District Municipality','
+        tate_code:'4'',',
       },
       {
-        name: 'Skuodas District Municipality',
-        state_code: '48',
+        ame:'S'uodas District Municipality','
+        tate_code:'4'',',
       },
       {
-        name: 'Švenčionys District Municipality',
-        state_code: '49',
+        ame:'Š'enčionys District Municipality','
+        tate_code:'4'',',
       },
       {
-        name: 'Tauragė County',
-        state_code: 'TA',
+        ame:'T'uragė County','
+        tate_code:'T'',',
       },
       {
-        name: 'Tauragė District Municipality',
-        state_code: '50',
+        ame:'T'uragė District Municipality','
+        tate_code:'5'',',
       },
       {
-        name: 'Telšiai County',
-        state_code: 'TE',
+        ame:'T'lšiai County','
+        tate_code:'T'',',
       },
       {
-        name: 'Telšiai District Municipality',
-        state_code: '51',
+        ame:'T'lšiai District Municipality','
+        tate_code:'5'',',
       },
       {
-        name: 'Trakai District Municipality',
-        state_code: '52',
+        ame:'T'akai District Municipality','
+        tate_code:'5'',',
       },
       {
-        name: 'Ukmergė District Municipality',
-        state_code: '53',
+        ame:'U'mergė District Municipality','
+        tate_code:'5'',',
       },
       {
-        name: 'Utena County',
-        state_code: 'UT',
+        ame:'U'ena County','
+        tate_code:'U'',',
       },
       {
-        name: 'Utena District Municipality',
-        state_code: '54',
+        ame:'U'ena District Municipality','
+        tate_code:'5'',',
       },
       {
-        name: 'Varėna District Municipality',
-        state_code: '55',
+        ame:'V'rėna District Municipality','
+        tate_code:'5'',',
       },
       {
-        name: 'Vilkaviškis District Municipality',
-        state_code: '56',
+        ame:'V'lkaviškis District Municipality','
+        tate_code:'5'',',
       },
       {
-        name: 'Vilnius City Municipality',
-        state_code: '57',
+        ame:'V'lnius City Municipality','
+        tate_code:'5'',',
       },
       {
-        name: 'Vilnius County',
-        state_code: 'VL',
+        ame:'V'lnius County','
+        tate_code:'V'',',
       },
       {
-        name: 'Vilnius District Municipality',
-        state_code: '58',
+        ame:'V'lnius District Municipality','
+        tate_code:'5'',',
       },
       {
-        name: 'Visaginas Municipality',
-        state_code: '59',
+        ame:'V'saginas Municipality','
+        tate_code:'5'',',
       },
       {
-        name: 'Zarasai District Municipality',
-        state_code: '60',
-      },
-    ],
+        ame:'Z'rasai District Municipality','
+        tate_code:'6'',',
+      },,
+    ],,
   },
   {
-    name: 'Luxembourg',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/d/da/Flag_of_Luxembourg.svg',
-    iso2: 'LU',
-    states: [
+    ame:'L'xembourg','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/d/da/Flag_of_Luxembourg.svg','
+    so2:'L'','
+    tates:[
       {
-        name: 'Canton of Capellen',
-        state_code: 'CA',
+        ame:'C'nton of Capellen','
+        tate_code:'C'',',
       },
       {
-        name: 'Canton of Clervaux',
-        state_code: 'CL',
+        ame:'C'nton of Clervaux','
+        tate_code:'C'',',
       },
       {
-        name: 'Canton of Diekirch',
-        state_code: 'DI',
+        ame:'C'nton of Diekirch','
+        tate_code:'D'',',
       },
       {
-        name: 'Canton of Echternach',
-        state_code: 'EC',
+        ame:'C'nton of Echternach','
+        tate_code:'E'',',
       },
       {
-        name: 'Canton of Esch-sur-Alzette',
-        state_code: 'ES',
+        ame:'C'nton of Esch-sur-Alzette','
+        tate_code:'E'',',
       },
       {
-        name: 'Canton of Grevenmacher',
-        state_code: 'GR',
+        ame:'C'nton of Grevenmacher','
+        tate_code:'G'',',
       },
       {
-        name: 'Canton of Luxembourg',
-        state_code: 'LU',
+        ame:'C'nton of Luxembourg','
+        tate_code:'L'',',
       },
       {
-        name: 'Canton of Mersch',
-        state_code: 'ME',
+        ame:'C'nton of Mersch','
+        tate_code:'M'',',
       },
       {
-        name: 'Canton of Redange',
-        state_code: 'RD',
+        ame:'C'nton of Redange','
+        tate_code:'R'',',
       },
       {
-        name: 'Canton of Remich',
-        state_code: 'RM',
+        ame:'C'nton of Remich','
+        tate_code:'R'',',
       },
       {
-        name: 'Canton of Vianden',
-        state_code: 'VD',
+        ame:'C'nton of Vianden','
+        tate_code:'V'',',
       },
       {
-        name: 'Canton of Wiltz',
-        state_code: 'WI',
+        ame:'C'nton of Wiltz','
+        tate_code:'W'',',
       },
       {
-        name: 'Diekirch District',
-        state_code: 'D',
+        ame:'D'ekirch District','
+        tate_code:'D',',
       },
       {
-        name: 'Grevenmacher District',
-        state_code: 'G',
+        ame:'G'evenmacher District','
+        tate_code:'G',',
       },
       {
-        name: 'Luxembourg District',
-        state_code: 'L',
-      },
-    ],
+        ame:'L'xembourg District','
+        tate_code:'L',',
+      },,
+    ],,
   },
   {
-    name: 'Macau S.A.R.',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/6/63/Flag_of_Macau.svg',
-    iso2: 'MO',
-    states: [],
+    ame:'M'cau S.A.R.','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/6/63/Flag_of_Macau.svg','
+    so2:'M'','
+    tates:[],,
   },
   {
-    name: 'Macedonia',
-    flag: '',
-    iso2: 'MK',
-    states: [
+    ame:'M'cedonia','
+    lag:''''
+    so2:'M'','
+    tates:[
       {
-        name: 'Aerodrom Municipality',
-        state_code: '01',
+        ame:'A'rodrom Municipality','
+        tate_code:'0'',',
       },
       {
-        name: 'Aračinovo Municipality',
-        state_code: '02',
+        ame:'A'ačinovo Municipality','
+        tate_code:'0'',',
       },
       {
-        name: 'Berovo Municipality',
-        state_code: '03',
+        ame:'B'rovo Municipality','
+        tate_code:'0'',',
       },
       {
-        name: 'Bitola Municipality',
-        state_code: '04',
+        ame:'B'tola Municipality','
+        tate_code:'0'',',
       },
       {
-        name: 'Bogdanci Municipality',
-        state_code: '05',
+        ame:'B'gdanci Municipality','
+        tate_code:'0'',',
       },
       {
-        name: 'Bogovinje Municipality',
-        state_code: '06',
+        ame:'B'govinje Municipality','
+        tate_code:'0'',',
       },
       {
-        name: 'Bosilovo Municipality',
-        state_code: '07',
+        ame:'B'silovo Municipality','
+        tate_code:'0'',',
       },
       {
-        name: 'Brvenica Municipality',
-        state_code: '08',
+        ame:'B'venica Municipality','
+        tate_code:'0'',',
       },
       {
-        name: 'Butel Municipality',
-        state_code: '09',
+        ame:'B'tel Municipality','
+        tate_code:'0'',',
       },
       {
-        name: 'Čair Municipality',
-        state_code: '79',
+        ame:'Č'ir Municipality','
+        tate_code:'7'',',
       },
       {
-        name: 'Čaška Municipality',
-        state_code: '80',
+        ame:'Č'ška Municipality','
+        tate_code:'8'',',
       },
       {
-        name: 'Centar Municipality',
-        state_code: '77',
+        ame:'C'ntar Municipality','
+        tate_code:'7'',',
       },
       {
-        name: 'Centar Župa Municipality',
-        state_code: '78',
+        ame:'C'ntar Župa Municipality','
+        tate_code:'7'',',
       },
       {
-        name: 'Češinovo-Obleševo Municipality',
-        state_code: '81',
+        ame:'Č'šinovo-Obleševo Municipality','
+        tate_code:'8'',',
       },
       {
-        name: 'Čučer-Sandevo Municipality',
-        state_code: '82',
+        ame:'Č'čer-Sandevo Municipality','
+        tate_code:'8'',',
       },
       {
-        name: 'Debarca Municipality',
-        state_code: '22',
+        ame:'D'barca Municipality','
+        tate_code:'2'',',
       },
       {
-        name: 'Delčevo Municipality',
-        state_code: '23',
+        ame:'D'lčevo Municipality','
+        tate_code:'2'',',
       },
       {
-        name: 'Demir Hisar Municipality',
-        state_code: '25',
+        ame:'D'mir Hisar Municipality','
+        tate_code:'2'',',
       },
       {
-        name: 'Demir Kapija Municipality',
-        state_code: '24',
+        ame:'D'mir Kapija Municipality','
+        tate_code:'2'',',
       },
       {
-        name: 'Dojran Municipality',
-        state_code: '26',
+        ame:'D'jran Municipality','
+        tate_code:'2'',',
       },
       {
-        name: 'Dolneni Municipality',
-        state_code: '27',
+        ame:'D'lneni Municipality','
+        tate_code:'2'',',
       },
       {
-        name: 'Drugovo Municipality',
-        state_code: '28',
+        ame:'D'ugovo Municipality','
+        tate_code:'2'',',
       },
       {
-        name: 'Gazi Baba Municipality',
-        state_code: '17',
+        ame:'G'zi Baba Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Gevgelija Municipality',
-        state_code: '18',
+        ame:'G'vgelija Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Gjorče Petrov Municipality',
-        state_code: '29',
+        ame:'G'orče Petrov Municipality','
+        tate_code:'2'',',
       },
       {
-        name: 'Gostivar Municipality',
-        state_code: '19',
+        ame:'G'stivar Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Gradsko Municipality',
-        state_code: '20',
+        ame:'G'adsko Municipality','
+        tate_code:'2'',',
       },
       {
-        name: 'Greater Skopje',
-        state_code: '85',
+        ame:'G'eater Skopje','
+        tate_code:'8'',',
       },
       {
-        name: 'Ilinden Municipality',
-        state_code: '34',
+        ame:'I'inden Municipality','
+        tate_code:'3'',',
       },
       {
-        name: 'Jegunovce Municipality',
-        state_code: '35',
+        ame:'J'gunovce Municipality','
+        tate_code:'3'',',
       },
       {
-        name: 'Karbinci',
-        state_code: '37',
+        ame:'K'rbinci','
+        tate_code:'3'',',
       },
       {
-        name: 'Karpoš Municipality',
-        state_code: '38',
+        ame:'K'rpoš Municipality','
+        tate_code:'3'',',
       },
       {
-        name: 'Kavadarci Municipality',
-        state_code: '36',
+        ame:'K'vadarci Municipality','
+        tate_code:'3'',',
       },
       {
-        name: 'Kičevo Municipality',
-        state_code: '40',
+        ame:'K'čevo Municipality','
+        tate_code:'4'',',
       },
       {
-        name: 'Kisela Voda Municipality',
-        state_code: '39',
+        ame:'K'sela Voda Municipality','
+        tate_code:'3'',',
       },
       {
-        name: 'Kočani Municipality',
-        state_code: '42',
+        ame:'K'čani Municipality','
+        tate_code:'4'',',
       },
       {
-        name: 'Konče Municipality',
-        state_code: '41',
+        ame:'K'nče Municipality','
+        tate_code:'4'',',
       },
       {
-        name: 'Kratovo Municipality',
-        state_code: '43',
+        ame:'K'atovo Municipality','
+        tate_code:'4'',',
       },
       {
-        name: 'Kriva Palanka Municipality',
-        state_code: '44',
+        ame:'K'iva Palanka Municipality','
+        tate_code:'4'',',
       },
       {
-        name: 'Krivogaštani Municipality',
-        state_code: '45',
+        ame:'K'ivogaštani Municipality','
+        tate_code:'4'',',
       },
       {
-        name: 'Kruševo Municipality',
-        state_code: '46',
+        ame:'K'uševo Municipality','
+        tate_code:'4'',',
       },
       {
-        name: 'Kumanovo Municipality',
-        state_code: '47',
+        ame:'K'manovo Municipality','
+        tate_code:'4'',',
       },
       {
-        name: 'Lipkovo Municipality',
-        state_code: '48',
+        ame:'L'pkovo Municipality','
+        tate_code:'4'',',
       },
       {
-        name: 'Lozovo Municipality',
-        state_code: '49',
+        ame:'L'zovo Municipality','
+        tate_code:'4'',',
       },
       {
-        name: 'Makedonska Kamenica Municipality',
-        state_code: '51',
+        ame:'M'kedonska Kamenica Municipality','
+        tate_code:'5'',',
       },
       {
-        name: 'Makedonski Brod Municipality',
-        state_code: '52',
+        ame:'M'kedonski Brod Municipality','
+        tate_code:'5'',',
       },
       {
-        name: 'Mavrovo and Rostuša Municipality',
-        state_code: '50',
+        ame:'M'vrovo and Rostuša Municipality','
+        tate_code:'5'',',
       },
       {
-        name: 'Mogila Municipality',
-        state_code: '53',
+        ame:'M'gila Municipality','
+        tate_code:'5'',',
       },
       {
-        name: 'Negotino Municipality',
-        state_code: '54',
+        ame:'N'gotino Municipality','
+        tate_code:'5'',',
       },
       {
-        name: 'Novaci Municipality',
-        state_code: '55',
+        ame:'N'vaci Municipality','
+        tate_code:'5'',',
       },
       {
-        name: 'Novo Selo Municipality',
-        state_code: '56',
+        ame:'N'vo Selo Municipality','
+        tate_code:'5'',',
       },
       {
-        name: 'Ohrid Municipality',
-        state_code: '58',
+        ame:'O'rid Municipality','
+        tate_code:'5'',',
       },
       {
-        name: 'Oslomej Municipality',
-        state_code: '57',
+        ame:'O'lomej Municipality','
+        tate_code:'5'',',
       },
       {
-        name: 'Pehčevo Municipality',
-        state_code: '60',
+        ame:'P'hčevo Municipality','
+        tate_code:'6'',',
       },
       {
-        name: 'Petrovec Municipality',
-        state_code: '59',
+        ame:'P'trovec Municipality','
+        tate_code:'5'',',
       },
       {
-        name: 'Plasnica Municipality',
-        state_code: '61',
+        ame:'P'asnica Municipality','
+        tate_code:'6'',',
       },
       {
-        name: 'Prilep Municipality',
-        state_code: '62',
+        ame:'P'ilep Municipality','
+        tate_code:'6'',',
       },
       {
-        name: 'Probištip Municipality',
-        state_code: '63',
+        ame:'P'obištip Municipality','
+        tate_code:'6'',',
       },
       {
-        name: 'Radoviš Municipality',
-        state_code: '64',
+        ame:'R'doviš Municipality','
+        tate_code:'6'',',
       },
       {
-        name: 'Rankovce Municipality',
-        state_code: '65',
+        ame:'R'nkovce Municipality','
+        tate_code:'6'',',
       },
       {
-        name: 'Resen Municipality',
-        state_code: '66',
+        ame:'R'sen Municipality','
+        tate_code:'6'',',
       },
       {
-        name: 'Rosoman Municipality',
-        state_code: '67',
+        ame:'R'soman Municipality','
+        tate_code:'6'',',
       },
       {
-        name: 'Saraj Municipality',
-        state_code: '68',
+        ame:'S'raj Municipality','
+        tate_code:'6'',',
       },
       {
-        name: 'Sopište Municipality',
-        state_code: '70',
+        ame:'S'pište Municipality','
+        tate_code:'7'',',
       },
       {
-        name: 'Staro Nagoričane Municipality',
-        state_code: '71',
+        ame:'S'aro Nagoričane Municipality','
+        tate_code:'7'',',
       },
       {
-        name: 'Štip Municipality',
-        state_code: '83',
+        ame:'Š'ip Municipality','
+        tate_code:'8'',',
       },
       {
-        name: 'Struga Municipality',
-        state_code: '72',
+        ame:'S'ruga Municipality','
+        tate_code:'7'',',
       },
       {
-        name: 'Strumica Municipality',
-        state_code: '73',
+        ame:'S'rumica Municipality','
+        tate_code:'7'',',
       },
       {
-        name: 'Studeničani Municipality',
-        state_code: '74',
+        ame:'S'udeničani Municipality','
+        tate_code:'7'',',
       },
       {
-        name: 'Šuto Orizari Municipality',
-        state_code: '84',
+        ame:'Š'to Orizari Municipality','
+        tate_code:'8'',',
       },
       {
-        name: 'Sveti Nikole Municipality',
-        state_code: '69',
+        ame:'S'eti Nikole Municipality','
+        tate_code:'6'',',
       },
       {
-        name: 'Tearce Municipality',
-        state_code: '75',
+        ame:'T'arce Municipality','
+        tate_code:'7'',',
       },
       {
-        name: 'Tetovo Municipality',
-        state_code: '76',
+        ame:'T'tovo Municipality','
+        tate_code:'7'',',
       },
       {
-        name: 'Valandovo Municipality',
-        state_code: '10',
+        ame:'V'landovo Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Vasilevo Municipality',
-        state_code: '11',
+        ame:'V'silevo Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Veles Municipality',
-        state_code: '13',
+        ame:'V'les Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Vevčani Municipality',
-        state_code: '12',
+        ame:'V'včani Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Vinica Municipality',
-        state_code: '14',
+        ame:'V'nica Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Vraneštica Municipality',
-        state_code: '15',
+        ame:'V'aneštica Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Vrapčište Municipality',
-        state_code: '16',
+        ame:'V'apčište Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Zajas Municipality',
-        state_code: '31',
+        ame:'Z'jas Municipality','
+        tate_code:'3'',',
       },
       {
-        name: 'Zelenikovo Municipality',
-        state_code: '32',
+        ame:'Z'lenikovo Municipality','
+        tate_code:'3'',',
       },
       {
-        name: 'Želino Municipality',
-        state_code: '30',
+        ame:'Ž'lino Municipality','
+        tate_code:'3'',',
       },
       {
-        name: 'Zrnovci Municipality',
-        state_code: '33',
-      },
-    ],
+        ame:'Z'novci Municipality','
+        tate_code:'3'',',
+      },,
+    ],,
   },
   {
-    name: 'Madagascar',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Madagascar.svg',
-    iso2: 'MG',
-    states: [
+    ame:'M'dagascar','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Madagascar.svg','
+    so2:'M'','
+    tates:[
       {
-        name: 'Antananarivo Province',
-        state_code: 'T',
+        ame:'A'tananarivo Province','
+        tate_code:'T',',
       },
       {
-        name: 'Antsiranana Province',
-        state_code: 'D',
+        ame:'A'tsiranana Province','
+        tate_code:'D',',
       },
       {
-        name: 'Fianarantsoa Province',
-        state_code: 'F',
+        ame:'F'anarantsoa Province','
+        tate_code:'F',',
       },
       {
-        name: 'Mahajanga Province',
-        state_code: 'M',
+        ame:'M'hajanga Province','
+        tate_code:'M',',
       },
       {
-        name: 'Toamasina Province',
-        state_code: 'A',
+        ame:'T'amasina Province','
+        tate_code:'A',',
       },
       {
-        name: 'Toliara Province',
-        state_code: 'U',
-      },
-    ],
+        ame:'T'liara Province','
+        tate_code:'U',',
+      },,
+    ],,
   },
   {
-    name: 'Malawi',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Flag_of_Malawi.svg',
-    iso2: 'MW',
-    states: [
+    ame:'M'lawi','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/d/d1/Flag_of_Malawi.svg','
+    so2:'M'','
+    tates:[
       {
-        name: 'Balaka District',
-        state_code: 'BA',
+        ame:'B'laka District','
+        tate_code:'B'',',
       },
       {
-        name: 'Blantyre District',
-        state_code: 'BL',
+        ame:'B'antyre District','
+        tate_code:'B'',',
       },
       {
-        name: 'Central Region',
-        state_code: 'C',
+        ame:'C'ntral Region','
+        tate_code:'C',',
       },
       {
-        name: 'Chikwawa District',
-        state_code: 'CK',
+        ame:'C'ikwawa District','
+        tate_code:'C'',',
       },
       {
-        name: 'Chiradzulu District',
-        state_code: 'CR',
+        ame:'C'iradzulu District','
+        tate_code:'C'',',
       },
       {
-        name: 'Chitipa district',
-        state_code: 'CT',
+        ame:'C'itipa district','
+        tate_code:'C'',',
       },
       {
-        name: 'Dedza District',
-        state_code: 'DE',
+        ame:'D'dza District','
+        tate_code:'D'',',
       },
       {
-        name: 'Dowa District',
-        state_code: 'DO',
+        ame:'D'wa District','
+        tate_code:'D'',',
       },
       {
-        name: 'Karonga District',
-        state_code: 'KR',
+        ame:'K'ronga District','
+        tate_code:'K'',',
       },
       {
-        name: 'Kasungu District',
-        state_code: 'KS',
+        ame:'K'sungu District','
+        tate_code:'K'',',
       },
       {
-        name: 'Likoma District',
-        state_code: 'LK',
+        ame:'L'koma District','
+        tate_code:'L'',',
       },
       {
-        name: 'Lilongwe District',
-        state_code: 'LI',
+        ame:'L'longwe District','
+        tate_code:'L'',',
       },
       {
-        name: 'Machinga District',
-        state_code: 'MH',
+        ame:'M'chinga District','
+        tate_code:'M'',',
       },
       {
-        name: 'Mangochi District',
-        state_code: 'MG',
+        ame:'M'ngochi District','
+        tate_code:'M'',',
       },
       {
-        name: 'Mchinji District',
-        state_code: 'MC',
+        ame:'M'hinji District','
+        tate_code:'M'',',
       },
       {
-        name: 'Mulanje District',
-        state_code: 'MU',
+        ame:'M'lanje District','
+        tate_code:'M'',',
       },
       {
-        name: 'Mwanza District',
-        state_code: 'MW',
+        ame:'M'anza District','
+        tate_code:'M'',',
       },
       {
-        name: 'Mzimba District',
-        state_code: 'MZ',
+        ame:'M'imba District','
+        tate_code:'M'',',
       },
       {
-        name: 'Nkhata Bay District',
-        state_code: 'NB',
+        ame:'N'hata Bay District','
+        tate_code:'N'',',
       },
       {
-        name: 'Nkhotakota District',
-        state_code: 'NK',
+        ame:'N'hotakota District','
+        tate_code:'N'',',
       },
       {
-        name: 'Northern Region',
-        state_code: 'N',
+        ame:'N'rthern Region','
+        tate_code:'N',',
       },
       {
-        name: 'Nsanje District',
-        state_code: 'NS',
+        ame:'N'anje District','
+        tate_code:'N'',',
       },
       {
-        name: 'Ntcheu District',
-        state_code: 'NU',
+        ame:'N'cheu District','
+        tate_code:'N'',',
       },
       {
-        name: 'Ntchisi District',
-        state_code: 'NI',
+        ame:'N'chisi District','
+        tate_code:'N'',',
       },
       {
-        name: 'Phalombe District',
-        state_code: 'PH',
+        ame:'P'alombe District','
+        tate_code:'P'',',
       },
       {
-        name: 'Rumphi District',
-        state_code: 'RU',
+        ame:'R'mphi District','
+        tate_code:'R'',',
       },
       {
-        name: 'Salima District',
-        state_code: 'SA',
+        ame:'S'lima District','
+        tate_code:'S'',',
       },
       {
-        name: 'Southern Region',
-        state_code: 'S',
+        ame:'S'uthern Region','
+        tate_code:'S',',
       },
       {
-        name: 'Thyolo District',
-        state_code: 'TH',
+        ame:'T'yolo District','
+        tate_code:'T'',',
       },
       {
-        name: 'Zomba District',
-        state_code: 'ZO',
-      },
-    ],
+        ame:'Z'mba District','
+        tate_code:'Z'',',
+      },,
+    ],,
   },
   {
-    name: 'Malaysia',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_Malaysia.svg',
-    iso2: 'MY',
-    states: [
+    ame:'M'laysia','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_Malaysia.svg','
+    so2:'M'','
+    tates:[
       {
-        name: 'Johor',
-        state_code: '01',
+        ame:'J'hor','
+        tate_code:'0'',',
       },
       {
-        name: 'Kedah',
-        state_code: '02',
+        ame:'K'dah','
+        tate_code:'0'',',
       },
       {
-        name: 'Kelantan',
-        state_code: '03',
+        ame:'K'lantan','
+        tate_code:'0'',',
       },
       {
-        name: 'Kuala Lumpur',
-        state_code: '14',
+        ame:'K'ala Lumpur','
+        tate_code:'1'',',
       },
       {
-        name: 'Labuan',
-        state_code: '15',
+        ame:'L'buan','
+        tate_code:'1'',',
       },
       {
-        name: 'Melaka',
-        state_code: '04',
+        ame:'M'laka','
+        tate_code:'0'',',
       },
       {
-        name: 'Negeri Sembilan',
-        state_code: '05',
+        ame:'N'geri Sembilan','
+        tate_code:'0'',',
       },
       {
-        name: 'Pahang',
-        state_code: '06',
+        ame:'P'hang','
+        tate_code:'0'',',
       },
       {
-        name: 'Penang',
-        state_code: '07',
+        ame:'P'nang','
+        tate_code:'0'',',
       },
       {
-        name: 'Perak',
-        state_code: '08',
+        ame:'P'rak','
+        tate_code:'0'',',
       },
       {
-        name: 'Perlis',
-        state_code: '09',
+        ame:'P'rlis','
+        tate_code:'0'',',
       },
       {
-        name: 'Putrajaya',
-        state_code: '16',
+        ame:'P'trajaya','
+        tate_code:'1'',',
       },
       {
-        name: 'Sabah',
-        state_code: '12',
+        ame:'S'bah','
+        tate_code:'1'',',
       },
       {
-        name: 'Sarawak',
-        state_code: '13',
+        ame:'S'rawak','
+        tate_code:'1'',',
       },
       {
-        name: 'Selangor',
-        state_code: '10',
+        ame:'S'langor','
+        tate_code:'1'',',
       },
       {
-        name: 'Terengganu',
-        state_code: '11',
-      },
-    ],
+        ame:'T'rengganu','
+        tate_code:'1'',',
+      },,
+    ],,
   },
   {
-    name: 'Maldives',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Flag_of_Maldives.svg',
-    iso2: 'MV',
-    states: [
+    ame:'M'ldives','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/0/0f/Flag_of_Maldives.svg','
+    so2:'M'','
+    tates:[
       {
-        name: 'Addu Atoll',
-        state_code: '01',
+        ame:'A'du Atoll','
+        tate_code:'0'',',
       },
       {
-        name: 'Alif Alif Atoll',
-        state_code: '02',
+        ame:'A'if Alif Atoll','
+        tate_code:'0'',',
       },
       {
-        name: 'Alif Dhaal Atoll',
-        state_code: '00',
+        ame:'A'if Dhaal Atoll','
+        tate_code:'0'',',
       },
       {
-        name: 'Central Province',
-        state_code: 'CE',
+        ame:'C'ntral Province','
+        tate_code:'C'',',
       },
       {
-        name: 'Dhaalu Atoll',
-        state_code: '17',
+        ame:'D'aalu Atoll','
+        tate_code:'1'',',
       },
       {
-        name: 'Faafu Atoll',
-        state_code: '14',
+        ame:'F'afu Atoll','
+        tate_code:'1'',',
       },
       {
-        name: 'Gaafu Alif Atoll',
-        state_code: '27',
+        ame:'G'afu Alif Atoll','
+        tate_code:'2'',',
       },
       {
-        name: 'Gaafu Dhaalu Atoll',
-        state_code: '28',
+        ame:'G'afu Dhaalu Atoll','
+        tate_code:'2'',',
       },
       {
-        name: 'Gnaviyani Atoll',
-        state_code: '29',
+        ame:'G'aviyani Atoll','
+        tate_code:'2'',',
       },
       {
-        name: 'Haa Alif Atoll',
-        state_code: '07',
+        ame:'H'a Alif Atoll','
+        tate_code:'0'',',
       },
       {
-        name: 'Haa Dhaalu Atoll',
-        state_code: '23',
+        ame:'H'a Dhaalu Atoll','
+        tate_code:'2'',',
       },
       {
-        name: 'Kaafu Atoll',
-        state_code: '26',
+        ame:'K'afu Atoll','
+        tate_code:'2'',',
       },
       {
-        name: 'Laamu Atoll',
-        state_code: '05',
+        ame:'L'amu Atoll','
+        tate_code:'0'',',
       },
       {
-        name: 'Lhaviyani Atoll',
-        state_code: '03',
+        ame:'L'aviyani Atoll','
+        tate_code:'0'',',
       },
       {
-        name: 'Malé',
-        state_code: 'MLE',
+        ame:'M'lé','
+        tate_code:'M'E',',
       },
       {
-        name: 'Meemu Atoll',
-        state_code: '12',
+        ame:'M'emu Atoll','
+        tate_code:'1'',',
       },
       {
-        name: 'Noonu Atoll',
-        state_code: '25',
+        ame:'N'onu Atoll','
+        tate_code:'2'',',
       },
       {
-        name: 'North Central Province',
-        state_code: 'NC',
+        ame:'N'rth Central Province','
+        tate_code:'N'',',
       },
       {
-        name: 'North Province',
-        state_code: 'NO',
+        ame:'N'rth Province','
+        tate_code:'N'',',
       },
       {
-        name: 'Raa Atoll',
-        state_code: '13',
+        ame:'R'a Atoll','
+        tate_code:'1'',',
       },
       {
-        name: 'Shaviyani Atoll',
-        state_code: '24',
+        ame:'S'aviyani Atoll','
+        tate_code:'2'',',
       },
       {
-        name: 'South Central Province',
-        state_code: 'SC',
+        ame:'S'uth Central Province','
+        tate_code:'S'',',
       },
       {
-        name: 'South Province',
-        state_code: 'SU',
+        ame:'S'uth Province','
+        tate_code:'S'',',
       },
       {
-        name: 'Thaa Atoll',
-        state_code: '08',
+        ame:'T'aa Atoll','
+        tate_code:'0'',',
       },
       {
-        name: 'Upper South Province',
-        state_code: 'US',
+        ame:'U'per South Province','
+        tate_code:'U'',',
       },
       {
-        name: 'Vaavu Atoll',
-        state_code: '04',
-      },
-    ],
+        ame:'V'avu Atoll','
+        tate_code:'0'',',
+      },,
+    ],,
   },
   {
-    name: 'Mali',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/9/92/Flag_of_Mali.svg',
-    iso2: 'ML',
-    states: [
+    ame:'M'li','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/9/92/Flag_of_Mali.svg','
+    so2:'M'','
+    tates:[
       {
-        name: 'Bamako',
-        state_code: 'BKO',
+        ame:'B'mako','
+        tate_code:'B'O',',
       },
       {
-        name: 'Gao Region',
-        state_code: '7',
+        ame:'G'o Region','
+        tate_code:'7',',
       },
       {
-        name: 'Kayes Region',
-        state_code: '1',
+        ame:'K'yes Region','
+        tate_code:'1',',
       },
       {
-        name: 'Kidal Region',
-        state_code: '8',
+        ame:'K'dal Region','
+        tate_code:'8',',
       },
       {
-        name: 'Koulikoro Region',
-        state_code: '2',
+        ame:'K'ulikoro Region','
+        tate_code:'2',',
       },
       {
-        name: 'Ménaka Region',
-        state_code: '9',
+        ame:'M'naka Region','
+        tate_code:'9',',
       },
       {
-        name: 'Mopti Region',
-        state_code: '5',
+        ame:'M'pti Region','
+        tate_code:'5',',
       },
       {
-        name: 'Ségou Region',
-        state_code: '4',
+        ame:'S'gou Region','
+        tate_code:'4',',
       },
       {
-        name: 'Sikasso Region',
-        state_code: '3',
+        ame:'S'kasso Region','
+        tate_code:'3',',
       },
       {
-        name: 'Taoudénit Region',
-        state_code: '10',
+        ame:'T'oudénit Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Tombouctou Region',
-        state_code: '6',
-      },
-    ],
+        ame:'T'mbouctou Region','
+        tate_code:'6',',
+      },,
+    ],,
   },
   {
-    name: 'Malta',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/7/73/Flag_of_Malta.svg',
-    iso2: 'MT',
-    states: [
+    ame:'M'lta','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/7/73/Flag_of_Malta.svg','
+    so2:'M'','
+    tates:[
       {
-        name: 'Attard',
-        state_code: '01',
+        ame:'A'tard','
+        tate_code:'0'',',
       },
       {
-        name: 'Balzan',
-        state_code: '02',
+        ame:'B'lzan','
+        tate_code:'0'',',
       },
       {
-        name: 'Birgu',
-        state_code: '03',
+        ame:'B'rgu','
+        tate_code:'0'',',
       },
       {
-        name: 'Birkirkara',
-        state_code: '04',
+        ame:'B'rkirkara','
+        tate_code:'0'',',
       },
       {
-        name: 'Birżebbuġa',
-        state_code: '05',
+        ame:'B'rżebbuġa','
+        tate_code:'0'',',
       },
       {
-        name: 'Cospicua',
-        state_code: '06',
+        ame:'C'spicua','
+        tate_code:'0'',',
       },
       {
-        name: 'Dingli',
-        state_code: '07',
+        ame:'D'ngli','
+        tate_code:'0'',',
       },
       {
-        name: 'Fgura',
-        state_code: '08',
+        ame:'F'ura','
+        tate_code:'0'',',
       },
       {
-        name: 'Floriana',
-        state_code: '09',
+        ame:'F'oriana','
+        tate_code:'0'',',
       },
       {
-        name: 'Fontana',
-        state_code: '10',
+        ame:'F'ntana','
+        tate_code:'1'',',
       },
       {
-        name: 'Għajnsielem',
-        state_code: '13',
+        ame:'G'ajnsielem','
+        tate_code:'1'',',
       },
       {
-        name: 'Għarb',
-        state_code: '14',
+        ame:'G'arb','
+        tate_code:'1'',',
       },
       {
-        name: 'Għargħur',
-        state_code: '15',
+        ame:'G'argħur','
+        tate_code:'1'',',
       },
       {
-        name: 'Għasri',
-        state_code: '16',
+        ame:'G'asri','
+        tate_code:'1'',',
       },
       {
-        name: 'Għaxaq',
-        state_code: '17',
+        ame:'G'axaq','
+        tate_code:'1'',',
       },
       {
-        name: 'Gudja',
-        state_code: '11',
+        ame:'G'dja','
+        tate_code:'1'',',
       },
       {
-        name: 'Gżira',
-        state_code: '12',
+        ame:'G'ira','
+        tate_code:'1'',',
       },
       {
-        name: 'Ħamrun',
-        state_code: '18',
+        ame:'Ħ'mrun','
+        tate_code:'1'',',
       },
       {
-        name: 'Iklin',
-        state_code: '19',
+        ame:'I'lin','
+        tate_code:'1'',',
       },
       {
-        name: 'Kalkara',
-        state_code: '21',
+        ame:'K'lkara','
+        tate_code:'2'',',
       },
       {
-        name: 'Kerċem',
-        state_code: '22',
+        ame:'K'rċem','
+        tate_code:'2'',',
       },
       {
-        name: 'Kirkop',
-        state_code: '23',
+        ame:'K'rkop','
+        tate_code:'2'',',
       },
       {
-        name: 'Lija',
-        state_code: '24',
+        ame:'L'ja','
+        tate_code:'2'',',
       },
       {
-        name: 'Luqa',
-        state_code: '25',
+        ame:'L'qa','
+        tate_code:'2'',',
       },
       {
-        name: 'Marsa',
-        state_code: '26',
+        ame:'M'rsa','
+        tate_code:'2'',',
       },
       {
-        name: 'Marsaskala',
-        state_code: '27',
+        ame:'M'rsaskala','
+        tate_code:'2'',',
       },
       {
-        name: 'Marsaxlokk',
-        state_code: '28',
+        ame:'M'rsaxlokk','
+        tate_code:'2'',',
       },
       {
-        name: 'Mdina',
-        state_code: '29',
+        ame:'M'ina','
+        tate_code:'2'',',
       },
       {
-        name: 'Mellieħa',
-        state_code: '30',
+        ame:'M'llieħa','
+        tate_code:'3'',',
       },
       {
-        name: 'Mġarr',
-        state_code: '31',
+        ame:'M'arr','
+        tate_code:'3'',',
       },
       {
-        name: 'Mosta',
-        state_code: '32',
+        ame:'M'sta','
+        tate_code:'3'',',
       },
       {
-        name: 'Mqabba',
-        state_code: '33',
+        ame:'M'abba','
+        tate_code:'3'',',
       },
       {
-        name: 'Msida',
-        state_code: '34',
+        ame:'M'ida','
+        tate_code:'3'',',
       },
       {
-        name: 'Mtarfa',
-        state_code: '35',
+        ame:'M'arfa','
+        tate_code:'3'',',
       },
       {
-        name: 'Munxar',
-        state_code: '36',
+        ame:'M'nxar','
+        tate_code:'3'',',
       },
       {
-        name: 'Nadur',
-        state_code: '37',
+        ame:'N'dur','
+        tate_code:'3'',',
       },
       {
-        name: 'Naxxar',
-        state_code: '38',
+        ame:'N'xxar','
+        tate_code:'3'',',
       },
       {
-        name: 'Paola',
-        state_code: '39',
+        ame:'P'ola','
+        tate_code:'3'',',
       },
       {
-        name: 'Pembroke',
-        state_code: '40',
+        ame:'P'mbroke','
+        tate_code:'4'',',
       },
       {
-        name: 'Pietà',
-        state_code: '41',
+        ame:'P'età','
+        tate_code:'4'',',
       },
       {
-        name: 'Qala',
-        state_code: '42',
+        ame:'Q'la','
+        tate_code:'4'',',
       },
       {
-        name: 'Qormi',
-        state_code: '43',
+        ame:'Q'rmi','
+        tate_code:'4'',',
       },
       {
-        name: 'Qrendi',
-        state_code: '44',
+        ame:'Q'endi','
+        tate_code:'4'',',
       },
       {
-        name: 'Rabat',
-        state_code: '46',
+        ame:'R'bat','
+        tate_code:'4'',',
       },
       {
-        name: 'Saint Lawrence',
-        state_code: '50',
+        ame:'S'int Lawrence','
+        tate_code:'5'',',
       },
       {
-        name: 'San Ġwann',
-        state_code: '49',
+        ame:'S'n Ġwann','
+        tate_code:'4'',',
       },
       {
-        name: 'Sannat',
-        state_code: '52',
+        ame:'S'nnat','
+        tate_code:'5'',',
       },
       {
-        name: 'Santa Luċija',
-        state_code: '53',
+        ame:'S'nta Luċija','
+        tate_code:'5'',',
       },
       {
-        name: 'Santa Venera',
-        state_code: '54',
+        ame:'S'nta Venera','
+        tate_code:'5'',',
       },
       {
-        name: 'Senglea',
-        state_code: '20',
+        ame:'S'nglea','
+        tate_code:'2'',',
       },
       {
-        name: 'Siġġiewi',
-        state_code: '55',
+        ame:'S'ġġiewi','
+        tate_code:'5'',',
       },
       {
-        name: 'Sliema',
-        state_code: '56',
+        ame:'S'iema','
+        tate_code:'5'',',
       },
       {
-        name: "St. Julian's",
-        state_code: '48',
+        ame:"St. Julian's",
+        tate_code:'4'',',
       },
       {
-        name: "St. Paul's Bay",
-        state_code: '51',
+        ame:"St. Paul's Bay",
+        tate_code:'5'',',
       },
       {
-        name: 'Swieqi',
-        state_code: '57',
+        ame:'S'ieqi','
+        tate_code:'5'',',
       },
       {
-        name: "Ta' Xbiex",
-        state_code: '58',
+        ame:"Ta' Xbiex",
+        tate_code:'5'',',
       },
       {
-        name: 'Tarxien',
-        state_code: '59',
+        ame:'T'rxien','
+        tate_code:'5'',',
       },
       {
-        name: 'Valletta',
-        state_code: '60',
+        ame:'V'lletta','
+        tate_code:'6'',',
       },
       {
-        name: 'Victoria',
-        state_code: '45',
+        ame:'V'ctoria','
+        tate_code:'4'',',
       },
       {
-        name: 'Xagħra',
-        state_code: '61',
+        ame:'X'għra','
+        tate_code:'6'',',
       },
       {
-        name: 'Xewkija',
-        state_code: '62',
+        ame:'X'wkija','
+        tate_code:'6'',',
       },
       {
-        name: 'Xgħajra',
-        state_code: '63',
+        ame:'X'ħajra','
+        tate_code:'6'',',
       },
       {
-        name: 'Żabbar',
-        state_code: '64',
+        ame:'Ż'bbar','
+        tate_code:'6'',',
       },
       {
-        name: 'Żebbuġ Gozo',
-        state_code: '65',
+        ame:'Ż'bbuġ Gozo','
+        tate_code:'6'',',
       },
       {
-        name: 'Żebbuġ Malta',
-        state_code: '66',
+        ame:'Ż'bbuġ Malta','
+        tate_code:'6'',',
       },
       {
-        name: 'Żejtun',
-        state_code: '67',
+        ame:'Ż'jtun','
+        tate_code:'6'',',
       },
       {
-        name: 'Żurrieq',
-        state_code: '68',
-      },
-    ],
+        ame:'Ż'rrieq','
+        tate_code:'6'',',
+      },,
+    ],,
   },
   {
-    name: 'Man (Isle of)',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_the_Isle_of_Man.svg',
-    iso2: 'IM',
-    states: [],
+    ame:'M'n (Isle of)','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_the_Isle_of_Man.svg','
+    so2:'I'','
+    tates:[],,
   },
   {
-    name: 'Marshall Islands',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/2/2e/Flag_of_the_Marshall_Islands.svg',
-    iso2: 'MH',
-    states: [
+    ame:'M'rshall Islands','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/2/2e/Flag_of_the_Marshall_Islands.svg','
+    so2:'M'','
+    tates:[
       {
-        name: 'Ralik Chain',
-        state_code: 'L',
+        ame:'R'lik Chain','
+        tate_code:'L',',
       },
       {
-        name: 'Ratak Chain',
-        state_code: 'T',
-      },
-    ],
+        ame:'R'tak Chain','
+        tate_code:'T',',
+      },,
+    ],,
   },
   {
-    name: 'Martinique',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/6/64/Snake_Flag_of_Martinique.svg',
-    iso2: 'MQ',
-    states: [],
+    ame:'M'rtinique','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/6/64/Snake_Flag_of_Martinique.svg','
+    so2:'M'','
+    tates:[],,
   },
   {
-    name: 'Mauritania',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Flag_of_Mauritania.svg',
-    iso2: 'MR',
-    states: [
+    ame:'M'uritania','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/4/43/Flag_of_Mauritania.svg','
+    so2:'M'','
+    tates:[
       {
-        name: 'Adrar Region',
-        state_code: '07',
+        ame:'A'rar Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Assaba Region',
-        state_code: '03',
+        ame:'A'saba Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Brakna Region',
-        state_code: '05',
+        ame:'B'akna Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Dakhlet Nouadhibou',
-        state_code: '08',
+        ame:'D'khlet Nouadhibou','
+        tate_code:'0'',',
       },
       {
-        name: 'Gorgol Region',
-        state_code: '04',
+        ame:'G'rgol Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Guidimaka Region',
-        state_code: '10',
+        ame:'G'idimaka Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Hodh Ech Chargui Region',
-        state_code: '01',
+        ame:'H'dh Ech Chargui Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Hodh El Gharbi Region',
-        state_code: '02',
+        ame:'H'dh El Gharbi Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Inchiri Region',
-        state_code: '12',
+        ame:'I'chiri Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Nouakchott-Nord Region',
-        state_code: '14',
+        ame:'N'uakchott-Nord Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Nouakchott-Ouest Region',
-        state_code: '13',
+        ame:'N'uakchott-Ouest Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Nouakchott-Sud Region',
-        state_code: '15',
+        ame:'N'uakchott-Sud Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Tagant Region',
-        state_code: '09',
+        ame:'T'gant Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Tiris Zemmour Region',
-        state_code: '11',
+        ame:'T'ris Zemmour Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Trarza Region',
-        state_code: '06',
-      },
-    ],
+        ame:'T'arza Region','
+        tate_code:'0'',',
+      },,
+    ],,
   },
   {
-    name: 'Mauritius',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Mauritius.svg',
-    iso2: 'MU',
-    states: [
+    ame:'M'uritius','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Mauritius.svg','
+    so2:'M'','
+    tates:[
       {
-        name: 'Agaléga',
-        state_code: 'AG',
+        ame:'A'aléga','
+        tate_code:'A'',',
       },
       {
-        name: 'Beau Bassin-Rose Hill',
-        state_code: 'BR',
+        ame:'B'au Bassin-Rose Hill','
+        tate_code:'B'',',
       },
       {
-        name: 'Cargados Carajos',
-        state_code: 'CC',
+        ame:'C'rgados Carajos','
+        tate_code:'C'',',
       },
       {
-        name: 'Curepipe',
-        state_code: 'CU',
+        ame:'C'repipe','
+        tate_code:'C'',',
       },
       {
-        name: 'Flacq District',
-        state_code: 'FL',
+        ame:'F'acq District','
+        tate_code:'F'',',
       },
       {
-        name: 'Grand Port District',
-        state_code: 'GP',
+        ame:'G'and Port District','
+        tate_code:'G'',',
       },
       {
-        name: 'Moka District',
-        state_code: 'MO',
+        ame:'M'ka District','
+        tate_code:'M'',',
       },
       {
-        name: 'Pamplemousses District',
-        state_code: 'PA',
+        ame:'P'mplemousses District','
+        tate_code:'P'',',
       },
       {
-        name: 'Plaines Wilhems District',
-        state_code: 'PW',
+        ame:'P'aines Wilhems District','
+        tate_code:'P'',',
       },
       {
-        name: 'Port Louis',
-        state_code: 'PU',
+        ame:'P'rt Louis','
+        tate_code:'P'',',
       },
       {
-        name: 'Port Louis District',
-        state_code: 'PL',
+        ame:'P'rt Louis District','
+        tate_code:'P'',',
       },
       {
-        name: 'Quatre Bornes',
-        state_code: 'QB',
+        ame:'Q'atre Bornes','
+        tate_code:'Q'',',
       },
       {
-        name: 'Rivière du Rempart District',
-        state_code: 'RR',
+        ame:'R'vière du Rempart District','
+        tate_code:'R'',',
       },
       {
-        name: 'Rivière Noire District',
-        state_code: 'BL',
+        ame:'R'vière Noire District','
+        tate_code:'B'',',
       },
       {
-        name: 'Rodrigues',
-        state_code: 'RO',
+        ame:'R'drigues','
+        tate_code:'R'',',
       },
       {
-        name: 'Savanne District',
-        state_code: 'SA',
+        ame:'S'vanne District','
+        tate_code:'S'',',
       },
       {
-        name: 'Vacoas-Phoenix',
-        state_code: 'VP',
-      },
-    ],
+        ame:'V'coas-Phoenix','
+        tate_code:'V'',',
+      },,
+    ],,
   },
   {
-    name: 'Mayotte',
-    flag: 'https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg',
-    iso2: 'YT',
-    states: [],
+    ame:'M'yotte','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg','
+    so2:'Y'','
+    tates:[],,
   },
   {
-    name: 'Mexico',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg',
-    iso2: 'MX',
-    states: [
+    ame:'M'xico','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg','
+    so2:'M'','
+    tates:[
       {
-        name: 'Aguascalientes',
-        state_code: 'AGU',
+        ame:'A'uascalientes','
+        tate_code:'A'U',',
       },
       {
-        name: 'Baja California',
-        state_code: 'BCN',
+        ame:'B'ja California','
+        tate_code:'B'N',',
       },
       {
-        name: 'Baja California Sur',
-        state_code: 'BCS',
+        ame:'B'ja California Sur','
+        tate_code:'B'S',',
       },
       {
-        name: 'Campeche',
-        state_code: 'CAM',
+        ame:'C'mpeche','
+        tate_code:'C'M',',
       },
       {
-        name: 'Chiapas',
-        state_code: 'CHP',
+        ame:'C'iapas','
+        tate_code:'C'P',',
       },
       {
-        name: 'Chihuahua',
-        state_code: 'CHH',
+        ame:'C'ihuahua','
+        tate_code:'C'H',',
       },
       {
-        name: 'Coahuila',
-        state_code: 'COA',
+        ame:'C'ahuila','
+        tate_code:'C'A',',
       },
       {
-        name: 'Colima',
-        state_code: 'COL',
+        ame:'C'lima','
+        tate_code:'C'L',',
       },
       {
-        name: 'Durango',
-        state_code: 'DUR',
+        ame:'D'rango','
+        tate_code:'D'R',',
       },
       {
-        name: 'Guanajuato',
-        state_code: 'GUA',
+        ame:'G'anajuato','
+        tate_code:'G'A',',
       },
       {
-        name: 'Guerrero',
-        state_code: 'GRO',
+        ame:'G'errero','
+        tate_code:'G'O',',
       },
       {
-        name: 'Hidalgo',
-        state_code: 'HID',
+        ame:'H'dalgo','
+        tate_code:'H'D',',
       },
       {
-        name: 'Jalisco',
-        state_code: 'JAL',
+        ame:'J'lisco','
+        tate_code:'J'L',',
       },
       {
-        name: 'México',
-        state_code: 'MEX',
+        ame:'M'xico','
+        tate_code:'M'X',',
       },
       {
-        name: 'Mexico City',
-        state_code: 'CMX',
+        ame:'M'xico City','
+        tate_code:'C'X',',
       },
       {
-        name: 'Michoacán',
-        state_code: 'MIC',
+        ame:'M'choacán','
+        tate_code:'M'C',',
       },
       {
-        name: 'Morelos',
-        state_code: 'MOR',
+        ame:'M'relos','
+        tate_code:'M'R',',
       },
       {
-        name: 'Nayarit',
-        state_code: 'NAY',
+        ame:'N'yarit','
+        tate_code:'N'Y',',
       },
       {
-        name: 'Nuevo León',
-        state_code: 'NLE',
+        ame:'N'evo León','
+        tate_code:'N'E',',
       },
       {
-        name: 'Oaxaca',
-        state_code: 'OAX',
+        ame:'O'xaca','
+        tate_code:'O'X',',
       },
       {
-        name: 'Puebla',
-        state_code: 'PUE',
+        ame:'P'ebla','
+        tate_code:'P'E',',
       },
       {
-        name: 'Querétaro',
-        state_code: 'QUE',
+        ame:'Q'erétaro','
+        tate_code:'Q'E',',
       },
       {
-        name: 'Quintana Roo',
-        state_code: 'ROO',
+        ame:'Q'intana Roo','
+        tate_code:'R'O',',
       },
       {
-        name: 'San Luis Potosí',
-        state_code: 'SLP',
+        ame:'S'n Luis Potosí','
+        tate_code:'S'P',',
       },
       {
-        name: 'Sinaloa',
-        state_code: 'SIN',
+        ame:'S'naloa','
+        tate_code:'S'N',',
       },
       {
-        name: 'Sonora',
-        state_code: 'SON',
+        ame:'S'nora','
+        tate_code:'S'N',',
       },
       {
-        name: 'Tabasco',
-        state_code: 'TAB',
+        ame:'T'basco','
+        tate_code:'T'B',',
       },
       {
-        name: 'Tamaulipas',
-        state_code: 'TAM',
+        ame:'T'maulipas','
+        tate_code:'T'M',',
       },
       {
-        name: 'Tlaxcala',
-        state_code: 'TLA',
+        ame:'T'axcala','
+        tate_code:'T'A',',
       },
       {
-        name: 'Veracruz',
-        state_code: 'VER',
+        ame:'V'racruz','
+        tate_code:'V'R',',
       },
       {
-        name: 'Yucatán',
-        state_code: 'YUC',
+        ame:'Y'catán','
+        tate_code:'Y'C',',
       },
       {
-        name: 'Zacatecas',
-        state_code: 'ZAC',
-      },
-    ],
+        ame:'Z'catecas','
+        tate_code:'Z'C',',
+      },,
+    ],,
   },
   {
-    name: 'Micronesia',
-    flag: '',
-    iso2: 'FM',
-    states: [
+    ame:'M'cronesia','
+    lag:''''
+    so2:'F'','
+    tates:[
       {
-        name: 'Chuuk State',
-        state_code: 'TRK',
+        ame:'C'uuk State','
+        tate_code:'T'K',',
       },
       {
-        name: 'Kosrae State',
-        state_code: 'KSA',
+        ame:'K'srae State','
+        tate_code:'K'A',',
       },
       {
-        name: 'Pohnpei State',
-        state_code: 'PNI',
+        ame:'P'hnpei State','
+        tate_code:'P'I',',
       },
       {
-        name: 'Yap State',
-        state_code: 'YAP',
-      },
-    ],
+        ame:'Y'p State','
+        tate_code:'Y'P',',
+      },,
+    ],,
   },
   {
-    name: 'Moldova',
-    flag: '',
-    iso2: 'MD',
-    states: [
+    ame:'M'ldova','
+    lag:''''
+    so2:'M'','
+    tates:[
       {
-        name: 'Anenii Noi District',
-        state_code: 'AN',
+        ame:'A'enii Noi District','
+        tate_code:'A'',',
       },
       {
-        name: 'Bălți Municipality',
-        state_code: 'BA',
+        ame:'B'lți Municipality','
+        tate_code:'B'',',
       },
       {
-        name: 'Basarabeasca District',
-        state_code: 'BS',
+        ame:'B'sarabeasca District','
+        tate_code:'B'',',
       },
       {
-        name: 'Bender Municipality',
-        state_code: 'BD',
+        ame:'B'nder Municipality','
+        tate_code:'B'',',
       },
       {
-        name: 'Briceni District',
-        state_code: 'BR',
+        ame:'B'iceni District','
+        tate_code:'B'',',
       },
       {
-        name: 'Cahul District',
-        state_code: 'CA',
+        ame:'C'hul District','
+        tate_code:'C'',',
       },
       {
-        name: 'Călărași District',
-        state_code: 'CL',
+        ame:'C'lărași District','
+        tate_code:'C'',',
       },
       {
-        name: 'Cantemir District',
-        state_code: 'CT',
+        ame:'C'ntemir District','
+        tate_code:'C'',',
       },
       {
-        name: 'Căușeni District',
-        state_code: 'CS',
+        ame:'C'ușeni District','
+        tate_code:'C'',',
       },
       {
-        name: 'Chișinău Municipality',
-        state_code: 'CU',
+        ame:'C'ișinău Municipality','
+        tate_code:'C'',',
       },
       {
-        name: 'Cimișlia District',
-        state_code: 'CM',
+        ame:'C'mișlia District','
+        tate_code:'C'',',
       },
       {
-        name: 'Criuleni District',
-        state_code: 'CR',
+        ame:'C'iuleni District','
+        tate_code:'C'',',
       },
       {
-        name: 'Dondușeni District',
-        state_code: 'DO',
+        ame:'D'ndușeni District','
+        tate_code:'D'',',
       },
       {
-        name: 'Drochia District',
-        state_code: 'DR',
+        ame:'D'ochia District','
+        tate_code:'D'',',
       },
       {
-        name: 'Dubăsari District',
-        state_code: 'DU',
+        ame:'D'băsari District','
+        tate_code:'D'',',
       },
       {
-        name: 'Edineț District',
-        state_code: 'ED',
+        ame:'E'ineț District','
+        tate_code:'E'',',
       },
       {
-        name: 'Fălești District',
-        state_code: 'FA',
+        ame:'F'lești District','
+        tate_code:'F'',',
       },
       {
-        name: 'Florești District',
-        state_code: 'FL',
+        ame:'F'orești District','
+        tate_code:'F'',',
       },
       {
-        name: 'Gagauzia',
-        state_code: 'GA',
+        ame:'G'gauzia','
+        tate_code:'G'',',
       },
       {
-        name: 'Glodeni District',
-        state_code: 'GL',
+        ame:'G'odeni District','
+        tate_code:'G'',',
       },
       {
-        name: 'Hîncești District',
-        state_code: 'HI',
+        ame:'H'ncești District','
+        tate_code:'H'',',
       },
       {
-        name: 'Ialoveni District',
-        state_code: 'IA',
+        ame:'I'loveni District','
+        tate_code:'I'',',
       },
       {
-        name: 'Nisporeni District',
-        state_code: 'NI',
+        ame:'N'sporeni District','
+        tate_code:'N'',',
       },
       {
-        name: 'Ocnița District',
-        state_code: 'OC',
+        ame:'O'nița District','
+        tate_code:'O'',',
       },
       {
-        name: 'Orhei District',
-        state_code: 'OR',
+        ame:'O'hei District','
+        tate_code:'O'',',
       },
       {
-        name: 'Rezina District',
-        state_code: 'RE',
+        ame:'R'zina District','
+        tate_code:'R'',',
       },
       {
-        name: 'Rîșcani District',
-        state_code: 'RI',
+        ame:'R'șcani District','
+        tate_code:'R'',',
       },
       {
-        name: 'Sîngerei District',
-        state_code: 'SI',
+        ame:'S'ngerei District','
+        tate_code:'S'',',
       },
       {
-        name: 'Șoldănești District',
-        state_code: 'SD',
+        ame:'Ș'ldănești District','
+        tate_code:'S'',',
       },
       {
-        name: 'Soroca District',
-        state_code: 'SO',
+        ame:'S'roca District','
+        tate_code:'S'',',
       },
       {
-        name: 'Ștefan Vodă District',
-        state_code: 'SV',
+        ame:'Ș'efan Vodă District','
+        tate_code:'S'',',
       },
       {
-        name: 'Strășeni District',
-        state_code: 'ST',
+        ame:'S'rășeni District','
+        tate_code:'S'',',
       },
       {
-        name: 'Taraclia District',
-        state_code: 'TA',
+        ame:'T'raclia District','
+        tate_code:'T'',',
       },
       {
-        name: 'Telenești District',
-        state_code: 'TE',
+        ame:'T'lenești District','
+        tate_code:'T'',',
       },
       {
-        name: 'Transnistria autonomous territorial unit',
-        state_code: 'SN',
+        ame:'T'ansnistria autonomous territorial unit','
+        tate_code:'S'',',
       },
       {
-        name: 'Ungheni District',
-        state_code: 'UN',
-      },
-    ],
+        ame:'U'gheni District','
+        tate_code:'U'',',
+      },,
+    ],,
   },
   {
-    name: 'Monaco',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Flag_of_Monaco.svg',
-    iso2: 'MC',
-    states: [],
+    ame:'M'naco','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/e/ea/Flag_of_Monaco.svg','
+    so2:'M'','
+    tates:[],,
   },
   {
-    name: 'Mongolia',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Flag_of_Mongolia.svg',
-    iso2: 'MN',
-    states: [
+    ame:'M'ngolia','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/4/4c/Flag_of_Mongolia.svg','
+    so2:'M'','
+    tates:[
       {
-        name: 'Arkhangai Province',
-        state_code: '073',
+        ame:'A'khangai Province','
+        tate_code:'0'3',',
       },
       {
-        name: 'Bayan-Ölgii Province',
-        state_code: '071',
+        ame:'B'yan-Ölgii Province','
+        tate_code:'0'1',',
       },
       {
-        name: 'Bayankhongor Province',
-        state_code: '069',
+        ame:'B'yankhongor Province','
+        tate_code:'0'9',',
       },
       {
-        name: 'Bulgan Province',
-        state_code: '067',
+        ame:'B'lgan Province','
+        tate_code:'0'7',',
       },
       {
-        name: 'Darkhan-Uul Province',
-        state_code: '037',
+        ame:'D'rkhan-Uul Province','
+        tate_code:'0'7',',
       },
       {
-        name: 'Dornod Province',
-        state_code: '061',
+        ame:'D'rnod Province','
+        tate_code:'0'1',',
       },
       {
-        name: 'Dornogovi Province',
-        state_code: '063',
+        ame:'D'rnogovi Province','
+        tate_code:'0'3',',
       },
       {
-        name: 'Dundgovi Province',
-        state_code: '059',
+        ame:'D'ndgovi Province','
+        tate_code:'0'9',',
       },
       {
-        name: 'Govi-Altai Province',
-        state_code: '065',
+        ame:'G'vi-Altai Province','
+        tate_code:'0'5',',
       },
       {
-        name: 'Govisümber Province',
-        state_code: '064',
+        ame:'G'visümber Province','
+        tate_code:'0'4',',
       },
       {
-        name: 'Khentii Province',
-        state_code: '039',
+        ame:'K'entii Province','
+        tate_code:'0'9',',
       },
       {
-        name: 'Khovd Province',
-        state_code: '043',
+        ame:'K'ovd Province','
+        tate_code:'0'3',',
       },
       {
-        name: 'Khövsgöl Province',
-        state_code: '041',
+        ame:'K'övsgöl Province','
+        tate_code:'0'1',',
       },
       {
-        name: 'Ömnögovi Province',
-        state_code: '053',
+        ame:'Ö'nögovi Province','
+        tate_code:'0'3',',
       },
       {
-        name: 'Orkhon Province',
-        state_code: '035',
+        ame:'O'khon Province','
+        tate_code:'0'5',',
       },
       {
-        name: 'Övörkhangai Province',
-        state_code: '055',
+        ame:'Ö'örkhangai Province','
+        tate_code:'0'5',',
       },
       {
-        name: 'Selenge Province',
-        state_code: '049',
+        ame:'S'lenge Province','
+        tate_code:'0'9',',
       },
       {
-        name: 'Sükhbaatar Province',
-        state_code: '051',
+        ame:'S'khbaatar Province','
+        tate_code:'0'1',',
       },
       {
-        name: 'Töv Province',
-        state_code: '047',
+        ame:'T'v Province','
+        tate_code:'0'7',',
       },
       {
-        name: 'Uvs Province',
-        state_code: '046',
+        ame:'U's Province','
+        tate_code:'0'6',',
       },
       {
-        name: 'Zavkhan Province',
-        state_code: '057',
-      },
-    ],
+        ame:'Z'vkhan Province','
+        tate_code:'0'7',',
+      },,
+    ],,
   },
   {
-    name: 'Montenegro',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/6/64/Flag_of_Montenegro.svg',
-    iso2: 'ME',
-    states: [
+    ame:'M'ntenegro','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/6/64/Flag_of_Montenegro.svg','
+    so2:'M'','
+    tates:[
       {
-        name: 'Andrijevica Municipality',
-        state_code: '01',
+        ame:'A'drijevica Municipality','
+        tate_code:'0'',',
       },
       {
-        name: 'Bar Municipality',
-        state_code: '02',
+        ame:'B'r Municipality','
+        tate_code:'0'',',
       },
       {
-        name: 'Berane Municipality',
-        state_code: '03',
+        ame:'B'rane Municipality','
+        tate_code:'0'',',
       },
       {
-        name: 'Bijelo Polje Municipality',
-        state_code: '04',
+        ame:'B'jelo Polje Municipality','
+        tate_code:'0'',',
       },
       {
-        name: 'Budva Municipality',
-        state_code: '05',
+        ame:'B'dva Municipality','
+        tate_code:'0'',',
       },
       {
-        name: 'Danilovgrad Municipality',
-        state_code: '07',
+        ame:'D'nilovgrad Municipality','
+        tate_code:'0'',',
       },
       {
-        name: 'Gusinje Municipality',
-        state_code: '22',
+        ame:'G'sinje Municipality','
+        tate_code:'2'',',
       },
       {
-        name: 'Kolašin Municipality',
-        state_code: '09',
+        ame:'K'lašin Municipality','
+        tate_code:'0'',',
       },
       {
-        name: 'Kotor Municipality',
-        state_code: '10',
+        ame:'K'tor Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Mojkovac Municipality',
-        state_code: '11',
+        ame:'M'jkovac Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Nikšić Municipality',
-        state_code: '12',
+        ame:'N'kšić Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Old Royal Capital Cetinje',
-        state_code: '06',
+        ame:'O'd Royal Capital Cetinje','
+        tate_code:'0'',',
       },
       {
-        name: 'Petnjica Municipality',
-        state_code: '23',
+        ame:'P'tnjica Municipality','
+        tate_code:'2'',',
       },
       {
-        name: 'Plav Municipality',
-        state_code: '13',
+        ame:'P'av Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Pljevlja Municipality',
-        state_code: '14',
+        ame:'P'jevlja Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Plužine Municipality',
-        state_code: '15',
+        ame:'P'užine Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Podgorica Municipality',
-        state_code: '16',
+        ame:'P'dgorica Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Rožaje Municipality',
-        state_code: '17',
+        ame:'R'žaje Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Šavnik Municipality',
-        state_code: '18',
+        ame:'Š'vnik Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Tivat Municipality',
-        state_code: '19',
+        ame:'T'vat Municipality','
+        tate_code:'1'',',
       },
       {
-        name: 'Ulcinj Municipality',
-        state_code: '20',
+        ame:'U'cinj Municipality','
+        tate_code:'2'',',
       },
       {
-        name: 'Žabljak Municipality',
-        state_code: '21',
-      },
-    ],
+        ame:'Ž'bljak Municipality','
+        tate_code:'2'',',
+      },,
+    ],,
   },
   {
-    name: 'Montserrat',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/d/d0/Flag_of_Montserrat.svg',
-    iso2: 'MS',
-    states: [],
+    ame:'M'ntserrat','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/d/d0/Flag_of_Montserrat.svg','
+    so2:'M'','
+    tates:[],,
   },
   {
-    name: 'Morocco',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Morocco.svg',
-    iso2: 'MA',
-    states: [
+    ame:'M'rocco','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Morocco.svg','
+    so2:'M'','
+    tates:[
       {
-        name: 'Al Haouz Province',
-        state_code: 'HAO',
+        ame:'A' Haouz Province','
+        tate_code:'H'O',',
       },
       {
-        name: 'Al Hoceïma Province',
-        state_code: 'HOC',
+        ame:'A' Hoceïma Province','
+        tate_code:'H'C',',
       },
       {
-        name: 'Aousserd Province',
-        state_code: 'AOU',
+        ame:'A'usserd Province','
+        tate_code:'A'U',',
       },
       {
-        name: 'Assa-Zag Province',
-        state_code: 'ASZ',
+        ame:'A'sa-Zag Province','
+        tate_code:'A'Z',',
       },
       {
-        name: 'Azilal Province',
-        state_code: 'AZI',
+        ame:'A'ilal Province','
+        tate_code:'A'I',',
       },
       {
-        name: 'Ben Slimane Province',
-        state_code: 'BES',
+        ame:'B'n Slimane Province','
+        tate_code:'B'S',',
       },
       {
-        name: 'Béni Mellal-Khénifra',
-        state_code: '05',
+        ame:'B'ni Mellal-Khénifra','
+        tate_code:'0'',',
       },
       {
-        name: 'Béni-Mellal Province',
-        state_code: 'BEM',
+        ame:'B'ni-Mellal Province','
+        tate_code:'B'M',',
       },
       {
-        name: 'Berkane Province',
-        state_code: 'BER',
+        ame:'B'rkane Province','
+        tate_code:'B'R',',
       },
       {
-        name: 'Boujdour Province',
-        state_code: 'BOD',
+        ame:'B'ujdour Province','
+        tate_code:'B'D',',
       },
       {
-        name: 'Boulemane Province',
-        state_code: 'BOM',
+        ame:'B'ulemane Province','
+        tate_code:'B'M',',
       },
       {
-        name: 'Casablanca-Settat',
-        state_code: '06',
+        ame:'C'sablanca-Settat','
+        tate_code:'0'',',
       },
       {
-        name: 'Chefchaouen Province',
-        state_code: 'CHE',
+        ame:'C'efchaouen Province','
+        tate_code:'C'E',',
       },
       {
-        name: 'Chichaoua Province',
-        state_code: 'CHI',
+        ame:'C'ichaoua Province','
+        tate_code:'C'I',',
       },
       {
-        name: 'Dakhla-Oued Ed-Dahab',
-        state_code: '12',
+        ame:'D'khla-Oued Ed-Dahab','
+        tate_code:'1'',',
       },
       {
-        name: 'Drâa-Tafilalet',
-        state_code: '08',
+        ame:'D'âa-Tafilalet','
+        tate_code:'0'',',
       },
       {
-        name: 'El Hajeb Province',
-        state_code: 'HAJ',
+        ame:'E' Hajeb Province','
+        tate_code:'H'J',',
       },
       {
-        name: 'El Jadida Province',
-        state_code: 'JDI',
+        ame:'E' Jadida Province','
+        tate_code:'J'I',',
       },
       {
-        name: 'Errachidia Province',
-        state_code: 'ERR',
+        ame:'E'rachidia Province','
+        tate_code:'E'R',',
       },
       {
-        name: 'Es Semara Province',
-        state_code: 'ESM',
+        ame:'E' Semara Province','
+        tate_code:'E'M',',
       },
       {
-        name: 'Essaouira Province',
-        state_code: 'ESI',
+        ame:'E'saouira Province','
+        tate_code:'E'I',',
       },
       {
-        name: 'Fahs Anjra Province',
-        state_code: 'FAH',
+        ame:'F'hs Anjra Province','
+        tate_code:'F'H',',
       },
       {
-        name: 'Fès-Meknès',
-        state_code: '03',
+        ame:'F's-Meknès','
+        tate_code:'0'',',
       },
       {
-        name: 'Figuig Province',
-        state_code: 'FIG',
+        ame:'F'guig Province','
+        tate_code:'F'G',',
       },
       {
-        name: 'Guelmim Province',
-        state_code: 'GUE',
+        ame:'G'elmim Province','
+        tate_code:'G'E',',
       },
       {
-        name: 'Guelmim-Oued Noun',
-        state_code: '10',
+        ame:'G'elmim-Oued Noun','
+        tate_code:'1'',',
       },
       {
-        name: 'Ifrane Province',
-        state_code: 'IFR',
+        ame:'I'rane Province','
+        tate_code:'I'R',',
       },
       {
-        name: 'Inezgane-Aït Melloul Prefecture',
-        state_code: 'INE',
+        ame:'I'ezgane-Aït Melloul Prefecture','
+        tate_code:'I'E',',
       },
       {
-        name: 'Jerada Province',
-        state_code: 'JRA',
+        ame:'J'rada Province','
+        tate_code:'J'A',',
       },
       {
-        name: 'Kelaat Sraghna Province',
-        state_code: 'KES',
+        ame:'K'laat Sraghna Province','
+        tate_code:'K'S',',
       },
       {
-        name: 'Kénitra Province',
-        state_code: 'KEN',
+        ame:'K'nitra Province','
+        tate_code:'K'N',',
       },
       {
-        name: 'Khémisset Province',
-        state_code: 'KHE',
+        ame:'K'émisset Province','
+        tate_code:'K'E',',
       },
       {
-        name: 'Khénifra Province',
-        state_code: 'KHN',
+        ame:'K'énifra Province','
+        tate_code:'K'N',',
       },
       {
-        name: 'Khouribga Province',
-        state_code: 'KHO',
+        ame:'K'ouribga Province','
+        tate_code:'K'O',',
       },
       {
-        name: 'Laâyoune Province',
-        state_code: 'LAA',
+        ame:'L'âyoune Province','
+        tate_code:'L'A',',
       },
       {
-        name: 'Laâyoune-Sakia El Hamra',
-        state_code: '11',
+        ame:'L'âyoune-Sakia El Hamra','
+        tate_code:'1'',',
       },
       {
-        name: 'Larache Province',
-        state_code: 'LAR',
+        ame:'L'rache Province','
+        tate_code:'L'R',',
       },
       {
-        name: 'Marrakesh-Safi',
-        state_code: '07',
+        ame:'M'rrakesh-Safi','
+        tate_code:'0'',',
       },
       {
-        name: 'Mediouna Province',
-        state_code: 'MED',
+        ame:'M'diouna Province','
+        tate_code:'M'D',',
       },
       {
-        name: 'Moulay Yacoub Province',
-        state_code: 'MOU',
+        ame:'M'ulay Yacoub Province','
+        tate_code:'M'U',',
       },
       {
-        name: 'Nador Province',
-        state_code: 'NAD',
+        ame:'N'dor Province','
+        tate_code:'N'D',',
       },
       {
-        name: 'Nouaceur Province',
-        state_code: 'NOU',
+        ame:'N'uaceur Province','
+        tate_code:'N'U',',
       },
       {
-        name: 'Oriental',
-        state_code: '02',
+        ame:'O'iental','
+        tate_code:'0'',',
       },
       {
-        name: 'Ouarzazate Province',
-        state_code: 'OUA',
+        ame:'O'arzazate Province','
+        tate_code:'O'A',',
       },
       {
-        name: 'Oued Ed-Dahab Province',
-        state_code: 'OUD',
+        ame:'O'ed Ed-Dahab Province','
+        tate_code:'O'D',',
       },
       {
-        name: 'Safi Province',
-        state_code: 'SAF',
+        ame:'S'fi Province','
+        tate_code:'S'F',',
       },
       {
-        name: 'Sefrou Province',
-        state_code: 'SEF',
+        ame:'S'frou Province','
+        tate_code:'S'F',',
       },
       {
-        name: 'Settat Province',
-        state_code: 'SET',
+        ame:'S'ttat Province','
+        tate_code:'S'T',',
       },
       {
-        name: 'Shtouka Ait Baha Province',
-        state_code: 'CHT',
+        ame:'S'touka Ait Baha Province','
+        tate_code:'C'T',',
       },
       {
-        name: 'Sidi Kacem Province',
-        state_code: 'SIK',
+        ame:'S'di Kacem Province','
+        tate_code:'S'K',',
       },
       {
-        name: 'Sidi Youssef Ben Ali',
-        state_code: 'SYB',
+        ame:'S'di Youssef Ben Ali','
+        tate_code:'S'B',',
       },
       {
-        name: 'Souss-Massa',
-        state_code: '09',
+        ame:'S'uss-Massa','
+        tate_code:'0'',',
       },
       {
-        name: 'Tan-Tan Province',
-        state_code: 'TNT',
+        ame:'T'n-Tan Province','
+        tate_code:'T'T',',
       },
       {
-        name: 'Tanger-Tétouan-Al Hoceïma',
-        state_code: '01',
+        ame:'T'nger-Tétouan-Al Hoceïma','
+        tate_code:'0'',',
       },
       {
-        name: 'Taounate Province',
-        state_code: 'TAO',
+        ame:'T'ounate Province','
+        tate_code:'T'O',',
       },
       {
-        name: 'Taourirt Province',
-        state_code: 'TAI',
+        ame:'T'ourirt Province','
+        tate_code:'T'I',',
       },
       {
-        name: 'Taroudant Province',
-        state_code: 'TAR',
+        ame:'T'roudant Province','
+        tate_code:'T'R',',
       },
       {
-        name: 'Tata Province',
-        state_code: 'TAT',
+        ame:'T'ta Province','
+        tate_code:'T'T',',
       },
       {
-        name: 'Taza Province',
-        state_code: 'TAZ',
+        ame:'T'za Province','
+        tate_code:'T'Z',',
       },
       {
-        name: 'Tétouan Province',
-        state_code: 'TET',
+        ame:'T'touan Province','
+        tate_code:'T'T',',
       },
       {
-        name: 'Tiznit Province',
-        state_code: 'TIZ',
+        ame:'T'znit Province','
+        tate_code:'T'Z',',
       },
       {
-        name: 'Zagora Province',
-        state_code: 'ZAG',
-      },
-    ],
+        ame:'Z'gora Province','
+        tate_code:'Z'G',',
+      },,
+    ],,
   },
   {
-    name: 'Mozambique',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/d/d0/Flag_of_Mozambique.svg',
-    iso2: 'MZ',
-    states: [
+    ame:'M'zambique','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/d/d0/Flag_of_Mozambique.svg','
+    so2:'M'','
+    tates:[
       {
-        name: 'Cabo Delgado Province',
-        state_code: 'P',
+        ame:'C'bo Delgado Province','
+        tate_code:'P',',
       },
       {
-        name: 'Gaza Province',
-        state_code: 'G',
+        ame:'G'za Province','
+        tate_code:'G',',
       },
       {
-        name: 'Inhambane Province',
-        state_code: 'I',
+        ame:'I'hambane Province','
+        tate_code:'I',',
       },
       {
-        name: 'Manica Province',
-        state_code: 'B',
+        ame:'M'nica Province','
+        tate_code:'B',',
       },
       {
-        name: 'Maputo',
-        state_code: 'MPM',
+        ame:'M'puto','
+        tate_code:'M'M',',
       },
       {
-        name: 'Maputo Province',
-        state_code: 'L',
+        ame:'M'puto Province','
+        tate_code:'L',',
       },
       {
-        name: 'Nampula Province',
-        state_code: 'N',
+        ame:'N'mpula Province','
+        tate_code:'N',',
       },
       {
-        name: 'Niassa Province',
-        state_code: 'A',
+        ame:'N'assa Province','
+        tate_code:'A',',
       },
       {
-        name: 'Sofala Province',
-        state_code: 'S',
+        ame:'S'fala Province','
+        tate_code:'S',',
       },
       {
-        name: 'Tete Province',
-        state_code: 'T',
+        ame:'T'te Province','
+        tate_code:'T',',
       },
       {
-        name: 'Zambezia Province',
-        state_code: 'Q',
-      },
-    ],
+        ame:'Z'mbezia Province','
+        tate_code:'Q',',
+      },,
+    ],,
   },
   {
-    name: 'Myanmar',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/8/8c/Flag_of_Myanmar.svg',
-    iso2: 'MM',
-    states: [
+    ame:'M'anmar','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/8/8c/Flag_of_Myanmar.svg','
+    so2:'M'','
+    tates:[
       {
-        name: 'Ayeyarwady Region',
-        state_code: '07',
+        ame:'A'eyarwady Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Bago',
-        state_code: '02',
+        ame:'B'go','
+        tate_code:'0'',',
       },
       {
-        name: 'Chin State',
-        state_code: '14',
+        ame:'C'in State','
+        tate_code:'1'',',
       },
       {
-        name: 'Kachin State',
-        state_code: '11',
+        ame:'K'chin State','
+        tate_code:'1'',',
       },
       {
-        name: 'Kayah State',
-        state_code: '12',
+        ame:'K'yah State','
+        tate_code:'1'',',
       },
       {
-        name: 'Kayin State',
-        state_code: '13',
+        ame:'K'yin State','
+        tate_code:'1'',',
       },
       {
-        name: 'Magway Region',
-        state_code: '03',
+        ame:'M'gway Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Mandalay Region',
-        state_code: '04',
+        ame:'M'ndalay Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Mon State',
-        state_code: '15',
+        ame:'M'n State','
+        tate_code:'1'',',
       },
       {
-        name: 'Naypyidaw Union Territory',
-        state_code: '18',
+        ame:'N'ypyidaw Union Territory','
+        tate_code:'1'',',
       },
       {
-        name: 'Rakhine State',
-        state_code: '16',
+        ame:'R'khine State','
+        tate_code:'1'',',
       },
       {
-        name: 'Sagaing Region',
-        state_code: '01',
+        ame:'S'gaing Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Shan State',
-        state_code: '17',
+        ame:'S'an State','
+        tate_code:'1'',',
       },
       {
-        name: 'Tanintharyi Region',
-        state_code: '05',
+        ame:'T'nintharyi Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Yangon Region',
-        state_code: '06',
-      },
-    ],
+        ame:'Y'ngon Region','
+        tate_code:'0'',',
+      },,
+    ],,
   },
   {
-    name: 'Namibia',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Namibia.svg',
-    iso2: 'NA',
-    states: [
+    ame:'N'mibia','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Namibia.svg','
+    so2:'N'','
+    tates:[
       {
-        name: 'Erongo Region',
-        state_code: 'ER',
+        ame:'E'ongo Region','
+        tate_code:'E'',',
       },
       {
-        name: 'Hardap Region',
-        state_code: 'HA',
+        ame:'H'rdap Region','
+        tate_code:'H'',',
       },
       {
-        name: 'Karas Region',
-        state_code: 'KA',
+        ame:'K'ras Region','
+        tate_code:'K'',',
       },
       {
-        name: 'Kavango East Region',
-        state_code: 'KE',
+        ame:'K'vango East Region','
+        tate_code:'K'',',
       },
       {
-        name: 'Kavango West Region',
-        state_code: 'KW',
+        ame:'K'vango West Region','
+        tate_code:'K'',',
       },
       {
-        name: 'Khomas Region',
-        state_code: 'KH',
+        ame:'K'omas Region','
+        tate_code:'K'',',
       },
       {
-        name: 'Kunene Region',
-        state_code: 'KU',
+        ame:'K'nene Region','
+        tate_code:'K'',',
       },
       {
-        name: 'Ohangwena Region',
-        state_code: 'OW',
+        ame:'O'angwena Region','
+        tate_code:'O'',',
       },
       {
-        name: 'Omaheke Region',
-        state_code: 'OH',
+        ame:'O'aheke Region','
+        tate_code:'O'',',
       },
       {
-        name: 'Omusati Region',
-        state_code: 'OS',
+        ame:'O'usati Region','
+        tate_code:'O'',',
       },
       {
-        name: 'Oshana Region',
-        state_code: 'ON',
+        ame:'O'hana Region','
+        tate_code:'O'',',
       },
       {
-        name: 'Oshikoto Region',
-        state_code: 'OT',
+        ame:'O'hikoto Region','
+        tate_code:'O'',',
       },
       {
-        name: 'Otjozondjupa Region',
-        state_code: 'OD',
+        ame:'O'jozondjupa Region','
+        tate_code:'O'',',
       },
       {
-        name: 'Zambezi Region',
-        state_code: 'CA',
-      },
-    ],
+        ame:'Z'mbezi Region','
+        tate_code:'C'',',
+      },,
+    ],,
   },
   {
-    name: 'Nauru',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/3/30/Flag_of_Nauru.svg',
-    iso2: 'NR',
-    states: [
+    ame:'N'uru','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/3/30/Flag_of_Nauru.svg','
+    so2:'N'','
+    tates:[
       {
-        name: 'Aiwo District',
-        state_code: '01',
+        ame:'A'wo District','
+        tate_code:'0'',',
       },
       {
-        name: 'Anabar District',
-        state_code: '02',
+        ame:'A'abar District','
+        tate_code:'0'',',
       },
       {
-        name: 'Anetan District',
-        state_code: '03',
+        ame:'A'etan District','
+        tate_code:'0'',',
       },
       {
-        name: 'Anibare District',
-        state_code: '04',
+        ame:'A'ibare District','
+        tate_code:'0'',',
       },
       {
-        name: 'Baiti District',
-        state_code: '05',
+        ame:'B'iti District','
+        tate_code:'0'',',
       },
       {
-        name: 'Boe District',
-        state_code: '06',
+        ame:'B'e District','
+        tate_code:'0'',',
       },
       {
-        name: 'Buada District',
-        state_code: '07',
+        ame:'B'ada District','
+        tate_code:'0'',',
       },
       {
-        name: 'Denigomodu District',
-        state_code: '08',
+        ame:'D'nigomodu District','
+        tate_code:'0'',',
       },
       {
-        name: 'Ewa District',
-        state_code: '09',
+        ame:'E'a District','
+        tate_code:'0'',',
       },
       {
-        name: 'Ijuw District',
-        state_code: '10',
+        ame:'I'uw District','
+        tate_code:'1'',',
       },
       {
-        name: 'Meneng District',
-        state_code: '11',
+        ame:'M'neng District','
+        tate_code:'1'',',
       },
       {
-        name: 'Nibok District',
-        state_code: '12',
+        ame:'N'bok District','
+        tate_code:'1'',',
       },
       {
-        name: 'Uaboe District',
-        state_code: '13',
+        ame:'U'boe District','
+        tate_code:'1'',',
       },
       {
-        name: 'Yaren District',
-        state_code: '14',
-      },
-    ],
+        ame:'Y'ren District','
+        tate_code:'1'',',
+      },,
+    ],,
   },
   {
-    name: 'Nepal',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg',
-    iso2: 'NP',
-    states: [
+    ame:'N'pal','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg','
+    so2:'N'','
+    tates:[
       {
-        name: 'Bagmati Zone',
-        state_code: 'BA',
+        ame:'B'gmati Zone','
+        tate_code:'B'',',
       },
       {
-        name: 'Bheri Zone',
-        state_code: 'BH',
+        ame:'B'eri Zone','
+        tate_code:'B'',',
       },
       {
-        name: 'Central Region',
-        state_code: '1',
+        ame:'C'ntral Region','
+        tate_code:'1',',
       },
       {
-        name: 'Dhaulagiri Zone',
-        state_code: 'DH',
+        ame:'D'aulagiri Zone','
+        tate_code:'D'',',
       },
       {
-        name: 'Eastern Development Region',
-        state_code: '4',
+        ame:'E'stern Development Region','
+        tate_code:'4',',
       },
       {
-        name: 'Far-Western Development Region',
-        state_code: '5',
+        ame:'F'r-Western Development Region','
+        tate_code:'5',',
       },
       {
-        name: 'Gandaki Zone',
-        state_code: 'GA',
+        ame:'G'ndaki Zone','
+        tate_code:'G'',',
       },
       {
-        name: 'Janakpur Zone',
-        state_code: 'JA',
+        ame:'J'nakpur Zone','
+        tate_code:'J'',',
       },
       {
-        name: 'Karnali Zone',
-        state_code: 'KA',
+        ame:'K'rnali Zone','
+        tate_code:'K'',',
       },
       {
-        name: 'Kosi Zone',
-        state_code: 'KO',
+        ame:'K'si Zone','
+        tate_code:'K'',',
       },
       {
-        name: 'Lumbini Zone',
-        state_code: 'LU',
+        ame:'L'mbini Zone','
+        tate_code:'L'',',
       },
       {
-        name: 'Mahakali Zone',
-        state_code: 'MA',
+        ame:'M'hakali Zone','
+        tate_code:'M'',',
       },
       {
-        name: 'Mechi Zone',
-        state_code: 'ME',
+        ame:'M'chi Zone','
+        tate_code:'M'',',
       },
       {
-        name: 'Mid-Western Region',
-        state_code: '2',
+        ame:'M'd-Western Region','
+        tate_code:'2',',
       },
       {
-        name: 'Narayani Zone',
-        state_code: 'NA',
+        ame:'N'rayani Zone','
+        tate_code:'N'',',
       },
       {
-        name: 'Rapti Zone',
-        state_code: 'RA',
+        ame:'R'pti Zone','
+        tate_code:'R'',',
       },
       {
-        name: 'Sagarmatha Zone',
-        state_code: 'SA',
+        ame:'S'garmatha Zone','
+        tate_code:'S'',',
       },
       {
-        name: 'Seti Zone',
-        state_code: 'SE',
+        ame:'S'ti Zone','
+        tate_code:'S'',',
       },
       {
-        name: 'Western Region',
-        state_code: '3',
-      },
-    ],
+        ame:'W'stern Region','
+        tate_code:'3',',
+      },,
+    ],,
   },
   {
-    name: 'Netherlands Antilles',
-    flag: '',
-    iso2: 'AN',
-    states: [
+    ame:'N'therlands Antilles','
+    lag:''''
+    so2:'A'','
+    tates:[
       {
-        name: 'Bonaire',
-        state_code: 'BQ1',
+        ame:'B'naire','
+        tate_code:'B'1',',
       },
       {
-        name: 'Saba',
-        state_code: 'BQ2',
+        ame:'S'ba','
+        tate_code:'B'2',',
       },
       {
-        name: 'Sint Eustatius',
-        state_code: 'BQ3',
-      },
-    ],
+        ame:'S'nt Eustatius','
+        tate_code:'B'3',',
+      },,
+    ],,
   },
   {
-    name: 'Netherlands',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/2/20/Flag_of_the_Netherlands.svg',
-    iso2: 'NL',
-    states: [
+    ame:'N'therlands','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/2/20/Flag_of_the_Netherlands.svg','
+    so2:'N'','
+    tates:[
       {
-        name: 'Drenthe',
-        state_code: 'DR',
+        ame:'D'enthe','
+        tate_code:'D'',',
       },
       {
-        name: 'Flevoland',
-        state_code: 'FL',
+        ame:'F'evoland','
+        tate_code:'F'',',
       },
       {
-        name: 'Friesland',
-        state_code: 'FR',
+        ame:'F'iesland','
+        tate_code:'F'',',
       },
       {
-        name: 'Gelderland',
-        state_code: 'GE',
+        ame:'G'lderland','
+        tate_code:'G'',',
       },
       {
-        name: 'Groningen',
-        state_code: 'GR',
+        ame:'G'oningen','
+        tate_code:'G'',',
       },
       {
-        name: 'Limburg',
-        state_code: 'LI',
+        ame:'L'mburg','
+        tate_code:'L'',',
       },
       {
-        name: 'North Brabant',
-        state_code: 'NB',
+        ame:'N'rth Brabant','
+        tate_code:'N'',',
       },
       {
-        name: 'North Holland',
-        state_code: 'NH',
+        ame:'N'rth Holland','
+        tate_code:'N'',',
       },
       {
-        name: 'Overijssel',
-        state_code: 'OV',
+        ame:'O'erijssel','
+        tate_code:'O'',',
       },
       {
-        name: 'South Holland',
-        state_code: 'ZH',
+        ame:'S'uth Holland','
+        tate_code:'Z'',',
       },
       {
-        name: 'Utrecht',
-        state_code: 'UT',
+        ame:'U'recht','
+        tate_code:'U'',',
       },
       {
-        name: 'Zeeland',
-        state_code: 'ZE',
-      },
-    ],
+        ame:'Z'eland','
+        tate_code:'Z'',',
+      },,
+    ],,
   },
   {
-    name: 'New Caledonia',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/2/26/Flags_of_New_Caledonia.svg',
-    iso2: 'NC',
-    states: [],
+    ame:'N'w Caledonia','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/2/26/Flags_of_New_Caledonia.svg','
+    so2:'N'','
+    tates:[],,
   },
   {
-    name: 'New Zealand',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Flag_of_New_Zealand.svg',
-    iso2: 'NZ',
-    states: [
+    ame:'N'w Zealand','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/3/3e/Flag_of_New_Zealand.svg','
+    so2:'N'','
+    tates:[
       {
-        name: 'Auckland Region',
-        state_code: 'AUK',
+        ame:'A'ckland Region','
+        tate_code:'A'K',',
       },
       {
-        name: 'Bay of Plenty Region',
-        state_code: 'BOP',
+        ame:'B'y of Plenty Region','
+        tate_code:'B'P',',
       },
       {
-        name: 'Canterbury Region',
-        state_code: 'CAN',
+        ame:'C'nterbury Region','
+        tate_code:'C'N',',
       },
       {
-        name: 'Chatham Islands',
-        state_code: 'CIT',
+        ame:'C'atham Islands','
+        tate_code:'C'T',',
       },
       {
-        name: 'Gisborne District',
-        state_code: 'GIS',
+        ame:'G'sborne District','
+        tate_code:'G'S',',
       },
       {
-        name: "Hawke's Bay Region",
-        state_code: 'HKB',
+        ame:"Hawke's Bay Region",
+        tate_code:'H'B',',
       },
       {
-        name: 'Manawatu-Wanganui Region',
-        state_code: 'MWT',
+        ame:'M'nawatu-Wanganui Region','
+        tate_code:'M'T',',
       },
       {
-        name: 'Marlborough Region',
-        state_code: 'MBH',
+        ame:'M'rlborough Region','
+        tate_code:'M'H',',
       },
       {
-        name: 'Nelson Region',
-        state_code: 'NSN',
+        ame:'N'lson Region','
+        tate_code:'N'N',',
       },
       {
-        name: 'Northland Region',
-        state_code: 'NTL',
+        ame:'N'rthland Region','
+        tate_code:'N'L',',
       },
       {
-        name: 'Otago Region',
-        state_code: 'OTA',
+        ame:'O'ago Region','
+        tate_code:'O'A',',
       },
       {
-        name: 'Southland Region',
-        state_code: 'STL',
+        ame:'S'uthland Region','
+        tate_code:'S'L',',
       },
       {
-        name: 'Taranaki Region',
-        state_code: 'TKI',
+        ame:'T'ranaki Region','
+        tate_code:'T'I',',
       },
       {
-        name: 'Tasman District',
-        state_code: 'TAS',
+        ame:'T'sman District','
+        tate_code:'T'S',',
       },
       {
-        name: 'Waikato Region',
-        state_code: 'WKO',
+        ame:'W'ikato Region','
+        tate_code:'W'O',',
       },
       {
-        name: 'Wellington Region',
-        state_code: 'WGN',
+        ame:'W'llington Region','
+        tate_code:'W'N',',
       },
       {
-        name: 'West Coast Region',
-        state_code: 'WTC',
-      },
-    ],
+        ame:'W'st Coast Region','
+        tate_code:'W'C',',
+      },,
+    ],,
   },
   {
-    name: 'Nicaragua',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Nicaragua.svg',
-    iso2: 'NI',
-    states: [
+    ame:'N'caragua','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Nicaragua.svg','
+    so2:'N'','
+    tates:[
       {
-        name: 'Boaco Department',
-        state_code: 'BO',
+        ame:'B'aco Department','
+        tate_code:'B'',',
       },
       {
-        name: 'Carazo Department',
-        state_code: 'CA',
+        ame:'C'razo Department','
+        tate_code:'C'',',
       },
       {
-        name: 'Chinandega Department',
-        state_code: 'CI',
+        ame:'C'inandega Department','
+        tate_code:'C'',',
       },
       {
-        name: 'Chontales Department',
-        state_code: 'CO',
+        ame:'C'ontales Department','
+        tate_code:'C'',',
       },
       {
-        name: 'Estelí Department',
-        state_code: 'ES',
+        ame:'E'telí Department','
+        tate_code:'E'',',
       },
       {
-        name: 'Granada Department',
-        state_code: 'GR',
+        ame:'G'anada Department','
+        tate_code:'G'',',
       },
       {
-        name: 'Jinotega Department',
-        state_code: 'JI',
+        ame:'J'notega Department','
+        tate_code:'J'',',
       },
       {
-        name: 'León Department',
-        state_code: 'LE',
+        ame:'L'ón Department','
+        tate_code:'L'',',
       },
       {
-        name: 'Madriz Department',
-        state_code: 'MD',
+        ame:'M'driz Department','
+        tate_code:'M'',',
       },
       {
-        name: 'Managua Department',
-        state_code: 'MN',
+        ame:'M'nagua Department','
+        tate_code:'M'',',
       },
       {
-        name: 'Masaya Department',
-        state_code: 'MS',
+        ame:'M'saya Department','
+        tate_code:'M'',',
       },
       {
-        name: 'Matagalpa Department',
-        state_code: 'MT',
+        ame:'M'tagalpa Department','
+        tate_code:'M'',',
       },
       {
-        name: 'North Caribbean Coast Autonomous Region',
-        state_code: 'AN',
+        ame:'N'rth Caribbean Coast Autonomous Region','
+        tate_code:'A'',',
       },
       {
-        name: 'Río San Juan Department',
-        state_code: 'SJ',
+        ame:'R'o San Juan Department','
+        tate_code:'S'',',
       },
       {
-        name: 'Rivas Department',
-        state_code: 'RI',
+        ame:'R'vas Department','
+        tate_code:'R'',',
       },
       {
-        name: 'South Caribbean Coast Autonomous Region',
-        state_code: 'AS',
-      },
-    ],
+        ame:'S'uth Caribbean Coast Autonomous Region','
+        tate_code:'A'',',
+      },,
+    ],,
   },
   {
-    name: 'Niger',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f4/Flag_of_Niger.svg',
-    iso2: 'NE',
-    states: [
+    ame:'N'ger','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/f/f4/Flag_of_Niger.svg','
+    so2:'N'','
+    tates:[
       {
-        name: 'Agadez Region',
-        state_code: '1',
+        ame:'A'adez Region','
+        tate_code:'1',',
       },
       {
-        name: 'Diffa Region',
-        state_code: '2',
+        ame:'D'ffa Region','
+        tate_code:'2',',
       },
       {
-        name: 'Dosso Region',
-        state_code: '3',
+        ame:'D'sso Region','
+        tate_code:'3',',
       },
       {
-        name: 'Maradi Region',
-        state_code: '4',
+        ame:'M'radi Region','
+        tate_code:'4',',
       },
       {
-        name: 'Tahoua Region',
-        state_code: '5',
+        ame:'T'houa Region','
+        tate_code:'5',',
       },
       {
-        name: 'Tillabéri Region',
-        state_code: '6',
+        ame:'T'llabéri Region','
+        tate_code:'6',',
       },
       {
-        name: 'Zinder Region',
-        state_code: '7',
-      },
-    ],
+        ame:'Z'nder Region','
+        tate_code:'7',',
+      },,
+    ],,
   },
   {
-    name: 'Nigeria',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg',
-    iso2: 'NG',
-    states: [
+    ame:'N'geria','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg','
+    so2:'N'','
+    tates:[
       {
-        name: 'Abia State',
-        state_code: 'AB',
+        ame:'A'ia State','
+        tate_code:'A'',',
       },
       {
-        name: 'Adamawa State',
-        state_code: 'AD',
+        ame:'A'amawa State','
+        tate_code:'A'',',
       },
       {
-        name: 'Akwa Ibom State',
-        state_code: 'AK',
+        ame:'A'wa Ibom State','
+        tate_code:'A'',',
       },
       {
-        name: 'Anambra State',
-        state_code: 'AN',
+        ame:'A'ambra State','
+        tate_code:'A'',',
       },
       {
-        name: 'Bauchi State',
-        state_code: 'BA',
+        ame:'B'uchi State','
+        tate_code:'B'',',
       },
       {
-        name: 'Bayelsa State',
-        state_code: 'BY',
+        ame:'B'yelsa State','
+        tate_code:'B'',',
       },
       {
-        name: 'Benue State',
-        state_code: 'BE',
+        ame:'B'nue State','
+        tate_code:'B'',',
       },
       {
-        name: 'Borno State',
-        state_code: 'BO',
+        ame:'B'rno State','
+        tate_code:'B'',',
       },
       {
-        name: 'Cross River State',
-        state_code: 'CR',
+        ame:'C'oss River State','
+        tate_code:'C'',',
       },
       {
-        name: 'Delta State',
-        state_code: 'DE',
+        ame:'D'lta State','
+        tate_code:'D'',',
       },
       {
-        name: 'Ebonyi State',
-        state_code: 'EB',
+        ame:'E'onyi State','
+        tate_code:'E'',',
       },
       {
-        name: 'Edo State',
-        state_code: 'ED',
+        ame:'E'o State','
+        tate_code:'E'',',
       },
       {
-        name: 'Ekiti State',
-        state_code: 'EK',
+        ame:'E'iti State','
+        tate_code:'E'',',
       },
       {
-        name: 'Enugu State',
-        state_code: 'EN',
+        ame:'E'ugu State','
+        tate_code:'E'',',
       },
       {
-        name: 'Federal Capital Territory',
-        state_code: 'FC',
+        ame:'F'deral Capital Territory','
+        tate_code:'F'',',
       },
       {
-        name: 'Gombe State',
-        state_code: 'GO',
+        ame:'G'mbe State','
+        tate_code:'G'',',
       },
       {
-        name: 'Imo State',
-        state_code: 'IM',
+        ame:'I'o State','
+        tate_code:'I'',',
       },
       {
-        name: 'Jigawa State',
-        state_code: 'JI',
+        ame:'J'gawa State','
+        tate_code:'J'',',
       },
       {
-        name: 'Kaduna State',
-        state_code: 'KD',
+        ame:'K'duna State','
+        tate_code:'K'',',
       },
       {
-        name: 'Kano State',
-        state_code: 'KN',
+        ame:'K'no State','
+        tate_code:'K'',',
       },
       {
-        name: 'Katsina State',
-        state_code: 'KT',
+        ame:'K'tsina State','
+        tate_code:'K'',',
       },
       {
-        name: 'Kebbi State',
-        state_code: 'KE',
+        ame:'K'bbi State','
+        tate_code:'K'',',
       },
       {
-        name: 'Kogi State',
-        state_code: 'KO',
+        ame:'K'gi State','
+        tate_code:'K'',',
       },
       {
-        name: 'Kwara State',
-        state_code: 'KW',
+        ame:'K'ara State','
+        tate_code:'K'',',
       },
       {
-        name: 'Lagos State',
-        state_code: 'LA',
+        ame:'L'gos State','
+        tate_code:'L'',',
       },
       {
-        name: 'Nasarawa State',
-        state_code: 'NA',
+        ame:'N'sarawa State','
+        tate_code:'N'',',
       },
       {
-        name: 'Niger State',
-        state_code: 'NI',
+        ame:'N'ger State','
+        tate_code:'N'',',
       },
       {
-        name: 'Ogun State',
-        state_code: 'OG',
+        ame:'O'un State','
+        tate_code:'O'',',
       },
       {
-        name: 'Ondo State',
-        state_code: 'ON',
+        ame:'O'do State','
+        tate_code:'O'',',
       },
       {
-        name: 'Osun State',
-        state_code: 'OS',
+        ame:'O'un State','
+        tate_code:'O'',',
       },
       {
-        name: 'Oyo State',
-        state_code: 'OY',
+        ame:'O'o State','
+        tate_code:'O'',',
       },
       {
-        name: 'Plateau State',
-        state_code: 'PL',
+        ame:'P'ateau State','
+        tate_code:'P'',',
       },
       {
-        name: 'Sokoto State',
-        state_code: 'SO',
+        ame:'S'koto State','
+        tate_code:'S'',',
       },
       {
-        name: 'Taraba State',
-        state_code: 'TA',
+        ame:'T'raba State','
+        tate_code:'T'',',
       },
       {
-        name: 'Yobe State',
-        state_code: 'YO',
+        ame:'Y'be State','
+        tate_code:'Y'',',
       },
       {
-        name: 'Zamfara State',
-        state_code: 'ZA',
-      },
-    ],
+        ame:'Z'mfara State','
+        tate_code:'Z'',',
+      },,
+    ],,
   },
   {
-    name: 'Niue',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_Niue.svg',
-    iso2: 'NU',
-    states: [],
+    ame:'N'ue','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_Niue.svg','
+    so2:'N'','
+    tates:[],,
   },
   {
-    name: 'Norfolk Island',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Norfolk_Island.svg',
-    iso2: 'NF',
-    states: [],
+    ame:'N'rfolk Island','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Norfolk_Island.svg','
+    so2:'N'','
+    tates:[],,
   },
   {
-    name: 'Northern Mariana Islands',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Flag_of_the_Northern_Mariana_Islands.svg',
-    iso2: 'MP',
-    states: [],
+    ame:'N'rthern Mariana Islands','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/e/e0/Flag_of_the_Northern_Mariana_Islands.svg','
+    so2:'M'','
+    tates:[],,
   },
   {
-    name: 'Norway',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Norway.svg',
-    iso2: 'NO',
-    states: [
+    ame:'N'rway','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Norway.svg','
+    so2:'N'','
+    tates:[
       {
-        name: 'Akershus',
-        state_code: '02',
+        ame:'A'ershus','
+        tate_code:'0'',',
       },
       {
-        name: 'Buskerud',
-        state_code: '06',
+        ame:'B'skerud','
+        tate_code:'0'',',
       },
       {
-        name: 'Finnmark',
-        state_code: '20',
+        ame:'F'nnmark','
+        tate_code:'2'',',
       },
       {
-        name: 'Hedmark',
-        state_code: '04',
+        ame:'H'dmark','
+        tate_code:'0'',',
       },
       {
-        name: 'Hordaland',
-        state_code: '12',
+        ame:'H'rdaland','
+        tate_code:'1'',',
       },
       {
-        name: 'Jan Mayen',
-        state_code: '22',
+        ame:'J'n Mayen','
+        tate_code:'2'',',
       },
       {
-        name: 'Møre og Romsdal',
-        state_code: '15',
+        ame:'M're og Romsdal','
+        tate_code:'1'',',
       },
       {
-        name: 'Nord-Trøndelag',
-        state_code: '17',
+        ame:'N'rd-Trøndelag','
+        tate_code:'1'',',
       },
       {
-        name: 'Nordland',
-        state_code: '18',
+        ame:'N'rdland','
+        tate_code:'1'',',
       },
       {
-        name: 'Oppland',
-        state_code: '05',
+        ame:'O'pland','
+        tate_code:'0'',',
       },
       {
-        name: 'Oslo',
-        state_code: '03',
+        ame:'O'lo','
+        tate_code:'0'',',
       },
       {
-        name: 'Østfold',
-        state_code: '01',
+        ame:'Ø'tfold','
+        tate_code:'0'',',
       },
       {
-        name: 'Rogaland',
-        state_code: '11',
+        ame:'R'galand','
+        tate_code:'1'',',
       },
       {
-        name: 'Sogn og Fjordane',
-        state_code: '14',
+        ame:'S'gn og Fjordane','
+        tate_code:'1'',',
       },
       {
-        name: 'Sør-Trøndelag',
-        state_code: '16',
+        ame:'S'r-Trøndelag','
+        tate_code:'1'',',
       },
       {
-        name: 'Svalbard',
-        state_code: '21',
+        ame:'S'albard','
+        tate_code:'2'',',
       },
       {
-        name: 'Telemark',
-        state_code: '08',
+        ame:'T'lemark','
+        tate_code:'0'',',
       },
       {
-        name: 'Troms',
-        state_code: '19',
+        ame:'T'oms','
+        tate_code:'1'',',
       },
       {
-        name: 'Trøndelag',
-        state_code: '50',
+        ame:'T'øndelag','
+        tate_code:'5'',',
       },
       {
-        name: 'Vest-Agder',
-        state_code: '10',
+        ame:'V'st-Agder','
+        tate_code:'1'',',
       },
       {
-        name: 'Vestfold',
-        state_code: '07',
-      },
-    ],
+        ame:'V'stfold','
+        tate_code:'0'',',
+      },,
+    ],,
   },
   {
-    name: 'Oman',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/d/dd/Flag_of_Oman.svg',
-    iso2: 'OM',
-    states: [
+    ame:'O'an','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/d/dd/Flag_of_Oman.svg','
+    so2:'O'','
+    tates:[
       {
-        name: 'Ad Dakhiliyah Governorate',
-        state_code: 'DA',
+        ame:'A' Dakhiliyah Governorate','
+        tate_code:'D'',',
       },
       {
-        name: 'Ad Dhahirah Governorate',
-        state_code: 'ZA',
+        ame:'A' Dhahirah Governorate','
+        tate_code:'Z'',',
       },
       {
-        name: 'Al Batinah North Governorate',
-        state_code: 'BS',
+        ame:'A' Batinah North Governorate','
+        tate_code:'B'',',
       },
       {
-        name: 'Al Batinah Region',
-        state_code: 'BA',
+        ame:'A' Batinah Region','
+        tate_code:'B'',',
       },
       {
-        name: 'Al Batinah South Governorate',
-        state_code: 'BJ',
+        ame:'A' Batinah South Governorate','
+        tate_code:'B'',',
       },
       {
-        name: 'Al Buraimi Governorate',
-        state_code: 'BU',
+        ame:'A' Buraimi Governorate','
+        tate_code:'B'',',
       },
       {
-        name: 'Al Wusta Governorate',
-        state_code: 'WU',
+        ame:'A' Wusta Governorate','
+        tate_code:'W'',',
       },
       {
-        name: 'Ash Sharqiyah North Governorate',
-        state_code: 'SS',
+        ame:'A'h Sharqiyah North Governorate','
+        tate_code:'S'',',
       },
       {
-        name: 'Ash Sharqiyah Region',
-        state_code: 'SH',
+        ame:'A'h Sharqiyah Region','
+        tate_code:'S'',',
       },
       {
-        name: 'Ash Sharqiyah South Governorate',
-        state_code: 'SJ',
+        ame:'A'h Sharqiyah South Governorate','
+        tate_code:'S'',',
       },
       {
-        name: 'Dhofar Governorate',
-        state_code: 'ZU',
+        ame:'D'ofar Governorate','
+        tate_code:'Z'',',
       },
       {
-        name: 'Musandam Governorate',
-        state_code: 'MU',
+        ame:'M'sandam Governorate','
+        tate_code:'M'',',
       },
       {
-        name: 'Muscat Governorate',
-        state_code: 'MA',
-      },
-    ],
+        ame:'M'scat Governorate','
+        tate_code:'M'',',
+      },,
+    ],,
   },
   {
-    name: 'Pakistan',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/3/32/Flag_of_Pakistan.svg',
-    iso2: 'PK',
-    states: [
+    ame:'P'kistan','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/3/32/Flag_of_Pakistan.svg','
+    so2:'P'','
+    tates:[
       {
-        name: 'Azad Kashmir',
-        state_code: 'JK',
+        ame:'A'ad Kashmir','
+        tate_code:'J'',',
       },
       {
-        name: 'Balochistan',
-        state_code: 'BA',
+        ame:'B'lochistan','
+        tate_code:'B'',',
       },
       {
-        name: 'Federally Administered Tribal Areas',
-        state_code: 'TA',
+        ame:'F'derally Administered Tribal Areas','
+        tate_code:'T'',',
       },
       {
-        name: 'Gilgit-Baltistan',
-        state_code: 'GB',
+        ame:'G'lgit-Baltistan','
+        tate_code:'G'',',
       },
       {
-        name: 'Islamabad Capital Territory',
-        state_code: 'IS',
+        ame:'I'lamabad Capital Territory','
+        tate_code:'I'',',
       },
       {
-        name: 'Khyber Pakhtunkhwa',
-        state_code: 'KP',
+        ame:'K'yber Pakhtunkhwa','
+        tate_code:'K'',',
       },
       {
-        name: 'Punjab',
-        state_code: 'PB',
+        ame:'P'njab','
+        tate_code:'P'',',
       },
       {
-        name: 'Sindh',
-        state_code: 'SD',
-      },
-    ],
+        ame:'S'ndh','
+        tate_code:'S'',',
+      },,
+    ],,
   },
   {
-    name: 'Palau',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Palau.svg',
-    iso2: 'PW',
-    states: [
+    ame:'P'lau','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Palau.svg','
+    so2:'P'','
+    tates:[
       {
-        name: 'Aimeliik',
-        state_code: '002',
+        ame:'A'meliik','
+        tate_code:'0'2',',
       },
       {
-        name: 'Airai',
-        state_code: '004',
+        ame:'A'rai','
+        tate_code:'0'4',',
       },
       {
-        name: 'Angaur',
-        state_code: '010',
+        ame:'A'gaur','
+        tate_code:'0'0',',
       },
       {
-        name: 'Hatohobei',
-        state_code: '050',
+        ame:'H'tohobei','
+        tate_code:'0'0',',
       },
       {
-        name: 'Kayangel',
-        state_code: '100',
+        ame:'K'yangel','
+        tate_code:'1'0',',
       },
       {
-        name: 'Koror',
-        state_code: '150',
+        ame:'K'ror','
+        tate_code:'1'0',',
       },
       {
-        name: 'Melekeok',
-        state_code: '212',
+        ame:'M'lekeok','
+        tate_code:'2'2',',
       },
       {
-        name: 'Ngaraard',
-        state_code: '214',
+        ame:'N'araard','
+        tate_code:'2'4',',
       },
       {
-        name: 'Ngarchelong',
-        state_code: '218',
+        ame:'N'archelong','
+        tate_code:'2'8',',
       },
       {
-        name: 'Ngardmau',
-        state_code: '222',
+        ame:'N'ardmau','
+        tate_code:'2'2',',
       },
       {
-        name: 'Ngatpang',
-        state_code: '224',
+        ame:'N'atpang','
+        tate_code:'2'4',',
       },
       {
-        name: 'Ngchesar',
-        state_code: '226',
+        ame:'N'chesar','
+        tate_code:'2'6',',
       },
       {
-        name: 'Ngeremlengui',
-        state_code: '227',
+        ame:'N'eremlengui','
+        tate_code:'2'7',',
       },
       {
-        name: 'Ngiwal',
-        state_code: '228',
+        ame:'N'iwal','
+        tate_code:'2'8',',
       },
       {
-        name: 'Peleliu',
-        state_code: '350',
+        ame:'P'leliu','
+        tate_code:'3'0',',
       },
       {
-        name: 'Sonsorol',
-        state_code: '370',
-      },
-    ],
+        ame:'S'nsorol','
+        tate_code:'3'0',',
+      },,
+    ],,
   },
   {
-    name: 'Palestinian Territory Occupied',
-    flag: '',
-    iso2: 'PS',
-    states: [],
+    ame:'P'lestinian Territory Occupied','
+    lag:''''
+    so2:'P'','
+    tates:[],,
   },
   {
-    name: 'Panama',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Flag_of_Panama.svg',
-    iso2: 'PA',
-    states: [
+    ame:'P'nama','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/a/ab/Flag_of_Panama.svg','
+    so2:'P'','
+    tates:[
       {
-        name: 'Bocas del Toro Province',
-        state_code: '1',
+        ame:'B'cas del Toro Province','
+        tate_code:'1',',
       },
       {
-        name: 'Chiriquí Province',
-        state_code: '4',
+        ame:'C'iriquí Province','
+        tate_code:'4',',
       },
       {
-        name: 'Coclé Province',
-        state_code: '2',
+        ame:'C'clé Province','
+        tate_code:'2',',
       },
       {
-        name: 'Colón Province',
-        state_code: '3',
+        ame:'C'lón Province','
+        tate_code:'3',',
       },
       {
-        name: 'Darién Province',
-        state_code: '5',
+        ame:'D'rién Province','
+        tate_code:'5',',
       },
       {
-        name: 'Emberá-Wounaan Comarca',
-        state_code: 'EM',
+        ame:'E'berá-Wounaan Comarca','
+        tate_code:'E'',',
       },
       {
-        name: 'Guna Yala',
-        state_code: 'KY',
+        ame:'G'na Yala','
+        tate_code:'K'',',
       },
       {
-        name: 'Herrera Province',
-        state_code: '6',
+        ame:'H'rrera Province','
+        tate_code:'6',',
       },
       {
-        name: 'Los Santos Province',
-        state_code: '7',
+        ame:'L's Santos Province','
+        tate_code:'7',',
       },
       {
-        name: 'Ngöbe-Buglé Comarca',
-        state_code: 'NB',
+        ame:'N'öbe-Buglé Comarca','
+        tate_code:'N'',',
       },
       {
-        name: 'Panamá Oeste Province',
-        state_code: '10',
+        ame:'P'namá Oeste Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Panamá Province',
-        state_code: '8',
+        ame:'P'namá Province','
+        tate_code:'8',',
       },
       {
-        name: 'Veraguas Province',
-        state_code: '9',
-      },
-    ],
+        ame:'V'raguas Province','
+        tate_code:'9',',
+      },,
+    ],,
   },
   {
-    name: 'Papua new Guinea',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/e/e3/Flag_of_Papua_New_Guinea.svg',
-    iso2: 'PG',
-    states: [
+    ame:'P'pua new Guinea','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/e/e3/Flag_of_Papua_New_Guinea.svg','
+    so2:'P'','
+    tates:[
       {
-        name: 'Bougainville',
-        state_code: 'NSB',
+        ame:'B'ugainville','
+        tate_code:'N'B',',
       },
       {
-        name: 'Central Province',
-        state_code: 'CPM',
+        ame:'C'ntral Province','
+        tate_code:'C'M',',
       },
       {
-        name: 'Chimbu Province',
-        state_code: 'CPK',
+        ame:'C'imbu Province','
+        tate_code:'C'K',',
       },
       {
-        name: 'East New Britain',
-        state_code: 'EBR',
+        ame:'E'st New Britain','
+        tate_code:'E'R',',
       },
       {
-        name: 'Eastern Highlands Province',
-        state_code: 'EHG',
+        ame:'E'stern Highlands Province','
+        tate_code:'E'G',',
       },
       {
-        name: 'Enga Province',
-        state_code: 'EPW',
+        ame:'E'ga Province','
+        tate_code:'E'W',',
       },
       {
-        name: 'Gulf',
-        state_code: 'GPK',
+        ame:'G'lf','
+        tate_code:'G'K',',
       },
       {
-        name: 'Hela',
-        state_code: 'HLA',
+        ame:'H'la','
+        tate_code:'H'A',',
       },
       {
-        name: 'Jiwaka Province',
-        state_code: 'JWK',
+        ame:'J'waka Province','
+        tate_code:'J'K',',
       },
       {
-        name: 'Madang Province',
-        state_code: 'MPM',
+        ame:'M'dang Province','
+        tate_code:'M'M',',
       },
       {
-        name: 'Manus Province',
-        state_code: 'MRL',
+        ame:'M'nus Province','
+        tate_code:'M'L',',
       },
       {
-        name: 'Milne Bay Province',
-        state_code: 'MBA',
+        ame:'M'lne Bay Province','
+        tate_code:'M'A',',
       },
       {
-        name: 'Morobe Province',
-        state_code: 'MPL',
+        ame:'M'robe Province','
+        tate_code:'M'L',',
       },
       {
-        name: 'New Ireland Province',
-        state_code: 'NIK',
+        ame:'N'w Ireland Province','
+        tate_code:'N'K',',
       },
       {
-        name: 'Oro Province',
-        state_code: 'NPP',
+        ame:'O'o Province','
+        tate_code:'N'P',',
       },
       {
-        name: 'Port Moresby',
-        state_code: 'NCD',
+        ame:'P'rt Moresby','
+        tate_code:'N'D',',
       },
       {
-        name: 'Sandaun Province',
-        state_code: 'SAN',
+        ame:'S'ndaun Province','
+        tate_code:'S'N',',
       },
       {
-        name: 'Southern Highlands Province',
-        state_code: 'SHM',
+        ame:'S'uthern Highlands Province','
+        tate_code:'S'M',',
       },
       {
-        name: 'West New Britain Province',
-        state_code: 'WBK',
+        ame:'W'st New Britain Province','
+        tate_code:'W'K',',
       },
       {
-        name: 'Western Highlands Province',
-        state_code: 'WHM',
+        ame:'W'stern Highlands Province','
+        tate_code:'W'M',',
       },
       {
-        name: 'Western Province',
-        state_code: 'WPD',
-      },
-    ],
+        ame:'W'stern Province','
+        tate_code:'W'D',',
+      },,
+    ],,
   },
   {
-    name: 'Paraguay',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/2/27/Flag_of_Paraguay.svg',
-    iso2: 'PY',
-    states: [
+    ame:'P'raguay','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/2/27/Flag_of_Paraguay.svg','
+    so2:'P'','
+    tates:[
       {
-        name: 'Alto Paraguay Department',
-        state_code: '16',
+        ame:'A'to Paraguay Department','
+        tate_code:'1'',',
       },
       {
-        name: 'Alto Paraná Department',
-        state_code: '10',
+        ame:'A'to Paraná Department','
+        tate_code:'1'',',
       },
       {
-        name: 'Amambay Department',
-        state_code: '13',
+        ame:'A'ambay Department','
+        tate_code:'1'',',
       },
       {
-        name: 'Boquerón Department',
-        state_code: '19',
+        ame:'B'querón Department','
+        tate_code:'1'',',
       },
       {
-        name: 'Caaguazú',
-        state_code: '5',
+        ame:'C'aguazú','
+        tate_code:'5',',
       },
       {
-        name: 'Caazapá',
-        state_code: '6',
+        ame:'C'azapá','
+        tate_code:'6',',
       },
       {
-        name: 'Canindeyú',
-        state_code: '14',
+        ame:'C'nindeyú','
+        tate_code:'1'',',
       },
       {
-        name: 'Central Department',
-        state_code: '11',
+        ame:'C'ntral Department','
+        tate_code:'1'',',
       },
       {
-        name: 'Concepción Department',
-        state_code: '1',
+        ame:'C'ncepción Department','
+        tate_code:'1',',
       },
       {
-        name: 'Cordillera Department',
-        state_code: '3',
+        ame:'C'rdillera Department','
+        tate_code:'3',',
       },
       {
-        name: 'Guairá Department',
-        state_code: '4',
+        ame:'G'airá Department','
+        tate_code:'4',',
       },
       {
-        name: 'Itapúa',
-        state_code: '7',
+        ame:'I'apúa','
+        tate_code:'7',',
       },
       {
-        name: 'Misiones Department',
-        state_code: '8',
+        ame:'M'siones Department','
+        tate_code:'8',',
       },
       {
-        name: 'Ñeembucú Department',
-        state_code: '12',
+        ame:'Ñ'embucú Department','
+        tate_code:'1'',',
       },
       {
-        name: 'Paraguarí Department',
-        state_code: '9',
+        ame:'P'raguarí Department','
+        tate_code:'9',',
       },
       {
-        name: 'Presidente Hayes Department',
-        state_code: '15',
+        ame:'P'esidente Hayes Department','
+        tate_code:'1'',',
       },
       {
-        name: 'San Pedro Department',
-        state_code: '2',
-      },
-    ],
+        ame:'S'n Pedro Department','
+        tate_code:'2',',
+      },,
+    ],,
   },
   {
-    name: 'Peru',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Peru.svg',
-    iso2: 'PE',
-    states: [
+    ame:'P'ru','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Peru.svg','
+    so2:'P'','
+    tates:[
       {
-        name: 'Amazonas',
-        state_code: 'AMA',
+        ame:'A'azonas','
+        tate_code:'A'A',',
       },
       {
-        name: 'Áncash',
-        state_code: 'ANC',
+        ame:'Á'cash','
+        tate_code:'A'C',',
       },
       {
-        name: 'Apurímac',
-        state_code: 'APU',
+        ame:'A'urímac','
+        tate_code:'A'U',',
       },
       {
-        name: 'Arequipa',
-        state_code: 'ARE',
+        ame:'A'equipa','
+        tate_code:'A'E',',
       },
       {
-        name: 'Ayacucho',
-        state_code: 'AYA',
+        ame:'A'acucho','
+        tate_code:'A'A',',
       },
       {
-        name: 'Cajamarca',
-        state_code: 'CAJ',
+        ame:'C'jamarca','
+        tate_code:'C'J',',
       },
       {
-        name: 'Callao',
-        state_code: 'CAL',
+        ame:'C'llao','
+        tate_code:'C'L',',
       },
       {
-        name: 'Cusco',
-        state_code: 'CUS',
+        ame:'C'sco','
+        tate_code:'C'S',',
       },
       {
-        name: 'Huancavelica',
-        state_code: 'HUV',
+        ame:'H'ancavelica','
+        tate_code:'H'V',',
       },
       {
-        name: 'Huanuco',
-        state_code: 'HUC',
+        ame:'H'anuco','
+        tate_code:'H'C',',
       },
       {
-        name: 'Ica',
-        state_code: 'ICA',
+        ame:'I'a','
+        tate_code:'I'A',',
       },
       {
-        name: 'Junín',
-        state_code: 'JUN',
+        ame:'J'nín','
+        tate_code:'J'N',',
       },
       {
-        name: 'La Libertad',
-        state_code: 'LAL',
+        ame:'L' Libertad','
+        tate_code:'L'L',',
       },
       {
-        name: 'Lambayeque',
-        state_code: 'LAM',
+        ame:'L'mbayeque','
+        tate_code:'L'M',',
       },
       {
-        name: 'Lima',
-        state_code: 'LIM',
+        ame:'L'ma','
+        tate_code:'L'M',',
       },
       {
-        name: 'Madre de Dios',
-        state_code: 'MDD',
+        ame:'M'dre de Dios','
+        tate_code:'M'D',',
       },
       {
-        name: 'Moquegua',
-        state_code: 'MOQ',
+        ame:'M'quegua','
+        tate_code:'M'Q',',
       },
       {
-        name: 'Pasco',
-        state_code: 'PAS',
+        ame:'P'sco','
+        tate_code:'P'S',',
       },
       {
-        name: 'Piura',
-        state_code: 'PIU',
+        ame:'P'ura','
+        tate_code:'P'U',',
       },
       {
-        name: 'Puno',
-        state_code: 'PUN',
+        ame:'P'no','
+        tate_code:'P'N',',
       },
       {
-        name: 'San Martín',
-        state_code: 'SAM',
+        ame:'S'n Martín','
+        tate_code:'S'M',',
       },
       {
-        name: 'Tacna',
-        state_code: 'TAC',
+        ame:'T'cna','
+        tate_code:'T'C',',
       },
       {
-        name: 'Tumbes',
-        state_code: 'TUM',
+        ame:'T'mbes','
+        tate_code:'T'M',',
       },
       {
-        name: 'Ucayali',
-        state_code: 'UCA',
-      },
-    ],
+        ame:'U'ayali','
+        tate_code:'U'A',',
+      },,
+    ],,
   },
   {
-    name: 'Philippines',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/9/99/Flag_of_the_Philippines.svg',
-    iso2: 'PH',
-    states: [
+    ame:'P'ilippines','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/9/99/Flag_of_the_Philippines.svg','
+    so2:'P'','
+    tates:[
       {
-        name: 'Abra',
-        state_code: 'ABR',
+        ame:'A'ra','
+        tate_code:'A'R',',
       },
       {
-        name: 'Agusan del Norte',
-        state_code: 'AGN',
+        ame:'A'usan del Norte','
+        tate_code:'A'N',',
       },
       {
-        name: 'Agusan del Sur',
-        state_code: 'AGS',
+        ame:'A'usan del Sur','
+        tate_code:'A'S',',
       },
       {
-        name: 'Aklan',
-        state_code: 'AKL',
+        ame:'A'lan','
+        tate_code:'A'L',',
       },
       {
-        name: 'Albay',
-        state_code: 'ALB',
+        ame:'A'bay','
+        tate_code:'A'B',',
       },
       {
-        name: 'Antique',
-        state_code: 'ANT',
+        ame:'A'tique','
+        tate_code:'A'T',',
       },
       {
-        name: 'Apayao',
-        state_code: 'APA',
+        ame:'A'ayao','
+        tate_code:'A'A',',
       },
       {
-        name: 'Aurora',
-        state_code: 'AUR',
+        ame:'A'rora','
+        tate_code:'A'R',',
       },
       {
-        name: 'Autonomous Region in Muslim Mindanao',
-        state_code: '14',
+        ame:'A'tonomous Region in Muslim Mindanao','
+        tate_code:'1'',',
       },
       {
-        name: 'Basilan',
-        state_code: 'BAS',
+        ame:'B'silan','
+        tate_code:'B'S',',
       },
       {
-        name: 'Bataan',
-        state_code: 'BAN',
+        ame:'B'taan','
+        tate_code:'B'N',',
       },
       {
-        name: 'Batanes',
-        state_code: 'BTN',
+        ame:'B'tanes','
+        tate_code:'B'N',',
       },
       {
-        name: 'Batangas',
-        state_code: 'BTG',
+        ame:'B'tangas','
+        tate_code:'B'G',',
       },
       {
-        name: 'Benguet',
-        state_code: 'BEN',
+        ame:'B'nguet','
+        tate_code:'B'N',',
       },
       {
-        name: 'Bicol Region',
-        state_code: '05',
+        ame:'B'col Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Biliran',
-        state_code: 'BIL',
+        ame:'B'liran','
+        tate_code:'B'L',',
       },
       {
-        name: 'Bohol',
-        state_code: 'BOH',
+        ame:'B'hol','
+        tate_code:'B'H',',
       },
       {
-        name: 'Bukidnon',
-        state_code: 'BUK',
+        ame:'B'kidnon','
+        tate_code:'B'K',',
       },
       {
-        name: 'Bulacan',
-        state_code: 'BUL',
+        ame:'B'lacan','
+        tate_code:'B'L',',
       },
       {
-        name: 'Cagayan',
-        state_code: 'CAG',
+        ame:'C'gayan','
+        tate_code:'C'G',',
       },
       {
-        name: 'Cagayan Valley',
-        state_code: '02',
+        ame:'C'gayan Valley','
+        tate_code:'0'',',
       },
       {
-        name: 'Calabarzon',
-        state_code: '40',
+        ame:'C'labarzon','
+        tate_code:'4'',',
       },
       {
-        name: 'Camarines Norte',
-        state_code: 'CAN',
+        ame:'C'marines Norte','
+        tate_code:'C'N',',
       },
       {
-        name: 'Camarines Sur',
-        state_code: 'CAS',
+        ame:'C'marines Sur','
+        tate_code:'C'S',',
       },
       {
-        name: 'Camiguin',
-        state_code: 'CAM',
+        ame:'C'miguin','
+        tate_code:'C'M',',
       },
       {
-        name: 'Capiz',
-        state_code: 'CAP',
+        ame:'C'piz','
+        tate_code:'C'P',',
       },
       {
-        name: 'Caraga',
-        state_code: '13',
+        ame:'C'raga','
+        tate_code:'1'',',
       },
       {
-        name: 'Catanduanes',
-        state_code: 'CAT',
+        ame:'C'tanduanes','
+        tate_code:'C'T',',
       },
       {
-        name: 'Cavite',
-        state_code: 'CAV',
+        ame:'C'vite','
+        tate_code:'C'V',',
       },
       {
-        name: 'Cebu',
-        state_code: 'CEB',
+        ame:'C'bu','
+        tate_code:'C'B',',
       },
       {
-        name: 'Central Luzon',
-        state_code: '03',
+        ame:'C'ntral Luzon','
+        tate_code:'0'',',
       },
       {
-        name: 'Central Visayas',
-        state_code: '07',
+        ame:'C'ntral Visayas','
+        tate_code:'0'',',
       },
       {
-        name: 'Compostela Valley',
-        state_code: 'COM',
+        ame:'C'mpostela Valley','
+        tate_code:'C'M',',
       },
       {
-        name: 'Cordillera Administrative Region',
-        state_code: '15',
+        ame:'C'rdillera Administrative Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Cotabato',
-        state_code: 'NCO',
+        ame:'C'tabato','
+        tate_code:'N'O',',
       },
       {
-        name: 'Davao del Norte',
-        state_code: 'DAV',
+        ame:'D'vao del Norte','
+        tate_code:'D'V',',
       },
       {
-        name: 'Davao del Sur',
-        state_code: 'DAS',
+        ame:'D'vao del Sur','
+        tate_code:'D'S',',
       },
       {
-        name: 'Davao Occidental',
-        state_code: 'DVO',
+        ame:'D'vao Occidental','
+        tate_code:'D'O',',
       },
       {
-        name: 'Davao Oriental',
-        state_code: 'DAO',
+        ame:'D'vao Oriental','
+        tate_code:'D'O',',
       },
       {
-        name: 'Davao Region',
-        state_code: '11',
+        ame:'D'vao Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Dinagat Islands',
-        state_code: 'DIN',
+        ame:'D'nagat Islands','
+        tate_code:'D'N',',
       },
       {
-        name: 'Eastern Samar',
-        state_code: 'EAS',
+        ame:'E'stern Samar','
+        tate_code:'E'S',',
       },
       {
-        name: 'Eastern Visayas',
-        state_code: '08',
+        ame:'E'stern Visayas','
+        tate_code:'0'',',
       },
       {
-        name: 'Guimaras',
-        state_code: 'GUI',
+        ame:'G'imaras','
+        tate_code:'G'I',',
       },
       {
-        name: 'Ifugao',
-        state_code: 'IFU',
+        ame:'I'ugao','
+        tate_code:'I'U',',
       },
       {
-        name: 'Ilocos Norte',
-        state_code: 'ILN',
+        ame:'I'ocos Norte','
+        tate_code:'I'N',',
       },
       {
-        name: 'Ilocos Region',
-        state_code: '01',
+        ame:'I'ocos Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Ilocos Sur',
-        state_code: 'ILS',
+        ame:'I'ocos Sur','
+        tate_code:'I'S',',
       },
       {
-        name: 'Iloilo',
-        state_code: 'ILI',
+        ame:'I'oilo','
+        tate_code:'I'I',',
       },
       {
-        name: 'Isabela',
-        state_code: 'ISA',
+        ame:'I'abela','
+        tate_code:'I'A',',
       },
       {
-        name: 'Kalinga',
-        state_code: 'KAL',
+        ame:'K'linga','
+        tate_code:'K'L',',
       },
       {
-        name: 'La Union',
-        state_code: 'LUN',
+        ame:'L' Union','
+        tate_code:'L'N',',
       },
       {
-        name: 'Laguna',
-        state_code: 'LAG',
+        ame:'L'guna','
+        tate_code:'L'G',',
       },
       {
-        name: 'Lanao del Norte',
-        state_code: 'LAN',
+        ame:'L'nao del Norte','
+        tate_code:'L'N',',
       },
       {
-        name: 'Lanao del Sur',
-        state_code: 'LAS',
+        ame:'L'nao del Sur','
+        tate_code:'L'S',',
       },
       {
-        name: 'Leyte',
-        state_code: 'LEY',
+        ame:'L'yte','
+        tate_code:'L'Y',',
       },
       {
-        name: 'Maguindanao',
-        state_code: 'MAG',
+        ame:'M'guindanao','
+        tate_code:'M'G',',
       },
       {
-        name: 'Marinduque',
-        state_code: 'MAD',
+        ame:'M'rinduque','
+        tate_code:'M'D',',
       },
       {
-        name: 'Masbate',
-        state_code: 'MAS',
+        ame:'M'sbate','
+        tate_code:'M'S',',
       },
       {
-        name: 'Metro Manila',
-        state_code: '00',
+        ame:'M'tro Manila','
+        tate_code:'0'',',
       },
       {
-        name: 'Mimaropa',
-        state_code: '41',
+        ame:'M'maropa','
+        tate_code:'4'',',
       },
       {
-        name: 'Misamis Occidental',
-        state_code: 'MSC',
+        ame:'M'samis Occidental','
+        tate_code:'M'C',',
       },
       {
-        name: 'Misamis Oriental',
-        state_code: 'MSR',
+        ame:'M'samis Oriental','
+        tate_code:'M'R',',
       },
       {
-        name: 'Mountain Province',
-        state_code: 'MOU',
+        ame:'M'untain Province','
+        tate_code:'M'U',',
       },
       {
-        name: 'Negros Occidental',
-        state_code: 'NEC',
+        ame:'N'gros Occidental','
+        tate_code:'N'C',',
       },
       {
-        name: 'Negros Oriental',
-        state_code: 'NER',
+        ame:'N'gros Oriental','
+        tate_code:'N'R',',
       },
       {
-        name: 'Northern Mindanao',
-        state_code: '10',
+        ame:'N'rthern Mindanao','
+        tate_code:'1'',',
       },
       {
-        name: 'Northern Samar',
-        state_code: 'NSA',
+        ame:'N'rthern Samar','
+        tate_code:'N'A',',
       },
       {
-        name: 'Nueva Ecija',
-        state_code: 'NUE',
+        ame:'N'eva Ecija','
+        tate_code:'N'E',',
       },
       {
-        name: 'Nueva Vizcaya',
-        state_code: 'NUV',
+        ame:'N'eva Vizcaya','
+        tate_code:'N'V',',
       },
       {
-        name: 'Occidental Mindoro',
-        state_code: 'MDC',
+        ame:'O'cidental Mindoro','
+        tate_code:'M'C',',
       },
       {
-        name: 'Oriental Mindoro',
-        state_code: 'MDR',
+        ame:'O'iental Mindoro','
+        tate_code:'M'R',',
       },
       {
-        name: 'Palawan',
-        state_code: 'PLW',
+        ame:'P'lawan','
+        tate_code:'P'W',',
       },
       {
-        name: 'Pampanga',
-        state_code: 'PAM',
+        ame:'P'mpanga','
+        tate_code:'P'M',',
       },
       {
-        name: 'Pangasinan',
-        state_code: 'PAN',
+        ame:'P'ngasinan','
+        tate_code:'P'N',',
       },
       {
-        name: 'Quezon',
-        state_code: 'QUE',
+        ame:'Q'ezon','
+        tate_code:'Q'E',',
       },
       {
-        name: 'Quirino',
-        state_code: 'QUI',
+        ame:'Q'irino','
+        tate_code:'Q'I',',
       },
       {
-        name: 'Rizal',
-        state_code: 'RIZ',
+        ame:'R'zal','
+        tate_code:'R'Z',',
       },
       {
-        name: 'Romblon',
-        state_code: 'ROM',
+        ame:'R'mblon','
+        tate_code:'R'M',',
       },
       {
-        name: 'Sarangani',
-        state_code: 'SAR',
+        ame:'S'rangani','
+        tate_code:'S'R',',
       },
       {
-        name: 'Siquijor',
-        state_code: 'SIG',
+        ame:'S'quijor','
+        tate_code:'S'G',',
       },
       {
-        name: 'Soccsksargen',
-        state_code: '12',
+        ame:'S'ccsksargen','
+        tate_code:'1'',',
       },
       {
-        name: 'Sorsogon',
-        state_code: 'SOR',
+        ame:'S'rsogon','
+        tate_code:'S'R',',
       },
       {
-        name: 'South Cotabato',
-        state_code: 'SCO',
+        ame:'S'uth Cotabato','
+        tate_code:'S'O',',
       },
       {
-        name: 'Southern Leyte',
-        state_code: 'SLE',
+        ame:'S'uthern Leyte','
+        tate_code:'S'E',',
       },
       {
-        name: 'Sultan Kudarat',
-        state_code: 'SUK',
+        ame:'S'ltan Kudarat','
+        tate_code:'S'K',',
       },
       {
-        name: 'Sulu',
-        state_code: 'SLU',
+        ame:'S'lu','
+        tate_code:'S'U',',
       },
       {
-        name: 'Surigao del Norte',
-        state_code: 'SUN',
+        ame:'S'rigao del Norte','
+        tate_code:'S'N',',
       },
       {
-        name: 'Surigao del Sur',
-        state_code: 'SUR',
+        ame:'S'rigao del Sur','
+        tate_code:'S'R',',
       },
       {
-        name: 'Tarlac',
-        state_code: 'TAR',
+        ame:'T'rlac','
+        tate_code:'T'R',',
       },
       {
-        name: 'Tawi-Tawi',
-        state_code: 'TAW',
+        ame:'T'wi-Tawi','
+        tate_code:'T'W',',
       },
       {
-        name: 'Western Visayas',
-        state_code: '06',
+        ame:'W'stern Visayas','
+        tate_code:'0'',',
       },
       {
-        name: 'Zambales',
-        state_code: 'ZMB',
+        ame:'Z'mbales','
+        tate_code:'Z'B',',
       },
       {
-        name: 'Zamboanga del Norte',
-        state_code: 'ZAN',
+        ame:'Z'mboanga del Norte','
+        tate_code:'Z'N',',
       },
       {
-        name: 'Zamboanga del Sur',
-        state_code: 'ZAS',
+        ame:'Z'mboanga del Sur','
+        tate_code:'Z'S',',
       },
       {
-        name: 'Zamboanga Peninsula',
-        state_code: '09',
+        ame:'Z'mboanga Peninsula','
+        tate_code:'0'',',
       },
       {
-        name: 'Zamboanga Sibugay',
-        state_code: 'ZSI',
-      },
-    ],
+        ame:'Z'mboanga Sibugay','
+        tate_code:'Z'I',',
+      },,
+    ],,
   },
   {
-    name: 'Pitcairn Island',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_the_Pitcairn_Islands.svg',
-    iso2: 'PN',
-    states: [],
+    ame:'P'tcairn Island','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_the_Pitcairn_Islands.svg','
+    so2:'P'','
+    tates:[],,
   },
   {
-    name: 'Poland',
-    flag: 'https://upload.wikimedia.org/wikipedia/en/1/12/Flag_of_Poland.svg',
-    iso2: 'PL',
-    states: [
+    ame:'P'land','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/en/1/12/Flag_of_Poland.svg','
+    so2:'P'','
+    tates:[
       {
-        name: 'Greater Poland Voivodeship',
-        state_code: 'WP',
+        ame:'G'eater Poland Voivodeship','
+        tate_code:'W'',',
       },
       {
-        name: 'Kielce',
-        state_code: 'KI',
+        ame:'K'elce','
+        tate_code:'K'',',
       },
       {
-        name: 'Kuyavian-Pomeranian Voivodeship',
-        state_code: 'KP',
+        ame:'K'yavian-Pomeranian Voivodeship','
+        tate_code:'K'',',
       },
       {
-        name: 'Lesser Poland Voivodeship',
-        state_code: 'MA',
+        ame:'L'sser Poland Voivodeship','
+        tate_code:'M'',',
       },
       {
-        name: 'Lower Silesian Voivodeship',
-        state_code: 'DS',
+        ame:'L'wer Silesian Voivodeship','
+        tate_code:'D'',',
       },
       {
-        name: 'Lublin Voivodeship',
-        state_code: 'LU',
+        ame:'L'blin Voivodeship','
+        tate_code:'L'',',
       },
       {
-        name: 'Lubusz Voivodeship',
-        state_code: 'LB',
+        ame:'L'busz Voivodeship','
+        tate_code:'L'',',
       },
       {
-        name: 'Łódź Voivodeship',
-        state_code: 'LD',
+        ame:'Ł'dź Voivodeship','
+        tate_code:'L'',',
       },
       {
-        name: 'Masovian Voivodeship',
-        state_code: 'MZ',
+        ame:'M'sovian Voivodeship','
+        tate_code:'M'',',
       },
       {
-        name: 'Opole Voivodeship',
-        state_code: 'OP',
+        ame:'O'ole Voivodeship','
+        tate_code:'O'',',
       },
       {
-        name: 'Podkarpackie Voivodeship',
-        state_code: 'PK',
+        ame:'P'dkarpackie Voivodeship','
+        tate_code:'P'',',
       },
       {
-        name: 'Podlaskie Voivodeship',
-        state_code: 'PD',
+        ame:'P'dlaskie Voivodeship','
+        tate_code:'P'',',
       },
       {
-        name: 'Pomeranian Voivodeship',
-        state_code: 'PM',
+        ame:'P'meranian Voivodeship','
+        tate_code:'P'',',
       },
       {
-        name: 'Silesian Voivodeship',
-        state_code: 'SL',
+        ame:'S'lesian Voivodeship','
+        tate_code:'S'',',
       },
       {
-        name: 'Świętokrzyskie Voivodeship',
-        state_code: 'SK',
+        ame:'Ś'iętokrzyskie Voivodeship','
+        tate_code:'S'',',
       },
       {
-        name: 'Warmian-Masurian Voivodeship',
-        state_code: 'WN',
+        ame:'W'rmian-Masurian Voivodeship','
+        tate_code:'W'',',
       },
       {
-        name: 'West Pomeranian Voivodeship',
-        state_code: 'ZP',
-      },
-    ],
+        ame:'W'st Pomeranian Voivodeship','
+        tate_code:'Z'',',
+      },,
+    ],,
   },
   {
-    name: 'Portugal',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg',
-    iso2: 'PT',
-    states: [
+    ame:'P'rtugal','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg','
+    so2:'P'','
+    tates:[
       {
-        name: 'Aveiro District',
-        state_code: '01',
+        ame:'A'eiro District','
+        tate_code:'0'',',
       },
       {
-        name: 'Azores',
-        state_code: '20',
+        ame:'A'ores','
+        tate_code:'2'',',
       },
       {
-        name: 'Beja District',
-        state_code: '02',
+        ame:'B'ja District','
+        tate_code:'0'',',
       },
       {
-        name: 'Braga District',
-        state_code: '03',
+        ame:'B'aga District','
+        tate_code:'0'',',
       },
       {
-        name: 'Bragança District',
-        state_code: '04',
+        ame:'B'agança District','
+        tate_code:'0'',',
       },
       {
-        name: 'Castelo Branco District',
-        state_code: '05',
+        ame:'C'stelo Branco District','
+        tate_code:'0'',',
       },
       {
-        name: 'Coimbra District',
-        state_code: '06',
+        ame:'C'imbra District','
+        tate_code:'0'',',
       },
       {
-        name: 'Évora District',
-        state_code: '07',
+        ame:'É'ora District','
+        tate_code:'0'',',
       },
       {
-        name: 'Faro District',
-        state_code: '08',
+        ame:'F'ro District','
+        tate_code:'0'',',
       },
       {
-        name: 'Guarda District',
-        state_code: '09',
+        ame:'G'arda District','
+        tate_code:'0'',',
       },
       {
-        name: 'Leiria District',
-        state_code: '10',
+        ame:'L'iria District','
+        tate_code:'1'',',
       },
       {
-        name: 'Lisbon District',
-        state_code: '11',
+        ame:'L'sbon District','
+        tate_code:'1'',',
       },
       {
-        name: 'Madeira',
-        state_code: '30',
+        ame:'M'deira','
+        tate_code:'3'',',
       },
       {
-        name: 'Portalegre District',
-        state_code: '12',
+        ame:'P'rtalegre District','
+        tate_code:'1'',',
       },
       {
-        name: 'Porto District',
-        state_code: '13',
+        ame:'P'rto District','
+        tate_code:'1'',',
       },
       {
-        name: 'Santarém District',
-        state_code: '14',
+        ame:'S'ntarém District','
+        tate_code:'1'',',
       },
       {
-        name: 'Setúbal District',
-        state_code: '15',
+        ame:'S'túbal District','
+        tate_code:'1'',',
       },
       {
-        name: 'Viana do Castelo District',
-        state_code: '16',
+        ame:'V'ana do Castelo District','
+        tate_code:'1'',',
       },
       {
-        name: 'Vila Real District',
-        state_code: '17',
+        ame:'V'la Real District','
+        tate_code:'1'',',
       },
       {
-        name: 'Viseu District',
-        state_code: '18',
-      },
-    ],
+        ame:'V'seu District','
+        tate_code:'1'',',
+      },,
+    ],,
   },
   {
-    name: 'Puerto Rico',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/2/28/Flag_of_Puerto_Rico.svg',
-    iso2: 'PR',
-    states: [],
+    ame:'P'erto Rico','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/2/28/Flag_of_Puerto_Rico.svg','
+    so2:'P'','
+    tates:[],,
   },
   {
-    name: 'Qatar',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Qatar.svg',
-    iso2: 'QA',
-    states: [
+    ame:'Q'tar','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Qatar.svg','
+    so2:'Q'','
+    tates:[
       {
-        name: 'Al Daayen',
-        state_code: 'ZA',
+        ame:'A' Daayen','
+        tate_code:'Z'',',
       },
       {
-        name: 'Al Khor',
-        state_code: 'KH',
+        ame:'A' Khor','
+        tate_code:'K'',',
       },
       {
-        name: 'Al Rayyan Municipality',
-        state_code: 'RA',
+        ame:'A' Rayyan Municipality','
+        tate_code:'R'',',
       },
       {
-        name: 'Al Wakrah',
-        state_code: 'WA',
+        ame:'A' Wakrah','
+        tate_code:'W'',',
       },
       {
-        name: 'Al-Shahaniya',
-        state_code: 'SH',
+        ame:'A'-Shahaniya','
+        tate_code:'S'',',
       },
       {
-        name: 'Doha',
-        state_code: 'DA',
+        ame:'D'ha','
+        tate_code:'D'',',
       },
       {
-        name: 'Madinat ash Shamal',
-        state_code: 'MS',
+        ame:'M'dinat ash Shamal','
+        tate_code:'M'',',
       },
       {
-        name: 'Umm Salal Municipality',
-        state_code: 'US',
-      },
-    ],
+        ame:'U'm Salal Municipality','
+        tate_code:'U'',',
+      },,
+    ],,
   },
   {
-    name: 'Réunion',
-    flag: 'https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg',
-    iso2: 'RE',
-    states: [],
+    ame:'R'union','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg','
+    so2:'R'','
+    tates:[],,
   },
   {
-    name: 'Romania',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/7/73/Flag_of_Romania.svg',
-    iso2: 'RO',
-    states: [
+    ame:'R'mania','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/7/73/Flag_of_Romania.svg','
+    so2:'R'','
+    tates:[
       {
-        name: 'Alba',
-        state_code: 'AB',
+        ame:'A'ba','
+        tate_code:'A'',',
       },
       {
-        name: 'Arad County',
-        state_code: 'AR',
+        ame:'A'ad County','
+        tate_code:'A'',',
       },
       {
-        name: 'Arges',
-        state_code: 'AG',
+        ame:'A'ges','
+        tate_code:'A'',',
       },
       {
-        name: 'Bacău County',
-        state_code: 'BC',
+        ame:'B'cău County','
+        tate_code:'B'',',
       },
       {
-        name: 'Bihor County',
-        state_code: 'BH',
+        ame:'B'hor County','
+        tate_code:'B'',',
       },
       {
-        name: 'Bistrița-Năsăud County',
-        state_code: 'BN',
+        ame:'B'strița-Năsăud County','
+        tate_code:'B'',',
       },
       {
-        name: 'Botoșani County',
-        state_code: 'BT',
+        ame:'B'toșani County','
+        tate_code:'B'',',
       },
       {
-        name: 'Braila',
-        state_code: 'BR',
+        ame:'B'aila','
+        tate_code:'B'',',
       },
       {
-        name: 'Brașov County',
-        state_code: 'BV',
+        ame:'B'așov County','
+        tate_code:'B'',',
       },
       {
-        name: 'Bucharest',
-        state_code: 'B',
+        ame:'B'charest','
+        tate_code:'B',',
       },
       {
-        name: 'Buzău County',
-        state_code: 'BZ',
+        ame:'B'zău County','
+        tate_code:'B'',',
       },
       {
-        name: 'Călărași County',
-        state_code: 'CL',
+        ame:'C'lărași County','
+        tate_code:'C'',',
       },
       {
-        name: 'Caraș-Severin County',
-        state_code: 'CS',
+        ame:'C'raș-Severin County','
+        tate_code:'C'',',
       },
       {
-        name: 'Cluj County',
-        state_code: 'CJ',
+        ame:'C'uj County','
+        tate_code:'C'',',
       },
       {
-        name: 'Constanța County',
-        state_code: 'CT',
+        ame:'C'nstanța County','
+        tate_code:'C'',',
       },
       {
-        name: 'Covasna County',
-        state_code: 'CV',
+        ame:'C'vasna County','
+        tate_code:'C'',',
       },
       {
-        name: 'Dâmbovița County',
-        state_code: 'DB',
+        ame:'D'mbovița County','
+        tate_code:'D'',',
       },
       {
-        name: 'Dolj County',
-        state_code: 'DJ',
+        ame:'D'lj County','
+        tate_code:'D'',',
       },
       {
-        name: 'Galați County',
-        state_code: 'GL',
+        ame:'G'lați County','
+        tate_code:'G'',',
       },
       {
-        name: 'Giurgiu County',
-        state_code: 'GR',
+        ame:'G'urgiu County','
+        tate_code:'G'',',
       },
       {
-        name: 'Gorj County',
-        state_code: 'GJ',
+        ame:'G'rj County','
+        tate_code:'G'',',
       },
       {
-        name: 'Harghita County',
-        state_code: 'HR',
+        ame:'H'rghita County','
+        tate_code:'H'',',
       },
       {
-        name: 'Hunedoara County',
-        state_code: 'HD',
+        ame:'H'nedoara County','
+        tate_code:'H'',',
       },
       {
-        name: 'Ialomița County',
-        state_code: 'IL',
+        ame:'I'lomița County','
+        tate_code:'I'',',
       },
       {
-        name: 'Iași County',
-        state_code: 'IS',
+        ame:'I'și County','
+        tate_code:'I'',',
       },
       {
-        name: 'Ilfov County',
-        state_code: 'IF',
+        ame:'I'fov County','
+        tate_code:'I'',',
       },
       {
-        name: 'Maramureș County',
-        state_code: 'MM',
+        ame:'M'ramureș County','
+        tate_code:'M'',',
       },
       {
-        name: 'Mehedinți County',
-        state_code: 'MH',
+        ame:'M'hedinți County','
+        tate_code:'M'',',
       },
       {
-        name: 'Neamț County',
-        state_code: 'NT',
+        ame:'N'amț County','
+        tate_code:'N'',',
       },
       {
-        name: 'Olt County',
-        state_code: 'OT',
+        ame:'O't County','
+        tate_code:'O'',',
       },
       {
-        name: 'Prahova County',
-        state_code: 'PH',
+        ame:'P'ahova County','
+        tate_code:'P'',',
       },
       {
-        name: 'Sălaj County',
-        state_code: 'SJ',
+        ame:'S'laj County','
+        tate_code:'S'',',
       },
       {
-        name: 'Satu Mare County',
-        state_code: 'SM',
+        ame:'S'tu Mare County','
+        tate_code:'S'',',
       },
       {
-        name: 'Sibiu County',
-        state_code: 'SB',
+        ame:'S'biu County','
+        tate_code:'S'',',
       },
       {
-        name: 'Suceava County',
-        state_code: 'SV',
+        ame:'S'ceava County','
+        tate_code:'S'',',
       },
       {
-        name: 'Teleorman County',
-        state_code: 'TR',
+        ame:'T'leorman County','
+        tate_code:'T'',',
       },
       {
-        name: 'Timiș County',
-        state_code: 'TM',
+        ame:'T'miș County','
+        tate_code:'T'',',
       },
       {
-        name: 'Tulcea County',
-        state_code: 'TL',
+        ame:'T'lcea County','
+        tate_code:'T'',',
       },
       {
-        name: 'Vâlcea County',
-        state_code: 'VL',
+        ame:'V'lcea County','
+        tate_code:'V'',',
       },
       {
-        name: 'Vaslui County',
-        state_code: 'VS',
+        ame:'V'slui County','
+        tate_code:'V'',',
       },
       {
-        name: 'Vrancea County',
-        state_code: 'VN',
-      },
-    ],
+        ame:'V'ancea County','
+        tate_code:'V'',',
+      },,
+    ],,
   },
   {
-    name: 'Russia',
-    flag: '',
-    iso2: 'RU',
-    states: [
+    ame:'R'ssia','
+    lag:''''
+    so2:'R'','
+    tates:[
       {
-        name: 'Altai Krai',
-        state_code: 'ALT',
+        ame:'A'tai Krai','
+        tate_code:'A'T',',
       },
       {
-        name: 'Altai Republic',
-        state_code: 'AL',
+        ame:'A'tai Republic','
+        tate_code:'A'',',
       },
       {
-        name: 'Amur Oblast',
-        state_code: 'AMU',
+        ame:'A'ur Oblast','
+        tate_code:'A'U',',
       },
       {
-        name: 'Arkhangelsk',
-        state_code: 'ARK',
+        ame:'A'khangelsk','
+        tate_code:'A'K',',
       },
       {
-        name: 'Astrakhan Oblast',
-        state_code: 'AST',
+        ame:'A'trakhan Oblast','
+        tate_code:'A'T',',
       },
       {
-        name: 'Belgorod Oblast',
-        state_code: 'BEL',
+        ame:'B'lgorod Oblast','
+        tate_code:'B'L',',
       },
       {
-        name: 'Bryansk Oblast',
-        state_code: 'BRY',
+        ame:'B'yansk Oblast','
+        tate_code:'B'Y',',
       },
       {
-        name: 'Chechen Republic',
-        state_code: 'CE',
+        ame:'C'echen Republic','
+        tate_code:'C'',',
       },
       {
-        name: 'Chelyabinsk Oblast',
-        state_code: 'CHE',
+        ame:'C'elyabinsk Oblast','
+        tate_code:'C'E',',
       },
       {
-        name: 'Chukotka Autonomous Okrug',
-        state_code: 'CHU',
+        ame:'C'ukotka Autonomous Okrug','
+        tate_code:'C'U',',
       },
       {
-        name: 'Chuvash Republic',
-        state_code: 'CU',
+        ame:'C'uvash Republic','
+        tate_code:'C'',',
       },
       {
-        name: 'Irkutsk',
-        state_code: 'IRK',
+        ame:'I'kutsk','
+        tate_code:'I'K',',
       },
       {
-        name: 'Ivanovo Oblast',
-        state_code: 'IVA',
+        ame:'I'anovo Oblast','
+        tate_code:'I'A',',
       },
       {
-        name: 'Jewish Autonomous Oblast',
-        state_code: 'YEV',
+        ame:'J'wish Autonomous Oblast','
+        tate_code:'Y'V',',
       },
       {
-        name: 'Kabardino-Balkar Republic',
-        state_code: 'KB',
+        ame:'K'bardino-Balkar Republic','
+        tate_code:'K'',',
       },
       {
-        name: 'Kaliningrad',
-        state_code: 'KGD',
+        ame:'K'liningrad','
+        tate_code:'K'D',',
       },
       {
-        name: 'Kaluga Oblast',
-        state_code: 'KLU',
+        ame:'K'luga Oblast','
+        tate_code:'K'U',',
       },
       {
-        name: 'Kamchatka Krai',
-        state_code: 'KAM',
+        ame:'K'mchatka Krai','
+        tate_code:'K'M',',
       },
       {
-        name: 'Karachay-Cherkess Republic',
-        state_code: 'KC',
+        ame:'K'rachay-Cherkess Republic','
+        tate_code:'K'',',
       },
       {
-        name: 'Kemerovo Oblast',
-        state_code: 'KEM',
+        ame:'K'merovo Oblast','
+        tate_code:'K'M',',
       },
       {
-        name: 'Khabarovsk Krai',
-        state_code: 'KHA',
+        ame:'K'abarovsk Krai','
+        tate_code:'K'A',',
       },
       {
-        name: 'Khanty-Mansi Autonomous Okrug',
-        state_code: 'KHM',
+        ame:'K'anty-Mansi Autonomous Okrug','
+        tate_code:'K'M',',
       },
       {
-        name: 'Kirov Oblast',
-        state_code: 'KIR',
+        ame:'K'rov Oblast','
+        tate_code:'K'R',',
       },
       {
-        name: 'Komi Republic',
-        state_code: 'KO',
+        ame:'K'mi Republic','
+        tate_code:'K'',',
       },
       {
-        name: 'Kostroma Oblast',
-        state_code: 'KOS',
+        ame:'K'stroma Oblast','
+        tate_code:'K'S',',
       },
       {
-        name: 'Krasnodar Krai',
-        state_code: 'KDA',
+        ame:'K'asnodar Krai','
+        tate_code:'K'A',',
       },
       {
-        name: 'Krasnoyarsk Krai',
-        state_code: 'KYA',
+        ame:'K'asnoyarsk Krai','
+        tate_code:'K'A',',
       },
       {
-        name: 'Kurgan Oblast',
-        state_code: 'KGN',
+        ame:'K'rgan Oblast','
+        tate_code:'K'N',',
       },
       {
-        name: 'Kursk Oblast',
-        state_code: 'KRS',
+        ame:'K'rsk Oblast','
+        tate_code:'K'S',',
       },
       {
-        name: 'Leningrad Oblast',
-        state_code: 'LEN',
+        ame:'L'ningrad Oblast','
+        tate_code:'L'N',',
       },
       {
-        name: 'Lipetsk Oblast',
-        state_code: 'LIP',
+        ame:'L'petsk Oblast','
+        tate_code:'L'P',',
       },
       {
-        name: 'Magadan Oblast',
-        state_code: 'MAG',
+        ame:'M'gadan Oblast','
+        tate_code:'M'G',',
       },
       {
-        name: 'Mari El Republic',
-        state_code: 'ME',
+        ame:'M'ri El Republic','
+        tate_code:'M'',',
       },
       {
-        name: 'Moscow',
-        state_code: 'MOW',
+        ame:'M'scow','
+        tate_code:'M'W',',
       },
       {
-        name: 'Moscow Oblast',
-        state_code: 'MOS',
+        ame:'M'scow Oblast','
+        tate_code:'M'S',',
       },
       {
-        name: 'Murmansk Oblast',
-        state_code: 'MUR',
+        ame:'M'rmansk Oblast','
+        tate_code:'M'R',',
       },
       {
-        name: 'Nenets Autonomous Okrug',
-        state_code: 'NEN',
+        ame:'N'nets Autonomous Okrug','
+        tate_code:'N'N',',
       },
       {
-        name: 'Nizhny Novgorod Oblast',
-        state_code: 'NIZ',
+        ame:'N'zhny Novgorod Oblast','
+        tate_code:'N'Z',',
       },
       {
-        name: 'Novgorod Oblast',
-        state_code: 'NGR',
+        ame:'N'vgorod Oblast','
+        tate_code:'N'R',',
       },
       {
-        name: 'Novosibirsk',
-        state_code: 'NVS',
+        ame:'N'vosibirsk','
+        tate_code:'N'S',',
       },
       {
-        name: 'Omsk Oblast',
-        state_code: 'OMS',
+        ame:'O'sk Oblast','
+        tate_code:'O'S',',
       },
       {
-        name: 'Orenburg Oblast',
-        state_code: 'ORE',
+        ame:'O'enburg Oblast','
+        tate_code:'O'E',',
       },
       {
-        name: 'Oryol Oblast',
-        state_code: 'ORL',
+        ame:'O'yol Oblast','
+        tate_code:'O'L',',
       },
       {
-        name: 'Penza Oblast',
-        state_code: 'PNZ',
+        ame:'P'nza Oblast','
+        tate_code:'P'Z',',
       },
       {
-        name: 'Perm Krai',
-        state_code: 'PER',
+        ame:'P'rm Krai','
+        tate_code:'P'R',',
       },
       {
-        name: 'Primorsky Krai',
-        state_code: 'PRI',
+        ame:'P'imorsky Krai','
+        tate_code:'P'I',',
       },
       {
-        name: 'Pskov Oblast',
-        state_code: 'PSK',
+        ame:'P'kov Oblast','
+        tate_code:'P'K',',
       },
       {
-        name: 'Republic of Adygea',
-        state_code: 'AD',
+        ame:'R'public of Adygea','
+        tate_code:'A'',',
       },
       {
-        name: 'Republic of Bashkortostan',
-        state_code: 'BA',
+        ame:'R'public of Bashkortostan','
+        tate_code:'B'',',
       },
       {
-        name: 'Republic of Buryatia',
-        state_code: 'BU',
+        ame:'R'public of Buryatia','
+        tate_code:'B'',',
       },
       {
-        name: 'Republic of Dagestan',
-        state_code: 'DA',
+        ame:'R'public of Dagestan','
+        tate_code:'D'',',
       },
       {
-        name: 'Republic of Ingushetia',
-        state_code: 'IN',
+        ame:'R'public of Ingushetia','
+        tate_code:'I'',',
       },
       {
-        name: 'Republic of Kalmykia',
-        state_code: 'KL',
+        ame:'R'public of Kalmykia','
+        tate_code:'K'',',
       },
       {
-        name: 'Republic of Karelia',
-        state_code: 'KR',
+        ame:'R'public of Karelia','
+        tate_code:'K'',',
       },
       {
-        name: 'Republic of Khakassia',
-        state_code: 'KK',
+        ame:'R'public of Khakassia','
+        tate_code:'K'',',
       },
       {
-        name: 'Republic of Mordovia',
-        state_code: 'MO',
+        ame:'R'public of Mordovia','
+        tate_code:'M'',',
       },
       {
-        name: 'Republic of North Ossetia-Alania',
-        state_code: 'SE',
+        ame:'R'public of North Ossetia-Alania','
+        tate_code:'S'',',
       },
       {
-        name: 'Republic of Tatarstan',
-        state_code: 'TA',
+        ame:'R'public of Tatarstan','
+        tate_code:'T'',',
       },
       {
-        name: 'Rostov Oblast',
-        state_code: 'ROS',
+        ame:'R'stov Oblast','
+        tate_code:'R'S',',
       },
       {
-        name: 'Ryazan Oblast',
-        state_code: 'RYA',
+        ame:'R'azan Oblast','
+        tate_code:'R'A',',
       },
       {
-        name: 'Saint Petersburg',
-        state_code: 'SPE',
+        ame:'S'int Petersburg','
+        tate_code:'S'E',',
       },
       {
-        name: 'Sakha Republic',
-        state_code: 'SA',
+        ame:'S'kha Republic','
+        tate_code:'S'',',
       },
       {
-        name: 'Sakhalin',
-        state_code: 'SAK',
+        ame:'S'khalin','
+        tate_code:'S'K',',
       },
       {
-        name: 'Samara Oblast',
-        state_code: 'SAM',
+        ame:'S'mara Oblast','
+        tate_code:'S'M',',
       },
       {
-        name: 'Saratov Oblast',
-        state_code: 'SAR',
+        ame:'S'ratov Oblast','
+        tate_code:'S'R',',
       },
       {
-        name: 'Sevastopol',
-        state_code: 'UA-40',
+        ame:'S'vastopol','
+        tate_code:'U'-40',',
       },
       {
-        name: 'Smolensk Oblast',
-        state_code: 'SMO',
+        ame:'S'olensk Oblast','
+        tate_code:'S'O',',
       },
       {
-        name: 'Stavropol Krai',
-        state_code: 'STA',
+        ame:'S'avropol Krai','
+        tate_code:'S'A',',
       },
       {
-        name: 'Sverdlovsk',
-        state_code: 'SVE',
+        ame:'S'erdlovsk','
+        tate_code:'S'E',',
       },
       {
-        name: 'Tambov Oblast',
-        state_code: 'TAM',
+        ame:'T'mbov Oblast','
+        tate_code:'T'M',',
       },
       {
-        name: 'Tomsk Oblast',
-        state_code: 'TOM',
+        ame:'T'msk Oblast','
+        tate_code:'T'M',',
       },
       {
-        name: 'Tula Oblast',
-        state_code: 'TUL',
+        ame:'T'la Oblast','
+        tate_code:'T'L',',
       },
       {
-        name: 'Tuva Republic',
-        state_code: 'TY',
+        ame:'T'va Republic','
+        tate_code:'T'',',
       },
       {
-        name: 'Tver Oblast',
-        state_code: 'TVE',
+        ame:'T'er Oblast','
+        tate_code:'T'E',',
       },
       {
-        name: 'Tyumen Oblast',
-        state_code: 'TYU',
+        ame:'T'umen Oblast','
+        tate_code:'T'U',',
       },
       {
-        name: 'Udmurt Republic',
-        state_code: 'UD',
+        ame:'U'murt Republic','
+        tate_code:'U'',',
       },
       {
-        name: 'Ulyanovsk Oblast',
-        state_code: 'ULY',
+        ame:'U'yanovsk Oblast','
+        tate_code:'U'Y',',
       },
       {
-        name: 'Vladimir Oblast',
-        state_code: 'VLA',
+        ame:'V'adimir Oblast','
+        tate_code:'V'A',',
       },
       {
-        name: 'Vologda Oblast',
-        state_code: 'VLG',
+        ame:'V'logda Oblast','
+        tate_code:'V'G',',
       },
       {
-        name: 'Voronezh Oblast',
-        state_code: 'VOR',
+        ame:'V'ronezh Oblast','
+        tate_code:'V'R',',
       },
       {
-        name: 'Yamalo-Nenets Autonomous Okrug',
-        state_code: 'YAN',
+        ame:'Y'malo-Nenets Autonomous Okrug','
+        tate_code:'Y'N',',
       },
       {
-        name: 'Yaroslavl Oblast',
-        state_code: 'YAR',
+        ame:'Y'roslavl Oblast','
+        tate_code:'Y'R',',
       },
       {
-        name: 'Zabaykalsky Krai',
-        state_code: 'ZAB',
-      },
-    ],
+        ame:'Z'baykalsky Krai','
+        tate_code:'Z'B',',
+      },,
+    ],,
   },
   {
-    name: 'Rwanda',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/1/17/Flag_of_Rwanda.svg',
-    iso2: 'RW',
-    states: [
+    ame:'R'anda','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/1/17/Flag_of_Rwanda.svg','
+    so2:'R'','
+    tates:[
       {
-        name: 'Eastern Province',
-        state_code: '02',
+        ame:'E'stern Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Kigali district',
-        state_code: '01',
+        ame:'K'gali district','
+        tate_code:'0'',',
       },
       {
-        name: 'Northern Province',
-        state_code: '03',
+        ame:'N'rthern Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Southern Province',
-        state_code: '05',
+        ame:'S'uthern Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Western Province',
-        state_code: '04',
-      },
-    ],
+        ame:'W'stern Province','
+        tate_code:'0'',',
+      },,
+    ],,
   },
   {
-    name: 'Saint Helena',
-    flag: '',
-    iso2: 'SH',
-    states: [],
+    ame:'S'int Helena','
+    lag:''''
+    so2:'S'','
+    tates:[],,
   },
   {
-    name: 'Saint Kitts And Nevis',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Saint_Kitts_and_Nevis.svg',
-    iso2: 'KN',
-    states: [
+    ame:'S'int Kitts And Nevis','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Saint_Kitts_and_Nevis.svg','
+    so2:'K'','
+    tates:[
       {
-        name: 'Christ Church Nichola Town Parish',
-        state_code: '01',
+        ame:'C'rist Church Nichola Town Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Nevis',
-        state_code: 'N',
+        ame:'N'vis','
+        tate_code:'N',',
       },
       {
-        name: 'Saint Anne Sandy Point Parish',
-        state_code: '02',
+        ame:'S'int Anne Sandy Point Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint George Gingerland Parish',
-        state_code: '04',
+        ame:'S'int George Gingerland Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint James Windward Parish',
-        state_code: '05',
+        ame:'S'int James Windward Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint John Capisterre Parish',
-        state_code: '06',
+        ame:'S'int John Capisterre Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint John Figtree Parish',
-        state_code: '07',
+        ame:'S'int John Figtree Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Kitts',
-        state_code: 'K',
+        ame:'S'int Kitts','
+        tate_code:'K',',
       },
       {
-        name: 'Saint Mary Cayon Parish',
-        state_code: '08',
+        ame:'S'int Mary Cayon Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Paul Capisterre Parish',
-        state_code: '09',
+        ame:'S'int Paul Capisterre Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Paul Charlestown Parish',
-        state_code: '10',
+        ame:'S'int Paul Charlestown Parish','
+        tate_code:'1'',',
       },
       {
-        name: 'Saint Peter Basseterre Parish',
-        state_code: '11',
+        ame:'S'int Peter Basseterre Parish','
+        tate_code:'1'',',
       },
       {
-        name: 'Saint Thomas Lowland Parish',
-        state_code: '12',
+        ame:'S'int Thomas Lowland Parish','
+        tate_code:'1'',',
       },
       {
-        name: 'Saint Thomas Middle Island Parish',
-        state_code: '13',
+        ame:'S'int Thomas Middle Island Parish','
+        tate_code:'1'',',
       },
       {
-        name: 'Trinity Palmetto Point Parish',
-        state_code: '15',
-      },
-    ],
+        ame:'T'inity Palmetto Point Parish','
+        tate_code:'1'',',
+      },,
+    ],,
   },
   {
-    name: 'Saint Lucia',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Saint_Lucia.svg',
-    iso2: 'LC',
-    states: [
+    ame:'S'int Lucia','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Saint_Lucia.svg','
+    so2:'L'','
+    tates:[
       {
-        name: 'Anse la Raye Quarter',
-        state_code: '01',
+        ame:'A'se la Raye Quarter','
+        tate_code:'0'',',
       },
       {
-        name: 'Canaries',
-        state_code: '12',
+        ame:'C'naries','
+        tate_code:'1'',',
       },
       {
-        name: 'Castries Quarter',
-        state_code: '02',
+        ame:'C'stries Quarter','
+        tate_code:'0'',',
       },
       {
-        name: 'Choiseul Quarter',
-        state_code: '03',
+        ame:'C'oiseul Quarter','
+        tate_code:'0'',',
       },
       {
-        name: 'Dauphin Quarter',
-        state_code: '04',
+        ame:'D'uphin Quarter','
+        tate_code:'0'',',
       },
       {
-        name: 'Dennery Quarter',
-        state_code: '05',
+        ame:'D'nnery Quarter','
+        tate_code:'0'',',
       },
       {
-        name: 'Gros Islet Quarter',
-        state_code: '06',
+        ame:'G'os Islet Quarter','
+        tate_code:'0'',',
       },
       {
-        name: 'Laborie Quarter',
-        state_code: '07',
+        ame:'L'borie Quarter','
+        tate_code:'0'',',
       },
       {
-        name: 'Micoud Quarter',
-        state_code: '08',
+        ame:'M'coud Quarter','
+        tate_code:'0'',',
       },
       {
-        name: 'Praslin Quarter',
-        state_code: '09',
+        ame:'P'aslin Quarter','
+        tate_code:'0'',',
       },
       {
-        name: 'Soufrière Quarter',
-        state_code: '10',
+        ame:'S'ufrière Quarter','
+        tate_code:'1'',',
       },
       {
-        name: 'Vieux Fort Quarter',
-        state_code: '11',
-      },
-    ],
+        ame:'V'eux Fort Quarter','
+        tate_code:'1'',',
+      },,
+    ],,
   },
   {
-    name: 'Saint Pierre and Miquelon',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/7/74/Flag_of_Saint-Pierre_and_Miquelon.svg',
-    iso2: 'PM',
-    states: [],
+    ame:'S'int Pierre and Miquelon','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/7/74/Flag_of_Saint-Pierre_and_Miquelon.svg','
+    so2:'P'','
+    tates:[],,
   },
   {
-    name: 'Saint Vincent And The Grenadines',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Flag_of_Saint_Vincent_and_the_Grenadines.svg',
-    iso2: 'VC',
-    states: [
+    ame:'S'int Vincent And The Grenadines','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/6/6d/Flag_of_Saint_Vincent_and_the_Grenadines.svg','
+    so2:'V'','
+    tates:[
       {
-        name: 'Charlotte Parish',
-        state_code: '01',
+        ame:'C'arlotte Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Grenadines Parish',
-        state_code: '06',
+        ame:'G'enadines Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Andrew Parish',
-        state_code: '02',
+        ame:'S'int Andrew Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint David Parish',
-        state_code: '03',
+        ame:'S'int David Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint George Parish',
-        state_code: '04',
+        ame:'S'int George Parish','
+        tate_code:'0'',',
       },
       {
-        name: 'Saint Patrick Parish',
-        state_code: '05',
-      },
-    ],
+        ame:'S'int Patrick Parish','
+        tate_code:'0'',',
+      },,
+    ],,
   },
   {
-    name: 'Saint-Barthelemy',
-    flag: '',
-    iso2: 'BL',
-    states: [],
+    ame:'S'int-Barthelemy','
+    lag:''''
+    so2:'B'','
+    tates:[],,
   },
   {
-    name: 'Saint-Martin (French part)',
-    flag: '',
-    iso2: 'MF',
-    states: [],
+    ame:'S'int-Martin (French part)','
+    lag:''''
+    so2:'M'','
+    tates:[],,
   },
   {
-    name: 'Samoa',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Samoa.svg',
-    iso2: 'WS',
-    states: [
+    ame:'S'moa','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Samoa.svg','
+    so2:'W'','
+    tates:[
       {
-        name: "A'ana",
-        state_code: 'AA',
+        ame:"A'ana",
+        tate_code:'A'',',
       },
       {
-        name: 'Aiga-i-le-Tai',
-        state_code: 'AL',
+        ame:'A'ga-i-le-Tai','
+        tate_code:'A'',',
       },
       {
-        name: 'Atua',
-        state_code: 'AT',
+        ame:'A'ua','
+        tate_code:'A'',',
       },
       {
-        name: "Fa'asaleleaga",
-        state_code: 'FA',
+        ame:"Fa'asaleleaga",
+        tate_code:'F'',',
       },
       {
-        name: "Gaga'emauga",
-        state_code: 'GE',
+        ame:"Gaga'emauga",
+        tate_code:'G'',',
       },
       {
-        name: "Gaga'ifomauga",
-        state_code: 'GI',
+        ame:"Gaga'ifomauga",
+        tate_code:'G'',',
       },
       {
-        name: 'Palauli',
-        state_code: 'PA',
+        ame:'P'lauli','
+        tate_code:'P'',',
       },
       {
-        name: "Satupa'itea",
-        state_code: 'SA',
+        ame:"Satupa'itea",
+        tate_code:'S'',',
       },
       {
-        name: 'Tuamasaga',
-        state_code: 'TU',
+        ame:'T'amasaga','
+        tate_code:'T'',',
       },
       {
-        name: "Va'a-o-Fonoti",
-        state_code: 'VF',
+        ame:"Va'a-o-Fonoti",
+        tate_code:'V'',',
       },
       {
-        name: 'Vaisigano',
-        state_code: 'VS',
-      },
-    ],
+        ame:'V'isigano','
+        tate_code:'V'',',
+      },,
+    ],,
   },
   {
-    name: 'San Marino',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Flag_of_San_Marino.svg',
-    iso2: 'SM',
-    states: [
+    ame:'S'n Marino','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/b/b1/Flag_of_San_Marino.svg','
+    so2:'S'','
+    tates:[
       {
-        name: 'Acquaviva',
-        state_code: '01',
+        ame:'A'quaviva','
+        tate_code:'0'',',
       },
       {
-        name: 'Borgo Maggiore',
-        state_code: '06',
+        ame:'B'rgo Maggiore','
+        tate_code:'0'',',
       },
       {
-        name: 'Chiesanuova',
-        state_code: '02',
+        ame:'C'iesanuova','
+        tate_code:'0'',',
       },
       {
-        name: 'Domagnano',
-        state_code: '03',
+        ame:'D'magnano','
+        tate_code:'0'',',
       },
       {
-        name: 'Faetano',
-        state_code: '04',
+        ame:'F'etano','
+        tate_code:'0'',',
       },
       {
-        name: 'Fiorentino',
-        state_code: '05',
+        ame:'F'orentino','
+        tate_code:'0'',',
       },
       {
-        name: 'Montegiardino',
-        state_code: '08',
+        ame:'M'ntegiardino','
+        tate_code:'0'',',
       },
       {
-        name: 'San Marino',
-        state_code: '07',
+        ame:'S'n Marino','
+        tate_code:'0'',',
       },
       {
-        name: 'Serravalle',
-        state_code: '09',
-      },
-    ],
+        ame:'S'rravalle','
+        tate_code:'0'',',
+      },,
+    ],,
   },
   {
-    name: 'Sao Tome and Principe',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Flag_of_S%C3%A3o_Tom%C3%A9_and_Pr%C3%ADncipe.svg/1080px-Flag_of_S%C3%A3o_Tom%C3%A9_and_Pr%C3%ADncipe.svg.png',
-    iso2: 'ST',
-    states: [
+    ame:'S'o Tome and Principe','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Flag_of_S%C3%A3o_Tom%C3%A9_and_Pr%C3%ADncipe.svg/1080px-Flag_of_S%C3%A3o_Tom%C3%A9_and_Pr%C3%ADncipe.svg.png','
+    so2:'S'','
+    tates:[
       {
-        name: 'Príncipe Province',
-        state_code: 'P',
+        ame:'P'íncipe Province','
+        tate_code:'P',',
       },
       {
-        name: 'São Tomé Province',
-        state_code: 'S',
-      },
-    ],
+        ame:'S'o Tomé Province','
+        tate_code:'S',',
+      },,
+    ],,
   },
   {
-    name: 'Saudi Arabia',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Saudi_Arabia.svg',
-    iso2: 'SA',
-    states: [
+    ame:'S'udi Arabia','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Saudi_Arabia.svg','
+    so2:'S'','
+    tates:[
       {
-        name: "'Asir Region",
-        state_code: '14',
+        ame:"'Asir Region",
+        tate_code:'1'',',
       },
       {
-        name: 'Al Bahah Region',
-        state_code: '11',
+        ame:'A' Bahah Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Al Jawf Region',
-        state_code: '12',
+        ame:'A' Jawf Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Al Madinah Region',
-        state_code: '03',
+        ame:'A' Madinah Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Al-Qassim Region',
-        state_code: '05',
+        ame:'A'-Qassim Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Eastern Province',
-        state_code: '04',
+        ame:'E'stern Province','
+        tate_code:'0'',',
       },
       {
-        name: "Ha'il Region",
-        state_code: '06',
+        ame:"Ha'il Region",
+        tate_code:'0'',',
       },
       {
-        name: 'Jizan Region',
-        state_code: '09',
+        ame:'J'zan Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Makkah Region',
-        state_code: '02',
+        ame:'M'kkah Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Najran Region',
-        state_code: '10',
+        ame:'N'jran Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Northern Borders Region',
-        state_code: '08',
+        ame:'N'rthern Borders Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Riyadh Region',
-        state_code: '01',
+        ame:'R'yadh Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Tabuk Region',
-        state_code: '07',
-      },
-    ],
+        ame:'T'buk Region','
+        tate_code:'0'',',
+      },,
+    ],,
   },
   {
-    name: 'Senegal',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/f/fd/Flag_of_Senegal.svg',
-    iso2: 'SN',
-    states: [
+    ame:'S'negal','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/f/fd/Flag_of_Senegal.svg','
+    so2:'S'','
+    tates:[
       {
-        name: 'Dakar',
-        state_code: 'DK',
+        ame:'D'kar','
+        tate_code:'D'',',
       },
       {
-        name: 'Diourbel Region',
-        state_code: 'DB',
+        ame:'D'ourbel Region','
+        tate_code:'D'',',
       },
       {
-        name: 'Fatick',
-        state_code: 'FK',
+        ame:'F'tick','
+        tate_code:'F'',',
       },
       {
-        name: 'Kaffrine',
-        state_code: 'KA',
+        ame:'K'ffrine','
+        tate_code:'K'',',
       },
       {
-        name: 'Kaolack',
-        state_code: 'KL',
+        ame:'K'olack','
+        tate_code:'K'',',
       },
       {
-        name: 'Kédougou',
-        state_code: 'KE',
+        ame:'K'dougou','
+        tate_code:'K'',',
       },
       {
-        name: 'Kolda',
-        state_code: 'KD',
+        ame:'K'lda','
+        tate_code:'K'',',
       },
       {
-        name: 'Louga',
-        state_code: 'LG',
+        ame:'L'uga','
+        tate_code:'L'',',
       },
       {
-        name: 'Matam',
-        state_code: 'MT',
+        ame:'M'tam','
+        tate_code:'M'',',
       },
       {
-        name: 'Saint-Louis',
-        state_code: 'SL',
+        ame:'S'int-Louis','
+        tate_code:'S'',',
       },
       {
-        name: 'Sédhiou',
-        state_code: 'SE',
+        ame:'S'dhiou','
+        tate_code:'S'',',
       },
       {
-        name: 'Tambacounda Region',
-        state_code: 'TC',
+        ame:'T'mbacounda Region','
+        tate_code:'T'',',
       },
       {
-        name: 'Thiès Region',
-        state_code: 'TH',
+        ame:'T'iès Region','
+        tate_code:'T'',',
       },
       {
-        name: 'Ziguinchor',
-        state_code: 'ZG',
-      },
-    ],
+        ame:'Z'guinchor','
+        tate_code:'Z'',',
+      },,
+    ],,
   },
   {
-    name: 'Serbia',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Flag_of_Serbia.svg',
-    iso2: 'RS',
-    states: [
+    ame:'S'rbia','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/f/ff/Flag_of_Serbia.svg','
+    so2:'R'','
+    tates:[
       {
-        name: 'Belgrade',
-        state_code: '00',
+        ame:'B'lgrade','
+        tate_code:'0'',',
       },
       {
-        name: 'Bor District',
-        state_code: '14',
+        ame:'B'r District','
+        tate_code:'1'',',
       },
       {
-        name: 'Braničevo District',
-        state_code: '11',
+        ame:'B'aničevo District','
+        tate_code:'1'',',
       },
       {
-        name: 'Central Banat District',
-        state_code: '02',
+        ame:'C'ntral Banat District','
+        tate_code:'0'',',
       },
       {
-        name: 'Jablanica District',
-        state_code: '23',
+        ame:'J'blanica District','
+        tate_code:'2'',',
       },
       {
-        name: 'Kolubara District',
-        state_code: '09',
+        ame:'K'lubara District','
+        tate_code:'0'',',
       },
       {
-        name: 'Mačva District',
-        state_code: '08',
+        ame:'M'čva District','
+        tate_code:'0'',',
       },
       {
-        name: 'Moravica District',
-        state_code: '17',
+        ame:'M'ravica District','
+        tate_code:'1'',',
       },
       {
-        name: 'Nišava District',
-        state_code: '20',
+        ame:'N'šava District','
+        tate_code:'2'',',
       },
       {
-        name: 'North Bačka District',
-        state_code: '01',
+        ame:'N'rth Bačka District','
+        tate_code:'0'',',
       },
       {
-        name: 'North Banat District',
-        state_code: '03',
+        ame:'N'rth Banat District','
+        tate_code:'0'',',
       },
       {
-        name: 'Pčinja District',
-        state_code: '24',
+        ame:'P'inja District','
+        tate_code:'2'',',
       },
       {
-        name: 'Pirot District',
-        state_code: '22',
+        ame:'P'rot District','
+        tate_code:'2'',',
       },
       {
-        name: 'Podunavlje District',
-        state_code: '10',
+        ame:'P'dunavlje District','
+        tate_code:'1'',',
       },
       {
-        name: 'Pomoravlje District',
-        state_code: '13',
+        ame:'P'moravlje District','
+        tate_code:'1'',',
       },
       {
-        name: 'Rasina District',
-        state_code: '19',
+        ame:'R'sina District','
+        tate_code:'1'',',
       },
       {
-        name: 'Raška District',
-        state_code: '18',
+        ame:'R'ška District','
+        tate_code:'1'',',
       },
       {
-        name: 'South Bačka District',
-        state_code: '06',
+        ame:'S'uth Bačka District','
+        tate_code:'0'',',
       },
       {
-        name: 'South Banat District',
-        state_code: '04',
+        ame:'S'uth Banat District','
+        tate_code:'0'',',
       },
       {
-        name: 'Srem District',
-        state_code: '07',
+        ame:'S'em District','
+        tate_code:'0'',',
       },
       {
-        name: 'Šumadija District',
-        state_code: '12',
+        ame:'Š'madija District','
+        tate_code:'1'',',
       },
       {
-        name: 'Toplica District',
-        state_code: '21',
+        ame:'T'plica District','
+        tate_code:'2'',',
       },
       {
-        name: 'Vojvodina',
-        state_code: 'VO',
+        ame:'V'jvodina','
+        tate_code:'V'',',
       },
       {
-        name: 'West Bačka District',
-        state_code: '05',
+        ame:'W'st Bačka District','
+        tate_code:'0'',',
       },
       {
-        name: 'Zaječar District',
-        state_code: '15',
+        ame:'Z'ječar District','
+        tate_code:'1'',',
       },
       {
-        name: 'Zlatibor District',
-        state_code: '16',
-      },
-    ],
+        ame:'Z'atibor District','
+        tate_code:'1'',',
+      },,
+    ],,
   },
   {
-    name: 'Seychelles',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Seychelles.svg',
-    iso2: 'SC',
-    states: [
+    ame:'S'ychelles','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Seychelles.svg','
+    so2:'S'','
+    tates:[
       {
-        name: 'Anse Boileau',
-        state_code: '02',
+        ame:'A'se Boileau','
+        tate_code:'0'',',
       },
       {
-        name: 'Anse Royale',
-        state_code: '05',
+        ame:'A'se Royale','
+        tate_code:'0'',',
       },
       {
-        name: 'Anse-aux-Pins',
-        state_code: '01',
+        ame:'A'se-aux-Pins','
+        tate_code:'0'',',
       },
       {
-        name: 'Au Cap',
-        state_code: '04',
+        ame:'A' Cap','
+        tate_code:'0'',',
       },
       {
-        name: 'Baie Lazare',
-        state_code: '06',
+        ame:'B'ie Lazare','
+        tate_code:'0'',',
       },
       {
-        name: 'Baie Sainte Anne',
-        state_code: '07',
+        ame:'B'ie Sainte Anne','
+        tate_code:'0'',',
       },
       {
-        name: 'Beau Vallon',
-        state_code: '08',
+        ame:'B'au Vallon','
+        tate_code:'0'',',
       },
       {
-        name: 'Bel Air',
-        state_code: '09',
+        ame:'B'l Air','
+        tate_code:'0'',',
       },
       {
-        name: 'Bel Ombre',
-        state_code: '10',
+        ame:'B'l Ombre','
+        tate_code:'1'',',
       },
       {
-        name: 'Cascade',
-        state_code: '11',
+        ame:'C'scade','
+        tate_code:'1'',',
       },
       {
-        name: 'Glacis',
-        state_code: '12',
+        ame:'G'acis','
+        tate_code:'1'',',
       },
       {
-        name: "Grand'Anse Mahé",
-        state_code: '13',
+        ame:"Grand'Anse Mahé",
+        tate_code:'1'',',
       },
       {
-        name: "Grand'Anse Praslin",
-        state_code: '14',
+        ame:"Grand'Anse Praslin",
+        tate_code:'1'',',
       },
       {
-        name: 'La Digue',
-        state_code: '15',
+        ame:'L' Digue','
+        tate_code:'1'',',
       },
       {
-        name: 'La Rivière Anglaise',
-        state_code: '16',
+        ame:'L' Rivière Anglaise','
+        tate_code:'1'',',
       },
       {
-        name: 'Les Mamelles',
-        state_code: '24',
+        ame:'L's Mamelles','
+        tate_code:'2'',',
       },
       {
-        name: 'Mont Buxton',
-        state_code: '17',
+        ame:'M'nt Buxton','
+        tate_code:'1'',',
       },
       {
-        name: 'Mont Fleuri',
-        state_code: '18',
+        ame:'M'nt Fleuri','
+        tate_code:'1'',',
       },
       {
-        name: 'Plaisance',
-        state_code: '19',
+        ame:'P'aisance','
+        tate_code:'1'',',
       },
       {
-        name: 'Pointe La Rue',
-        state_code: '20',
+        ame:'P'inte La Rue','
+        tate_code:'2'',',
       },
       {
-        name: 'Port Glaud',
-        state_code: '21',
+        ame:'P'rt Glaud','
+        tate_code:'2'',',
       },
       {
-        name: 'Roche Caiman',
-        state_code: '25',
+        ame:'R'che Caiman','
+        tate_code:'2'',',
       },
       {
-        name: 'Saint Louis',
-        state_code: '22',
+        ame:'S'int Louis','
+        tate_code:'2'',',
       },
       {
-        name: 'Takamaka',
-        state_code: '23',
-      },
-    ],
+        ame:'T'kamaka','
+        tate_code:'2'',',
+      },,
+    ],,
   },
   {
-    name: 'Sierra Leone',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/1/17/Flag_of_Sierra_Leone.svg',
-    iso2: 'SL',
-    states: [
+    ame:'S'erra Leone','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/1/17/Flag_of_Sierra_Leone.svg','
+    so2:'S'','
+    tates:[
       {
-        name: 'Eastern Province',
-        state_code: 'E',
+        ame:'E'stern Province','
+        tate_code:'E',',
       },
       {
-        name: 'Northern Province',
-        state_code: 'N',
+        ame:'N'rthern Province','
+        tate_code:'N',',
       },
       {
-        name: 'Southern Province',
-        state_code: 'S',
+        ame:'S'uthern Province','
+        tate_code:'S',',
       },
       {
-        name: 'Western Area',
-        state_code: 'W',
-      },
-    ],
+        ame:'W'stern Area','
+        tate_code:'W',',
+      },,
+    ],,
   },
   {
-    name: 'Singapore',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Singapore.svg',
-    iso2: 'SG',
-    states: [
+    ame:'S'ngapore','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Singapore.svg','
+    so2:'S'','
+    tates:[
       {
-        name: 'Central Singapore Community Development Council',
-        state_code: '01',
+        ame:'C'ntral Singapore Community Development Council','
+        tate_code:'0'',',
       },
       {
-        name: 'North East Community Development Council',
-        state_code: '02',
+        ame:'N'rth East Community Development Council','
+        tate_code:'0'',',
       },
       {
-        name: 'North West Community Development Council',
-        state_code: '03',
+        ame:'N'rth West Community Development Council','
+        tate_code:'0'',',
       },
       {
-        name: 'South East Community Development Council',
-        state_code: '04',
+        ame:'S'uth East Community Development Council','
+        tate_code:'0'',',
       },
       {
-        name: 'South West Community Development Council',
-        state_code: '05',
-      },
-    ],
+        ame:'S'uth West Community Development Council','
+        tate_code:'0'',',
+      },,
+    ],,
   },
   {
-    name: 'Slovakia',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/e/e6/Flag_of_Slovakia.svg',
-    iso2: 'SK',
-    states: [
+    ame:'S'ovakia','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/e/e6/Flag_of_Slovakia.svg','
+    so2:'S'','
+    tates:[
       {
-        name: 'Banská Bystrica Region',
-        state_code: 'BC',
+        ame:'B'nská Bystrica Region','
+        tate_code:'B'',',
       },
       {
-        name: 'Bratislava Region',
-        state_code: 'BL',
+        ame:'B'atislava Region','
+        tate_code:'B'',',
       },
       {
-        name: 'Košice Region',
-        state_code: 'KI',
+        ame:'K'šice Region','
+        tate_code:'K'',',
       },
       {
-        name: 'Nitra Region',
-        state_code: 'NI',
+        ame:'N'tra Region','
+        tate_code:'N'',',
       },
       {
-        name: 'Prešov Region',
-        state_code: 'PV',
+        ame:'P'ešov Region','
+        tate_code:'P'',',
       },
       {
-        name: 'Trenčín Region',
-        state_code: 'TC',
+        ame:'T'enčín Region','
+        tate_code:'T'',',
       },
       {
-        name: 'Trnava Region',
-        state_code: 'TA',
+        ame:'T'nava Region','
+        tate_code:'T'',',
       },
       {
-        name: 'Žilina Region',
-        state_code: 'ZI',
-      },
-    ],
+        ame:'Ž'lina Region','
+        tate_code:'Z'',',
+      },,
+    ],,
   },
   {
-    name: 'Slovenia',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f0/Flag_of_Slovenia.svg',
-    iso2: 'SI',
-    states: [
+    ame:'S'ovenia','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/f/f0/Flag_of_Slovenia.svg','
+    so2:'S'','
+    tates:[
       {
-        name: 'Ajdovščina Municipality',
-        state_code: '001',
+        ame:'A'dovščina Municipality','
+        tate_code:'0'1',',
       },
       {
-        name: 'Ankaran Municipality',
-        state_code: '213',
+        ame:'A'karan Municipality','
+        tate_code:'2'3',',
       },
       {
-        name: 'Beltinci Municipality',
-        state_code: '002',
+        ame:'B'ltinci Municipality','
+        tate_code:'0'2',',
       },
       {
-        name: 'Benedikt Municipality',
-        state_code: '148',
+        ame:'B'nedikt Municipality','
+        tate_code:'1'8',',
       },
       {
-        name: 'Bistrica ob Sotli Municipality',
-        state_code: '149',
+        ame:'B'strica ob Sotli Municipality','
+        tate_code:'1'9',',
       },
       {
-        name: 'Bled Municipality',
-        state_code: '003',
+        ame:'B'ed Municipality','
+        tate_code:'0'3',',
       },
       {
-        name: 'Bloke Municipality',
-        state_code: '150',
+        ame:'B'oke Municipality','
+        tate_code:'1'0',',
       },
       {
-        name: 'Bohinj Municipality',
-        state_code: '004',
+        ame:'B'hinj Municipality','
+        tate_code:'0'4',',
       },
       {
-        name: 'Borovnica Municipality',
-        state_code: '005',
+        ame:'B'rovnica Municipality','
+        tate_code:'0'5',',
       },
       {
-        name: 'Bovec Municipality',
-        state_code: '006',
+        ame:'B'vec Municipality','
+        tate_code:'0'6',',
       },
       {
-        name: 'Braslovče Municipality',
-        state_code: '151',
+        ame:'B'aslovče Municipality','
+        tate_code:'1'1',',
       },
       {
-        name: 'Brda Municipality',
-        state_code: '007',
+        ame:'B'da Municipality','
+        tate_code:'0'7',',
       },
       {
-        name: 'Brežice Municipality',
-        state_code: '009',
+        ame:'B'ežice Municipality','
+        tate_code:'0'9',',
       },
       {
-        name: 'Brezovica Municipality',
-        state_code: '008',
+        ame:'B'ezovica Municipality','
+        tate_code:'0'8',',
       },
       {
-        name: 'Cankova Municipality',
-        state_code: '152',
+        ame:'C'nkova Municipality','
+        tate_code:'1'2',',
       },
       {
-        name: 'Cerklje na Gorenjskem Municipality',
-        state_code: '012',
+        ame:'C'rklje na Gorenjskem Municipality','
+        tate_code:'0'2',',
       },
       {
-        name: 'Cerknica Municipality',
-        state_code: '013',
+        ame:'C'rknica Municipality','
+        tate_code:'0'3',',
       },
       {
-        name: 'Cerkno Municipality',
-        state_code: '014',
+        ame:'C'rkno Municipality','
+        tate_code:'0'4',',
       },
       {
-        name: 'Cerkvenjak Municipality',
-        state_code: '153',
+        ame:'C'rkvenjak Municipality','
+        tate_code:'1'3',',
       },
       {
-        name: 'City Municipality of Celje',
-        state_code: '011',
+        ame:'C'ty Municipality of Celje','
+        tate_code:'0'1',',
       },
       {
-        name: 'City Municipality of Novo Mesto',
-        state_code: '085',
+        ame:'C'ty Municipality of Novo Mesto','
+        tate_code:'0'5',',
       },
       {
-        name: 'Črenšovci Municipality',
-        state_code: '015',
+        ame:'Č'enšovci Municipality','
+        tate_code:'0'5',',
       },
       {
-        name: 'Črna na Koroškem Municipality',
-        state_code: '016',
+        ame:'Č'na na Koroškem Municipality','
+        tate_code:'0'6',',
       },
       {
-        name: 'Črnomelj Municipality',
-        state_code: '017',
+        ame:'Č'nomelj Municipality','
+        tate_code:'0'7',',
       },
       {
-        name: 'Destrnik Municipality',
-        state_code: '018',
+        ame:'D'strnik Municipality','
+        tate_code:'0'8',',
       },
       {
-        name: 'Divača Municipality',
-        state_code: '019',
+        ame:'D'vača Municipality','
+        tate_code:'0'9',',
       },
       {
-        name: 'Dobje Municipality',
-        state_code: '154',
+        ame:'D'bje Municipality','
+        tate_code:'1'4',',
       },
       {
-        name: 'Dobrepolje Municipality',
-        state_code: '020',
+        ame:'D'brepolje Municipality','
+        tate_code:'0'0',',
       },
       {
-        name: 'Dobrna Municipality',
-        state_code: '155',
+        ame:'D'brna Municipality','
+        tate_code:'1'5',',
       },
       {
-        name: 'Dobrova–Polhov Gradec Municipality',
-        state_code: '021',
+        ame:'D'brova–Polhov Gradec Municipality','
+        tate_code:'0'1',',
       },
       {
-        name: 'Dobrovnik Municipality',
-        state_code: '156',
+        ame:'D'brovnik Municipality','
+        tate_code:'1'6',',
       },
       {
-        name: 'Dol pri Ljubljani Municipality',
-        state_code: '022',
+        ame:'D'l pri Ljubljani Municipality','
+        tate_code:'0'2',',
       },
       {
-        name: 'Dolenjske Toplice Municipality',
-        state_code: '157',
+        ame:'D'lenjske Toplice Municipality','
+        tate_code:'1'7',',
       },
       {
-        name: 'Domžale Municipality',
-        state_code: '023',
+        ame:'D'mžale Municipality','
+        tate_code:'0'3',',
       },
       {
-        name: 'Dornava Municipality',
-        state_code: '024',
+        ame:'D'rnava Municipality','
+        tate_code:'0'4',',
       },
       {
-        name: 'Dravograd Municipality',
-        state_code: '025',
+        ame:'D'avograd Municipality','
+        tate_code:'0'5',',
       },
       {
-        name: 'Duplek Municipality',
-        state_code: '026',
+        ame:'D'plek Municipality','
+        tate_code:'0'6',',
       },
       {
-        name: 'Gorenja Vas–Poljane Municipality',
-        state_code: '027',
+        ame:'G'renja Vas–Poljane Municipality','
+        tate_code:'0'7',',
       },
       {
-        name: 'Gorišnica Municipality',
-        state_code: '028',
+        ame:'G'rišnica Municipality','
+        tate_code:'0'8',',
       },
       {
-        name: 'Gorje Municipality',
-        state_code: '207',
+        ame:'G'rje Municipality','
+        tate_code:'2'7',',
       },
       {
-        name: 'Gornja Radgona Municipality',
-        state_code: '029',
+        ame:'G'rnja Radgona Municipality','
+        tate_code:'0'9',',
       },
       {
-        name: 'Gornji Grad Municipality',
-        state_code: '030',
+        ame:'G'rnji Grad Municipality','
+        tate_code:'0'0',',
       },
       {
-        name: 'Gornji Petrovci Municipality',
-        state_code: '031',
+        ame:'G'rnji Petrovci Municipality','
+        tate_code:'0'1',',
       },
       {
-        name: 'Grad Municipality',
-        state_code: '158',
+        ame:'G'ad Municipality','
+        tate_code:'1'8',',
       },
       {
-        name: 'Grosuplje Municipality',
-        state_code: '032',
+        ame:'G'osuplje Municipality','
+        tate_code:'0'2',',
       },
       {
-        name: 'Hajdina Municipality',
-        state_code: '159',
+        ame:'H'jdina Municipality','
+        tate_code:'1'9',',
       },
       {
-        name: 'Hoče–Slivnica Municipality',
-        state_code: '160',
+        ame:'H'če–Slivnica Municipality','
+        tate_code:'1'0',',
       },
       {
-        name: 'Hodoš Municipality',
-        state_code: '161',
+        ame:'H'doš Municipality','
+        tate_code:'1'1',',
       },
       {
-        name: 'Horjul Municipality',
-        state_code: '162',
+        ame:'H'rjul Municipality','
+        tate_code:'1'2',',
       },
       {
-        name: 'Hrastnik Municipality',
-        state_code: '034',
+        ame:'H'astnik Municipality','
+        tate_code:'0'4',',
       },
       {
-        name: 'Hrpelje–Kozina Municipality',
-        state_code: '035',
+        ame:'H'pelje–Kozina Municipality','
+        tate_code:'0'5',',
       },
       {
-        name: 'Idrija Municipality',
-        state_code: '036',
+        ame:'I'rija Municipality','
+        tate_code:'0'6',',
       },
       {
-        name: 'Ig Municipality',
-        state_code: '037',
+        ame:'I' Municipality','
+        tate_code:'0'7',',
       },
       {
-        name: 'Ivančna Gorica Municipality',
-        state_code: '039',
+        ame:'I'ančna Gorica Municipality','
+        tate_code:'0'9',',
       },
       {
-        name: 'Izola Municipality',
-        state_code: '040',
+        ame:'I'ola Municipality','
+        tate_code:'0'0',',
       },
       {
-        name: 'Jesenice Municipality',
-        state_code: '041',
+        ame:'J'senice Municipality','
+        tate_code:'0'1',',
       },
       {
-        name: 'Jezersko Municipality',
-        state_code: '163',
+        ame:'J'zersko Municipality','
+        tate_code:'1'3',',
       },
       {
-        name: 'Juršinci Municipality',
-        state_code: '042',
+        ame:'J'ršinci Municipality','
+        tate_code:'0'2',',
       },
       {
-        name: 'Kamnik Municipality',
-        state_code: '043',
+        ame:'K'mnik Municipality','
+        tate_code:'0'3',',
       },
       {
-        name: 'Kanal ob Soči Municipality',
-        state_code: '044',
+        ame:'K'nal ob Soči Municipality','
+        tate_code:'0'4',',
       },
       {
-        name: 'Kidričevo Municipality',
-        state_code: '045',
+        ame:'K'dričevo Municipality','
+        tate_code:'0'5',',
       },
       {
-        name: 'Kobarid Municipality',
-        state_code: '046',
+        ame:'K'barid Municipality','
+        tate_code:'0'6',',
       },
       {
-        name: 'Kobilje Municipality',
-        state_code: '047',
+        ame:'K'bilje Municipality','
+        tate_code:'0'7',',
       },
       {
-        name: 'Kočevje Municipality',
-        state_code: '048',
+        ame:'K'čevje Municipality','
+        tate_code:'0'8',',
       },
       {
-        name: 'Komen Municipality',
-        state_code: '049',
+        ame:'K'men Municipality','
+        tate_code:'0'9',',
       },
       {
-        name: 'Komenda Municipality',
-        state_code: '164',
+        ame:'K'menda Municipality','
+        tate_code:'1'4',',
       },
       {
-        name: 'Koper City Municipality',
-        state_code: '050',
+        ame:'K'per City Municipality','
+        tate_code:'0'0',',
       },
       {
-        name: 'Kostanjevica na Krki Municipality',
-        state_code: '197',
+        ame:'K'stanjevica na Krki Municipality','
+        tate_code:'1'7',',
       },
       {
-        name: 'Kostel Municipality',
-        state_code: '165',
+        ame:'K'stel Municipality','
+        tate_code:'1'5',',
       },
       {
-        name: 'Kozje Municipality',
-        state_code: '051',
+        ame:'K'zje Municipality','
+        tate_code:'0'1',',
       },
       {
-        name: 'Kranj City Municipality',
-        state_code: '052',
+        ame:'K'anj City Municipality','
+        tate_code:'0'2',',
       },
       {
-        name: 'Kranjska Gora Municipality',
-        state_code: '053',
+        ame:'K'anjska Gora Municipality','
+        tate_code:'0'3',',
       },
       {
-        name: 'Križevci Municipality',
-        state_code: '166',
+        ame:'K'iževci Municipality','
+        tate_code:'1'6',',
       },
       {
-        name: 'Kungota',
-        state_code: '055',
+        ame:'K'ngota','
+        tate_code:'0'5',',
       },
       {
-        name: 'Kuzma Municipality',
-        state_code: '056',
+        ame:'K'zma Municipality','
+        tate_code:'0'6',',
       },
       {
-        name: 'Laško Municipality',
-        state_code: '057',
+        ame:'L'ško Municipality','
+        tate_code:'0'7',',
       },
       {
-        name: 'Lenart Municipality',
-        state_code: '058',
+        ame:'L'nart Municipality','
+        tate_code:'0'8',',
       },
       {
-        name: 'Lendava Municipality',
-        state_code: '059',
+        ame:'L'ndava Municipality','
+        tate_code:'0'9',',
       },
       {
-        name: 'Litija Municipality',
-        state_code: '060',
+        ame:'L'tija Municipality','
+        tate_code:'0'0',',
       },
       {
-        name: 'Ljubljana City Municipality',
-        state_code: '061',
+        ame:'L'ubljana City Municipality','
+        tate_code:'0'1',',
       },
       {
-        name: 'Ljubno Municipality',
-        state_code: '062',
+        ame:'L'ubno Municipality','
+        tate_code:'0'2',',
       },
       {
-        name: 'Ljutomer Municipality',
-        state_code: '063',
+        ame:'L'utomer Municipality','
+        tate_code:'0'3',',
       },
       {
-        name: 'Log–Dragomer Municipality',
-        state_code: '208',
+        ame:'L'g–Dragomer Municipality','
+        tate_code:'2'8',',
       },
       {
-        name: 'Logatec Municipality',
-        state_code: '064',
+        ame:'L'gatec Municipality','
+        tate_code:'0'4',',
       },
       {
-        name: 'Loška Dolina Municipality',
-        state_code: '065',
+        ame:'L'ška Dolina Municipality','
+        tate_code:'0'5',',
       },
       {
-        name: 'Loški Potok Municipality',
-        state_code: '066',
+        ame:'L'ški Potok Municipality','
+        tate_code:'0'6',',
       },
       {
-        name: 'Lovrenc na Pohorju Municipality',
-        state_code: '167',
+        ame:'L'vrenc na Pohorju Municipality','
+        tate_code:'1'7',',
       },
       {
-        name: 'Luče Municipality',
-        state_code: '067',
+        ame:'L'če Municipality','
+        tate_code:'0'7',',
       },
       {
-        name: 'Lukovica Municipality',
-        state_code: '068',
+        ame:'L'kovica Municipality','
+        tate_code:'0'8',',
       },
       {
-        name: 'Majšperk Municipality',
-        state_code: '069',
+        ame:'M'jšperk Municipality','
+        tate_code:'0'9',',
       },
       {
-        name: 'Makole Municipality',
-        state_code: '198',
+        ame:'M'kole Municipality','
+        tate_code:'1'8',',
       },
       {
-        name: 'Maribor City Municipality',
-        state_code: '070',
+        ame:'M'ribor City Municipality','
+        tate_code:'0'0',',
       },
       {
-        name: 'Markovci Municipality',
-        state_code: '168',
+        ame:'M'rkovci Municipality','
+        tate_code:'1'8',',
       },
       {
-        name: 'Medvode Municipality',
-        state_code: '071',
+        ame:'M'dvode Municipality','
+        tate_code:'0'1',',
       },
       {
-        name: 'Mengeš Municipality',
-        state_code: '072',
+        ame:'M'ngeš Municipality','
+        tate_code:'0'2',',
       },
       {
-        name: 'Metlika Municipality',
-        state_code: '073',
+        ame:'M'tlika Municipality','
+        tate_code:'0'3',',
       },
       {
-        name: 'Mežica Municipality',
-        state_code: '074',
+        ame:'M'žica Municipality','
+        tate_code:'0'4',',
       },
       {
-        name: 'Miklavž na Dravskem Polju Municipality',
-        state_code: '169',
+        ame:'M'klavž na Dravskem Polju Municipality','
+        tate_code:'1'9',',
       },
       {
-        name: 'Miren–Kostanjevica Municipality',
-        state_code: '075',
+        ame:'M'ren–Kostanjevica Municipality','
+        tate_code:'0'5',',
       },
       {
-        name: 'Mirna Municipality',
-        state_code: '212',
+        ame:'M'rna Municipality','
+        tate_code:'2'2',',
       },
       {
-        name: 'Mirna Peč Municipality',
-        state_code: '170',
+        ame:'M'rna Peč Municipality','
+        tate_code:'1'0',',
       },
       {
-        name: 'Mislinja Municipality',
-        state_code: '076',
+        ame:'M'slinja Municipality','
+        tate_code:'0'6',',
       },
       {
-        name: 'Mokronog–Trebelno Municipality',
-        state_code: '199',
+        ame:'M'kronog–Trebelno Municipality','
+        tate_code:'1'9',',
       },
       {
-        name: 'Moravče Municipality',
-        state_code: '077',
+        ame:'M'ravče Municipality','
+        tate_code:'0'7',',
       },
       {
-        name: 'Moravske Toplice Municipality',
-        state_code: '078',
+        ame:'M'ravske Toplice Municipality','
+        tate_code:'0'8',',
       },
       {
-        name: 'Mozirje Municipality',
-        state_code: '079',
+        ame:'M'zirje Municipality','
+        tate_code:'0'9',',
       },
       {
-        name: 'Municipality of Apače',
-        state_code: '195',
+        ame:'M'nicipality of Apače','
+        tate_code:'1'5',',
       },
       {
-        name: 'Municipality of Cirkulane',
-        state_code: '196',
+        ame:'M'nicipality of Cirkulane','
+        tate_code:'1'6',',
       },
       {
-        name: 'Municipality of Ilirska Bistrica',
-        state_code: '038',
+        ame:'M'nicipality of Ilirska Bistrica','
+        tate_code:'0'8',',
       },
       {
-        name: 'Municipality of Krško',
-        state_code: '054',
+        ame:'M'nicipality of Krško','
+        tate_code:'0'4',',
       },
       {
-        name: 'Municipality of Škofljica',
-        state_code: '123',
+        ame:'M'nicipality of Škofljica','
+        tate_code:'1'3',',
       },
       {
-        name: 'Murska Sobota City Municipality',
-        state_code: '080',
+        ame:'M'rska Sobota City Municipality','
+        tate_code:'0'0',',
       },
       {
-        name: 'Muta Municipality',
-        state_code: '081',
+        ame:'M'ta Municipality','
+        tate_code:'0'1',',
       },
       {
-        name: 'Naklo Municipality',
-        state_code: '082',
+        ame:'N'klo Municipality','
+        tate_code:'0'2',',
       },
       {
-        name: 'Nazarje Municipality',
-        state_code: '083',
+        ame:'N'zarje Municipality','
+        tate_code:'0'3',',
       },
       {
-        name: 'Nova Gorica City Municipality',
-        state_code: '084',
+        ame:'N'va Gorica City Municipality','
+        tate_code:'0'4',',
       },
       {
-        name: 'Odranci Municipality',
-        state_code: '086',
+        ame:'O'ranci Municipality','
+        tate_code:'0'6',',
       },
       {
-        name: 'Oplotnica',
-        state_code: '171',
+        ame:'O'lotnica','
+        tate_code:'1'1',',
       },
       {
-        name: 'Ormož Municipality',
-        state_code: '087',
+        ame:'O'mož Municipality','
+        tate_code:'0'7',',
       },
       {
-        name: 'Osilnica Municipality',
-        state_code: '088',
+        ame:'O'ilnica Municipality','
+        tate_code:'0'8',',
       },
       {
-        name: 'Pesnica Municipality',
-        state_code: '089',
+        ame:'P'snica Municipality','
+        tate_code:'0'9',',
       },
       {
-        name: 'Piran Municipality',
-        state_code: '090',
+        ame:'P'ran Municipality','
+        tate_code:'0'0',',
       },
       {
-        name: 'Pivka Municipality',
-        state_code: '091',
+        ame:'P'vka Municipality','
+        tate_code:'0'1',',
       },
       {
-        name: 'Podčetrtek Municipality',
-        state_code: '092',
+        ame:'P'dčetrtek Municipality','
+        tate_code:'0'2',',
       },
       {
-        name: 'Podlehnik Municipality',
-        state_code: '172',
+        ame:'P'dlehnik Municipality','
+        tate_code:'1'2',',
       },
       {
-        name: 'Podvelka Municipality',
-        state_code: '093',
+        ame:'P'dvelka Municipality','
+        tate_code:'0'3',',
       },
       {
-        name: 'Poljčane Municipality',
-        state_code: '200',
+        ame:'P'ljčane Municipality','
+        tate_code:'2'0',',
       },
       {
-        name: 'Polzela Municipality',
-        state_code: '173',
+        ame:'P'lzela Municipality','
+        tate_code:'1'3',',
       },
       {
-        name: 'Postojna Municipality',
-        state_code: '094',
+        ame:'P'stojna Municipality','
+        tate_code:'0'4',',
       },
       {
-        name: 'Prebold Municipality',
-        state_code: '174',
+        ame:'P'ebold Municipality','
+        tate_code:'1'4',',
       },
       {
-        name: 'Preddvor Municipality',
-        state_code: '095',
+        ame:'P'eddvor Municipality','
+        tate_code:'0'5',',
       },
       {
-        name: 'Prevalje Municipality',
-        state_code: '175',
+        ame:'P'evalje Municipality','
+        tate_code:'1'5',',
       },
       {
-        name: 'Ptuj City Municipality',
-        state_code: '096',
+        ame:'P'uj City Municipality','
+        tate_code:'0'6',',
       },
       {
-        name: 'Puconci Municipality',
-        state_code: '097',
+        ame:'P'conci Municipality','
+        tate_code:'0'7',',
       },
       {
-        name: 'Rače–Fram Municipality',
-        state_code: '098',
+        ame:'R'če–Fram Municipality','
+        tate_code:'0'8',',
       },
       {
-        name: 'Radeče Municipality',
-        state_code: '099',
+        ame:'R'deče Municipality','
+        tate_code:'0'9',',
       },
       {
-        name: 'Radenci Municipality',
-        state_code: '100',
+        ame:'R'denci Municipality','
+        tate_code:'1'0',',
       },
       {
-        name: 'Radlje ob Dravi Municipality',
-        state_code: '101',
+        ame:'R'dlje ob Dravi Municipality','
+        tate_code:'1'1',',
       },
       {
-        name: 'Radovljica Municipality',
-        state_code: '102',
+        ame:'R'dovljica Municipality','
+        tate_code:'1'2',',
       },
       {
-        name: 'Ravne na Koroškem Municipality',
-        state_code: '103',
+        ame:'R'vne na Koroškem Municipality','
+        tate_code:'1'3',',
       },
       {
-        name: 'Razkrižje Municipality',
-        state_code: '176',
+        ame:'R'zkrižje Municipality','
+        tate_code:'1'6',',
       },
       {
-        name: 'Rečica ob Savinji Municipality',
-        state_code: '209',
+        ame:'R'čica ob Savinji Municipality','
+        tate_code:'2'9',',
       },
       {
-        name: 'Renče–Vogrsko Municipality',
-        state_code: '201',
+        ame:'R'nče–Vogrsko Municipality','
+        tate_code:'2'1',',
       },
       {
-        name: 'Ribnica Municipality',
-        state_code: '104',
+        ame:'R'bnica Municipality','
+        tate_code:'1'4',',
       },
       {
-        name: 'Ribnica na Pohorju Municipality',
-        state_code: '177',
+        ame:'R'bnica na Pohorju Municipality','
+        tate_code:'1'7',',
       },
       {
-        name: 'Rogaška Slatina Municipality',
-        state_code: '106',
+        ame:'R'gaška Slatina Municipality','
+        tate_code:'1'6',',
       },
       {
-        name: 'Rogašovci Municipality',
-        state_code: '105',
+        ame:'R'gašovci Municipality','
+        tate_code:'1'5',',
       },
       {
-        name: 'Rogatec Municipality',
-        state_code: '107',
+        ame:'R'gatec Municipality','
+        tate_code:'1'7',',
       },
       {
-        name: 'Ruše Municipality',
-        state_code: '108',
+        ame:'R'še Municipality','
+        tate_code:'1'8',',
       },
       {
-        name: 'Šalovci Municipality',
-        state_code: '033',
+        ame:'Š'lovci Municipality','
+        tate_code:'0'3',',
       },
       {
-        name: 'Selnica ob Dravi Municipality',
-        state_code: '178',
+        ame:'S'lnica ob Dravi Municipality','
+        tate_code:'1'8',',
       },
       {
-        name: 'Semič Municipality',
-        state_code: '109',
+        ame:'S'mič Municipality','
+        tate_code:'1'9',',
       },
       {
-        name: 'Šempeter–Vrtojba Municipality',
-        state_code: '183',
+        ame:'Š'mpeter–Vrtojba Municipality','
+        tate_code:'1'3',',
       },
       {
-        name: 'Šenčur Municipality',
-        state_code: '117',
+        ame:'Š'nčur Municipality','
+        tate_code:'1'7',',
       },
       {
-        name: 'Šentilj Municipality',
-        state_code: '118',
+        ame:'Š'ntilj Municipality','
+        tate_code:'1'8',',
       },
       {
-        name: 'Šentjernej Municipality',
-        state_code: '119',
+        ame:'Š'ntjernej Municipality','
+        tate_code:'1'9',',
       },
       {
-        name: 'Šentjur Municipality',
-        state_code: '120',
+        ame:'Š'ntjur Municipality','
+        tate_code:'1'0',',
       },
       {
-        name: 'Šentrupert Municipality',
-        state_code: '211',
+        ame:'Š'ntrupert Municipality','
+        tate_code:'2'1',',
       },
       {
-        name: 'Sevnica Municipality',
-        state_code: '110',
+        ame:'S'vnica Municipality','
+        tate_code:'1'0',',
       },
       {
-        name: 'Sežana Municipality',
-        state_code: '111',
+        ame:'S'žana Municipality','
+        tate_code:'1'1',',
       },
       {
-        name: 'Škocjan Municipality',
-        state_code: '121',
+        ame:'Š'ocjan Municipality','
+        tate_code:'1'1',',
       },
       {
-        name: 'Škofja Loka Municipality',
-        state_code: '122',
+        ame:'Š'ofja Loka Municipality','
+        tate_code:'1'2',',
       },
       {
-        name: 'Slovenj Gradec City Municipality',
-        state_code: '112',
+        ame:'S'ovenj Gradec City Municipality','
+        tate_code:'1'2',',
       },
       {
-        name: 'Slovenska Bistrica Municipality',
-        state_code: '113',
+        ame:'S'ovenska Bistrica Municipality','
+        tate_code:'1'3',',
       },
       {
-        name: 'Slovenske Konjice Municipality',
-        state_code: '114',
+        ame:'S'ovenske Konjice Municipality','
+        tate_code:'1'4',',
       },
       {
-        name: 'Šmarje pri Jelšah Municipality',
-        state_code: '124',
+        ame:'Š'arje pri Jelšah Municipality','
+        tate_code:'1'4',',
       },
       {
-        name: 'Šmarješke Toplice Municipality',
-        state_code: '206',
+        ame:'Š'arješke Toplice Municipality','
+        tate_code:'2'6',',
       },
       {
-        name: 'Šmartno ob Paki Municipality',
-        state_code: '125',
+        ame:'Š'artno ob Paki Municipality','
+        tate_code:'1'5',',
       },
       {
-        name: 'Šmartno pri Litiji Municipality',
-        state_code: '194',
+        ame:'Š'artno pri Litiji Municipality','
+        tate_code:'1'4',',
       },
       {
-        name: 'Sodražica Municipality',
-        state_code: '179',
+        ame:'S'dražica Municipality','
+        tate_code:'1'9',',
       },
       {
-        name: 'Solčava Municipality',
-        state_code: '180',
+        ame:'S'lčava Municipality','
+        tate_code:'1'0',',
       },
       {
-        name: 'Šoštanj Municipality',
-        state_code: '126',
+        ame:'Š'štanj Municipality','
+        tate_code:'1'6',',
       },
       {
-        name: 'Središče ob Dravi',
-        state_code: '202',
+        ame:'S'edišče ob Dravi','
+        tate_code:'2'2',',
       },
       {
-        name: 'Starše Municipality',
-        state_code: '115',
+        ame:'S'arše Municipality','
+        tate_code:'1'5',',
       },
       {
-        name: 'Štore Municipality',
-        state_code: '127',
+        ame:'Š'ore Municipality','
+        tate_code:'1'7',',
       },
       {
-        name: 'Straža Municipality',
-        state_code: '203',
+        ame:'S'raža Municipality','
+        tate_code:'2'3',',
       },
       {
-        name: 'Sveta Ana Municipality',
-        state_code: '181',
+        ame:'S'eta Ana Municipality','
+        tate_code:'1'1',',
       },
       {
-        name: 'Sveta Trojica v Slovenskih Goricah Municipality',
-        state_code: '204',
+        ame:'S'eta Trojica v Slovenskih Goricah Municipality','
+        tate_code:'2'4',',
       },
       {
-        name: 'Sveti Andraž v Slovenskih Goricah Municipality',
-        state_code: '182',
+        ame:'S'eti Andraž v Slovenskih Goricah Municipality','
+        tate_code:'1'2',',
       },
       {
-        name: 'Sveti Jurij ob Ščavnici Municipality',
-        state_code: '116',
+        ame:'S'eti Jurij ob Ščavnici Municipality','
+        tate_code:'1'6',',
       },
       {
-        name: 'Sveti Jurij v Slovenskih Goricah Municipality',
-        state_code: '210',
+        ame:'S'eti Jurij v Slovenskih Goricah Municipality','
+        tate_code:'2'0',',
       },
       {
-        name: 'Sveti Tomaž Municipality',
-        state_code: '205',
+        ame:'S'eti Tomaž Municipality','
+        tate_code:'2'5',',
       },
       {
-        name: 'Tabor Municipality',
-        state_code: '184',
+        ame:'T'bor Municipality','
+        tate_code:'1'4',',
       },
       {
-        name: 'Tišina Municipality',
-        state_code: '010',
+        ame:'T'šina Municipality','
+        tate_code:'0'0',',
       },
       {
-        name: 'Tolmin Municipality',
-        state_code: '128',
+        ame:'T'lmin Municipality','
+        tate_code:'1'8',',
       },
       {
-        name: 'Trbovlje Municipality',
-        state_code: '129',
+        ame:'T'bovlje Municipality','
+        tate_code:'1'9',',
       },
       {
-        name: 'Trebnje Municipality',
-        state_code: '130',
+        ame:'T'ebnje Municipality','
+        tate_code:'1'0',',
       },
       {
-        name: 'Trnovska Vas Municipality',
-        state_code: '185',
+        ame:'T'novska Vas Municipality','
+        tate_code:'1'5',',
       },
       {
-        name: 'Tržič Municipality',
-        state_code: '131',
+        ame:'T'žič Municipality','
+        tate_code:'1'1',',
       },
       {
-        name: 'Trzin Municipality',
-        state_code: '186',
+        ame:'T'zin Municipality','
+        tate_code:'1'6',',
       },
       {
-        name: 'Turnišče Municipality',
-        state_code: '132',
+        ame:'T'rnišče Municipality','
+        tate_code:'1'2',',
       },
       {
-        name: 'Velika Polana Municipality',
-        state_code: '187',
+        ame:'V'lika Polana Municipality','
+        tate_code:'1'7',',
       },
       {
-        name: 'Velike Lašče Municipality',
-        state_code: '134',
+        ame:'V'like Lašče Municipality','
+        tate_code:'1'4',',
       },
       {
-        name: 'Veržej Municipality',
-        state_code: '188',
+        ame:'V'ržej Municipality','
+        tate_code:'1'8',',
       },
       {
-        name: 'Videm Municipality',
-        state_code: '135',
+        ame:'V'dem Municipality','
+        tate_code:'1'5',',
       },
       {
-        name: 'Vipava Municipality',
-        state_code: '136',
+        ame:'V'pava Municipality','
+        tate_code:'1'6',',
       },
       {
-        name: 'Vitanje Municipality',
-        state_code: '137',
+        ame:'V'tanje Municipality','
+        tate_code:'1'7',',
       },
       {
-        name: 'Vodice Municipality',
-        state_code: '138',
+        ame:'V'dice Municipality','
+        tate_code:'1'8',',
       },
       {
-        name: 'Vojnik Municipality',
-        state_code: '139',
+        ame:'V'jnik Municipality','
+        tate_code:'1'9',',
       },
       {
-        name: 'Vransko Municipality',
-        state_code: '189',
+        ame:'V'ansko Municipality','
+        tate_code:'1'9',',
       },
       {
-        name: 'Vrhnika Municipality',
-        state_code: '140',
+        ame:'V'hnika Municipality','
+        tate_code:'1'0',',
       },
       {
-        name: 'Vuzenica Municipality',
-        state_code: '141',
+        ame:'V'zenica Municipality','
+        tate_code:'1'1',',
       },
       {
-        name: 'Zagorje ob Savi Municipality',
-        state_code: '142',
+        ame:'Z'gorje ob Savi Municipality','
+        tate_code:'1'2',',
       },
       {
-        name: 'Žalec Municipality',
-        state_code: '190',
+        ame:'Ž'lec Municipality','
+        tate_code:'1'0',',
       },
       {
-        name: 'Zavrč Municipality',
-        state_code: '143',
+        ame:'Z'vrč Municipality','
+        tate_code:'1'3',',
       },
       {
-        name: 'Železniki Municipality',
-        state_code: '146',
+        ame:'Ž'lezniki Municipality','
+        tate_code:'1'6',',
       },
       {
-        name: 'Žetale Municipality',
-        state_code: '191',
+        ame:'Ž'tale Municipality','
+        tate_code:'1'1',',
       },
       {
-        name: 'Žiri Municipality',
-        state_code: '147',
+        ame:'Ž'ri Municipality','
+        tate_code:'1'7',',
       },
       {
-        name: 'Žirovnica Municipality',
-        state_code: '192',
+        ame:'Ž'rovnica Municipality','
+        tate_code:'1'2',',
       },
       {
-        name: 'Zreče Municipality',
-        state_code: '144',
+        ame:'Z'eče Municipality','
+        tate_code:'1'4',',
       },
       {
-        name: 'Žužemberk Municipality',
-        state_code: '193',
-      },
-    ],
+        ame:'Ž'žemberk Municipality','
+        tate_code:'1'3',',
+      },,
+    ],,
   },
   {
-    name: 'Solomon Islands',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/7/74/Flag_of_the_Solomon_Islands.svg',
-    iso2: 'SB',
-    states: [
+    ame:'S'lomon Islands','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/7/74/Flag_of_the_Solomon_Islands.svg','
+    so2:'S'','
+    tates:[
       {
-        name: 'Central Province',
-        state_code: 'CE',
+        ame:'C'ntral Province','
+        tate_code:'C'',',
       },
       {
-        name: 'Choiseul Province',
-        state_code: 'CH',
+        ame:'C'oiseul Province','
+        tate_code:'C'',',
       },
       {
-        name: 'Guadalcanal Province',
-        state_code: 'GU',
+        ame:'G'adalcanal Province','
+        tate_code:'G'',',
       },
       {
-        name: 'Honiara',
-        state_code: 'CT',
+        ame:'H'niara','
+        tate_code:'C'',',
       },
       {
-        name: 'Isabel Province',
-        state_code: 'IS',
+        ame:'I'abel Province','
+        tate_code:'I'',',
       },
       {
-        name: 'Makira-Ulawa Province',
-        state_code: 'MK',
+        ame:'M'kira-Ulawa Province','
+        tate_code:'M'',',
       },
       {
-        name: 'Malaita Province',
-        state_code: 'ML',
+        ame:'M'laita Province','
+        tate_code:'M'',',
       },
       {
-        name: 'Rennell and Bellona Province',
-        state_code: 'RB',
+        ame:'R'nnell and Bellona Province','
+        tate_code:'R'',',
       },
       {
-        name: 'Temotu Province',
-        state_code: 'TE',
+        ame:'T'motu Province','
+        tate_code:'T'',',
       },
       {
-        name: 'Western Province',
-        state_code: 'WE',
-      },
-    ],
+        ame:'W'stern Province','
+        tate_code:'W'',',
+      },,
+    ],,
   },
   {
-    name: 'Somalia',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Flag_of_Somalia.svg',
-    iso2: 'SO',
-    states: [
+    ame:'S'malia','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/a/a0/Flag_of_Somalia.svg','
+    so2:'S'','
+    tates:[
       {
-        name: 'Awdal Region',
-        state_code: 'AW',
+        ame:'A'dal Region','
+        tate_code:'A'',',
       },
       {
-        name: 'Bakool',
-        state_code: 'BK',
+        ame:'B'kool','
+        tate_code:'B'',',
       },
       {
-        name: 'Banaadir',
-        state_code: 'BN',
+        ame:'B'naadir','
+        tate_code:'B'',',
       },
       {
-        name: 'Bari',
-        state_code: 'BR',
+        ame:'B'ri','
+        tate_code:'B'',',
       },
       {
-        name: 'Bay',
-        state_code: 'BY',
+        ame:'B'y','
+        tate_code:'B'',',
       },
       {
-        name: 'Galguduud',
-        state_code: 'GA',
+        ame:'G'lguduud','
+        tate_code:'G'',',
       },
       {
-        name: 'Gedo',
-        state_code: 'GE',
+        ame:'G'do','
+        tate_code:'G'',',
       },
       {
-        name: 'Hiran',
-        state_code: 'HI',
+        ame:'H'ran','
+        tate_code:'H'',',
       },
       {
-        name: 'Lower Juba',
-        state_code: 'JH',
+        ame:'L'wer Juba','
+        tate_code:'J'',',
       },
       {
-        name: 'Lower Shebelle',
-        state_code: 'SH',
+        ame:'L'wer Shebelle','
+        tate_code:'S'',',
       },
       {
-        name: 'Middle Juba',
-        state_code: 'JD',
+        ame:'M'ddle Juba','
+        tate_code:'J'',',
       },
       {
-        name: 'Middle Shebelle',
-        state_code: 'SD',
+        ame:'M'ddle Shebelle','
+        tate_code:'S'',',
       },
       {
-        name: 'Mudug',
-        state_code: 'MU',
+        ame:'M'dug','
+        tate_code:'M'',',
       },
       {
-        name: 'Nugal',
-        state_code: 'NU',
+        ame:'N'gal','
+        tate_code:'N'',',
       },
       {
-        name: 'Sanaag Region',
-        state_code: 'SA',
+        ame:'S'naag Region','
+        tate_code:'S'',',
       },
       {
-        name: 'Togdheer Region',
-        state_code: 'TO',
-      },
-    ],
+        ame:'T'gdheer Region','
+        tate_code:'T'',',
+      },,
+    ],,
   },
   {
-    name: 'South Africa',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/a/af/Flag_of_South_Africa.svg',
-    iso2: 'ZA',
-    states: [
+    ame:'S'uth Africa','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/a/af/Flag_of_South_Africa.svg','
+    so2:'Z'','
+    tates:[
       {
-        name: 'Eastern Cape',
-        state_code: 'EC',
+        ame:'E'stern Cape','
+        tate_code:'E'',',
       },
       {
-        name: 'Free State',
-        state_code: 'FS',
+        ame:'F'ee State','
+        tate_code:'F'',',
       },
       {
-        name: 'Gauteng',
-        state_code: 'GP',
+        ame:'G'uteng','
+        tate_code:'G'',',
       },
       {
-        name: 'KwaZulu-Natal',
-        state_code: 'KZN',
+        ame:'K'aZulu-Natal','
+        tate_code:'K'N',',
       },
       {
-        name: 'Limpopo',
-        state_code: 'LP',
+        ame:'L'mpopo','
+        tate_code:'L'',',
       },
       {
-        name: 'Mpumalanga',
-        state_code: 'MP',
+        ame:'M'umalanga','
+        tate_code:'M'',',
       },
       {
-        name: 'North West',
-        state_code: 'NW',
+        ame:'N'rth West','
+        tate_code:'N'',',
       },
       {
-        name: 'Northern Cape',
-        state_code: 'NC',
+        ame:'N'rthern Cape','
+        tate_code:'N'',',
       },
       {
-        name: 'Western Cape',
-        state_code: 'WC',
-      },
-    ],
+        ame:'W'stern Cape','
+        tate_code:'W'',',
+      },,
+    ],,
   },
   {
-    name: 'South Georgia and the South Sandwich Islands',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/e/ed/Flag_of_South_Georgia_and_the_South_Sandwich_Islands.svg',
-    iso2: 'GS',
-    states: [],
+    ame:'S'uth Georgia and the South Sandwich Islands','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/e/ed/Flag_of_South_Georgia_and_the_South_Sandwich_Islands.svg','
+    so2:'G'','
+    tates:[],,
   },
   {
-    name: 'South Sudan',
-    flag: '',
-    iso2: 'SS',
-    states: [
+    ame:'S'uth Sudan','
+    lag:''''
+    so2:'S'','
+    tates:[
       {
-        name: 'Central Equatoria',
-        state_code: 'EC',
+        ame:'C'ntral Equatoria','
+        tate_code:'E'',',
       },
       {
-        name: 'Eastern Equatoria',
-        state_code: 'EE',
+        ame:'E'stern Equatoria','
+        tate_code:'E'',',
       },
       {
-        name: 'Jonglei State',
-        state_code: 'JG',
+        ame:'J'nglei State','
+        tate_code:'J'',',
       },
       {
-        name: 'Lakes',
-        state_code: 'LK',
+        ame:'L'kes','
+        tate_code:'L'',',
       },
       {
-        name: 'Northern Bahr el Ghazal',
-        state_code: 'BN',
+        ame:'N'rthern Bahr el Ghazal','
+        tate_code:'B'',',
       },
       {
-        name: 'Unity',
-        state_code: 'UY',
+        ame:'U'ity','
+        tate_code:'U'',',
       },
       {
-        name: 'Upper Nile',
-        state_code: 'NU',
+        ame:'U'per Nile','
+        tate_code:'N'',',
       },
       {
-        name: 'Warrap',
-        state_code: 'WR',
+        ame:'W'rrap','
+        tate_code:'W'',',
       },
       {
-        name: 'Western Bahr el Ghazal',
-        state_code: 'BW',
+        ame:'W'stern Bahr el Ghazal','
+        tate_code:'B'',',
       },
       {
-        name: 'Western Equatoria',
-        state_code: 'EW',
-      },
-    ],
+        ame:'W'stern Equatoria','
+        tate_code:'E'',',
+      },,
+    ],,
   },
   {
-    name: 'Spain',
-    flag: 'https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg',
-    iso2: 'ES',
-    states: [
+    ame:'S'ain','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg','
+    so2:'E'','
+    tates:[
       {
-        name: 'A Coruña Province',
-        state_code: 'C',
+        ame:'A'Coruña Province','
+        tate_code:'C',',
       },
       {
-        name: 'Albacete Province',
-        state_code: 'AB',
+        ame:'A'bacete Province','
+        tate_code:'A'',',
       },
       {
-        name: 'Alicante Province',
-        state_code: 'A',
+        ame:'A'icante Province','
+        tate_code:'A',',
       },
       {
-        name: 'Almería Province',
-        state_code: 'AL',
+        ame:'A'mería Province','
+        tate_code:'A'',',
       },
       {
-        name: 'Andalusia',
-        state_code: 'AN',
+        ame:'A'dalusia','
+        tate_code:'A'',',
       },
       {
-        name: 'Araba Álava Province',
-        state_code: 'VI',
+        ame:'A'aba Álava Province','
+        tate_code:'V'',',
       },
       {
-        name: 'Aragon',
-        state_code: 'AR',
+        ame:'A'agon','
+        tate_code:'A'',',
       },
       {
-        name: 'Badajoz Province',
-        state_code: 'BA',
+        ame:'B'dajoz Province','
+        tate_code:'B'',',
       },
       {
-        name: 'Balearic Islands',
-        state_code: 'PM',
+        ame:'B'learic Islands','
+        tate_code:'P'',',
       },
       {
-        name: 'Barcelona Province',
-        state_code: 'B',
+        ame:'B'rcelona Province','
+        tate_code:'B',',
       },
       {
-        name: 'Basque Country',
-        state_code: 'PV',
+        ame:'B'sque Country','
+        tate_code:'P'',',
       },
       {
-        name: 'Biscay Province',
-        state_code: 'BI',
+        ame:'B'scay Province','
+        tate_code:'B'',',
       },
       {
-        name: 'Burgos Province',
-        state_code: 'BU',
+        ame:'B'rgos Province','
+        tate_code:'B'',',
       },
       {
-        name: 'Cáceres Province',
-        state_code: 'CC',
+        ame:'C'ceres Province','
+        tate_code:'C'',',
       },
       {
-        name: 'Cádiz Province',
-        state_code: 'CA',
+        ame:'C'diz Province','
+        tate_code:'C'',',
       },
       {
-        name: 'Canary Islands',
-        state_code: 'CN',
+        ame:'C'nary Islands','
+        tate_code:'C'',',
       },
       {
-        name: 'Cantabria',
-        state_code: 'S',
+        ame:'C'ntabria','
+        tate_code:'S',',
       },
       {
-        name: 'Castellón Province',
-        state_code: 'CS',
+        ame:'C'stellón Province','
+        tate_code:'C'',',
       },
       {
-        name: 'Castile and León',
-        state_code: 'CL',
+        ame:'C'stile and León','
+        tate_code:'C'',',
       },
       {
-        name: 'Castile-La Mancha',
-        state_code: 'CM',
+        ame:'C'stile-La Mancha','
+        tate_code:'C'',',
       },
       {
-        name: 'Catalonia',
-        state_code: 'CT',
+        ame:'C'talonia','
+        tate_code:'C'',',
       },
       {
-        name: 'Ceuta',
-        state_code: 'CE',
+        ame:'C'uta','
+        tate_code:'C'',',
       },
       {
-        name: 'Ciudad Real Province',
-        state_code: 'CR',
+        ame:'C'udad Real Province','
+        tate_code:'C'',',
       },
       {
-        name: 'Community of Madrid',
-        state_code: 'MD',
+        ame:'C'mmunity of Madrid','
+        tate_code:'M'',',
       },
       {
-        name: 'Córdoba Province',
-        state_code: 'CO',
+        ame:'C'rdoba Province','
+        tate_code:'C'',',
       },
       {
-        name: 'Cuenca Province',
-        state_code: 'CU',
+        ame:'C'enca Province','
+        tate_code:'C'',',
       },
       {
-        name: 'Extremadura',
-        state_code: 'EX',
+        ame:'E'tremadura','
+        tate_code:'E'',',
       },
       {
-        name: 'Galicia',
-        state_code: 'GA',
+        ame:'G'licia','
+        tate_code:'G'',',
       },
       {
-        name: 'Gipuzkoa Province',
-        state_code: 'SS',
+        ame:'G'puzkoa Province','
+        tate_code:'S'',',
       },
       {
-        name: 'Girona Province',
-        state_code: 'GI',
+        ame:'G'rona Province','
+        tate_code:'G'',',
       },
       {
-        name: 'Granada Province',
-        state_code: 'GR',
+        ame:'G'anada Province','
+        tate_code:'G'',',
       },
       {
-        name: 'Guadalajara Province',
-        state_code: 'GU',
+        ame:'G'adalajara Province','
+        tate_code:'G'',',
       },
       {
-        name: 'Huelva Province',
-        state_code: 'H',
+        ame:'H'elva Province','
+        tate_code:'H',',
       },
       {
-        name: 'Huesca Province',
-        state_code: 'HU',
+        ame:'H'esca Province','
+        tate_code:'H'',',
       },
       {
-        name: 'Jaén Province',
-        state_code: 'J',
+        ame:'J'én Province','
+        tate_code:'J',',
       },
       {
-        name: 'La Rioja',
-        state_code: 'RI',
+        ame:'L' Rioja','
+        tate_code:'R'',',
       },
       {
-        name: 'Las Palmas Province',
-        state_code: 'GC',
+        ame:'L's Palmas Province','
+        tate_code:'G'',',
       },
       {
-        name: 'León Province',
-        state_code: 'LE',
+        ame:'L'ón Province','
+        tate_code:'L'',',
       },
       {
-        name: 'Lleida Province',
-        state_code: 'L',
+        ame:'L'eida Province','
+        tate_code:'L',',
       },
       {
-        name: 'Lugo Province',
-        state_code: 'LU',
+        ame:'L'go Province','
+        tate_code:'L'',',
       },
       {
-        name: 'Madrid Province',
-        state_code: 'M',
+        ame:'M'drid Province','
+        tate_code:'M',',
       },
       {
-        name: 'Málaga Province',
-        state_code: 'MA',
+        ame:'M'laga Province','
+        tate_code:'M'',',
       },
       {
-        name: 'Melilla',
-        state_code: 'ML',
+        ame:'M'lilla','
+        tate_code:'M'',',
       },
       {
-        name: 'Murcia Province',
-        state_code: 'MU',
+        ame:'M'rcia Province','
+        tate_code:'M'',',
       },
       {
-        name: 'Navarre',
-        state_code: 'NC',
+        ame:'N'varre','
+        tate_code:'N'',',
       },
       {
-        name: 'Ourense Province',
-        state_code: 'OR',
+        ame:'O'rense Province','
+        tate_code:'O'',',
       },
       {
-        name: 'Palencia Province',
-        state_code: 'P',
+        ame:'P'lencia Province','
+        tate_code:'P',',
       },
       {
-        name: 'Pontevedra Province',
-        state_code: 'PO',
+        ame:'P'ntevedra Province','
+        tate_code:'P'',',
       },
       {
-        name: 'Province of Asturias',
-        state_code: 'O',
+        ame:'P'ovince of Asturias','
+        tate_code:'O',',
       },
       {
-        name: 'Province of Ávila',
-        state_code: 'AV',
+        ame:'P'ovince of Ávila','
+        tate_code:'A'',',
       },
       {
-        name: 'Region of Murcia',
-        state_code: 'MC',
+        ame:'R'gion of Murcia','
+        tate_code:'M'',',
       },
       {
-        name: 'Salamanca Province',
-        state_code: 'SA',
+        ame:'S'lamanca Province','
+        tate_code:'S'',',
       },
       {
-        name: 'Santa Cruz de Tenerife Province',
-        state_code: 'TF',
+        ame:'S'nta Cruz de Tenerife Province','
+        tate_code:'T'',',
       },
       {
-        name: 'Segovia Province',
-        state_code: 'SG',
+        ame:'S'govia Province','
+        tate_code:'S'',',
       },
       {
-        name: 'Seville Province',
-        state_code: 'SE',
+        ame:'S'ville Province','
+        tate_code:'S'',',
       },
       {
-        name: 'Soria Province',
-        state_code: 'SO',
+        ame:'S'ria Province','
+        tate_code:'S'',',
       },
       {
-        name: 'Tarragona Province',
-        state_code: 'T',
+        ame:'T'rragona Province','
+        tate_code:'T',',
       },
       {
-        name: 'Teruel Province',
-        state_code: 'TE',
+        ame:'T'ruel Province','
+        tate_code:'T'',',
       },
       {
-        name: 'Toledo Province',
-        state_code: 'TO',
+        ame:'T'ledo Province','
+        tate_code:'T'',',
       },
       {
-        name: 'Valencia Province',
-        state_code: 'V',
+        ame:'V'lencia Province','
+        tate_code:'V',',
       },
       {
-        name: 'Valencian Community',
-        state_code: 'VC',
+        ame:'V'lencian Community','
+        tate_code:'V'',',
       },
       {
-        name: 'Valladolid Province',
-        state_code: 'VA',
+        ame:'V'lladolid Province','
+        tate_code:'V'',',
       },
       {
-        name: 'Zamora Province',
-        state_code: 'ZA',
+        ame:'Z'mora Province','
+        tate_code:'Z'',',
       },
       {
-        name: 'Zaragoza Province',
-        state_code: 'Z',
-      },
-    ],
+        ame:'Z'ragoza Province','
+        tate_code:'Z',',
+      },,
+    ],,
   },
   {
-    name: 'Sri Lanka',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/1/11/Flag_of_Sri_Lanka.svg',
-    iso2: 'LK',
-    states: [
+    ame:'S'i Lanka','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/1/11/Flag_of_Sri_Lanka.svg','
+    so2:'L'','
+    tates:[
       {
-        name: 'Ampara District',
-        state_code: '52',
+        ame:'A'para District','
+        tate_code:'5'',',
       },
       {
-        name: 'Anuradhapura District',
-        state_code: '71',
+        ame:'A'uradhapura District','
+        tate_code:'7'',',
       },
       {
-        name: 'Badulla District',
-        state_code: '81',
+        ame:'B'dulla District','
+        tate_code:'8'',',
       },
       {
-        name: 'Batticaloa District',
-        state_code: '51',
+        ame:'B'tticaloa District','
+        tate_code:'5'',',
       },
       {
-        name: 'Central Province',
-        state_code: '2',
+        ame:'C'ntral Province','
+        tate_code:'2',',
       },
       {
-        name: 'Colombo District',
-        state_code: '11',
+        ame:'C'lombo District','
+        tate_code:'1'',',
       },
       {
-        name: 'Eastern Province',
-        state_code: '5',
+        ame:'E'stern Province','
+        tate_code:'5',',
       },
       {
-        name: 'Galle District',
-        state_code: '31',
+        ame:'G'lle District','
+        tate_code:'3'',',
       },
       {
-        name: 'Gampaha District',
-        state_code: '12',
+        ame:'G'mpaha District','
+        tate_code:'1'',',
       },
       {
-        name: 'Hambantota District',
-        state_code: '33',
+        ame:'H'mbantota District','
+        tate_code:'3'',',
       },
       {
-        name: 'Jaffna District',
-        state_code: '41',
+        ame:'J'ffna District','
+        tate_code:'4'',',
       },
       {
-        name: 'Kalutara District',
-        state_code: '13',
+        ame:'K'lutara District','
+        tate_code:'1'',',
       },
       {
-        name: 'Kandy District',
-        state_code: '21',
+        ame:'K'ndy District','
+        tate_code:'2'',',
       },
       {
-        name: 'Kegalle District',
-        state_code: '92',
+        ame:'K'galle District','
+        tate_code:'9'',',
       },
       {
-        name: 'Kilinochchi District',
-        state_code: '42',
+        ame:'K'linochchi District','
+        tate_code:'4'',',
       },
       {
-        name: 'Mannar District',
-        state_code: '43',
+        ame:'M'nnar District','
+        tate_code:'4'',',
       },
       {
-        name: 'Matale District',
-        state_code: '22',
+        ame:'M'tale District','
+        tate_code:'2'',',
       },
       {
-        name: 'Matara District',
-        state_code: '32',
+        ame:'M'tara District','
+        tate_code:'3'',',
       },
       {
-        name: 'Monaragala District',
-        state_code: '82',
+        ame:'M'naragala District','
+        tate_code:'8'',',
       },
       {
-        name: 'Mullaitivu District',
-        state_code: '45',
+        ame:'M'llaitivu District','
+        tate_code:'4'',',
       },
       {
-        name: 'North Central Province',
-        state_code: '7',
+        ame:'N'rth Central Province','
+        tate_code:'7',',
       },
       {
-        name: 'North Western Province',
-        state_code: '6',
+        ame:'N'rth Western Province','
+        tate_code:'6',',
       },
       {
-        name: 'Northern Province',
-        state_code: '4',
+        ame:'N'rthern Province','
+        tate_code:'4',',
       },
       {
-        name: 'Nuwara Eliya District',
-        state_code: '23',
+        ame:'N'wara Eliya District','
+        tate_code:'2'',',
       },
       {
-        name: 'Polonnaruwa District',
-        state_code: '72',
+        ame:'P'lonnaruwa District','
+        tate_code:'7'',',
       },
       {
-        name: 'Puttalam District',
-        state_code: '62',
+        ame:'P'ttalam District','
+        tate_code:'6'',',
       },
       {
-        name: 'Ratnapura district',
-        state_code: '91',
+        ame:'R'tnapura district','
+        tate_code:'9'',',
       },
       {
-        name: 'Sabaragamuwa Province',
-        state_code: '9',
+        ame:'S'baragamuwa Province','
+        tate_code:'9',',
       },
       {
-        name: 'Southern Province',
-        state_code: '3',
+        ame:'S'uthern Province','
+        tate_code:'3',',
       },
       {
-        name: 'Trincomalee District',
-        state_code: '53',
+        ame:'T'incomalee District','
+        tate_code:'5'',',
       },
       {
-        name: 'Uva Province',
-        state_code: '8',
+        ame:'U'a Province','
+        tate_code:'8',',
       },
       {
-        name: 'Vavuniya District',
-        state_code: '44',
+        ame:'V'vuniya District','
+        tate_code:'4'',',
       },
       {
-        name: 'Western Province',
-        state_code: '1',
-      },
-    ],
+        ame:'W'stern Province','
+        tate_code:'1',',
+      },,
+    ],,
   },
   {
-    name: 'Sudan',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_Sudan.svg',
-    iso2: 'SD',
-    states: [
+    ame:'S'dan','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_Sudan.svg','
+    so2:'S'','
+    tates:[
       {
-        name: 'Al Jazirah',
-        state_code: 'GZ',
+        ame:'A' Jazirah','
+        tate_code:'G'',',
       },
       {
-        name: 'Al Qadarif',
-        state_code: 'GD',
+        ame:'A' Qadarif','
+        tate_code:'G'',',
       },
       {
-        name: 'Blue Nile',
-        state_code: 'NB',
+        ame:'B'ue Nile','
+        tate_code:'N'',',
       },
       {
-        name: 'Central Darfur',
-        state_code: 'DC',
+        ame:'C'ntral Darfur','
+        tate_code:'D'',',
       },
       {
-        name: 'East Darfur',
-        state_code: 'DE',
+        ame:'E'st Darfur','
+        tate_code:'D'',',
       },
       {
-        name: 'Kassala',
-        state_code: 'KA',
+        ame:'K'ssala','
+        tate_code:'K'',',
       },
       {
-        name: 'Khartoum',
-        state_code: 'KH',
+        ame:'K'artoum','
+        tate_code:'K'',',
       },
       {
-        name: 'North Darfur',
-        state_code: 'DN',
+        ame:'N'rth Darfur','
+        tate_code:'D'',',
       },
       {
-        name: 'North Kordofan',
-        state_code: 'KN',
+        ame:'N'rth Kordofan','
+        tate_code:'K'',',
       },
       {
-        name: 'Northern',
-        state_code: 'NO',
+        ame:'N'rthern','
+        tate_code:'N'',',
       },
       {
-        name: 'Red Sea',
-        state_code: 'RS',
+        ame:'R'd Sea','
+        tate_code:'R'',',
       },
       {
-        name: 'River Nile',
-        state_code: 'NR',
+        ame:'R'ver Nile','
+        tate_code:'N'',',
       },
       {
-        name: 'Sennar',
-        state_code: 'SI',
+        ame:'S'nnar','
+        tate_code:'S'',',
       },
       {
-        name: 'South Darfur',
-        state_code: 'DS',
+        ame:'S'uth Darfur','
+        tate_code:'D'',',
       },
       {
-        name: 'South Kordofan',
-        state_code: 'KS',
+        ame:'S'uth Kordofan','
+        tate_code:'K'',',
       },
       {
-        name: 'West Darfur',
-        state_code: 'DW',
+        ame:'W'st Darfur','
+        tate_code:'D'',',
       },
       {
-        name: 'West Kordofan',
-        state_code: 'GK',
+        ame:'W'st Kordofan','
+        tate_code:'G'',',
       },
       {
-        name: 'White Nile',
-        state_code: 'NW',
-      },
-    ],
+        ame:'W'ite Nile','
+        tate_code:'N'',',
+      },,
+    ],,
   },
   {
-    name: 'Suriname',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/6/60/Flag_of_Suriname.svg',
-    iso2: 'SR',
-    states: [
+    ame:'S'riname','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/6/60/Flag_of_Suriname.svg','
+    so2:'S'','
+    tates:[
       {
-        name: 'Brokopondo District',
-        state_code: 'BR',
+        ame:'B'okopondo District','
+        tate_code:'B'',',
       },
       {
-        name: 'Commewijne District',
-        state_code: 'CM',
+        ame:'C'mmewijne District','
+        tate_code:'C'',',
       },
       {
-        name: 'Coronie District',
-        state_code: 'CR',
+        ame:'C'ronie District','
+        tate_code:'C'',',
       },
       {
-        name: 'Marowijne District',
-        state_code: 'MA',
+        ame:'M'rowijne District','
+        tate_code:'M'',',
       },
       {
-        name: 'Nickerie District',
-        state_code: 'NI',
+        ame:'N'ckerie District','
+        tate_code:'N'',',
       },
       {
-        name: 'Para District',
-        state_code: 'PR',
+        ame:'P'ra District','
+        tate_code:'P'',',
       },
       {
-        name: 'Paramaribo District',
-        state_code: 'PM',
+        ame:'P'ramaribo District','
+        tate_code:'P'',',
       },
       {
-        name: 'Saramacca District',
-        state_code: 'SA',
+        ame:'S'ramacca District','
+        tate_code:'S'',',
       },
       {
-        name: 'Sipaliwini District',
-        state_code: 'SI',
+        ame:'S'paliwini District','
+        tate_code:'S'',',
       },
       {
-        name: 'Wanica District',
-        state_code: 'WA',
-      },
-    ],
+        ame:'W'nica District','
+        tate_code:'W'',',
+      },,
+    ],,
   },
   {
-    name: 'Svalbard And Jan Mayen Islands',
-    flag: '',
-    iso2: 'SJ',
-    states: [],
+    ame:'S'albard And Jan Mayen Islands','
+    lag:''''
+    so2:'S'','
+    tates:[],,
   },
   {
-    name: 'Swaziland',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/f/fb/Flag_of_Eswatini.svg',
-    iso2: 'SZ',
-    states: [
+    ame:'S'aziland','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/f/fb/Flag_of_Eswatini.svg','
+    so2:'S'','
+    tates:[
       {
-        name: 'Hhohho District',
-        state_code: 'HH',
+        ame:'H'ohho District','
+        tate_code:'H'',',
       },
       {
-        name: 'Lubombo District',
-        state_code: 'LU',
+        ame:'L'bombo District','
+        tate_code:'L'',',
       },
       {
-        name: 'Manzini District',
-        state_code: 'MA',
+        ame:'M'nzini District','
+        tate_code:'M'',',
       },
       {
-        name: 'Shiselweni District',
-        state_code: 'SH',
-      },
-    ],
+        ame:'S'iselweni District','
+        tate_code:'S'',',
+      },,
+    ],,
   },
   {
-    name: 'Sweden',
-    flag: 'https://upload.wikimedia.org/wikipedia/en/4/4c/Flag_of_Sweden.svg',
-    iso2: 'SE',
-    states: [
+    ame:'S'eden','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/en/4/4c/Flag_of_Sweden.svg','
+    so2:'S'','
+    tates:[
       {
-        name: 'Blekinge',
-        state_code: 'K',
+        ame:'B'ekinge','
+        tate_code:'K',',
       },
       {
-        name: 'Dalarna County',
-        state_code: 'W',
+        ame:'D'larna County','
+        tate_code:'W',',
       },
       {
-        name: 'Gävleborg County',
-        state_code: 'X',
+        ame:'G'vleborg County','
+        tate_code:'X',',
       },
       {
-        name: 'Gotland County',
-        state_code: 'I',
+        ame:'G'tland County','
+        tate_code:'I',',
       },
       {
-        name: 'Halland County',
-        state_code: 'N',
+        ame:'H'lland County','
+        tate_code:'N',',
       },
       {
-        name: 'Jönköping County',
-        state_code: 'F',
+        ame:'J'nköping County','
+        tate_code:'F',',
       },
       {
-        name: 'Kalmar County',
-        state_code: 'H',
+        ame:'K'lmar County','
+        tate_code:'H',',
       },
       {
-        name: 'Kronoberg County',
-        state_code: 'G',
+        ame:'K'onoberg County','
+        tate_code:'G',',
       },
       {
-        name: 'Norrbotten County',
-        state_code: 'BD',
+        ame:'N'rrbotten County','
+        tate_code:'B'',',
       },
       {
-        name: 'Örebro County',
-        state_code: 'T',
+        ame:'Ö'ebro County','
+        tate_code:'T',',
       },
       {
-        name: 'Östergötland County',
-        state_code: 'E',
+        ame:'Ö'tergötland County','
+        tate_code:'E',',
       },
       {
-        name: 'Skåne County',
-        state_code: 'M',
+        ame:'S'åne County','
+        tate_code:'M',',
       },
       {
-        name: 'Södermanland County',
-        state_code: 'D',
+        ame:'S'dermanland County','
+        tate_code:'D',',
       },
       {
-        name: 'Stockholm County',
-        state_code: 'AB',
+        ame:'S'ockholm County','
+        tate_code:'A'',',
       },
       {
-        name: 'Uppsala County',
-        state_code: 'C',
+        ame:'U'psala County','
+        tate_code:'C',',
       },
       {
-        name: 'Värmland County',
-        state_code: 'S',
+        ame:'V'rmland County','
+        tate_code:'S',',
       },
       {
-        name: 'Västerbotten County',
-        state_code: 'AC',
+        ame:'V'sterbotten County','
+        tate_code:'A'',',
       },
       {
-        name: 'Västernorrland County',
-        state_code: 'Y',
+        ame:'V'sternorrland County','
+        tate_code:'Y',',
       },
       {
-        name: 'Västmanland County',
-        state_code: 'U',
+        ame:'V'stmanland County','
+        tate_code:'U',',
       },
       {
-        name: 'Västra Götaland County',
-        state_code: 'O',
-      },
-    ],
+        ame:'V'stra Götaland County','
+        tate_code:'O',',
+      },,
+    ],,
   },
   {
-    name: 'Switzerland',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Flag_of_Switzerland_%28Pantone%29.svg',
-    iso2: 'CH',
-    states: [
+    ame:'S'itzerland','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/0/08/Flag_of_Switzerland_%28Pantone%29.svg','
+    so2:'C'','
+    tates:[
       {
-        name: 'Aargau',
-        state_code: 'AG',
+        ame:'A'rgau','
+        tate_code:'A'',',
       },
       {
-        name: 'Appenzell Ausserrhoden',
-        state_code: 'AR',
+        ame:'A'penzell Ausserrhoden','
+        tate_code:'A'',',
       },
       {
-        name: 'Appenzell Innerrhoden',
-        state_code: 'AI',
+        ame:'A'penzell Innerrhoden','
+        tate_code:'A'',',
       },
       {
-        name: 'Basel-Landschaft',
-        state_code: 'BL',
+        ame:'B'sel-Landschaft','
+        tate_code:'B'',',
       },
       {
-        name: 'Basel-Stadt',
-        state_code: 'BS',
+        ame:'B'sel-Stadt','
+        tate_code:'B'',',
       },
       {
-        name: 'canton of Bern',
-        state_code: 'BE',
+        ame:'c'nton of Bern','
+        tate_code:'B'',',
       },
       {
-        name: 'Canton of Fribourg',
-        state_code: 'FR',
+        ame:'C'nton of Fribourg','
+        tate_code:'F'',',
       },
       {
-        name: 'Canton of Geneva',
-        state_code: 'GE',
+        ame:'C'nton of Geneva','
+        tate_code:'G'',',
       },
       {
-        name: 'Canton of Jura',
-        state_code: 'JU',
+        ame:'C'nton of Jura','
+        tate_code:'J'',',
       },
       {
-        name: 'Canton of Lucerne',
-        state_code: 'LU',
+        ame:'C'nton of Lucerne','
+        tate_code:'L'',',
       },
       {
-        name: 'Canton of Neuchâtel',
-        state_code: 'NE',
+        ame:'C'nton of Neuchâtel','
+        tate_code:'N'',',
       },
       {
-        name: 'Canton of Schaffhausen',
-        state_code: 'SH',
+        ame:'C'nton of Schaffhausen','
+        tate_code:'S'',',
       },
       {
-        name: 'Canton of Solothurn',
-        state_code: 'SO',
+        ame:'C'nton of Solothurn','
+        tate_code:'S'',',
       },
       {
-        name: 'Canton of St. Gallen',
-        state_code: 'SG',
+        ame:'C'nton of St. Gallen','
+        tate_code:'S'',',
       },
       {
-        name: 'Canton of Valais',
-        state_code: 'VS',
+        ame:'C'nton of Valais','
+        tate_code:'V'',',
       },
       {
-        name: 'Canton of Vaud',
-        state_code: 'VD',
+        ame:'C'nton of Vaud','
+        tate_code:'V'',',
       },
       {
-        name: 'Canton of Zug',
-        state_code: 'ZG',
+        ame:'C'nton of Zug','
+        tate_code:'Z'',',
       },
       {
-        name: 'canton of Zürich',
-        state_code: 'ZH',
+        ame:'c'nton of Zürich','
+        tate_code:'Z'',',
       },
       {
-        name: 'Glarus',
-        state_code: 'GL',
+        ame:'G'arus','
+        tate_code:'G'',',
       },
       {
-        name: 'Graubünden',
-        state_code: 'GR',
+        ame:'G'aubünden','
+        tate_code:'G'',',
       },
       {
-        name: 'Nidwalden',
-        state_code: 'NW',
+        ame:'N'dwalden','
+        tate_code:'N'',',
       },
       {
-        name: 'Obwalden',
-        state_code: 'OW',
+        ame:'O'walden','
+        tate_code:'O'',',
       },
       {
-        name: 'Schwyz',
-        state_code: 'SZ',
+        ame:'S'hwyz','
+        tate_code:'S'',',
       },
       {
-        name: 'Thurgau',
-        state_code: 'TG',
+        ame:'T'urgau','
+        tate_code:'T'',',
       },
       {
-        name: 'Ticino',
-        state_code: 'TI',
+        ame:'T'cino','
+        tate_code:'T'',',
       },
       {
-        name: 'Uri',
-        state_code: 'UR',
-      },
-    ],
+        ame:'U'i','
+        tate_code:'U'',',
+      },,
+    ],,
   },
   {
-    name: 'Syria',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/5/53/Flag_of_Syria.svg',
-    iso2: 'SY',
-    states: [
+    ame:'S'ria','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/5/53/Flag_of_Syria.svg','
+    so2:'S'','
+    tates:[
       {
-        name: 'Al-Hasakah Governorate',
-        state_code: 'HA',
+        ame:'A'-Hasakah Governorate','
+        tate_code:'H'',',
       },
       {
-        name: 'Al-Raqqah Governorate',
-        state_code: 'RA',
+        ame:'A'-Raqqah Governorate','
+        tate_code:'R'',',
       },
       {
-        name: 'Aleppo Governorate',
-        state_code: 'HL',
+        ame:'A'eppo Governorate','
+        tate_code:'H'',',
       },
       {
-        name: 'As-Suwayda Governorate',
-        state_code: 'SU',
+        ame:'A'-Suwayda Governorate','
+        tate_code:'S'',',
       },
       {
-        name: 'Damascus Governorate',
-        state_code: 'DI',
+        ame:'D'mascus Governorate','
+        tate_code:'D'',',
       },
       {
-        name: 'Daraa Governorate',
-        state_code: 'DR',
+        ame:'D'raa Governorate','
+        tate_code:'D'',',
       },
       {
-        name: 'Deir ez-Zor Governorate',
-        state_code: 'DY',
+        ame:'D'ir ez-Zor Governorate','
+        tate_code:'D'',',
       },
       {
-        name: 'Hama Governorate',
-        state_code: 'HM',
+        ame:'H'ma Governorate','
+        tate_code:'H'',',
       },
       {
-        name: 'Homs Governorate',
-        state_code: 'HI',
+        ame:'H'ms Governorate','
+        tate_code:'H'',',
       },
       {
-        name: 'Idlib Governorate',
-        state_code: 'ID',
+        ame:'I'lib Governorate','
+        tate_code:'I'',',
       },
       {
-        name: 'Latakia Governorate',
-        state_code: 'LA',
+        ame:'L'takia Governorate','
+        tate_code:'L'',',
       },
       {
-        name: 'Quneitra Governorate',
-        state_code: 'QU',
+        ame:'Q'neitra Governorate','
+        tate_code:'Q'',',
       },
       {
-        name: 'Rif Dimashq Governorate',
-        state_code: 'RD',
+        ame:'R'f Dimashq Governorate','
+        tate_code:'R'',',
       },
       {
-        name: 'Tartus Governorate',
-        state_code: 'TA',
-      },
-    ],
+        ame:'T'rtus Governorate','
+        tate_code:'T'',',
+      },,
+    ],,
   },
   {
-    name: 'Taiwan',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/7/72/Flag_of_the_Republic_of_China.svg',
-    iso2: 'TW',
-    states: [
+    ame:'T'iwan','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/7/72/Flag_of_the_Republic_of_China.svg','
+    so2:'T'','
+    tates:[
       {
-        name: 'Changhua County',
-        state_code: 'CHA',
+        ame:'C'anghua County','
+        tate_code:'C'A',',
       },
       {
-        name: 'Chiayi City',
-        state_code: 'CYQ',
+        ame:'C'iayi City','
+        tate_code:'C'Q',',
       },
       {
-        name: 'Chiayi County',
-        state_code: 'CYI',
+        ame:'C'iayi County','
+        tate_code:'C'I',',
       },
       {
-        name: 'Hsinchu',
-        state_code: 'HSZ',
+        ame:'H'inchu','
+        tate_code:'H'Z',',
       },
       {
-        name: 'Hsinchu County',
-        state_code: 'HSQ',
+        ame:'H'inchu County','
+        tate_code:'H'Q',',
       },
       {
-        name: 'Hualien County',
-        state_code: 'HUA',
+        ame:'H'alien County','
+        tate_code:'H'A',',
       },
       {
-        name: 'Kaohsiung',
-        state_code: 'KHH',
+        ame:'K'ohsiung','
+        tate_code:'K'H',',
       },
       {
-        name: 'Kaohsiung County',
-        state_code: 'KHQ',
+        ame:'K'ohsiung County','
+        tate_code:'K'Q',',
       },
       {
-        name: 'Kinmen',
-        state_code: 'KIN',
+        ame:'K'nmen','
+        tate_code:'K'N',',
       },
       {
-        name: 'Lienchiang County',
-        state_code: 'LIE',
+        ame:'L'enchiang County','
+        tate_code:'L'E',',
       },
       {
-        name: 'Miaoli County',
-        state_code: 'MIA',
+        ame:'M'aoli County','
+        tate_code:'M'A',',
       },
       {
-        name: 'Nantou County',
-        state_code: 'NAN',
+        ame:'N'ntou County','
+        tate_code:'N'N',',
       },
       {
-        name: 'Penghu County',
-        state_code: 'PEN',
+        ame:'P'nghu County','
+        tate_code:'P'N',',
       },
       {
-        name: 'Pingtung County',
-        state_code: 'PIF',
+        ame:'P'ngtung County','
+        tate_code:'P'F',',
       },
       {
-        name: 'Taichung',
-        state_code: 'TXG',
+        ame:'T'ichung','
+        tate_code:'T'G',',
       },
       {
-        name: 'Taichung County',
-        state_code: 'TXQ',
+        ame:'T'ichung County','
+        tate_code:'T'Q',',
       },
       {
-        name: 'Tainan',
-        state_code: 'TNN',
+        ame:'T'inan','
+        tate_code:'T'N',',
       },
       {
-        name: 'Tainan County',
-        state_code: 'TNQ',
+        ame:'T'inan County','
+        tate_code:'T'Q',',
       },
       {
-        name: 'Taipei',
-        state_code: 'TPE',
+        ame:'T'ipei','
+        tate_code:'T'E',',
       },
       {
-        name: 'Taitung County',
-        state_code: 'TTT',
+        ame:'T'itung County','
+        tate_code:'T'T',',
       },
       {
-        name: 'Taoyuan City',
-        state_code: 'TAO',
+        ame:'T'oyuan City','
+        tate_code:'T'O',',
       },
       {
-        name: 'Yilan County',
-        state_code: 'ILA',
+        ame:'Y'lan County','
+        tate_code:'I'A',',
       },
       {
-        name: 'Yunlin County',
-        state_code: 'YUN',
-      },
-    ],
+        ame:'Y'nlin County','
+        tate_code:'Y'N',',
+      },,
+    ],,
   },
   {
-    name: 'Tajikistan',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/d/d0/Flag_of_Tajikistan.svg',
-    iso2: 'TJ',
-    states: [
+    ame:'T'jikistan','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/d/d0/Flag_of_Tajikistan.svg','
+    so2:'T'','
+    tates:[
       {
-        name: 'districts of Republican Subordination',
-        state_code: 'RA',
+        ame:'d'stricts of Republican Subordination','
+        tate_code:'R'',',
       },
       {
-        name: 'Gorno-Badakhshan Autonomous Province',
-        state_code: 'GB',
+        ame:'G'rno-Badakhshan Autonomous Province','
+        tate_code:'G'',',
       },
       {
-        name: 'Khatlon Province',
-        state_code: 'KT',
+        ame:'K'atlon Province','
+        tate_code:'K'',',
       },
       {
-        name: 'Sughd Province',
-        state_code: 'SU',
-      },
-    ],
+        ame:'S'ghd Province','
+        tate_code:'S'',',
+      },,
+    ],,
   },
   {
-    name: 'Tanzania',
-    flag: '',
-    iso2: 'TZ',
-    states: [
+    ame:'T'nzania','
+    lag:''''
+    so2:'T'','
+    tates:[
       {
-        name: 'Arusha Region',
-        state_code: '01',
+        ame:'A'usha Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Dar es Salaam Region',
-        state_code: '02',
+        ame:'D'r es Salaam Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Dodoma Region',
-        state_code: '03',
+        ame:'D'doma Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Geita Region',
-        state_code: '27',
+        ame:'G'ita Region','
+        tate_code:'2'',',
       },
       {
-        name: 'Iringa Region',
-        state_code: '04',
+        ame:'I'inga Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Kagera Region',
-        state_code: '05',
+        ame:'K'gera Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Katavi Region',
-        state_code: '28',
+        ame:'K'tavi Region','
+        tate_code:'2'',',
       },
       {
-        name: 'Kigoma Region',
-        state_code: '08',
+        ame:'K'goma Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Kilimanjaro Region',
-        state_code: '09',
+        ame:'K'limanjaro Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Lindi Region',
-        state_code: '12',
+        ame:'L'ndi Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Manyara Region',
-        state_code: '26',
+        ame:'M'nyara Region','
+        tate_code:'2'',',
       },
       {
-        name: 'Mara Region',
-        state_code: '13',
+        ame:'M'ra Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Morogoro Region',
-        state_code: '16',
+        ame:'M'rogoro Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Mtwara Region',
-        state_code: '17',
+        ame:'M'wara Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Mwanza Region',
-        state_code: '18',
+        ame:'M'anza Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Njombe Region',
-        state_code: '29',
+        ame:'N'ombe Region','
+        tate_code:'2'',',
       },
       {
-        name: 'North Pemba Region',
-        state_code: '06',
+        ame:'N'rth Pemba Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Pwani Region',
-        state_code: '19',
+        ame:'P'ani Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Rukwa Region',
-        state_code: '20',
+        ame:'R'kwa Region','
+        tate_code:'2'',',
       },
       {
-        name: 'Ruvuma Region',
-        state_code: '21',
+        ame:'R'vuma Region','
+        tate_code:'2'',',
       },
       {
-        name: 'Shinyanga Region',
-        state_code: '22',
+        ame:'S'inyanga Region','
+        tate_code:'2'',',
       },
       {
-        name: 'Simiyu Region',
-        state_code: '30',
+        ame:'S'miyu Region','
+        tate_code:'3'',',
       },
       {
-        name: 'Singida Region',
-        state_code: '23',
+        ame:'S'ngida Region','
+        tate_code:'2'',',
       },
       {
-        name: 'South Pemba Region',
-        state_code: '10',
+        ame:'S'uth Pemba Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Tabora Region',
-        state_code: '24',
+        ame:'T'bora Region','
+        tate_code:'2'',',
       },
       {
-        name: 'Tanga Region',
-        state_code: '25',
+        ame:'T'nga Region','
+        tate_code:'2'',',
       },
       {
-        name: 'Zanzibar Central South Region',
-        state_code: '11',
+        ame:'Z'nzibar Central South Region','
+        tate_code:'1'',',
       },
       {
-        name: 'Zanzibar North Region',
-        state_code: '07',
+        ame:'Z'nzibar North Region','
+        tate_code:'0'',',
       },
       {
-        name: 'Zanzibar Urban West Region',
-        state_code: '15',
-      },
-    ],
+        ame:'Z'nzibar Urban West Region','
+        tate_code:'1'',',
+      },,
+    ],,
   },
   {
-    name: 'Thailand',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_Thailand.svg',
-    iso2: 'TH',
-    states: [
+    ame:'T'ailand','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_Thailand.svg','
+    so2:'T'','
+    tates:[
       {
-        name: 'Amnat Charoen',
-        state_code: '37',
+        ame:'A'nat Charoen','
+        tate_code:'3'',',
       },
       {
-        name: 'Ang Thong',
-        state_code: '15',
+        ame:'A'g Thong','
+        tate_code:'1'',',
       },
       {
-        name: 'Bangkok',
-        state_code: '10',
+        ame:'B'ngkok','
+        tate_code:'1'',',
       },
       {
-        name: 'Bueng Kan',
-        state_code: '38',
+        ame:'B'eng Kan','
+        tate_code:'3'',',
       },
       {
-        name: 'Buri Ram',
-        state_code: '31',
+        ame:'B'ri Ram','
+        tate_code:'3'',',
       },
       {
-        name: 'Chachoengsao',
-        state_code: '24',
+        ame:'C'achoengsao','
+        tate_code:'2'',',
       },
       {
-        name: 'Chai Nat',
-        state_code: '18',
+        ame:'C'ai Nat','
+        tate_code:'1'',',
       },
       {
-        name: 'Chanthaburi',
-        state_code: '22',
+        ame:'C'anthaburi','
+        tate_code:'2'',',
       },
       {
-        name: 'Chiang Mai',
-        state_code: '50',
+        ame:'C'iang Mai','
+        tate_code:'5'',',
       },
       {
-        name: 'Chiang Rai',
-        state_code: '57',
+        ame:'C'iang Rai','
+        tate_code:'5'',',
       },
       {
-        name: 'Chon Buri',
-        state_code: '20',
+        ame:'C'on Buri','
+        tate_code:'2'',',
       },
       {
-        name: 'Chumphon',
-        state_code: '86',
+        ame:'C'umphon','
+        tate_code:'8'',',
       },
       {
-        name: 'Kalasin',
-        state_code: '46',
+        ame:'K'lasin','
+        tate_code:'4'',',
       },
       {
-        name: 'Kamphaeng Phet',
-        state_code: '62',
+        ame:'K'mphaeng Phet','
+        tate_code:'6'',',
       },
       {
-        name: 'Kanchanaburi',
-        state_code: '71',
+        ame:'K'nchanaburi','
+        tate_code:'7'',',
       },
       {
-        name: 'Khon Kaen',
-        state_code: '40',
+        ame:'K'on Kaen','
+        tate_code:'4'',',
       },
       {
-        name: 'Krabi',
-        state_code: '81',
+        ame:'K'abi','
+        tate_code:'8'',',
       },
       {
-        name: 'Lampang',
-        state_code: '52',
+        ame:'L'mpang','
+        tate_code:'5'',',
       },
       {
-        name: 'Lamphun',
-        state_code: '51',
+        ame:'L'mphun','
+        tate_code:'5'',',
       },
       {
-        name: 'Loei',
-        state_code: '42',
+        ame:'L'ei','
+        tate_code:'4'',',
       },
       {
-        name: 'Lopburi',
-        state_code: '16',
+        ame:'L'pburi','
+        tate_code:'1'',',
       },
       {
-        name: 'Mae Hong Son',
-        state_code: '58',
+        ame:'M'e Hong Son','
+        tate_code:'5'',',
       },
       {
-        name: 'Maha Sarakham',
-        state_code: '44',
+        ame:'M'ha Sarakham','
+        tate_code:'4'',',
       },
       {
-        name: 'Mukdahan',
-        state_code: '49',
+        ame:'M'kdahan','
+        tate_code:'4'',',
       },
       {
-        name: 'Nakhon Nayok',
-        state_code: '26',
+        ame:'N'khon Nayok','
+        tate_code:'2'',',
       },
       {
-        name: 'Nakhon Pathom',
-        state_code: '73',
+        ame:'N'khon Pathom','
+        tate_code:'7'',',
       },
       {
-        name: 'Nakhon Phanom',
-        state_code: '48',
+        ame:'N'khon Phanom','
+        tate_code:'4'',',
       },
       {
-        name: 'Nakhon Ratchasima',
-        state_code: '30',
+        ame:'N'khon Ratchasima','
+        tate_code:'3'',',
       },
       {
-        name: 'Nakhon Sawan',
-        state_code: '60',
+        ame:'N'khon Sawan','
+        tate_code:'6'',',
       },
       {
-        name: 'Nakhon Si Thammarat',
-        state_code: '80',
+        ame:'N'khon Si Thammarat','
+        tate_code:'8'',',
       },
       {
-        name: 'Nan',
-        state_code: '55',
+        ame:'N'n','
+        tate_code:'5'',',
       },
       {
-        name: 'Narathiwat',
-        state_code: '96',
+        ame:'N'rathiwat','
+        tate_code:'9'',',
       },
       {
-        name: 'Nong Bua Lam Phu',
-        state_code: '39',
+        ame:'N'ng Bua Lam Phu','
+        tate_code:'3'',',
       },
       {
-        name: 'Nong Khai',
-        state_code: '43',
+        ame:'N'ng Khai','
+        tate_code:'4'',',
       },
       {
-        name: 'Nonthaburi',
-        state_code: '12',
+        ame:'N'nthaburi','
+        tate_code:'1'',',
       },
       {
-        name: 'Pathum Thani',
-        state_code: '13',
+        ame:'P'thum Thani','
+        tate_code:'1'',',
       },
       {
-        name: 'Pattani',
-        state_code: '94',
+        ame:'P'ttani','
+        tate_code:'9'',',
       },
       {
-        name: 'Pattaya',
-        state_code: 'S',
+        ame:'P'ttaya','
+        tate_code:'S',',
       },
       {
-        name: 'Phang Nga',
-        state_code: '82',
+        ame:'P'ang Nga','
+        tate_code:'8'',',
       },
       {
-        name: 'Phatthalung',
-        state_code: '93',
+        ame:'P'atthalung','
+        tate_code:'9'',',
       },
       {
-        name: 'Phayao',
-        state_code: '56',
+        ame:'P'ayao','
+        tate_code:'5'',',
       },
       {
-        name: 'Phetchabun',
-        state_code: '67',
+        ame:'P'etchabun','
+        tate_code:'6'',',
       },
       {
-        name: 'Phetchaburi',
-        state_code: '76',
+        ame:'P'etchaburi','
+        tate_code:'7'',',
       },
       {
-        name: 'Phichit',
-        state_code: '66',
+        ame:'P'ichit','
+        tate_code:'6'',',
       },
       {
-        name: 'Phitsanulok',
-        state_code: '65',
+        ame:'P'itsanulok','
+        tate_code:'6'',',
       },
       {
-        name: 'Phra Nakhon Si Ayutthaya',
-        state_code: '14',
+        ame:'P'ra Nakhon Si Ayutthaya','
+        tate_code:'1'',',
       },
       {
-        name: 'Phrae',
-        state_code: '54',
+        ame:'P'rae','
+        tate_code:'5'',',
       },
       {
-        name: 'Phuket',
-        state_code: '83',
+        ame:'P'uket','
+        tate_code:'8'',',
       },
       {
-        name: 'Prachin Buri',
-        state_code: '25',
+        ame:'P'achin Buri','
+        tate_code:'2'',',
       },
       {
-        name: 'Prachuap Khiri Khan',
-        state_code: '77',
+        ame:'P'achuap Khiri Khan','
+        tate_code:'7'',',
       },
       {
-        name: 'Ranong',
-        state_code: '85',
+        ame:'R'nong','
+        tate_code:'8'',',
       },
       {
-        name: 'Ratchaburi',
-        state_code: '70',
+        ame:'R'tchaburi','
+        tate_code:'7'',',
       },
       {
-        name: 'Rayong',
-        state_code: '21',
+        ame:'R'yong','
+        tate_code:'2'',',
       },
       {
-        name: 'Roi Et',
-        state_code: '45',
+        ame:'R'i Et','
+        tate_code:'4'',',
       },
       {
-        name: 'Sa Kaeo',
-        state_code: '27',
+        ame:'S' Kaeo','
+        tate_code:'2'',',
       },
       {
-        name: 'Sakon Nakhon',
-        state_code: '47',
+        ame:'S'kon Nakhon','
+        tate_code:'4'',',
       },
       {
-        name: 'Samut Prakan',
-        state_code: '11',
+        ame:'S'mut Prakan','
+        tate_code:'1'',',
       },
       {
-        name: 'Samut Sakhon',
-        state_code: '74',
+        ame:'S'mut Sakhon','
+        tate_code:'7'',',
       },
       {
-        name: 'Samut Songkhram',
-        state_code: '75',
+        ame:'S'mut Songkhram','
+        tate_code:'7'',',
       },
       {
-        name: 'Saraburi',
-        state_code: '19',
+        ame:'S'raburi','
+        tate_code:'1'',',
       },
       {
-        name: 'Satun',
-        state_code: '91',
+        ame:'S'tun','
+        tate_code:'9'',',
       },
       {
-        name: 'Si Sa Ket',
-        state_code: '33',
+        ame:'S' Sa Ket','
+        tate_code:'3'',',
       },
       {
-        name: 'Sing Buri',
-        state_code: '17',
+        ame:'S'ng Buri','
+        tate_code:'1'',',
       },
       {
-        name: 'Songkhla',
-        state_code: '90',
+        ame:'S'ngkhla','
+        tate_code:'9'',',
       },
       {
-        name: 'Sukhothai',
-        state_code: '64',
+        ame:'S'khothai','
+        tate_code:'6'',',
       },
       {
-        name: 'Suphanburi',
-        state_code: '72',
+        ame:'S'phanburi','
+        tate_code:'7'',',
       },
       {
-        name: 'Surat Thani',
-        state_code: '84',
+        ame:'S'rat Thani','
+        tate_code:'8'',',
       },
       {
-        name: 'Surin',
-        state_code: '32',
+        ame:'S'rin','
+        tate_code:'3'',',
       },
       {
-        name: 'Tak',
-        state_code: '63',
+        ame:'T'k','
+        tate_code:'6'',',
       },
       {
-        name: 'Trang',
-        state_code: '92',
+        ame:'T'ang','
+        tate_code:'9'',',
       },
       {
-        name: 'Trat',
-        state_code: '23',
+        ame:'T'at','
+        tate_code:'2'',',
       },
       {
-        name: 'Ubon Ratchathani',
-        state_code: '34',
+        ame:'U'on Ratchathani','
+        tate_code:'3'',',
       },
       {
-        name: 'Udon Thani',
-        state_code: '41',
+        ame:'U'on Thani','
+        tate_code:'4'',',
       },
       {
-        name: 'Uthai Thani',
-        state_code: '61',
+        ame:'U'hai Thani','
+        tate_code:'6'',',
       },
       {
-        name: 'Uttaradit',
-        state_code: '53',
+        ame:'U'taradit','
+        tate_code:'5'',',
       },
       {
-        name: 'Yala',
-        state_code: '95',
+        ame:'Y'la','
+        tate_code:'9'',',
       },
       {
-        name: 'Yasothon',
-        state_code: '35',
-      },
-    ],
+        ame:'Y'sothon','
+        tate_code:'3'',',
+      },,
+    ],,
   },
   {
-    name: 'Togo',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/6/68/Flag_of_Togo.svg',
-    iso2: 'TG',
-    states: [
+    ame:'T'go','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/6/68/Flag_of_Togo.svg','
+    so2:'T'','
+    tates:[
       {
-        name: 'Centrale Region',
-        state_code: 'C',
+        ame:'C'ntrale Region','
+        tate_code:'C',',
       },
       {
-        name: 'Kara Region',
-        state_code: 'K',
+        ame:'K'ra Region','
+        tate_code:'K',',
       },
       {
-        name: 'Maritime',
-        state_code: 'M',
+        ame:'M'ritime','
+        tate_code:'M',',
       },
       {
-        name: 'Plateaux Region',
-        state_code: 'P',
+        ame:'P'ateaux Region','
+        tate_code:'P',',
       },
       {
-        name: 'Savanes Region',
-        state_code: 'S',
-      },
-    ],
+        ame:'S'vanes Region','
+        tate_code:'S',',
+      },,
+    ],,
   },
   {
-    name: 'Tokelau',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/8/8e/Flag_of_Tokelau.svg',
-    iso2: 'TK',
-    states: [],
+    ame:'T'kelau','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/8/8e/Flag_of_Tokelau.svg','
+    so2:'T'','
+    tates:[],,
   },
   {
-    name: 'Tonga',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Tonga.svg',
-    iso2: 'TO',
-    states: [
+    ame:'T'nga','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Tonga.svg','
+    so2:'T'','
+    tates:[
       {
-        name: 'Haʻapai',
-        state_code: '02',
+        ame:'H'ʻapai','
+        tate_code:'0'',',
       },
       {
-        name: 'ʻEua',
-        state_code: '01',
+        ame:'ʻ'ua','
+        tate_code:'0'',',
       },
       {
-        name: 'Niuas',
-        state_code: '03',
+        ame:'N'uas','
+        tate_code:'0'',',
       },
       {
-        name: 'Tongatapu',
-        state_code: '04',
+        ame:'T'ngatapu','
+        tate_code:'0'',',
       },
       {
-        name: 'Vavaʻu',
-        state_code: '05',
-      },
-    ],
+        ame:'V'vaʻu','
+        tate_code:'0'',',
+      },,
+    ],,
   },
   {
-    name: 'Trinidad And Tobago',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/6/64/Flag_of_Trinidad_and_Tobago.svg',
-    iso2: 'TT',
-    states: [
+    ame:'T'inidad And Tobago','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/6/64/Flag_of_Trinidad_and_Tobago.svg','
+    so2:'T'','
+    tates:[
       {
-        name: 'Arima',
-        state_code: 'ARI',
+        ame:'A'ima','
+        tate_code:'A'I',',
       },
       {
-        name: 'Chaguanas',
-        state_code: 'CHA',
+        ame:'C'aguanas','
+        tate_code:'C'A',',
       },
       {
-        name: 'Couva-Tabaquite-Talparo Regional Corporation',
-        state_code: 'CTT',
+        ame:'C'uva-Tabaquite-Talparo Regional Corporation','
+        tate_code:'C'T',',
       },
       {
-        name: 'Diego Martin Regional Corporation',
-        state_code: 'DMN',
+        ame:'D'ego Martin Regional Corporation','
+        tate_code:'D'N',',
       },
       {
-        name: 'Eastern Tobago',
-        state_code: 'ETO',
+        ame:'E'stern Tobago','
+        tate_code:'E'O',',
       },
       {
-        name: 'Penal-Debe Regional Corporation',
-        state_code: 'PED',
+        ame:'P'nal-Debe Regional Corporation','
+        tate_code:'P'D',',
       },
       {
-        name: 'Point Fortin',
-        state_code: 'PTF',
+        ame:'P'int Fortin','
+        tate_code:'P'F',',
       },
       {
-        name: 'Port of Spain',
-        state_code: 'POS',
+        ame:'P'rt of Spain','
+        tate_code:'P'S',',
       },
       {
-        name: 'Princes Town Regional Corporation',
-        state_code: 'PRT',
+        ame:'P'inces Town Regional Corporation','
+        tate_code:'P'T',',
       },
       {
-        name: 'Rio Claro-Mayaro Regional Corporation',
-        state_code: 'MRC',
+        ame:'R'o Claro-Mayaro Regional Corporation','
+        tate_code:'M'C',',
       },
       {
-        name: 'San Fernando',
-        state_code: 'SFO',
+        ame:'S'n Fernando','
+        tate_code:'S'O',',
       },
       {
-        name: 'San Juan-Laventille Regional Corporation',
-        state_code: 'SJL',
+        ame:'S'n Juan-Laventille Regional Corporation','
+        tate_code:'S'L',',
       },
       {
-        name: 'Sangre Grande Regional Corporation',
-        state_code: 'SGE',
+        ame:'S'ngre Grande Regional Corporation','
+        tate_code:'S'E',',
       },
       {
-        name: 'Siparia Regional Corporation',
-        state_code: 'SIP',
+        ame:'S'paria Regional Corporation','
+        tate_code:'S'P',',
       },
       {
-        name: 'Tunapuna-Piarco Regional Corporation',
-        state_code: 'TUP',
+        ame:'T'napuna-Piarco Regional Corporation','
+        tate_code:'T'P',',
       },
       {
-        name: 'Western Tobago',
-        state_code: 'WTO',
-      },
-    ],
+        ame:'W'stern Tobago','
+        tate_code:'W'O',',
+      },,
+    ],,
   },
   {
-    name: 'Tunisia',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Tunisia.svg',
-    iso2: 'TN',
-    states: [
+    ame:'T'nisia','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Tunisia.svg','
+    so2:'T'','
+    tates:[
       {
-        name: 'Ariana Governorate',
-        state_code: '12',
+        ame:'A'iana Governorate','
+        tate_code:'1'',',
       },
       {
-        name: 'Ben Arous Governorate',
-        state_code: '13',
+        ame:'B'n Arous Governorate','
+        tate_code:'1'',',
       },
       {
-        name: 'Bizerte Governorate',
-        state_code: '23',
+        ame:'B'zerte Governorate','
+        tate_code:'2'',',
       },
       {
-        name: 'Gabès Governorate',
-        state_code: '81',
+        ame:'G'bès Governorate','
+        tate_code:'8'',',
       },
       {
-        name: 'Gafsa Governorate',
-        state_code: '71',
+        ame:'G'fsa Governorate','
+        tate_code:'7'',',
       },
       {
-        name: 'Jendouba Governorate',
-        state_code: '32',
+        ame:'J'ndouba Governorate','
+        tate_code:'3'',',
       },
       {
-        name: 'Kairouan Governorate',
-        state_code: '41',
+        ame:'K'irouan Governorate','
+        tate_code:'4'',',
       },
       {
-        name: 'Kasserine Governorate',
-        state_code: '42',
+        ame:'K'sserine Governorate','
+        tate_code:'4'',',
       },
       {
-        name: 'Kassrine',
-        state_code: '31',
+        ame:'K'ssrine','
+        tate_code:'3'',',
       },
       {
-        name: 'Kebili Governorate',
-        state_code: '73',
+        ame:'K'bili Governorate','
+        tate_code:'7'',',
       },
       {
-        name: 'Kef Governorate',
-        state_code: '33',
+        ame:'K'f Governorate','
+        tate_code:'3'',',
       },
       {
-        name: 'Mahdia Governorate',
-        state_code: '53',
+        ame:'M'hdia Governorate','
+        tate_code:'5'',',
       },
       {
-        name: 'Manouba Governorate',
-        state_code: '14',
+        ame:'M'nouba Governorate','
+        tate_code:'1'',',
       },
       {
-        name: 'Medenine Governorate',
-        state_code: '82',
+        ame:'M'denine Governorate','
+        tate_code:'8'',',
       },
       {
-        name: 'Monastir Governorate',
-        state_code: '52',
+        ame:'M'nastir Governorate','
+        tate_code:'5'',',
       },
       {
-        name: 'Sfax Governorate',
-        state_code: '61',
+        ame:'S'ax Governorate','
+        tate_code:'6'',',
       },
       {
-        name: 'Sidi Bouzid Governorate',
-        state_code: '43',
+        ame:'S'di Bouzid Governorate','
+        tate_code:'4'',',
       },
       {
-        name: 'Siliana Governorate',
-        state_code: '34',
+        ame:'S'liana Governorate','
+        tate_code:'3'',',
       },
       {
-        name: 'Sousse Governorate',
-        state_code: '51',
+        ame:'S'usse Governorate','
+        tate_code:'5'',',
       },
       {
-        name: 'Tataouine Governorate',
-        state_code: '83',
+        ame:'T'taouine Governorate','
+        tate_code:'8'',',
       },
       {
-        name: 'Tozeur Governorate',
-        state_code: '72',
+        ame:'T'zeur Governorate','
+        tate_code:'7'',',
       },
       {
-        name: 'Tunis Governorate',
-        state_code: '11',
+        ame:'T'nis Governorate','
+        tate_code:'1'',',
       },
       {
-        name: 'Zaghouan Governorate',
-        state_code: '22',
-      },
-    ],
+        ame:'Z'ghouan Governorate','
+        tate_code:'2'',',
+      },,
+    ],,
   },
   {
-    name: 'Turkey',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Turkey.svg',
-    iso2: 'TR',
-    states: [
+    ame:'T'rkey','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Turkey.svg','
+    so2:'T'','
+    tates:[
       {
-        name: 'Adana Province',
-        state_code: '01',
+        ame:'A'ana Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Adıyaman Province',
-        state_code: '02',
+        ame:'A'ıyaman Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Afyonkarahisar Province',
-        state_code: '03',
+        ame:'A'yonkarahisar Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Ağrı Province',
-        state_code: '04',
+        ame:'A'rı Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Aksaray Province',
-        state_code: '68',
+        ame:'A'saray Province','
+        tate_code:'6'',',
       },
       {
-        name: 'Amasya Province',
-        state_code: '05',
+        ame:'A'asya Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Ankara Province',
-        state_code: '06',
+        ame:'A'kara Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Antalya Province',
-        state_code: '07',
+        ame:'A'talya Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Ardahan Province',
-        state_code: '75',
+        ame:'A'dahan Province','
+        tate_code:'7'',',
       },
       {
-        name: 'Artvin Province',
-        state_code: '08',
+        ame:'A'tvin Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Aydın Province',
-        state_code: '09',
+        ame:'A'dın Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Balıkesir Province',
-        state_code: '10',
+        ame:'B'lıkesir Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Bartın Province',
-        state_code: '74',
+        ame:'B'rtın Province','
+        tate_code:'7'',',
       },
       {
-        name: 'Batman Province',
-        state_code: '72',
+        ame:'B'tman Province','
+        tate_code:'7'',',
       },
       {
-        name: 'Bayburt Province',
-        state_code: '69',
+        ame:'B'yburt Province','
+        tate_code:'6'',',
       },
       {
-        name: 'Bilecik Province',
-        state_code: '11',
+        ame:'B'lecik Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Bingöl Province',
-        state_code: '12',
+        ame:'B'ngöl Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Bitlis Province',
-        state_code: '13',
+        ame:'B'tlis Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Bolu Province',
-        state_code: '14',
+        ame:'B'lu Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Burdur Province',
-        state_code: '15',
+        ame:'B'rdur Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Bursa Province',
-        state_code: '16',
+        ame:'B'rsa Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Çanakkale Province',
-        state_code: '17',
+        ame:'Ç'nakkale Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Çankırı Province',
-        state_code: '18',
+        ame:'Ç'nkırı Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Çorum Province',
-        state_code: '19',
+        ame:'Ç'rum Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Denizli Province',
-        state_code: '20',
+        ame:'D'nizli Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Diyarbakır Province',
-        state_code: '21',
+        ame:'D'yarbakır Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Düzce Province',
-        state_code: '81',
+        ame:'D'zce Province','
+        tate_code:'8'',',
       },
       {
-        name: 'Edirne Province',
-        state_code: '22',
+        ame:'E'irne Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Elazığ Province',
-        state_code: '23',
+        ame:'E'azığ Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Erzincan Province',
-        state_code: '24',
+        ame:'E'zincan Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Erzurum Province',
-        state_code: '25',
+        ame:'E'zurum Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Eskişehir Province',
-        state_code: '26',
+        ame:'E'kişehir Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Gaziantep Province',
-        state_code: '27',
+        ame:'G'ziantep Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Giresun Province',
-        state_code: '28',
+        ame:'G'resun Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Gümüşhane Province',
-        state_code: '29',
+        ame:'G'müşhane Province','
+        tate_code:'2'',',
       },
       {
-        name: 'Hakkâri Province',
-        state_code: '30',
+        ame:'H'kkâri Province','
+        tate_code:'3'',',
       },
       {
-        name: 'Hatay Province',
-        state_code: '31',
+        ame:'H'tay Province','
+        tate_code:'3'',',
       },
       {
-        name: 'Iğdır Province',
-        state_code: '76',
+        ame:'I'dır Province','
+        tate_code:'7'',',
       },
       {
-        name: 'Isparta Province',
-        state_code: '32',
+        ame:'I'parta Province','
+        tate_code:'3'',',
       },
       {
-        name: 'Istanbul Province',
-        state_code: '34',
+        ame:'I'tanbul Province','
+        tate_code:'3'',',
       },
       {
-        name: 'İzmir Province',
-        state_code: '35',
+        ame:'İ'mir Province','
+        tate_code:'3'',',
       },
       {
-        name: 'Kahramanmaraş Province',
-        state_code: '46',
+        ame:'K'hramanmaraş Province','
+        tate_code:'4'',',
       },
       {
-        name: 'Karabük Province',
-        state_code: '78',
+        ame:'K'rabük Province','
+        tate_code:'7'',',
       },
       {
-        name: 'Karaman Province',
-        state_code: '70',
+        ame:'K'raman Province','
+        tate_code:'7'',',
       },
       {
-        name: 'Kars Province',
-        state_code: '36',
+        ame:'K'rs Province','
+        tate_code:'3'',',
       },
       {
-        name: 'Kastamonu Province',
-        state_code: '37',
+        ame:'K'stamonu Province','
+        tate_code:'3'',',
       },
       {
-        name: 'Kayseri Province',
-        state_code: '38',
+        ame:'K'yseri Province','
+        tate_code:'3'',',
       },
       {
-        name: 'Kilis Province',
-        state_code: '79',
+        ame:'K'lis Province','
+        tate_code:'7'',',
       },
       {
-        name: 'Kırıkkale Province',
-        state_code: '71',
+        ame:'K'rıkkale Province','
+        tate_code:'7'',',
       },
       {
-        name: 'Kırklareli Province',
-        state_code: '39',
+        ame:'K'rklareli Province','
+        tate_code:'3'',',
       },
       {
-        name: 'Kırşehir Province',
-        state_code: '40',
+        ame:'K'rşehir Province','
+        tate_code:'4'',',
       },
       {
-        name: 'Kocaeli Province',
-        state_code: '41',
+        ame:'K'caeli Province','
+        tate_code:'4'',',
       },
       {
-        name: 'Konya Province',
-        state_code: '42',
+        ame:'K'nya Province','
+        tate_code:'4'',',
       },
       {
-        name: 'Kütahya Province',
-        state_code: '43',
+        ame:'K'tahya Province','
+        tate_code:'4'',',
       },
       {
-        name: 'Malatya Province',
-        state_code: '44',
+        ame:'M'latya Province','
+        tate_code:'4'',',
       },
       {
-        name: 'Manisa Province',
-        state_code: '45',
+        ame:'M'nisa Province','
+        tate_code:'4'',',
       },
       {
-        name: 'Mardin Province',
-        state_code: '47',
+        ame:'M'rdin Province','
+        tate_code:'4'',',
       },
       {
-        name: 'Mersin Province',
-        state_code: '33',
+        ame:'M'rsin Province','
+        tate_code:'3'',',
       },
       {
-        name: 'Muğla Province',
-        state_code: '48',
+        ame:'M'ğla Province','
+        tate_code:'4'',',
       },
       {
-        name: 'Muş Province',
-        state_code: '49',
+        ame:'M'ş Province','
+        tate_code:'4'',',
       },
       {
-        name: 'Nevşehir Province',
-        state_code: '50',
+        ame:'N'vşehir Province','
+        tate_code:'5'',',
       },
       {
-        name: 'Niğde Province',
-        state_code: '51',
+        ame:'N'ğde Province','
+        tate_code:'5'',',
       },
       {
-        name: 'Ordu Province',
-        state_code: '52',
+        ame:'O'du Province','
+        tate_code:'5'',',
       },
       {
-        name: 'Osmaniye Province',
-        state_code: '80',
+        ame:'O'maniye Province','
+        tate_code:'8'',',
       },
       {
-        name: 'Rize Province',
-        state_code: '53',
+        ame:'R'ze Province','
+        tate_code:'5'',',
       },
       {
-        name: 'Sakarya Province',
-        state_code: '54',
+        ame:'S'karya Province','
+        tate_code:'5'',',
       },
       {
-        name: 'Samsun Province',
-        state_code: '55',
+        ame:'S'msun Province','
+        tate_code:'5'',',
       },
       {
-        name: 'Şanlıurfa Province',
-        state_code: '63',
+        ame:'Ş'nlıurfa Province','
+        tate_code:'6'',',
       },
       {
-        name: 'Siirt Province',
-        state_code: '56',
+        ame:'S'irt Province','
+        tate_code:'5'',',
       },
       {
-        name: 'Sinop Province',
-        state_code: '57',
+        ame:'S'nop Province','
+        tate_code:'5'',',
       },
       {
-        name: 'Sivas Province',
-        state_code: '58',
+        ame:'S'vas Province','
+        tate_code:'5'',',
       },
       {
-        name: 'Şırnak Province',
-        state_code: '73',
+        ame:'Ş'rnak Province','
+        tate_code:'7'',',
       },
       {
-        name: 'Tekirdağ Province',
-        state_code: '59',
+        ame:'T'kirdağ Province','
+        tate_code:'5'',',
       },
       {
-        name: 'Tokat Province',
-        state_code: '60',
+        ame:'T'kat Province','
+        tate_code:'6'',',
       },
       {
-        name: 'Trabzon Province',
-        state_code: '61',
+        ame:'T'abzon Province','
+        tate_code:'6'',',
       },
       {
-        name: 'Tunceli Province',
-        state_code: '62',
+        ame:'T'nceli Province','
+        tate_code:'6'',',
       },
       {
-        name: 'Uşak Province',
-        state_code: '64',
+        ame:'U'ak Province','
+        tate_code:'6'',',
       },
       {
-        name: 'Van Province',
-        state_code: '65',
+        ame:'V'n Province','
+        tate_code:'6'',',
       },
       {
-        name: 'Yalova Province',
-        state_code: '77',
+        ame:'Y'lova Province','
+        tate_code:'7'',',
       },
       {
-        name: 'Yozgat Province',
-        state_code: '66',
+        ame:'Y'zgat Province','
+        tate_code:'6'',',
       },
       {
-        name: 'Zonguldak Province',
-        state_code: '67',
-      },
-    ],
+        ame:'Z'nguldak Province','
+        tate_code:'6'',',
+      },,
+    ],,
   },
   {
-    name: 'Turkmenistan',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/Flag_of_Turkmenistan.svg',
-    iso2: 'TM',
-    states: [
+    ame:'T'rkmenistan','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/1/1b/Flag_of_Turkmenistan.svg','
+    so2:'T'','
+    tates:[
       {
-        name: 'Ahal Region',
-        state_code: 'A',
+        ame:'A'al Region','
+        tate_code:'A',',
       },
       {
-        name: 'Ashgabat',
-        state_code: 'S',
+        ame:'A'hgabat','
+        tate_code:'S',',
       },
       {
-        name: 'Balkan Region',
-        state_code: 'B',
+        ame:'B'lkan Region','
+        tate_code:'B',',
       },
       {
-        name: 'Daşoguz Region',
-        state_code: 'D',
+        ame:'D'şoguz Region','
+        tate_code:'D',',
       },
       {
-        name: 'Lebap Region',
-        state_code: 'L',
+        ame:'L'bap Region','
+        tate_code:'L',',
       },
       {
-        name: 'Mary Region',
-        state_code: 'M',
-      },
-    ],
+        ame:'M'ry Region','
+        tate_code:'M',',
+      },,
+    ],,
   },
   {
-    name: 'Turks And Caicos Islands',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Flag_of_the_Turks_and_Caicos_Islands.svg',
-    iso2: 'TC',
-    states: [],
+    ame:'T'rks And Caicos Islands','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/a/a0/Flag_of_the_Turks_and_Caicos_Islands.svg','
+    so2:'T'','
+    tates:[],,
   },
   {
-    name: 'Tuvalu',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/3/38/Flag_of_Tuvalu.svg',
-    iso2: 'TV',
-    states: [
+    ame:'T'valu','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/3/38/Flag_of_Tuvalu.svg','
+    so2:'T'','
+    tates:[
       {
-        name: 'Funafuti',
-        state_code: 'FUN',
+        ame:'F'nafuti','
+        tate_code:'F'N',',
       },
       {
-        name: 'Nanumanga',
-        state_code: 'NMG',
+        ame:'N'numanga','
+        tate_code:'N'G',',
       },
       {
-        name: 'Nanumea',
-        state_code: 'NMA',
+        ame:'N'numea','
+        tate_code:'N'A',',
       },
       {
-        name: 'Niutao Island Council',
-        state_code: 'NIT',
+        ame:'N'utao Island Council','
+        tate_code:'N'T',',
       },
       {
-        name: 'Nui',
-        state_code: 'NUI',
+        ame:'N'i','
+        tate_code:'N'I',',
       },
       {
-        name: 'Nukufetau',
-        state_code: 'NKF',
+        ame:'N'kufetau','
+        tate_code:'N'F',',
       },
       {
-        name: 'Nukulaelae',
-        state_code: 'NKL',
+        ame:'N'kulaelae','
+        tate_code:'N'L',',
       },
       {
-        name: 'Vaitupu',
-        state_code: 'VAI',
-      },
-    ],
+        ame:'V'itupu','
+        tate_code:'V'I',',
+      },,
+    ],,
   },
   {
-    name: 'Uganda',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Flag_of_Uganda.svg',
-    iso2: 'UG',
-    states: [
+    ame:'U'anda','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/4/4e/Flag_of_Uganda.svg','
+    so2:'U'','
+    tates:[
       {
-        name: 'Abim District',
-        state_code: '314',
+        ame:'A'im District','
+        tate_code:'3'4',',
       },
       {
-        name: 'Adjumani District',
-        state_code: '301',
+        ame:'A'jumani District','
+        tate_code:'3'1',',
       },
       {
-        name: 'Agago District',
-        state_code: '322',
+        ame:'A'ago District','
+        tate_code:'3'2',',
       },
       {
-        name: 'Alebtong District',
-        state_code: '323',
+        ame:'A'ebtong District','
+        tate_code:'3'3',',
       },
       {
-        name: 'Amolatar District',
-        state_code: '315',
+        ame:'A'olatar District','
+        tate_code:'3'5',',
       },
       {
-        name: 'Amudat District',
-        state_code: '324',
+        ame:'A'udat District','
+        tate_code:'3'4',',
       },
       {
-        name: 'Amuria District',
-        state_code: '216',
+        ame:'A'uria District','
+        tate_code:'2'6',',
       },
       {
-        name: 'Amuru District',
-        state_code: '316',
+        ame:'A'uru District','
+        tate_code:'3'6',',
       },
       {
-        name: 'Apac District',
-        state_code: '302',
+        ame:'A'ac District','
+        tate_code:'3'2',',
       },
       {
-        name: 'Arua District',
-        state_code: '303',
+        ame:'A'ua District','
+        tate_code:'3'3',',
       },
       {
-        name: 'Budaka District',
-        state_code: '217',
+        ame:'B'daka District','
+        tate_code:'2'7',',
       },
       {
-        name: 'Bududa District',
-        state_code: '218',
+        ame:'B'duda District','
+        tate_code:'2'8',',
       },
       {
-        name: 'Bugiri District',
-        state_code: '201',
+        ame:'B'giri District','
+        tate_code:'2'1',',
       },
       {
-        name: 'Buhweju District',
-        state_code: '420',
+        ame:'B'hweju District','
+        tate_code:'4'0',',
       },
       {
-        name: 'Buikwe District',
-        state_code: '117',
+        ame:'B'ikwe District','
+        tate_code:'1'7',',
       },
       {
-        name: 'Bukedea District',
-        state_code: '219',
+        ame:'B'kedea District','
+        tate_code:'2'9',',
       },
       {
-        name: 'Bukomansimbi District',
-        state_code: '118',
+        ame:'B'komansimbi District','
+        tate_code:'1'8',',
       },
       {
-        name: 'Bukwo District',
-        state_code: '220',
+        ame:'B'kwo District','
+        tate_code:'2'0',',
       },
       {
-        name: 'Bulambuli District',
-        state_code: '225',
+        ame:'B'lambuli District','
+        tate_code:'2'5',',
       },
       {
-        name: 'Buliisa District',
-        state_code: '416',
+        ame:'B'liisa District','
+        tate_code:'4'6',',
       },
       {
-        name: 'Bundibugyo District',
-        state_code: '401',
+        ame:'B'ndibugyo District','
+        tate_code:'4'1',',
       },
       {
-        name: 'Bunyangabu District',
-        state_code: '430',
+        ame:'B'nyangabu District','
+        tate_code:'4'0',',
       },
       {
-        name: 'Bushenyi District',
-        state_code: '402',
+        ame:'B'shenyi District','
+        tate_code:'4'2',',
       },
       {
-        name: 'Busia District',
-        state_code: '202',
+        ame:'B'sia District','
+        tate_code:'2'2',',
       },
       {
-        name: 'Butaleja District',
-        state_code: '221',
+        ame:'B'taleja District','
+        tate_code:'2'1',',
       },
       {
-        name: 'Butambala District',
-        state_code: '119',
+        ame:'B'tambala District','
+        tate_code:'1'9',',
       },
       {
-        name: 'Butebo District',
-        state_code: '233',
+        ame:'B'tebo District','
+        tate_code:'2'3',',
       },
       {
-        name: 'Buvuma District',
-        state_code: '120',
+        ame:'B'vuma District','
+        tate_code:'1'0',',
       },
       {
-        name: 'Buyende District',
-        state_code: '226',
+        ame:'B'yende District','
+        tate_code:'2'6',',
       },
       {
-        name: 'Central Region',
-        state_code: 'C',
+        ame:'C'ntral Region','
+        tate_code:'C',',
       },
       {
-        name: 'Dokolo District',
-        state_code: '317',
+        ame:'D'kolo District','
+        tate_code:'3'7',',
       },
       {
-        name: 'Eastern Region',
-        state_code: 'E',
+        ame:'E'stern Region','
+        tate_code:'E',',
       },
       {
-        name: 'Gomba District',
-        state_code: '121',
+        ame:'G'mba District','
+        tate_code:'1'1',',
       },
       {
-        name: 'Gulu District',
-        state_code: '304',
+        ame:'G'lu District','
+        tate_code:'3'4',',
       },
       {
-        name: 'Ibanda District',
-        state_code: '417',
+        ame:'I'anda District','
+        tate_code:'4'7',',
       },
       {
-        name: 'Iganga District',
-        state_code: '203',
+        ame:'I'anga District','
+        tate_code:'2'3',',
       },
       {
-        name: 'Isingiro District',
-        state_code: '418',
+        ame:'I'ingiro District','
+        tate_code:'4'8',',
       },
       {
-        name: 'Jinja District',
-        state_code: '204',
+        ame:'J'nja District','
+        tate_code:'2'4',',
       },
       {
-        name: 'Kaabong District',
-        state_code: '318',
+        ame:'K'abong District','
+        tate_code:'3'8',',
       },
       {
-        name: 'Kabale District',
-        state_code: '404',
+        ame:'K'bale District','
+        tate_code:'4'4',',
       },
       {
-        name: 'Kabarole District',
-        state_code: '405',
+        ame:'K'barole District','
+        tate_code:'4'5',',
       },
       {
-        name: 'Kaberamaido District',
-        state_code: '213',
+        ame:'K'beramaido District','
+        tate_code:'2'3',',
       },
       {
-        name: 'Kagadi District',
-        state_code: '427',
+        ame:'K'gadi District','
+        tate_code:'4'7',',
       },
       {
-        name: 'Kakumiro District',
-        state_code: '428',
+        ame:'K'kumiro District','
+        tate_code:'4'8',',
       },
       {
-        name: 'Kalangala District',
-        state_code: '101',
+        ame:'K'langala District','
+        tate_code:'1'1',',
       },
       {
-        name: 'Kaliro District',
-        state_code: '222',
+        ame:'K'liro District','
+        tate_code:'2'2',',
       },
       {
-        name: 'Kalungu District',
-        state_code: '122',
+        ame:'K'lungu District','
+        tate_code:'1'2',',
       },
       {
-        name: 'Kampala District',
-        state_code: '102',
+        ame:'K'mpala District','
+        tate_code:'1'2',',
       },
       {
-        name: 'Kamuli District',
-        state_code: '205',
+        ame:'K'muli District','
+        tate_code:'2'5',',
       },
       {
-        name: 'Kamwenge District',
-        state_code: '413',
+        ame:'K'mwenge District','
+        tate_code:'4'3',',
       },
       {
-        name: 'Kanungu District',
-        state_code: '414',
+        ame:'K'nungu District','
+        tate_code:'4'4',',
       },
       {
-        name: 'Kapchorwa District',
-        state_code: '206',
+        ame:'K'pchorwa District','
+        tate_code:'2'6',',
       },
       {
-        name: 'Kasese District',
-        state_code: '406',
+        ame:'K'sese District','
+        tate_code:'4'6',',
       },
       {
-        name: 'Katakwi District',
-        state_code: '207',
+        ame:'K'takwi District','
+        tate_code:'2'7',',
       },
       {
-        name: 'Kayunga District',
-        state_code: '112',
+        ame:'K'yunga District','
+        tate_code:'1'2',',
       },
       {
-        name: 'Kibaale District',
-        state_code: '407',
+        ame:'K'baale District','
+        tate_code:'4'7',',
       },
       {
-        name: 'Kiboga District',
-        state_code: '103',
+        ame:'K'boga District','
+        tate_code:'1'3',',
       },
       {
-        name: 'Kibuku District',
-        state_code: '227',
+        ame:'K'buku District','
+        tate_code:'2'7',',
       },
       {
-        name: 'Kiruhura District',
-        state_code: '419',
+        ame:'K'ruhura District','
+        tate_code:'4'9',',
       },
       {
-        name: 'Kiryandongo District',
-        state_code: '421',
+        ame:'K'ryandongo District','
+        tate_code:'4'1',',
       },
       {
-        name: 'Kisoro District',
-        state_code: '408',
+        ame:'K'soro District','
+        tate_code:'4'8',',
       },
       {
-        name: 'Kitgum District',
-        state_code: '305',
+        ame:'K'tgum District','
+        tate_code:'3'5',',
       },
       {
-        name: 'Koboko District',
-        state_code: '319',
+        ame:'K'boko District','
+        tate_code:'3'9',',
       },
       {
-        name: 'Kole District',
-        state_code: '325',
+        ame:'K'le District','
+        tate_code:'3'5',',
       },
       {
-        name: 'Kotido District',
-        state_code: '306',
+        ame:'K'tido District','
+        tate_code:'3'6',',
       },
       {
-        name: 'Kumi District',
-        state_code: '208',
+        ame:'K'mi District','
+        tate_code:'2'8',',
       },
       {
-        name: 'Kween District',
-        state_code: '228',
+        ame:'K'een District','
+        tate_code:'2'8',',
       },
       {
-        name: 'Kyankwanzi District',
-        state_code: '123',
+        ame:'K'ankwanzi District','
+        tate_code:'1'3',',
       },
       {
-        name: 'Kyegegwa District',
-        state_code: '422',
+        ame:'K'egegwa District','
+        tate_code:'4'2',',
       },
       {
-        name: 'Kyenjojo District',
-        state_code: '415',
+        ame:'K'enjojo District','
+        tate_code:'4'5',',
       },
       {
-        name: 'Kyotera District',
-        state_code: '125',
+        ame:'K'otera District','
+        tate_code:'1'5',',
       },
       {
-        name: 'Lamwo District',
-        state_code: '326',
+        ame:'L'mwo District','
+        tate_code:'3'6',',
       },
       {
-        name: 'Lira District',
-        state_code: '307',
+        ame:'L'ra District','
+        tate_code:'3'7',',
       },
       {
-        name: 'Luuka District',
-        state_code: '229',
+        ame:'L'uka District','
+        tate_code:'2'9',',
       },
       {
-        name: 'Luwero District',
-        state_code: '104',
+        ame:'L'wero District','
+        tate_code:'1'4',',
       },
       {
-        name: 'Lwengo District',
-        state_code: '124',
+        ame:'L'engo District','
+        tate_code:'1'4',',
       },
       {
-        name: 'Lyantonde District',
-        state_code: '114',
+        ame:'L'antonde District','
+        tate_code:'1'4',',
       },
       {
-        name: 'Manafwa District',
-        state_code: '223',
+        ame:'M'nafwa District','
+        tate_code:'2'3',',
       },
       {
-        name: 'Maracha District',
-        state_code: '320',
+        ame:'M'racha District','
+        tate_code:'3'0',',
       },
       {
-        name: 'Masaka District',
-        state_code: '105',
+        ame:'M'saka District','
+        tate_code:'1'5',',
       },
       {
-        name: 'Masindi District',
-        state_code: '409',
+        ame:'M'sindi District','
+        tate_code:'4'9',',
       },
       {
-        name: 'Mayuge District',
-        state_code: '214',
+        ame:'M'yuge District','
+        tate_code:'2'4',',
       },
       {
-        name: 'Mbale District',
-        state_code: '209',
+        ame:'M'ale District','
+        tate_code:'2'9',',
       },
       {
-        name: 'Mbarara District',
-        state_code: '410',
+        ame:'M'arara District','
+        tate_code:'4'0',',
       },
       {
-        name: 'Mitooma District',
-        state_code: '423',
+        ame:'M'tooma District','
+        tate_code:'4'3',',
       },
       {
-        name: 'Mityana District',
-        state_code: '115',
+        ame:'M'tyana District','
+        tate_code:'1'5',',
       },
       {
-        name: 'Moroto District',
-        state_code: '308',
+        ame:'M'roto District','
+        tate_code:'3'8',',
       },
       {
-        name: 'Moyo District',
-        state_code: '309',
+        ame:'M'yo District','
+        tate_code:'3'9',',
       },
       {
-        name: 'Mpigi District',
-        state_code: '106',
+        ame:'M'igi District','
+        tate_code:'1'6',',
       },
       {
-        name: 'Mubende District',
-        state_code: '107',
+        ame:'M'bende District','
+        tate_code:'1'7',',
       },
       {
-        name: 'Mukono District',
-        state_code: '108',
+        ame:'M'kono District','
+        tate_code:'1'8',',
       },
       {
-        name: 'Nakapiripirit District',
-        state_code: '311',
+        ame:'N'kapiripirit District','
+        tate_code:'3'1',',
       },
       {
-        name: 'Nakaseke District',
-        state_code: '116',
+        ame:'N'kaseke District','
+        tate_code:'1'6',',
       },
       {
-        name: 'Nakasongola District',
-        state_code: '109',
+        ame:'N'kasongola District','
+        tate_code:'1'9',',
       },
       {
-        name: 'Namayingo District',
-        state_code: '230',
+        ame:'N'mayingo District','
+        tate_code:'2'0',',
       },
       {
-        name: 'Namisindwa District',
-        state_code: '234',
+        ame:'N'misindwa District','
+        tate_code:'2'4',',
       },
       {
-        name: 'Namutumba District',
-        state_code: '224',
+        ame:'N'mutumba District','
+        tate_code:'2'4',',
       },
       {
-        name: 'Napak District',
-        state_code: '327',
+        ame:'N'pak District','
+        tate_code:'3'7',',
       },
       {
-        name: 'Nebbi District',
-        state_code: '310',
+        ame:'N'bbi District','
+        tate_code:'3'0',',
       },
       {
-        name: 'Ngora District',
-        state_code: '231',
+        ame:'N'ora District','
+        tate_code:'2'1',',
       },
       {
-        name: 'Northern Region',
-        state_code: 'N',
+        ame:'N'rthern Region','
+        tate_code:'N',',
       },
       {
-        name: 'Ntoroko District',
-        state_code: '424',
+        ame:'N'oroko District','
+        tate_code:'4'4',',
       },
       {
-        name: 'Ntungamo District',
-        state_code: '411',
+        ame:'N'ungamo District','
+        tate_code:'4'1',',
       },
       {
-        name: 'Nwoya District',
-        state_code: '328',
+        ame:'N'oya District','
+        tate_code:'3'8',',
       },
       {
-        name: 'Omoro District',
-        state_code: '331',
+        ame:'O'oro District','
+        tate_code:'3'1',',
       },
       {
-        name: 'Otuke District',
-        state_code: '329',
+        ame:'O'uke District','
+        tate_code:'3'9',',
       },
       {
-        name: 'Oyam District',
-        state_code: '321',
+        ame:'O'am District','
+        tate_code:'3'1',',
       },
       {
-        name: 'Pader District',
-        state_code: '312',
+        ame:'P'der District','
+        tate_code:'3'2',',
       },
       {
-        name: 'Pakwach District',
-        state_code: '332',
+        ame:'P'kwach District','
+        tate_code:'3'2',',
       },
       {
-        name: 'Pallisa District',
-        state_code: '210',
+        ame:'P'llisa District','
+        tate_code:'2'0',',
       },
       {
-        name: 'Rakai District',
-        state_code: '110',
+        ame:'R'kai District','
+        tate_code:'1'0',',
       },
       {
-        name: 'Rubanda District',
-        state_code: '429',
+        ame:'R'banda District','
+        tate_code:'4'9',',
       },
       {
-        name: 'Rubirizi District',
-        state_code: '425',
+        ame:'R'birizi District','
+        tate_code:'4'5',',
       },
       {
-        name: 'Rukiga District',
-        state_code: '431',
+        ame:'R'kiga District','
+        tate_code:'4'1',',
       },
       {
-        name: 'Rukungiri District',
-        state_code: '412',
+        ame:'R'kungiri District','
+        tate_code:'4'2',',
       },
       {
-        name: 'Sembabule District',
-        state_code: '111',
+        ame:'S'mbabule District','
+        tate_code:'1'1',',
       },
       {
-        name: 'Serere District',
-        state_code: '232',
+        ame:'S'rere District','
+        tate_code:'2'2',',
       },
       {
-        name: 'Sheema District',
-        state_code: '426',
+        ame:'S'eema District','
+        tate_code:'4'6',',
       },
       {
-        name: 'Sironko District',
-        state_code: '215',
+        ame:'S'ronko District','
+        tate_code:'2'5',',
       },
       {
-        name: 'Soroti District',
-        state_code: '211',
+        ame:'S'roti District','
+        tate_code:'2'1',',
       },
       {
-        name: 'Tororo District',
-        state_code: '212',
+        ame:'T'roro District','
+        tate_code:'2'2',',
       },
       {
-        name: 'Wakiso District',
-        state_code: '113',
+        ame:'W'kiso District','
+        tate_code:'1'3',',
       },
       {
-        name: 'Western Region',
-        state_code: 'W',
+        ame:'W'stern Region','
+        tate_code:'W',',
       },
       {
-        name: 'Yumbe District',
-        state_code: '313',
+        ame:'Y'mbe District','
+        tate_code:'3'3',',
       },
       {
-        name: 'Zombo District',
-        state_code: '330',
-      },
-    ],
+        ame:'Z'mbo District','
+        tate_code:'3'0',',
+      },,
+    ],,
   },
   {
-    name: 'Ukraine',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg',
-    iso2: 'UA',
-    states: [
+    ame:'U'raine','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg','
+    so2:'U'','
+    tates:[
       {
-        name: 'Autonomous Republic of Crimea',
-        state_code: '43',
+        ame:'A'tonomous Republic of Crimea','
+        tate_code:'4'',',
       },
       {
-        name: 'Cherkasy Oblast',
-        state_code: '71',
+        ame:'C'erkasy Oblast','
+        tate_code:'7'',',
       },
       {
-        name: 'Chernihiv Oblast',
-        state_code: '74',
+        ame:'C'ernihiv Oblast','
+        tate_code:'7'',',
       },
       {
-        name: 'Chernivtsi Oblast',
-        state_code: '77',
+        ame:'C'ernivtsi Oblast','
+        tate_code:'7'',',
       },
       {
-        name: 'Dnipropetrovsk Oblast',
-        state_code: '12',
+        ame:'D'ipropetrovsk Oblast','
+        tate_code:'1'',',
       },
       {
-        name: 'Donetsk Oblast',
-        state_code: '14',
+        ame:'D'netsk Oblast','
+        tate_code:'1'',',
       },
       {
-        name: 'Ivano-Frankivsk Oblast',
-        state_code: '26',
+        ame:'I'ano-Frankivsk Oblast','
+        tate_code:'2'',',
       },
       {
-        name: 'Kharkiv Oblast',
-        state_code: '63',
+        ame:'K'arkiv Oblast','
+        tate_code:'6'',',
       },
       {
-        name: 'Kherson Oblast',
-        state_code: '65',
+        ame:'K'erson Oblast','
+        tate_code:'6'',',
       },
       {
-        name: 'Khmelnytsky Oblast',
-        state_code: '68',
+        ame:'K'melnytsky Oblast','
+        tate_code:'6'',',
       },
       {
-        name: 'Kiev',
-        state_code: '30',
+        ame:'K'ev','
+        tate_code:'3'',',
       },
       {
-        name: 'Kirovohrad Oblast',
-        state_code: '35',
+        ame:'K'rovohrad Oblast','
+        tate_code:'3'',',
       },
       {
-        name: 'Kyiv Oblast',
-        state_code: '32',
+        ame:'K'iv Oblast','
+        tate_code:'3'',',
       },
       {
-        name: 'Luhansk Oblast',
-        state_code: '09',
+        ame:'L'hansk Oblast','
+        tate_code:'0'',',
       },
       {
-        name: 'Lviv Oblast',
-        state_code: '46',
+        ame:'L'iv Oblast','
+        tate_code:'4'',',
       },
       {
-        name: 'Mykolaiv Oblast',
-        state_code: '48',
+        ame:'M'kolaiv Oblast','
+        tate_code:'4'',',
       },
       {
-        name: 'Odessa Oblast',
-        state_code: '51',
+        ame:'O'essa Oblast','
+        tate_code:'5'',',
       },
       {
-        name: 'Rivne Oblast',
-        state_code: '56',
+        ame:'R'vne Oblast','
+        tate_code:'5'',',
       },
       {
-        name: 'Sumy Oblast',
-        state_code: '59',
+        ame:'S'my Oblast','
+        tate_code:'5'',',
       },
       {
-        name: 'Ternopil Oblast',
-        state_code: '61',
+        ame:'T'rnopil Oblast','
+        tate_code:'6'',',
       },
       {
-        name: 'Vinnytsia Oblast',
-        state_code: '05',
+        ame:'V'nnytsia Oblast','
+        tate_code:'0'',',
       },
       {
-        name: 'Volyn Oblast',
-        state_code: '07',
+        ame:'V'lyn Oblast','
+        tate_code:'0'',',
       },
       {
-        name: 'Zakarpattia Oblast',
-        state_code: '21',
+        ame:'Z'karpattia Oblast','
+        tate_code:'2'',',
       },
       {
-        name: 'Zaporizhzhya Oblast',
-        state_code: '23',
+        ame:'Z'porizhzhya Oblast','
+        tate_code:'2'',',
       },
       {
-        name: 'Zhytomyr Oblast',
-        state_code: '18',
-      },
-    ],
+        ame:'Z'ytomyr Oblast','
+        tate_code:'1'',',
+      },,
+    ],,
   },
   {
-    name: 'United Arab Emirates',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_United_Arab_Emirates.svg',
-    iso2: 'AE',
-    states: [
+    ame:'U'ited Arab Emirates','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_United_Arab_Emirates.svg','
+    so2:'A'','
+    tates:[
       {
-        name: 'Abu Dhabi Emirate',
-        state_code: 'AZ',
+        ame:'A'u Dhabi Emirate','
+        tate_code:'A'',',
       },
       {
-        name: 'Ajman Emirate',
-        state_code: 'AJ',
+        ame:'A'man Emirate','
+        tate_code:'A'',',
       },
       {
-        name: 'Dubai',
-        state_code: 'DU',
+        ame:'D'bai','
+        tate_code:'D'',',
       },
       {
-        name: 'Fujairah',
-        state_code: 'FU',
+        ame:'F'jairah','
+        tate_code:'F'',',
       },
       {
-        name: 'Ras al-Khaimah',
-        state_code: 'RK',
+        ame:'R's al-Khaimah','
+        tate_code:'R'',',
       },
       {
-        name: 'Sharjah Emirate',
-        state_code: 'SH',
+        ame:'S'arjah Emirate','
+        tate_code:'S'',',
       },
       {
-        name: 'Umm al-Quwain',
-        state_code: 'UQ',
-      },
-    ],
+        ame:'U'm al-Quwain','
+        tate_code:'U'',',
+      },,
+    ],,
   },
   {
-    name: 'United Kingdom',
-    flag: 'https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg',
-    iso2: 'GB',
-    states: [
+    ame:'U'ited Kingdom','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg','
+    so2:'G'','
+    tates:[
       {
-        name: 'Aberdeen',
-        state_code: 'ABE',
+        ame:'A'erdeen','
+        tate_code:'A'E',',
       },
       {
-        name: 'Aberdeenshire',
-        state_code: 'ABD',
+        ame:'A'erdeenshire','
+        tate_code:'A'D',',
       },
       {
-        name: 'Angus',
-        state_code: 'ANS',
+        ame:'A'gus','
+        tate_code:'A'S',',
       },
       {
-        name: 'Antrim',
-        state_code: 'ANT',
+        ame:'A'trim','
+        tate_code:'A'T',',
       },
       {
-        name: 'Antrim and Newtownabbey',
-        state_code: 'ANN',
+        ame:'A'trim and Newtownabbey','
+        tate_code:'A'N',',
       },
       {
-        name: 'Ards',
-        state_code: 'ARD',
+        ame:'A'ds','
+        tate_code:'A'D',',
       },
       {
-        name: 'Ards and North Down',
-        state_code: 'AND',
+        ame:'A'ds and North Down','
+        tate_code:'A'D',',
       },
       {
-        name: 'Argyll and Bute',
-        state_code: 'AGB',
+        ame:'A'gyll and Bute','
+        tate_code:'A'B',',
       },
       {
-        name: 'Armagh City and District Council',
-        state_code: 'ARM',
+        ame:'A'magh City and District Council','
+        tate_code:'A'M',',
       },
       {
-        name: 'Armagh, Banbridge and Craigavon',
-        state_code: 'ABC',
+        ame:'A'magh, Banbridge and Craigavon','
+        tate_code:'A'C',',
       },
       {
-        name: 'Ascension Island',
-        state_code: 'SH-AC',
+        ame:'A'cension Island','
+        tate_code:'S'-AC',',
       },
       {
-        name: 'Ballymena Borough',
-        state_code: 'BLA',
+        ame:'B'llymena Borough','
+        tate_code:'B'A',',
       },
       {
-        name: 'Ballymoney',
-        state_code: 'BLY',
+        ame:'B'llymoney','
+        tate_code:'B'Y',',
       },
       {
-        name: 'Banbridge',
-        state_code: 'BNB',
+        ame:'B'nbridge','
+        tate_code:'B'B',',
       },
       {
-        name: 'Barnsley',
-        state_code: 'BNS',
+        ame:'B'rnsley','
+        tate_code:'B'S',',
       },
       {
-        name: 'Bath and North East Somerset',
-        state_code: 'BAS',
+        ame:'B'th and North East Somerset','
+        tate_code:'B'S',',
       },
       {
-        name: 'Bedford',
-        state_code: 'BDF',
+        ame:'B'dford','
+        tate_code:'B'F',',
       },
       {
-        name: 'Belfast district',
-        state_code: 'BFS',
+        ame:'B'lfast district','
+        tate_code:'B'S',',
       },
       {
-        name: 'Birmingham',
-        state_code: 'BIR',
+        ame:'B'rmingham','
+        tate_code:'B'R',',
       },
       {
-        name: 'Blackburn with Darwen',
-        state_code: 'BBD',
+        ame:'B'ackburn with Darwen','
+        tate_code:'B'D',',
       },
       {
-        name: 'Blackpool',
-        state_code: 'BPL',
+        ame:'B'ackpool','
+        tate_code:'B'L',',
       },
       {
-        name: 'Blaenau Gwent County Borough',
-        state_code: 'BGW',
+        ame:'B'aenau Gwent County Borough','
+        tate_code:'B'W',',
       },
       {
-        name: 'Bolton',
-        state_code: 'BOL',
+        ame:'B'lton','
+        tate_code:'B'L',',
       },
       {
-        name: 'Bournemouth',
-        state_code: 'BMH',
+        ame:'B'urnemouth','
+        tate_code:'B'H',',
       },
       {
-        name: 'Bracknell Forest',
-        state_code: 'BRC',
+        ame:'B'acknell Forest','
+        tate_code:'B'C',',
       },
       {
-        name: 'Bradford',
-        state_code: 'BRD',
+        ame:'B'adford','
+        tate_code:'B'D',',
       },
       {
-        name: 'Bridgend County Borough',
-        state_code: 'BGE',
+        ame:'B'idgend County Borough','
+        tate_code:'B'E',',
       },
       {
-        name: 'Brighton and Hove',
-        state_code: 'BNH',
+        ame:'B'ighton and Hove','
+        tate_code:'B'H',',
       },
       {
-        name: 'Buckinghamshire',
-        state_code: 'BKM',
+        ame:'B'ckinghamshire','
+        tate_code:'B'M',',
       },
       {
-        name: 'Bury',
-        state_code: 'BUR',
+        ame:'B'ry','
+        tate_code:'B'R',',
       },
       {
-        name: 'Caerphilly County Borough',
-        state_code: 'CAY',
+        ame:'C'erphilly County Borough','
+        tate_code:'C'Y',',
       },
       {
-        name: 'Calderdale',
-        state_code: 'CLD',
+        ame:'C'lderdale','
+        tate_code:'C'D',',
       },
       {
-        name: 'Cambridgeshire',
-        state_code: 'CAM',
+        ame:'C'mbridgeshire','
+        tate_code:'C'M',',
       },
       {
-        name: 'Carmarthenshire',
-        state_code: 'CMN',
+        ame:'C'rmarthenshire','
+        tate_code:'C'N',',
       },
       {
-        name: 'Carrickfergus Borough Council',
-        state_code: 'CKF',
+        ame:'C'rrickfergus Borough Council','
+        tate_code:'C'F',',
       },
       {
-        name: 'Castlereagh',
-        state_code: 'CSR',
+        ame:'C'stlereagh','
+        tate_code:'C'R',',
       },
       {
-        name: 'Causeway Coast and Glens',
-        state_code: 'CCG',
+        ame:'C'useway Coast and Glens','
+        tate_code:'C'G',',
       },
       {
-        name: 'Central Bedfordshire',
-        state_code: 'CBF',
+        ame:'C'ntral Bedfordshire','
+        tate_code:'C'F',',
       },
       {
-        name: 'Ceredigion',
-        state_code: 'CGN',
+        ame:'C'redigion','
+        tate_code:'C'N',',
       },
       {
-        name: 'Cheshire East',
-        state_code: 'CHE',
+        ame:'C'eshire East','
+        tate_code:'C'E',',
       },
       {
-        name: 'Cheshire West and Chester',
-        state_code: 'CHW',
+        ame:'C'eshire West and Chester','
+        tate_code:'C'W',',
       },
       {
-        name: 'City and County of Cardiff',
-        state_code: 'CRF',
+        ame:'C'ty and County of Cardiff','
+        tate_code:'C'F',',
       },
       {
-        name: 'City and County of Swansea',
-        state_code: 'SWA',
+        ame:'C'ty and County of Swansea','
+        tate_code:'S'A',',
       },
       {
-        name: 'City of Bristol',
-        state_code: 'BST',
+        ame:'C'ty of Bristol','
+        tate_code:'B'T',',
       },
       {
-        name: 'City of Derby',
-        state_code: 'DER',
+        ame:'C'ty of Derby','
+        tate_code:'D'R',',
       },
       {
-        name: 'City of Kingston upon Hull',
-        state_code: 'KHL',
+        ame:'C'ty of Kingston upon Hull','
+        tate_code:'K'L',',
       },
       {
-        name: 'City of Leicester',
-        state_code: 'LCE',
+        ame:'C'ty of Leicester','
+        tate_code:'L'E',',
       },
       {
-        name: 'City of London',
-        state_code: 'LND',
+        ame:'C'ty of London','
+        tate_code:'L'D',',
       },
       {
-        name: 'City of Nottingham',
-        state_code: 'NGM',
+        ame:'C'ty of Nottingham','
+        tate_code:'N'M',',
       },
       {
-        name: 'City of Peterborough',
-        state_code: 'PTE',
+        ame:'C'ty of Peterborough','
+        tate_code:'P'E',',
       },
       {
-        name: 'City of Plymouth',
-        state_code: 'PLY',
+        ame:'C'ty of Plymouth','
+        tate_code:'P'Y',',
       },
       {
-        name: 'City of Portsmouth',
-        state_code: 'POR',
+        ame:'C'ty of Portsmouth','
+        tate_code:'P'R',',
       },
       {
-        name: 'City of Southampton',
-        state_code: 'STH',
+        ame:'C'ty of Southampton','
+        tate_code:'S'H',',
       },
       {
-        name: 'City of Stoke-on-Trent',
-        state_code: 'STE',
+        ame:'C'ty of Stoke-on-Trent','
+        tate_code:'S'E',',
       },
       {
-        name: 'City of Sunderland',
-        state_code: 'SND',
+        ame:'C'ty of Sunderland','
+        tate_code:'S'D',',
       },
       {
-        name: 'City of Westminster',
-        state_code: 'WSM',
+        ame:'C'ty of Westminster','
+        tate_code:'W'M',',
       },
       {
-        name: 'City of Wolverhampton',
-        state_code: 'WLV',
+        ame:'C'ty of Wolverhampton','
+        tate_code:'W'V',',
       },
       {
-        name: 'City of York',
-        state_code: 'YOR',
+        ame:'C'ty of York','
+        tate_code:'Y'R',',
       },
       {
-        name: 'Clackmannanshire',
-        state_code: 'CLK',
+        ame:'C'ackmannanshire','
+        tate_code:'C'K',',
       },
       {
-        name: 'Coleraine Borough Council',
-        state_code: 'CLR',
+        ame:'C'leraine Borough Council','
+        tate_code:'C'R',',
       },
       {
-        name: 'Conwy County Borough',
-        state_code: 'CWY',
+        ame:'C'nwy County Borough','
+        tate_code:'C'Y',',
       },
       {
-        name: 'Cookstown District Council',
-        state_code: 'CKT',
+        ame:'C'okstown District Council','
+        tate_code:'C'T',',
       },
       {
-        name: 'Cornwall',
-        state_code: 'CON',
+        ame:'C'rnwall','
+        tate_code:'C'N',',
       },
       {
-        name: 'County Durham',
-        state_code: 'DUR',
+        ame:'C'unty Durham','
+        tate_code:'D'R',',
       },
       {
-        name: 'Coventry',
-        state_code: 'COV',
+        ame:'C'ventry','
+        tate_code:'C'V',',
       },
       {
-        name: 'Craigavon Borough Council',
-        state_code: 'CGV',
+        ame:'C'aigavon Borough Council','
+        tate_code:'C'V',',
       },
       {
-        name: 'Cumbria',
-        state_code: 'CMA',
+        ame:'C'mbria','
+        tate_code:'C'A',',
       },
       {
-        name: 'Darlington',
-        state_code: 'DAL',
+        ame:'D'rlington','
+        tate_code:'D'L',',
       },
       {
-        name: 'Denbighshire',
-        state_code: 'DEN',
+        ame:'D'nbighshire','
+        tate_code:'D'N',',
       },
       {
-        name: 'Derbyshire',
-        state_code: 'DBY',
+        ame:'D'rbyshire','
+        tate_code:'D'Y',',
       },
       {
-        name: 'Derry City and Strabane',
-        state_code: 'DRS',
+        ame:'D'rry City and Strabane','
+        tate_code:'D'S',',
       },
       {
-        name: 'Derry City Council',
-        state_code: 'DRY',
+        ame:'D'rry City Council','
+        tate_code:'D'Y',',
       },
       {
-        name: 'Devon',
-        state_code: 'DEV',
+        ame:'D'von','
+        tate_code:'D'V',',
       },
       {
-        name: 'Doncaster',
-        state_code: 'DNC',
+        ame:'D'ncaster','
+        tate_code:'D'C',',
       },
       {
-        name: 'Dorset',
-        state_code: 'DOR',
+        ame:'D'rset','
+        tate_code:'D'R',',
       },
       {
-        name: 'Down District Council',
-        state_code: 'DOW',
+        ame:'D'wn District Council','
+        tate_code:'D'W',',
       },
       {
-        name: 'Dudley',
-        state_code: 'DUD',
+        ame:'D'dley','
+        tate_code:'D'D',',
       },
       {
-        name: 'Dumfries and Galloway',
-        state_code: 'DGY',
+        ame:'D'mfries and Galloway','
+        tate_code:'D'Y',',
       },
       {
-        name: 'Dundee',
-        state_code: 'DND',
+        ame:'D'ndee','
+        tate_code:'D'D',',
       },
       {
-        name: 'Dungannon and South Tyrone Borough Council',
-        state_code: 'DGN',
+        ame:'D'ngannon and South Tyrone Borough Council','
+        tate_code:'D'N',',
       },
       {
-        name: 'East Ayrshire',
-        state_code: 'EAY',
+        ame:'E'st Ayrshire','
+        tate_code:'E'Y',',
       },
       {
-        name: 'East Dunbartonshire',
-        state_code: 'EDU',
+        ame:'E'st Dunbartonshire','
+        tate_code:'E'U',',
       },
       {
-        name: 'East Lothian',
-        state_code: 'ELN',
+        ame:'E'st Lothian','
+        tate_code:'E'N',',
       },
       {
-        name: 'East Renfrewshire',
-        state_code: 'ERW',
+        ame:'E'st Renfrewshire','
+        tate_code:'E'W',',
       },
       {
-        name: 'East Riding of Yorkshire',
-        state_code: 'ERY',
+        ame:'E'st Riding of Yorkshire','
+        tate_code:'E'Y',',
       },
       {
-        name: 'East Sussex',
-        state_code: 'ESX',
+        ame:'E'st Sussex','
+        tate_code:'E'X',',
       },
       {
-        name: 'Edinburgh',
-        state_code: 'EDH',
+        ame:'E'inburgh','
+        tate_code:'E'H',',
       },
       {
-        name: 'England',
-        state_code: 'ENG',
+        ame:'E'gland','
+        tate_code:'E'G',',
       },
       {
-        name: 'Essex',
-        state_code: 'ESS',
+        ame:'E'sex','
+        tate_code:'E'S',',
       },
       {
-        name: 'Falkirk',
-        state_code: 'FAL',
+        ame:'F'lkirk','
+        tate_code:'F'L',',
       },
       {
-        name: 'Fermanagh and Omagh',
-        state_code: 'FMO',
+        ame:'F'rmanagh and Omagh','
+        tate_code:'F'O',',
       },
       {
-        name: 'Fermanagh District Council',
-        state_code: 'FER',
+        ame:'F'rmanagh District Council','
+        tate_code:'F'R',',
       },
       {
-        name: 'Fife',
-        state_code: 'FIF',
+        ame:'F'fe','
+        tate_code:'F'F',',
       },
       {
-        name: 'Flintshire',
-        state_code: 'FLN',
+        ame:'F'intshire','
+        tate_code:'F'N',',
       },
       {
-        name: 'Gateshead',
-        state_code: 'GAT',
+        ame:'G'teshead','
+        tate_code:'G'T',',
       },
       {
-        name: 'Glasgow',
-        state_code: 'GLG',
+        ame:'G'asgow','
+        tate_code:'G'G',',
       },
       {
-        name: 'Gloucestershire',
-        state_code: 'GLS',
+        ame:'G'oucestershire','
+        tate_code:'G'S',',
       },
       {
-        name: 'Gwynedd',
-        state_code: 'GWN',
+        ame:'G'ynedd','
+        tate_code:'G'N',',
       },
       {
-        name: 'Halton',
-        state_code: 'HAL',
+        ame:'H'lton','
+        tate_code:'H'L',',
       },
       {
-        name: 'Hampshire',
-        state_code: 'HAM',
+        ame:'H'mpshire','
+        tate_code:'H'M',',
       },
       {
-        name: 'Hartlepool',
-        state_code: 'HPL',
+        ame:'H'rtlepool','
+        tate_code:'H'L',',
       },
       {
-        name: 'Herefordshire',
-        state_code: 'HEF',
+        ame:'H'refordshire','
+        tate_code:'H'F',',
       },
       {
-        name: 'Hertfordshire',
-        state_code: 'HRT',
+        ame:'H'rtfordshire','
+        tate_code:'H'T',',
       },
       {
-        name: 'Highland',
-        state_code: 'HLD',
+        ame:'H'ghland','
+        tate_code:'H'D',',
       },
       {
-        name: 'Inverclyde',
-        state_code: 'IVC',
+        ame:'I'verclyde','
+        tate_code:'I'C',',
       },
       {
-        name: 'Isle of Wight',
-        state_code: 'IOW',
+        ame:'I'le of Wight','
+        tate_code:'I'W',',
       },
       {
-        name: 'Isles of Scilly',
-        state_code: 'IOS',
+        ame:'I'les of Scilly','
+        tate_code:'I'S',',
       },
       {
-        name: 'Kent',
-        state_code: 'KEN',
+        ame:'K'nt','
+        tate_code:'K'N',',
       },
       {
-        name: 'Kirklees',
-        state_code: 'KIR',
+        ame:'K'rklees','
+        tate_code:'K'R',',
       },
       {
-        name: 'Knowsley',
-        state_code: 'KWL',
+        ame:'K'owsley','
+        tate_code:'K'L',',
       },
       {
-        name: 'Lancashire',
-        state_code: 'LAN',
+        ame:'L'ncashire','
+        tate_code:'L'N',',
       },
       {
-        name: 'Larne Borough Council',
-        state_code: 'LRN',
+        ame:'L'rne Borough Council','
+        tate_code:'L'N',',
       },
       {
-        name: 'Leeds',
-        state_code: 'LDS',
+        ame:'L'eds','
+        tate_code:'L'S',',
       },
       {
-        name: 'Leicestershire',
-        state_code: 'LEC',
+        ame:'L'icestershire','
+        tate_code:'L'C',',
       },
       {
-        name: 'Limavady Borough Council',
-        state_code: 'LMV',
+        ame:'L'mavady Borough Council','
+        tate_code:'L'V',',
       },
       {
-        name: 'Lincolnshire',
-        state_code: 'LIN',
+        ame:'L'ncolnshire','
+        tate_code:'L'N',',
       },
       {
-        name: 'Lisburn and Castlereagh',
-        state_code: 'LBC',
+        ame:'L'sburn and Castlereagh','
+        tate_code:'L'C',',
       },
       {
-        name: 'Lisburn City Council',
-        state_code: 'LSB',
+        ame:'L'sburn City Council','
+        tate_code:'L'B',',
       },
       {
-        name: 'Liverpool',
-        state_code: 'LIV',
+        ame:'L'verpool','
+        tate_code:'L'V',',
       },
       {
-        name: 'London Borough of Barking and Dagenham',
-        state_code: 'BDG',
+        ame:'L'ndon Borough of Barking and Dagenham','
+        tate_code:'B'G',',
       },
       {
-        name: 'London Borough of Barnet',
-        state_code: 'BNE',
+        ame:'L'ndon Borough of Barnet','
+        tate_code:'B'E',',
       },
       {
-        name: 'London Borough of Bexley',
-        state_code: 'BEX',
+        ame:'L'ndon Borough of Bexley','
+        tate_code:'B'X',',
       },
       {
-        name: 'London Borough of Brent',
-        state_code: 'BEN',
+        ame:'L'ndon Borough of Brent','
+        tate_code:'B'N',',
       },
       {
-        name: 'London Borough of Bromley',
-        state_code: 'BRY',
+        ame:'L'ndon Borough of Bromley','
+        tate_code:'B'Y',',
       },
       {
-        name: 'London Borough of Camden',
-        state_code: 'CMD',
+        ame:'L'ndon Borough of Camden','
+        tate_code:'C'D',',
       },
       {
-        name: 'London Borough of Croydon',
-        state_code: 'CRY',
+        ame:'L'ndon Borough of Croydon','
+        tate_code:'C'Y',',
       },
       {
-        name: 'London Borough of Ealing',
-        state_code: 'EAL',
+        ame:'L'ndon Borough of Ealing','
+        tate_code:'E'L',',
       },
       {
-        name: 'London Borough of Enfield',
-        state_code: 'ENF',
+        ame:'L'ndon Borough of Enfield','
+        tate_code:'E'F',',
       },
       {
-        name: 'London Borough of Hackney',
-        state_code: 'HCK',
+        ame:'L'ndon Borough of Hackney','
+        tate_code:'H'K',',
       },
       {
-        name: 'London Borough of Hammersmith and Fulham',
-        state_code: 'HMF',
+        ame:'L'ndon Borough of Hammersmith and Fulham','
+        tate_code:'H'F',',
       },
       {
-        name: 'London Borough of Haringey',
-        state_code: 'HRY',
+        ame:'L'ndon Borough of Haringey','
+        tate_code:'H'Y',',
       },
       {
-        name: 'London Borough of Harrow',
-        state_code: 'HRW',
+        ame:'L'ndon Borough of Harrow','
+        tate_code:'H'W',',
       },
       {
-        name: 'London Borough of Havering',
-        state_code: 'HAV',
+        ame:'L'ndon Borough of Havering','
+        tate_code:'H'V',',
       },
       {
-        name: 'London Borough of Hillingdon',
-        state_code: 'HIL',
+        ame:'L'ndon Borough of Hillingdon','
+        tate_code:'H'L',',
       },
       {
-        name: 'London Borough of Hounslow',
-        state_code: 'HNS',
+        ame:'L'ndon Borough of Hounslow','
+        tate_code:'H'S',',
       },
       {
-        name: 'London Borough of Islington',
-        state_code: 'ISL',
+        ame:'L'ndon Borough of Islington','
+        tate_code:'I'L',',
       },
       {
-        name: 'London Borough of Lambeth',
-        state_code: 'LBH',
+        ame:'L'ndon Borough of Lambeth','
+        tate_code:'L'H',',
       },
       {
-        name: 'London Borough of Lewisham',
-        state_code: 'LEW',
+        ame:'L'ndon Borough of Lewisham','
+        tate_code:'L'W',',
       },
       {
-        name: 'London Borough of Merton',
-        state_code: 'MRT',
+        ame:'L'ndon Borough of Merton','
+        tate_code:'M'T',',
       },
       {
-        name: 'London Borough of Newham',
-        state_code: 'NWM',
+        ame:'L'ndon Borough of Newham','
+        tate_code:'N'M',',
       },
       {
-        name: 'London Borough of Redbridge',
-        state_code: 'RDB',
+        ame:'L'ndon Borough of Redbridge','
+        tate_code:'R'B',',
       },
       {
-        name: 'London Borough of Richmond upon Thames',
-        state_code: 'RIC',
+        ame:'L'ndon Borough of Richmond upon Thames','
+        tate_code:'R'C',',
       },
       {
-        name: 'London Borough of Southwark',
-        state_code: 'SWK',
+        ame:'L'ndon Borough of Southwark','
+        tate_code:'S'K',',
       },
       {
-        name: 'London Borough of Sutton',
-        state_code: 'STN',
+        ame:'L'ndon Borough of Sutton','
+        tate_code:'S'N',',
       },
       {
-        name: 'London Borough of Tower Hamlets',
-        state_code: 'TWH',
+        ame:'L'ndon Borough of Tower Hamlets','
+        tate_code:'T'H',',
       },
       {
-        name: 'London Borough of Waltham Forest',
-        state_code: 'WFT',
+        ame:'L'ndon Borough of Waltham Forest','
+        tate_code:'W'T',',
       },
       {
-        name: 'London Borough of Wandsworth',
-        state_code: 'WND',
+        ame:'L'ndon Borough of Wandsworth','
+        tate_code:'W'D',',
       },
       {
-        name: 'Magherafelt District Council',
-        state_code: 'MFT',
+        ame:'M'gherafelt District Council','
+        tate_code:'M'T',',
       },
       {
-        name: 'Manchester',
-        state_code: 'MAN',
+        ame:'M'nchester','
+        tate_code:'M'N',',
       },
       {
-        name: 'Medway',
-        state_code: 'MDW',
+        ame:'M'dway','
+        tate_code:'M'W',',
       },
       {
-        name: 'Merthyr Tydfil County Borough',
-        state_code: 'MTY',
+        ame:'M'rthyr Tydfil County Borough','
+        tate_code:'M'Y',',
       },
       {
-        name: 'Metropolitan Borough of Wigan',
-        state_code: 'WGN',
+        ame:'M'tropolitan Borough of Wigan','
+        tate_code:'W'N',',
       },
       {
-        name: 'Mid and East Antrim',
-        state_code: 'MEA',
+        ame:'M'd and East Antrim','
+        tate_code:'M'A',',
       },
       {
-        name: 'Mid Ulster',
-        state_code: 'MUL',
+        ame:'M'd Ulster','
+        tate_code:'M'L',',
       },
       {
-        name: 'Middlesbrough',
-        state_code: 'MDB',
+        ame:'M'ddlesbrough','
+        tate_code:'M'B',',
       },
       {
-        name: 'Midlothian',
-        state_code: 'MLN',
+        ame:'M'dlothian','
+        tate_code:'M'N',',
       },
       {
-        name: 'Milton Keynes',
-        state_code: 'MIK',
+        ame:'M'lton Keynes','
+        tate_code:'M'K',',
       },
       {
-        name: 'Monmouthshire',
-        state_code: 'MON',
+        ame:'M'nmouthshire','
+        tate_code:'M'N',',
       },
       {
-        name: 'Moray',
-        state_code: 'MRY',
+        ame:'M'ray','
+        tate_code:'M'Y',',
       },
       {
-        name: 'Moyle District Council',
-        state_code: 'MYL',
+        ame:'M'yle District Council','
+        tate_code:'M'L',',
       },
       {
-        name: 'Neath Port Talbot County Borough',
-        state_code: 'NTL',
+        ame:'N'ath Port Talbot County Borough','
+        tate_code:'N'L',',
       },
       {
-        name: 'Newcastle upon Tyne',
-        state_code: 'NET',
+        ame:'N'wcastle upon Tyne','
+        tate_code:'N'T',',
       },
       {
-        name: 'Newport',
-        state_code: 'NWP',
+        ame:'N'wport','
+        tate_code:'N'P',',
       },
       {
-        name: 'Newry and Mourne District Council',
-        state_code: 'NYM',
+        ame:'N'wry and Mourne District Council','
+        tate_code:'N'M',',
       },
       {
-        name: 'Newry, Mourne and Down',
-        state_code: 'NMD',
+        ame:'N'wry, Mourne and Down','
+        tate_code:'N'D',',
       },
       {
-        name: 'Newtownabbey Borough Council',
-        state_code: 'NTA',
+        ame:'N'wtownabbey Borough Council','
+        tate_code:'N'A',',
       },
       {
-        name: 'Norfolk',
-        state_code: 'NFK',
+        ame:'N'rfolk','
+        tate_code:'N'K',',
       },
       {
-        name: 'North Ayrshire',
-        state_code: 'NAY',
+        ame:'N'rth Ayrshire','
+        tate_code:'N'Y',',
       },
       {
-        name: 'North Down Borough Council',
-        state_code: 'NDN',
+        ame:'N'rth Down Borough Council','
+        tate_code:'N'N',',
       },
       {
-        name: 'North East Lincolnshire',
-        state_code: 'NEL',
+        ame:'N'rth East Lincolnshire','
+        tate_code:'N'L',',
       },
       {
-        name: 'North Lanarkshire',
-        state_code: 'NLK',
+        ame:'N'rth Lanarkshire','
+        tate_code:'N'K',',
       },
       {
-        name: 'North Lincolnshire',
-        state_code: 'NLN',
+        ame:'N'rth Lincolnshire','
+        tate_code:'N'N',',
       },
       {
-        name: 'North Somerset',
-        state_code: 'NSM',
+        ame:'N'rth Somerset','
+        tate_code:'N'M',',
       },
       {
-        name: 'North Tyneside',
-        state_code: 'NTY',
+        ame:'N'rth Tyneside','
+        tate_code:'N'Y',',
       },
       {
-        name: 'North Yorkshire',
-        state_code: 'NYK',
+        ame:'N'rth Yorkshire','
+        tate_code:'N'K',',
       },
       {
-        name: 'Northamptonshire',
-        state_code: 'NTH',
+        ame:'N'rthamptonshire','
+        tate_code:'N'H',',
       },
       {
-        name: 'Northern Ireland',
-        state_code: 'NIR',
+        ame:'N'rthern Ireland','
+        tate_code:'N'R',',
       },
       {
-        name: 'Northumberland',
-        state_code: 'NBL',
+        ame:'N'rthumberland','
+        tate_code:'N'L',',
       },
       {
-        name: 'Nottinghamshire',
-        state_code: 'NTT',
+        ame:'N'ttinghamshire','
+        tate_code:'N'T',',
       },
       {
-        name: 'Oldham',
-        state_code: 'OLD',
+        ame:'O'dham','
+        tate_code:'O'D',',
       },
       {
-        name: 'Omagh District Council',
-        state_code: 'OMH',
+        ame:'O'agh District Council','
+        tate_code:'O'H',',
       },
       {
-        name: 'Orkney Islands',
-        state_code: 'ORK',
+        ame:'O'kney Islands','
+        tate_code:'O'K',',
       },
       {
-        name: 'Outer Hebrides',
-        state_code: 'ELS',
+        ame:'O'ter Hebrides','
+        tate_code:'E'S',',
       },
       {
-        name: 'Oxfordshire',
-        state_code: 'OXF',
+        ame:'O'fordshire','
+        tate_code:'O'F',',
       },
       {
-        name: 'Pembrokeshire',
-        state_code: 'PEM',
+        ame:'P'mbrokeshire','
+        tate_code:'P'M',',
       },
       {
-        name: 'Perth and Kinross',
-        state_code: 'PKN',
+        ame:'P'rth and Kinross','
+        tate_code:'P'N',',
       },
       {
-        name: 'Poole',
-        state_code: 'POL',
+        ame:'P'ole','
+        tate_code:'P'L',',
       },
       {
-        name: 'Powys',
-        state_code: 'POW',
+        ame:'P'wys','
+        tate_code:'P'W',',
       },
       {
-        name: 'Reading',
-        state_code: 'RDG',
+        ame:'R'ading','
+        tate_code:'R'G',',
       },
       {
-        name: 'Redcar and Cleveland',
-        state_code: 'RCC',
+        ame:'R'dcar and Cleveland','
+        tate_code:'R'C',',
       },
       {
-        name: 'Renfrewshire',
-        state_code: 'RFW',
+        ame:'R'nfrewshire','
+        tate_code:'R'W',',
       },
       {
-        name: 'Rhondda Cynon Taf',
-        state_code: 'RCT',
+        ame:'R'ondda Cynon Taf','
+        tate_code:'R'T',',
       },
       {
-        name: 'Rochdale',
-        state_code: 'RCH',
+        ame:'R'chdale','
+        tate_code:'R'H',',
       },
       {
-        name: 'Rotherham',
-        state_code: 'ROT',
+        ame:'R'therham','
+        tate_code:'R'T',',
       },
       {
-        name: 'Royal Borough of Greenwich',
-        state_code: 'GRE',
+        ame:'R'yal Borough of Greenwich','
+        tate_code:'G'E',',
       },
       {
-        name: 'Royal Borough of Kensington and Chelsea',
-        state_code: 'KEC',
+        ame:'R'yal Borough of Kensington and Chelsea','
+        tate_code:'K'C',',
       },
       {
-        name: 'Royal Borough of Kingston upon Thames',
-        state_code: 'KTT',
+        ame:'R'yal Borough of Kingston upon Thames','
+        tate_code:'K'T',',
       },
       {
-        name: 'Rutland',
-        state_code: 'RUT',
+        ame:'R'tland','
+        tate_code:'R'T',',
       },
       {
-        name: 'Saint Helena',
-        state_code: 'SH-HL',
+        ame:'S'int Helena','
+        tate_code:'S'-HL',',
       },
       {
-        name: 'Salford',
-        state_code: 'SLF',
+        ame:'S'lford','
+        tate_code:'S'F',',
       },
       {
-        name: 'Sandwell',
-        state_code: 'SAW',
+        ame:'S'ndwell','
+        tate_code:'S'W',',
       },
       {
-        name: 'Scotland',
-        state_code: 'SCT',
+        ame:'S'otland','
+        tate_code:'S'T',',
       },
       {
-        name: 'Scottish Borders',
-        state_code: 'SCB',
+        ame:'S'ottish Borders','
+        tate_code:'S'B',',
       },
       {
-        name: 'Sefton',
-        state_code: 'SFT',
+        ame:'S'fton','
+        tate_code:'S'T',',
       },
       {
-        name: 'Sheffield',
-        state_code: 'SHF',
+        ame:'S'effield','
+        tate_code:'S'F',',
       },
       {
-        name: 'Shetland Islands',
-        state_code: 'ZET',
+        ame:'S'etland Islands','
+        tate_code:'Z'T',',
       },
       {
-        name: 'Shropshire',
-        state_code: 'SHR',
+        ame:'S'ropshire','
+        tate_code:'S'R',',
       },
       {
-        name: 'Slough',
-        state_code: 'SLG',
+        ame:'S'ough','
+        tate_code:'S'G',',
       },
       {
-        name: 'Solihull',
-        state_code: 'SOL',
+        ame:'S'lihull','
+        tate_code:'S'L',',
       },
       {
-        name: 'Somerset',
-        state_code: 'SOM',
+        ame:'S'merset','
+        tate_code:'S'M',',
       },
       {
-        name: 'South Ayrshire',
-        state_code: 'SAY',
+        ame:'S'uth Ayrshire','
+        tate_code:'S'Y',',
       },
       {
-        name: 'South Gloucestershire',
-        state_code: 'SGC',
+        ame:'S'uth Gloucestershire','
+        tate_code:'S'C',',
       },
       {
-        name: 'South Lanarkshire',
-        state_code: 'SLK',
+        ame:'S'uth Lanarkshire','
+        tate_code:'S'K',',
       },
       {
-        name: 'South Tyneside',
-        state_code: 'STY',
+        ame:'S'uth Tyneside','
+        tate_code:'S'Y',',
       },
       {
-        name: 'Southend-on-Sea',
-        state_code: 'SOS',
+        ame:'S'uthend-on-Sea','
+        tate_code:'S'S',',
       },
       {
-        name: 'St Helens',
-        state_code: 'SHN',
+        ame:'S' Helens','
+        tate_code:'S'N',',
       },
       {
-        name: 'Staffordshire',
-        state_code: 'STS',
+        ame:'S'affordshire','
+        tate_code:'S'S',',
       },
       {
-        name: 'Stirling',
-        state_code: 'STG',
+        ame:'S'irling','
+        tate_code:'S'G',',
       },
       {
-        name: 'Stockport',
-        state_code: 'SKP',
+        ame:'S'ockport','
+        tate_code:'S'P',',
       },
       {
-        name: 'Stockton-on-Tees',
-        state_code: 'STT',
+        ame:'S'ockton-on-Tees','
+        tate_code:'S'T',',
       },
       {
-        name: 'Strabane District Council',
-        state_code: 'STB',
+        ame:'S'rabane District Council','
+        tate_code:'S'B',',
       },
       {
-        name: 'Suffolk',
-        state_code: 'SFK',
+        ame:'S'ffolk','
+        tate_code:'S'K',',
       },
       {
-        name: 'Surrey',
-        state_code: 'SRY',
+        ame:'S'rrey','
+        tate_code:'S'Y',',
       },
       {
-        name: 'Swindon',
-        state_code: 'SWD',
+        ame:'S'indon','
+        tate_code:'S'D',',
       },
       {
-        name: 'Tameside',
-        state_code: 'TAM',
+        ame:'T'meside','
+        tate_code:'T'M',',
       },
       {
-        name: 'Telford and Wrekin',
-        state_code: 'TFW',
+        ame:'T'lford and Wrekin','
+        tate_code:'T'W',',
       },
       {
-        name: 'Thurrock',
-        state_code: 'THR',
+        ame:'T'urrock','
+        tate_code:'T'R',',
       },
       {
-        name: 'Torbay',
-        state_code: 'TOB',
+        ame:'T'rbay','
+        tate_code:'T'B',',
       },
       {
-        name: 'Torfaen',
-        state_code: 'TOF',
+        ame:'T'rfaen','
+        tate_code:'T'F',',
       },
       {
-        name: 'Trafford',
-        state_code: 'TRF',
+        ame:'T'afford','
+        tate_code:'T'F',',
       },
       {
-        name: 'United Kingdom',
-        state_code: 'UKM',
+        ame:'U'ited Kingdom','
+        tate_code:'U'M',',
       },
       {
-        name: 'Vale of Glamorgan',
-        state_code: 'VGL',
+        ame:'V'le of Glamorgan','
+        tate_code:'V'L',',
       },
       {
-        name: 'Wakefield',
-        state_code: 'WKF',
+        ame:'W'kefield','
+        tate_code:'W'F',',
       },
       {
-        name: 'Wales',
-        state_code: 'WLS',
+        ame:'W'les','
+        tate_code:'W'S',',
       },
       {
-        name: 'Walsall',
-        state_code: 'WLL',
+        ame:'W'lsall','
+        tate_code:'W'L',',
       },
       {
-        name: 'Warrington',
-        state_code: 'WRT',
+        ame:'W'rrington','
+        tate_code:'W'T',',
       },
       {
-        name: 'Warwickshire',
-        state_code: 'WAR',
+        ame:'W'rwickshire','
+        tate_code:'W'R',',
       },
       {
-        name: 'West Berkshire',
-        state_code: 'WBK',
+        ame:'W'st Berkshire','
+        tate_code:'W'K',',
       },
       {
-        name: 'West Dunbartonshire',
-        state_code: 'WDU',
+        ame:'W'st Dunbartonshire','
+        tate_code:'W'U',',
       },
       {
-        name: 'West Lothian',
-        state_code: 'WLN',
+        ame:'W'st Lothian','
+        tate_code:'W'N',',
       },
       {
-        name: 'West Sussex',
-        state_code: 'WSX',
+        ame:'W'st Sussex','
+        tate_code:'W'X',',
       },
       {
-        name: 'Wiltshire',
-        state_code: 'WIL',
+        ame:'W'ltshire','
+        tate_code:'W'L',',
       },
       {
-        name: 'Windsor and Maidenhead',
-        state_code: 'WNM',
+        ame:'W'ndsor and Maidenhead','
+        tate_code:'W'M',',
       },
       {
-        name: 'Wirral',
-        state_code: 'WRL',
+        ame:'W'rral','
+        tate_code:'W'L',',
       },
       {
-        name: 'Wokingham',
-        state_code: 'WOK',
+        ame:'W'kingham','
+        tate_code:'W'K',',
       },
       {
-        name: 'Worcestershire',
-        state_code: 'WOR',
+        ame:'W'rcestershire','
+        tate_code:'W'R',',
       },
       {
-        name: 'Wrexham County Borough',
-        state_code: 'WRX',
-      },
-    ],
+        ame:'W'exham County Borough','
+        tate_code:'W'X',',
+      },,
+    ],,
   },
   {
-    name: 'United States',
-    flag: 'https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg',
-    iso2: 'US',
-    states: [
+    ame:'U'ited States','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg','
+    so2:'U'','
+    tates:[
       {
-        name: 'Alabama',
-        state_code: 'AL',
+        ame:'A'abama','
+        tate_code:'A'',',
       },
       {
-        name: 'Alaska',
-        state_code: 'AK',
+        ame:'A'aska','
+        tate_code:'A'',',
       },
       {
-        name: 'American Samoa',
-        state_code: 'AS',
+        ame:'A'erican Samoa','
+        tate_code:'A'',',
       },
       {
-        name: 'Arizona',
-        state_code: 'AZ',
+        ame:'A'izona','
+        tate_code:'A'',',
       },
       {
-        name: 'Arkansas',
-        state_code: 'AR',
+        ame:'A'kansas','
+        tate_code:'A'',',
       },
       {
-        name: 'Baker Island',
-        state_code: 'UM-81',
+        ame:'B'ker Island','
+        tate_code:'U'-81',',
       },
       {
-        name: 'California',
-        state_code: 'CA',
+        ame:'C'lifornia','
+        tate_code:'C'',',
       },
       {
-        name: 'Colorado',
-        state_code: 'CO',
+        ame:'C'lorado','
+        tate_code:'C'',',
       },
       {
-        name: 'Connecticut',
-        state_code: 'CT',
+        ame:'C'nnecticut','
+        tate_code:'C'',',
       },
       {
-        name: 'Delaware',
-        state_code: 'DE',
+        ame:'D'laware','
+        tate_code:'D'',',
       },
       {
-        name: 'District of Columbia',
-        state_code: 'DC',
+        ame:'D'strict of Columbia','
+        tate_code:'D'',',
       },
       {
-        name: 'Florida',
-        state_code: 'FL',
+        ame:'F'orida','
+        tate_code:'F'',',
       },
       {
-        name: 'Georgia',
-        state_code: 'GA',
+        ame:'G'orgia','
+        tate_code:'G'',',
       },
       {
-        name: 'Guam',
-        state_code: 'GU',
+        ame:'G'am','
+        tate_code:'G'',',
       },
       {
-        name: 'Hawaii',
-        state_code: 'HI',
+        ame:'H'waii','
+        tate_code:'H'',',
       },
       {
-        name: 'Howland Island',
-        state_code: 'UM-84',
+        ame:'H'wland Island','
+        tate_code:'U'-84',',
       },
       {
-        name: 'Idaho',
-        state_code: 'ID',
+        ame:'I'aho','
+        tate_code:'I'',',
       },
       {
-        name: 'Illinois',
-        state_code: 'IL',
+        ame:'I'linois','
+        tate_code:'I'',',
       },
       {
-        name: 'Indiana',
-        state_code: 'IN',
+        ame:'I'diana','
+        tate_code:'I'',',
       },
       {
-        name: 'Iowa',
-        state_code: 'IA',
+        ame:'I'wa','
+        tate_code:'I'',',
       },
       {
-        name: 'Jarvis Island',
-        state_code: 'UM-86',
+        ame:'J'rvis Island','
+        tate_code:'U'-86',',
       },
       {
-        name: 'Johnston Atoll',
-        state_code: 'UM-67',
+        ame:'J'hnston Atoll','
+        tate_code:'U'-67',',
       },
       {
-        name: 'Kansas',
-        state_code: 'KS',
+        ame:'K'nsas','
+        tate_code:'K'',',
       },
       {
-        name: 'Kentucky',
-        state_code: 'KY',
+        ame:'K'ntucky','
+        tate_code:'K'',',
       },
       {
-        name: 'Kingman Reef',
-        state_code: 'UM-89',
+        ame:'K'ngman Reef','
+        tate_code:'U'-89',',
       },
       {
-        name: 'Louisiana',
-        state_code: 'LA',
+        ame:'L'uisiana','
+        tate_code:'L'',',
       },
       {
-        name: 'Maine',
-        state_code: 'ME',
+        ame:'M'ine','
+        tate_code:'M'',',
       },
       {
-        name: 'Maryland',
-        state_code: 'MD',
+        ame:'M'ryland','
+        tate_code:'M'',',
       },
       {
-        name: 'Massachusetts',
-        state_code: 'MA',
+        ame:'M'ssachusetts','
+        tate_code:'M'',',
       },
       {
-        name: 'Michigan',
-        state_code: 'MI',
+        ame:'M'chigan','
+        tate_code:'M'',',
       },
       {
-        name: 'Midway Atoll',
-        state_code: 'UM-71',
+        ame:'M'dway Atoll','
+        tate_code:'U'-71',',
       },
       {
-        name: 'Minnesota',
-        state_code: 'MN',
+        ame:'M'nnesota','
+        tate_code:'M'',',
       },
       {
-        name: 'Mississippi',
-        state_code: 'MS',
+        ame:'M'ssissippi','
+        tate_code:'M'',',
       },
       {
-        name: 'Missouri',
-        state_code: 'MO',
+        ame:'M'ssouri','
+        tate_code:'M'',',
       },
       {
-        name: 'Montana',
-        state_code: 'MT',
+        ame:'M'ntana','
+        tate_code:'M'',',
       },
       {
-        name: 'Navassa Island',
-        state_code: 'UM-76',
+        ame:'N'vassa Island','
+        tate_code:'U'-76',',
       },
       {
-        name: 'Nebraska',
-        state_code: 'NE',
+        ame:'N'braska','
+        tate_code:'N'',',
       },
       {
-        name: 'Nevada',
-        state_code: 'NV',
+        ame:'N'vada','
+        tate_code:'N'',',
       },
       {
-        name: 'New Hampshire',
-        state_code: 'NH',
+        ame:'N'w Hampshire','
+        tate_code:'N'',',
       },
       {
-        name: 'New Jersey',
-        state_code: 'NJ',
+        ame:'N'w Jersey','
+        tate_code:'N'',',
       },
       {
-        name: 'New Mexico',
-        state_code: 'NM',
+        ame:'N'w Mexico','
+        tate_code:'N'',',
       },
       {
-        name: 'New York',
-        state_code: 'NY',
+        ame:'N'w York','
+        tate_code:'N'',',
       },
       {
-        name: 'North Carolina',
-        state_code: 'NC',
+        ame:'N'rth Carolina','
+        tate_code:'N'',',
       },
       {
-        name: 'North Dakota',
-        state_code: 'ND',
+        ame:'N'rth Dakota','
+        tate_code:'N'',',
       },
       {
-        name: 'Northern Mariana Islands',
-        state_code: 'MP',
+        ame:'N'rthern Mariana Islands','
+        tate_code:'M'',',
       },
       {
-        name: 'Ohio',
-        state_code: 'OH',
+        ame:'O'io','
+        tate_code:'O'',',
       },
       {
-        name: 'Oklahoma',
-        state_code: 'OK',
+        ame:'O'lahoma','
+        tate_code:'O'',',
       },
       {
-        name: 'Oregon',
-        state_code: 'OR',
+        ame:'O'egon','
+        tate_code:'O'',',
       },
       {
-        name: 'Palmyra Atoll',
-        state_code: 'UM-95',
+        ame:'P'lmyra Atoll','
+        tate_code:'U'-95',',
       },
       {
-        name: 'Pennsylvania',
-        state_code: 'PA',
+        ame:'P'nnsylvania','
+        tate_code:'P'',',
       },
       {
-        name: 'Puerto Rico',
-        state_code: 'PR',
+        ame:'P'erto Rico','
+        tate_code:'P'',',
       },
       {
-        name: 'Rhode Island',
-        state_code: 'RI',
+        ame:'R'ode Island','
+        tate_code:'R'',',
       },
       {
-        name: 'South Carolina',
-        state_code: 'SC',
+        ame:'S'uth Carolina','
+        tate_code:'S'',',
       },
       {
-        name: 'South Dakota',
-        state_code: 'SD',
+        ame:'S'uth Dakota','
+        tate_code:'S'',',
       },
       {
-        name: 'Tennessee',
-        state_code: 'TN',
+        ame:'T'nnessee','
+        tate_code:'T'',',
       },
       {
-        name: 'Texas',
-        state_code: 'TX',
+        ame:'T'xas','
+        tate_code:'T'',',
       },
       {
-        name: 'United States Minor Outlying Islands',
-        state_code: 'UM',
+        ame:'U'ited States Minor Outlying Islands','
+        tate_code:'U'',',
       },
       {
-        name: 'United States Virgin Islands',
-        state_code: 'VI',
+        ame:'U'ited States Virgin Islands','
+        tate_code:'V'',',
       },
       {
-        name: 'Utah',
-        state_code: 'UT',
+        ame:'U'ah','
+        tate_code:'U'',',
       },
       {
-        name: 'Vermont',
-        state_code: 'VT',
+        ame:'V'rmont','
+        tate_code:'V'',',
       },
       {
-        name: 'Virginia',
-        state_code: 'VA',
+        ame:'V'rginia','
+        tate_code:'V'',',
       },
       {
-        name: 'Wake Island',
-        state_code: 'UM-79',
+        ame:'W'ke Island','
+        tate_code:'U'-79',',
       },
       {
-        name: 'Washington',
-        state_code: 'WA',
+        ame:'W'shington','
+        tate_code:'W'',',
       },
       {
-        name: 'West Virginia',
-        state_code: 'WV',
+        ame:'W'st Virginia','
+        tate_code:'W'',',
       },
       {
-        name: 'Wisconsin',
-        state_code: 'WI',
+        ame:'W'sconsin','
+        tate_code:'W'',',
       },
       {
-        name: 'Wyoming',
-        state_code: 'WY',
-      },
-    ],
+        ame:'W'oming','
+        tate_code:'W'',',
+      },,
+    ],,
   },
   {
-    name: 'United States Minor Outlying Islands',
-    flag: 'https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg',
-    iso2: 'UM',
-    states: [],
+    ame:'U'ited States Minor Outlying Islands','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg','
+    so2:'U'','
+    tates:[],,
   },
   {
-    name: 'Uruguay',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Uruguay.svg',
-    iso2: 'UY',
-    states: [
+    ame:'U'uguay','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Uruguay.svg','
+    so2:'U'','
+    tates:[
       {
-        name: 'Artigas Department',
-        state_code: 'AR',
+        ame:'A'tigas Department','
+        tate_code:'A'',',
       },
       {
-        name: 'Canelones Department',
-        state_code: 'CA',
+        ame:'C'nelones Department','
+        tate_code:'C'',',
       },
       {
-        name: 'Cerro Largo Department',
-        state_code: 'CL',
+        ame:'C'rro Largo Department','
+        tate_code:'C'',',
       },
       {
-        name: 'Colonia Department',
-        state_code: 'CO',
+        ame:'C'lonia Department','
+        tate_code:'C'',',
       },
       {
-        name: 'Durazno Department',
-        state_code: 'DU',
+        ame:'D'razno Department','
+        tate_code:'D'',',
       },
       {
-        name: 'Flores Department',
-        state_code: 'FS',
+        ame:'F'ores Department','
+        tate_code:'F'',',
       },
       {
-        name: 'Florida Department',
-        state_code: 'FD',
+        ame:'F'orida Department','
+        tate_code:'F'',',
       },
       {
-        name: 'Lavalleja Department',
-        state_code: 'LA',
+        ame:'L'valleja Department','
+        tate_code:'L'',',
       },
       {
-        name: 'Maldonado Department',
-        state_code: 'MA',
+        ame:'M'ldonado Department','
+        tate_code:'M'',',
       },
       {
-        name: 'Montevideo Department',
-        state_code: 'MO',
+        ame:'M'ntevideo Department','
+        tate_code:'M'',',
       },
       {
-        name: 'Paysandú Department',
-        state_code: 'PA',
+        ame:'P'ysandú Department','
+        tate_code:'P'',',
       },
       {
-        name: 'Río Negro Department',
-        state_code: 'RN',
+        ame:'R'o Negro Department','
+        tate_code:'R'',',
       },
       {
-        name: 'Rivera Department',
-        state_code: 'RV',
+        ame:'R'vera Department','
+        tate_code:'R'',',
       },
       {
-        name: 'Rocha Department',
-        state_code: 'RO',
+        ame:'R'cha Department','
+        tate_code:'R'',',
       },
       {
-        name: 'Salto Department',
-        state_code: 'SA',
+        ame:'S'lto Department','
+        tate_code:'S'',',
       },
       {
-        name: 'San José Department',
-        state_code: 'SJ',
+        ame:'S'n José Department','
+        tate_code:'S'',',
       },
       {
-        name: 'Soriano Department',
-        state_code: 'SO',
+        ame:'S'riano Department','
+        tate_code:'S'',',
       },
       {
-        name: 'Tacuarembó Department',
-        state_code: 'TA',
+        ame:'T'cuarembó Department','
+        tate_code:'T'',',
       },
       {
-        name: 'Treinta y Tres Department',
-        state_code: 'TT',
-      },
-    ],
+        ame:'T'einta y Tres Department','
+        tate_code:'T'',',
+      },,
+    ],,
   },
   {
-    name: 'Uzbekistan',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Uzbekistan.svg',
-    iso2: 'UZ',
-    states: [
+    ame:'U'bekistan','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Uzbekistan.svg','
+    so2:'U'','
+    tates:[
       {
-        name: 'Andijan Region',
-        state_code: 'AN',
+        ame:'A'dijan Region','
+        tate_code:'A'',',
       },
       {
-        name: 'Bukhara Region',
-        state_code: 'BU',
+        ame:'B'khara Region','
+        tate_code:'B'',',
       },
       {
-        name: 'Fergana Region',
-        state_code: 'FA',
+        ame:'F'rgana Region','
+        tate_code:'F'',',
       },
       {
-        name: 'Jizzakh Region',
-        state_code: 'JI',
+        ame:'J'zzakh Region','
+        tate_code:'J'',',
       },
       {
-        name: 'Karakalpakstan',
-        state_code: 'QR',
+        ame:'K'rakalpakstan','
+        tate_code:'Q'',',
       },
       {
-        name: 'Namangan Region',
-        state_code: 'NG',
+        ame:'N'mangan Region','
+        tate_code:'N'',',
       },
       {
-        name: 'Navoiy Region',
-        state_code: 'NW',
+        ame:'N'voiy Region','
+        tate_code:'N'',',
       },
       {
-        name: 'Qashqadaryo Region',
-        state_code: 'QA',
+        ame:'Q'shqadaryo Region','
+        tate_code:'Q'',',
       },
       {
-        name: 'Samarqand Region',
-        state_code: 'SA',
+        ame:'S'marqand Region','
+        tate_code:'S'',',
       },
       {
-        name: 'Sirdaryo Region',
-        state_code: 'SI',
+        ame:'S'rdaryo Region','
+        tate_code:'S'',',
       },
       {
-        name: 'Surxondaryo Region',
-        state_code: 'SU',
+        ame:'S'rxondaryo Region','
+        tate_code:'S'',',
       },
       {
-        name: 'Tashkent',
-        state_code: 'TK',
+        ame:'T'shkent','
+        tate_code:'T'',',
       },
       {
-        name: 'Tashkent Region',
-        state_code: 'TO',
+        ame:'T'shkent Region','
+        tate_code:'T'',',
       },
       {
-        name: 'Xorazm Region',
-        state_code: 'XO',
-      },
-    ],
+        ame:'X'razm Region','
+        tate_code:'X'',',
+      },,
+    ],,
   },
   {
-    name: 'Vanuatu',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Vanuatu.svg',
-    iso2: 'VU',
-    states: [
+    ame:'V'nuatu','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Vanuatu.svg','
+    so2:'V'','
+    tates:[
       {
-        name: 'Malampa',
-        state_code: 'MAP',
+        ame:'M'lampa','
+        tate_code:'M'P',',
       },
       {
-        name: 'Penama',
-        state_code: 'PAM',
+        ame:'P'nama','
+        tate_code:'P'M',',
       },
       {
-        name: 'Sanma',
-        state_code: 'SAM',
+        ame:'S'nma','
+        tate_code:'S'M',',
       },
       {
-        name: 'Shefa',
-        state_code: 'SEE',
+        ame:'S'efa','
+        tate_code:'S'E',',
       },
       {
-        name: 'Tafea',
-        state_code: 'TAE',
+        ame:'T'fea','
+        tate_code:'T'E',',
       },
       {
-        name: 'Torba',
-        state_code: 'TOB',
-      },
-    ],
+        ame:'T'rba','
+        tate_code:'T'B',',
+      },,
+    ],,
   },
   {
-    name: 'Vatican City State (Holy See)',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Flag_of_the_Vatican_City_%282023%E2%80%93present%29.svg/1080px-Flag_of_the_Vatican_City_%282023%E2%80%93present%29.svg.png',
-    iso2: 'VA',
-    states: [],
+    ame:'V'tican City State (Holy See)','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Flag_of_the_Vatican_City_%282023%E2%80%93present%29.svg/1080px-Flag_of_the_Vatican_City_%282023%E2%80%93present%29.svg.png','
+    so2:'V'','
+    tates:[],,
   },
   {
-    name: 'Venezuela',
-    flag: '',
-    iso2: 'VE',
-    states: [
+    ame:'V'nezuela','
+    lag:''''
+    so2:'V'','
+    tates:[
       {
-        name: 'Amazonas',
-        state_code: 'Z',
+        ame:'A'azonas','
+        tate_code:'Z',',
       },
       {
-        name: 'Anzoátegui',
-        state_code: 'B',
+        ame:'A'zoátegui','
+        tate_code:'B',',
       },
       {
-        name: 'Apure',
-        state_code: 'C',
+        ame:'A'ure','
+        tate_code:'C',',
       },
       {
-        name: 'Aragua',
-        state_code: 'D',
+        ame:'A'agua','
+        tate_code:'D',',
       },
       {
-        name: 'Barinas',
-        state_code: 'E',
+        ame:'B'rinas','
+        tate_code:'E',',
       },
       {
-        name: 'Bolívar',
-        state_code: 'F',
+        ame:'B'lívar','
+        tate_code:'F',',
       },
       {
-        name: 'Capital District',
-        state_code: 'A',
+        ame:'C'pital District','
+        tate_code:'A',',
       },
       {
-        name: 'Carabobo',
-        state_code: 'G',
+        ame:'C'rabobo','
+        tate_code:'G',',
       },
       {
-        name: 'Cojedes',
-        state_code: 'H',
+        ame:'C'jedes','
+        tate_code:'H',',
       },
       {
-        name: 'Delta Amacuro',
-        state_code: 'Y',
+        ame:'D'lta Amacuro','
+        tate_code:'Y',',
       },
       {
-        name: 'Falcón',
-        state_code: 'I',
+        ame:'F'lcón','
+        tate_code:'I',',
       },
       {
-        name: 'Federal Dependencies of Venezuela',
-        state_code: 'W',
+        ame:'F'deral Dependencies of Venezuela','
+        tate_code:'W',',
       },
       {
-        name: 'Guárico',
-        state_code: 'J',
+        ame:'G'árico','
+        tate_code:'J',',
       },
       {
-        name: 'Lara',
-        state_code: 'K',
+        ame:'L'ra','
+        tate_code:'K',',
       },
       {
-        name: 'Mérida',
-        state_code: 'L',
+        ame:'M'rida','
+        tate_code:'L',',
       },
       {
-        name: 'Miranda',
-        state_code: 'M',
+        ame:'M'randa','
+        tate_code:'M',',
       },
       {
-        name: 'Monagas',
-        state_code: 'N',
+        ame:'M'nagas','
+        tate_code:'N',',
       },
       {
-        name: 'Nueva Esparta',
-        state_code: 'O',
+        ame:'N'eva Esparta','
+        tate_code:'O',',
       },
       {
-        name: 'Portuguesa',
-        state_code: 'P',
+        ame:'P'rtuguesa','
+        tate_code:'P',',
       },
       {
-        name: 'Sucre',
-        state_code: 'R',
+        ame:'S'cre','
+        tate_code:'R',',
       },
       {
-        name: 'Táchira',
-        state_code: 'S',
+        ame:'T'chira','
+        tate_code:'S',',
       },
       {
-        name: 'Trujillo',
-        state_code: 'T',
+        ame:'T'ujillo','
+        tate_code:'T',',
       },
       {
-        name: 'Vargas',
-        state_code: 'X',
+        ame:'V'rgas','
+        tate_code:'X',',
       },
       {
-        name: 'Yaracuy',
-        state_code: 'U',
+        ame:'Y'racuy','
+        tate_code:'U',',
       },
       {
-        name: 'Zulia',
-        state_code: 'V',
-      },
-    ],
+        ame:'Z'lia','
+        tate_code:'V',',
+      },,
+    ],,
   },
   {
-    name: 'Vietnam',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg',
-    iso2: 'VN',
-    states: [
+    ame:'V'etnam','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg','
+    so2:'V'','
+    tates:[
       {
-        name: 'An Giang',
-        state_code: '44',
+        ame:'A' Giang','
+        tate_code:'4'',',
       },
       {
-        name: 'Bà Rịa-Vũng Tàu',
-        state_code: '43',
+        ame:'B' Rịa-Vũng Tàu','
+        tate_code:'4'',',
       },
       {
-        name: 'Bắc Giang',
-        state_code: '54',
+        ame:'B'c Giang','
+        tate_code:'5'',',
       },
       {
-        name: 'Bắc Kạn',
-        state_code: '53',
+        ame:'B'c Kạn','
+        tate_code:'5'',',
       },
       {
-        name: 'Bạc Liêu',
-        state_code: '55',
+        ame:'B'c Liêu','
+        tate_code:'5'',',
       },
       {
-        name: 'Bắc Ninh',
-        state_code: '56',
+        ame:'B'c Ninh','
+        tate_code:'5'',',
       },
       {
-        name: 'Bến Tre',
-        state_code: '50',
+        ame:'B'n Tre','
+        tate_code:'5'',',
       },
       {
-        name: 'Bình Dương',
-        state_code: '57',
+        ame:'B'nh Dương','
+        tate_code:'5'',',
       },
       {
-        name: 'Bình Định',
-        state_code: '31',
+        ame:'B'nh Định','
+        tate_code:'3'',',
       },
       {
-        name: 'Bình Phước',
-        state_code: '58',
+        ame:'B'nh Phước','
+        tate_code:'5'',',
       },
       {
-        name: 'Bình Thuận',
-        state_code: '40',
+        ame:'B'nh Thuận','
+        tate_code:'4'',',
       },
       {
-        name: 'Cà Mau',
-        state_code: '59',
+        ame:'C' Mau','
+        tate_code:'5'',',
       },
       {
-        name: 'Cao Bằng',
-        state_code: '04',
+        ame:'C'o Bằng','
+        tate_code:'0'',',
       },
       {
-        name: 'Da Nang',
-        state_code: 'DN',
+        ame:'D' Nang','
+        tate_code:'D'',',
       },
       {
-        name: 'Đắk Lắk',
-        state_code: '33',
+        ame:'Đ'k Lắk','
+        tate_code:'3'',',
       },
       {
-        name: 'Đắk Nông',
-        state_code: '72',
+        ame:'Đ'k Nông','
+        tate_code:'7'',',
       },
       {
-        name: 'Điện Biên',
-        state_code: '71',
+        ame:'Đ'ện Biên','
+        tate_code:'7'',',
       },
       {
-        name: 'Đồng Nai',
-        state_code: '39',
+        ame:'Đ'ng Nai','
+        tate_code:'3'',',
       },
       {
-        name: 'Đồng Tháp',
-        state_code: '45',
+        ame:'Đ'ng Tháp','
+        tate_code:'4'',',
       },
       {
-        name: 'Gia Lai',
-        state_code: '30',
+        ame:'G'a Lai','
+        tate_code:'3'',',
       },
       {
-        name: 'Hà Giang',
-        state_code: '03',
+        ame:'H' Giang','
+        tate_code:'0'',',
       },
       {
-        name: 'Hà Nam',
-        state_code: '63',
+        ame:'H' Nam','
+        tate_code:'6'',',
       },
       {
-        name: 'Hà Tây',
-        state_code: '15',
+        ame:'H' Tây','
+        tate_code:'1'',',
       },
       {
-        name: 'Hà Tĩnh',
-        state_code: '23',
+        ame:'H' Tĩnh','
+        tate_code:'2'',',
       },
       {
-        name: 'Hải Dương',
-        state_code: '61',
+        ame:'H'i Dương','
+        tate_code:'6'',',
       },
       {
-        name: 'Haiphong',
-        state_code: 'HP',
+        ame:'H'iphong','
+        tate_code:'H'',',
       },
       {
-        name: 'Hanoi',
-        state_code: 'HN',
+        ame:'H'noi','
+        tate_code:'H'',',
       },
       {
-        name: 'Hậu Giang',
-        state_code: '73',
+        ame:'H'u Giang','
+        tate_code:'7'',',
       },
       {
-        name: 'Ho Chi Minh City',
-        state_code: 'SG',
+        ame:'H' Chi Minh City','
+        tate_code:'S'',',
       },
       {
-        name: 'Hòa Bình',
-        state_code: '14',
+        ame:'H'a Bình','
+        tate_code:'1'',',
       },
       {
-        name: 'Hưng Yên',
-        state_code: '66',
+        ame:'H'ng Yên','
+        tate_code:'6'',',
       },
       {
-        name: 'Khánh Hòa',
-        state_code: '34',
+        ame:'K'ánh Hòa','
+        tate_code:'3'',',
       },
       {
-        name: 'Kiên Giang',
-        state_code: '47',
+        ame:'K'ên Giang','
+        tate_code:'4'',',
       },
       {
-        name: 'Kon Tum',
-        state_code: '28',
+        ame:'K'n Tum','
+        tate_code:'2'',',
       },
       {
-        name: 'Lai Châu',
-        state_code: '01',
+        ame:'L'i Châu','
+        tate_code:'0'',',
       },
       {
-        name: 'Lâm Đồng',
-        state_code: '35',
+        ame:'L'm Đồng','
+        tate_code:'3'',',
       },
       {
-        name: 'Lạng Sơn',
-        state_code: '09',
+        ame:'L'ng Sơn','
+        tate_code:'0'',',
       },
       {
-        name: 'Lào Cai',
-        state_code: '02',
+        ame:'L'o Cai','
+        tate_code:'0'',',
       },
       {
-        name: 'Long An',
-        state_code: '41',
+        ame:'L'ng An','
+        tate_code:'4'',',
       },
       {
-        name: 'Nam Định',
-        state_code: '67',
+        ame:'N'm Định','
+        tate_code:'6'',',
       },
       {
-        name: 'Nghệ An',
-        state_code: '22',
+        ame:'N'hệ An','
+        tate_code:'2'',',
       },
       {
-        name: 'Ninh Bình',
-        state_code: '18',
+        ame:'N'nh Bình','
+        tate_code:'1'',',
       },
       {
-        name: 'Ninh Thuận',
-        state_code: '36',
+        ame:'N'nh Thuận','
+        tate_code:'3'',',
       },
       {
-        name: 'Phú Thọ',
-        state_code: '68',
+        ame:'P'ú Thọ','
+        tate_code:'6'',',
       },
       {
-        name: 'Phú Yên',
-        state_code: '32',
+        ame:'P'ú Yên','
+        tate_code:'3'',',
       },
       {
-        name: 'Quảng Bình',
-        state_code: '24',
+        ame:'Q'ảng Bình','
+        tate_code:'2'',',
       },
       {
-        name: 'Quảng Nam',
-        state_code: '27',
+        ame:'Q'ảng Nam','
+        tate_code:'2'',',
       },
       {
-        name: 'Quảng Ngãi',
-        state_code: '29',
+        ame:'Q'ảng Ngãi','
+        tate_code:'2'',',
       },
       {
-        name: 'Quảng Ninh',
-        state_code: '13',
+        ame:'Q'ảng Ninh','
+        tate_code:'1'',',
       },
       {
-        name: 'Quảng Trị',
-        state_code: '25',
+        ame:'Q'ảng Trị','
+        tate_code:'2'',',
       },
       {
-        name: 'Sóc Trăng',
-        state_code: '52',
+        ame:'S'c Trăng','
+        tate_code:'5'',',
       },
       {
-        name: 'Sơn La',
-        state_code: '05',
+        ame:'S'n La','
+        tate_code:'0'',',
       },
       {
-        name: 'Tây Ninh',
-        state_code: '37',
+        ame:'T'y Ninh','
+        tate_code:'3'',',
       },
       {
-        name: 'Thái Bình',
-        state_code: '20',
+        ame:'T'ái Bình','
+        tate_code:'2'',',
       },
       {
-        name: 'Thái Nguyên',
-        state_code: '69',
+        ame:'T'ái Nguyên','
+        tate_code:'6'',',
       },
       {
-        name: 'Thanh Hóa',
-        state_code: '21',
+        ame:'T'anh Hóa','
+        tate_code:'2'',',
       },
       {
-        name: 'Thừa Thiên-Huế',
-        state_code: '26',
+        ame:'T'ừa Thiên-Huế','
+        tate_code:'2'',',
       },
       {
-        name: 'Tiền Giang',
-        state_code: '46',
+        ame:'T'ền Giang','
+        tate_code:'4'',',
       },
       {
-        name: 'Trà Vinh',
-        state_code: '51',
+        ame:'T'à Vinh','
+        tate_code:'5'',',
       },
       {
-        name: 'Tuyên Quang',
-        state_code: '07',
+        ame:'T'yên Quang','
+        tate_code:'0'',',
       },
       {
-        name: 'Vĩnh Long',
-        state_code: '49',
+        ame:'V'nh Long','
+        tate_code:'4'',',
       },
       {
-        name: 'Vĩnh Phúc',
-        state_code: '70',
+        ame:'V'nh Phúc','
+        tate_code:'7'',',
       },
       {
-        name: 'Yên Bái',
-        state_code: '06',
-      },
-    ],
+        ame:'Y'n Bái','
+        tate_code:'0'',',
+      },,
+    ],,
   },
   {
-    name: 'Virgin Islands (British)',
-    flag: '',
-    iso2: 'VG',
-    states: [],
+    ame:'V'rgin Islands (British)','
+    lag:''''
+    so2:'V'','
+    tates:[],,
   },
   {
-    name: 'Virgin Islands (US)',
-    flag: '',
-    iso2: 'VI',
-    states: [],
+    ame:'V'rgin Islands (US)','
+    lag:''''
+    so2:'V'','
+    tates:[],,
   },
   {
-    name: 'Wallis And Futuna',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Flag_of_Wallis_and_Futuna.svg',
-    iso2: 'WF',
-    states: [],
+    ame:'W'llis And Futuna','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/d/d2/Flag_of_Wallis_and_Futuna.svg','
+    so2:'W'','
+    tates:[],,
   },
   {
-    name: 'Western Sahara',
-    flag: '',
-    iso2: 'EH',
-    states: [],
+    ame:'W'stern Sahara','
+    lag:''''
+    so2:'E'','
+    tates:[],,
   },
   {
-    name: 'Yemen',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Yemen.svg',
-    iso2: 'YE',
-    states: [
+    ame:'Y'men','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Yemen.svg','
+    so2:'Y'','
+    tates:[
       {
-        name: "'Adan Governorate",
-        state_code: 'AD',
+        ame:"'Adan Governorate",
+        tate_code:'A'',',
       },
       {
-        name: "'Amran Governorate",
-        state_code: 'AM',
+        ame:"'Amran Governorate",
+        tate_code:'A'',',
       },
       {
-        name: 'Abyan Governorate',
-        state_code: 'AB',
+        ame:'A'yan Governorate','
+        tate_code:'A'',',
       },
       {
-        name: "Al Bayda' Governorate",
-        state_code: 'BA',
+        ame:"Al Bayda' Governorate",
+        tate_code:'B'',',
       },
       {
-        name: 'Al Hudaydah Governorate',
-        state_code: 'HU',
+        ame:'A' Hudaydah Governorate','
+        tate_code:'H'',',
       },
       {
-        name: 'Al Jawf Governorate',
-        state_code: 'JA',
+        ame:'A' Jawf Governorate','
+        tate_code:'J'',',
       },
       {
-        name: 'Al Mahrah Governorate',
-        state_code: 'MR',
+        ame:'A' Mahrah Governorate','
+        tate_code:'M'',',
       },
       {
-        name: 'Al Mahwit Governorate',
-        state_code: 'MW',
+        ame:'A' Mahwit Governorate','
+        tate_code:'M'',',
       },
       {
-        name: 'Dhamar Governorate',
-        state_code: 'DH',
+        ame:'D'amar Governorate','
+        tate_code:'D'',',
       },
       {
-        name: 'Hadhramaut Governorate',
-        state_code: 'HD',
+        ame:'H'dhramaut Governorate','
+        tate_code:'H'',',
       },
       {
-        name: 'Hajjah Governorate',
-        state_code: 'HJ',
+        ame:'H'jjah Governorate','
+        tate_code:'H'',',
       },
       {
-        name: 'Ibb Governorate',
-        state_code: 'IB',
+        ame:'I'b Governorate','
+        tate_code:'I'',',
       },
       {
-        name: 'Lahij Governorate',
-        state_code: 'LA',
+        ame:'L'hij Governorate','
+        tate_code:'L'',',
       },
       {
-        name: "Ma'rib Governorate",
-        state_code: 'MA',
+        ame:"Ma'rib Governorate",
+        tate_code:'M'',',
       },
       {
-        name: 'Raymah Governorate',
-        state_code: 'RA',
+        ame:'R'ymah Governorate','
+        tate_code:'R'',',
       },
       {
-        name: 'Saada Governorate',
-        state_code: 'SD',
+        ame:'S'ada Governorate','
+        tate_code:'S'',',
       },
       {
-        name: "Sana'a",
-        state_code: 'SA',
+        ame:"Sana'a",
+        tate_code:'S'',',
       },
       {
-        name: "Sana'a Governorate",
-        state_code: 'SN',
+        ame:"Sana'a Governorate",
+        tate_code:'S'',',
       },
       {
-        name: 'Shabwah Governorate',
-        state_code: 'SH',
+        ame:'S'abwah Governorate','
+        tate_code:'S'',',
       },
       {
-        name: 'Socotra Governorate',
-        state_code: 'SU',
+        ame:'S'cotra Governorate','
+        tate_code:'S'',',
       },
       {
-        name: "Ta'izz Governorate",
-        state_code: 'TA',
-      },
-    ],
+        ame:"Ta'izz Governorate",
+        tate_code:'T'',',
+      },,
+    ],,
   },
   {
-    name: 'Zambia',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/0/06/Flag_of_Zambia.svg',
-    iso2: 'ZM',
-    states: [
+    ame:'Z'mbia','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/0/06/Flag_of_Zambia.svg','
+    so2:'Z'','
+    tates:[
       {
-        name: 'Central Province',
-        state_code: '02',
+        ame:'C'ntral Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Copperbelt Province',
-        state_code: '08',
+        ame:'C'pperbelt Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Eastern Province',
-        state_code: '03',
+        ame:'E'stern Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Luapula Province',
-        state_code: '04',
+        ame:'L'apula Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Lusaka Province',
-        state_code: '09',
+        ame:'L'saka Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Muchinga Province',
-        state_code: '10',
+        ame:'M'chinga Province','
+        tate_code:'1'',',
       },
       {
-        name: 'Northern Province',
-        state_code: '05',
+        ame:'N'rthern Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Northwestern Province',
-        state_code: '06',
+        ame:'N'rthwestern Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Southern Province',
-        state_code: '07',
+        ame:'S'uthern Province','
+        tate_code:'0'',',
       },
       {
-        name: 'Western Province',
-        state_code: '01',
-      },
-    ],
+        ame:'W'stern Province','
+        tate_code:'0'',',
+      },,
+    ],,
   },
   {
-    name: 'Zimbabwe',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/Flag_of_Zimbabwe.svg',
-    iso2: 'ZW',
-    states: [
+    ame:'Z'mbabwe','
+    lag:'h'tps://upload.wikimedia.org/wikipedia/commons/6/6a/Flag_of_Zimbabwe.svg','
+    so2:'Z'','
+    tates:[
       {
-        name: 'Bulawayo Province',
-        state_code: 'BU',
+        ame:'B'lawayo Province','
+        tate_code:'B'',',
       },
       {
-        name: 'Harare Province',
-        state_code: 'HA',
+        ame:'H'rare Province','
+        tate_code:'H'',',
       },
       {
-        name: 'Manicaland',
-        state_code: 'MA',
+        ame:'M'nicaland','
+        tate_code:'M'',',
       },
       {
-        name: 'Mashonaland Central Province',
-        state_code: 'MC',
+        ame:'M'shonaland Central Province','
+        tate_code:'M'',',
       },
       {
-        name: 'Mashonaland East Province',
-        state_code: 'ME',
+        ame:'M'shonaland East Province','
+        tate_code:'M'',',
       },
       {
-        name: 'Mashonaland West Province',
-        state_code: 'MW',
+        ame:'M'shonaland West Province','
+        tate_code:'M'',',
       },
       {
-        name: 'Masvingo Province',
-        state_code: 'MV',
+        ame:'M'svingo Province','
+        tate_code:'M'',',
       },
       {
-        name: 'Matabeleland North Province',
-        state_code: 'MN',
+        ame:'M'tabeleland North Province','
+        tate_code:'M'',',
       },
       {
-        name: 'Matabeleland South Province',
-        state_code: 'MS',
+        ame:'M'tabeleland South Province','
+        tate_code:'M'',',
       },
       {
-        name: 'Midlands Province',
-        state_code: 'MI',
-      },
-    ],
-  },
+        ame:'M'dlands Province','
+        tate_code:'M'',',
+      },,
+    ],,
+  },,
 ];
+
