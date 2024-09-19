@@ -16,7 +16,11 @@ const sessionData = {
 
 async function bootstrap() {
   const app = await NestFactory.create(WalletModule);
+
   const configService = app.get(ConfigService);
+
+  app.enableCors({ origin: configService.get<string>('ALLOWED_ORIGINS') });
+
   app.connectMicroservice({
     transport: Transport.TCP,
     options: {
@@ -24,7 +28,9 @@ async function bootstrap() {
       port: configService.get<number>('WALLET_TCP_PORT'),
     },
   });
+
   const secret = configService.get<string>('WALLET_SESSION_SECRET');
+
   app.use(cookieParser());
   app.use(session({ ...sessionData, secret }));
   app.useGlobalPipes(new ValidationPipe({ whitelist: false }));

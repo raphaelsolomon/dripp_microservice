@@ -10,7 +10,11 @@ import * as session from 'express-session';
 
 async function bootstrap() {
   const app = await NestFactory.create(AuthModule);
+
   const configService = app.get(ConfigService);
+
+  app.enableCors({ origin: configService.get<string>('ALLOWED_ORIGINS') });
+
   app.connectMicroservice({
     transport: Transport.TCP,
     options: {
@@ -18,6 +22,7 @@ async function bootstrap() {
       port: configService.get<number>('AUTH_TCP_PORT'),
     },
   });
+
   app.use(
     session({
       secret: configService.get<string>('SESSION_SECRET'),
@@ -26,11 +31,17 @@ async function bootstrap() {
       cookie: { secure: true },
     }),
   );
+
   app.use(cookieParser());
+
   app.useGlobalPipes(new ValidationPipe({ whitelist: false, transform: true }));
+
   app.useGlobalFilters(new AllExceptionsFilter());
+
   app.useLogger(app.get(Logger));
+
   await app.startAllMicroservices();
+
   await app.listen(configService.get<number>('AUTH_HTTP_PORT'));
 }
 bootstrap();
