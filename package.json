@@ -18,7 +18,8 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./apps/dripp/test/jest-e2e.json"
+    "test:e2e": "jest --config ./apps/dripp/test/jest-e2e.json",
+    "start:services": "concurrently \"nest start auth\" \"nest start brand\" \"nest start wallet\" \"nest start chat\" \"nest start notification\""
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
