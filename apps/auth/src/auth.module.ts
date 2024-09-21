@@ -30,8 +30,6 @@ import { XTwitterStrategy } from './strategies/twitter.strategy';
         FACEBOOK_APP_ID: Joi.string().required(),
         FACEBOOK_APP_SECRET: Joi.string().required(),
         FACEBOOK_APP_CALLBACK_URL: Joi.string().required(),
-        WALLET_TCP_PORT: Joi.number().required(),
-        WALLET_HOST: Joi.string().required(),
         CLOUDINARY_NAME: Joi.string().required(),
         CLOUDINARY_API_KEY: Joi.string().required(),
         CLOUDINARY_API_SECRET: Joi.string().required(),
