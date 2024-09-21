@@ -29,10 +29,7 @@ import { MessageRepository } from './repositories/message.repository';
       validationSchema: Joi.object({
         MONGODB_URI: Joi.string().required(),
         MONGODB_NAME: Joi.string().required(),
-        CHAT_TCP_PORT: Joi.number().required(),
         CHAT_HTTP_PORT: Joi.number().required(),
-        AUTH_HOST: Joi.string().required(),
-        AUTH_TCP_PORT: Joi.number().required(),
       }),
     }),
     DatabaseModule,

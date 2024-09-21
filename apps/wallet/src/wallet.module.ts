@@ -36,7 +36,6 @@ import {
         MONGODB_URI: Joi.string().required(),
         MONGODB_NAME: Joi.string().required(),
         WALLET_HTTP_PORT: Joi.string().required(),
-        WALLET_TCP_PORT: Joi.string().required(),
         REDIS_CONNECT_URL: Joi.string().required(),
         FLUTTERWAVE_URL: Joi.string().required(),
         FLUTTERWAVE_PUBLIC_KEY: Joi.string().required(),
@@ -44,10 +43,6 @@ import {
         FLUTTERWAVE_ENC_KEY: Joi.string().required(),
         REDIRECT_URL: Joi.string().required(),
         WALLET_SESSION_SECRET: Joi.string().required(),
-        AUTH_HOST: Joi.string().required(),
-        AUTH_TCP_PORT: Joi.string().required(),
-        NOTIFICATION_HOST: Joi.string().required(),
-        NOTIFICATION_TCP_PORT: Joi.number().required(),
       }),
     }),
     ClientsModule.registerAsync([
