@@ -2,6 +2,7 @@ import {
   BadRequestException,
   Controller,
   Post,
+  Req,
   UseGuards,
 } from '@nestjs/common';
 import { ChatService } from './chat.service';
@@ -14,11 +15,21 @@ export class ChatController {
 
   @Post('/create')
   @UseGuards(JwtAuthGuard)
-  createChatServiceRoute(@CurrentUser() user: UserDocument) {
+  async createChatServiceRoute(
+    @CurrentUser() user: UserDocument,
+    @Req() req: Request,
+  ) {
     if (user.chat_uuid !== undefined) {
       throw new BadRequestException('Chat service already exists');
     }
-    this.chatService.createChatService(user);
+    await this.chatService.createChatService(user);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      success: true,
+    };
   }
 
   @MessagePattern('create_chat')

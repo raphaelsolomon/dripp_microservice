@@ -31,14 +31,32 @@ export class AuthController {
   ) {}
 
   @Get('/healthcheck')
-  healthCheck(@Res() res: Response) {
-    return res.sendStatus(200);
+  healthCheck(@Req() req: Request) {
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: 'OK',
+      success: true,
+    };
   }
 
   @Post('/register')
-  async createUser(@Body() input: CreateUserDto, @Res() res: Response) {
+  async createUser(
+    @Body() input: CreateUserDto,
+    @Res() res: Response,
+    @Req() req: Request,
+  ) {
     const result = await this.authService.create(input, res);
-    res.json(result);
+    res.json({
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    });
   }
 
   @UseGuards(LocalAuthGuard)
@@ -46,9 +64,17 @@ export class AuthController {
   async login(
     @CurrentUser() user: UserDocument,
     @Res({ passthrough: true }) response: Response,
+    @Req() req: Request,
   ) {
     const result = await this.authService.login(user, response);
-    response.json(result);
+    response.json({
+      statusCode: 201,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    });
   }
 
   @Post('/verify')
@@ -67,11 +93,16 @@ export class AuthController {
   }
 
   @Post('/reset-password')
-  async resetPassword(
-    @Body()
-    resetpasswordDto: ResetpasswordDto,
-  ) {
-    return this.usersService.resetPassword(resetpasswordDto);
+  async resetPassword(@Body() input: ResetpasswordDto, @Req() req: Request) {
+    const result = await this.usersService.resetPassword(input);
+    return {
+      statusCode: 201,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Get('/facebook/oauth')
@@ -85,7 +116,14 @@ export class AuthController {
     @Res() res: Response,
   ): Promise<any> {
     const result = await this.authService.facebookLogin(req, res);
-    res.json(result);
+    res.json({
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    });
   }
 
   @Get('/google/oauth')
@@ -96,7 +134,14 @@ export class AuthController {
   @UseGuards(GoogleAuthGuard)
   async googleAuthRedirect(@Req() req: Request, @Res() res: Response) {
     const result = await this.authService.googleLogin(req, res);
-    res.json(result);
+    res.json({
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    });
   }
 
   @Get('/x/oauth')
@@ -107,21 +152,49 @@ export class AuthController {
   @UseGuards(XTwitterAuthGuard)
   async xAuthRedirect(@Req() req: Request, @Res() res: Response) {
     const result = await this.authService.xLogin(req, res);
-    res.json(result);
+    res.json({
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    });
   }
 
   @Post('/exchange/refreshtoken')
-  exchangeRefreshToken(
+  async exchangeRefreshToken(
     @Body('refresh_token') token: string,
     @Res() res: Response,
+    @Req() req: Request,
   ) {
-    return this.authService.exchangeRefreshToken(token, res);
+    const result = await this.authService.exchangeRefreshToken(token, res);
+    return {
+      statusCode: 201,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @UseGuards(JwtAuthGuard)
   @Post('logout')
-  async logout(@CurrentUser() user: UserDto, @Res() res: Response) {
-    return this.authService.logout(user, res);
+  async logout(
+    @CurrentUser() user: UserDto,
+    @Res() res: Response,
+    @Req() req: Request,
+  ) {
+    const result = await this.authService.logout(user, res);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @UseGuards(JwtAuthGuard)

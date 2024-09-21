@@ -52,15 +52,36 @@ export class FundController {
     @Req() req: Request,
     @Res() res: Response,
   ) {
-    return this.fundService.directChargeVerifyFund(req, res, user);
+    const result = await this.fundService.directChargeVerifyFund(
+      req,
+      res,
+      user,
+    );
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Post('/checkout-url')
   @UseGuards(JwtAuthGuard)
   async directChargeCheckout(
-    @Body() initiatePaymentDto: InitiatePaymentDto,
+    @Body() input: InitiatePaymentDto,
     @CurrentUser() user: UserDto,
+    @Req() req: Request,
   ) {
-    return this.fundService.directChargeCheckout(initiatePaymentDto, user);
+    const result = await this.fundService.directChargeCheckout(input, user);
+    return {
+      statusCode: 201,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 }

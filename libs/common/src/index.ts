@@ -8,3 +8,4 @@ export * from './utils';
 export * from './cloudinary';
 export * from './database/models';
 export * from './exception';
+export * from './interceptors';

@@ -6,7 +6,6 @@ import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { TokenPayload } from './interface/token-payload.interface';
 import { UsersService } from './users/users.service';
-import axios from 'axios';
 import { CreateUserDto } from './users/dto/create-user.dto';
 
 type SocialType = {
@@ -126,3 +125,9 @@ export class AuthService {
     }
   }
 }
+
+// //{
+//   statusCode: status,
+//   timestamp: new Date().toISOString(),
+//   path: request.url,
+// }

@@ -2,7 +2,6 @@ import {
   Controller,
   Get,
   Req,
-  Res,
   UseGuards,
   UsePipes,
   ValidationPipe,
@@ -11,7 +10,7 @@ import { NotificationService } from './notification.service';
 import { EventPattern, Payload } from '@nestjs/microservices';
 import { VerifyMailDto } from './dto/verify-email.dto';
 import { CurrentUser, JwtAuthGuard, UserDto } from '@app/common';
-import { Request, Response } from 'express';
+import { Request } from 'express';
 
 @Controller('notifications')
 export class NotificationController {
@@ -55,12 +54,27 @@ export class NotificationController {
 
   @Get('/')
   @UseGuards(JwtAuthGuard)
-  getNotification(@CurrentUser() user: UserDto, @Req() req: Request) {
-    return this.notificationService.getNotifications(user, req);
+  async getNotification(@CurrentUser() user: UserDto, @Req() req: Request) {
+    const result = await this.notificationService.getNotifications(user, req);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Get('/healthcheck')
-  healthCheck(@Res() res: Response) {
-    return res.sendStatus(200);
+  healthCheck(@Req() req: Request) {
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: 'OK',
+      success: true,
+    };
   }
 }

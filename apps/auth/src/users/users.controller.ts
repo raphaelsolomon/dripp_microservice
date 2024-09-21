@@ -9,45 +9,79 @@ import {
   Put,
   Query,
   Req,
-  Res,
   UseGuards,
+  UseInterceptors,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CurrentUser } from '../../../../libs/common/src/decorators/current-user.decorator';
-import { UserDocument } from '@app/common';
+import { HttpCacheInterceptor, UserDocument } from '@app/common';
 import { JwtAuthGuard } from '../guards/jwt-auth.guard';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UpdatePasswordDto } from './dto/update-password.dto';
 import { FormDataRequest } from 'nestjs-form-data';
 import { UploadImageDto } from './dto/upload-image.dto';
 import { MessagePattern, Payload } from '@nestjs/microservices';
-import { Request, Response } from 'express';
+import { Request } from 'express';
 import { TaskSubmissionDto } from './dto/submit-task.dto';
 
+@UseInterceptors(HttpCacheInterceptor)
 @Controller('user')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Get('/')
   @UseGuards(JwtAuthGuard)
-  async getUser(@CurrentUser() user: UserDocument) {
-    return user;
+  async getUser(@CurrentUser() user: UserDocument, @Req() req: Request) {
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: user,
+      success: true,
+    };
   }
 
   @Get('countries')
-  async getCountries() {
-    return await this.usersService.getCountries();
+  async getCountries(@Req() req: Request) {
+    const result = await this.usersService.getCountries();
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Get('healthcheck')
-  healthCheck(@Res() res: Response) {
-    return res.sendStatus(200);
+  healthCheck(@Req() req: Request) {
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: 'OK',
+      success: true,
+    };
   }
 
   @UseGuards(JwtAuthGuard)
   @Get('industries')
-  getIndustries(@Query() input: { [key: string]: number }) {
-    return this.usersService.getIndustries(input);
+  async getIndustries(
+    @Query() input: { [key: string]: number },
+    @Req() req: Request,
+  ) {
+    const result = await this.usersService.getIndustries(input);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Patch('update')
@@ -55,8 +89,17 @@ export class UsersController {
   async updateUser(
     @CurrentUser() user: UserDocument,
     @Body() updateDto: UpdateUserDto,
+    @Req() req: Request,
   ) {
-    return await this.usersService.updateUser(user, updateDto);
+    const result = await this.usersService.updateUser(user, updateDto);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Post('update/password')
@@ -71,7 +114,18 @@ export class UsersController {
   @Post('subscribe-channel/:brand_uuid')
   @UseGuards(JwtAuthGuard)
   async joinChannel(@CurrentUser() user: UserDocument, @Req() req: Request) {
-    return this.usersService.subscribeChannel(user, req?.params?.brand_uuid);
+    const result = await this.usersService.subscribeChannel(
+      user,
+      req?.params?.brand_uuid,
+    );
+    return {
+      statusCode: 201,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Post('deactivate')
@@ -79,8 +133,17 @@ export class UsersController {
   async deactivateAccount(
     @CurrentUser() user: UserDocument,
     @Body('password') password: string,
+    @Req() req: Request,
   ) {
-    return this.usersService.deactivateAccount(user, password);
+    const result = await this.usersService.deactivateAccount(user, password);
+    return {
+      statusCode: 201,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Delete('unsubscribe-channel/:brand_uuid')
@@ -89,7 +152,18 @@ export class UsersController {
     @CurrentUser() user: UserDocument,
     @Req() req: Request,
   ) {
-    return this.usersService.unsubscribeChannel(user, req?.params?.brand_uuid);
+    const result = await this.usersService.unsubscribeChannel(
+      user,
+      req?.params?.brand_uuid,
+    );
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Get('channels')
@@ -97,8 +171,17 @@ export class UsersController {
   async getChannels(
     @CurrentUser() user: UserDocument,
     @Query() payload: { [key: string]: number },
+    @Req() req: Request,
   ) {
-    return this.usersService.getChannels(user, payload);
+    const result = await this.usersService.getChannels(user, payload);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Get('industries/channels')
@@ -106,8 +189,20 @@ export class UsersController {
   async getChannelsByIndustries(
     @Body('industries') industries: string[],
     @Query() payload: { [key: string]: number },
+    @Req() req: Request,
   ) {
-    return this.usersService.getChannelsByIndustries(industries, payload);
+    const result = await this.usersService.getChannelsByIndustries(
+      industries,
+      payload,
+    );
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Get('recommended-channels')
@@ -115,8 +210,17 @@ export class UsersController {
   async getRecommededChannels(
     @CurrentUser() user: UserDocument,
     @Query() payload: { [key: string]: number },
+    @Req() req: Request,
   ) {
-    return this.usersService.getRecommededChannels(user, payload);
+    const result = await this.usersService.getRecommededChannels(user, payload);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Get('tasks')
@@ -124,8 +228,17 @@ export class UsersController {
   async getTasks(
     @CurrentUser() user: UserDocument,
     @Query() payload: { [key: string]: number },
+    @Req() req: Request,
   ) {
-    return this.usersService.getTasks(user, payload);
+    const result = await this.usersService.getTasks(user, payload);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Get('posts')
@@ -133,8 +246,17 @@ export class UsersController {
   async getPosts(
     @CurrentUser() user: UserDocument,
     @Query() payload: { [key: string]: string },
+    @Req() req: Request,
   ) {
-    return this.usersService.getPosts(user, payload);
+    const result = await this.usersService.getPosts(user, payload);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Get('completed-tasks')
@@ -142,8 +264,17 @@ export class UsersController {
   async getCompletedTasks(
     @CurrentUser() user: UserDocument,
     @Query() payload: { [key: string]: string },
+    @Req() req: Request,
   ) {
-    return this.usersService.getCompletedTasks(user, payload);
+    const result = await this.usersService.getCompletedTasks(user, payload);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Post('task-submission')
@@ -152,8 +283,17 @@ export class UsersController {
   async submitTask(
     @CurrentUser() user: UserDocument,
     @Body() payload: TaskSubmissionDto,
+    @Req() req: Request,
   ) {
-    return this.usersService.submitTask(user, payload);
+    const result = await this.usersService.submitTask(user, payload);
+    return {
+      statusCode: 201,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Post('update/avatar')
@@ -162,8 +302,20 @@ export class UsersController {
   async updateAvatar(
     @CurrentUser() user: UserDocument,
     @Body() uploadImageDto: UploadImageDto,
+    @Req() req: Request,
   ) {
-    return this.usersService.uploadAvatar(user, uploadImageDto.file);
+    const result = await this.usersService.uploadAvatar(
+      user,
+      uploadImageDto.file,
+    );
+    return {
+      statusCode: 201,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Put('post/react/:post_uuid')
@@ -172,8 +324,17 @@ export class UsersController {
   async postReaction(
     @CurrentUser() user: UserDocument,
     @Param('post_uuid') input: string,
+    @Req() req: Request,
   ) {
-    return this.usersService.postReaction(user, input);
+    const result = await this.usersService.postReaction(user, input);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @MessagePattern('get_user')

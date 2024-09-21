@@ -32,11 +32,17 @@ async function bootstrap() {
   const secret = configService.get<string>('WALLET_SESSION_SECRET');
 
   app.use(cookieParser());
+
   app.use(session({ ...sessionData, secret }));
+
   app.useGlobalPipes(new ValidationPipe({ whitelist: false }));
+
   app.useGlobalFilters(new AllExceptionsFilter());
+
   app.useLogger(app.get(Logger));
+
   await app.startAllMicroservices();
+
   await app.listen(configService.get<number>('WALLET_HTTP_PORT'));
 }
 bootstrap();

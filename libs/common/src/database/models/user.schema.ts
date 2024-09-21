@@ -11,8 +11,11 @@ export class UserDocument extends AbstractDocument {
   @Prop({ required: false, default: '' })
   avatar?: string;
 
-  @Prop({ required: false })
-  fullname: string;
+  @Prop({ required: true })
+  firstname: string;
+
+  @Prop({ required: true })
+  lastname: string;
 
   @Prop({ required: true })
   email: string;
@@ -20,7 +23,7 @@ export class UserDocument extends AbstractDocument {
   @Prop({ required: false, default: false })
   email_verified?: boolean;
 
-  @Prop({ required: false })
+  @Prop({ required: false, unique: true })
   username?: string;
 
   @Prop({ required: true, select: false })
@@ -56,4 +59,12 @@ export class UserDocument extends AbstractDocument {
   @Prop({ default: true })
   status?: boolean;
 }
+
 export const UserSchema = SchemaFactory.createForClass(UserDocument);
+
+UserSchema.virtual('fullname').get(function () {
+  return `${this.firstname ?? ''} ${this.lastname ?? ''}`;
+});
+
+UserSchema.set('toJSON', { virtuals: true });
+UserSchema.set('toObject', { virtuals: true });

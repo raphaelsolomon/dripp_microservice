@@ -36,9 +36,11 @@ import { VerificationRepository } from './repositories/verification.repository';
 import { NestjsFormDataModule } from 'nestjs-form-data';
 import { TokenDocument, TokenSchema } from './models/token.schema';
 import { TokenRepository } from './repositories/token.repository';
+import { CacheModule } from '@nestjs/cache-manager';
 
 @Module({
   imports: [
+    CacheModule.register(),
     NestjsFormDataModule,
     DatabaseModule,
     DatabaseModule.forFeature([

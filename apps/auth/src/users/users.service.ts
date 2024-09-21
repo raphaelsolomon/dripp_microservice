@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   BadRequestException,
-  HttpException,
-  HttpStatus,
   Inject,
   Injectable,
   UnauthorizedException,
@@ -60,16 +58,23 @@ export class UsersService {
     return this.industryRepository.getPaginatedDocuments(first, page, {});
   }
 
-  async create(createUserDto: CreateUserDto) {
+  async create(input: CreateUserDto) {
+    let username = input?.username;
     // Check if user already exists
-    await this.validateCreateUserDto(createUserDto);
-    // Create username from the email address
-    const username = createUserDto.email.split('@')[0];
+    await this.validateCreateUserDto(input);
+
+    // check if username is provided
+    if (username) {
+      await this.validateUsername(input.username);
+    } else {
+      // Create username from the email address
+      username = input.email.split('@')[0];
+    }
     // create a new entry for the user on the database
     const user = await this.userRepository.create({
-      ...createUserDto,
+      ...input,
       username,
-      password: await bcrypt.hash(createUserDto.password, 10),
+      password: await bcrypt.hash(input.password, 10),
     });
     //create the user refresh token record
     await this.tokenRepository.create({ user_id: user._id.toString() });
@@ -98,13 +103,13 @@ export class UsersService {
       /* send the user a verification, in other to verify their account */
       this.notificationClientProxy.emit('mail_verify', {
         email: verification.email,
-        name: createUserDto.fullname ?? username,
+        name: (user as any).fullname ?? username,
         code: verification.code,
       });
       // send the user results as response to the client request
       return user;
     } catch (err) {
-      throw new Error(err);
+      throw new BadRequestException(err);
     }
   }
 
@@ -123,12 +128,12 @@ export class UsersService {
       );
       this.notificationClientProxy.emit('mail_verify', {
         email: verification.email,
-        name: user.fullname ?? user.username,
+        name: (user as any).fullname ?? user.username,
         code: verification.code,
       });
       return { status: true, message: 'verification code sent successfully' };
     } catch (err) {
-      throw new HttpException('Record not found', HttpStatus.NOT_FOUND);
+      throw new UnprocessableEntityException('Record not found');
     }
   }
 
@@ -139,7 +144,7 @@ export class UsersService {
       });
 
       if (verification.code !== verifyEmailDto.code) {
-        throw new HttpException('Invalid code', HttpStatus.BAD_REQUEST);
+        throw new UnprocessableEntityException('Invalid code');
       }
 
       return await this.userRepository.findOneAndUpdate(
@@ -147,17 +152,26 @@ export class UsersService {
         { email_verified: true },
       );
     } catch (err) {
-      throw new HttpException('Record not found', HttpStatus.NOT_FOUND);
+      throw new UnprocessableEntityException('Record not found');
     }
   }
 
-  private async validateCreateUserDto(createUserDto: CreateUserDto) {
+  private async validateCreateUserDto(input: CreateUserDto) {
     try {
-      await this.userRepository.findOne({ email: createUserDto.email });
+      await this.userRepository.findOne({ email: input.email });
     } catch (err) {
       return;
     }
     throw new UnprocessableEntityException('Email already exist.');
+  }
+
+  private async validateUsername(username: string) {
+    try {
+      await this.userRepository.findOne({ username });
+    } catch (err) {
+      return;
+    }
+    throw new UnprocessableEntityException('Username already exist.');
   }
 
   async verifyUser(identifier: string, password: string) {
@@ -166,7 +180,7 @@ export class UsersService {
       '+password',
     );
     if (user.status === false) {
-      throw new HttpException('Could not find user', HttpStatus.NOT_ACCEPTABLE);
+      throw new UnprocessableEntityException('Could not find user');
     }
     const passwordIsValid = await bcrypt.compare(password, user.password);
     if (!passwordIsValid) {
@@ -178,7 +192,7 @@ export class UsersService {
   async getUser(getUserDto: getUserDto) {
     const user = await this.userRepository.findOne(getUserDto);
     if (user.status === false) {
-      throw new HttpException('Could not find user', HttpStatus.NOT_ACCEPTABLE);
+      throw new UnprocessableEntityException('Could not find user');
     }
     return user;
   }
@@ -191,7 +205,7 @@ export class UsersService {
   async updateUser(userInfo: UserDocument, updateDto: UpdateUserDto) {
     const user = await this.userRepository.findOne({ _id: userInfo._id });
     if (user.status === false) {
-      throw new HttpException('Could not find user', HttpStatus.NOT_ACCEPTABLE);
+      throw new UnprocessableEntityException('Could not find user');
     }
 
     if (user.account_type !== 'user' && updateDto.account_type === 'business') {
@@ -260,20 +274,20 @@ export class UsersService {
     try {
       const user = await this.userRepository.findOne({ email });
       if (user.status === false) {
-        throw new HttpException(
-          'Could not find user',
-          HttpStatus.NOT_ACCEPTABLE,
-        );
+        throw new UnprocessableEntityException('Could not find user');
       }
       return user;
     } catch (err) {
-      const createUserDto = new CreateUserDto();
-      createUserDto.email = email;
-      createUserDto.fullname = profile?._json?.name;
+      const input = new CreateUserDto();
+      const [firstname, lastname] = profile?._json?.name.split(' ');
+      input.email = email;
+      input.setFullname(profile?._json?.name);
 
       const user = await this.userRepository.create({
-        ...createUserDto,
+        ...input,
         avatar: profile?._json?.picture,
+        firstname,
+        lastname,
         username: email.split('@')[0],
         email_verified: profile?._json?.email_verified,
         password: await bcrypt.hash('randompassword', 10),
@@ -287,19 +301,19 @@ export class UsersService {
     try {
       const user = await this.userRepository.findOne({ email });
       if (user.status === false) {
-        throw new HttpException(
-          'Could not find user',
-          HttpStatus.NOT_ACCEPTABLE,
-        );
+        throw new UnprocessableEntityException('Could not find user');
       }
       return user;
     } catch (err) {
-      const createUserDto = new CreateUserDto();
-      createUserDto.email = email;
-      createUserDto.fullname = profile?._json?.name;
+      const input = new CreateUserDto();
+      const [firstname, lastname] = profile?._json?.name.split(' ');
+      input.email = email;
+      input.setFullname(profile?._json?.name);
 
       const user = await this.userRepository.create({
-        ...createUserDto,
+        ...input,
+        firstname,
+        lastname,
         avatar: profile?._json?.profile_image_url,
         username: email.split('@')[0],
         email_verified: profile?._json?.verified,
@@ -314,20 +328,19 @@ export class UsersService {
     try {
       const user = await this.userRepository.findOne({ email });
       if (user.status === false) {
-        throw new HttpException(
-          'Could not find user',
-          HttpStatus.NOT_ACCEPTABLE,
-        );
+        throw new UnprocessableEntityException('Could not find user');
       }
       return user;
     } catch (err) {
       const name: string = `${profile?._json?.first_name} ${profile?._json?.last_name}`;
-      const createUserDto = new CreateUserDto();
-      createUserDto.email = email;
-      createUserDto.fullname = name;
+      const input = new CreateUserDto();
+      input.email = email;
+      input.setFullname(name);
 
       const user = await this.userRepository.create({
-        ...createUserDto,
+        ...input,
+        firstname: profile?._json?.first_name ?? '',
+        lastname: profile?._json?.last_name ?? '',
         avatar: null,
         username: email.split('@')[0],
         email_verified: true,
@@ -343,10 +356,7 @@ export class UsersService {
       const token = generateRandomCode(100);
       const user = await this.userRepository.findOne({ email });
       if (user.status === false) {
-        throw new HttpException(
-          'Could not find user',
-          HttpStatus.NOT_ACCEPTABLE,
-        );
+        throw new UnprocessableEntityException('Could not find user');
       }
       await this.userRepository.findOneAndUpdate(
         { email: user.email, status: true },
@@ -358,7 +368,7 @@ export class UsersService {
       });
       return { status: true, message: 'password reset link sent to ' + email };
     } catch (err) {
-      throw new HttpException('User not found', HttpStatus.NOT_FOUND);
+      throw new UnprocessableEntityException('User not found');
     }
   }
 
@@ -373,10 +383,7 @@ export class UsersService {
       );
 
       if (resetpasswordDto.new_password !== resetpasswordDto.confirm_password) {
-        throw new HttpException(
-          'Password does not match',
-          HttpStatus.BAD_REQUEST,
-        );
+        throw new UnprocessableEntityException('Password does not match');
       }
 
       const new_password = await bcrypt.hash(resetpasswordDto.new_password, 10);
@@ -386,7 +393,7 @@ export class UsersService {
       );
       return { status: true, message: 'Password changed successfully' };
     } catch (err) {
-      throw new HttpException('Record not found', HttpStatus.NOT_FOUND);
+      throw new UnprocessableEntityException('Record not found');
     }
   }
 
@@ -408,14 +415,11 @@ export class UsersService {
       if (
         updatePasswordDto.new_password !== updatePasswordDto.confirm_password
       ) {
-        throw new HttpException(
-          'Password does not match',
-          HttpStatus.BAD_REQUEST,
-        );
+        throw new UnprocessableEntityException('Password does not match');
       }
 
       if (!passwordIsValid) {
-        throw new HttpException('Wrong password', HttpStatus.BAD_REQUEST);
+        throw new UnprocessableEntityException('Wrong password');
       }
 
       const newPassword = await bcrypt.hash(updatePasswordDto.new_password, 10);
@@ -427,7 +431,7 @@ export class UsersService {
 
       return { status: true, message: 'Password updated successfully' };
     } catch (err) {
-      throw new HttpException(`${err}`, HttpStatus.NOT_FOUND);
+      throw new UnprocessableEntityException(`${err}`);
     }
   }
 

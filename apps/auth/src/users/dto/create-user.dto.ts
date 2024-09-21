@@ -5,9 +5,19 @@ export class CreateUserDto {
 
   password: string;
 
-  fullname: string;
+  firstname: string;
+
+  lastname: string;
 
   gender: string;
 
+  username?: string;
+
   account_type: AccountType;
+
+  protected fullname?: string;
+
+  setFullname(params: string) {
+    this.fullname = params;
+  }
 }

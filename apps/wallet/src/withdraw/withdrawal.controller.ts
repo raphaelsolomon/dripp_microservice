@@ -10,28 +10,52 @@ export class WithdrawController {
 
   @Get('fee/:currency/:amount')
   @UseGuards(JwtAuthGuard)
-  getTransferFee(@Req() req: Request) {
-    return this.withdrawalService.getTransferFee(
+  async getTransferFee(@Req() req: Request) {
+    const result = await this.withdrawalService.getTransferFee(
       req?.params?.currency,
       req?.params?.amount,
     );
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Get('banks/:country')
   @UseGuards(JwtAuthGuard)
-  getBanks(@Req() req: Request) {
-    return this.withdrawalService.getBankList(req?.params?.country);
+  async getBanks(@Req() req: Request) {
+    const result = await this.withdrawalService.getBankList(
+      req?.params?.country ?? 'NG',
+    );
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Post('initiate')
   @UseGuards(JwtAuthGuard)
-  walletInitiateWithdrawal(
+  async walletInitiateWithdrawal(
     @CurrentUser() user: UserDto,
-    @Body() initiateWithdrawalDto: InitiateWithdrawalDto,
+    @Body() input: InitiateWithdrawalDto,
+    @Req() req: Request,
   ) {
-    return this.withdrawalService.initiateWithdrawal(
-      user,
-      initiateWithdrawalDto,
-    );
+    const result = await this.withdrawalService.initiateWithdrawal(user, input);
+    return {
+      statusCode: 201,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 }

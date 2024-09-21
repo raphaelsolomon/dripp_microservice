@@ -1,4 +1,10 @@
-import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
+import {
+  HttpException,
+  HttpStatus,
+  Inject,
+  Injectable,
+  UnprocessableEntityException,
+} from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { WalletRepository } from './repositories/wallet.repository';
 import { AUTH_SERVICE, NOTIFICATION_SERVICE, UserDto } from '@app/common';
@@ -47,9 +53,8 @@ export class WalletService {
   async sendFundToUser(user: UserDto, sendFundDto: SendFundDto) {
     const username = sendFundDto.username;
     if (user.account_type === 'user') {
-      throw new HttpException(
+      throw new UnprocessableEntityException(
         'Action not supported on this account type',
-        HttpStatus.NOT_ACCEPTABLE,
       );
     }
     if (user.username === username) {

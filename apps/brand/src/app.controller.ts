@@ -9,7 +9,6 @@ import {
   Put,
   Query,
   Req,
-  Res,
 } from '@nestjs/common';
 import { AppService } from './app.service';
 import { UseGuards } from '@nestjs/common';
@@ -26,7 +25,7 @@ import { UpdateGiftCardDto } from './dto/giftcard/update-giftcard.dto';
 import { UpdateDiscountDto } from './dto/discount/update-discount.dto';
 import { CreateMemberShipMailDto } from './dto/membership-mail/create-membership-mail.dto';
 import { UpdateMemberShipMailDto } from './dto/membership-mail/update-membership-mail.dto';
-import { Request, Response } from 'express';
+import { Request } from 'express';
 import { CardDto } from './dto/card/card.dto';
 import { GiftUserCardDto } from './dto/giftcard/gift-user-card.dto';
 import { GiftUserDiscountDto } from './dto/discount/gift-user-discount.dto';
@@ -36,221 +35,465 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get('/healthcheck')
-  healthCheck(@Res() res: Response) {
-    return res.sendStatus(200);
+  healthCheck(@Req() req: Request) {
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: 'OK',
+      success: true,
+    };
   }
 
   @UseGuards(JwtAuthGuard)
   @Patch('/update')
-  updateBrand(@CurrentUser() user: UserDto, @Body() input: UpdateBrandDto) {
-    return this.appService.updatebrand(user, input);
+  async updateBrand(
+    @CurrentUser() user: UserDto,
+    @Body() input: UpdateBrandDto,
+    @Req() req: Request,
+  ) {
+    const result = await this.appService.updatebrand(user, input);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @UseGuards(JwtAuthGuard)
   @Patch('/post')
   @FormDataRequest()
-  updateBrandPost(
+  async updateBrandPost(
     @CurrentUser() user: UserDto,
-    @Body() updatePostDto: UpdatePostDto,
+    @Body() input: UpdatePostDto,
+    @Req() req: Request,
   ) {
-    return this.appService.updatePost(updatePostDto, user);
+    const result = await this.appService.updatePost(input, user);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Patch('/membership-mail')
   @UseGuards(JwtAuthGuard)
-  updateMemberShipMail(
+  async updateMemberShipMail(
     @CurrentUser() user: UserDto,
-    @Body() updateMemberShipMailDto: UpdateMemberShipMailDto,
+    @Body() input: UpdateMemberShipMailDto,
+    @Req() req: Request,
   ) {
-    return this.appService.updateMemberShipMail(user, updateMemberShipMailDto);
+    const result = await this.appService.updateMemberShipMail(user, input);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Patch('/giftcard')
   @UseGuards(JwtAuthGuard)
-  updateGiftCard(
+  async updateGiftCard(
     @CurrentUser() user: UserDto,
-    @Body() updateGiftCardDto: UpdateGiftCardDto,
+    @Body() input: UpdateGiftCardDto,
+    @Req() req: Request,
   ) {
-    return this.appService.updateGiftCard(user, updateGiftCardDto);
+    const result = await this.appService.updateGiftCard(user, input);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Patch('/discount')
   @UseGuards(JwtAuthGuard)
-  updateDiscount(
+  async updateDiscount(
     @CurrentUser() user: UserDto,
-    @Body() updateDiscountDto: UpdateDiscountDto,
+    @Body() input: UpdateDiscountDto,
+    @Req() req: Request,
   ) {
-    return this.appService.updateDiscount(user, updateDiscountDto);
+    const result = await this.appService.updateDiscount(user, input);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @UseGuards(JwtAuthGuard)
   @Delete('/post')
-  deleteBrandPost(@CurrentUser() user: UserDto, @Body() uuid: string) {
-    return this.appService.deletePost(uuid, user);
+  async deleteBrandPost(
+    @CurrentUser() user: UserDto,
+    @Body() uuid: string,
+    @Req() req: Request,
+  ) {
+    const result = await this.appService.deletePost(uuid, user);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @UseGuards(JwtAuthGuard)
   @Delete('/paymant-card')
-  deletePaymentCard(@CurrentUser() user: UserDto, @Body('uuid') uuid: string) {
-    return this.appService.deletePaymentCard(uuid, user);
+  async deletePaymentCard(
+    @CurrentUser() user: UserDto,
+    @Body('uuid') uuid: string,
+    @Req() req: Request,
+  ) {
+    const result = await this.appService.deletePaymentCard(uuid, user);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @UseGuards(JwtAuthGuard)
   @Get('/members/')
-  getBrandMembers(
+  async getBrandMembers(
     @CurrentUser() user: UserDto,
     @Query() payload: { [key: string]: number },
+    @Req() req: Request,
   ) {
-    return this.appService.getBrandMembers(user, payload);
+    const result = await this.appService.getBrandMembers(user, payload);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @UseGuards(JwtAuthGuard)
   @Get('/')
-  getBrand(@CurrentUser() user: UserDto) {
-    return this.appService.getBrand(user);
+  async getBrand(@CurrentUser() user: UserDto, @Req() req: Request) {
+    const result = await this.appService.getBrand(user);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @UseGuards(JwtAuthGuard)
   @Get('/posts')
-  getBrandPosts(
+  async getBrandPosts(
     @CurrentUser() user: UserDto,
     @Query() payload: { [key: string]: number },
+    @Req() req: Request,
   ) {
-    return this.appService.getPosts(user, payload);
+    const result = await this.appService.getPosts(user, payload);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @UseGuards(JwtAuthGuard)
   @Get('/payment-cards')
-  getPaymentCard(@CurrentUser() user: UserDto, @Req() req: Request) {
-    return this.appService.getPaymentCard(user, req);
+  async getPaymentCard(@CurrentUser() user: UserDto, @Req() req: Request) {
+    const result = await this.appService.getPaymentCard(user, req);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Get('/tasks')
   @UseGuards(JwtAuthGuard)
   @FormDataRequest()
-  getBrandTask(
+  async getBrandTask(
     @CurrentUser() user: UserDto,
     @Query() payload: { [key: string]: number },
+    @Req() req: Request,
   ) {
-    return this.appService.getBrandTask(user, payload);
+    const result = await this.appService.getBrandTask(user, payload);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Get('/discounts')
   @UseGuards(JwtAuthGuard)
-  getDicounts(
+  async getDicounts(
     @CurrentUser() user: UserDto,
     @Query() payload: { [key: string]: number },
+    @Req() req: Request,
   ) {
-    return this.appService.getDiscounts(user, payload);
+    const result = await this.appService.getDiscounts(user, payload);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Get('/giftcards')
   @UseGuards(JwtAuthGuard)
-  getGiftCards(
+  async getGiftCards(
     @CurrentUser() user: UserDto,
     @Query() payload: { [key: string]: number },
+    @Req() req: Request,
   ) {
-    return this.appService.getGiftCards(user, payload);
+    const result = await this.appService.getGiftCards(user, payload);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @UseGuards(JwtAuthGuard)
   @Post('/post')
   @FormDataRequest()
-  createBrandPost(
+  async createBrandPost(
     @CurrentUser() user: UserDto,
-    @Body() createPostDto: CreatePostDto,
+    @Body() input: CreatePostDto,
+    @Req() req: Request,
   ) {
-    return this.appService.createPost(createPostDto, user);
+    const result = await this.appService.createPost(input, user);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @UseGuards(JwtAuthGuard)
   @Post('/payment-card')
   @FormDataRequest()
-  addCard(@CurrentUser() user: UserDto, @Body() cardDto: CardDto) {
-    return this.appService.addCard(cardDto, user);
+  async addCard(
+    @CurrentUser() user: UserDto,
+    @Body() input: CardDto,
+    @Req() req: Request,
+  ) {
+    const result = await this.appService.addCard(input, user);
+    return {
+      statusCode: 201,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Post('/task')
   @UseGuards(JwtAuthGuard)
   @FormDataRequest()
-  createTask(
+  async createTask(
     @CurrentUser() user: UserDto,
-    @Body() createTaskDto: CreateTaskDto,
+    @Body() input: CreateTaskDto,
+    @Req() req: Request,
   ) {
-    return this.appService.createBrandTask(user, createTaskDto);
+    const result = await this.appService.createBrandTask(user, input);
+    return {
+      statusCode: 201,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Post('/discount')
   @UseGuards(JwtAuthGuard)
-  createDiscount(
+  async createDiscount(
     @CurrentUser() user: UserDto,
-    @Body() createDiscountDto: CreateDiscountDto,
+    @Body() input: CreateDiscountDto,
+    @Req() req: Request,
   ) {
-    return this.appService.createDiscount(user, createDiscountDto);
+    const result = await this.appService.createDiscount(user, input);
+    return {
+      statusCode: 201,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Post('/discount/user')
   @UseGuards(JwtAuthGuard)
-  createDiscountToUser(
+  async createDiscountToUser(
     @CurrentUser() user: UserDto,
     @Body() input: GiftUserDiscountDto,
+    @Req() req: Request,
   ) {
-    return this.appService.createDiscountToUser(user, input);
+    const result = await this.appService.createDiscountToUser(user, input);
+    return {
+      statusCode: 201,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Post('/giftcard')
   @UseGuards(JwtAuthGuard)
-  createGiftCard(
+  async createGiftCard(
     @CurrentUser() user: UserDto,
-    @Body() createGiftCardDto: CreateGiftCardDto,
+    @Body() input: CreateGiftCardDto,
+    @Req() req: Request,
   ) {
-    return this.appService.createGiftCard(user, createGiftCardDto);
+    const result = await this.appService.createGiftCard(user, input);
+    return {
+      statusCode: 201,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Post('/giftcard/user')
   @UseGuards(JwtAuthGuard)
-  createGiftCardToUser(
+  async createGiftCardToUser(
     @CurrentUser() user: UserDto,
     @Body() input: GiftUserCardDto,
+    @Req() req: Request,
   ) {
-    return this.appService.createGiftCardToUser(user, input);
+    const result = await this.appService.createGiftCardToUser(user, input);
+    return {
+      statusCode: 201,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Get('/task-submission/:task_uuid/:member_uuid')
   @UseGuards(JwtAuthGuard)
-  getSubmissionByTask(
+  async getSubmissionByTask(
     @CurrentUser() user: UserDto,
     @Param() input: { [key: string]: string },
+    @Req() req: Request,
   ) {
-    return this.appService.getSubmissionByTask(
+    const result = await this.appService.getSubmissionByTask(
       user,
       input.task_uuid,
       input.member_uuid,
     );
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Put('/task-submission/review')
   @UseGuards(JwtAuthGuard)
-  approveSubmission(
+  async approveSubmission(
     @CurrentUser() user: UserDto,
     @Body() input: { [key: string]: string },
+    @Req() req: Request,
   ) {
-    return this.appService.approveSubmission(user, input);
+    const result = await this.appService.approveSubmission(user, input);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Post('/membership-mail')
   @UseGuards(JwtAuthGuard)
-  createMemberShipMail(
+  async createMemberShipMail(
     @CurrentUser() user: UserDto,
-    @Body() createMemberShipMailDto: CreateMemberShipMailDto,
+    @Body() input: CreateMemberShipMailDto,
+    @Req() req: Request,
   ) {
-    return this.appService.createMemberShipMail(user, createMemberShipMailDto);
+    const result = await this.appService.createMemberShipMail(user, input);
+    return {
+      statusCode: 201,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Get('graph/membership-metrics')
   @UseGuards(JwtAuthGuard)
-  getMembershipMetrics(@CurrentUser() user: UserDocument) {
-    return this.appService.getMembershipMetrics(user);
+  async getMembershipMetrics(
+    @CurrentUser() user: UserDocument,
+    @Req() req: Request,
+  ) {
+    const result = await this.appService.getMembershipMetrics(user);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Get('graph/tasks-with-engagement')
@@ -261,17 +504,37 @@ export class AppController {
 
   @Get('graph/task-engagement/:task_uuid')
   @UseGuards(JwtAuthGuard)
-  getEngagementsByATask(
+  async getEngagementsByATask(
     @CurrentUser() user: UserDocument,
     @Param('task_uuid') uuid: string,
+    @Req() req: Request,
   ) {
-    return this.appService.getEngagementsByATask(user, uuid);
+    const result = await this.appService.getEngagementsByATask(user, uuid);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Get('graph/all-task-engagement')
   @UseGuards(JwtAuthGuard)
-  allTaskWithEngagementsFromCreation(@CurrentUser() user: UserDocument) {
-    return this.appService.allTaskWithEngagementsFromCreation(user);
+  allTaskWithEngagementsFromCreation(
+    @CurrentUser() user: UserDocument,
+    @Req() req: Request,
+  ) {
+    const result = this.appService.allTaskWithEngagementsFromCreation(user);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @MessagePattern('create_brand')

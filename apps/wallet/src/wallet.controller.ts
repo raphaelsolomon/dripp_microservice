@@ -4,13 +4,13 @@ import {
   Get,
   Post,
   Query,
-  Res,
+  Req,
   UseGuards,
 } from '@nestjs/common';
 import { WalletService } from './wallet.service';
 import { MessagePattern, Payload } from '@nestjs/microservices';
 import { CurrentUser, JwtAuthGuard, UserDto } from '@app/common';
-import { Response } from 'express';
+import { Request } from 'express';
 import { SendFundDto } from './dto/send-fund.dto';
 
 @Controller('wallet')
@@ -18,23 +18,51 @@ export class WalletController {
   constructor(private readonly walletService: WalletService) {}
 
   @Get('/healthcheck')
-  healthCheck(@Res() res: Response) {
-    return res.sendStatus(200);
+  healthCheck(@Req() req: Request) {
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: 'OK',
+      success: true,
+    };
   }
 
   @Get('/transactions')
   @UseGuards(JwtAuthGuard)
-  getTransactions(
+  async getTransactions(
     @CurrentUser() user: UserDto,
     @Query() payload: { [key: string]: number },
+    @Req() req: Request,
   ) {
-    return this.walletService.getTransactions(user, payload);
+    const result = await this.walletService.getTransactions(user, payload);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @Post('/send')
   @UseGuards(JwtAuthGuard)
-  getSend(@CurrentUser() user: UserDto, @Body() sendFundDto: SendFundDto) {
-    return this.walletService.sendFundToUser(user, sendFundDto);
+  async getSend(
+    @CurrentUser() user: UserDto,
+    @Body() input: SendFundDto,
+    @Req() req: Request,
+  ) {
+    const result = await this.walletService.sendFundToUser(user, input);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      data: result,
+      success: true,
+    };
   }
 
   @MessagePattern('create_wallet')
