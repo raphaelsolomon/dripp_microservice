@@ -5,7 +5,7 @@ import { Logger } from 'nestjs-pino';
 import { ConfigService } from '@nestjs/config';
 import * as cookieParser from 'cookie-parser';
 import { Transport } from '@nestjs/microservices';
-import { AllExceptionsFilter } from '@app/common';
+import { AllExceptionsFilter, AUTH_SERVICE } from '@app/common';
 import * as session from 'express-session';
 
 async function bootstrap() {
@@ -16,10 +16,10 @@ async function bootstrap() {
   app.enableCors({ origin: configService.get<string>('ALLOWED_ORIGINS') });
 
   app.connectMicroservice({
-    transport: Transport.TCP,
+    transport: Transport.RMQ,
     options: {
-      host: '0.0.0.0',
-      port: configService.get<number>('AUTH_TCP_PORT'),
+      urls: [configService.getOrThrow<string>('RABBITMQ_URL')],
+      queue: AUTH_SERVICE,
     },
   });
 

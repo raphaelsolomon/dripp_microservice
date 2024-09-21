@@ -98,10 +98,10 @@ import { GraphModule } from './graph/graph.module';
       {
         name: AUTH_SERVICE,
         useFactory: (configService: ConfigService) => ({
-          transport: Transport.TCP,
+          transport: Transport.RMQ,
           options: {
-            host: configService.get<string>('AUTH_HOST'),
-            port: configService.get<number>('AUTH_TCP_PORT'),
+            urls: [configService.getOrThrow<string>('RABBITMQ_URL')],
+            queue: AUTH_SERVICE,
           },
         }),
         inject: [ConfigService],
@@ -109,10 +109,10 @@ import { GraphModule } from './graph/graph.module';
       {
         name: WALLET_SERVICE,
         useFactory: (configService: ConfigService) => ({
-          transport: Transport.TCP,
+          transport: Transport.RMQ,
           options: {
-            host: configService.get<string>('WALLET_TCP_HOST'),
-            port: configService.get<number>('WALLET_TCP_PORT'),
+            urls: [configService.getOrThrow<string>('RABBITMQ_URL')],
+            queue: WALLET_SERVICE,
           },
         }),
         inject: [ConfigService],
@@ -120,10 +120,10 @@ import { GraphModule } from './graph/graph.module';
       {
         name: NOTIFICATION_SERVICE,
         useFactory: (configService: ConfigService) => ({
-          transport: Transport.TCP,
+          transport: Transport.RMQ,
           options: {
-            host: configService.get<string>('NOTIFICATION_HOST'),
-            port: configService.get<number>('NOTIFICATION_TCP_PORT'),
+            urls: [configService.getOrThrow<string>('RABBITMQ_URL')],
+            queue: NOTIFICATION_SERVICE,
           },
         }),
         inject: [ConfigService],
