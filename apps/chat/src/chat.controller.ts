@@ -27,8 +27,8 @@ export class ChatController {
       statusCode: 200,
       timestamp: new Date().toISOString(),
       path: req.url,
-      message: 'Successful',
       success: true,
+      message: 'Successful',
     };
   }
 

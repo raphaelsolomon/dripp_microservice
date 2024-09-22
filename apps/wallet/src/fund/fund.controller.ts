@@ -62,8 +62,8 @@ export class FundController {
       timestamp: new Date().toISOString(),
       path: req.url,
       message: 'Successful',
-      data: result,
       success: true,
+      data: result,
     };
   }
 
@@ -80,8 +80,8 @@ export class FundController {
       timestamp: new Date().toISOString(),
       path: req.url,
       message: 'Successful',
-      data: result,
       success: true,
+      data: result,
     };
   }
 }

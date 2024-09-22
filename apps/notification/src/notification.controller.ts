@@ -61,8 +61,8 @@ export class NotificationController {
       timestamp: new Date().toISOString(),
       path: req.url,
       message: 'Successful',
-      data: result,
       success: true,
+      data: result,
     };
   }
 
@@ -73,8 +73,8 @@ export class NotificationController {
       timestamp: new Date().toISOString(),
       path: req.url,
       message: 'Successful',
-      data: 'OK',
       success: true,
+      data: 'OK',
     };
   }
 }

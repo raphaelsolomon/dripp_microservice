@@ -20,8 +20,8 @@ export class WithdrawController {
       timestamp: new Date().toISOString(),
       path: req.url,
       message: 'Successful',
-      data: result,
       success: true,
+      data: result,
     };
   }
 
@@ -36,8 +36,8 @@ export class WithdrawController {
       timestamp: new Date().toISOString(),
       path: req.url,
       message: 'Successful',
-      data: result,
       success: true,
+      data: result,
     };
   }
 
@@ -54,8 +54,8 @@ export class WithdrawController {
       timestamp: new Date().toISOString(),
       path: req.url,
       message: 'Successful',
-      data: result,
       success: true,
+      data: result,
     };
   }
 }
