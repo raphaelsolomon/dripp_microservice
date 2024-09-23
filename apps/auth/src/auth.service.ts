@@ -126,43 +126,46 @@ export class AuthService {
     switch (provider) {
       case 'facebook':
         user = await this.validateFacebookCode(code);
-        return await this.getUserAndToken(user, res);
+        break;
 
       case 'google':
         user = await this.validateGoogleCode(code);
-        return await this.getUserAndToken(user, res);
+        break;
 
       default:
         throw new BadRequestException(`Invalid Provider: ${provider}`);
     }
+    return await this.getUserAndToken(user, res);
   }
 
   async validateGoogleCode(code: string) {
-    const client = new OAuth2Client(
-      this.configService.get<string>('GOOGLE_OAUTH_CLIENT_ID'),
-      this.configService.get<string>('GOOGLE_OAUTH_CLIENT_SECRET'),
-    );
+    try {
+      const client = new OAuth2Client(
+        this.configService.get<string>('GOOGLE_OAUTH_CLIENT_ID'),
+        this.configService.get<string>('GOOGLE_OAUTH_CLIENT_SECRET'),
+      );
 
-    const token = await client.getToken({
-      code: code,
-      client_id: this.configService.get<string>('GOOGLE_OAUTH_CLIENT_ID'),
-      redirect_uri: this.configService.get<string>(
-        'GOOGLE_OAUTH_CLIENT_SECRET',
-      ),
-    });
+      const token = await client.getToken({
+        code: code,
+        client_id: this.configService.get<string>('GOOGLE_OAUTH_CLIENT_ID'),
+        redirect_uri: this.configService.get('GOOGLE_OAUTH_CALLBACK_URL'),
+      });
 
-    const idToken: string = token!.tokens!.id_token ?? '';
-    const ticket = await client.verifyIdToken({
-      idToken: idToken,
-      audience: this.configService.get<string>('GOOGLE_OAUTH_CLIENT_ID'),
-    });
+      const idToken: string = token!.tokens!.id_token ?? '';
+      const ticket = await client.verifyIdToken({
+        idToken: idToken,
+        audience: this.configService.get<string>('GOOGLE_OAUTH_CLIENT_ID'),
+      });
 
-    const payload = ticket.getPayload();
+      const payload = ticket.getPayload();
 
-    if (!payload)
-      throw new BadRequestException('Error verifying Google id token');
+      if (!payload)
+        throw new BadRequestException('Error verifying Google id token');
 
-    return await this.userService.authenticateGoogle(payload);
+      return await this.userService.authenticateGoogle(payload);
+    } catch (e) {
+      throw new UnprocessableEntityException(e);
+    }
   }
 
   async validateFacebookCode(code: string) {

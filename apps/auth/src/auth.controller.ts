@@ -120,12 +120,9 @@ export class AuthController {
   async xAuth(@Req() req: Request) {}
 
   @Get('verify/oauth/:provider')
-  async verifyOAuth(
-    @Query('code') code: string,
-    @Param('provider') provider: string,
-    @Res() res: Response,
-    @Req() req: Request,
-  ) {
+  async verifyOAuth(@Res() res: Response, @Req() req: Request) {
+    const code: string = <string>req?.query?.code ?? '';
+    const provider: string = <string>req?.params?.provider ?? '';
     const result = await this.authService.verifyOAuth(provider, code, res);
     res.json({
       statusCode: 200,
