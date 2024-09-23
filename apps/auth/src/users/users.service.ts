@@ -35,6 +35,7 @@ import { UpdatePasswordDto } from './dto/update-password.dto';
 import { TaskSubmissionDto } from './dto/submit-task.dto';
 import { TokenRepository } from './repositories/token.repository';
 import { countryList } from '../assets/countries';
+import { TokenPayload as GoogleTokenPayload } from 'google-auth-library';
 
 @Injectable()
 export class UsersService {
@@ -51,6 +52,16 @@ export class UsersService {
     @Inject(BRAND_SERVICE) private brandClientProxy: ClientProxy,
     @Inject(CHAT_SERVICE) private chatServiceProxy: ClientProxy,
   ) {}
+
+  generateRandomString(length: number): string {
+    const charset = `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`;
+    let result: string = '';
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * charset.length);
+      result += charset.charAt(randomIndex);
+    }
+    return result;
+  }
 
   async getIndustries(input: { [key: string]: number }) {
     const page: number = input.page || 1;
@@ -269,28 +280,62 @@ export class UsersService {
     }
   }
 
-  async authenticateGoogle(profile: any) {
-    const email: string = profile?._json?.email;
+  async authenticateGoogle(profile: GoogleTokenPayload) {
+    const email: string = profile?.email;
     try {
       const user = await this.userRepository.findOne({ email });
+      // if this user account is not active again
       if (user.status === false) {
         throw new UnprocessableEntityException('Could not find user');
       }
       return user;
     } catch (err) {
       const input = new CreateUserDto();
-      const [firstname, lastname] = profile?._json?.name.split(' ');
       input.email = email;
-      input.setFullname(profile?._json?.name);
+      input.setFullname(profile?.name);
+
+      const randomPass = this.generateRandomString(16);
 
       const user = await this.userRepository.create({
         ...input,
-        avatar: profile?._json?.picture,
-        firstname,
-        lastname,
+        avatar: profile?.picture,
+        firstname: profile?.family_name ?? '',
+        lastname: profile?.given_name ?? '',
         username: email.split('@')[0],
-        email_verified: profile?._json?.email_verified,
-        password: await bcrypt.hash('randompassword', 10),
+        email_verified: profile?.email_verified,
+        password: await bcrypt.hash(randomPass, 10),
+      });
+      return user;
+    }
+  }
+
+  async authenticateFacebook(profile: Record<string, any>) {
+    const email: string = profile?.email;
+    try {
+      const user = await this.userRepository.findOne({ email });
+      // if this user account is not active again
+      if (user.status === false) {
+        throw new UnprocessableEntityException('Could not find user');
+      }
+      return user;
+    } catch (err) {
+      const name: string = profile?.name;
+      const [firstname, lastname] = name?.split(' ');
+      const input = new CreateUserDto();
+      input.email = email;
+      input.setFullname(name);
+
+      const randomPass = this.generateRandomString(16);
+
+      const user = await this.userRepository.create({
+        ...input,
+        firstname: firstname ?? '',
+        lastname: lastname ?? '',
+        avatar: profile?.picture?.data?.url,
+        username: email.split('@')[0],
+        email_verified: true,
+        gender: profile?.gender ?? null,
+        password: await bcrypt.hash(randomPass, 10),
       });
       return user;
     }
@@ -310,6 +355,8 @@ export class UsersService {
       input.email = email;
       input.setFullname(profile?._json?.name);
 
+      const randomPass = this.generateRandomString(16);
+
       const user = await this.userRepository.create({
         ...input,
         firstname,
@@ -317,35 +364,7 @@ export class UsersService {
         avatar: profile?._json?.profile_image_url,
         username: email.split('@')[0],
         email_verified: profile?._json?.verified,
-        password: await bcrypt.hash('randompassword', 10),
-      });
-      return user;
-    }
-  }
-
-  async authenticateFacebook(profile: Record<string, any>) {
-    const email: string = profile?._json?.email;
-    try {
-      const user = await this.userRepository.findOne({ email });
-      if (user.status === false) {
-        throw new UnprocessableEntityException('Could not find user');
-      }
-      return user;
-    } catch (err) {
-      const name: string = `${profile?._json?.first_name} ${profile?._json?.last_name}`;
-      const input = new CreateUserDto();
-      input.email = email;
-      input.setFullname(name);
-
-      const user = await this.userRepository.create({
-        ...input,
-        firstname: profile?._json?.first_name ?? '',
-        lastname: profile?._json?.last_name ?? '',
-        avatar: null,
-        username: email.split('@')[0],
-        email_verified: true,
-        gender: profile?.gender ?? null,
-        password: await bcrypt.hash('randompassword', 10),
+        password: await bcrypt.hash(randomPass, 10),
       });
       return user;
     }

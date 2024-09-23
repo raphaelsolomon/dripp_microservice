@@ -1,12 +1,18 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { BadRequestException, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  UnprocessableEntityException,
+} from '@nestjs/common';
 import { UserDocument, UserDto } from '@app/common';
 import { Request, Response } from 'express';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
-import { TokenPayload } from './interface/token-payload.interface';
+import { TokenPayload as CustomTokenPayload } from './interface/token-payload.interface';
 import { UsersService } from './users/users.service';
 import { CreateUserDto } from './users/dto/create-user.dto';
+import { OAuth2Client } from 'google-auth-library';
+import axios from 'axios';
 
 type SocialType = {
   user: object;
@@ -35,7 +41,7 @@ export class AuthService {
     userInfo: UserDocument,
     res: Response,
   ): Promise<SocialType> {
-    const tokenPayload: TokenPayload = {
+    const tokenPayload: CustomTokenPayload = {
       userId: userInfo._id.toString(),
     };
     const accessToken = this.jwtService.sign(tokenPayload);
@@ -69,16 +75,6 @@ export class AuthService {
         expiresIn: '20d',
       },
     };
-  }
-
-  async googleLogin(req: Request, res: Response): Promise<SocialType> {
-    const user = await this.userService.authenticateGoogle(req.user);
-    return await this.getUserAndToken(user, res);
-  }
-
-  async facebookLogin(req: Request, res: Response): Promise<SocialType> {
-    const user = await this.userService.authenticateFacebook(req.user);
-    return await this.getUserAndToken(user, res);
   }
 
   async xLogin(req: Request, res: Response): Promise<SocialType> {
@@ -124,10 +120,85 @@ export class AuthService {
       throw new BadRequestException(err);
     }
   }
-}
 
-// //{
-//   statusCode: status,
-//   timestamp: new Date().toISOString(),
-//   path: request.url,
-// }
+  async verifyOAuth(provider: string, code: string, res: Response) {
+    let user: UserDocument = undefined;
+    switch (provider) {
+      case 'facebook':
+        user = await this.validateFacebookCode(code);
+        return await this.getUserAndToken(user, res);
+
+      case 'google':
+        user = await this.validateGoogleCode(code);
+        return await this.getUserAndToken(user, res);
+
+      default:
+        throw new BadRequestException(`Invalid Provider: ${provider}`);
+    }
+  }
+
+  async validateGoogleCode(code: string) {
+    const client = new OAuth2Client(
+      this.configService.get<string>('GOOGLE_OAUTH_CLIENT_ID'),
+      this.configService.get<string>('GOOGLE_OAUTH_CLIENT_SECRET'),
+    );
+
+    const token = await client.getToken({
+      code: code,
+      client_id: this.configService.get<string>('GOOGLE_OAUTH_CLIENT_ID'),
+      redirect_uri: this.configService.get<string>(
+        'GOOGLE_OAUTH_CLIENT_SECRET',
+      ),
+    });
+
+    const idToken: string = token!.tokens!.id_token ?? '';
+    const ticket = await client.verifyIdToken({
+      idToken: idToken,
+      audience: this.configService.get<string>('GOOGLE_OAUTH_CLIENT_ID'),
+    });
+
+    const payload = ticket.getPayload();
+
+    if (!payload)
+      throw new BadRequestException('Error verifying Google id token');
+
+    return await this.userService.authenticateGoogle(payload);
+  }
+
+  async validateFacebookCode(code: string) {
+    const fbAccessToken = await this.getFacebookAccessToken(code);
+    const userProfile = await this.getFbUserProfile(fbAccessToken);
+    return await this.userService.authenticateFacebook(userProfile);
+  }
+
+  async getFacebookAccessToken(code: string): Promise<string> {
+    const url: string = this.configService.get('FACEBOOK_APP_CALLBACK_URL');
+    const params = {
+      client_id: this.configService.get<string>('FACEBOOK_APP_ID'),
+      client_secret: this.configService.get<string>('FACEBOOK_APP_SECRET'),
+      redirect_uri: url,
+      code: code,
+    };
+    try {
+      const response = await axios.get(url, { params });
+      return response.data.access_token;
+    } catch (error) {
+      throw new UnprocessableEntityException(error);
+    }
+  }
+
+  async getFbUserProfile(accessToken: string): Promise<any> {
+    const url: string = <string>process.env.FACEBOOK_ME_URL;
+    const params = {
+      fields: 'id,name,email,picture',
+      access_token: accessToken,
+    };
+
+    try {
+      const response = await axios.get(url, { params });
+      return response.data;
+    } catch (error) {
+      throw new UnprocessableEntityException(error);
+    }
+  }
+}

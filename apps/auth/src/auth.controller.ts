@@ -3,7 +3,9 @@ import {
   Body,
   Controller,
   Get,
+  Param,
   Post,
+  Query,
   Req,
   Res,
   UseGuards,
@@ -109,31 +111,22 @@ export class AuthController {
   @UseGuards(FacebookAuthGuard)
   async facebookAuth(@Req() req: Request) {}
 
-  @Get('/facebook/redirect')
-  @UseGuards(FacebookAuthGuard)
-  async facebookAuthRedirect(
-    @Req() req: Request,
-    @Res() res: Response,
-  ): Promise<any> {
-    const result = await this.authService.facebookLogin(req, res);
-    res.json({
-      statusCode: 200,
-      timestamp: new Date().toISOString(),
-      path: req.url,
-      message: 'Successful',
-      success: true,
-      data: result,
-    });
-  }
-
   @Get('/google/oauth')
   @UseGuards(GoogleAuthGuard)
   async googleAuth(@Req() req: Request) {}
 
-  @Get('/google/redirect')
-  @UseGuards(GoogleAuthGuard)
-  async googleAuthRedirect(@Req() req: Request, @Res() res: Response) {
-    const result = await this.authService.googleLogin(req, res);
+  @Get('/x/oauth')
+  @UseGuards(XTwitterAuthGuard)
+  async xAuth(@Req() req: Request) {}
+
+  @Get('verify/oauth/:provider')
+  async verifyOAuth(
+    @Query('code') code: string,
+    @Param('provider') provider: string,
+    @Res() res: Response,
+    @Req() req: Request,
+  ) {
+    const result = await this.authService.verifyOAuth(provider, code, res);
     res.json({
       statusCode: 200,
       timestamp: new Date().toISOString(),
@@ -143,10 +136,6 @@ export class AuthController {
       data: result,
     });
   }
-
-  @Get('/x/oauth')
-  @UseGuards(XTwitterAuthGuard)
-  async xAuth(@Req() req: Request) {}
 
   @Get('/x/redirect')
   @UseGuards(XTwitterAuthGuard)

@@ -9,7 +9,7 @@ export class XTwitterStrategy extends PassportStrategy(Strategy, 'twitter') {
     super({
       consumerKey: configService.get<string>('TWITTER_CONSUMER_KEY'),
       consumerSecret: configService.get<string>('TWITTER_CONSUMER_SECRET'),
-      callbackURL: configService.get<string>('X_CALLBACK_URL'),
+      callbackURL: configService.get<string>('TWITTER_CALLBACK_URL'),
       includeEmail: true,
     });
   }
