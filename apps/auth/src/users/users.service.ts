@@ -302,7 +302,7 @@ export class UsersService {
         firstname: profile?.family_name ?? '',
         lastname: profile?.given_name ?? '',
         username: email.split('@')[0],
-        email_verified: profile?.email_verified,
+        email_verified: true,
         password: await bcrypt.hash(randomPass, 10),
       });
       return user;

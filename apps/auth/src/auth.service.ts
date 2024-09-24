@@ -170,6 +170,7 @@ export class AuthService {
 
   async validateFacebookCode(code: string) {
     const fbAccessToken = await this.getFacebookAccessToken(code);
+    console.log(fbAccessToken);
     const userProfile = await this.getFbUserProfile(fbAccessToken);
     return await this.userService.authenticateFacebook(userProfile);
   }
