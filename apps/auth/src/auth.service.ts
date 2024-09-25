@@ -170,17 +170,16 @@ export class AuthService {
 
   async validateFacebookCode(code: string) {
     const fbAccessToken = await this.getFacebookAccessToken(code);
-    console.log(fbAccessToken);
     const userProfile = await this.getFbUserProfile(fbAccessToken);
     return await this.userService.authenticateFacebook(userProfile);
   }
 
   async getFacebookAccessToken(code: string): Promise<string> {
-    const url: string = this.configService.get('FACEBOOK_APP_CALLBACK_URL');
+    const url: string = this.configService.get<string>('FACEBOOK_AUTH_URL');
     const params = {
       client_id: this.configService.get<string>('FACEBOOK_APP_ID'),
       client_secret: this.configService.get<string>('FACEBOOK_APP_SECRET'),
-      redirect_uri: url,
+      redirect_uri: this.configService.get('FACEBOOK_APP_CALLBACK_URL'),
       code: code,
     };
     try {
@@ -192,7 +191,7 @@ export class AuthService {
   }
 
   async getFbUserProfile(accessToken: string): Promise<any> {
-    const url: string = <string>process.env.FACEBOOK_ME_URL;
+    const url: string = this.configService.get<string>('FACEBOOK_ME_URL');
     const params = {
       fields: 'id,name,email,picture',
       access_token: accessToken,

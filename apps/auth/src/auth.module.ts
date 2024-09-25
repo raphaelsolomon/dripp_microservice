@@ -30,6 +30,7 @@ import { XTwitterStrategy } from './strategies/twitter.strategy';
         FACEBOOK_APP_ID: Joi.string().required(),
         FACEBOOK_APP_SECRET: Joi.string().required(),
         FACEBOOK_APP_CALLBACK_URL: Joi.string().required(),
+        FACEBOOK_AUTH_URL: Joi.string().required(),
         FACEBOOK_ME_URL: Joi.string().required(),
         CLOUDINARY_NAME: Joi.string().required(),
         CLOUDINARY_API_KEY: Joi.string().required(),
