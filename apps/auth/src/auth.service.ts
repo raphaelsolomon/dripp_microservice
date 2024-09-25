@@ -13,6 +13,8 @@ import { UsersService } from './users/users.service';
 import { CreateUserDto } from './users/dto/create-user.dto';
 import { OAuth2Client } from 'google-auth-library';
 import axios from 'axios';
+import * as OAuth from 'oauth-1.0a';
+import * as crypto from 'crypto';
 
 type SocialType = {
   user: object;
@@ -22,11 +24,26 @@ type SocialType = {
 
 @Injectable()
 export class AuthService {
+  private oauth: OAuth;
   constructor(
     private readonly configService: ConfigService,
     private readonly jwtService: JwtService,
     private readonly userService: UsersService,
-  ) {}
+  ) {
+    const consumerKey = this.configService.get<string>('TWITTER_CONSUMER_KEY');
+    const consumerSecret = this.configService.get('TWITTER_CONSUMER_SECRET');
+
+    this.oauth = new OAuth({
+      consumer: { key: consumerKey, secret: consumerSecret },
+      signature_method: 'HMAC-SHA1',
+      hash_function(base_string, key) {
+        return crypto
+          .createHmac('sha1', key)
+          .update(base_string)
+          .digest('base64');
+      },
+    });
+  }
 
   async create(input: CreateUserDto, response: Response) {
     const user = await this.userService.create(input);
@@ -77,11 +94,6 @@ export class AuthService {
     };
   }
 
-  async xLogin(req: Request, res: Response): Promise<SocialType> {
-    const user = await this.userService.authenticateX(req.user);
-    return await this.getUserAndToken(user, res);
-  }
-
   async validateToken(userId: string, authHeader: string) {
     return this.userService.getToken(userId, authHeader);
   }
@@ -121,8 +133,13 @@ export class AuthService {
     }
   }
 
-  async verifyOAuth(provider: string, code: string, res: Response) {
+  async verifyOAuth(provider: string, req: Request, res: Response) {
     let user: UserDocument = undefined;
+
+    const code: string = <string>req?.query?.code;
+    const oauth_token: string = <string>req?.query?.oauth_token;
+    const oauth_verifier: string = <string>req?.query?.oauth_verifier;
+
     switch (provider) {
       case 'facebook':
         user = await this.validateFacebookCode(code);
@@ -130,6 +147,10 @@ export class AuthService {
 
       case 'google':
         user = await this.validateGoogleCode(code);
+        break;
+
+      case 'x':
+        user = await this.validateXCode(oauth_token, oauth_verifier);
         break;
 
       default:
@@ -163,6 +184,24 @@ export class AuthService {
         throw new BadRequestException('Error verifying Google id token');
 
       return await this.userService.authenticateGoogle(payload);
+    } catch (e) {
+      throw new UnprocessableEntityException(e);
+    }
+  }
+
+  async validateXCode(oauth_token_code: string, oauth_verifier: string) {
+    try {
+      const { oauth_token, oauth_token_secret } = await this.getXaccessToken(
+        oauth_token_code,
+        oauth_verifier,
+      );
+
+      const result = await this.validateAndGetProfile(
+        oauth_token,
+        oauth_token_secret,
+      );
+
+      return this.userService.authenticateX(result);
     } catch (e) {
       throw new UnprocessableEntityException(e);
     }
@@ -203,5 +242,58 @@ export class AuthService {
     } catch (error) {
       throw new UnprocessableEntityException(error);
     }
+  }
+
+  async getXaccessToken(oauth_token: string, oauth_verifier: string) {
+    const request_data = {
+      url: this.configService.get<string>('TWITTER_AUTH_URL'),
+      method: 'POST',
+      data: {
+        oauth_token,
+        oauth_verifier,
+      },
+    };
+
+    const authHeader = this.oauth.toHeader(
+      this.oauth.authorize(request_data, { key: oauth_token, secret: '' }),
+    );
+    const response = await axios.post(request_data.url, null, {
+      headers: {
+        Authorization: authHeader.Authorization,
+      },
+      params: request_data.data,
+    });
+
+    return this.extractTokens(<string>response.data);
+  }
+
+  extractTokens(str: string) {
+    const params = new URLSearchParams(str);
+    const oauth_token = params.get('oauth_token');
+    const oauth_token_secret = params.get('oauth_token_secret');
+
+    return { oauth_token, oauth_token_secret };
+  }
+
+  async validateAndGetProfile(accessToken: string, accessTokenSecret: string) {
+    const request_data = {
+      url: this.configService.get<string>('TWITTER_VALIDATE_URL'),
+      method: 'GET',
+    };
+
+    const authHeader = this.oauth.toHeader(
+      this.oauth.authorize(request_data, {
+        key: accessToken,
+        secret: accessTokenSecret,
+      }),
+    );
+
+    const response = await axios.get(request_data.url, {
+      headers: {
+        Authorization: authHeader.Authorization,
+      },
+    });
+
+    return response.data;
   }
 }

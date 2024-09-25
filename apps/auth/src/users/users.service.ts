@@ -342,7 +342,8 @@ export class UsersService {
   }
 
   async authenticateX(profile: Record<string, any>) {
-    const email: string = profile?._json?.email;
+    console.log(profile);
+    const email: string = profile?.email;
     try {
       const user = await this.userRepository.findOne({ email });
       if (user.status === false) {
@@ -351,9 +352,9 @@ export class UsersService {
       return user;
     } catch (err) {
       const input = new CreateUserDto();
-      const [firstname, lastname] = profile?._json?.name.split(' ');
+      const [firstname, lastname] = profile?.name.split(' ');
       input.email = email;
-      input.setFullname(profile?._json?.name);
+      input.setFullname(profile?.name);
 
       const randomPass = this.generateRandomString(16);
 
@@ -361,9 +362,9 @@ export class UsersService {
         ...input,
         firstname,
         lastname,
-        avatar: profile?._json?.profile_image_url,
+        avatar: profile?.profile_image_url,
         username: email.split('@')[0],
-        email_verified: profile?._json?.verified,
+        email_verified: true,
         password: await bcrypt.hash(randomPass, 10),
       });
       return user;

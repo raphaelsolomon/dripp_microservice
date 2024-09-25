@@ -121,9 +121,8 @@ export class AuthController {
 
   @Get('verify/oauth/:provider')
   async verifyOAuth(@Res() res: Response, @Req() req: Request) {
-    const code: string = <string>req?.query?.code ?? '';
     const provider: string = <string>req?.params?.provider ?? '';
-    const result = await this.authService.verifyOAuth(provider, code, res);
+    const result = await this.authService.verifyOAuth(provider, req, res);
     res.json({
       statusCode: 200,
       timestamp: new Date().toISOString(),
@@ -134,19 +133,19 @@ export class AuthController {
     });
   }
 
-  @Get('/x/redirect')
-  @UseGuards(XTwitterAuthGuard)
-  async xAuthRedirect(@Req() req: Request, @Res() res: Response) {
-    const result = await this.authService.xLogin(req, res);
-    res.json({
-      statusCode: 200,
-      timestamp: new Date().toISOString(),
-      path: req.url,
-      message: 'Successful',
-      success: true,
-      data: result,
-    });
-  }
+  // @Get('/x/redirect')
+  // @UseGuards(XTwitterAuthGuard)
+  // async xAuthRedirect(@Req() req: Request, @Res() res: Response) {
+  //   const result = await this.authService.xLogin(req, res);
+  //   res.json({
+  //     statusCode: 200,
+  //     timestamp: new Date().toISOString(),
+  //     path: req.url,
+  //     message: 'Successful',
+  //     success: true,
+  //     data: result,
+  //   });
+  // }
 
   @Post('/exchange/refreshtoken')
   async exchangeRefreshToken(
