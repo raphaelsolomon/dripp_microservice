@@ -10,6 +10,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UserRepository } from './repositories/users.repository';
 import * as bcrypt from 'bcryptjs';
 import {
+  AccountType,
   CHAT_SERVICE,
   IndustryRepository,
   SubmissionRepository,
@@ -213,75 +214,104 @@ export class UsersService {
     return details;
   }
 
+  async setAccountType(userInfo: UserDocument, accountType: AccountType) {
+    const user = await this.userRepository.findOne({ _id: userInfo?._id });
+
+    if (!user || user.status === false) {
+      throw new UnprocessableEntityException('Could not find user');
+    }
+
+    if (user?.account_type) {
+      //User cant reselct account type
+      throw new BadRequestException('Account type already selected');
+    }
+
+    switch (accountType) {
+      case AccountType.business: {
+        try {
+          console.log('Sending message');
+
+          return this.brandClientProxy.send('create_brand', {}).pipe(
+            tap((_) => console.log('Done creating brand')),
+            map(async (response) => {
+              const user = await this.userRepository.findOneAndUpdate(
+                { _id: userInfo._id },
+                {
+                  account_type: AccountType.business,
+                  brand_uuid: response.uuid,
+                },
+              );
+              console.log('Sent successfully');
+              return this.destructureUser(user);
+            }),
+          );
+        } catch (err) {
+          console.log(err);
+          throw new UnprocessableEntityException(err);
+        }
+      }
+
+      case AccountType.user: {
+        const user = await this.userRepository.findOneAndUpdate(
+          { _id: userInfo._id },
+          { account_type: AccountType.user },
+        );
+
+        return this.destructureUser(user);
+      }
+
+      default: {
+        throw new BadRequestException('Account type not valid');
+      }
+    }
+  }
+
   async updateUser(userInfo: UserDocument, updateDto: UpdateUserDto) {
     const user = await this.userRepository.findOne({ _id: userInfo._id });
+
     if (user.status === false) {
       throw new UnprocessableEntityException('Could not find user');
     }
 
-    if (user.account_type !== 'user' && updateDto.account_type === 'business') {
-      return this.brandClientProxy.send('create_brand', {}).pipe(
-        tap((_) => console.log('Done creating brand')),
-        map(async (response) => {
-          const { password, email, industries, ...details } = updateDto;
-          const user = await this.userRepository.findOneAndUpdate(
-            { _id: userInfo._id },
-            { ...details, brand_uuid: response.uuid },
-          );
-          return this.destructureUser(user);
-        }),
-      );
-    } else {
-      try {
-        const brands = updateDto.brand_uuids;
-        if (updateDto.industries && updateDto.industries.length > 0) {
-          const industries = updateDto.industries.map((e) => e.toLowerCase());
-          const count = await this.industryRepository.countDocs({
-            name: { $in: industries },
-          });
-          if (count < industries.length)
-            throw new BadRequestException('Invalid industries selected');
-        }
-
-        // emit an event to brand service to update brands with the new member
-        if (
-          brands?.length > 0 &&
-          (user?.account_type === 'user' || updateDto?.account_type === 'user')
-        ) {
-          this.brandClientProxy.emit('add_member_to_multiple_brands', {
-            brand_uuids: updateDto?.brand_uuids,
-            user_uuid: user.uuid,
-          });
-        }
-
-        if (
-          user.account_type !== 'business' &&
-          updateDto.account_type === 'user'
-        ) {
-          const { password, email, ...details } = updateDto;
-          const user = await this.userRepository.findOneAndUpdate(
-            { _id: userInfo._id },
-            { ...details },
-          );
-
-          return this.destructureUser(user);
-        } else {
-          const { password, email, account_type, ...details } = updateDto;
-          const user = await this.userRepository.findOneAndUpdate(
-            { _id: userInfo._id },
-            { ...details },
-          );
-
-          return this.destructureUser(user);
-        }
-      } catch (error) {
-        throw new BadRequestException(error);
+    try {
+      const brands = updateDto.brand_uuids;
+      if (updateDto.industries && updateDto.industries.length > 0) {
+        const industries = updateDto.industries.map((e) => e.toLowerCase());
+        const count = await this.industryRepository.countDocs({
+          name: { $in: industries },
+        });
+        if (count < industries.length)
+          throw new BadRequestException('Invalid industries selected');
       }
+
+      // emit an event to brand service to update brands with the new member
+      if (
+        brands?.length > 0 &&
+        (user?.account_type === 'user' || updateDto?.account_type === 'user')
+      ) {
+        this.brandClientProxy.emit('add_member_to_multiple_brands', {
+          brand_uuids: updateDto?.brand_uuids,
+          user_uuid: user.uuid,
+        });
+      } else {
+        const { password, email, account_type, ...details } = updateDto;
+
+        const user = await this.userRepository.findOneAndUpdate(
+          { _id: userInfo._id },
+          { ...details },
+        );
+
+        return this.destructureUser(user);
+      }
+    } catch (error) {
+      throw new BadRequestException(error);
     }
   }
 
   async authenticateGoogle(profile: GoogleTokenPayload) {
     const email: string = profile?.email;
+
+    console.log(profile);
     try {
       const user = await this.userRepository.findOne({ email });
       // if this user account is not active again
@@ -299,8 +329,8 @@ export class UsersService {
       const user = await this.userRepository.create({
         ...input,
         avatar: profile?.picture,
-        firstname: profile?.family_name ?? '',
-        lastname: profile?.given_name ?? '',
+        firstname: profile?.given_name ?? '',
+        lastname: profile?.family_name ?? '',
         username: email.split('@')[0],
         email_verified: true,
         password: await bcrypt.hash(randomPass, 10),
@@ -836,7 +866,13 @@ export class UsersService {
         { refresh_token, access_token },
       );
     } catch (err) {
-      await this.tokenRepository.create({ user_id, refresh_token });
+      console.log('CREATING NEW TOKEN RECORD');
+      await this.tokenRepository.create({
+        user_id,
+        refresh_token,
+        access_token,
+      });
+      console.log('CREATED RECORD');
     }
   }
 

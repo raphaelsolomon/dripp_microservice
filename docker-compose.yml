@@ -9,10 +9,10 @@ services:
       target: development
     command: yarn start:dev auth
     env_file:
-      - ./apps/auth/.env
+      - ./.env
     ports:
       - 3000:3000
-    volumes: 
+    volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
     networks:
@@ -28,10 +28,10 @@ services:
       target: development
     command: yarn start:dev brand
     env_file:
-      - ./apps/brand/.env
+      - ./.env
     ports:
       - 2000:2000
-    volumes: 
+    volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
     networks:
@@ -47,10 +47,10 @@ services:
       target: development
     command: yarn start:dev chat
     env_file:
-      - ./apps/chat/.env
+      - ./.env
     ports:
       - 5000:5000
-    volumes: 
+    volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
     networks:
@@ -66,10 +66,10 @@ services:
       target: development
     command: yarn start:dev notification
     env_file:
-      - ./apps/notification/.env
+      - ./.env
     ports:
       - 1000:1000
-    volumes: 
+    volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
     networks:
@@ -85,17 +85,17 @@ services:
       target: development
     command: yarn start:dev wallet
     env_file:
-      - ./apps/wallet/.env
+      - ./.env
     ports:
       - 4000:4000
-    volumes: 
+    volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
     networks:
       - dripp_network
     depends_on:
       - mongo
-      - redis  
+      - redis
 
   webserver:
     build:
@@ -113,7 +113,7 @@ services:
       - wallet
       - brand
       - notification
-  
+
   mongo:
     image: mongo:latest
     container_name: mongo_container
@@ -132,7 +132,7 @@ services:
     image: redis:latest
     container_name: redis_container
     ports:
-      - "6379:6379"
+      - '6379:6379'
     volumes:
       - ./database/redis/data:/data
     networks:
@@ -142,12 +142,12 @@ services:
     image: rabbitmq
     container_name: rabbitmq_container
     volumes:
-      - "./database/rmq:/var/lib/rabbitmq/mnesia/"
+      - './database/rmq:/var/lib/rabbitmq/mnesia/'
     ports:
       - 5672:5672
+      - 15672:15672
     networks:
       - dripp_network
-    
 
 networks:
   dripp_network:

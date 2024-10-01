@@ -539,6 +539,7 @@ export class AppController {
 
   @MessagePattern('create_brand')
   createBrand(@Payload() payload: any) {
+    console.log('Message received');
     return this.appService.createBrand(payload);
   }
 

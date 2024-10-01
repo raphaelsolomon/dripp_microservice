@@ -14,7 +14,7 @@ import {
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CurrentUser } from '../../../../libs/common/src/decorators/current-user.decorator';
-import { HttpCacheInterceptor, UserDocument } from '@app/common';
+import { AccountType, HttpCacheInterceptor, UserDocument } from '@app/common';
 import { JwtAuthGuard } from '../guards/jwt-auth.guard';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UpdatePasswordDto } from './dto/update-password.dto';
@@ -74,6 +74,27 @@ export class UsersController {
     @Req() req: Request,
   ) {
     const result = await this.usersService.getIndustries(input);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      success: true,
+      data: result,
+    };
+  }
+
+  @Post('set-account-type')
+  @UseGuards(JwtAuthGuard)
+  async setAccountType(
+    @CurrentUser() user: UserDocument,
+    @Body() body: { accountType: AccountType },
+    @Req() req: Request,
+  ) {
+    const result = await this.usersService.setAccountType(
+      user,
+      body?.accountType,
+    );
     return {
       statusCode: 200,
       timestamp: new Date().toISOString(),

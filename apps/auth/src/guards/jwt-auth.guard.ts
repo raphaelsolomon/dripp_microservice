@@ -15,28 +15,38 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const request = context.switchToHttp().getRequest();
+
     let accessToken: string =
       request?.cookies?.Authentication ||
       request?.Authentication ||
       request.headers.authorization;
 
-    if (!accessToken) throw new UnauthorizedException('Unauthorized');
+    if (!accessToken)
+      throw new UnauthorizedException('Unauthorized, no access token');
 
     if (accessToken && accessToken.startsWith('Bearer')) {
       accessToken = accessToken.replace('Bearer ', '');
     }
 
     const decode: any = jwt.decode(accessToken);
+
     const userId: string = decode.userId;
-    if (userId === undefined) {
-      throw new UnauthorizedException('Unauthorized');
+    if (!userId) {
+      throw new UnauthorizedException(
+        'Unauthorized, could not decode jwt token',
+      );
     }
     try {
+      console.log(userId, accessToken, 'USER ID AND ACCESS TOKEN');
+
       await this.authService.getToken(userId, accessToken);
+
       const result = await super.canActivate(context);
+
       return result as boolean;
     } catch (err) {
-      throw new UnauthorizedException('Unauthorized');
+      console.log(err);
+      throw new UnauthorizedException('Unauthorized, could not get user');
     }
   }
 }

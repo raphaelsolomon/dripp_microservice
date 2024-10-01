@@ -14,8 +14,8 @@ export class UserDocument extends AbstractDocument {
   @Prop({ required: true })
   firstname: string;
 
-  @Prop({ required: true })
-  lastname: string;
+  @Prop({ required: false })
+  lastname?: string;
 
   @Prop({ required: true })
   email: string;

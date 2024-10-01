@@ -62,16 +62,21 @@ export class AuthService {
       userId: userInfo._id.toString(),
     };
     const accessToken = this.jwtService.sign(tokenPayload);
+
     const refreshToken = this.jwtService.sign(tokenPayload, {
       secret: this.configService.get<string>('JWT_REFRESH_SECRET'),
       expiresIn: '20d',
     });
+
+    console.log('GETTING USER TOKEN');
+
     //update the user refresh token in the database
-    this.userService.updateRefreshToken(
+    await this.userService.updateRefreshToken(
       userInfo._id.toString(),
       refreshToken,
       accessToken,
     );
+
     //update cookies session with the access token
     res.cookie('Authentication', accessToken, {
       httpOnly: true,
@@ -179,6 +184,8 @@ export class AuthService {
       });
 
       const payload = ticket.getPayload();
+
+      console.log(payload, 'GOOGLE PAYLOAD');
 
       if (!payload)
         throw new BadRequestException('Error verifying Google id token');
