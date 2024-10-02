@@ -49,10 +49,10 @@ import {
       {
         name: AUTH_SERVICE,
         useFactory: (configService: ConfigService) => ({
-          transport: Transport.RMQ,
+          transport: Transport.TCP,
           options: {
-            urls: [configService.getOrThrow<string>('RABBITMQ_URL')],
-            queue: AUTH_SERVICE,
+            host: configService.get<string>('AUTH_HOST'),
+            port: configService.get<number>('AUTH_TCP_PORT'),
           },
         }),
         inject: [ConfigService],
@@ -60,10 +60,10 @@ import {
       {
         name: NOTIFICATION_SERVICE,
         useFactory: (configService: ConfigService) => ({
-          transport: Transport.RMQ,
+          transport: Transport.TCP,
           options: {
-            urls: [configService.getOrThrow<string>('RABBITMQ_URL')],
-            queue: NOTIFICATION_SERVICE,
+            host: configService.get<string>('NOTIFICATION_HOST'),
+            port: configService.get<number>('NOTIFICATION_TCP_PORT'),
           },
         }),
         inject: [ConfigService],

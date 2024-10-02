@@ -57,10 +57,10 @@ import { CacheModule } from '@nestjs/cache-manager';
       {
         name: BRAND_SERVICE,
         useFactory: (configService: ConfigService) => ({
-          transport: Transport.RMQ,
+          transport: Transport.TCP,
           options: {
-            urls: [configService.getOrThrow<string>('RABBITMQ_URL')],
-            queue: BRAND_SERVICE,
+            host: configService.get<string>('BRAND_HOST'),
+            port: configService.get<number>('BRAND_TCP_PORT'),
           },
         }),
         inject: [ConfigService],
@@ -68,10 +68,10 @@ import { CacheModule } from '@nestjs/cache-manager';
       {
         name: NOTIFICATION_SERVICE,
         useFactory: (configService: ConfigService) => ({
-          transport: Transport.RMQ,
+          transport: Transport.TCP,
           options: {
-            urls: [configService.getOrThrow<string>('RABBITMQ_URL')],
-            queue: NOTIFICATION_SERVICE,
+            host: configService.get<string>('NOTIFICATION_HOST'),
+            port: configService.get<number>('NOTIFICATION_TCP_PORT'),
           },
         }),
         inject: [ConfigService],
@@ -79,10 +79,10 @@ import { CacheModule } from '@nestjs/cache-manager';
       {
         name: WALLET_SERVICE,
         useFactory: (configService: ConfigService) => ({
-          transport: Transport.RMQ,
+          transport: Transport.TCP,
           options: {
-            urls: [configService.getOrThrow<string>('RABBITMQ_URL')],
-            queue: WALLET_SERVICE,
+            host: configService.get<string>('WALLET_HOST'),
+            port: configService.get<number>('WALLET_TCP_PORT'),
           },
         }),
         inject: [ConfigService],
@@ -90,10 +90,10 @@ import { CacheModule } from '@nestjs/cache-manager';
       {
         name: CHAT_SERVICE,
         useFactory: (configService: ConfigService) => ({
-          transport: Transport.RMQ,
+          transport: Transport.TCP,
           options: {
-            urls: [configService.getOrThrow<string>('RABBITMQ_URL')],
-            queue: CHAT_SERVICE,
+            host: configService.get<string>('CHAT_HOST'),
+            port: configService.get<number>('CHAT_TCP_PORT'),
           },
         }),
         inject: [ConfigService],

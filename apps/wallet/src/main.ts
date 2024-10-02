@@ -6,7 +6,7 @@ import { Logger } from 'nestjs-pino';
 import * as session from 'express-session';
 import { Transport } from '@nestjs/microservices';
 import { WalletModule } from './wallet.module';
-import { AllExceptionsFilter, WALLET_SERVICE } from '@app/common';
+import { AllExceptionsFilter } from '@app/common';
 
 const sessionData = {
   resave: false,
@@ -22,10 +22,10 @@ async function bootstrap() {
   app.enableCors({ origin: configService.get<string>('ALLOWED_ORIGINS') });
 
   app.connectMicroservice({
-    transport: Transport.RMQ,
+    transport: Transport.TCP,
     options: {
-      urls: [configService.getOrThrow<string>('RABBITMQ_URL')],
-      queue: WALLET_SERVICE,
+      host: '0.0.0.0',
+      port: configService.get<number>('WALLET_TCP_PORT'),
     },
   });
 
