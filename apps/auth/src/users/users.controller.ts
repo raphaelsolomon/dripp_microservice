@@ -95,6 +95,9 @@ export class UsersController {
       user,
       body?.accountType,
     );
+
+    console.log('Account type set', result);
+
     return {
       statusCode: 200,
       timestamp: new Date().toISOString(),
@@ -205,7 +208,7 @@ export class UsersController {
     };
   }
 
-  @Get('industries/channels')
+  @Post('industries/channels')
   @UseGuards(JwtAuthGuard)
   async getChannelsByIndustries(
     @Body('industries') industries: string[],

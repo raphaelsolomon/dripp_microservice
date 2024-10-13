@@ -29,13 +29,14 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
     select?: string,
     populate?: any,
     projection?: ProjectionType<TDocument>,
+    throwError: boolean = true,
   ): Promise<TDocument> {
     const document = await this.model
       .findOne(filterQuery, projection)
       .select(select)
       .populate(populate)
       .lean<TDocument>(true);
-    if (!document) {
+    if (!document && throwError) {
       this.logger.warn('Document was not found with filterquery', filterQuery);
       throw new NotFoundException('Document was not found');
     }

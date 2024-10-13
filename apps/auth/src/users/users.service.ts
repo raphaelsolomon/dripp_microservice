@@ -28,7 +28,7 @@ import {
   WALLET_SERVICE,
 } from '@app/common';
 import { ClientProxy } from '@nestjs/microservices';
-import { firstValueFrom, map, tap } from 'rxjs';
+import { firstValueFrom, lastValueFrom, map, tap } from 'rxjs';
 import { VerificationRepository } from './repositories/verification.repository';
 import { VerifyEmailDto } from './dto/verify-email.dto';
 import { ResetpasswordDto } from './dto/reset-password.dto';
@@ -37,6 +37,7 @@ import { TaskSubmissionDto } from './dto/submit-task.dto';
 import { TokenRepository } from './repositories/token.repository';
 import { countryList } from '../assets/countries';
 import { TokenPayload as GoogleTokenPayload } from 'google-auth-library';
+import { BrandDocument } from 'apps/brand/src/models/brand.schema';
 
 @Injectable()
 export class UsersService {
@@ -156,7 +157,7 @@ export class UsersService {
       });
 
       if (verification.code !== verifyEmailDto.code) {
-        throw new UnprocessableEntityException('Invalid code');
+        throw new Error('Invalid code');
       }
 
       return await this.userRepository.findOneAndUpdate(
@@ -164,7 +165,8 @@ export class UsersService {
         { email_verified: true },
       );
     } catch (err) {
-      throw new UnprocessableEntityException('Record not found');
+      console.log(err);
+      throw new BadRequestException(err?.message);
     }
   }
 
@@ -228,30 +230,42 @@ export class UsersService {
 
     switch (accountType) {
       case AccountType.business: {
-        try {
-          console.log('Sending message');
+        const sendMessageAndUpdateUser = async () => {
+          try {
+            console.log('Sending message');
 
-          return this.brandClientProxy.send('create_brand', {}).pipe(
-            tap((_) => console.log('Done creating brand')),
-            map(async (response) => {
-              const user = await this.userRepository.findOneAndUpdate(
-                { _id: userInfo._id },
-                {
-                  account_type: AccountType.business,
-                  brand_uuid: response.uuid,
-                },
-              );
-              console.log('Sent successfully');
-              return this.destructureUser(user);
-            }),
-          );
-        } catch (err) {
-          console.log(err);
-          throw new UnprocessableEntityException(err);
-        }
+            const self = this;
+
+            await lastValueFrom(this.brandClientProxy.send('create_brand', {}))
+              .then(async (response) => {
+                const user = await self.userRepository.findOneAndUpdate(
+                  { _id: userInfo._id },
+                  {
+                    account_type: AccountType.business,
+                    brand_uuid: response.uuid,
+                  },
+                );
+                console.log('Added brand UUID to USER');
+
+                return self.destructureUser(user);
+              })
+              .catch((err) => {
+                console.log(err);
+                throw new UnprocessableEntityException(err);
+              });
+          } catch (err) {
+            console.log(err);
+            throw new UnprocessableEntityException(err);
+          }
+        };
+
+        const response = await sendMessageAndUpdateUser();
+
+        return response;
       }
 
       case AccountType.user: {
+        console.log('ACCOUNT TYPE IS USER');
         const user = await this.userRepository.findOneAndUpdate(
           { _id: userInfo._id },
           { account_type: AccountType.user },
@@ -278,8 +292,9 @@ export class UsersService {
       if (updateDto.industries && updateDto.industries.length > 0) {
         const industries = updateDto.industries.map((e) => e.toLowerCase());
         const count = await this.industryRepository.countDocs({
-          name: { $in: industries },
+          name: { $in: updateDto?.industries },
         });
+
         if (count < industries.length)
           throw new BadRequestException('Invalid industries selected');
       }
@@ -622,10 +637,16 @@ export class UsersService {
   }
 
   async updateUsername(payload: { [key: string]: string }) {
-    const user = await this.userRepository.findOne({
-      username: payload.username,
-    });
-    if (user._id.toString() !== payload._id) {
+    const user = await this.userRepository.findOne(
+      {
+        username: payload.username,
+      },
+      undefined,
+      undefined,
+      undefined,
+      false,
+    );
+    if (user && user?._id.toString() !== payload?._id) {
       throw new BadRequestException(`User with username already exists`);
     }
     return await this.userRepository.findOneAndUpdate(

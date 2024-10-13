@@ -19,7 +19,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./apps/dripp/test/jest-e2e.json",
-    "start:services": "concurrently \"nest start auth\" \"nest start brand\" \"nest start wallet\" \"nest start chat\" \"nest start notification\""
+    "start:services": "concurrently \"nest start auth --watch\" \"nest start brand --watch\" \"nest start wallet --watch\" \"nest start chat --watch\" \"nest start notification --watch\""
   },
   "dependencies": {
     "@nestjs/cache-manager": "^2.2.2",

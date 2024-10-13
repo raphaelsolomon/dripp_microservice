@@ -9,6 +9,7 @@ import {
 import { BrandRepository } from './repositories/brand.repository';
 import {
   AUTH_SERVICE,
+  caseInsensitiveRegex,
   CloudinaryResponse,
   CloudinaryService,
   IndustryRepository,
@@ -83,6 +84,7 @@ export class AppService {
 
   async updatebrand(user: UserDto, input: UpdateBrandDto) {
     try {
+      console.log('REAHCEd');
       if (input.username) {
         await firstValueFrom(
           this.authClientproxy.send('update_username', {
@@ -91,10 +93,13 @@ export class AppService {
           }),
         );
       }
-
+      console.log('DiD not REAHCEd');
       const industry = input.industry;
+
       if (industry) {
-        await this.industryRepository.findOne({ name: industry.toLowerCase() });
+        await this.industryRepository.findOne({
+          name: caseInsensitiveRegex(industry),
+        });
         return await this.brandRepository.findOneAndUpdate(
           { uuid: user.brand_uuid },
           { ...input, industry: industry.toLowerCase() },
@@ -1346,12 +1351,12 @@ export class AppService {
     ]);
   }
 
-  async getBrandsByIndustry(input: { [key: string]: any }) {
+  async getBrandsByIndustry(input: Record<string, any>) {
     const page: number = input.page || 1;
     const first: number = input.first || 20;
 
     const industries: string[] = input.industries.map((e: string) =>
-      e.toLowerCase(),
+      caseInsensitiveRegex(e),
     );
     const countIndustries = await this.industryRepository.countDocs({
       name: { $in: industries },

@@ -37,8 +37,6 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
       );
     }
     try {
-      console.log(userId, accessToken, 'USER ID AND ACCESS TOKEN');
-
       await this.authService.getToken(userId, accessToken);
 
       const result = await super.canActivate(context);
@@ -46,7 +44,9 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
       return result as boolean;
     } catch (err) {
       console.log(err);
-      throw new UnauthorizedException('Unauthorized, could not get user');
+      throw new UnauthorizedException(
+        err?.message || 'Unauthorized, could not get user',
+      );
     }
   }
 }

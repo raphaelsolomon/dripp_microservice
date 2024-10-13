@@ -10,3 +10,5 @@ export function generateRandomCode(length: number): string {
   }
   return result;
 }
+
+export const caseInsensitiveRegex = (e: string) => new RegExp(`^${e}$`, 'i');

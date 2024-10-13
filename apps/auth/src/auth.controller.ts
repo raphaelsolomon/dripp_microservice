@@ -81,7 +81,15 @@ export class AuthController {
 
   @Post('/verify')
   async verifyAccount(@Body() verifyEmailDto: VerifyEmailDto) {
-    return this.usersService.verifyAccount(verifyEmailDto);
+    const result = await this.usersService.verifyAccount(verifyEmailDto);
+
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      message: 'Successful',
+      success: true,
+      data: result,
+    };
   }
 
   @Post('/resend-email')
