@@ -350,6 +350,22 @@ export class UsersService {
         email_verified: true,
         password: await bcrypt.hash(randomPass, 10),
       });
+
+      const wallet = await firstValueFrom(
+        this.walletClientProxy.send('create_wallet', {}),
+      );
+
+      /* create the chatUUID and attach the chatUUID to the user */
+      const chat = await firstValueFrom(
+        this.chatServiceProxy.send('create_chat', {}),
+      );
+
+      /* Update the user with the wallet & chat gotten from the message patterns */
+      await this.userRepository.findOneAndUpdate(
+        { uuid: user.uuid },
+        { wallet_uuid: wallet.uuid, chat_uuid: chat.uuid },
+      );
+
       return user;
     }
   }
@@ -382,6 +398,21 @@ export class UsersService {
         gender: profile?.gender ?? null,
         password: await bcrypt.hash(randomPass, 10),
       });
+
+      const wallet = await firstValueFrom(
+        this.walletClientProxy.send('create_wallet', {}),
+      );
+
+      /* create the chatUUID and attach the chatUUID to the user */
+      const chat = await firstValueFrom(
+        this.chatServiceProxy.send('create_chat', {}),
+      );
+
+      /* Update the user with the wallet & chat gotten from the message patterns */
+      await this.userRepository.findOneAndUpdate(
+        { uuid: user.uuid },
+        { wallet_uuid: wallet.uuid, chat_uuid: chat.uuid },
+      );
       return user;
     }
   }
@@ -412,6 +443,21 @@ export class UsersService {
         email_verified: true,
         password: await bcrypt.hash(randomPass, 10),
       });
+
+      const wallet = await firstValueFrom(
+        this.walletClientProxy.send('create_wallet', {}),
+      );
+
+      /* create the chatUUID and attach the chatUUID to the user */
+      const chat = await firstValueFrom(
+        this.chatServiceProxy.send('create_chat', {}),
+      );
+
+      /* Update the user with the wallet & chat gotten from the message patterns */
+      await this.userRepository.findOneAndUpdate(
+        { uuid: user.uuid },
+        { wallet_uuid: wallet.uuid, chat_uuid: chat.uuid },
+      );
       return user;
     }
   }
@@ -590,6 +636,7 @@ export class UsersService {
     }
 
     const page: number = payload?.page ?? 1;
+
     const first: number = payload?.first ?? 20;
 
     return await firstValueFrom(
