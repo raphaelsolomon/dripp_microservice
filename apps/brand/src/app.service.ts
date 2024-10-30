@@ -277,61 +277,48 @@ export class AppService {
   }
 
   async createBrandTask(user: UserDto, input: CreateTaskDto) {
-    if (user.account_type === 'user') {
+    // check if the account accessing this endpoint is a brand
+    if (user.account_type === 'user')
       throw new BadRequestException(`Action not allowed on this account type`);
-    }
 
-    const brandDetails = await this.brandRepository.findOne({
-      uuid: user.brand_uuid,
-    });
+    // send the request to wallet service to confirm the wallet balance.
+    const wallet = await firstValueFrom(
+      this.walletClientproxy.send('get_wallet', { uuid: user.wallet_uuid }),
+    );
+
+    // check if the wallet balance is less than the campaign amount
+    const requiredAmount = input.campaign_amount * 0.1;
+    if (parseFloat(wallet.balance) <= input.campaign_amount * 0.1)
+      throw new BadRequestException(`Insufficient balance: ${requiredAmount}`);
+
+    // get the brand uding the brand uuid attacted to thee user
+    const brand = await this.brandRepository.findOne({ uuid: user.brand_uuid });
+
+    //check if the task type is provided
+    if (input.task_type.length <= 0)
+      throw new BadRequestException(`Task type is required..`);
+
+    // check if campaign type is private and selected members is not provided
+    const isPrivate: boolean = input.campaign_type === 'private';
+    const errorMessage = `Selected members are required for private engagement type`;
+
+    if (isPrivate && input.selected_members.length <= 0)
+      throw new BadRequestException(errorMessage);
+
+    // check if the location is provided
+    if (input.locations.length <= 0)
+      throw new BadRequestException(`Location is required..`);
 
     try {
-      let countries: string[] = [];
-      let states: string[][] = [];
-      if (input.countries) {
-        countries = input.countries
-          .split(',')
-          .map((e) => e.trim().toLowerCase());
-      }
-
-      if (input.states && countries.length > 0) {
-        const parsedStates: string[] = input.states.split(',');
-        const transformedStates = parsedStates.map((state) => {
-          const countryState = JSON.parse(state);
-          return countryState;
-        });
-        states = transformedStates;
-      }
-
-      let cloudinary: CloudinaryResponse = undefined;
-
-      if (input.campaign_banner) {
-        cloudinary = await this.cloudinaryService.uploadFile(
-          input.campaign_banner,
-          'campaign-banners',
-        );
-      }
-
-      const campaign_type = JSON.parse(input.campaign_type);
-      if (Object.keys(campaign_type).length <= 0) {
-        throw new BadRequestException(`Campaign type is required..`);
-      }
-
-      // console.log(Object.keys(campaign_type).length)
-
       const task = await this.taskRepository.create({
-        campaign_banner_url: cloudinary !== undefined ? cloudinary.url : '',
         brand: user.brand_uuid,
         ...input,
-        campaign_type,
-        countries,
-        states,
-        industry: brandDetails.industry,
-        total_task: Object.keys(campaign_type).length,
+        industry: brand.industry,
+        total_task: input.task_type.length,
         status: false,
       });
 
-      if (task.currency === 'FIAT') {
+      if (task.reward_type === 'FIAT') {
         // send the request to wallet service to confirm the wallet balance.
         const walletResult: string = await firstValueFrom(
           this.walletClientproxy.send('create_campaign', {
@@ -358,33 +345,32 @@ export class AppService {
   }
 
   async updateBrandTask(user: UserDto, input: UpdateTaskDto) {
-    if (input.campaign_banner) {
-      const cloudinary = await this.cloudinaryService.uploadFile(
-        input.campaign_banner,
-        'campaign-banners',
+    // check if the account accessing this endpoint is a brand
+    if (user.account_type === 'user')
+      throw new BadRequestException(`Action not allowed on this account type`);
+
+    //check if the task type is provided
+    if (input.task_type && input.task_type.length <= 0)
+      throw new BadRequestException(`Task type is required..`);
+
+    //check if the campaign amount is provided
+    if (!input.campaign_amount) {
+      // send the request to wallet service to confirm the wallet balance.
+      const wallet = await firstValueFrom(
+        this.walletClientproxy.send('get_wallet', { uuid: user.wallet_uuid }),
       );
-      input.bannerUrl = cloudinary.url;
+
+      // check if the wallet balance is less than the campaign amount
+      const requiredAmount = input.campaign_amount * 0.1;
+      const errorMessage = `Insufficient balance: required amount ${requiredAmount}`;
+      if (parseFloat(wallet.balance) <= input.campaign_amount * 0.1)
+        throw new BadRequestException(errorMessage);
     }
 
-    if (input.campaign_type) {
-      const campaign_type = JSON.parse(input.campaign_type);
-      if (Object.keys(campaign_type).length <= 0) {
-        throw new BadRequestException(`Campaign type is required..`);
-      }
+    const task = await this.taskRepository.findOne({ uuid: input.task_uuid });
 
-      return await this.taskRepository.findOneAndUpdate(
-        {
-          uuid: input.task_uuid,
-          brand: user.brand_uuid,
-          status: true,
-        },
-        {
-          ...input,
-          campaign_type,
-          total_task: Object.keys(campaign_type).length,
-        },
-      );
-    }
+    const campaign_amount = input.campaign_amount;
+    input.campaign_amount = campaign_amount + task.campaign_amount;
 
     return await this.taskRepository.findOneAndUpdate(
       {
@@ -1138,16 +1124,13 @@ export class AppService {
       let newcampaignAmount = task.campaign_amount;
 
       //check if user is a member of this brand
-      const isMember = await this.isMember(member_uuid);
+      const rewardPerEngagement: string = task.reward_per_engagement;
       let rewardPrice: number = 0;
       //check if task contains membership or non membership rewards.
-      if (isMember && task.member_reward) {
-        newcampaignAmount = newcampaignAmount - Number(task.member_reward);
-        rewardPrice = Number.parseInt(task.member_reward);
-      } else {
-        newcampaignAmount = newcampaignAmount - Number(task.non_member_reward);
-        rewardPrice = Number.parseInt(task.non_member_reward);
-      }
+
+      newcampaignAmount = newcampaignAmount - Number(rewardPerEngagement);
+      rewardPrice = Number.parseInt(rewardPerEngagement);
+
       //senf the reward to the member wallet
       this.walletClientproxy.emit('send_award', {
         amount: rewardPrice,
@@ -1186,22 +1169,6 @@ export class AppService {
 
   async postReaction(payload: Record<string, any>) {
     const { user_uuid, post_uuid } = payload;
-
-    try {
-      const post = await this.postRepository.findOne({ uuid: post_uuid });
-      let post_likes: string[] = post.post_likes;
-      if (post_likes.includes(user_uuid)) {
-        post_likes = post_likes.filter((e) => e !== user_uuid);
-      } else {
-        post_likes.push(user_uuid);
-      }
-      return this.postRepository.findOneAndUpdate(
-        { _id: post._id },
-        { post_likes },
-      );
-    } catch (err) {
-      throw new BadRequestException(err);
-    }
   }
 
   async isMember(member_uuid: string): Promise<MemberDocument | boolean> {

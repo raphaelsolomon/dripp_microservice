@@ -29,6 +29,7 @@ import { Request } from 'express';
 import { CardDto } from './dto/card/card.dto';
 import { GiftUserCardDto } from './dto/giftcard/gift-user-card.dto';
 import { GiftUserDiscountDto } from './dto/discount/gift-user-discount.dto';
+import { UpdateTaskDto } from './dto/task/update-task.dto';
 
 @Controller('brand')
 export class AppController {
@@ -73,6 +74,25 @@ export class AppController {
     @Req() req: Request,
   ) {
     const result = await this.appService.updatePost(input, user);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      success: true,
+      data: result,
+    };
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Patch('/task')
+  @FormDataRequest()
+  async updateBrandtask(
+    @CurrentUser() user: UserDto,
+    @Body() input: UpdateTaskDto,
+    @Req() req: Request,
+  ) {
+    const result = await this.appService.updateBrandTask(user, input);
     return {
       statusCode: 200,
       timestamp: new Date().toISOString(),

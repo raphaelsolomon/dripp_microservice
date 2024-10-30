@@ -1,35 +1,37 @@
-import { HasMimeType, IsFile, MaxFileSize } from 'nestjs-form-data';
-
-class SubmissionType {
-  submission_type: 'file_upload' | 'url_submission';
-}
-
-export class CampaignType {
-  type: Record<
-    string,
-    Record<string | 'submission_type', string | SubmissionType | any>
-  >;
-}
-
 export class CreateTaskDto {
-  @IsFile()
-  @MaxFileSize(1e6)
-  @HasMimeType(['image/jpeg', 'image/png', 'image/webp'])
-  campaign_banner?: Express.Multer.File;
+  campaign_banner_url: string;
 
   campaign_title: string;
 
-  states: string;
+  locations: ILocation[];
 
-  countries: string;
+  task_type: ICampaignTaskItem[];
 
-  campaign_type: string;
+  reward_type: 'FIAT' | 'USDT';
 
-  non_member_reward?: string;
-
-  member_reward?: string;
-
-  currency: 'FIAT' | 'USDT';
+  campaign_type?: 'public' | 'private' | 'members';
 
   campaign_amount: number;
+
+  selected_members?: string[];
+
+  reward_per_engagement?: string;
+}
+
+interface ICampaignTask {
+  url?: string;
+  instructions: string;
+  submissionType: 'url' | 'image' | 'text';
+  socialMediaPlatform?: string; // required only if the category id is social media
+}
+
+interface ICampaignTaskItem {
+  categoryId: 'social_media' | 'user_generated' | 'custom';
+  categoryName: string; // social media, User generated or custom name when user selects new type
+  tasks: ICampaignTask[];
+}
+
+export interface ILocation {
+  country: string;
+  states: string[];
 }
