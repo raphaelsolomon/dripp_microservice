@@ -30,7 +30,7 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
 
     const decode: any = jwt.decode(accessToken);
 
-    const userId: string = decode.userId;
+    const userId: string = decode?.userId;
     if (!userId) {
       throw new UnauthorizedException(
         'Unauthorized, could not decode jwt token',

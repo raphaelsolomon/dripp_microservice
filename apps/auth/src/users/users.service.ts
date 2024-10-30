@@ -3,6 +3,7 @@ import {
   BadRequestException,
   Inject,
   Injectable,
+  InternalServerErrorException,
   UnauthorizedException,
   UnprocessableEntityException,
 } from '@nestjs/common';
@@ -12,6 +13,7 @@ import * as bcrypt from 'bcryptjs';
 import {
   AccountType,
   CHAT_SERVICE,
+  IGetGalleryProps,
   IndustryRepository,
   SubmissionRepository,
   TaskCompletionDocument,
@@ -742,7 +744,9 @@ export class UsersService {
     );
 
     const is_social: boolean = this.isJsonParsable(input.campaign_type);
+
     const uuid: string = task.uuid;
+
     const user_uuid: string = user.uuid;
 
     if (is_social) {
@@ -993,5 +997,30 @@ export class UsersService {
 
   async getCountries() {
     return countryList;
+  }
+
+  async uploadImage(user: UserDocument, image: any) {
+    try {
+      const response = await this.cloudinaryService.uploadFile(
+        image,
+        `gallery/${user?.uuid}`,
+      );
+
+      return response;
+    } catch (err) {
+      throw new InternalServerErrorException(err);
+    }
+  }
+
+  async getGallery(user: UserDocument, params?: Partial<IGetGalleryProps>) {
+    try {
+      const folder = `gallery/${user?.uuid}`;
+
+      const gallery = await this.cloudinaryService.getFiles(folder, params);
+
+      return gallery;
+    } catch (err) {
+      throw new UnprocessableEntityException(err);
+    }
   }
 }

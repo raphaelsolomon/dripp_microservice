@@ -50,6 +50,49 @@ import { DiscountRepository as UserDiscountRepository } from '@app/common';
 import { GiftUserDiscountDto } from './dto/discount/gift-user-discount.dto';
 import { MemberDocument } from './models/member.schema';
 
+// interface ICampaignTask {
+//   url?: string;
+//   instruction: string;
+//   submissionType: 'url' | 'image' | 'text';
+//   socialMediaPlatform?: string; //Required only if category id is social_media
+// }
+
+// interface ICampaignTaskList {
+//   categoryId: 'social_media' | 'user_generated' | 'custom';
+//   categoryName: string; //Social Media, User Generated or Custom name when user clicks on add new type
+//   tasks: ICampaignTask[];
+// }
+
+// const taskList: ICampaignTaskList[] = [
+//   {
+//     categoryId: 'social_media',
+//     categoryName: 'Social Media',
+//     tasks: [
+//       {
+//         instruction: '',
+//         socialMediaPlatform: 'facebook',
+//         submissionType: 'image',
+//         url: '',
+//       },
+//       {
+//         instruction: '',
+//         submissionType: 'text',
+//         socialMediaPlatform: 'tiktok',
+//         url: '',
+//       },
+//     ],
+//   },
+//   {
+//     categoryId: 'user_generated',
+//     categoryName: 'User generated',
+//     tasks: [{ instruction: 'Make a video', submissionType: 'url' }],
+//   },
+//   {
+//     categoryId: 'custom',
+//     categoryName: 'A custom category',
+//     tasks: [{ instruction: 'Make a video', submissionType: 'url' }],
+//   },
+// ];
 @Injectable()
 export class AppService {
   constructor(
@@ -584,7 +627,10 @@ export class AppService {
 
     /* get channel/brands users are subscribed to and also brands they are not subscribed to */
     const subscribeBrands = await this.memberRepository.find({ member_uuid });
+
     const subscribeBrandsUuids = subscribeBrands.map((member) => member.brand);
+
+    console.log(memberCountry, 'COuntry');
 
     const projection = {
       uuid: 1,
@@ -602,7 +648,9 @@ export class AppService {
       page,
       {
         brand: { $in: subscribeBrandsUuids },
-        industry: { $in: memberIndustries },
+        industry: {
+          $in: memberIndustries?.map((e) => caseInsensitiveRegex(e)),
+        },
         status: true,
         $or: [
           {
@@ -612,7 +660,7 @@ export class AppService {
             countries: { $regex: new RegExp(`^${memberCountry}$`, 'i') },
             $or: [
               { states: { $size: 0 } },
-              { states: { $in: [[memberState]] } },
+              { states: { $in: [[caseInsensitiveRegex(memberState)]] } },
               {
                 states: {
                   $elemMatch: {

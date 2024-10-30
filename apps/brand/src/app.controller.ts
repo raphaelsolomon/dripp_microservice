@@ -292,6 +292,22 @@ export class AppController {
     };
   }
 
+  @Get('/task/:uuid')
+  @UseGuards(JwtAuthGuard)
+  async getTaks(@Param() payload: Record<string, string>, @Req() req: Request) {
+    console.log(payload);
+    const result = await this.appService.getTask(payload?.uuid);
+
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      success: true,
+      data: result,
+    };
+  }
+
   @UseGuards(JwtAuthGuard)
   @Post('/post')
   @FormDataRequest()
@@ -338,6 +354,7 @@ export class AppController {
     @Body() input: CreateTaskDto,
     @Req() req: Request,
   ) {
+    console.log(req.headers);
     const result = await this.appService.createBrandTask(user, input);
     return {
       statusCode: 201,

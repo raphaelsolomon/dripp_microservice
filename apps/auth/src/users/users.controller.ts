@@ -14,7 +14,13 @@ import {
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CurrentUser } from '../../../../libs/common/src/decorators/current-user.decorator';
-import { AccountType, HttpCacheInterceptor, UserDocument } from '@app/common';
+import {
+  AccountType,
+  HttpCacheInterceptor,
+  IGetGalleryProps,
+  successResponse,
+  UserDocument,
+} from '@app/common';
 import { JwtAuthGuard } from '../guards/jwt-auth.guard';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UpdatePasswordDto } from './dto/update-password.dto';
@@ -359,6 +365,37 @@ export class UsersController {
       success: true,
       data: result,
     };
+  }
+
+  @Post('gallery')
+  @FormDataRequest()
+  @UseGuards(JwtAuthGuard)
+  async uploadImage(
+    @CurrentUser() user: UserDocument,
+    @Body() uploadImageDto: UploadImageDto,
+    @Req() req: Request,
+  ) {
+    const result = await this.usersService.uploadImage(
+      user,
+      uploadImageDto.file,
+    );
+
+    return successResponse({ data: result, path: req.url });
+  }
+
+  @Get('gallery')
+  @UseGuards(JwtAuthGuard)
+  async getGallery(
+    @CurrentUser() user: UserDocument,
+    @Query() query: IGetGalleryProps,
+    @Req() req: Request,
+  ) {
+    const result = await this.usersService.getGallery(user, {
+      limit: query?.limit,
+      next_cursor: query?.next_cursor || null,
+    });
+
+    return successResponse({ path: req.url, data: result });
   }
 
   @MessagePattern('get_user')
