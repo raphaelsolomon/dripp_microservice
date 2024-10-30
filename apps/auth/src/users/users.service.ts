@@ -234,13 +234,9 @@ export class UsersService {
       case AccountType.business: {
         const sendMessageAndUpdateUser = async () => {
           try {
-            console.log('Sending message');
-
-            const self = this;
-
             await lastValueFrom(this.brandClientProxy.send('create_brand', {}))
               .then(async (response) => {
-                const user = await self.userRepository.findOneAndUpdate(
+                const user = await this.userRepository.findOneAndUpdate(
                   { _id: userInfo._id },
                   {
                     account_type: AccountType.business,
@@ -249,14 +245,13 @@ export class UsersService {
                 );
                 console.log('Added brand UUID to USER');
 
-                return self.destructureUser(user);
+                return this.destructureUser(user);
               })
               .catch((err) => {
                 console.log(err);
                 throw new UnprocessableEntityException(err);
               });
           } catch (err) {
-            console.log(err);
             throw new UnprocessableEntityException(err);
           }
         };
@@ -267,12 +262,10 @@ export class UsersService {
       }
 
       case AccountType.user: {
-        console.log('ACCOUNT TYPE IS USER');
         const user = await this.userRepository.findOneAndUpdate(
           { _id: userInfo._id },
           { account_type: AccountType.user },
         );
-
         return this.destructureUser(user);
       }
 
@@ -630,16 +623,19 @@ export class UsersService {
     );
   }
 
-  async getTasks(user: UserDocument, payload: { [key: string]: number }) {
+  async getTasks(
+    user: UserDocument,
+    payload: { [key: string]: number | string },
+  ) {
     if (user.account_type !== 'user') {
       throw new BadRequestException(
         'Action not supported on the account type.',
       );
     }
 
-    const page: number = payload?.page ?? 1;
-
-    const first: number = payload?.first ?? 20;
+    const page: number = <number>payload?.page ?? 1;
+    const first: number = <number>payload?.first ?? 20;
+    const filter: string = <string>payload?.filter ?? 'all';
 
     return await firstValueFrom(
       this.brandClientProxy.send('get_task_from_brands', {
@@ -647,6 +643,7 @@ export class UsersService {
         first,
         page,
         user,
+        filter,
       }),
     );
   }

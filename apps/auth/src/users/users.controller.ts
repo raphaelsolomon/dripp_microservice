@@ -257,7 +257,7 @@ export class UsersController {
   @UseGuards(JwtAuthGuard)
   async getTasks(
     @CurrentUser() user: UserDocument,
-    @Query() payload: { [key: string]: number },
+    @Query() payload: { [key: string]: number | string },
     @Req() req: Request,
   ) {
     const result = await this.usersService.getTasks(user, payload);

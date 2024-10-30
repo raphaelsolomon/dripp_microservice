@@ -596,6 +596,7 @@ export class AppService {
     };
     const first: number = <number>payload.first;
     const page: number = <number>payload.page;
+    const filter: string = <string>payload.filter;
 
     let memberState: string = '';
     let memberCountry: string = '';
@@ -613,10 +614,9 @@ export class AppService {
 
     /* get channel/brands users are subscribed to and also brands they are not subscribed to */
     const subscribeBrands = await this.memberRepository.find({ member_uuid });
-
     const subscribeBrandsUuids = subscribeBrands.map((member) => member.brand);
 
-    console.log(memberCountry, 'COuntry');
+    console.log(memberCountry, memberState, filter, subscribeBrandsUuids);
 
     const projection = {
       uuid: 1,
@@ -629,97 +629,170 @@ export class AppService {
       general_reward: 1,
       campaign_type: 1,
     };
-    const subscribedTasks = await this.taskRepository.getPaginatedDocuments(
-      first,
-      page,
-      {
-        brand: { $in: subscribeBrandsUuids },
-        industry: {
-          $in: memberIndustries?.map((e) => caseInsensitiveRegex(e)),
-        },
-        status: true,
-        $or: [
+
+    switch (filter) {
+      case 'public':
+        return await this.taskRepository.getPaginatedDocuments(
+          first,
+          page,
           {
-            $and: [{ countries: { $size: 0 } }, { states: { $size: 0 } }],
-          },
-          {
-            countries: { $regex: new RegExp(`^${memberCountry}$`, 'i') },
-            $or: [
-              { states: { $size: 0 } },
-              { states: { $in: [[caseInsensitiveRegex(memberState)]] } },
+            $and: [
               {
-                states: {
-                  $elemMatch: {
-                    $regex: new RegExp(`^${memberState}$`, 'i'),
-                  },
+                $or: [{ campaign_type: 'public' }],
+              },
+              {
+                industry: {
+                  $in: memberIndustries?.map((e) => caseInsensitiveRegex(e)),
                 },
+              },
+              {
+                $or: [
+                  {
+                    locations: {
+                      $elemMatch: {
+                        country: memberCountry,
+                        $or: [
+                          {
+                            states: {
+                              $in: [caseInsensitiveRegex(memberState)],
+                            },
+                          },
+                          { states: { $size: 0 } }, // Empty states array means all states allowed
+                        ],
+                      },
+                    },
+                  },
+                ],
               },
             ],
           },
-        ],
-      },
-      null,
-      populate,
-      projection,
-    );
+          null,
+          populate,
+          projection,
+        );
 
-    const unsubscribeTasks = await this.taskRepository.getPaginatedDocuments(
-      first,
-      page,
-      {
-        brand: { $nin: subscribeBrandsUuids },
-        industry: { $in: memberIndustries },
-        status: true,
-        $or: [
+      case 'private':
+        return await this.taskRepository.getPaginatedDocuments(
+          first,
+          page,
           {
-            $and: [{ countries: { $size: 0 } }, { states: { $size: 0 } }],
-          },
-          {
-            countries: memberCountry,
-            $or: [
-              { states: { $size: 0 } },
-              { states: { $in: [[memberState]] } },
+            $and: [
               {
-                states: {
-                  $elemMatch: {
-                    $regex: new RegExp(`^${memberState}$`, 'i'),
-                  },
+                $or: [{ selected_members: { $in: [member_uuid] } }],
+              },
+              {
+                industry: {
+                  $in: memberIndustries?.map((e) => caseInsensitiveRegex(e)),
                 },
+              },
+              {
+                $or: [
+                  {
+                    locations: {
+                      $elemMatch: {
+                        country: memberCountry,
+                        $or: [
+                          {
+                            states: {
+                              $in: [caseInsensitiveRegex(memberState)],
+                            },
+                          },
+                          { states: { $size: 0 } }, // Empty states array means all states allowed
+                        ],
+                      },
+                    },
+                  },
+                ],
               },
             ],
           },
-        ],
-      },
-      null,
-      populate,
-      projection,
-    );
+          null,
+          populate,
+          projection,
+        );
 
-    for (let i = subscribedTasks.data.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [subscribedTasks[i], subscribedTasks[j]] = [
-        subscribedTasks[j],
-        subscribedTasks[i],
-      ];
-    }
+      case 'members':
+        return await this.taskRepository.getPaginatedDocuments(
+          first,
+          page,
+          {
+            $and: [
+              {
+                $or: [{ brand: { $in: subscribeBrandsUuids } }],
+              },
+              {
+                industry: {
+                  $in: memberIndustries?.map((e) => caseInsensitiveRegex(e)),
+                },
+              },
+              {
+                $or: [
+                  {
+                    locations: {
+                      $elemMatch: {
+                        $or: [
+                          {
+                            states: {
+                              $in: [caseInsensitiveRegex(memberState)],
+                            },
+                          },
+                          { states: { $size: 0 } }, // Empty states array means all states allowed
+                        ],
+                      },
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+          null,
+          populate,
+          projection,
+        );
 
-    const data = [...subscribedTasks.data, ...unsubscribeTasks.data];
-
-    if (subscribedTasks.paginationInfo.hasMorePages) {
-      return { data, paginationInfo: subscribedTasks.paginationInfo };
-    } else if (unsubscribeTasks.paginationInfo.hasMorePages) {
-      return { data, paginationInfo: unsubscribeTasks.paginationInfo };
-    } else {
-      return {
-        data,
-        paginationInfo: {
-          total: data.length,
-          currentPage: page,
-          lastPage: page,
-          perPage: first,
-          hasMorePages: false,
-        },
-      };
+      default:
+        return await this.taskRepository.getPaginatedDocuments(
+          first,
+          page,
+          {
+            $and: [
+              {
+                $or: [
+                  { campaign_type: 'public' },
+                  { selected_members: { $in: [member_uuid] } },
+                  { brand: { $in: subscribeBrandsUuids } },
+                ],
+              },
+              {
+                industry: {
+                  $in: memberIndustries?.map((e) => caseInsensitiveRegex(e)),
+                },
+              },
+              {
+                $or: [
+                  {
+                    locations: {
+                      $elemMatch: {
+                        country: memberCountry,
+                        $or: [
+                          {
+                            states: {
+                              $in: [caseInsensitiveRegex(memberState)],
+                            },
+                          },
+                          { states: { $size: 0 } }, // Empty states array means all states allowed
+                        ],
+                      },
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+          null,
+          populate,
+          projection,
+        );
     }
   }
 
