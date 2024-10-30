@@ -601,12 +601,16 @@ export class UsersService {
         'Action not supported on the account type.',
       );
     }
-    return await firstValueFrom(
-      this.brandClientProxy.send('add_member_to_single_brand', {
-        member_uuid: user.uuid,
-        brand_uuid,
-      }),
-    );
+    try {
+      return await firstValueFrom(
+        this.brandClientProxy.send('add_member_to_single_brand', {
+          member_uuid: user.uuid,
+          brand_uuid,
+        }),
+      );
+    } catch (e) {
+      throw new BadRequestException('Member already exist.');
+    }
   }
 
   async unsubscribeChannel(user: UserDocument, brand_uuid: string) {

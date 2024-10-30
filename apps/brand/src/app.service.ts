@@ -5,6 +5,7 @@ import {
   HttpStatus,
   Inject,
   Injectable,
+  UnprocessableEntityException,
 } from '@nestjs/common';
 import { BrandRepository } from './repositories/brand.repository';
 import {
@@ -382,18 +383,35 @@ export class AppService {
     );
   }
 
+  private async validateMemberSubscription(member_uuid: string, brand: string) {
+    try {
+      await this.memberRepository.findOne({ member_uuid, brand });
+    } catch (err) {
+      return;
+    }
+    throw new UnprocessableEntityException('Member already exist.');
+  }
+
   async addMemberToBrands(payload: { [key: string]: string | [string] }) {
     for (const brand_uuid of payload.brand_uuids) {
-      try {
-        const brand = await this.brandRepository.findOne({ uuid: brand_uuid });
-        await this.memberRepository.create({
-          brand: brand.uuid,
-          member_uuid: payload.user_uuid as string,
-        });
+      const member_uuid = payload.user_uuid as string;
 
+      //check if the member is already subscribed to the brand
+      await this.validateMemberSubscription(member_uuid, brand_uuid);
+
+      //create the member subscription record
+      await this.memberRepository.create({
+        brand: brand_uuid,
+        member_uuid: payload.user_uuid as string,
+      });
+
+      try {
+        //get the membership mail template if it exists
         const memberShip = await this.membershipMailRepository.findOne({
           brand: brand_uuid,
         });
+
+        //send the membership mail to the user
         this.notificationClientProxy.emit('membership_mail', {
           title: memberShip.title,
           body: memberShip.body,
@@ -401,8 +419,9 @@ export class AppService {
           to: payload.user_uuid as string,
           from: { isbrand: true, sender: brand_uuid },
         });
-      } catch (err) {
-        console.log(err);
+      } catch (e) {
+        console.log(e);
+        console.log('No membership email found');
       }
     }
   }
@@ -410,13 +429,16 @@ export class AppService {
   async addMemberToBrand(payload: { [key: string]: string }) {
     const member_uuid: string = payload.member_uuid;
     const brand: string = payload.brand_uuid;
+    let result: MemberDocument;
 
-    const result = await this.memberRepository.findOneOrCreate(
-      { member_uuid, brand },
-      { member_uuid, brand },
-    );
+    //check if the member is already subscribed to the brand
+    await this.validateMemberSubscription(member_uuid, brand);
+
     try {
+      //get the membership mail template if it exists
       const memberShip = await this.membershipMailRepository.findOne({ brand });
+
+      //send the membership mail to the user
       this.notificationClientProxy.emit('membership_mail', {
         title: memberShip.title,
         body: memberShip.body,
@@ -424,11 +446,12 @@ export class AppService {
         to: member_uuid,
         from: { isbrand: true, sender: brand },
       });
-    } catch (error) {
+    } catch (e) {
       console.log('No membership email found');
     }
 
-    return result;
+    //create the member subscription record
+    return await this.memberRepository.create({ member_uuid, brand });
   }
 
   async removeMemberFromBrand(payload: { [key: string]: string }) {
