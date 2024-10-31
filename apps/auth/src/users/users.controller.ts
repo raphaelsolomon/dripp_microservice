@@ -271,6 +271,24 @@ export class UsersController {
     };
   }
 
+  @Get('task/:task_uuid')
+  @UseGuards(JwtAuthGuard)
+  async getTask(
+    @CurrentUser() user: UserDocument,
+    @Param('task_uuid') task_uuid: string,
+    @Req() req: Request,
+  ) {
+    const result = await this.usersService.getTask(user, task_uuid);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      success: true,
+      data: result,
+    };
+  }
+
   @Get('posts')
   @UseGuards(JwtAuthGuard)
   async getPosts(

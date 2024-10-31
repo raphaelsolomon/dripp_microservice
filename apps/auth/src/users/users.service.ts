@@ -39,7 +39,6 @@ import { TaskSubmissionDto } from './dto/submit-task.dto';
 import { TokenRepository } from './repositories/token.repository';
 import { countryList } from '../assets/countries';
 import { TokenPayload as GoogleTokenPayload } from 'google-auth-library';
-import { BrandDocument } from 'apps/brand/src/models/brand.schema';
 
 @Injectable()
 export class UsersService {
@@ -642,12 +641,26 @@ export class UsersService {
     const filter: string = <string>payload?.filter ?? 'all';
 
     return await firstValueFrom(
-      this.brandClientProxy.send('get_task_from_brands', {
+      this.brandClientProxy.send('get_tasks_from_brands', {
         member_uuid: user.uuid,
         first,
         page,
         user,
         filter,
+      }),
+    );
+  }
+
+  async getTask(user: UserDocument, task_uuid: string) {
+    if (user.account_type !== 'user') {
+      throw new BadRequestException(
+        'Action not supported on the account type.',
+      );
+    }
+    return await firstValueFrom(
+      this.brandClientProxy.send('get_task', {
+        user,
+        task_uuid,
       }),
     );
   }

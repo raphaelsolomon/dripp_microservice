@@ -260,12 +260,31 @@ export class AppController {
   @Get('/tasks')
   @UseGuards(JwtAuthGuard)
   @FormDataRequest()
-  async getBrandTask(
-    @CurrentUser() user: UserDto,
+  async getBrandTasks(
+    @CurrentUser() user: UserDocument,
     @Query() payload: { [key: string]: number },
     @Req() req: Request,
   ) {
-    const result = await this.appService.getBrandTask(user, payload);
+    const result = await this.appService.getBrandTasks(user, payload);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      success: true,
+      data: result,
+    };
+  }
+
+  @Get('/task/:task_uuid')
+  @UseGuards(JwtAuthGuard)
+  @FormDataRequest()
+  async getBrandTask(
+    @CurrentUser() user: UserDocument,
+    @Param('task_uuid') task_uuid: string,
+    @Req() req: Request,
+  ) {
+    const result = await this.appService.getBrandTask(user, task_uuid);
     return {
       statusCode: 200,
       timestamp: new Date().toISOString(),
@@ -605,7 +624,7 @@ export class AppController {
     return this.appService.getRecommendedChannels(payload);
   }
 
-  @MessagePattern('get_task_from_brands')
+  @MessagePattern('get_tasks_from_brands')
   getTasksFromBrands(@Payload() payload: { [key: string]: string }) {
     return this.appService.getTasksFromBrands(payload);
   }
@@ -621,8 +640,8 @@ export class AppController {
   }
 
   @MessagePattern('get_task')
-  getTask(@Payload() { uuid }: Record<string, string>) {
-    return this.appService.getTask(uuid);
+  getTask(@Payload() { user, task_uuid }: Record<string, any>) {
+    return this.appService.getTaskFromBrand(user, task_uuid);
   }
 
   @EventPattern('update_task_completed')

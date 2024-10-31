@@ -25,7 +25,7 @@ import {
 import { UpdateBrandDto } from './dto/update-brand.dto';
 import { CreateTaskDto } from './dto/task/create-task.dto';
 import { MemberRepository } from './repositories/member.repository';
-import { firstValueFrom } from 'rxjs';
+import { async, filter, firstValueFrom } from 'rxjs';
 import { ClientProxy } from '@nestjs/microservices';
 import { CreatePostDto } from './dto/post/create-post.dto';
 import { PostRepository } from './repositories/post.repository';
@@ -487,7 +487,11 @@ export class AppService {
     });
   }
 
-  async getBrandTask(user: UserDto, payload: { [key: string]: number }) {
+  async getBrandTasks(user: UserDocument, payload: { [key: string]: number }) {
+    if (user.account_type === 'user') {
+      throw new BadRequestException(`Action not allowed on this account type`);
+    }
+
     const brandPopulate: PopulateDto = {
       path: 'brand',
       model: BrandDocument.name,
@@ -507,6 +511,31 @@ export class AppService {
       first,
       page,
       { brand: user.brand_uuid, status: true },
+      null,
+      [brandPopulate, userPopulate],
+    );
+  }
+
+  async getBrandTask(user: UserDocument, task_uuid: string) {
+    if (user.account_type === 'user') {
+      throw new BadRequestException(`Action not allowed on this account type`);
+    }
+
+    const brandPopulate: PopulateDto = {
+      path: 'brand',
+      model: BrandDocument.name,
+      localField: 'brand',
+      foreignField: 'uuid',
+    };
+    const userPopulate: PopulateDto = {
+      path: 'members_completed',
+      model: UserDocument.name,
+      localField: 'members_completed',
+      foreignField: 'uuid',
+    };
+
+    return await this.taskRepository.findOne(
+      { brand: user.brand_uuid, status: true, uuid: task_uuid },
       null,
       [brandPopulate, userPopulate],
     );
@@ -639,18 +668,16 @@ export class AppService {
     const subscribeBrands = await this.memberRepository.find({ member_uuid });
     const subscribeBrandsUuids = subscribeBrands.map((member) => member.brand);
 
-    console.log(memberCountry, memberState, filter, subscribeBrandsUuids);
-
     const projection = {
       uuid: 1,
       brand: 1,
       campaign_title: 1,
       campaign_banner_url: 1,
-      member_reward: 1,
-      non_member_reward: 1,
+      task_type: 1,
       total_task: 1,
-      general_reward: 1,
+      reward_type: 1,
       campaign_type: 1,
+      selected_members: 1,
     };
 
     switch (filter) {
@@ -817,6 +844,84 @@ export class AppService {
           projection,
         );
     }
+  }
+
+  async getTaskFromBrand(member: UserDocument, task_uuid: string) {
+    const populate: PopulateDto = {
+      path: 'brand',
+      model: BrandDocument.name,
+      localField: 'brand',
+      foreignField: 'uuid',
+    };
+
+    let memberState: string = '';
+    let memberCountry: string = '';
+    let memberIndustries: string[] = [];
+    const member_uuid = member.uuid;
+
+    if (member) {
+      memberState = member?.state?.toLowerCase();
+      memberCountry = member?.country?.toLowerCase();
+      memberIndustries = member?.industries.map((e) => e.toLowerCase());
+    }
+
+    /* get channel/brands users are subscribed to and also brands they are not subscribed to */
+    const subscribeBrands = await this.memberRepository.find({ member_uuid });
+    const subscribeBrandsUuids = subscribeBrands.map((member) => member.brand);
+
+    const projection = {
+      uuid: 1,
+      brand: 1,
+      campaign_title: 1,
+      campaign_banner_url: 1,
+      task_type: 1,
+      total_task: 1,
+      reward_type: 1,
+      campaign_type: 1,
+      selected_members: 1,
+    };
+
+    return await this.taskRepository.findOne(
+      {
+        uuid: task_uuid,
+        $and: [
+          {
+            $or: [
+              { campaign_type: 'public' },
+              { selected_members: { $in: [member_uuid] } },
+              { brand: { $in: subscribeBrandsUuids } },
+            ],
+          },
+          {
+            industry: {
+              $in: memberIndustries?.map((e) => caseInsensitiveRegex(e)),
+            },
+          },
+          {
+            $or: [
+              {
+                locations: {
+                  $elemMatch: {
+                    country: memberCountry,
+                    $or: [
+                      {
+                        states: {
+                          $in: [caseInsensitiveRegex(memberState)],
+                        },
+                      },
+                      { states: { $size: 0 } }, // Empty states array means all states allowed
+                    ],
+                  },
+                },
+              },
+            ],
+          },
+        ],
+      },
+      null,
+      populate,
+      projection,
+    );
   }
 
   async createDiscount(user: UserDto, input: CreateDiscountDto) {
