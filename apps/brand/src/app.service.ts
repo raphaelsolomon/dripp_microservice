@@ -51,49 +51,6 @@ import { DiscountRepository as UserDiscountRepository } from '@app/common';
 import { GiftUserDiscountDto } from './dto/discount/gift-user-discount.dto';
 import { MemberDocument } from './models/member.schema';
 
-// interface ICampaignTask {
-//   url?: string;
-//   instruction: string;
-//   submissionType: 'url' | 'image' | 'text';
-//   socialMediaPlatform?: string; //Required only if category id is social_media
-// }
-
-// interface ICampaignTaskList {
-//   categoryId: 'social_media' | 'user_generated' | 'custom';
-//   categoryName: string; //Social Media, User Generated or Custom name when user clicks on add new type
-//   tasks: ICampaignTask[];
-// }
-
-// const taskList: ICampaignTaskList[] = [
-//   {
-//     categoryId: 'social_media',
-//     categoryName: 'Social Media',
-//     tasks: [
-//       {
-//         instruction: '',
-//         socialMediaPlatform: 'facebook',
-//         submissionType: 'image',
-//         url: '',
-//       },
-//       {
-//         instruction: '',
-//         submissionType: 'text',
-//         socialMediaPlatform: 'tiktok',
-//         url: '',
-//       },
-//     ],
-//   },
-//   {
-//     categoryId: 'user_generated',
-//     categoryName: 'User generated',
-//     tasks: [{ instruction: 'Make a video', submissionType: 'url' }],
-//   },
-//   {
-//     categoryId: 'custom',
-//     categoryName: 'A custom category',
-//     tasks: [{ instruction: 'Make a video', submissionType: 'url' }],
-//   },
-// ];
 @Injectable()
 export class AppService {
   constructor(
@@ -638,8 +595,7 @@ export class AppService {
     };
   }
 
-  async getTasksFromBrands(payload: { [key: string]: string | number }) {
-    const member_uuid: string = <string>payload.member_uuid;
+  async getTasksFromBrands(payload: { [key: string]: any }) {
     const populate: PopulateDto = {
       path: 'brand',
       model: BrandDocument.name,
@@ -652,17 +608,15 @@ export class AppService {
 
     let memberState: string = '';
     let memberCountry: string = '';
-    let industrytranformed: string[] = [];
+    let memberInds = [];
 
-    const memberDetails = await firstValueFrom(
-      this.authClientproxy.send('get_user', { uuid: member_uuid }),
-    );
+    const member: UserDocument = <UserDocument>payload.user;
+    const member_uuid: string = member.uuid;
 
-    if (memberDetails) {
-      memberState = memberDetails?.state?.toLowerCase();
-      memberCountry = memberDetails?.country?.toLowerCase();
-      const rawInds = memberDetails?.industries.map((e) => e.toLowerCase());
-      industrytranformed = rawInds.map((e: string) => caseInsensitiveRegex(e));
+    if (member) {
+      memberState = member?.state?.toLowerCase();
+      memberCountry = member?.country?.toLowerCase();
+      memberInds = member?.industries.map((e) => e.toLowerCase());
     }
 
     /* get channel/brands users are subscribed to and also brands they are not subscribed to */
@@ -695,7 +649,7 @@ export class AppService {
                 $or: [
                   {
                     industry: {
-                      $in: industrytranformed,
+                      $in: memberInds?.map((e) => caseInsensitiveRegex(e)),
                     },
                   },
                   { industry: null },
@@ -741,7 +695,7 @@ export class AppService {
                 $or: [
                   {
                     industry: {
-                      $in: industrytranformed,
+                      $in: memberInds?.map((e) => caseInsensitiveRegex(e)),
                     },
                   },
                   { industry: null },
@@ -787,7 +741,7 @@ export class AppService {
                 $or: [
                   {
                     industry: {
-                      $in: industrytranformed,
+                      $in: memberInds?.map((e) => caseInsensitiveRegex(e)),
                     },
                   },
                   { industry: null },
@@ -836,7 +790,7 @@ export class AppService {
                 $or: [
                   {
                     industry: {
-                      $in: industrytranformed,
+                      $in: memberInds?.map((e) => caseInsensitiveRegex(e)),
                     },
                   },
                   { industry: null },

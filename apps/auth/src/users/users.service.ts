@@ -642,7 +642,6 @@ export class UsersService {
 
     return await firstValueFrom(
       this.brandClientProxy.send('get_tasks_from_brands', {
-        member_uuid: user.uuid,
         first,
         page,
         user,
