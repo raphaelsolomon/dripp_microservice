@@ -102,8 +102,6 @@ export class UsersController {
       body?.accountType,
     );
 
-    console.log('Account type set', result);
-
     return {
       statusCode: 200,
       timestamp: new Date().toISOString(),
@@ -325,15 +323,16 @@ export class UsersController {
     };
   }
 
-  @Post('task-submission')
+  @Post('task-submission/:task_uuid')
   @FormDataRequest()
   @UseGuards(JwtAuthGuard)
   async submitTask(
     @CurrentUser() user: UserDocument,
+    @Param('task_uuid') task_uuid: string,
     @Body() payload: TaskSubmissionDto,
     @Req() req: Request,
   ) {
-    const result = await this.usersService.submitTask(user, payload);
+    const result = await this.usersService.submitTask(user, payload, task_uuid);
     return {
       statusCode: 201,
       timestamp: new Date().toISOString(),

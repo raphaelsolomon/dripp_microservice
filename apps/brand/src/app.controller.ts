@@ -334,7 +334,6 @@ export class AppController {
   @Get('/task/:uuid')
   @UseGuards(JwtAuthGuard)
   async getTaks(@Param() payload: Record<string, string>, @Req() req: Request) {
-    console.log(payload);
     const result = await this.appService.getTask(payload?.uuid);
 
     return {
@@ -393,7 +392,6 @@ export class AppController {
     @Body() input: CreateTaskDto,
     @Req() req: Request,
   ) {
-    console.log(req.headers);
     const result = await this.appService.createBrandTask(user, input);
     return {
       statusCode: 201,
@@ -595,7 +593,6 @@ export class AppController {
 
   @MessagePattern('create_brand')
   createBrand(@Payload() payload: any) {
-    console.log('Message received');
     return this.appService.createBrand(payload);
   }
 

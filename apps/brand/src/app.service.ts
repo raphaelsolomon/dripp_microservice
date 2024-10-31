@@ -23,7 +23,7 @@ import {
   WALLET_SERVICE,
 } from '@app/common';
 import { UpdateBrandDto } from './dto/update-brand.dto';
-import { CreateTaskDto } from './dto/task/create-task.dto';
+import { CreateTaskDto, ICampaignTaskItem } from './dto/task/create-task.dto';
 import { MemberRepository } from './repositories/member.repository';
 import { async, filter, firstValueFrom } from 'rxjs';
 import { ClientProxy } from '@nestjs/microservices';
@@ -50,6 +50,7 @@ import { GiftCardRepository as UserGiftCardRepository } from '@app/common';
 import { DiscountRepository as UserDiscountRepository } from '@app/common';
 import { GiftUserDiscountDto } from './dto/discount/gift-user-discount.dto';
 import { MemberDocument } from './models/member.schema';
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable()
 export class AppService {
@@ -85,7 +86,6 @@ export class AppService {
 
   async updatebrand(user: UserDto, input: UpdateBrandDto) {
     try {
-      console.log('REAHCEd');
       if (input.username) {
         await firstValueFrom(
           this.authClientproxy.send('update_username', {
@@ -94,7 +94,6 @@ export class AppService {
           }),
         );
       }
-      console.log('DiD not REAHCEd');
       const industry = input.industry;
 
       if (industry) {
@@ -234,6 +233,16 @@ export class AppService {
     };
   }
 
+  private addUuidsToTasks(taskType: ICampaignTaskItem[]): ICampaignTaskItem[] {
+    return taskType.map((category) => ({
+      ...category,
+      tasks: category.tasks.map((task) => ({
+        ...task,
+        id: uuidv4(),
+      })),
+    }));
+  }
+
   async createBrandTask(user: UserDto, input: CreateTaskDto) {
     // check if the account accessing this endpoint is a brand
     if (user.account_type === 'user')
@@ -267,10 +276,14 @@ export class AppService {
     if (input.locations.length <= 0)
       throw new BadRequestException(`Location is required..`);
 
+    // Transform the task_type to include UUIDs
+    const taskTypeWithUuids = this.addUuidsToTasks(input.task_type);
+
     try {
       const task = await this.taskRepository.create({
         brand: user.brand_uuid,
         ...input,
+        task_type: taskTypeWithUuids,
         industry: brand.industry,
         total_task: input.task_type.length,
         status: false,
@@ -377,7 +390,6 @@ export class AppService {
           from: { isbrand: true, sender: brand_uuid },
         });
       } catch (e) {
-        console.log(e);
         console.log('No membership email found');
       }
     }
@@ -1215,63 +1227,63 @@ export class AppService {
       );
     }
 
-    const result: { [key: string]: any } = {};
+    // const result: { [key: string]: any } = {};
 
-    try {
-      const submissions = await this.submissionRepository.find({
-        task_uuid,
-        user_uuid: member_uuid,
-      });
+    // try {
+    //   const submissions = await this.submissionRepository.find({
+    //     task_uuid,
+    //     user_uuid: member_uuid,
+    //   });
 
-      // Initialize the member's category in the result
-      result[member_uuid] = {};
+    //   // Initialize the member's category in the result
+    //   result[member_uuid] = {};
 
-      // Categorize submissions
-      for (const submission of submissions) {
-        let campaignType = submission.campaign_type;
+    //   // Categorize submissions
+    //   for (const submission of submissions) {
+    //     let campaignType = submission.campaign_type;
 
-        // If campaignType is a JSON string, parse it
-        try {
-          campaignType = JSON.parse(<string>submission.campaign_type);
-        } catch (e) {
-          // If parsing fails, use the campaignType as is (assuming it's a string)
-        }
+    //     // If campaignType is a JSON string, parse it
+    //     try {
+    //       campaignType = JSON.parse(<string>submission.campaign_type);
+    //     } catch (e) {
+    //       // If parsing fails, use the campaignType as is (assuming it's a string)
+    //     }
 
-        if (typeof campaignType === 'object') {
-          for (const [key, value] of Object.entries(campaignType)) {
-            // If the key doesn't exist, create it
-            if (!result[member_uuid][key]) {
-              result[member_uuid][key] = {};
-            }
+    //     if (typeof campaignType === 'object') {
+    //       for (const [key, value] of Object.entries(campaignType)) {
+    //         // If the key doesn't exist, create it
+    //         if (!result[member_uuid][key]) {
+    //           result[member_uuid][key] = {};
+    //         }
 
-            // If value is an object, iterate over it to set the submission URL
-            if (typeof value === 'object') {
-              for (const subKey in value) {
-                result[member_uuid][key][subKey] = {
-                  submission_url: submission.submission_url,
-                };
-              }
-            } else {
-              result[member_uuid][key][value] = {
-                submission_url: submission.submission_url,
-              };
-            }
-          }
-        } else {
-          // If campaignType is not an object, categorize directly
-          if (!result[member_uuid][campaignType]) {
-            result[member_uuid][campaignType] = {};
-          }
-          result[member_uuid][campaignType] = {
-            submission_url: submission.submission_url,
-          };
-        }
-      }
+    //         // If value is an object, iterate over it to set the submission URL
+    //         if (typeof value === 'object') {
+    //           for (const subKey in value) {
+    //             result[member_uuid][key][subKey] = {
+    //               submission_url: submission.submission_url,
+    //             };
+    //           }
+    //         } else {
+    //           result[member_uuid][key][value] = {
+    //             submission_url: submission.submission_url,
+    //           };
+    //         }
+    //       }
+    //     } else {
+    //       // If campaignType is not an object, categorize directly
+    //       if (!result[member_uuid][campaignType]) {
+    //         result[member_uuid][campaignType] = {};
+    //       }
+    //       result[member_uuid][campaignType] = {
+    //         submission_url: submission.submission_url,
+    //       };
+    //     }
+    //   }
 
-      return result;
-    } catch (err) {
-      throw new BadRequestException(err);
-    }
+    //   return result;
+    // } catch (err) {
+    //   throw new BadRequestException(err);
+    // }
   }
 
   async approveSubmission(user: UserDto, input: { [key: string]: string }) {

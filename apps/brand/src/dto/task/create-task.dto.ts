@@ -20,12 +20,13 @@ export class CreateTaskDto {
 
 interface ICampaignTask {
   url?: string;
+  id?: string;
   instructions: string;
   submissionType: 'url' | 'image' | 'text';
   socialMediaPlatform?: string; // required only if the category id is social media
 }
 
-interface ICampaignTaskItem {
+export interface ICampaignTaskItem {
   categoryId: 'social_media' | 'user_generated' | 'custom';
   categoryName: string; // social media, User generated or custom name when user selects new type
   tasks: ICampaignTask[];

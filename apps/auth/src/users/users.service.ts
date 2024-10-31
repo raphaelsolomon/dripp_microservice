@@ -39,6 +39,8 @@ import { TaskSubmissionDto } from './dto/submit-task.dto';
 import { TokenRepository } from './repositories/token.repository';
 import { countryList } from '../assets/countries';
 import { TokenPayload as GoogleTokenPayload } from 'google-auth-library';
+import { ITask, ITaskType } from '../constants/task.constant';
+import { TaskSubmission } from './task/submission.task';
 
 @Injectable()
 export class UsersService {
@@ -166,7 +168,6 @@ export class UsersService {
         { email_verified: true },
       );
     } catch (err) {
-      console.log(err);
       throw new BadRequestException(err?.message);
     }
   }
@@ -242,12 +243,10 @@ export class UsersService {
                     brand_uuid: response.uuid,
                   },
                 );
-                console.log('Added brand UUID to USER');
 
                 return this.destructureUser(user);
               })
               .catch((err) => {
-                console.log(err);
                 throw new UnprocessableEntityException(err);
               });
           } catch (err) {
@@ -319,8 +318,6 @@ export class UsersService {
 
   async authenticateGoogle(profile: GoogleTokenPayload) {
     const email: string = profile?.email;
-
-    console.log(profile);
     try {
       const user = await this.userRepository.findOne({ email });
       // if this user account is not active again
@@ -412,7 +409,6 @@ export class UsersService {
   }
 
   async authenticateX(profile: Record<string, any>) {
-    console.log(profile);
     const email: string = profile?.email;
     try {
       const user = await this.userRepository.findOne({ email });
@@ -745,114 +741,66 @@ export class UsersService {
     console.log(userDocument);
   }
 
-  async submitTask(user: UserDocument, input: TaskSubmissionDto) {
+  async submitTask(
+    user: UserDocument,
+    input: TaskSubmissionDto,
+    task_uuid: string,
+  ) {
     if (user.account_type !== 'user') {
       throw new BadRequestException(
         'Action not supported on the account type.',
       );
     }
 
-    const task = await firstValueFrom(
-      this.brandClientProxy.send('get_task', { uuid: input.task_uuid }),
+    // get task details from the brand service
+    const getTask = this.brandClientProxy.send('get_task', { task_uuid, user });
+    const task: ITask = await firstValueFrom(getTask);
+
+    const taskType: ITaskType[] = task.task_type;
+    const categoryId: string = input.categoryId;
+
+    //check if the categoryId is valid
+    const i = taskType.findIndex((e) => e.categoryId === categoryId);
+    if (i < 0) throw new BadRequestException('Invalid categoryId');
+
+    //get the task type details
+    const taskTypeDetails: ITaskType = taskType[i];
+
+    //initialize the submission class
+    const submission = new TaskSubmission(
+      this.submissionRepository,
+      user,
+      task,
     );
 
-    const is_social: boolean = this.isJsonParsable(input.campaign_type);
-
-    const uuid: string = task.uuid;
-
-    const user_uuid: string = user.uuid;
-
-    if (is_social) {
-      const campaign_type = JSON.parse(input.campaign_type);
-      // check if thre task contains a social media engagement task.
-      if (!task.campaign_type.hasOwnProperty('social_media_engagement')) {
-        throw new BadRequestException('Invalid campaign type on task');
-      }
-
-      const social_type = campaign_type.social_media_engagement;
-      const task_social_type = task.campaign_type.social_media_engagement;
-      const task_social_length = Object.keys(task_social_type).length;
-
-      //check if the social media provided is also part of the task.
-      if (!task_social_type.hasOwnProperty(social_type)) {
-        throw new BadRequestException('Invalid social media type on task');
-      }
-
-      //check if user has sumbitted for this task with exact camapign type
-      const submission_type = task_social_type[social_type].submission_type;
-      if (await this.isTaskSubmitted(uuid, user_uuid, input.campaign_type)) {
-        throw new BadRequestException('task has already been submitted');
-      }
-
-      //get the kind of submission required for that task
-      const getType = await this.getSubmissionType(submission_type, input);
-      // then submit the task for the user.
-      const result = await this.submissionRepository.create({
-        task_uuid: uuid,
-        user_uuid: user.uuid,
-        campaign_type: input.campaign_type,
-        ...getType,
+    //check if the task type is social media
+    if (taskTypeDetails.categoryId === 'social_media') {
+      return await submission.socialSubmision(input, i, async () => {
+        await this.findAndCreateOrUpdateTaskCompletion(
+          task_uuid,
+          user.uuid,
+          task,
+        );
       });
-
-      //get total social tasks submitted by user
-      const socialSubmittedLength = await this.submissionRepository.find({
-        task_uuid: uuid,
-        user_uuid: user.uuid,
-        campaign_type: { $regex: /social_media_engagement/, $options: 'i' },
-      });
-
-      //check if user has completed all social media tasks.
-      if (socialSubmittedLength.length >= task_social_length)
-        await this.findAndCreateOrUpdateTaskCompletion(uuid, user_uuid, task);
-
-      return result;
-    } else {
-      // if task is a non social media task
-      const campaign_type = input.campaign_type;
-      const task_campaign_type = task.campaign_type;
-
-      //check if the social media provided is also part of the task.
-      if (!task_campaign_type.hasOwnProperty(campaign_type)) {
-        throw new BadRequestException('Invalid campaign type on task');
-      }
-
-      //check if user has sumbitted for this task with exact camapign type
-      const submission_type = task_campaign_type[campaign_type].submission_type;
-      if (await this.isTaskSubmitted(uuid, user_uuid, input.campaign_type)) {
-        throw new BadRequestException('task has already been submitted');
-      }
-
-      //get the kind of submission required for that task
-      const getType = await this.getSubmissionType(submission_type, input);
-      // then submit the task for the user.
-      const result = await this.submissionRepository.create({
-        task_uuid: uuid,
-        user_uuid: user.uuid,
-        campaign_type: input.campaign_type,
-        ...getType,
-      });
-
-      //update the task completion.
-      await this.findAndCreateOrUpdateTaskCompletion(uuid, user_uuid, task);
-      return result;
     }
-  }
 
-  async isTaskSubmitted(
-    task_uuid: string,
-    user_uuid: string,
-    campaign_type: string,
-  ): Promise<boolean> {
-    try {
-      await this.submissionRepository.findOne({
+    if (taskTypeDetails.categoryId === 'user_generated') {
+      return await submission.userGeneratedSubmision(input, i, async () => {
+        await this.findAndCreateOrUpdateTaskCompletion(
+          task_uuid,
+          user.uuid,
+          task,
+        );
+      });
+    }
+
+    return await submission.customSubmision(input, i, async () => {
+      await this.findAndCreateOrUpdateTaskCompletion(
         task_uuid,
-        user_uuid,
-        campaign_type,
-      });
-      return true;
-    } catch (err) {
-      return false;
-    }
+        user.uuid,
+        task,
+      );
+    });
   }
 
   isJsonParsable(campaign_type: string): boolean {
@@ -915,7 +863,7 @@ export class UsersService {
   async findAndCreateOrUpdateTaskCompletion(
     task_uuid: string,
     user_uuid: string,
-    task: Record<string, any>,
+    task: ITask,
   ) {
     const input = { task_uuid, user_uuid };
     let completion: TaskCompletionDocument;
@@ -930,7 +878,7 @@ export class UsersService {
     } catch (err) {
       completion = await this.taskCompletionRepository.create(input);
     } finally {
-      const total_task: number = Object.keys(task.campaign_type).length;
+      const total_task: number = task.task_type.length;
       if (completion.total_completed >= total_task) {
         this.brandClientProxy.emit('update_task_completed', {
           user_uuid,
@@ -951,13 +899,11 @@ export class UsersService {
         { refresh_token, access_token },
       );
     } catch (err) {
-      console.log('CREATING NEW TOKEN RECORD');
       await this.tokenRepository.create({
         user_id,
         refresh_token,
         access_token,
       });
-      console.log('CREATED RECORD');
     }
   }
 
