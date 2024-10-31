@@ -652,7 +652,7 @@ export class AppService {
 
     let memberState: string = '';
     let memberCountry: string = '';
-    let memberIndustries: string[] = [];
+    let industrytranformed: string[] = [];
 
     const memberDetails = await firstValueFrom(
       this.authClientproxy.send('get_user', { uuid: member_uuid }),
@@ -661,7 +661,8 @@ export class AppService {
     if (memberDetails) {
       memberState = memberDetails?.state?.toLowerCase();
       memberCountry = memberDetails?.country?.toLowerCase();
-      memberIndustries = memberDetails?.industries.map((e) => e.toLowerCase());
+      const rawInds = memberDetails?.industries.map((e) => e.toLowerCase());
+      industrytranformed = rawInds.map((e: string) => caseInsensitiveRegex(e));
     }
 
     /* get channel/brands users are subscribed to and also brands they are not subscribed to */
@@ -691,9 +692,15 @@ export class AppService {
                 $or: [{ campaign_type: 'public' }],
               },
               {
-                industry: {
-                  $in: memberIndustries?.map((e) => caseInsensitiveRegex(e)),
-                },
+                $or: [
+                  {
+                    industry: {
+                      $in: industrytranformed,
+                    },
+                  },
+                  { industry: null },
+                  { industry: { $exists: false } }, // Include tasks with no industry specified
+                ],
               },
               {
                 $or: [
@@ -731,9 +738,15 @@ export class AppService {
                 $or: [{ selected_members: { $in: [member_uuid] } }],
               },
               {
-                industry: {
-                  $in: memberIndustries?.map((e) => caseInsensitiveRegex(e)),
-                },
+                $or: [
+                  {
+                    industry: {
+                      $in: industrytranformed,
+                    },
+                  },
+                  { industry: null },
+                  { industry: { $exists: false } }, // Include tasks with no industry specified
+                ],
               },
               {
                 $or: [
@@ -771,9 +784,15 @@ export class AppService {
                 $or: [{ brand: { $in: subscribeBrandsUuids } }],
               },
               {
-                industry: {
-                  $in: memberIndustries?.map((e) => caseInsensitiveRegex(e)),
-                },
+                $or: [
+                  {
+                    industry: {
+                      $in: industrytranformed,
+                    },
+                  },
+                  { industry: null },
+                  { industry: { $exists: false } }, // Include tasks with no industry specified
+                ],
               },
               {
                 $or: [
@@ -814,9 +833,15 @@ export class AppService {
                 ],
               },
               {
-                industry: {
-                  $in: memberIndustries?.map((e) => caseInsensitiveRegex(e)),
-                },
+                $or: [
+                  {
+                    industry: {
+                      $in: industrytranformed,
+                    },
+                  },
+                  { industry: null },
+                  { industry: { $exists: false } }, // Include tasks with no industry specified
+                ],
               },
               {
                 $or: [
@@ -893,9 +918,15 @@ export class AppService {
             ],
           },
           {
-            industry: {
-              $in: memberIndustries?.map((e) => caseInsensitiveRegex(e)),
-            },
+            $or: [
+              {
+                industry: {
+                  $in: memberIndustries?.map((e) => caseInsensitiveRegex(e)),
+                },
+              },
+              { industry: null },
+              { industry: { $exists: false } }, // Include tasks with no industry specified
+            ],
           },
           {
             $or: [
