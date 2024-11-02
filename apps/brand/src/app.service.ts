@@ -670,6 +670,13 @@ export class AppService {
               },
               {
                 $or: [
+                  { campaign_end_date: { $gte: new Date() } },
+                  { campaign_end_date: { $exists: false } },
+                  { campaign_end_date: null },
+                ],
+              },
+              {
+                $or: [
                   {
                     locations: {
                       $elemMatch: {
@@ -712,6 +719,13 @@ export class AppService {
                   },
                   { industry: null },
                   { industry: { $exists: false } }, // Include tasks with no industry specified
+                ],
+              },
+              {
+                $or: [
+                  { campaign_end_date: { $gte: new Date() } },
+                  { campaign_end_date: { $exists: false } },
+                  { campaign_end_date: null },
                 ],
               },
               {
@@ -762,6 +776,13 @@ export class AppService {
               },
               {
                 $or: [
+                  { campaign_end_date: { $gte: new Date() } },
+                  { campaign_end_date: { $exists: false } },
+                  { campaign_end_date: null },
+                ],
+              },
+              {
+                $or: [
                   {
                     locations: {
                       $elemMatch: {
@@ -807,6 +828,13 @@ export class AppService {
                   },
                   { industry: null },
                   { industry: { $exists: false } }, // Include tasks with no industry specified
+                ],
+              },
+              {
+                $or: [
+                  { campaign_end_date: { $gte: new Date() } },
+                  { campaign_end_date: { $exists: false } },
+                  { campaign_end_date: null },
                 ],
               },
               {
@@ -892,6 +920,13 @@ export class AppService {
               },
               { industry: null },
               { industry: { $exists: false } }, // Include tasks with no industry specified
+            ],
+          },
+          {
+            $or: [
+              { campaign_end_date: { $gte: new Date() } },
+              { campaign_end_date: { $exists: false } },
+              { campaign_end_date: null },
             ],
           },
           {
@@ -1219,7 +1254,7 @@ export class AppService {
   async getSubmissionByTask(
     user: UserDto,
     task_uuid: string,
-    member_uuid: string,
+    user_uuid: string,
   ) {
     if (user.account_type === 'user') {
       throw new BadRequestException(
@@ -1227,63 +1262,61 @@ export class AppService {
       );
     }
 
-    // const result: { [key: string]: any } = {};
+    const result: { [key: string]: any } = {};
 
-    // try {
-    //   const submissions = await this.submissionRepository.find({
-    //     task_uuid,
-    //     user_uuid: member_uuid,
-    //   });
+    try {
+      const submissions = await this.submissionRepository.find({
+        task_uuid,
+        user_uuid,
+      });
 
-    //   // Initialize the member's category in the result
-    //   result[member_uuid] = {};
+      // Initialize the member's category in the result
+      result[user_uuid] = {};
 
-    //   // Categorize submissions
-    //   for (const submission of submissions) {
-    //     let campaignType = submission.campaign_type;
+      // Categorize submissions
+      for (const submission of submissions) {
+        console.log(submission);
+        //     let campaignType = submission.campaign_type;
+        //     // If campaignType is a JSON string, parse it
+        //     try {
+        //       campaignType = JSON.parse(<string>submission.campaign_type);
+        //     } catch (e) {
+        //       // If parsing fails, use the campaignType as is (assuming it's a string)
+        //     }
+        //     if (typeof campaignType === 'object') {
+        //       for (const [key, value] of Object.entries(campaignType)) {
+        //         // If the key doesn't exist, create it
+        //         if (!result[member_uuid][key]) {
+        //           result[member_uuid][key] = {};
+        //         }
+        //         // If value is an object, iterate over it to set the submission URL
+        //         if (typeof value === 'object') {
+        //           for (const subKey in value) {
+        //             result[member_uuid][key][subKey] = {
+        //               submission_url: submission.submission_url,
+        //             };
+        //           }
+        //         } else {
+        //           result[member_uuid][key][value] = {
+        //             submission_url: submission.submission_url,
+        //           };
+        //         }
+        //       }
+        //     } else {
+        //       // If campaignType is not an object, categorize directly
+        //       if (!result[member_uuid][campaignType]) {
+        //         result[member_uuid][campaignType] = {};
+        //       }
+        //       result[member_uuid][campaignType] = {
+        //         submission_url: submission.submission_url,
+        //       };
+        //     }
+      }
 
-    //     // If campaignType is a JSON string, parse it
-    //     try {
-    //       campaignType = JSON.parse(<string>submission.campaign_type);
-    //     } catch (e) {
-    //       // If parsing fails, use the campaignType as is (assuming it's a string)
-    //     }
-
-    //     if (typeof campaignType === 'object') {
-    //       for (const [key, value] of Object.entries(campaignType)) {
-    //         // If the key doesn't exist, create it
-    //         if (!result[member_uuid][key]) {
-    //           result[member_uuid][key] = {};
-    //         }
-
-    //         // If value is an object, iterate over it to set the submission URL
-    //         if (typeof value === 'object') {
-    //           for (const subKey in value) {
-    //             result[member_uuid][key][subKey] = {
-    //               submission_url: submission.submission_url,
-    //             };
-    //           }
-    //         } else {
-    //           result[member_uuid][key][value] = {
-    //             submission_url: submission.submission_url,
-    //           };
-    //         }
-    //       }
-    //     } else {
-    //       // If campaignType is not an object, categorize directly
-    //       if (!result[member_uuid][campaignType]) {
-    //         result[member_uuid][campaignType] = {};
-    //       }
-    //       result[member_uuid][campaignType] = {
-    //         submission_url: submission.submission_url,
-    //       };
-    //     }
-    //   }
-
-    //   return result;
-    // } catch (err) {
-    //   throw new BadRequestException(err);
-    // }
+      return result;
+    } catch (err) {
+      throw new BadRequestException(err);
+    }
   }
 
   async approveSubmission(user: UserDto, input: { [key: string]: string }) {

@@ -1,3 +1,5 @@
+import { IsDateString } from 'class-validator';
+
 export class CreateTaskDto {
   campaign_banner_url: string;
 
@@ -14,6 +16,9 @@ export class CreateTaskDto {
   campaign_amount: number;
 
   selected_members?: string[];
+
+  @IsDateString()
+  campaign_end_date: Date;
 
   reward_per_engagement?: string;
 }

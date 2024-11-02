@@ -763,6 +763,10 @@ export class UsersService {
     const i = taskType.findIndex((e) => e.categoryId === categoryId);
     if (i < 0) throw new BadRequestException('Invalid categoryId');
 
+    //check if the task is still active
+    if (task.campaign_end_date && task.campaign_end_date < new Date())
+      throw new BadRequestException('Task has expired');
+
     //get the task type details
     const taskTypeDetails: ITaskType = taskType[i];
 

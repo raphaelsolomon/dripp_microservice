@@ -14,6 +14,7 @@ export interface ITask {
   campaign_banner_url: string;
   task_type: ITaskType[];
   campaign_type: 'public' | 'private' | 'members';
+  campaign_end_date: Date;
   selected_members: string[];
   reward_type: 'FIAT' | 'USDT';
   total_task: number;
