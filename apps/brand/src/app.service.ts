@@ -1252,7 +1252,7 @@ export class AppService {
   }
 
   async getSubmissionByTask(
-    user: UserDto,
+    user: UserDocument,
     task_uuid: string,
     user_uuid: string,
   ) {
@@ -1271,46 +1271,36 @@ export class AppService {
       });
 
       // Initialize the member's category in the result
-      result[user_uuid] = {};
+      result[user_uuid] = { user_details: {}, submissions: {} };
 
       // Categorize submissions
       for (const submission of submissions) {
-        console.log(submission);
-        //     let campaignType = submission.campaign_type;
-        //     // If campaignType is a JSON string, parse it
-        //     try {
-        //       campaignType = JSON.parse(<string>submission.campaign_type);
-        //     } catch (e) {
-        //       // If parsing fails, use the campaignType as is (assuming it's a string)
-        //     }
-        //     if (typeof campaignType === 'object') {
-        //       for (const [key, value] of Object.entries(campaignType)) {
-        //         // If the key doesn't exist, create it
-        //         if (!result[member_uuid][key]) {
-        //           result[member_uuid][key] = {};
-        //         }
-        //         // If value is an object, iterate over it to set the submission URL
-        //         if (typeof value === 'object') {
-        //           for (const subKey in value) {
-        //             result[member_uuid][key][subKey] = {
-        //               submission_url: submission.submission_url,
-        //             };
-        //           }
-        //         } else {
-        //           result[member_uuid][key][value] = {
-        //             submission_url: submission.submission_url,
-        //           };
-        //         }
-        //       }
-        //     } else {
-        //       // If campaignType is not an object, categorize directly
-        //       if (!result[member_uuid][campaignType]) {
-        //         result[member_uuid][campaignType] = {};
-        //       }
-        //       result[member_uuid][campaignType] = {
-        //         submission_url: submission.submission_url,
-        //       };
-        //     }
+        // get the member dtails from the auth/user service
+        const member = await firstValueFrom(
+          this.authClientproxy.send('get_user', { uuid: user_uuid }),
+        );
+
+        // add the user details to the result
+        result[user_uuid]['user_details'] = member;
+
+        // If the key doesn't exist, create it
+        if (!result[user_uuid]['submissions'][submission.categoryId]) {
+          if (submission.categoryId === 'social_media') {
+            result[user_uuid]['submissions'][submission.categoryId] = {
+              [submission.task_id]: {
+                social_media_platform: submission.socialMediaPlatform,
+                submission_url: submission.submission_url,
+              },
+            };
+          } else {
+            result[user_uuid]['submissions'][submission.categoryId] = {
+              [submission.task_id]: {
+                social_media_platform: submission.socialMediaPlatform,
+                submission_url: submission.submission_url,
+              },
+            };
+          }
+        }
       }
 
       return result;

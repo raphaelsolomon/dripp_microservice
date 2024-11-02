@@ -478,7 +478,7 @@ export class AppController {
   @Get('/task-submission/:task_uuid/:member_uuid')
   @UseGuards(JwtAuthGuard)
   async getSubmissionByTask(
-    @CurrentUser() user: UserDto,
+    @CurrentUser() user: UserDocument,
     @Param() input: { [key: string]: string },
     @Req() req: Request,
   ) {
