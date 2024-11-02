@@ -1295,7 +1295,6 @@ export class AppService {
           } else {
             result[user_uuid]['submissions'][submission.categoryId] = {
               [submission.task_id]: {
-                social_media_platform: submission.socialMediaPlatform,
                 submission_url: submission.submission_url,
               },
             };
