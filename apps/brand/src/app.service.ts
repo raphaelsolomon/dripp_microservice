@@ -288,26 +288,26 @@ export class AppService {
     );
 
     // check if the wallet balance is less than the campaign amount
-    const requiredAmount = input.campaign_amount * 0.1;
-    if (parseFloat(wallet.balance) <= input.campaign_amount * 0.1)
+    const requiredAmount = input?.campaign_amount * 0.1;
+    if (parseFloat(wallet?.balance) <= input.campaign_amount * 0.1)
       throw new BadRequestException(`Insufficient balance: ${requiredAmount}`);
 
     // get the brand uding the brand uuid attacted to thee user
     const brand = await this.brandRepository.findOne({ uuid: user.brand_uuid });
 
     //check if the task type is provided
-    if (input.task_type.length <= 0)
+    if (input?.task_type?.length <= 0)
       throw new BadRequestException(`Task type is required..`);
 
     // check if campaign type is private and selected members is not provided
-    const isPrivate: boolean = input.campaign_type === 'private';
+    const isPrivate: boolean = input?.campaign_type === 'private';
     const errorMessage = `Selected members are required for private engagement type`;
 
-    if (isPrivate && input.selected_members.length <= 0)
+    if (isPrivate && input?.selected_members?.length <= 0)
       throw new BadRequestException(errorMessage);
 
     // check if the location is provided
-    if (input.locations.length <= 0)
+    if (input?.locations?.length <= 0)
       throw new BadRequestException(`Location is required..`);
 
     try {
@@ -796,7 +796,7 @@ export class AppService {
                   {
                     locations: {
                       $elemMatch: {
-                        country: memberCountry,
+                        country: caseInsensitiveRegex(memberCountry),
                         $or: [
                           {
                             states: {
