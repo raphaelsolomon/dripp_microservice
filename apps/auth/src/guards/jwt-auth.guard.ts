@@ -43,7 +43,6 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
 
       return result as boolean;
     } catch (err) {
-      console.log(err);
       throw new UnauthorizedException(
         err?.message || 'Unauthorized, could not get user',
       );

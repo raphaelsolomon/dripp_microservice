@@ -22,6 +22,9 @@ export class TaskDocument extends AbstractDocument {
   @Prop({ default: 'public', enum: ['public', 'private', 'members'] })
   campaign_type?: string;
 
+  @Prop({ default: null, required: false })
+  campaign_end_date?: Date;
+
   @Prop({ default: null })
   reward_per_engagement?: string;
 

@@ -68,8 +68,6 @@ export class AuthService {
       expiresIn: '20d',
     });
 
-    console.log('GETTING USER TOKEN');
-
     //update the user refresh token in the database
     await this.userService.updateRefreshToken(
       userInfo._id.toString(),
@@ -184,8 +182,6 @@ export class AuthService {
       });
 
       const payload = ticket.getPayload();
-
-      console.log(payload, 'GOOGLE PAYLOAD');
 
       if (!payload)
         throw new BadRequestException('Error verifying Google id token');

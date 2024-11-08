@@ -23,9 +23,9 @@ import {
   WALLET_SERVICE,
 } from '@app/common';
 import { UpdateBrandDto } from './dto/update-brand.dto';
-import { CreateTaskDto } from './dto/task/create-task.dto';
+import { CreateTaskDto, ICampaignTaskItem } from './dto/task/create-task.dto';
 import { MemberRepository } from './repositories/member.repository';
-import { firstValueFrom } from 'rxjs';
+import { async, filter, firstValueFrom } from 'rxjs';
 import { ClientProxy } from '@nestjs/microservices';
 import { CreatePostDto } from './dto/post/create-post.dto';
 import { PostRepository } from './repositories/post.repository';
@@ -50,50 +50,8 @@ import { GiftCardRepository as UserGiftCardRepository } from '@app/common';
 import { DiscountRepository as UserDiscountRepository } from '@app/common';
 import { GiftUserDiscountDto } from './dto/discount/gift-user-discount.dto';
 import { MemberDocument } from './models/member.schema';
+import { v4 as uuidv4 } from 'uuid';
 
-// interface ICampaignTask {
-//   url?: string;
-//   instruction: string;
-//   submissionType: 'url' | 'image' | 'text';
-//   socialMediaPlatform?: string; //Required only if category id is social_media
-// }
-
-// interface ICampaignTaskList {
-//   categoryId: 'social_media' | 'user_generated' | 'custom';
-//   categoryName: string; //Social Media, User Generated or Custom name when user clicks on add new type
-//   tasks: ICampaignTask[];
-// }
-
-// const taskList: ICampaignTaskList[] = [
-//   {
-//     categoryId: 'social_media',
-//     categoryName: 'Social Media',
-//     tasks: [
-//       {
-//         instruction: '',
-//         socialMediaPlatform: 'facebook',
-//         submissionType: 'image',
-//         url: '',
-//       },
-//       {
-//         instruction: '',
-//         submissionType: 'text',
-//         socialMediaPlatform: 'tiktok',
-//         url: '',
-//       },
-//     ],
-//   },
-//   {
-//     categoryId: 'user_generated',
-//     categoryName: 'User generated',
-//     tasks: [{ instruction: 'Make a video', submissionType: 'url' }],
-//   },
-//   {
-//     categoryId: 'custom',
-//     categoryName: 'A custom category',
-//     tasks: [{ instruction: 'Make a video', submissionType: 'url' }],
-//   },
-// ];
 @Injectable()
 export class AppService {
   constructor(
@@ -128,7 +86,6 @@ export class AppService {
 
   async updatebrand(user: UserDto, input: UpdateBrandDto) {
     try {
-      console.log('REAHCEd');
       if (input.username) {
         await firstValueFrom(
           this.authClientproxy.send('update_username', {
@@ -137,7 +94,6 @@ export class AppService {
           }),
         );
       }
-      console.log('DiD not REAHCEd');
       const industry = input.industry;
 
       if (industry) {
@@ -277,6 +233,16 @@ export class AppService {
     };
   }
 
+  private addUuidsToTasks(taskType: ICampaignTaskItem[]): ICampaignTaskItem[] {
+    return taskType.map((category) => ({
+      ...category,
+      tasks: category.tasks.map((task) => ({
+        ...task,
+        id: uuidv4(),
+      })),
+    }));
+  }
+
   async createBrandTask(user: UserDto, input: CreateTaskDto) {
     // check if the account accessing this endpoint is a brand
     if (user.account_type === 'user')
@@ -310,10 +276,14 @@ export class AppService {
     if (input?.locations?.length <= 0)
       throw new BadRequestException(`Location is required..`);
 
+    // Transform the task_type to include UUIDs
+    const taskTypeWithUuids = this.addUuidsToTasks(input.task_type);
+
     try {
       const task = await this.taskRepository.create({
         brand: user.brand_uuid,
         ...input,
+        task_type: taskTypeWithUuids,
         industry: brand.industry,
         total_task: input.task_type.length,
         status: false,
@@ -420,7 +390,6 @@ export class AppService {
           from: { isbrand: true, sender: brand_uuid },
         });
       } catch (e) {
-        console.log(e);
         console.log('No membership email found');
       }
     }
@@ -487,7 +456,11 @@ export class AppService {
     });
   }
 
-  async getBrandTask(user: UserDto, payload: { [key: string]: number }) {
+  async getBrandTasks(user: UserDocument, payload: { [key: string]: number }) {
+    if (user.account_type === 'user') {
+      throw new BadRequestException(`Action not allowed on this account type`);
+    }
+
     const brandPopulate: PopulateDto = {
       path: 'brand',
       model: BrandDocument.name,
@@ -507,6 +480,31 @@ export class AppService {
       first,
       page,
       { brand: user.brand_uuid, status: true },
+      null,
+      [brandPopulate, userPopulate],
+    );
+  }
+
+  async getBrandTask(user: UserDocument, task_uuid: string) {
+    if (user.account_type === 'user') {
+      throw new BadRequestException(`Action not allowed on this account type`);
+    }
+
+    const brandPopulate: PopulateDto = {
+      path: 'brand',
+      model: BrandDocument.name,
+      localField: 'brand',
+      foreignField: 'uuid',
+    };
+    const userPopulate: PopulateDto = {
+      path: 'members_completed',
+      model: UserDocument.name,
+      localField: 'members_completed',
+      foreignField: 'uuid',
+    };
+
+    return await this.taskRepository.findOne(
+      { brand: user.brand_uuid, status: true, uuid: task_uuid },
       null,
       [brandPopulate, userPopulate],
     );
@@ -609,8 +607,7 @@ export class AppService {
     };
   }
 
-  async getTasksFromBrands(payload: { [key: string]: string | number }) {
-    const member_uuid: string = <string>payload.member_uuid;
+  async getTasksFromBrands(payload: { [key: string]: any }) {
     const populate: PopulateDto = {
       path: 'brand',
       model: BrandDocument.name,
@@ -623,34 +620,31 @@ export class AppService {
 
     let memberState: string = '';
     let memberCountry: string = '';
-    let memberIndustries: string[] = [];
+    let memberInds = [];
 
-    const memberDetails = await firstValueFrom(
-      this.authClientproxy.send('get_user', { uuid: member_uuid }),
-    );
+    const member: UserDocument = <UserDocument>payload.user;
+    const member_uuid: string = member.uuid;
 
-    if (memberDetails) {
-      memberState = memberDetails?.state?.toLowerCase();
-      memberCountry = memberDetails?.country?.toLowerCase();
-      memberIndustries = memberDetails?.industries.map((e) => e.toLowerCase());
+    if (member) {
+      memberState = member?.state?.toLowerCase();
+      memberCountry = member?.country?.toLowerCase();
+      memberInds = member?.industries.map((e) => e.toLowerCase());
     }
 
     /* get channel/brands users are subscribed to and also brands they are not subscribed to */
     const subscribeBrands = await this.memberRepository.find({ member_uuid });
     const subscribeBrandsUuids = subscribeBrands.map((member) => member.brand);
 
-    console.log(memberCountry, memberState, filter, subscribeBrandsUuids);
-
     const projection = {
       uuid: 1,
       brand: 1,
       campaign_title: 1,
       campaign_banner_url: 1,
-      member_reward: 1,
-      non_member_reward: 1,
+      task_type: 1,
       total_task: 1,
-      general_reward: 1,
+      reward_type: 1,
       campaign_type: 1,
+      selected_members: 1,
     };
 
     switch (filter) {
@@ -664,9 +658,22 @@ export class AppService {
                 $or: [{ campaign_type: 'public' }],
               },
               {
-                industry: {
-                  $in: memberIndustries?.map((e) => caseInsensitiveRegex(e)),
-                },
+                $or: [
+                  {
+                    industry: {
+                      $in: memberInds?.map((e) => caseInsensitiveRegex(e)),
+                    },
+                  },
+                  { industry: null },
+                  { industry: { $exists: false } }, // Include tasks with no industry specified
+                ],
+              },
+              {
+                $or: [
+                  { campaign_end_date: { $gte: new Date() } },
+                  { campaign_end_date: { $exists: false } },
+                  { campaign_end_date: null },
+                ],
               },
               {
                 $or: [
@@ -704,9 +711,22 @@ export class AppService {
                 $or: [{ selected_members: { $in: [member_uuid] } }],
               },
               {
-                industry: {
-                  $in: memberIndustries?.map((e) => caseInsensitiveRegex(e)),
-                },
+                $or: [
+                  {
+                    industry: {
+                      $in: memberInds?.map((e) => caseInsensitiveRegex(e)),
+                    },
+                  },
+                  { industry: null },
+                  { industry: { $exists: false } }, // Include tasks with no industry specified
+                ],
+              },
+              {
+                $or: [
+                  { campaign_end_date: { $gte: new Date() } },
+                  { campaign_end_date: { $exists: false } },
+                  { campaign_end_date: null },
+                ],
               },
               {
                 $or: [
@@ -744,9 +764,22 @@ export class AppService {
                 $or: [{ brand: { $in: subscribeBrandsUuids } }],
               },
               {
-                industry: {
-                  $in: memberIndustries?.map((e) => caseInsensitiveRegex(e)),
-                },
+                $or: [
+                  {
+                    industry: {
+                      $in: memberInds?.map((e) => caseInsensitiveRegex(e)),
+                    },
+                  },
+                  { industry: null },
+                  { industry: { $exists: false } }, // Include tasks with no industry specified
+                ],
+              },
+              {
+                $or: [
+                  { campaign_end_date: { $gte: new Date() } },
+                  { campaign_end_date: { $exists: false } },
+                  { campaign_end_date: null },
+                ],
               },
               {
                 $or: [
@@ -787,9 +820,22 @@ export class AppService {
                 ],
               },
               {
-                industry: {
-                  $in: memberIndustries?.map((e) => caseInsensitiveRegex(e)),
-                },
+                $or: [
+                  {
+                    industry: {
+                      $in: memberInds?.map((e) => caseInsensitiveRegex(e)),
+                    },
+                  },
+                  { industry: null },
+                  { industry: { $exists: false } }, // Include tasks with no industry specified
+                ],
+              },
+              {
+                $or: [
+                  { campaign_end_date: { $gte: new Date() } },
+                  { campaign_end_date: { $exists: false } },
+                  { campaign_end_date: null },
+                ],
               },
               {
                 $or: [
@@ -817,6 +863,97 @@ export class AppService {
           projection,
         );
     }
+  }
+
+  async getTaskFromBrand(member: UserDocument, task_uuid: string) {
+    const populate: PopulateDto = {
+      path: 'brand',
+      model: BrandDocument.name,
+      localField: 'brand',
+      foreignField: 'uuid',
+    };
+
+    let memberState: string = '';
+    let memberCountry: string = '';
+    let memberIndustries: string[] = [];
+    const member_uuid = member.uuid;
+
+    if (member) {
+      memberState = member?.state?.toLowerCase();
+      memberCountry = member?.country?.toLowerCase();
+      memberIndustries = member?.industries.map((e) => e.toLowerCase());
+    }
+
+    /* get channel/brands users are subscribed to and also brands they are not subscribed to */
+    const subscribeBrands = await this.memberRepository.find({ member_uuid });
+    const subscribeBrandsUuids = subscribeBrands.map((member) => member.brand);
+
+    const projection = {
+      uuid: 1,
+      brand: 1,
+      campaign_title: 1,
+      campaign_banner_url: 1,
+      task_type: 1,
+      total_task: 1,
+      reward_type: 1,
+      campaign_type: 1,
+      selected_members: 1,
+    };
+
+    return await this.taskRepository.findOne(
+      {
+        uuid: task_uuid,
+        $and: [
+          {
+            $or: [
+              { campaign_type: 'public' },
+              { selected_members: { $in: [member_uuid] } },
+              { brand: { $in: subscribeBrandsUuids } },
+            ],
+          },
+          {
+            $or: [
+              {
+                industry: {
+                  $in: memberIndustries?.map((e) => caseInsensitiveRegex(e)),
+                },
+              },
+              { industry: null },
+              { industry: { $exists: false } }, // Include tasks with no industry specified
+            ],
+          },
+          {
+            $or: [
+              { campaign_end_date: { $gte: new Date() } },
+              { campaign_end_date: { $exists: false } },
+              { campaign_end_date: null },
+            ],
+          },
+          {
+            $or: [
+              {
+                locations: {
+                  $elemMatch: {
+                    country: memberCountry,
+                    $or: [
+                      {
+                        states: {
+                          $in: [caseInsensitiveRegex(memberState)],
+                        },
+                      },
+                      { states: { $size: 0 } }, // Empty states array means all states allowed
+                    ],
+                  },
+                },
+              },
+            ],
+          },
+        ],
+      },
+      null,
+      populate,
+      projection,
+    );
   }
 
   async createDiscount(user: UserDto, input: CreateDiscountDto) {
@@ -1115,9 +1252,9 @@ export class AppService {
   }
 
   async getSubmissionByTask(
-    user: UserDto,
+    user: UserDocument,
     task_uuid: string,
-    member_uuid: string,
+    user_uuid: string,
   ) {
     if (user.account_type === 'user') {
       throw new BadRequestException(
@@ -1130,51 +1267,38 @@ export class AppService {
     try {
       const submissions = await this.submissionRepository.find({
         task_uuid,
-        user_uuid: member_uuid,
+        user_uuid,
       });
 
       // Initialize the member's category in the result
-      result[member_uuid] = {};
+      result[user_uuid] = { user_details: {}, submissions: {} };
 
       // Categorize submissions
       for (const submission of submissions) {
-        let campaignType = submission.campaign_type;
+        // get the member dtails from the auth/user service
+        const member = await firstValueFrom(
+          this.authClientproxy.send('get_user', { uuid: user_uuid }),
+        );
 
-        // If campaignType is a JSON string, parse it
-        try {
-          campaignType = JSON.parse(<string>submission.campaign_type);
-        } catch (e) {
-          // If parsing fails, use the campaignType as is (assuming it's a string)
-        }
+        // add the user details to the result
+        result[user_uuid]['user_details'] = member;
 
-        if (typeof campaignType === 'object') {
-          for (const [key, value] of Object.entries(campaignType)) {
-            // If the key doesn't exist, create it
-            if (!result[member_uuid][key]) {
-              result[member_uuid][key] = {};
-            }
-
-            // If value is an object, iterate over it to set the submission URL
-            if (typeof value === 'object') {
-              for (const subKey in value) {
-                result[member_uuid][key][subKey] = {
-                  submission_url: submission.submission_url,
-                };
-              }
-            } else {
-              result[member_uuid][key][value] = {
+        // If the key doesn't exist, create it
+        if (!result[user_uuid]['submissions'][submission.categoryId]) {
+          if (submission.categoryId === 'social_media') {
+            result[user_uuid]['submissions'][submission.categoryId] = {
+              [submission.task_id]: {
+                social_media_platform: submission.socialMediaPlatform,
                 submission_url: submission.submission_url,
-              };
-            }
+              },
+            };
+          } else {
+            result[user_uuid]['submissions'][submission.categoryId] = {
+              [submission.task_id]: {
+                submission_url: submission.submission_url,
+              },
+            };
           }
-        } else {
-          // If campaignType is not an object, categorize directly
-          if (!result[member_uuid][campaignType]) {
-            result[member_uuid][campaignType] = {};
-          }
-          result[member_uuid][campaignType] = {
-            submission_url: submission.submission_url,
-          };
         }
       }
 

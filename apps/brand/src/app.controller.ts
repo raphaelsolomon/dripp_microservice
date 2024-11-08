@@ -260,12 +260,31 @@ export class AppController {
   @Get('/tasks')
   @UseGuards(JwtAuthGuard)
   @FormDataRequest()
-  async getBrandTask(
-    @CurrentUser() user: UserDto,
+  async getBrandTasks(
+    @CurrentUser() user: UserDocument,
     @Query() payload: { [key: string]: number },
     @Req() req: Request,
   ) {
-    const result = await this.appService.getBrandTask(user, payload);
+    const result = await this.appService.getBrandTasks(user, payload);
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      success: true,
+      data: result,
+    };
+  }
+
+  @Get('/task/:task_uuid')
+  @UseGuards(JwtAuthGuard)
+  @FormDataRequest()
+  async getBrandTask(
+    @CurrentUser() user: UserDocument,
+    @Param('task_uuid') task_uuid: string,
+    @Req() req: Request,
+  ) {
+    const result = await this.appService.getBrandTask(user, task_uuid);
     return {
       statusCode: 200,
       timestamp: new Date().toISOString(),
@@ -315,7 +334,6 @@ export class AppController {
   @Get('/task/:uuid')
   @UseGuards(JwtAuthGuard)
   async getTaks(@Param() payload: Record<string, string>, @Req() req: Request) {
-    console.log(payload);
     const result = await this.appService.getTask(payload?.uuid);
 
     return {
@@ -374,7 +392,6 @@ export class AppController {
     @Body() input: CreateTaskDto,
     @Req() req: Request,
   ) {
-    console.log(req.headers);
     const result = await this.appService.createBrandTask(user, input);
     return {
       statusCode: 201,
@@ -461,7 +478,7 @@ export class AppController {
   @Get('/task-submission/:task_uuid/:member_uuid')
   @UseGuards(JwtAuthGuard)
   async getSubmissionByTask(
-    @CurrentUser() user: UserDto,
+    @CurrentUser() user: UserDocument,
     @Param() input: { [key: string]: string },
     @Req() req: Request,
   ) {
@@ -576,7 +593,6 @@ export class AppController {
 
   @MessagePattern('create_brand')
   createBrand(@Payload() payload: any) {
-    console.log('Message received');
     return this.appService.createBrand(payload);
   }
 
@@ -605,8 +621,8 @@ export class AppController {
     return this.appService.getRecommendedChannels(payload);
   }
 
-  @MessagePattern('get_task_from_brands')
-  getTasksFromBrands(@Payload() payload: { [key: string]: string }) {
+  @MessagePattern('get_tasks_from_brands')
+  getTasksFromBrands(@Payload() payload: { [key: string]: any }) {
     return this.appService.getTasksFromBrands(payload);
   }
 
@@ -621,8 +637,8 @@ export class AppController {
   }
 
   @MessagePattern('get_task')
-  getTask(@Payload() { uuid }: Record<string, string>) {
-    return this.appService.getTask(uuid);
+  getTask(@Payload() { user, task_uuid }: Record<string, any>) {
+    return this.appService.getTaskFromBrand(user, task_uuid);
   }
 
   @EventPattern('update_task_completed')

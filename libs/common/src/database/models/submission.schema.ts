@@ -10,11 +10,17 @@ export class TaskSubmissionDocument extends AbstractDocument {
   @Prop({ required: false, default: false })
   user_uuid: string;
 
-  @Prop({ required: false, type: Types.Map })
-  campaign_type: string | Record<string, string>;
+  @Prop({ required: true, type: Types.Map })
+  categoryId: string;
+
+  @Prop({ required: false, default: null })
+  socialMediaPlatform?: string;
 
   @Prop({ required: true })
   submission_url: string;
+
+  @Prop({ required: true })
+  task_id: string;
 }
 export const TaskSubmissionSchema = SchemaFactory.createForClass(
   TaskSubmissionDocument,
