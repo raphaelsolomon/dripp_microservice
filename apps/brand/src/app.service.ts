@@ -645,6 +645,8 @@ export class AppService {
       reward_type: 1,
       campaign_type: 1,
       selected_members: 1,
+      campaign_end_date: 1,
+      reward_per_engagement: 1,
     };
 
     switch (filter) {
@@ -898,6 +900,8 @@ export class AppService {
       reward_type: 1,
       campaign_type: 1,
       selected_members: 1,
+      campaign_end_date: 1,
+      reward_per_engagement: 1,
     };
 
     return await this.taskRepository.findOne(
@@ -922,19 +926,13 @@ export class AppService {
               { industry: { $exists: false } }, // Include tasks with no industry specified
             ],
           },
-          {
-            $or: [
-              { campaign_end_date: { $gte: new Date() } },
-              { campaign_end_date: { $exists: false } },
-              { campaign_end_date: null },
-            ],
-          },
+
           {
             $or: [
               {
                 locations: {
                   $elemMatch: {
-                    country: memberCountry,
+                    country: caseInsensitiveRegex(memberCountry),
                     $or: [
                       {
                         states: {

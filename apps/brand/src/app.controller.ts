@@ -30,6 +30,7 @@ import { CardDto } from './dto/card/card.dto';
 import { GiftUserCardDto } from './dto/giftcard/gift-user-card.dto';
 import { GiftUserDiscountDto } from './dto/discount/gift-user-discount.dto';
 import { UpdateTaskDto } from './dto/task/update-task.dto';
+import { ITaskType } from 'apps/auth/src/constants/task.constant';
 
 @Controller('brand')
 export class AppController {
@@ -343,6 +344,48 @@ export class AppController {
       message: 'Successful',
       success: true,
       data: result,
+    };
+  }
+
+  @Get('/task-types')
+  @UseGuards(JwtAuthGuard)
+  async getTaskTypes(@Req() req: Request) {
+    const taskTypes: Omit<ITaskType, 'tasks'>[] = [
+      { categoryId: 'social_media', categoryName: 'Social media engagement' },
+      { categoryId: 'user_generated', categoryName: 'User generated content' },
+    ];
+
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      success: true,
+      data: taskTypes,
+    };
+  }
+
+  @Get('/social-platforms')
+  @UseGuards(JwtAuthGuard)
+  async getSocialMediaPlatforms(@Req() req: Request) {
+    const platforms: { label: string; id: string }[] = [
+      { label: 'Facebook', id: 'facebook' },
+      { label: 'Instagram', id: 'instagram' },
+      { label: 'X (Formerly Twitter)', id: 'twitter' },
+      { label: 'TikTok', id: 'tiktok' },
+      { label: 'Discord', id: 'discord' },
+      { label: 'Telegram', id: 'telegram' },
+      { label: 'Youtube', id: 'youtube' },
+      { label: 'Medium', id: 'medium' },
+    ];
+
+    return {
+      statusCode: 200,
+      timestamp: new Date().toISOString(),
+      path: req.url,
+      message: 'Successful',
+      success: true,
+      data: platforms,
     };
   }
 
