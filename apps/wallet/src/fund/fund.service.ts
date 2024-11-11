@@ -139,11 +139,11 @@ export class FundService {
         transaction: 'credit',
       });
       const wallet = await this.walletRepository.findOne({ uuid: wallet_uuid });
-      let { amount } = wallet;
-      amount = amount + transaction.data.amount_settled;
+      let { amount_in_fiat } = wallet;
+      amount_in_fiat = amount_in_fiat + transaction.data.amount_settled;
       await this.walletRepository.findOneAndUpdate(
         { uuid: wallet_uuid },
-        { amount },
+        { amount_in_fiat },
       );
     }
     return this.transactionDetails(transaction, res);

@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { WalletService } from './wallet.service';
 import { MessagePattern, Payload } from '@nestjs/microservices';
-import { CurrentUser, JwtAuthGuard, UserDto } from '@app/common';
+import { CurrentUser, JwtAuthGuard, UserDocument } from '@app/common';
 import { Request } from 'express';
 import { SendFundDto } from './dto/send-fund.dto';
 
@@ -32,7 +32,7 @@ export class WalletController {
   @Get('/transactions')
   @UseGuards(JwtAuthGuard)
   async getTransactions(
-    @CurrentUser() user: UserDto,
+    @CurrentUser() user: UserDocument,
     @Query() payload: { [key: string]: number },
     @Req() req: Request,
   ) {
@@ -50,7 +50,7 @@ export class WalletController {
   @Post('/send')
   @UseGuards(JwtAuthGuard)
   async getSend(
-    @CurrentUser() user: UserDto,
+    @CurrentUser() user: UserDocument,
     @Body() input: SendFundDto,
     @Req() req: Request,
   ) {

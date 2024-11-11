@@ -254,9 +254,20 @@ export class AppService {
     );
 
     // check if the wallet balance is less than the campaign amount
+<<<<<<< Updated upstream
     const requiredAmount = input?.campaign_amount * 0.1;
     if (parseFloat(wallet?.balance) <= input.campaign_amount * 0.1)
       throw new BadRequestException(`Insufficient balance: ${requiredAmount}`);
+=======
+    const requiredAmount = input.campaign_amount + input.campaign_amount * 0.1;
+    if (input.reward_type === 'FIAT') {
+      if (parseFloat(wallet.amount_in_fiat) <= requiredAmount)
+        throw new BadRequestException(`Insufficient: ${requiredAmount} FIAT`);
+    } else {
+      if (parseFloat(wallet.amount_in_usdt) <= requiredAmount)
+        throw new BadRequestException(`Insufficient: ${requiredAmount} USDT`);
+    }
+>>>>>>> Stashed changes
 
     // get the brand uding the brand uuid attacted to thee user
     const brand = await this.brandRepository.findOne({ uuid: user.brand_uuid });
@@ -1052,7 +1063,10 @@ export class AppService {
     return { data: recommendedBrands, paginationInfo };
   }
 
-  async createMemberShipMail(user: UserDto, input: CreateMemberShipMailDto) {
+  async createMemberShipMail(
+    user: UserDocument,
+    input: CreateMemberShipMailDto,
+  ) {
     if (user.account_type === 'user') {
       throw new BadRequestException(`Action not allowed on this account type`);
     }
@@ -1306,7 +1320,10 @@ export class AppService {
     }
   }
 
-  async approveSubmission(user: UserDto, input: { [key: string]: string }) {
+  async approveSubmission(
+    user: UserDocument,
+    input: { [key: string]: string },
+  ) {
     if (user.account_type === 'user') {
       throw new BadRequestException(
         'Action not supported on the account type.',
@@ -1352,10 +1369,12 @@ export class AppService {
       //senf the reward to the member wallet
       this.walletClientproxy.emit('send_award', {
         amount: rewardPrice,
+        reward_type: task.reward_type,
         wallet_uuid: memberDetails.wallet_uuid,
         receiver: member_uuid,
         task: task,
       });
+
       // update the task with the new campaign amount balance amount
       await this.taskRepository.findOneAndUpdate(
         { _id: task._id, status: true },
