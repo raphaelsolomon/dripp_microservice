@@ -22,6 +22,9 @@ import {
   UserDiscountSchema,
   UserGiftCardDocument,
   UserGiftCardSchema,
+  SubTaskTrackerDocument,
+  SubTaskTrackerSchema,
+  SubTaskTrackerRepository,
   WALLET_SERVICE,
 } from '@app/common';
 import { UserDocument, UserSchema } from '@app/common';
@@ -50,6 +53,7 @@ import { CacheModule } from '@nestjs/cache-manager';
       { name: UserDiscountDocument.name, schema: UserDiscountSchema },
       { name: TaskSubmissionDocument.name, schema: TaskSubmissionSchema },
       { name: TaskCompletionDocument.name, schema: TaskCompletionSchema },
+      { name: SubTaskTrackerDocument.name, schema: SubTaskTrackerSchema },
       { name: TokenDocument.name, schema: TokenSchema },
       { name: IndustryDocument.name, schema: IndustrySchema },
     ]),
@@ -110,6 +114,7 @@ import { CacheModule } from '@nestjs/cache-manager';
     GiftCardRepository,
     SubmissionRepository,
     TaskCompletionRepository,
+    SubTaskTrackerRepository,
     TokenRepository,
     IndustryRepository,
   ],

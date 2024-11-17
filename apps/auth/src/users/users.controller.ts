@@ -212,6 +212,21 @@ export class UsersController {
     };
   }
 
+  @Get('channels/:brand_uuid')
+  @UseGuards(JwtAuthGuard)
+  async getChannel(
+    @CurrentUser() user: UserDocument,
+    @Param() payload: { brand_uuid: string },
+    @Req() req: Request,
+  ) {
+    const brand = await this.usersService.getChannel({
+      brand_uuid: payload?.brand_uuid,
+      user_uuid: user.uuid,
+    });
+
+    return successResponse({ data: brand, path: req.url });
+  }
+
   @Post('industries/channels')
   @UseGuards(JwtAuthGuard)
   async getChannelsByIndustries(
@@ -267,6 +282,26 @@ export class UsersController {
       success: true,
       data: result,
     };
+  }
+  @Post('task/start')
+  @UseGuards(JwtAuthGuard)
+  async startTask(
+    @CurrentUser() user: UserDocument,
+    @Body() body: { campaign_id: string; task_id: string },
+    @Req() req: Request,
+  ) {
+    await this.usersService.startTask(
+      body?.campaign_id,
+      user?.uuid,
+      body?.task_id,
+    );
+
+    return successResponse({
+      statusCode: 201,
+      data: null,
+      message: 'Successfully started task',
+      path: req.url,
+    });
   }
 
   @Get('task/:task_uuid')

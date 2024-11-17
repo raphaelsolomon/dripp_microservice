@@ -659,6 +659,11 @@ export class AppController {
     return this.appService.getChannels(payload);
   }
 
+  @MessagePattern('get_channel')
+  getChannel(@Payload() payload: { brand_uuid: string; user_uuid: string }) {
+    return this.appService.userGetBrand(payload);
+  }
+
   @MessagePattern('get_recommended_channels')
   getRecommendedChannels(@Payload() payload: { [key: string]: string }) {
     return this.appService.getRecommendedChannels(payload);

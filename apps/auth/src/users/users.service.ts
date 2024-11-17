@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   BadRequestException,
+  ForbiddenException,
   Inject,
   Injectable,
   InternalServerErrorException,
@@ -41,11 +42,13 @@ import { countryList } from '../assets/countries';
 import { TokenPayload as GoogleTokenPayload } from 'google-auth-library';
 import { ITask, ITaskType } from '../constants/task.constant';
 import { TaskSubmission } from './task/submission.task';
+import { SubTaskTrackerRepository } from '@app/common/database/repositorys/sub-task-tracker.repository';
 
 @Injectable()
 export class UsersService {
   constructor(
     private readonly taskCompletionRepository: TaskCompletionRepository,
+    private readonly subTaskTrackerRepository: SubTaskTrackerRepository,
     private readonly submissionRepository: SubmissionRepository,
     private readonly userRepository: UserRepository,
     private readonly cloudinaryService: CloudinaryService,
@@ -568,6 +571,12 @@ export class UsersService {
     );
   }
 
+  async getChannel(payload: { brand_uuid: string; user_uuid: string }) {
+    return await firstValueFrom(
+      this.brandClientProxy.send('get_channel', payload),
+    );
+  }
+
   async getRecommededChannels(
     user: UserDocument,
     payload: { [key: string]: number },
@@ -585,7 +594,7 @@ export class UsersService {
       this.brandClientProxy.send('get_recommended_channels', {
         first,
         page,
-        member_uuid: user.uuid,
+        user: user,
       }),
     );
   }
@@ -642,6 +651,7 @@ export class UsersService {
         page,
         user,
         filter,
+        ...payload,
       }),
     );
   }
@@ -754,6 +764,7 @@ export class UsersService {
 
     // get task details from the brand service
     const getTask = this.brandClientProxy.send('get_task', { task_uuid, user });
+
     const task: ITask = await firstValueFrom(getTask);
 
     const taskType: ITaskType[] = task.task_type;
@@ -784,6 +795,7 @@ export class UsersService {
           task_uuid,
           user.uuid,
           task,
+          input?.id,
         );
       });
     }
@@ -794,6 +806,7 @@ export class UsersService {
           task_uuid,
           user.uuid,
           task,
+          input?.id,
         );
       });
     }
@@ -803,6 +816,7 @@ export class UsersService {
         task_uuid,
         user.uuid,
         task,
+        input?.id,
       );
     });
   }
@@ -868,27 +882,83 @@ export class UsersService {
     task_uuid: string,
     user_uuid: string,
     task: ITask,
+    sub_task_uuid: string,
   ) {
-    const input = { task_uuid, user_uuid };
-    let completion: TaskCompletionDocument;
     try {
-      const complete = await this.taskCompletionRepository.findOne(input);
-      const filterQuery = { uuid: complete.uuid };
-      const updateQuery = { total_completed: complete.total_completed + 1 };
-      completion = await this.taskCompletionRepository.findOneAndUpdate(
-        filterQuery,
-        updateQuery,
-      );
+      console.log('REACHED');
+      const query = {
+        user_uuid,
+        campaign_uuid: task_uuid,
+        sub_task_id: sub_task_uuid,
+        status: 'started',
+      };
+
+      console.log(query, 'Query');
+
+      const subTaskTracker =
+        await this.subTaskTrackerRepository.findOneAndUpdate(query, {
+          status: 'submitted',
+        });
+
+      console.log('Updated to submitted');
+
+      return subTaskTracker;
+      // const complete = await this.taskCompletionRepository.findOne(input);
+      // const filterQuery = { uuid: complete.uuid };
+      // const updateQuery = { total_completed: complete.total_completed + 1 };
+      // completion = await this.taskCompletionRepository.findOneAndUpdate(
+      //   filterQuery,
+      //   updateQuery,
+      // );
     } catch (err) {
-      completion = await this.taskCompletionRepository.create(input);
+      console.log(err);
+
+      throw new UnprocessableEntityException(err);
     } finally {
+      const allCompletedTasks = await this.subTaskTrackerRepository.countDocs({
+        sub_task_id: sub_task_uuid,
+        campaign_uuid: task_uuid,
+        user_uuid: user_uuid,
+        status: 'completed',
+      });
+
       const total_task: number = task.task_type.length;
-      if (completion.total_completed >= total_task) {
+      if (allCompletedTasks >= total_task) {
         this.brandClientProxy.emit('update_task_completed', {
           user_uuid,
           task_uuid,
         });
       }
+    }
+  }
+
+  async startTask(task_uuid: string, user_uuid: string, sub_task_id: string) {
+    if (!task_uuid) throw new BadRequestException('Campaign ID is required');
+
+    if (!sub_task_id) throw new BadRequestException('Task ID is required');
+
+    const findTask = await this.subTaskTrackerRepository.findOne(
+      { sub_task_id, campaign_uuid: task_uuid, user_uuid },
+      undefined,
+      undefined,
+      undefined,
+      false,
+    );
+
+    if (findTask) throw new ForbiddenException('Task already started');
+
+    try {
+      const create = await this.subTaskTrackerRepository.create({
+        campaign_uuid: task_uuid,
+        sub_task_id,
+        user_uuid,
+        status: 'started',
+      });
+
+      return create;
+    } catch (err) {
+      console.log(err);
+      throw new InternalServerErrorException(err);
     }
   }
 

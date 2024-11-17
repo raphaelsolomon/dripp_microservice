@@ -9,14 +9,18 @@ import {
 } from '@nestjs/common';
 import { BrandRepository } from './repositories/brand.repository';
 import {
+  aggregationPaginationHelper,
   AUTH_SERVICE,
   caseInsensitiveRegex,
   CloudinaryResponse,
   CloudinaryService,
   IndustryRepository,
+  noDataDefault,
   NOTIFICATION_SERVICE,
   PopulateDto,
   SubmissionRepository,
+  SubTaskTrackerDocument,
+  TaskCompletionDocument,
   TaskCompletionRepository,
   UserDocument,
   UserDto,
@@ -43,7 +47,7 @@ import { CreateMemberShipMailDto } from './dto/membership-mail/create-membership
 import { MemberShipMailRepository } from './repositories/membership-mail.repository';
 import { UpdateMemberShipMailDto } from './dto/membership-mail/update-membership-mail.dto';
 import { CardRepository } from './repositories/card.repository';
-import { Request } from 'express';
+import { query, Request } from 'express';
 import { CardDto } from './dto/card/card.dto';
 import { GiftUserCardDto } from './dto/giftcard/gift-user-card.dto';
 import { GiftCardRepository as UserGiftCardRepository } from '@app/common';
@@ -51,6 +55,9 @@ import { DiscountRepository as UserDiscountRepository } from '@app/common';
 import { GiftUserDiscountDto } from './dto/discount/gift-user-discount.dto';
 import { MemberDocument } from './models/member.schema';
 import { v4 as uuidv4 } from 'uuid';
+import { SubTaskTrackerRepository } from '@app/common/database/repositorys/sub-task-tracker.repository';
+import { FilterQuery } from 'mongoose';
+import { ITask } from 'apps/auth/src/constants/task.constant';
 
 @Injectable()
 export class AppService {
@@ -68,6 +75,7 @@ export class AppService {
     private readonly userDiscountRepository: UserDiscountRepository,
     private readonly submissionRepository: SubmissionRepository,
     private readonly taskCompletionRepository: TaskCompletionRepository,
+    private readonly subTaskTrackerRepository: SubTaskTrackerRepository,
     private readonly industryRepository: IndustryRepository,
     @Inject(AUTH_SERVICE) private readonly authClientproxy: ClientProxy,
     @Inject(NOTIFICATION_SERVICE)
@@ -77,6 +85,125 @@ export class AppService {
 
   async getBrand(user: UserDto) {
     return await this.brandRepository.findOne({ uuid: user.brand_uuid });
+  }
+
+  async userGetBrand(payload: { user_uuid: string; brand_uuid: string }) {
+    const result = await this.brandRepository.aggregate([
+      {
+        $match: {
+          uuid: { $eq: String(payload?.brand_uuid) },
+        },
+      },
+      {
+        $lookup: {
+          from: 'userdocuments',
+          localField: 'uuid',
+          foreignField: 'brand_uuid',
+          as: 'brand_user',
+          pipeline: [
+            {
+              $project: {
+                username: 1,
+                avatar: 1,
+              },
+            },
+          ],
+        },
+      },
+      { $unwind: '$brand_user' },
+      // Lookup to know if requesting user is following the brand
+      {
+        $lookup: {
+          from: 'memberdocuments',
+          localField: 'uuid',
+          foreignField: 'brand',
+          pipeline: [{ $match: { member_uuid: payload?.user_uuid } }],
+          as: 'followInfo',
+        },
+      },
+      // Lookup to get followers count
+      {
+        $lookup: {
+          from: 'memberdocuments',
+          localField: 'uuid',
+          foreignField: 'brand',
+          pipeline: [{ $count: 'total' }],
+          as: 'subscribers',
+        },
+      },
+
+      // lookup to get five followers only
+      {
+        $lookup: {
+          from: 'memberdocuments',
+          localField: 'uuid',
+          foreignField: 'brand',
+          pipeline: [{ $limit: 5 }],
+          as: 'lastFiveMembers',
+        },
+      },
+      // Populate members documents with real user document
+      {
+        $lookup: {
+          from: 'userdocuments',
+          let: { userId: '$lastFiveMembers.member_uuid' },
+          pipeline: [
+            {
+              $match: {
+                $expr: { $in: ['$uuid', '$$userId'] },
+              },
+            },
+            {
+              $project: {
+                avatar: 1,
+                firstname: 1,
+                lastname: 1,
+                username: 1,
+              },
+            },
+          ],
+          as: 'fiveMembers',
+        },
+      },
+      {
+        $replaceRoot: {
+          newRoot: {
+            $mergeObjects: ['$$ROOT', '$brand_user'],
+          },
+        },
+      },
+      {
+        $addFields: {
+          subscribersCount: {
+            $cond: {
+              if: {
+                $eq: [{ $size: '$subscribers' }, 0],
+              },
+              then: 0,
+              else: { $arrayElemAt: ['$subscribers.total', 0] },
+            },
+          },
+        },
+      },
+
+      {
+        $project: {
+          brand_name: 1,
+          username: 1,
+          avatar: 1,
+          bio: 1,
+          isSubscribed: {
+            $gt: [{ $size: '$followInfo' }, 0],
+          },
+          fiveMembers: 1,
+          subscribersCount: 1,
+
+          uuid: 1,
+        },
+      },
+    ]);
+
+    return result?.data[0] || null;
   }
 
   async createBrand(payload: any) {
@@ -425,7 +552,10 @@ export class AppService {
 
   async removeMemberFromBrand(payload: { [key: string]: string }) {
     try {
-      await this.memberRepository.findOneAndDelete({ ...payload });
+      await this.memberRepository.findOneAndDelete({
+        member_uuid: payload?.member_uuid,
+        brand: payload?.brand_uuid,
+      });
       const uuid = payload.brand_uuid;
       const brand = await this.brandRepository.findOne({ uuid });
       return { status: true, message: `Unsubscribed from ${brand.brand_name}` };
@@ -512,7 +642,10 @@ export class AppService {
 
   async getPostsFromBrands(payload: { [key: string]: any }) {
     const limit: number = parseInt(payload.first) || 20;
+
     const page: number = parseInt(payload.page) || 1;
+
+    const skip = page * limit;
 
     const user: UserDocument = payload.user as UserDocument;
 
@@ -564,59 +697,182 @@ export class AppService {
     return { totalPages, hasMorePages, data: result.data };
   }
 
+  async getRecommendedChannels(payload: Record<string, any>) {
+    const first: number = <number>payload.first ?? 20;
+
+    const page: number = <number>payload.page ?? 1;
+
+    const user: UserDocument = payload?.user;
+
+    const result = await this.brandRepository.aggregate([
+      {
+        $match: {
+          industry: {
+            $in: user?.industries?.map((i) => caseInsensitiveRegex(i)),
+          },
+        },
+      },
+
+      {
+        $lookup: {
+          from: 'memberdocuments',
+          localField: 'uuid',
+          foreignField: 'brand',
+          as: 'user_member',
+          pipeline: [
+            {
+              $match: {
+                member_uuid: user?.uuid,
+              },
+            },
+          ],
+        },
+      },
+      {
+        $addFields: {
+          isFollowing: {
+            $gt: [{ $size: '$user_member' }, 0],
+          },
+        },
+      },
+      { $match: { isFollowing: false } },
+      {
+        $lookup: {
+          from: 'userdocuments',
+          localField: 'uuid',
+          foreignField: 'brand_uuid',
+          as: 'brand_user_details',
+        },
+      },
+      {
+        $lookup: {
+          from: 'memberdocuments',
+          localField: 'uuid',
+          foreignField: 'brand',
+          as: 'followers',
+          pipeline: [{ $count: 'total' }],
+        },
+      },
+      { $unwind: { preserveNullAndEmptyArrays: true, path: '$followers' } },
+      { $unwind: '$brand_user_details' },
+
+      {
+        $addFields: {
+          subscribersCount: '$followers.total',
+          avatar: '$brand_user_details.avatar',
+          username: '$brand_user_details.username',
+        },
+      },
+      {
+        $project: {
+          subscribersCount: { $ifNull: ['$subscribersCount', 0] },
+          bio: 1,
+          brand_name: 1,
+          uuid: 1,
+          isFollowing: 1,
+          avatar: 1,
+          username: 1,
+        },
+      },
+      ...aggregationPaginationHelper({ first, page }),
+    ]);
+
+    return result?.data[0] || noDataDefault;
+  }
+
   async getChannels(payload: { [key: string]: number | string }) {
     const page: number = <number>payload.page;
+
     const first: number = <number>payload.first;
+
+    const skip = page * first;
+
     const user_uuid: string = <string>payload.user_uuid;
 
-    const result = await this.brandRepository.getPaginatedDocuments(
-      first,
-      page,
-      {},
-    );
-    const { data, paginationInfo } = result;
+    console.log(skip, first, page, 'PAGINATION');
 
-    for (let i = data.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [data[i], data[j]] = [data[j], data[i]];
-    }
+    const result = await this.brandRepository.aggregate([
+      {
+        $lookup: {
+          from: 'userdocuments',
+          localField: 'uuid',
+          foreignField: 'brand_uuid',
+          as: 'brand_user_details',
+        },
+      },
+      {
+        $lookup: {
+          from: 'memberdocuments',
 
-    for (let i = 0; i < data.length; i++) {
-      const brandMembers = [];
-      const members = await this.memberRepository.find({ brand: data[i].uuid });
-      const index = members.findIndex((v) => v.member_uuid === user_uuid);
-      if (index > -1) {
-        data[i]['isSubscribed'] = true;
-      } else {
-        data[i]['isSubscribed'] = false;
-      }
-      for (const member of members) {
-        const uuid = member.member_uuid;
-        const memberData: UserDto = await firstValueFrom(
-          this.authClientproxy.send('get_user', { uuid }),
-        );
-        brandMembers.push(memberData);
-      }
-      data[i]['members_count'] = brandMembers.length;
-      data[i]['members'] = brandMembers;
-    }
+          localField: 'uuid',
+          foreignField: 'brand',
 
-    return {
-      data,
-      paginationInfo,
-    };
+          as: 'followInfo',
+        },
+      },
+      { $unwind: '$brand_user_details' },
+      {
+        $addFields: {
+          avatar: '$brand_user_details.avatar',
+          username: '$brand_user_details.username',
+          subscribersCount: { $size: '$followInfo' },
+          isSubscribed: {
+            $in: [user_uuid, '$followInfo.member_uuid'],
+          },
+          lastFiveMembers: { $slice: ['$followInfo', 0, 4] },
+        },
+      },
+
+      {
+        $lookup: {
+          from: 'userdocuments',
+          let: { userId: '$lastFiveMembers.member_uuid' },
+          pipeline: [
+            {
+              $match: {
+                $expr: { $in: ['$uuid', '$$userId'] },
+              },
+            },
+            {
+              $project: {
+                avatar: 1,
+                firstname: 1,
+                lastname: 1,
+                username: 1,
+              },
+            },
+          ],
+          as: 'fiveMembers',
+        },
+      },
+
+      {
+        $project: {
+          brand_name: 1,
+          uuid: 1,
+          avatar: 1,
+          username: 1,
+          fiveMembers: 1,
+          subscribersCount: 1,
+          isSubscribed: 1,
+        },
+      },
+      ...aggregationPaginationHelper({ first, page }),
+    ]);
+
+    return result?.data[0] || noDataDefault;
   }
 
   async getTasksFromBrands(payload: { [key: string]: any }) {
-    const populate: PopulateDto = {
-      path: 'brand',
-      model: BrandDocument.name,
-      localField: 'brand',
-      foreignField: 'uuid',
-    };
     const first: number = <number>payload.first;
+
     const page: number = <number>payload.page;
+
     const filter: string = <string>payload.filter;
+
+    const status: 'in-progress' | 'completed' = payload?.status;
+
+    let brand_uuid: string = payload?.brand_uuid;
 
     let memberState: string = '';
     let memberCountry: string = '';
@@ -633,247 +889,267 @@ export class AppService {
 
     /* get channel/brands users are subscribed to and also brands they are not subscribed to */
     const subscribeBrands = await this.memberRepository.find({ member_uuid });
+
     const subscribeBrandsUuids = subscribeBrands.map((member) => member.brand);
 
-    const projection = {
-      uuid: 1,
-      brand: 1,
-      campaign_title: 1,
-      campaign_banner_url: 1,
-      task_type: 1,
-      total_task: 1,
-      reward_type: 1,
-      campaign_type: 1,
-      selected_members: 1,
-      campaign_end_date: 1,
-      reward_per_engagement: 1,
+    let match = [
+      {
+        $or: [
+          { campaign_type: { $ne: 'private' } },
+          {
+            selected_members: { $in: [member_uuid] },
+            campaign_type: 'private',
+          },
+        ],
+      },
+      {
+        $or: [
+          // Include campaigns where location is not defined
+          { locations: { $size: 0 } },
+          { locations: { $exists: false } },
+          {
+            locations: {
+              $elemMatch: {
+                country: caseInsensitiveRegex(memberCountry),
+                $or: [
+                  {
+                    states: {
+                      $in: [caseInsensitiveRegex(memberState)],
+                    },
+                  },
+                  { states: { $exists: false } },
+                  { states: { $size: 0 } }, // Empty states array means all states allowed
+                ],
+              },
+            },
+          },
+        ],
+      },
+      {
+        $or: [
+          {
+            industry: {
+              $in: memberInds?.map((e) => caseInsensitiveRegex(e)),
+            },
+          },
+          { industry: null },
+          { industry: { $size: 0 } },
+          { industry: { $exists: false } }, // Include tasks with no industry specified
+        ],
+      },
+      {
+        $or: [
+          { campaign_end_date: { $gte: new Date() } },
+          { campaign_end_date: { $exists: false } },
+          { campaign_end_date: null },
+        ],
+      },
+    ] as FilterQuery<any>[];
+
+    const publicCampaignFilter = {
+      $or: [{ campaign_type: 'public' }],
+    };
+
+    const privateCampaignFilter = {
+      $or: [
+        {
+          campaign_type: 'private',
+          selected_members: { $in: [member_uuid] },
+        },
+      ],
+    };
+
+    const membersCampaignFilter = {
+      $or: [{ brand: { $in: subscribeBrandsUuids }, campaign_type: 'members' }],
     };
 
     switch (filter) {
       case 'public':
-        return await this.taskRepository.getPaginatedDocuments(
-          first,
-          page,
-          {
-            $and: [
-              {
-                $or: [{ campaign_type: 'public' }],
-              },
-              {
-                $or: [
-                  {
-                    industry: {
-                      $in: memberInds?.map((e) => caseInsensitiveRegex(e)),
-                    },
-                  },
-                  { industry: null },
-                  { industry: { $exists: false } }, // Include tasks with no industry specified
-                ],
-              },
-              {
-                $or: [
-                  { campaign_end_date: { $gte: new Date() } },
-                  { campaign_end_date: { $exists: false } },
-                  { campaign_end_date: null },
-                ],
-              },
-              {
-                $or: [
-                  {
-                    locations: {
-                      $elemMatch: {
-                        country: memberCountry,
-                        $or: [
-                          {
-                            states: {
-                              $in: [caseInsensitiveRegex(memberState)],
-                            },
-                          },
-                          { states: { $size: 0 } }, // Empty states array means all states allowed
-                        ],
-                      },
-                    },
-                  },
-                ],
-              },
-            ],
-          },
-          null,
-          populate,
-          projection,
-        );
-
-      case 'private':
-        return await this.taskRepository.getPaginatedDocuments(
-          first,
-          page,
-          {
-            $and: [
-              {
-                $or: [{ selected_members: { $in: [member_uuid] } }],
-              },
-              {
-                $or: [
-                  {
-                    industry: {
-                      $in: memberInds?.map((e) => caseInsensitiveRegex(e)),
-                    },
-                  },
-                  { industry: null },
-                  { industry: { $exists: false } }, // Include tasks with no industry specified
-                ],
-              },
-              {
-                $or: [
-                  { campaign_end_date: { $gte: new Date() } },
-                  { campaign_end_date: { $exists: false } },
-                  { campaign_end_date: null },
-                ],
-              },
-              {
-                $or: [
-                  {
-                    locations: {
-                      $elemMatch: {
-                        country: memberCountry,
-                        $or: [
-                          {
-                            states: {
-                              $in: [caseInsensitiveRegex(memberState)],
-                            },
-                          },
-                          { states: { $size: 0 } }, // Empty states array means all states allowed
-                        ],
-                      },
-                    },
-                  },
-                ],
-              },
-            ],
-          },
-          null,
-          populate,
-          projection,
-        );
-
-      case 'members':
-        return await this.taskRepository.getPaginatedDocuments(
-          first,
-          page,
-          {
-            $and: [
-              {
-                $or: [{ brand: { $in: subscribeBrandsUuids } }],
-              },
-              {
-                $or: [
-                  {
-                    industry: {
-                      $in: memberInds?.map((e) => caseInsensitiveRegex(e)),
-                    },
-                  },
-                  { industry: null },
-                  { industry: { $exists: false } }, // Include tasks with no industry specified
-                ],
-              },
-              {
-                $or: [
-                  { campaign_end_date: { $gte: new Date() } },
-                  { campaign_end_date: { $exists: false } },
-                  { campaign_end_date: null },
-                ],
-              },
-              {
-                $or: [
-                  {
-                    locations: {
-                      $elemMatch: {
-                        $or: [
-                          {
-                            states: {
-                              $in: [caseInsensitiveRegex(memberState)],
-                            },
-                          },
-                          { states: { $size: 0 } }, // Empty states array means all states allowed
-                        ],
-                      },
-                    },
-                  },
-                ],
-              },
-            ],
-          },
-          null,
-          populate,
-          projection,
-        );
-
-      default:
-        return await this.taskRepository.getPaginatedDocuments(
-          first,
-          page,
-          {
-            $and: [
-              {
-                $or: [
-                  { campaign_type: 'public' },
-                  { selected_members: { $in: [member_uuid] } },
-                  { brand: { $in: subscribeBrandsUuids } },
-                ],
-              },
-              {
-                $or: [
-                  {
-                    industry: {
-                      $in: memberInds?.map((e) => caseInsensitiveRegex(e)),
-                    },
-                  },
-                  { industry: null },
-                  { industry: { $exists: false } }, // Include tasks with no industry specified
-                ],
-              },
-              {
-                $or: [
-                  { campaign_end_date: { $gte: new Date() } },
-                  { campaign_end_date: { $exists: false } },
-                  { campaign_end_date: null },
-                ],
-              },
-              {
-                $or: [
-                  {
-                    locations: {
-                      $elemMatch: {
-                        country: caseInsensitiveRegex(memberCountry),
-                        $or: [
-                          {
-                            states: {
-                              $in: [caseInsensitiveRegex(memberState)],
-                            },
-                          },
-                          { states: { $size: 0 } }, // Empty states array means all states allowed
-                        ],
-                      },
-                    },
-                  },
-                ],
-              },
-            ],
-          },
-          null,
-          populate,
-          projection,
-        );
+        {
+          match.push(publicCampaignFilter);
+        }
+        break;
+      case 'private': {
+        match.push(privateCampaignFilter);
+        break;
+      }
+      case 'members': {
+        match.push(membersCampaignFilter);
+      }
+      default: {
+        match.push({
+          $or: [
+            publicCampaignFilter,
+            privateCampaignFilter,
+            membersCampaignFilter,
+          ],
+        });
+      }
     }
+
+    let statusFilter = {};
+
+    switch (status) {
+      case 'in-progress': {
+        statusFilter = {
+          $or: [
+            {
+              task_completion: {
+                $elemMatch: {
+                  status: 'started',
+                },
+              },
+            },
+            {
+              $and: [
+                {
+                  $expr: {
+                    $lt: ['$task_tracker_length', '$totalTasks'],
+                  },
+                },
+                {
+                  task_completion: {
+                    $elemMatch: {
+                      status: 'submitted',
+                    },
+                  },
+                },
+              ],
+            },
+          ],
+        };
+        break;
+      }
+      case 'completed': {
+      }
+      default: {
+      }
+    }
+
+    let brandMatch = {};
+
+    if (brand_uuid) {
+      brandMatch = { brand: brand_uuid };
+    }
+
+    console.log(statusFilter, status);
+    const result = await this.taskRepository.aggregate([
+      {
+        $match: {
+          ...brandMatch,
+          $and: match,
+        },
+      },
+      {
+        $lookup: {
+          as: 'brand',
+          from: 'branddocuments',
+          localField: 'brand',
+          foreignField: 'uuid',
+        },
+      },
+      { $unwind: '$brand' },
+      {
+        $lookup: {
+          from: 'subtasktrackerdocuments',
+          let: {
+            request_user_id: member?.uuid,
+          },
+          localField: 'uuid',
+          foreignField: 'campaign_uuid',
+          pipeline: [{ $match: { user_uuid: member?.uuid } }],
+
+          as: 'task_completion',
+        },
+      },
+      {
+        $lookup: {
+          from: 'userdocuments',
+          foreignField: 'brand_uuid',
+          localField: 'brand.uuid',
+          as: 'brand_user',
+        },
+      },
+      { $unwind: '$brand_user' },
+      {
+        $addFields: {
+          totalTasks: {
+            $sum: {
+              $map: {
+                input: '$task_type',
+                as: 'category',
+                in: { $size: '$$category.tasks' },
+              },
+            },
+          },
+          task_tracker_length: {
+            $size: '$task_completion',
+          },
+        },
+      },
+      { $match: statusFilter },
+      {
+        $lookup: {
+          from: 'memberdocuments',
+
+          localField: 'brand.uuid',
+          foreignField: 'brand',
+          pipeline: [
+            {
+              $match: {
+                member_uuid: member?.uuid,
+              },
+            },
+          ],
+          as: 'followInfo',
+        },
+      },
+      {
+        $addFields: {
+          'brand.following': {
+            $gt: [{ $size: '$followInfo' }, 0],
+          },
+        },
+      },
+      {
+        $project: {
+          totalTasks: 1,
+          uuid: 1,
+          campaign_title: 1,
+          campaign_banner_url: 1,
+          task_type: 1,
+          total_task: 1,
+          reward_type: 1,
+          campaign_type: 1,
+          selected_members: 1,
+          campaign_end_date: 1,
+          reward_per_engagement: 1,
+          task_completion: 1,
+          brand: {
+            brand_name: '$brand.brand_name',
+            uuid: '$brand.uuid',
+            following: '$brand.following',
+            username: '$brand_user.username',
+            avatar: '$brand_user.avatar',
+          },
+          created_at: 1,
+        },
+      },
+      ...aggregationPaginationHelper({ first, page }),
+    ]);
+
+    return result?.data[0] || noDataDefault;
   }
 
   async getTaskFromBrand(member: UserDocument, task_uuid: string) {
-    const populate: PopulateDto = {
-      path: 'brand',
-      model: BrandDocument.name,
+    const lookup = {
+      as: 'brand',
+      from: 'branddocuments',
       localField: 'brand',
       foreignField: 'uuid',
     };
+
+    console.log(BrandDocument.name, SubTaskTrackerDocument.name);
 
     let memberState: string = '';
     let memberCountry: string = '';
@@ -888,70 +1164,228 @@ export class AppService {
 
     /* get channel/brands users are subscribed to and also brands they are not subscribed to */
     const subscribeBrands = await this.memberRepository.find({ member_uuid });
+
     const subscribeBrandsUuids = subscribeBrands.map((member) => member.brand);
 
-    const projection = {
-      uuid: 1,
-      brand: 1,
-      campaign_title: 1,
-      campaign_banner_url: 1,
-      task_type: 1,
-      total_task: 1,
-      reward_type: 1,
-      campaign_type: 1,
-      selected_members: 1,
-      campaign_end_date: 1,
-      reward_per_engagement: 1,
+    const filter = {
+      uuid: task_uuid,
+      $and: [
+        {
+          $or: [
+            { campaign_type: 'public' },
+            { selected_members: { $in: [member_uuid] } },
+            { brand: { $in: subscribeBrandsUuids } },
+          ],
+        },
+        {
+          $or: [
+            {
+              industry: {
+                $in: memberIndustries?.map((e) => caseInsensitiveRegex(e)),
+              },
+            },
+            { industry: null },
+            { industry: { $exists: false } }, // Include tasks with no industry specified
+          ],
+        },
+
+        {
+          $or: [
+            {
+              locations: {
+                $elemMatch: {
+                  country: caseInsensitiveRegex(memberCountry),
+                  $or: [
+                    {
+                      states: {
+                        $in: [caseInsensitiveRegex(memberState)],
+                      },
+                    },
+                    { states: { $size: 0 } }, // Empty states array means all states allowed
+                  ],
+                },
+              },
+            },
+          ],
+        },
+      ],
     };
 
-    return await this.taskRepository.findOne(
-      {
-        uuid: task_uuid,
-        $and: [
-          {
-            $or: [
-              { campaign_type: 'public' },
-              { selected_members: { $in: [member_uuid] } },
-              { brand: { $in: subscribeBrandsUuids } },
-            ],
+    const aggregation = await this.taskRepository.aggregate(
+      [
+        {
+          $match: filter,
+        },
+        // Brand lookup
+        { $lookup: lookup },
+        { $unwind: '$brand' },
+
+        // Subtask tracker lookup and join
+        {
+          $lookup: {
+            from: 'subtasktrackerdocuments',
+            let: {
+              request_user_id: member?.uuid,
+            },
+            localField: 'uuid',
+            foreignField: 'campaign_uuid',
+            pipeline: [{ $match: { user_uuid: member?.uuid } }],
+
+            as: 'task_completion',
           },
-          {
-            $or: [
-              {
-                industry: {
-                  $in: memberIndustries?.map((e) => caseInsensitiveRegex(e)),
+        },
+        {
+          $addFields: {
+            totalTasks: {
+              $sum: {
+                $map: {
+                  input: '$task_type',
+                  as: 'category',
+                  in: { $size: '$$category.tasks' },
                 },
               },
-              { industry: null },
-              { industry: { $exists: false } }, // Include tasks with no industry specified
-            ],
-          },
+            },
+            task_tracker_length: {
+              $size: '$task_completion',
+            },
 
-          {
-            $or: [
+            filteredTasks: {
+              $filter: {
+                input: '$task_completion',
+                cond: { $eq: ['$$this.status', 'submitted'] },
+              },
+            },
+          },
+        },
+        {
+          $addFields: {
+            completed_tasks_length: {
+              $size: '$filteredTasks',
+            },
+          },
+        },
+        // Is following lookup
+        {
+          $lookup: {
+            from: 'memberdocuments',
+
+            localField: 'brand.uuid',
+            foreignField: 'brand',
+            pipeline: [
               {
-                locations: {
-                  $elemMatch: {
-                    country: caseInsensitiveRegex(memberCountry),
-                    $or: [
-                      {
-                        states: {
-                          $in: [caseInsensitiveRegex(memberState)],
+                $match: {
+                  member_uuid: member?.uuid,
+                },
+              },
+            ],
+            as: 'followInfo',
+          },
+        },
+        {
+          $lookup: {
+            from: 'userdocuments',
+            foreignField: 'brand_uuid',
+            localField: 'brand.uuid',
+            as: 'brand_user',
+          },
+        },
+        { $unwind: '$brand_user' },
+        {
+          $addFields: {
+            'brand.following': {
+              $gt: [{ $size: '$followInfo' }, 0],
+            },
+          },
+        },
+        {
+          $project: {
+            uuid: 1,
+            progress: {
+              $multiply: [
+                {
+                  $divide: [
+                    '$completed_tasks_length',
+                    {
+                      $cond: {
+                        if: { $lt: ['$totalTasks', 1] },
+                        then: 1,
+                        else: '$totalTasks',
+                      },
+                    },
+                  ],
+                },
+                100,
+              ],
+            },
+            brand: {
+              brand_name: '$brand.brand_name',
+              uuid: '$brand.uuid',
+              following: '$brand.following',
+              username: '$brand_user.username',
+              avatar: '$brand_user.avatar',
+            },
+            campaign_title: 1,
+            campaign_banner_url: 1,
+            // task_type: 1,
+            total_task: 1,
+            reward_type: 1,
+            campaign_type: 1,
+            selected_members: 1,
+            campaign_end_date: 1,
+            reward_per_engagement: 1,
+
+            // task_completion: 1,
+
+            task_type: {
+              $map: {
+                input: '$task_type',
+                as: 'nested',
+                in: {
+                  $mergeObjects: [
+                    '$$nested',
+                    {
+                      tasks: {
+                        $map: {
+                          input: '$$nested.tasks',
+                          as: 'item',
+                          in: {
+                            $mergeObjects: [
+                              '$$item',
+                              {
+                                tracker: {
+                                  $arrayElemAt: [
+                                    {
+                                      $filter: {
+                                        input: '$task_completion',
+                                        cond: {
+                                          $eq: [
+                                            '$$this.sub_task_id',
+                                            '$$item.id',
+                                          ],
+                                        },
+                                      },
+                                    },
+                                    0,
+                                  ],
+                                },
+                              },
+                            ],
+                          },
                         },
                       },
-                      { states: { $size: 0 } }, // Empty states array means all states allowed
-                    ],
-                  },
+                    },
+                  ],
                 },
               },
-            ],
+            },
           },
-        ],
-      },
-      null,
-      populate,
-      projection,
+        },
+      ],
+      // null,
+      // populate,
+      // projection,
     );
+    return aggregation?.data[0] || null;
   }
 
   async createDiscount(user: UserDto, input: CreateDiscountDto) {
@@ -1026,30 +1460,6 @@ export class AppService {
       { uuid: input.discount_uuid, brand: user.brand_uuid },
       { ...details },
     );
-  }
-
-  async getRecommendedChannels(payload: { [key: string]: number | string }) {
-    const first: number = <number>payload.first ?? 20;
-    const page: number = <number>payload.page ?? 1;
-
-    const { data, paginationInfo } =
-      await this.memberRepository.getPaginatedDocuments(first, page, {
-        brand: { $ne: null },
-      });
-
-    const memberCounts = data.reduce((acc, member) => {
-      acc[member.brand] = (acc[member.brand] || 0) + 1;
-      return acc;
-    }, {});
-
-    const sortedBrandIds = Object.keys(memberCounts)
-      .sort((a, b) => memberCounts[b] - memberCounts[a])
-      .slice(0, 10);
-
-    const recommendedBrands = await this.brandRepository.find({
-      uuid: { $in: sortedBrandIds },
-    });
-    return { data: recommendedBrands, paginationInfo };
   }
 
   async createMemberShipMail(user: UserDto, input: CreateMemberShipMailDto) {
@@ -1500,6 +1910,7 @@ export class AppService {
       {{  $project }} is like transformation which reshapes result of the query to a desired value
     */
     const brand: string = user.brand_uuid;
+
     const task = await this.taskRepository.findOne({ uuid: task_uuid, brand });
 
     return this.taskCompletionRepository.aggregate([

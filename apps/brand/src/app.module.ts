@@ -57,6 +57,11 @@ import {
 import { GiftCardRepository as UserGiftCardRepository } from '@app/common';
 import { DiscountRepository as UserDiscountRepository } from '@app/common';
 import { GraphModule } from './graph/graph.module';
+import {
+  SubTaskTrackerDocument,
+  SubTaskTrackerSchema,
+} from '@app/common/database/models/sub-task-tracker.schema';
+import { SubTaskTrackerRepository } from '@app/common/database/repositorys/sub-task-tracker.repository';
 
 @Module({
   imports: [
@@ -76,6 +81,7 @@ import { GraphModule } from './graph/graph.module';
       { name: UserGiftCardDocument.name, schema: UserGiftCardSchema },
       { name: UserDiscountDocument.name, schema: UserDiscountSchema },
       { name: TaskCompletionDocument.name, schema: TaskCompletionSchema },
+      { name: SubTaskTrackerDocument.name, schema: SubTaskTrackerSchema },
       { name: IndustryDocument.name, schema: IndustrySchema },
     ]),
     LoggerModule,
@@ -142,6 +148,7 @@ import { GraphModule } from './graph/graph.module';
     UserGiftCardRepository,
     UserDiscountRepository,
     SubmissionRepository,
+    SubTaskTrackerRepository,
     TaskCompletionRepository,
     IndustryRepository,
   ],

@@ -62,14 +62,8 @@ export class TaskSubmission {
     });
 
     //get total social tasks submitted by user for this task
-    const totalSubmitted: number = await this.submissionRepository.countDocs({
-      task_uuid: this.task.uuid,
-      user_uuid: this.user.uuid,
-      categoryId: taskTypeDetails.categoryId,
-    });
 
-    //check if user has completed all social media tasks.
-    if (totalSubmitted >= taskTypeDetails.tasks.length) callback();
+    callback();
 
     return result;
   }
@@ -104,15 +98,7 @@ export class TaskSubmission {
       task_id: input.id,
     });
 
-    //get total social tasks submitted by user for this task
-    const totalSubmitted: number = await this.submissionRepository.countDocs({
-      task_uuid: this.task.uuid,
-      user_uuid: this.user.uuid,
-      categoryId: taskTypeDetails.categoryId,
-    });
-
-    //check if user has completed all social media tasks.
-    if (totalSubmitted >= taskTypeDetails.tasks.length) callback();
+    callback();
 
     return result;
   }
@@ -148,14 +134,7 @@ export class TaskSubmission {
     });
 
     //get total social tasks submitted by user for this task
-    const totalSubmitted: number = await this.submissionRepository.countDocs({
-      task_uuid: this.task.uuid,
-      user_uuid: this.user.uuid,
-      categoryId: taskTypeDetails.categoryId,
-    });
-
-    //check if user has completed all social media tasks.
-    if (totalSubmitted >= taskTypeDetails.tasks.length) callback();
+    callback();
 
     return result;
   }

@@ -1,3 +1,5 @@
+import { PipelineOptions } from 'stream';
+
 export function generateRandomCode(length: number): string {
   let result = '';
   const characters =
@@ -34,4 +36,49 @@ export const successResponse = ({
     success: true,
     data: data || null,
   };
+};
+
+export const aggregationPaginationHelper = ({
+  first = 20,
+  page = 1,
+}: {
+  first: number | string;
+  page: number | string;
+}) => {
+  const skip = Number(first) * (Number(page) - 1 || 0);
+  return [
+    {
+      $facet: {
+        totalDocs: [{ $count: 'total' }],
+        data: [
+          { $sort: { created_at: -1 } },
+          { $skip: skip },
+          { $limit: Number(first) },
+        ],
+      },
+    },
+
+    {
+      $unwind: '$totalDocs',
+    },
+    {
+      $project: {
+        paginationInfo: {
+          total: '$totalDocs.total',
+          totalPages: {
+            $ceil: { $divide: ['$totalDocs.total', Number(first)] },
+          },
+        },
+        data: 1,
+      },
+    },
+  ] as any[];
+};
+
+export const noDataDefault = {
+  paginationInfo: {
+    total: 0,
+    totalPages: 0,
+  },
+  data: [],
 };

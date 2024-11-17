@@ -5,3 +5,4 @@ export * from './abstract.schema';
 export * from './submission.schema';
 export * from './task-completion.schema';
 export * from './industry.schema';
+export * from './sub-task-tracker.schema';
