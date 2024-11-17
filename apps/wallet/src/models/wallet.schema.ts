@@ -4,7 +4,10 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 @Schema({ versionKey: false })
 export class WalletDocument extends AbstractDocument {
   @Prop({ default: 0.0 })
-  amount?: number;
+  amount_in_fiat?: number;
+
+  @Prop({ default: 0.0 })
+  amount_in_usdt?: number;
 
   @Prop({ default: 1111, length: 4 })
   pin?: number;

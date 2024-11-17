@@ -119,6 +119,7 @@ export class UsersService {
         { uuid: user.uuid },
         { wallet_uuid: wallet.uuid, chat_uuid: chat.uuid },
       );
+
       /* send the user a verification, in other to verify their account */
       this.notificationClientProxy.emit('mail_verify', {
         email: verification.email,

@@ -7,7 +7,7 @@ import {
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { WalletRepository } from './repositories/wallet.repository';
-import { AUTH_SERVICE, NOTIFICATION_SERVICE, UserDto } from '@app/common';
+import { AUTH_SERVICE, NOTIFICATION_SERVICE, UserDocument } from '@app/common';
 import { TransactionRepository } from './repositories/transaction.repository';
 import { ClientProxy } from '@nestjs/microservices';
 import { firstValueFrom } from 'rxjs';
@@ -37,7 +37,10 @@ export class WalletService {
     }
   }
 
-  async getTransactions(user: UserDto, payload: { [key: string]: number }) {
+  async getTransactions(
+    user: UserDocument,
+    payload: { [key: string]: number },
+  ) {
     const page: number = payload.page;
     const first: number = payload.first;
     const wallet_uuid: string = user.wallet_uuid;
@@ -50,8 +53,8 @@ export class WalletService {
     return transactions;
   }
 
-  async sendFundToUser(user: UserDto, sendFundDto: SendFundDto) {
-    const username = sendFundDto.username;
+  async sendFundToUser(user: UserDocument, input: SendFundDto) {
+    const username = input.username;
     if (user.account_type === 'user') {
       throw new UnprocessableEntityException(
         'Action not supported on this account type',
@@ -67,11 +70,11 @@ export class WalletService {
       uuid: user.wallet_uuid,
     });
 
-    if (brandWallet.amount <= sendFundDto.amount) {
+    if (brandWallet.amount_in_fiat <= input.amount) {
       throw new HttpException('Insufficient funds', HttpStatus.NOT_ACCEPTABLE);
     }
 
-    if (brandWallet.pin !== sendFundDto.pin) {
+    if (brandWallet.pin !== input.pin) {
       throw new HttpException('Wrong Pin', HttpStatus.NOT_ACCEPTABLE);
     }
 
@@ -87,19 +90,19 @@ export class WalletService {
       //update the receiverWallet with the amount sent
       await this.walletRepository.findOneAndUpdate(
         { uuid: receiverWallet.uuid },
-        { amount: receiverWallet.amount + sendFundDto.amount },
+        { amount: receiverWallet.amount_in_fiat + input.amount },
       );
 
       //update the send amount on the sender wallet
       await this.walletRepository.findOneAndUpdate(
         { uuid: brandWallet.uuid },
-        { amount: brandWallet.amount - sendFundDto.amount - 50 }, //$50 transaction fee
+        { amount: brandWallet.amount_in_fiat - input.amount - 50 }, //$50 transaction fee
       );
 
       //save the transaction for the receiver
       const receiveTransaction = await this.transactionRepository.create({
         wallet_uuid: receiverWallet.uuid,
-        amount: sendFundDto.amount,
+        amount: input.amount,
         transaction_details: {},
         tx_ref: new Date().toString(),
         transaction_type: 'transfer',
@@ -109,7 +112,7 @@ export class WalletService {
       //save the transaction for the sender
       const senderTransaction = await this.transactionRepository.create({
         wallet_uuid: brandWallet.uuid,
-        amount: sendFundDto.amount,
+        amount: input.amount,
         transaction_details: {},
         tx_ref: new Date().toString(),
         transaction_type: 'transfer',
@@ -123,7 +126,7 @@ export class WalletService {
       });
       return {
         status: true,
-        message: `${sendFundDto.amount} has been sent to ${receiverInfo.username}`,
+        message: `${input.amount} has been sent to ${receiverInfo.username}`,
       };
     } catch (err) {
       console.log(err);
@@ -133,11 +136,11 @@ export class WalletService {
   async createCampaign({ uuid, amount }: { [key: string]: string }) {
     try {
       const wallet = await this.walletRepository.findOne({ uuid });
-      if (wallet.amount < Number(amount)) {
+      if (wallet.amount_in_fiat < Number(amount)) {
         return 'wallet_insufficient_amount';
       }
 
-      const newAmount = wallet.amount - Number.parseInt(amount);
+      const newAmount = wallet.amount_in_fiat - Number.parseInt(amount);
       await this.walletRepository.findOneAndUpdate(
         { uuid },
         { amount: newAmount },
@@ -161,15 +164,26 @@ export class WalletService {
   }
 
   async sendAward(payload: { [key: string]: any }) {
-    const { amount, wallet_uuid, receiver } = payload;
+    const { amount, wallet_uuid, receiver, reward_type } = payload;
     const task: { [key: string]: any } = payload.task;
+    let newAmount: number;
+
     const wallet = await this.walletRepository.findOne({ uuid: wallet_uuid });
-    const newAmount = wallet.amount - Number.parseInt(amount);
-    await this.walletRepository.findOneAndUpdate(
-      { uuid: wallet_uuid },
-      { amount: newAmount },
-    );
-    const userReceiver: UserDto = await firstValueFrom(
+    if (reward_type === 'FIAT') {
+      newAmount = wallet.amount_in_fiat - Number.parseInt(amount);
+      await this.walletRepository.findOneAndUpdate(
+        { uuid: wallet_uuid },
+        { amount_in_fiat: newAmount },
+      );
+    } else {
+      newAmount = wallet.amount_in_usdt - Number.parseInt(amount);
+      await this.walletRepository.findOneAndUpdate(
+        { uuid: wallet_uuid },
+        { amount_in_usdt: newAmount },
+      );
+    }
+
+    const userReceiver: UserDocument = await firstValueFrom(
       this.authClientProxy.send('get_user', { uuid: receiver }),
     );
 
@@ -202,18 +216,18 @@ export class WalletService {
   async createGiftCard({ uuid, amount, receiver }: { [key: string]: string }) {
     try {
       const wallet = await this.walletRepository.findOne({ uuid });
-      if (wallet.amount < Number(amount)) {
+      if (wallet.amount_in_fiat < Number(amount)) {
         return 'wallet_insufficient_amount';
       }
 
-      const newAmount = wallet.amount - Number.parseInt(amount);
+      const newAmount = wallet.amount_in_fiat - Number.parseInt(amount);
       await this.walletRepository.findOneAndUpdate(
         { uuid },
         { amount: newAmount },
       );
       // if this giftcard is for a particular user instead of community
       if (receiver) {
-        const userReceiver: UserDto = await firstValueFrom(
+        const userReceiver: UserDocument = await firstValueFrom(
           this.authClientProxy.send('get_user', { uuid: receiver }),
         );
 
@@ -248,11 +262,11 @@ export class WalletService {
   async createDiscount({ uuid, amount, receiver }: { [key: string]: string }) {
     try {
       const wallet = await this.walletRepository.findOne({ uuid });
-      if (wallet.amount < Number(amount)) {
+      if (wallet.amount_in_fiat < Number(amount)) {
         return 'wallet_insufficient_amount';
       }
 
-      const newAmount = wallet.amount - Number.parseInt(amount);
+      const newAmount = wallet.amount_in_fiat - Number.parseInt(amount);
       await this.walletRepository.findOneAndUpdate(
         { uuid },
         { amount: newAmount },
@@ -260,7 +274,7 @@ export class WalletService {
 
       // if this giftcard is for a particular user instead of community
       if (receiver) {
-        const userReceiver: UserDto = await firstValueFrom(
+        const userReceiver: UserDocument = await firstValueFrom(
           this.authClientProxy.send('get_user', { uuid: receiver }),
         );
 

@@ -60,7 +60,7 @@ export class WithdrawalService {
     }
     const uuid = user.wallet_uuid;
     const wallet = await this.walletRepository.findOne({ uuid });
-    if (wallet.amount < initiateWithdrawalDto.amount) {
+    if (wallet.amount_in_fiat < initiateWithdrawalDto.amount) {
       throw new HttpException(`Insufficient funds`, HttpStatus.NOT_ACCEPTABLE);
     }
 
@@ -70,9 +70,12 @@ export class WithdrawalService {
     });
 
     if (response?.status === 'success') {
-      let { amount } = wallet;
-      amount = amount - initiateWithdrawalDto.amount;
-      await this.walletRepository.findOneAndUpdate({ uuid }, { amount });
+      let { amount_in_fiat } = wallet;
+      amount_in_fiat = amount_in_fiat - initiateWithdrawalDto.amount;
+      await this.walletRepository.findOneAndUpdate(
+        { uuid },
+        { amount_in_fiat },
+      );
       await this.transactionRepository.create({
         wallet_uuid: user.wallet_uuid,
         tx_ref: response?.data?.reference,

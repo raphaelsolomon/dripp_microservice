@@ -543,7 +543,7 @@ export class AppController {
   @Put('/task-submission/review')
   @UseGuards(JwtAuthGuard)
   async approveSubmission(
-    @CurrentUser() user: UserDto,
+    @CurrentUser() user: UserDocument,
     @Body() input: { [key: string]: string },
     @Req() req: Request,
   ) {
@@ -561,7 +561,7 @@ export class AppController {
   @Post('/membership-mail')
   @UseGuards(JwtAuthGuard)
   async createMemberShipMail(
-    @CurrentUser() user: UserDto,
+    @CurrentUser() user: UserDocument,
     @Body() input: CreateMemberShipMailDto,
     @Req() req: Request,
   ) {
