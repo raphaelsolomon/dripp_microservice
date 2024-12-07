@@ -12,7 +12,14 @@ import {
 } from '@nestjs/common';
 import { AppService } from './app.service';
 import { UseGuards } from '@nestjs/common';
-import { CurrentUser, JwtAuthGuard, UserDocument, UserDto } from '@app/common';
+import {
+  CurrentUser,
+  JwtAuthGuard,
+  SubmissionStatus,
+  successResponse,
+  UserDocument,
+  UserDto,
+} from '@app/common';
 import { EventPattern, MessagePattern, Payload } from '@nestjs/microservices';
 import { UpdateBrandDto } from './dto/update-brand.dto';
 import { CreateTaskDto } from './dto/task/create-task.dto';
@@ -195,7 +202,7 @@ export class AppController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get('/members/')
+  @Get('/members')
   async getBrandMembers(
     @CurrentUser() user: UserDto,
     @Query() payload: { [key: string]: number },
@@ -210,6 +217,20 @@ export class AppController {
       success: true,
       data: result,
     };
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('/members/:member_uuid')
+  async getBrandMember(
+    @CurrentUser() user: UserDocument,
+    @Param() params: { member_uuid: string },
+    @Req() req: Request,
+  ) {
+    const result = await this.appService.getBrandMember({
+      member_uuid: params?.member_uuid,
+      user,
+    });
+    return successResponse({ data: result, path: req.url, statusCode: 201 });
   }
 
   @UseGuards(JwtAuthGuard)
@@ -277,7 +298,7 @@ export class AppController {
     };
   }
 
-  @Get('/task/:task_uuid')
+  @Get('/tasks/:task_uuid')
   @UseGuards(JwtAuthGuard)
   @FormDataRequest()
   async getBrandTask(
@@ -518,18 +539,60 @@ export class AppController {
     };
   }
 
-  @Get('/task-submission/:task_uuid/:member_uuid')
+  @Get('/tasks/submissions/:campaign_uuid/:task_id')
   @UseGuards(JwtAuthGuard)
-  async getSubmissionByTask(
+  async getSubmissions(
     @CurrentUser() user: UserDocument,
-    @Param() input: { [key: string]: string },
+    @Param()
+    param: { campaign_uuid: string; task_id: string },
+    @Query()
+    payload: {
+      status: string;
+      page: string;
+      first: string;
+    },
+    @Req()
+    req: Request,
+  ) {
+    const result = await this.appService.getSubmissions({
+      user,
+      ...param,
+      ...payload,
+    });
+    return successResponse({
+      data: result,
+      path: req.url,
+    });
+  }
+
+  @Get('/tasks/submission/:task_id')
+  @UseGuards(JwtAuthGuard)
+  async getSubmission(
+    @CurrentUser() user: UserDocument,
+    @Param() param: { task_id: string },
+    @Query() query: Record<string, string>,
     @Req() req: Request,
   ) {
-    const result = await this.appService.getSubmissionByTask(
-      user,
-      input.task_uuid,
-      input.member_uuid,
-    );
+    const result = await this.appService.getSubmission({
+      task_id: param?.task_id,
+      campaign_uuid: query?.campaign_uuid,
+      user_uuid: query?.user_uuid,
+    });
+
+    return successResponse({ data: result, path: req.url });
+  }
+
+  @Post('/task-submission/approve')
+  @UseGuards(JwtAuthGuard)
+  async approveSubmission(
+    @CurrentUser() user: UserDocument,
+    @Body() input: { submission_uuid: string },
+    @Req() req: Request,
+  ) {
+    const result = await this.appService.approveSubmission(user, {
+      submission_uuid: input?.submission_uuid,
+    });
+
     return {
       statusCode: 200,
       timestamp: new Date().toISOString(),
@@ -540,22 +603,24 @@ export class AppController {
     };
   }
 
-  @Put('/task-submission/review')
+  @Post('/task-submission/reject')
   @UseGuards(JwtAuthGuard)
-  async approveSubmission(
+  async rejectSubmission(
     @CurrentUser() user: UserDocument,
-    @Body() input: { [key: string]: string },
+    @Body() input: { submission_uuid: string; rejectionReason: string },
     @Req() req: Request,
   ) {
-    const result = await this.appService.approveSubmission(user, input);
-    return {
-      statusCode: 200,
-      timestamp: new Date().toISOString(),
+    await this.appService.rejectSubmission(user, {
+      submission_uuid: input?.submission_uuid,
+      rejectionReason: input?.rejectionReason,
+    });
+
+    return successResponse({
+      data: null,
+      message: 'Successfully rejected submission',
       path: req.url,
-      message: 'Successful',
-      success: true,
-      data: result,
-    };
+      statusCode: 201,
+    });
   }
 
   @Post('/membership-mail')
@@ -687,6 +752,11 @@ export class AppController {
   @MessagePattern('get_task')
   getTask(@Payload() { user, task_uuid }: Record<string, any>) {
     return this.appService.getTaskFromBrand(user, task_uuid);
+  }
+
+  @MessagePattern('get_sub_task')
+  getSubTask(@Payload() { sub_task_uuid }: Record<string, any>) {
+    return this.appService.getSubTaskFromBrand(sub_task_uuid);
   }
 
   @EventPattern('update_task_completed')

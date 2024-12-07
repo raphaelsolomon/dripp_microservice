@@ -18,9 +18,17 @@ export class JwtAuthGuard implements CanActivate {
     context: ExecutionContext,
   ): boolean | Promise<boolean> | Observable<boolean> {
     const cookies = (<Request>context.switchToHttp().getRequest())?.cookies;
+
     const headers = (<Request>context.switchToHttp().getRequest())?.headers;
+
     const jwt = cookies?.Authentication || headers?.authorization;
-    if (!jwt) return false;
+
+    console.log(jwt);
+    if (!jwt) {
+      console.log('NO JWT FOUND');
+      return false;
+    }
+    console.log('GETTING USER....');
     return this.authClient
       .send<UserDto>('authenticate', {
         Authentication: jwt,
@@ -28,7 +36,10 @@ export class JwtAuthGuard implements CanActivate {
       .pipe(
         tap((res) => (context.switchToHttp().getRequest().user = res)),
         map(() => true),
-        catchError(() => of(false)),
+        catchError((err) => {
+          console.log('ERROR WHILE GETTING USER', err);
+          return of(false);
+        }),
       );
   }
 }

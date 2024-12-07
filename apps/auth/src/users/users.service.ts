@@ -40,9 +40,10 @@ import { TaskSubmissionDto } from './dto/submit-task.dto';
 import { TokenRepository } from './repositories/token.repository';
 import { countryList } from '../assets/countries';
 import { TokenPayload as GoogleTokenPayload } from 'google-auth-library';
-import { ITask, ITaskType } from '../constants/task.constant';
+import { ICampaignTask, ITask, ITaskType } from '../constants/task.constant';
 import { TaskSubmission } from './task/submission.task';
 import { SubTaskTrackerRepository } from '@app/common/database/repositorys/sub-task-tracker.repository';
+import { SubmissionType } from 'apps/brand/src/dto/task/create-task.dto';
 
 @Injectable()
 export class UsersService {
@@ -768,19 +769,17 @@ export class UsersService {
 
     const task: ITask = await firstValueFrom(getTask);
 
-    const taskType: ITaskType[] = task.task_type;
-    const categoryId: string = input.categoryId;
+    const getSubTask = this.brandClientProxy.send('get_sub_task', {
+      sub_task_uuid: input?.id,
+    });
 
-    //check if the categoryId is valid
-    const i = taskType.findIndex((e) => e.categoryId === categoryId);
-    if (i < 0) throw new BadRequestException('Invalid categoryId');
+    const subTask: ICampaignTask = await firstValueFrom(getSubTask);
+
+    const categoryId: string = input.categoryId;
 
     //check if the task is still active
     if (task.campaign_end_date && task.campaign_end_date < new Date())
       throw new BadRequestException('Task has expired');
-
-    //get the task type details
-    const taskTypeDetails: ITaskType = taskType[i];
 
     //initialize the submission class
     const submission = new TaskSubmission(
@@ -789,37 +788,21 @@ export class UsersService {
       task,
     );
 
-    //check if the task type is social media
-    if (taskTypeDetails.categoryId === 'social_media') {
-      return await submission.socialSubmision(input, i, async () => {
+    return await submission.submitTask(
+      {
+        ...(await this.getSubmissionType(subTask?.submissionType, input)),
+        task_id: input?.id,
+      },
+
+      async () => {
         await this.findAndCreateOrUpdateTaskCompletion(
           task_uuid,
           user.uuid,
           task,
           input?.id,
         );
-      });
-    }
-
-    if (taskTypeDetails.categoryId === 'user_generated') {
-      return await submission.userGeneratedSubmision(input, i, async () => {
-        await this.findAndCreateOrUpdateTaskCompletion(
-          task_uuid,
-          user.uuid,
-          task,
-          input?.id,
-        );
-      });
-    }
-
-    return await submission.customSubmision(input, i, async () => {
-      await this.findAndCreateOrUpdateTaskCompletion(
-        task_uuid,
-        user.uuid,
-        task,
-        input?.id,
-      );
-    });
+      },
+    );
   }
 
   isJsonParsable(campaign_type: string): boolean {
@@ -831,35 +814,61 @@ export class UsersService {
     }
   }
 
-  async getSubmissionType(submission_type: string, input: TaskSubmissionDto) {
-    const submissionPayload = { submission_url: '' };
-    if (submission_type === 'submission_url') {
+  async getSubmissionType(
+    submission_type: SubmissionType,
+    input: TaskSubmissionDto,
+  ) {
+    const submissionPayload = {
+      submission_url: '',
+      submission_images: [],
+      submission_text: '',
+    };
+
+    console.log(input, 'SUBMISSIONS INFO');
+    if (submission_type === 'url') {
       if (!input.submission_url)
         throw new BadRequestException('submission url is required');
 
-      if (input.submission_file)
-        throw new BadRequestException('submission file not allowed');
-
       submissionPayload.submission_url = input.submission_url;
-    } else {
-      if (input.submission_url)
-        throw new BadRequestException('submission url not allowed');
-
-      if (!input.submission_file)
+    } else if (submission_type === 'image') {
+      if (!input?.submission_file)
         throw new BadRequestException('submission file is required');
 
-      const cloudinary = await this.cloudinaryService.uploadFile(
-        input.submission_file,
-        'task-submissions',
-      );
-      if (cloudinary) {
-        submissionPayload.submission_url = cloudinary.url;
+      if (Array.isArray(input?.submission_file)) {
+        const uploadPromise = input?.submission_file?.map(async (file) => {
+          return await this.cloudinaryService.uploadFile(
+            file,
+            'task-submission',
+          );
+        });
+        const fileUploadResponse = await Promise.all(uploadPromise);
+
+        const images = fileUploadResponse
+          ?.filter((res) => res?.secure_url)
+          ?.map((r) => r?.secure_url);
+
+        submissionPayload.submission_images = images;
       } else {
-        throw new BadRequestException('unable to upload task file');
+        const result = await this.cloudinaryService.uploadFile(
+          input?.submission_file,
+          'task-submission',
+        );
+
+        if (result.secure_url) {
+          submissionPayload.submission_images = [result.secure_url];
+        } else
+          throw new UnprocessableEntityException(
+            'Could not upload your image, please try again later',
+          );
       }
+    } else if (submission_type === 'text') {
+      if (!input?.submission_text) {
+        throw new BadRequestException('Submission text is required');
+      }
+      submissionPayload.submission_text = input.submission_text;
     }
 
-    return { submission_url: submissionPayload.submission_url };
+    return submissionPayload;
   }
 
   async getCompletedTasks(
@@ -886,7 +895,6 @@ export class UsersService {
     sub_task_uuid: string,
   ) {
     try {
-      console.log('REACHED');
       const query = {
         user_uuid,
         campaign_uuid: task_uuid,
@@ -899,6 +907,8 @@ export class UsersService {
       const subTaskTracker =
         await this.subTaskTrackerRepository.findOneAndUpdate(query, {
           status: 'submitted',
+          submissionStatus: 'pending',
+          submitted_at: new Date().toISOString(),
         });
 
       console.log('Updated to submitted');
@@ -920,16 +930,8 @@ export class UsersService {
         sub_task_id: sub_task_uuid,
         campaign_uuid: task_uuid,
         user_uuid: user_uuid,
-        status: 'completed',
+        status: 'submitted',
       });
-
-      const total_task: number = task.task_type.length;
-      if (allCompletedTasks >= total_task) {
-        this.brandClientProxy.emit('update_task_completed', {
-          user_uuid,
-          task_uuid,
-        });
-      }
     }
   }
 
@@ -1007,7 +1009,7 @@ export class UsersService {
 
   async getChannelsByIndustries(
     industries: string[],
-    payload: { [key: string]: number },
+    payload: { [key: string]: any },
   ) {
     if (industries.length <= 0) {
       return [];
@@ -1021,6 +1023,7 @@ export class UsersService {
         page,
         first,
         industries,
+        ...payload,
       }),
     );
     if (response.status === false) {
@@ -1054,6 +1057,10 @@ export class UsersService {
 
       return gallery;
     } catch (err) {
+      console.log(err);
+      if (err?.error?.http_code === 404) {
+        return { resources: [] };
+      }
       throw new UnprocessableEntityException(err);
     }
   }

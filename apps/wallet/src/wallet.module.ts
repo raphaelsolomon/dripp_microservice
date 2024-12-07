@@ -19,6 +19,13 @@ import {
   TransactionDocument,
   TransactionSchema,
 } from './models/transaction.schema';
+import {
+  CryptoPaymentDocument,
+  CryptoPaymentSchema,
+} from './models/crypto.schema';
+import { CryptoPaymentRepository } from './repositories/crypto.repository';
+import NOWPaymentsApi from './nowpayment/NOWPaymentsApi';
+import { MongooseTransaction } from '@app/common/database/mongoose-transaction';
 
 @Module({
   imports: [
@@ -26,6 +33,7 @@ import {
     DatabaseModule.forFeature([
       { name: WalletDocument.name, schema: WalletSchema },
       { name: TransactionDocument.name, schema: TransactionSchema },
+      { name: CryptoPaymentDocument.name, schema: CryptoPaymentSchema },
     ]),
     LoggerModule,
     FundModule,
@@ -71,6 +79,13 @@ import {
     ]),
   ],
   controllers: [WalletController],
-  providers: [WalletService, WalletRepository, TransactionRepository],
+  providers: [
+    WalletService,
+    WalletRepository,
+    TransactionRepository,
+    CryptoPaymentRepository,
+    NOWPaymentsApi,
+    MongooseTransaction,
+  ],
 })
 export class WalletModule {}

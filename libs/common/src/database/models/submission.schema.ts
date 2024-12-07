@@ -5,22 +5,22 @@ import { AbstractDocument } from './abstract.schema';
 @Schema({ versionKey: false })
 export class TaskSubmissionDocument extends AbstractDocument {
   @Prop({ required: true })
-  task_uuid: string;
+  campaign_uuid: string;
 
   @Prop({ required: false, default: false })
   user_uuid: string;
 
-  @Prop({ required: true, type: Types.Map })
-  categoryId: string;
+  @Prop({ required: false, default: '' })
+  submission_url?: string;
 
-  @Prop({ required: false, default: null })
-  socialMediaPlatform?: string;
+  @Prop({ required: false, default: [] })
+  submission_images?: string[];
+
+  @Prop({ required: false, default: '' })
+  submission_text?: string;
 
   @Prop({ required: true })
-  submission_url: string;
-
-  @Prop({ required: true })
-  task_id: string;
+  sub_task_uuid: string;
 }
 export const TaskSubmissionSchema = SchemaFactory.createForClass(
   TaskSubmissionDocument,

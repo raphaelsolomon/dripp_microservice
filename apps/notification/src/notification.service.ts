@@ -7,6 +7,7 @@ import { VerifyMailDto } from './dto/verify-email.dto';
 import { NotifcationRepository } from './repositories/notification.repository';
 import { UserDto } from '@app/common';
 import { Request } from 'express';
+import { CreateNotificationPayload } from './notification.controller';
 
 @Injectable()
 export class NotificationService {
@@ -90,7 +91,7 @@ export class NotificationService {
     );
   }
 
-  async createNotification(data: { [key: string]: any }) {
+  async createNotification(data: CreateNotificationPayload) {
     const { to, from, title, body, type, metadata } = data;
     await this.notificationRepository.create({
       to,

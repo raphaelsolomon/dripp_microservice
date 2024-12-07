@@ -7,15 +7,33 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
-import { WalletService } from './wallet.service';
+import { SendRewardPayload, WalletService } from './wallet.service';
 import { MessagePattern, Payload } from '@nestjs/microservices';
-import { CurrentUser, JwtAuthGuard, UserDocument } from '@app/common';
+import {
+  CurrentUser,
+  JwtAuthGuard,
+  successResponse,
+  UserDocument,
+} from '@app/common';
 import { Request } from 'express';
 import { SendFundDto } from './dto/send-fund.dto';
+import { currencies } from './models/wallet.schema';
+import { WalletPinGuard } from './wallet-pin.guard';
 
 @Controller('wallet')
 export class WalletController {
   constructor(private readonly walletService: WalletService) {}
+
+  @Get('/')
+  @UseGuards(JwtAuthGuard)
+  async getUserWallet(@CurrentUser() user: UserDocument, @Req() req: Request) {
+    const result = await this.walletService.getWallet({
+      uuid: user?.wallet_uuid,
+      route: true,
+    });
+
+    return successResponse({ data: result, path: req.url });
+  }
 
   @Get('/healthcheck')
   healthCheck(@Req() req: Request) {
@@ -48,7 +66,7 @@ export class WalletController {
   }
 
   @Post('/send')
-  @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard, WalletPinGuard)
   async getSend(
     @CurrentUser() user: UserDocument,
     @Body() input: SendFundDto,
@@ -65,6 +83,44 @@ export class WalletController {
     };
   }
 
+  @Get('/currencies')
+  @UseGuards(JwtAuthGuard)
+  async getAllCurrencies(@Req() req: Request) {
+    return successResponse({ data: currencies, path: req.url });
+  }
+
+  @Get('/crypto/payment/currencies')
+  @UseGuards(JwtAuthGuard)
+  async getPaymentCryptoCurrencies() {
+    const result = await this.walletService.getCryptoCurrencies();
+    return successResponse({ data: result });
+  }
+
+  @Post('/crypto/webhook')
+  async webhookNotifiy(@Req() req: Request) {
+    return await this.walletService.paymentWebhookNotification(req);
+  }
+
+  @Post('/crypto/payment/create')
+  @UseGuards(JwtAuthGuard)
+  async createInvoiceUrl(
+    @CurrentUser() user: UserDocument,
+    @Body()
+    payload: {
+      price_amount: number;
+      price_currency: string;
+      pay_currency: string;
+    },
+    @Req() req: Request,
+  ) {
+    const result = await this.walletService.createCryptoPayment({
+      user,
+      ...payload,
+    });
+
+    return successResponse({ data: result, path: req.url });
+  }
+
   @MessagePattern('create_wallet')
   createWallet(@Payload() payload: { [key: string]: string }) {
     console.log(payload);
@@ -78,7 +134,7 @@ export class WalletController {
 
   // =======================TASK, DISCOUNT & GIFT CARD =================
   @MessagePattern('create_campaign')
-  createCampaign(@Payload() payload: { [key: string]: string }) {
+  createCampaign(@Payload() payload: any) {
     return this.walletService.createCampaign(payload);
   }
 
@@ -93,7 +149,7 @@ export class WalletController {
   }
 
   @MessagePattern('send_award')
-  sendAward(@Payload() payload: { [key: string]: any }) {
+  sendAward(@Payload() payload: SendRewardPayload) {
     return this.walletService.sendAward(payload);
   }
 }

@@ -62,6 +62,14 @@ import {
   SubTaskTrackerSchema,
 } from '@app/common/database/models/sub-task-tracker.schema';
 import { SubTaskTrackerRepository } from '@app/common/database/repositorys/sub-task-tracker.repository';
+import { SubTaskRepository } from './repositories/sub-task.repository';
+import { SubTaskDocument, SubTaskSchema } from './models/sub-task.schema';
+import { MongooseTransaction } from '@app/common/database/mongoose-transaction';
+import { WalletRepository } from 'apps/wallet/src/repositories/wallet.repository';
+import {
+  WalletDocument,
+  WalletSchema,
+} from 'apps/wallet/src/models/wallet.schema';
 
 @Module({
   imports: [
@@ -82,7 +90,9 @@ import { SubTaskTrackerRepository } from '@app/common/database/repositorys/sub-t
       { name: UserDiscountDocument.name, schema: UserDiscountSchema },
       { name: TaskCompletionDocument.name, schema: TaskCompletionSchema },
       { name: SubTaskTrackerDocument.name, schema: SubTaskTrackerSchema },
+      { name: SubTaskDocument.name, schema: SubTaskSchema },
       { name: IndustryDocument.name, schema: IndustrySchema },
+      { name: WalletDocument.name, schema: WalletSchema },
     ]),
     LoggerModule,
     ConfigModule.forRoot({
@@ -149,8 +159,11 @@ import { SubTaskTrackerRepository } from '@app/common/database/repositorys/sub-t
     UserDiscountRepository,
     SubmissionRepository,
     SubTaskTrackerRepository,
+    SubTaskRepository,
     TaskCompletionRepository,
     IndustryRepository,
+    MongooseTransaction,
+    WalletRepository,
   ],
 })
 export class AppModule {}

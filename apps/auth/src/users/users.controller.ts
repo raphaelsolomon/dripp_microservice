@@ -230,14 +230,15 @@ export class UsersController {
   @Post('industries/channels')
   @UseGuards(JwtAuthGuard)
   async getChannelsByIndustries(
+    @CurrentUser() user: UserDocument,
     @Body('industries') industries: string[],
-    @Query() payload: { [key: string]: number },
+    @Query() payload: { [key: string]: any },
     @Req() req: Request,
   ) {
-    const result = await this.usersService.getChannelsByIndustries(
-      industries,
-      payload,
-    );
+    const result = await this.usersService.getChannelsByIndustries(industries, {
+      ...payload,
+      user: user,
+    });
     return {
       statusCode: 200,
       timestamp: new Date().toISOString(),

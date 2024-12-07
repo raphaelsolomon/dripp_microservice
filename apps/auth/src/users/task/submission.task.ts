@@ -22,118 +22,32 @@ export class TaskSubmission {
     throw new UnprocessableEntityException('Submission already exist.');
   }
 
-  async socialSubmision(
-    input: TaskSubmissionDto,
-    i: number,
+  async submitTask(
+    payload: {
+      submission_url: string;
+      submission_text: string;
+      submission_images: string[];
+      task_id: string;
+    },
+
     callback: VoidFunction,
   ) {
-    //check if the social media platform provided is also part of the task.
-    const socialMediaPlatform: string = input?.socialMediaPlatform;
-
-    //check if the social media platform is provided
-    if (!socialMediaPlatform)
-      throw new BadRequestException('Social media platform is required');
-
-    //get the task type details
-    const taskTypeDetails: ITaskType = this.task.task_type[i];
-
-    //check if the task id is valid
-    const details = taskTypeDetails.tasks.find((e) => e.id === input.id);
-
-    if (!details) throw new BadRequestException('Invalid task');
-
-    //check if the user has already submitted for this task with the same social media platform
     await this.validateSubmission({
       task_uuid: this.task.uuid,
       user_uuid: this.user.uuid,
-      categoryId: taskTypeDetails.categoryId,
-      task_id: input.id,
-      socialMediaPlatform: details.socialMediaPlatform,
+
+      sub_task_uuid: payload?.task_id,
     });
 
-    //create the submission for this task with correct categoryId
     const result = await this.submissionRepository.create({
-      task_uuid: this.task.uuid,
+      campaign_uuid: this.task.uuid,
       user_uuid: this.user.uuid,
-      categoryId: taskTypeDetails.categoryId,
-      socialMediaPlatform: details.socialMediaPlatform,
-      submission_url: input.submission_url,
-      task_id: input.id,
+      submission_url: payload?.submission_url,
+      sub_task_uuid: payload?.task_id,
+      submission_images: payload?.submission_images,
+      submission_text: payload?.submission_text,
     });
 
-    //get total social tasks submitted by user for this task
-
-    callback();
-
-    return result;
-  }
-
-  async userGeneratedSubmision(
-    input: TaskSubmissionDto,
-    i: number,
-    callback: VoidFunction,
-  ) {
-    //get the task type details
-    const taskTypeDetails: ITaskType = this.task.task_type[i];
-
-    //check if the task id is valid
-    const details = taskTypeDetails.tasks.find((e) => e.id === input.id);
-    if (!details) throw new BadRequestException('Invalid task');
-
-    //check if the user has already submitted for this task with the same social media platform
-    await this.validateSubmission({
-      task_uuid: this.task.uuid,
-      user_uuid: this.user.uuid,
-      categoryId: taskTypeDetails.categoryId,
-      task_id: input.id,
-    });
-
-    //create the submission for this task with correct categoryId
-    const result = await this.submissionRepository.create({
-      task_uuid: this.task.uuid,
-      user_uuid: this.user.uuid,
-      categoryId: taskTypeDetails.categoryId,
-      socialMediaPlatform: details.socialMediaPlatform,
-      submission_url: input.submission_url,
-      task_id: input.id,
-    });
-
-    callback();
-
-    return result;
-  }
-
-  async customSubmision(
-    input: TaskSubmissionDto,
-    i: number,
-    callback: VoidFunction,
-  ) {
-    //get the task type details
-    const taskTypeDetails: ITaskType = this.task.task_type[i];
-
-    //check if the task id is valid
-    const details = taskTypeDetails.tasks.find((e) => e.id === input.id);
-    if (!details) throw new BadRequestException('Invalid task');
-
-    //check if the user has already submitted for this task with the same social media platform
-    await this.validateSubmission({
-      task_uuid: this.task.uuid,
-      user_uuid: this.user.uuid,
-      categoryId: taskTypeDetails.categoryId,
-      task_id: input.id,
-    });
-
-    //create the submission for this task with correct categoryId
-    const result = await this.submissionRepository.create({
-      task_uuid: this.task.uuid,
-      user_uuid: this.user.uuid,
-      categoryId: taskTypeDetails.categoryId,
-      socialMediaPlatform: details.socialMediaPlatform,
-      submission_url: input.submission_url,
-      task_id: input.id,
-    });
-
-    //get total social tasks submitted by user for this task
     callback();
 
     return result;

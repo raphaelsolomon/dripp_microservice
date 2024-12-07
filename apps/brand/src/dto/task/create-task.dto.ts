@@ -1,3 +1,4 @@
+import { Currency } from 'apps/wallet/src/models/wallet.schema';
 import { IsDateString } from 'class-validator';
 
 export class CreateTaskDto {
@@ -9,7 +10,7 @@ export class CreateTaskDto {
 
   task_type: ICampaignTaskItem[];
 
-  reward_type: 'FIAT' | 'USDT';
+  reward_type: Currency;
 
   campaign_type?: 'public' | 'private' | 'members';
 
@@ -20,19 +21,24 @@ export class CreateTaskDto {
   @IsDateString()
   campaign_end_date: Date;
 
-  reward_per_engagement?: string;
+  // reward_per_engagement?: string;
 }
+
+
+export type SubmissionType = 'url' | 'image' | 'text';
 
 interface ICampaignTask {
   url?: string;
-  id?: string;
   instructions: string;
-  submissionType: 'url' | 'image' | 'text';
+  submissionType: SubmissionType;
   socialMediaPlatform?: string; // required only if the category id is social media
+  reward_amount: number;
 }
 
+export type TaskCategory = 'social_media' | 'user_generated' | 'custom';
+
 export interface ICampaignTaskItem {
-  categoryId: 'social_media' | 'user_generated' | 'custom';
+  categoryId: TaskCategory;
   categoryName: string; // social media, User generated or custom name when user selects new type
   tasks: ICampaignTask[];
 }

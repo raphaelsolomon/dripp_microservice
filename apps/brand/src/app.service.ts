@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   BadRequestException,
+  ForbiddenException,
   HttpException,
   HttpStatus,
   Inject,
@@ -9,19 +10,24 @@ import {
 } from '@nestjs/common';
 import { BrandRepository } from './repositories/brand.repository';
 import {
+  AccountType,
   aggregationPaginationHelper,
   AUTH_SERVICE,
   caseInsensitiveRegex,
   CloudinaryResponse,
   CloudinaryService,
+  getTasksAndTotalTasksAmount,
   IndustryRepository,
   noDataDefault,
   NOTIFICATION_SERVICE,
+  partialMatchInsensitiveRegex,
   PopulateDto,
   SubmissionRepository,
+  SubmissionStatus,
   SubTaskTrackerDocument,
   TaskCompletionDocument,
   TaskCompletionRepository,
+  TrackerStatus,
   UserDocument,
   UserDto,
   WALLET_SERVICE,
@@ -56,8 +62,18 @@ import { GiftUserDiscountDto } from './dto/discount/gift-user-discount.dto';
 import { MemberDocument } from './models/member.schema';
 import { v4 as uuidv4 } from 'uuid';
 import { SubTaskTrackerRepository } from '@app/common/database/repositorys/sub-task-tracker.repository';
-import { FilterQuery } from 'mongoose';
+import mongoose, { ClientSession, FilterQuery } from 'mongoose';
 import { ITask } from 'apps/auth/src/constants/task.constant';
+import { SubTaskRepository } from './repositories/sub-task.repository';
+import { InjectConnection } from '@nestjs/mongoose';
+import { MongooseTransaction } from '@app/common/database/mongoose-transaction';
+import { WalletRepository } from 'apps/wallet/src/repositories/wallet.repository';
+import { SendRewardPayload } from 'apps/wallet/src/wallet.service';
+import {
+  CreateNotificationPayload,
+  NotificationPattern,
+} from 'apps/notification/src/notification.controller';
+import { WalletDocument } from 'apps/wallet/src/models/wallet.schema';
 
 @Injectable()
 export class AppService {
@@ -66,6 +82,7 @@ export class AppService {
     private readonly memberRepository: MemberRepository,
     private readonly postRepository: PostRepository,
     private readonly taskRepository: TaskRepository,
+    private readonly subTaskRepository: SubTaskRepository,
     private readonly cloudinaryService: CloudinaryService,
     private readonly discountRepository: DiscountRepository,
     private readonly giftcardRepository: GiftCardRepository,
@@ -81,6 +98,9 @@ export class AppService {
     @Inject(NOTIFICATION_SERVICE)
     private readonly notificationClientProxy: ClientProxy,
     @Inject(WALLET_SERVICE) private readonly walletClientproxy: ClientProxy,
+
+    private readonly connection: MongooseTransaction,
+    private readonly walletRepository: WalletRepository,
   ) {}
 
   async getBrand(user: UserDto) {
@@ -304,6 +324,7 @@ export class AppService {
     };
 
     const first: number = payload.first ?? 20;
+
     const page: number = payload.page ?? 1;
 
     const posts = await this.postRepository.getPaginatedDocuments(
@@ -318,46 +339,203 @@ export class AppService {
     return { ...posts };
   }
 
-  async getBrandMembers(user: UserDto, payload: { [key: string]: number }) {
-    if (user.account_type === 'users') {
+  async getBrandMembers(user: UserDto, payload: { [key: string]: any }) {
+    if (user.account_type === AccountType.user) {
       throw new BadRequestException(`Action not allowed on this account type`);
     }
+    const searchQuery: string = payload?.searchQuery || '';
 
     const first: number = payload.first ?? 20;
+
     const page: number = payload.page ?? 1;
 
     const { brand_uuid } = user;
-    const members = await this.memberRepository.getPaginatedDocuments(
-      first,
-      page,
-      {
-        brand: brand_uuid,
-      },
-      null,
-      null,
-    );
 
-    const { paginationInfo, data } = members;
-    for (let i = 0; i < data.length; i++) {
-      const member: UserDto = await firstValueFrom(
-        this.authClientproxy.send('get_user', { uuid: data[i].member_uuid }),
-      );
-      if (user) {
-        const { fullname, email, avatar, username, wallet_uuid } = member;
-        delete data[i].member_uuid;
-        data[i]['member_details'] = {
-          fullname,
-          email,
-          avatar,
-          username,
-          wallet_uuid,
-        };
-      }
+    let match = {};
+
+    if (searchQuery) {
+      const nameSplit = searchQuery?.split(' ');
+
+      const name1 = nameSplit[0] || '';
+
+      const name2 = nameSplit[1] || '';
+      match = {
+        $or: [
+          { firstname: partialMatchInsensitiveRegex(searchQuery) },
+          { lastname: partialMatchInsensitiveRegex(searchQuery) },
+          { username: partialMatchInsensitiveRegex(searchQuery) },
+          {
+            $or: [
+              {
+                firstname: partialMatchInsensitiveRegex(name1),
+                lastname: partialMatchInsensitiveRegex(name2),
+              },
+              {
+                lastname: partialMatchInsensitiveRegex(name1),
+                firstname: partialMatchInsensitiveRegex(name2),
+              },
+            ],
+          },
+        ],
+      };
     }
-    return {
-      data,
-      paginationInfo,
-    };
+
+    try {
+      const result = await this.memberRepository.aggregate([
+        {
+          $match: {
+            brand: brand_uuid,
+          },
+        },
+        {
+          $lookup: {
+            from: 'userdocuments',
+            localField: 'member_uuid',
+            foreignField: 'uuid',
+            as: 'user',
+            pipeline: [
+              { $match: match },
+              {
+                $project: {
+                  avatar: 1,
+                  uuid: 1,
+                  firstname: 1,
+                  lastname: 1,
+                  username: 1,
+                },
+              },
+            ],
+          },
+        },
+        {
+          $unwind: '$user',
+        },
+        {
+          $lookup: {
+            from: 'taskdocuments',
+            localField: 'brand',
+            foreignField: 'brand',
+            as: 'completedTasks',
+            let: {
+              user: '$user',
+            },
+            pipeline: [
+              {
+                $lookup: {
+                  from: 'subtaskdocuments',
+                  localField: 'brand',
+                  foreignField: 'brand_uuid',
+                  as: 'campaignTasks',
+                },
+              },
+              {
+                $addFields: {
+                  totalTasks: {
+                    $size: '$campaignTasks',
+                  },
+                },
+              },
+
+              {
+                $project: {
+                  totalTasks: 1,
+                  uuid: 1,
+                },
+              },
+              {
+                $lookup: {
+                  from: 'subtasktrackerdocuments',
+                  foreignField: 'campaign_uuid',
+                  localField: 'uuid',
+                  as: 'completedSubtasks',
+                  pipeline: [
+                    {
+                      $match: {
+                        submissionStatus: 'approved' as SubmissionStatus,
+                        $expr: { $eq: ['$$user.uuid', '$user_uuid'] },
+                      },
+                    },
+                  ],
+                },
+              },
+              {
+                $project: {
+                  isCompleted: {
+                    $cond: {
+                      if: {
+                        $eq: [{ $size: '$completedSubtasks' }, '$totalTasks'],
+                      },
+                      then: true,
+                      else: false,
+                    },
+                  },
+                },
+              },
+              {
+                $match: {
+                  isCompleted: true,
+                },
+              },
+            ],
+          },
+        },
+
+        {
+          $project: {
+            // completedTasks: 1,
+            completedTasks: { $size: '$completedTasks' },
+            avatar: '$user.avatar',
+            uuid: '$user.uuid',
+            firstname: '$user.firstname',
+            lastname: '$user.lastname',
+            username: '$user.username',
+          },
+        },
+        ...aggregationPaginationHelper({ first, page }),
+      ]);
+
+      return result?.data[0] || noDataDefault;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async getBrandMember({
+    member_uuid,
+    user,
+  }: {
+    member_uuid: string;
+    user: UserDocument;
+  }) {
+    const result = await this.memberRepository.aggregate([
+      {
+        $match: {
+          member_uuid,
+          brand: user?.brand_uuid,
+        },
+      },
+      {
+        $lookup: {
+          from: 'userdocuments',
+          localField: 'member_uuid',
+          foreignField: 'uuid',
+          as: 'user',
+        },
+      },
+      {
+        $unwind: '$user',
+      },
+      {
+        $project: {
+          firstname: '$user.firstname',
+          lastname: '$user.lastname',
+          avatar: '$user.avatar',
+          username: '$user.username',
+          uuid: '$user.uuid',
+        },
+      },
+    ]);
+    return result?.data[0] || null;
   }
 
   private addUuidsToTasks(taskType: ICampaignTaskItem[]): ICampaignTaskItem[] {
@@ -376,18 +554,52 @@ export class AppService {
       throw new BadRequestException(`Action not allowed on this account type`);
 
     // send the request to wallet service to confirm the wallet balance.
-    const wallet = await firstValueFrom(
+    const wallet: WalletDocument = await firstValueFrom(
       this.walletClientproxy.send('get_wallet', { uuid: user.wallet_uuid }),
     );
 
+    if (!input?.reward_type?.code)
+      throw new BadRequestException('Reward type code is required');
+
     // check if the wallet balance is less than the campaign amount
-    const requiredAmount = input.campaign_amount + input.campaign_amount * 0.1;
-    if (input.reward_type === 'FIAT') {
-      if (parseFloat(wallet.amount_in_fiat) <= requiredAmount)
-        throw new BadRequestException(`Insufficient: ${requiredAmount} FIAT`);
-    } else {
-      if (parseFloat(wallet.amount_in_usdt) <= requiredAmount)
-        throw new BadRequestException(`Insufficient: ${requiredAmount} USDT`);
+    const requiredAmount =
+      Number(input.campaign_amount) + Number(input.campaign_amount) * 0.1;
+
+    console.log(wallet, 'Wallet', requiredAmount);
+
+    const { task_type, ...inputFields } = input;
+
+    const tasks = task_type
+      ?.map((t) =>
+        t.tasks?.map((t_) => ({
+          ...t_,
+          categoryName: t?.categoryName,
+          categoryId: t?.categoryId,
+
+          // reward_amount: 10,
+        })),
+      )
+      ?.flat();
+
+    const totalAmountOnTasks = tasks?.reduce(
+      (acc, curr) => acc + Number(curr?.reward_amount),
+      0,
+    );
+
+    if (totalAmountOnTasks > requiredAmount)
+      throw new BadRequestException(
+        `The cummulative amount to be earned on all tasks (${totalAmountOnTasks}) is greater than the campaign funded amount ${requiredAmount}.
+         Please set the campaign amount to a greater amount`,
+      );
+
+    const walletBalance = wallet?.balances?.find(
+      (b) => b?.code === input?.reward_type?.code,
+    );
+
+    if (walletBalance?.amount < requiredAmount) {
+      throw new BadRequestException(
+        `Your ${walletBalance?.name} balance is too low to create this campaign`,
+      );
     }
 
     // get the brand uding the brand uuid attacted to thee user
@@ -399,6 +611,7 @@ export class AppService {
 
     // check if campaign type is private and selected members is not provided
     const isPrivate: boolean = input?.campaign_type === 'private';
+
     const errorMessage = `Selected members are required for private engagement type`;
 
     if (isPrivate && input?.selected_members?.length <= 0)
@@ -412,39 +625,67 @@ export class AppService {
     const taskTypeWithUuids = this.addUuidsToTasks(input.task_type);
 
     try {
-      const task = await this.taskRepository.create({
-        brand: user.brand_uuid,
-        ...input,
-        task_type: taskTypeWithUuids,
-        industry: brand.industry,
-        total_task: input.task_type.length,
-        status: false,
-      });
+      await this.connection.transaction(async (session) => {
+        console.log(inputFields);
 
-      if (task.reward_type === 'FIAT') {
-        // send the request to wallet service to confirm the wallet balance.
-        const walletResult: string = await firstValueFrom(
-          this.walletClientproxy.send('create_campaign', {
-            uuid: user.wallet_uuid,
-            amount: input.campaign_amount,
-          }),
+        const task = await this.taskRepository.create(
+          {
+            brand: user.brand_uuid,
+            ...inputFields,
+            industry: brand.industry,
+            status: false,
+          },
+          { saveOptions: { session } },
         );
 
-        if (walletResult !== 'success') {
-          throw new BadRequestException(walletResult);
-        }
+        await this.walletRepository.findOneAndUpdate(
+          {
+            uuid: user?.wallet_uuid,
+            'balances.code': input?.reward_type?.code,
+          },
+          {
+            $inc: {
+              'balances.$.amount': -Number(input?.campaign_amount),
+            },
+            $set: { 'balances.$.updated_at': new Date().toISOString() },
+          },
+          { queryOptions: { session } },
+        );
 
         await this.taskRepository.findOneAndUpdate(
           { _id: task._id },
           { status: true },
+          { queryOptions: { session } },
         );
+
+        await this.subTaskRepository.insertMany(
+          tasks?.map((t) => ({
+            ...t,
+            campaign_uuid: task?.uuid,
+            brand_uuid: task?.brand,
+          })),
+          {
+            insertManyOptions: { session },
+          },
+        );
+
+        this.walletClientproxy.emit('create_campaign', {
+          uuid: wallet?.uuid,
+          amount: Number(input?.campaign_amount),
+        });
+
         return task;
-      } else {
-        // TODO: this should make them fund with usdt
-      }
+      });
     } catch (err) {
-      throw new BadRequestException(err);
+      console.log(err, 'THER ERORR');
+      throw new BadRequestException(err?.message || 'An error occured');
     }
+
+    // try {
+
+    // } catch (err) {
+    //   throw new BadRequestException(err);
+    // }
   }
 
   async updateBrandTask(user: UserDto, input: UpdateTaskDto) {
@@ -596,28 +837,141 @@ export class AppService {
       throw new BadRequestException(`Action not allowed on this account type`);
     }
 
-    const brandPopulate: PopulateDto = {
-      path: 'brand',
-      model: BrandDocument.name,
-      localField: 'brand',
-      foreignField: 'uuid',
-    };
-    const userPopulate: PopulateDto = {
-      path: 'members_completed',
-      model: UserDocument.name,
-      localField: 'members_completed',
-      foreignField: 'uuid',
-    };
     const first: number = payload.first ?? 20;
+
     const page: number = payload.page ?? 1;
 
-    return await this.taskRepository.getPaginatedDocuments(
-      first,
-      page,
-      { brand: user.brand_uuid, status: true },
-      null,
-      [brandPopulate, userPopulate],
-    );
+    const result = await this.taskRepository.aggregate([
+      {
+        $match: {
+          brand: user?.brand_uuid,
+        },
+      },
+      {
+        $lookup: {
+          from: 'subtasktrackerdocuments',
+          localField: 'uuid',
+          foreignField: 'campaign_uuid',
+          as: 'engagements',
+          pipeline: [
+            {
+              $match: {
+                status: 'submitted',
+              },
+            },
+            {
+              $sort: {
+                created_at: -1,
+              },
+            },
+            {
+              $group: {
+                _id: '$user_uuid',
+                doc: { $first: '$$ROOT' },
+              },
+            },
+            {
+              $replaceRoot: {
+                newRoot: '$doc',
+              },
+            },
+          ],
+        },
+      },
+      ...getTasksAndTotalTasksAmount,
+      {
+        $addFields: {
+          totalEngagements: {
+            $size: '$engagements',
+          },
+          lastFiveEngagements: { $slice: ['$engagements', 0, 4] },
+        },
+      },
+      {
+        $lookup: {
+          from: 'userdocuments',
+          localField: 'lastFiveEngagements.user_uuid',
+          foreignField: 'uuid',
+          as: 'lastFiveEngagements',
+          pipeline: [
+            {
+              $project: {
+                firstname: 1,
+                lastname: 1,
+                avatar: 1,
+                username: 1,
+              },
+            },
+          ],
+        },
+      },
+      {
+        $lookup: {
+          from: 'subtasktrackerdocuments',
+          localField: 'uuid',
+          foreignField: 'campaign_uuid',
+          as: 'submissionsPendingReview',
+          pipeline: [
+            {
+              $match: {
+                status: 'submitted',
+                submissionStatus: 'pending' as SubmissionStatus,
+              },
+            },
+          ],
+        },
+      },
+      {
+        $lookup: {
+          from: 'subtasktrackerdocuments',
+          localField: 'uuid',
+          foreignField: 'campaign_uuid',
+          as: 'submissionsApproved',
+          pipeline: [
+            {
+              $match: {
+                status: 'submitted',
+                submissionStatus: 'approved' as SubmissionStatus,
+              },
+            },
+          ],
+        },
+      },
+      {
+        $lookup: {
+          from: 'subtasktrackerdocuments',
+          localField: 'uuid',
+          foreignField: 'campaign_uuid',
+          as: 'submissionsRejected',
+          pipeline: [
+            {
+              $match: {
+                status: 'submitted',
+                submissionStatus: 'rejected' as SubmissionStatus,
+              },
+            },
+          ],
+        },
+      },
+      {
+        $addFields: {
+          lastFiveEngagements: '$lastFiveEngagements',
+          submissionsPendingReview: {
+            $size: '$submissionsPendingReview',
+          },
+          submissionsApproved: {
+            $size: '$submissionsApproved',
+          },
+          submissionsRejected: {
+            $size: '$submissionsRejected',
+          },
+        },
+      },
+      { $unset: 'engagements' },
+      ...aggregationPaginationHelper({ first, page }),
+    ]);
+
+    return result?.data[0] || noDataDefault;
   }
 
   async getBrandTask(user: UserDocument, task_uuid: string) {
@@ -625,24 +979,253 @@ export class AppService {
       throw new BadRequestException(`Action not allowed on this account type`);
     }
 
-    const brandPopulate: PopulateDto = {
-      path: 'brand',
-      model: BrandDocument.name,
-      localField: 'brand',
-      foreignField: 'uuid',
-    };
-    const userPopulate: PopulateDto = {
-      path: 'members_completed',
-      model: UserDocument.name,
-      localField: 'members_completed',
-      foreignField: 'uuid',
-    };
+    const result = await this.taskRepository.aggregate([
+      {
+        $match: {
+          brand: user?.brand_uuid,
+          uuid: task_uuid,
+        },
+      },
+      ...getTasksAndTotalTasksAmount,
+      {
+        $lookup: {
+          from: 'subtasktrackerdocuments',
+          localField: 'uuid',
+          foreignField: 'campaign_uuid',
+          as: 'submissionsPendingReview',
+          pipeline: [
+            {
+              $match: {
+                status: 'submitted',
+                submissionStatus: 'pending' as SubmissionStatus,
+              },
+            },
+          ],
+        },
+      },
+      {
+        $lookup: {
+          from: 'subtasktrackerdocuments',
+          localField: 'uuid',
+          foreignField: 'campaign_uuid',
+          as: 'submissionsApproved',
+          pipeline: [
+            {
+              $match: {
+                status: 'submitted',
+                submissionStatus: 'approved' as SubmissionStatus,
+              },
+            },
+          ],
+        },
+      },
+      {
+        $lookup: {
+          from: 'subtasktrackerdocuments',
+          localField: 'uuid',
+          foreignField: 'campaign_uuid',
+          as: 'submissionsRejected',
+          pipeline: [
+            {
+              $match: {
+                status: 'submitted',
+                submissionStatus: 'rejected' as SubmissionStatus,
+              },
+            },
+          ],
+        },
+      },
+      {
+        $lookup: {
+          from: 'subtasktrackerdocuments',
 
-    return await this.taskRepository.findOne(
-      { brand: user.brand_uuid, status: true, uuid: task_uuid },
-      null,
-      [brandPopulate, userPopulate],
-    );
+          localField: 'uuid',
+          foreignField: 'campaign_uuid',
+          pipeline: [
+            {
+              $match: {
+                status: 'submitted' as TrackerStatus,
+              },
+            },
+          ],
+
+          as: 'task_completion',
+        },
+      },
+      {
+        $addFields: {
+          submissionsPendingReview: {
+            $size: '$submissionsPendingReview',
+          },
+          submissionsApproved: {
+            $size: '$submissionsApproved',
+          },
+          submissionsRejected: {
+            $size: '$submissionsRejected',
+          },
+          tasks: {
+            $map: {
+              input: '$tasks',
+              as: 'item',
+              in: {
+                $mergeObjects: [
+                  '$$item',
+                  {
+                    trackers: {
+                      $filter: {
+                        input: '$task_completion',
+                        cond: {
+                          $eq: ['$$this.sub_task_id', '$$item.uuid'],
+                        },
+                      },
+                    },
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    ]);
+
+    return result?.data[0] || null;
+  }
+
+  async getSubmissions({
+    user,
+    status,
+    campaign_uuid,
+    task_id,
+    first,
+    page,
+  }: {
+    user: UserDocument;
+    status: string;
+    campaign_uuid: string;
+    page: number | string;
+    first: number | string;
+    task_id: string;
+  }) {
+    const statuses = status?.split(',');
+
+    if (user?.account_type !== AccountType.business)
+      throw new ForbiddenException('Not authorized to access this resource');
+
+    const result = await this.subTaskTrackerRepository.aggregate([
+      {
+        $match: {
+          status: 'submitted',
+          campaign_uuid,
+          sub_task_id: task_id,
+          submissionStatus: {
+            $in: statuses,
+          },
+        },
+      },
+      {
+        $lookup: {
+          from: 'userdocuments',
+          localField: 'user_uuid',
+          foreignField: 'uuid',
+          as: 'userDetails',
+          pipeline: [
+            {
+              $project: {
+                avatar: 1,
+                firstname: 1,
+                lastname: 1,
+                uuid: 1,
+                username: 1,
+              },
+            },
+          ],
+        },
+      },
+      { $unwind: '$userDetails' },
+
+      {
+        $addFields: {
+          userDetails: '$userDetails',
+        },
+      },
+      ...aggregationPaginationHelper({ first, page }),
+    ]);
+
+    return result?.data[0] || noDataDefault;
+  }
+
+  async getSubmission({
+    campaign_uuid,
+    task_id,
+    user_uuid,
+  }: {
+    campaign_uuid: string;
+    task_id: string;
+    user_uuid: string;
+  }) {
+    const result = await this.submissionRepository.aggregate([
+      {
+        $match: {
+          campaign_uuid,
+          sub_task_uuid: task_id,
+          user_uuid,
+        },
+      },
+      {
+        $lookup: {
+          from: 'subtasktrackerdocuments',
+          localField: 'sub_task_uuid',
+          foreignField: 'sub_task_id',
+          as: 'tracker',
+          pipeline: [
+            {
+              $match: {
+                user_uuid,
+              },
+            },
+          ],
+        },
+      },
+      {
+        $lookup: {
+          from: 'userdocuments',
+          localField: 'user_uuid',
+          foreignField: 'uuid',
+          as: 'userDetails',
+          pipeline: [
+            {
+              $project: {
+                uuid: 1,
+                avatar: 1,
+                username: 1,
+                firstname: 1,
+                lastname: 1,
+              },
+            },
+          ],
+        },
+      },
+      {
+        $lookup: {
+          from: 'subtaskdocuments',
+          localField: 'sub_task_uuid',
+          foreignField: 'uuid',
+          as: 'taskDetails',
+        },
+      },
+      { $unwind: '$tracker' },
+      { $unwind: '$userDetails' },
+      { $unwind: '$taskDetails' },
+      {
+        $addFields: {
+          tracker: '$tracker',
+          userDetails: '$userDetails',
+          taskDetails: '$taskDetails',
+        },
+      },
+    ]);
+
+    return result?.data[0] || null;
   }
 
   async getPostsFromBrands(payload: { [key: string]: any }) {
@@ -940,6 +1523,7 @@ export class AppService {
           { industry: null },
           { industry: { $size: 0 } },
           { industry: { $exists: false } }, // Include tasks with no industry specified
+          { brand: { $in: subscribeBrandsUuids } },
         ],
       },
       {
@@ -1067,6 +1651,7 @@ export class AppService {
           as: 'task_completion',
         },
       },
+      ...getTasksAndTotalTasksAmount,
       {
         $lookup: {
           from: 'userdocuments',
@@ -1079,13 +1664,7 @@ export class AppService {
       {
         $addFields: {
           totalTasks: {
-            $sum: {
-              $map: {
-                input: '$task_type',
-                as: 'category',
-                in: { $size: '$$category.tasks' },
-              },
-            },
+            $size: '$tasks',
           },
           task_tracker_length: {
             $size: '$task_completion',
@@ -1110,19 +1689,73 @@ export class AppService {
         },
       },
       {
+        $lookup: {
+          from: 'subtasktrackerdocuments',
+          localField: 'uuid',
+          foreignField: 'campaign_uuid',
+          as: 'engagements',
+          pipeline: [
+            {
+              $match: {
+                status: 'submitted',
+              },
+            },
+            {
+              $sort: {
+                created_at: -1,
+              },
+            },
+            {
+              $group: {
+                _id: '$user_uuid',
+                doc: { $first: '$$ROOT' },
+              },
+            },
+            {
+              $replaceRoot: {
+                newRoot: '$$ROOT.doc',
+              },
+            },
+          ],
+        },
+      },
+
+      {
         $addFields: {
           'brand.following': {
             $gt: [{ $size: '$followInfo' }, 0],
           },
+          lastFiveEngagements: { $slice: ['$engagements', 0, 4] },
+          totalEngagements: { $size: '$engagements' },
         },
       },
       {
+        $lookup: {
+          from: 'userdocuments',
+          localField: 'lastFiveEngagements.user_uuid',
+          foreignField: 'uuid',
+          as: 'lastFiveEngagements',
+          pipeline: [
+            {
+              $project: {
+                firstname: 1,
+                lastname: 1,
+                avatar: 1,
+                username: 1,
+              },
+            },
+          ],
+        },
+      },
+
+      {
         $project: {
+          totalEngagements: 1,
+          lastFiveEngagements: 1,
           totalTasks: 1,
           uuid: 1,
           campaign_title: 1,
           campaign_banner_url: 1,
-          task_type: 1,
           total_task: 1,
           reward_type: 1,
           campaign_type: 1,
@@ -1138,12 +1771,20 @@ export class AppService {
             avatar: '$brand_user.avatar',
           },
           created_at: 1,
+          total_engagement_reward: 1,
+          tasks: 1,
         },
       },
       ...aggregationPaginationHelper({ first, page }),
     ]);
 
     return result?.data[0] || noDataDefault;
+  }
+
+  async getSubTaskFromBrand(sub_task_uuid: string) {
+    const task = await this.subTaskRepository.findOne({ uuid: sub_task_uuid });
+
+    return task;
   }
 
   async getTaskFromBrand(member: UserDocument, task_uuid: string) {
@@ -1191,6 +1832,7 @@ export class AppService {
             },
             { industry: null },
             { industry: { $exists: false } }, // Include tasks with no industry specified
+            { brand: { $in: subscribeBrandsUuids } },
           ],
         },
 
@@ -1239,16 +1881,11 @@ export class AppService {
             as: 'task_completion',
           },
         },
+        ...getTasksAndTotalTasksAmount,
         {
           $addFields: {
             totalTasks: {
-              $sum: {
-                $map: {
-                  input: '$task_type',
-                  as: 'category',
-                  in: { $size: '$$category.tasks' },
-                },
-              },
+              $size: '$tasks',
             },
             task_tracker_length: {
               $size: '$task_completion',
@@ -1286,6 +1923,39 @@ export class AppService {
             as: 'followInfo',
           },
         },
+
+        {
+          $lookup: {
+            from: 'subtasktrackerdocuments',
+            localField: 'uuid',
+            foreignField: 'campaign_uuid',
+            as: 'engagements',
+            pipeline: [
+              {
+                $match: {
+                  status: 'submitted',
+                },
+              },
+              {
+                $sort: {
+                  created_at: -1,
+                },
+              },
+              {
+                $group: {
+                  _id: '$user_uuid',
+                  doc: { $first: '$$ROOT' },
+                },
+              },
+              {
+                $replaceRoot: {
+                  newRoot: '$$ROOT.doc',
+                },
+              },
+            ],
+          },
+        },
+
         {
           $lookup: {
             from: 'userdocuments',
@@ -1300,11 +1970,33 @@ export class AppService {
             'brand.following': {
               $gt: [{ $size: '$followInfo' }, 0],
             },
+            lastFiveEngagements: { $slice: ['$engagements', 0, 4] },
+            totalEngagements: { $size: '$engagements' },
+          },
+        },
+        {
+          $lookup: {
+            from: 'userdocuments',
+            localField: 'lastFiveEngagements.user_uuid',
+            foreignField: 'uuid',
+            as: 'lastFiveEngagements',
+            pipeline: [
+              {
+                $project: {
+                  firstname: 1,
+                  lastname: 1,
+                  avatar: 1,
+                  username: 1,
+                },
+              },
+            ],
           },
         },
         {
           $project: {
             uuid: 1,
+            lastFiveEngagements: 1,
+            totalEngagements: 1,
             progress: {
               $multiply: [
                 {
@@ -1331,52 +2023,35 @@ export class AppService {
             },
             campaign_title: 1,
             campaign_banner_url: 1,
-            // task_type: 1,
             total_task: 1,
             reward_type: 1,
             campaign_type: 1,
             selected_members: 1,
             campaign_end_date: 1,
-            reward_per_engagement: 1,
+            total_engagement_reward: 1,
 
             // task_completion: 1,
 
-            task_type: {
+            tasks: {
               $map: {
-                input: '$task_type',
-                as: 'nested',
+                input: '$tasks',
+                as: 'item',
                 in: {
                   $mergeObjects: [
-                    '$$nested',
+                    '$$item',
                     {
-                      tasks: {
-                        $map: {
-                          input: '$$nested.tasks',
-                          as: 'item',
-                          in: {
-                            $mergeObjects: [
-                              '$$item',
-                              {
-                                tracker: {
-                                  $arrayElemAt: [
-                                    {
-                                      $filter: {
-                                        input: '$task_completion',
-                                        cond: {
-                                          $eq: [
-                                            '$$this.sub_task_id',
-                                            '$$item.id',
-                                          ],
-                                        },
-                                      },
-                                    },
-                                    0,
-                                  ],
-                                },
+                      tracker: {
+                        $arrayElemAt: [
+                          {
+                            $filter: {
+                              input: '$task_completion',
+                              cond: {
+                                $eq: ['$$this.sub_task_id', '$$item.uuid'],
                               },
-                            ],
+                            },
                           },
-                        },
+                          0,
+                        ],
                       },
                     },
                   ],
@@ -1667,10 +2342,9 @@ export class AppService {
     }
   }
 
-  async getSubmissionByTask(
+  async approveSubmission(
     user: UserDocument,
-    task_uuid: string,
-    user_uuid: string,
+    input: { submission_uuid: string },
   ) {
     if (user.account_type === 'user') {
       throw new BadRequestException(
@@ -1678,134 +2352,216 @@ export class AppService {
       );
     }
 
-    const result: { [key: string]: any } = {};
+    const Submission = await this.submissionRepository.findOne({
+      uuid: input?.submission_uuid,
+    });
+
+    const SubTask = await this.subTaskRepository.findOne({
+      uuid: Submission?.sub_task_uuid,
+    });
+
+    const Campaign = await this.taskRepository.findOne({
+      uuid: SubTask?.campaign_uuid,
+    });
+
+    const Tracker = await this.subTaskTrackerRepository.findOne({
+      campaign_uuid: SubTask.campaign_uuid,
+      sub_task_id: SubTask?.uuid,
+      user_uuid: Submission?.user_uuid,
+    });
+
+    const available_campaign_amount = Number(Campaign?.campaign_amount);
+
+    const amount_to_earn_on_task = Number(SubTask?.reward_amount);
+
+    console.log(Tracker.submissionStatus, Tracker);
+    if (Tracker?.submissionStatus !== 'pending')
+      throw new BadRequestException(
+        'This submission has been previously reviewed',
+      );
+
+    if (amount_to_earn_on_task > available_campaign_amount)
+      throw new BadRequestException(
+        'Reward amount on this task exceeds the available campaign balance, please fund the campaign to continue',
+      );
+
+    // Logic to debit campaign and fund user wallet or revert if any error is encountered.
 
     try {
-      const submissions = await this.submissionRepository.find({
-        task_uuid,
-        user_uuid,
-      });
-
-      // Initialize the member's category in the result
-      result[user_uuid] = { user_details: {}, submissions: {} };
-
-      // Categorize submissions
-      for (const submission of submissions) {
-        // get the member dtails from the auth/user service
-        const member = await firstValueFrom(
-          this.authClientproxy.send('get_user', { uuid: user_uuid }),
+      await this.connection.transaction(async (session) => {
+        const memberDetails: UserDocument = await firstValueFrom(
+          this.authClientproxy.send('get_user', { uuid: Tracker?.user_uuid }),
         );
 
-        // add the user details to the result
-        result[user_uuid]['user_details'] = member;
+        // Debit the amount from the campaign
+        await this.taskRepository.findOneAndUpdate(
+          { uuid: Campaign?.uuid },
+          {
+            $inc: {
+              campaign_amount: -amount_to_earn_on_task,
+            },
+          },
+          { queryOptions: { session } },
+        );
 
-        // If the key doesn't exist, create it
-        if (!result[user_uuid]['submissions'][submission.categoryId]) {
-          if (submission.categoryId === 'social_media') {
-            result[user_uuid]['submissions'][submission.categoryId] = {
-              [submission.task_id]: {
-                social_media_platform: submission.socialMediaPlatform,
-                submission_url: submission.submission_url,
-              },
-            };
-          } else {
-            result[user_uuid]['submissions'][submission.categoryId] = {
-              [submission.task_id]: {
-                submission_url: submission.submission_url,
-              },
-            };
-          }
-        }
-      }
+        // Credit the user wallet
+        await this.walletRepository.findOneAndUpdate(
+          {
+            uuid: memberDetails?.wallet_uuid,
+            'balances.code': Campaign?.reward_type?.code,
+          },
+          {
+            $inc: {
+              'balances.$.amount': amount_to_earn_on_task,
+            },
+            $set: { 'balances.$.updated_at': new Date().toISOString() },
+          },
+          { queryOptions: { session } },
+        );
 
-      return result;
+        await this.subTaskTrackerRepository.findOneAndUpdate(
+          { uuid: Tracker?.uuid, _id: Tracker?._id },
+          {
+            submissionStatus: 'approved' as SubmissionStatus,
+            reviewed_at: new Date().toISOString(),
+          },
+          { queryOptions: { session } },
+        );
+
+        this.walletClientproxy.emit('send_award', {
+          amount: amount_to_earn_on_task,
+          receiver: Tracker?.user_uuid,
+          task: Campaign,
+          sub_task: SubTask,
+        } as SendRewardPayload);
+      });
     } catch (err) {
       throw new BadRequestException(err);
     }
+    // const { task_uuid, member_uuid, is_approved, reason } = input;
+
+    // const task = await this.taskRepository.findOne({
+    //   uuid: task_uuid,
+    //   brand: user.brand_uuid,
+    //   members_review: { $in: [member_uuid] },
+    //   status: true,
+    // });
+    // if (is_approved) {
+    //   let members_review: string[] = task.members_review;
+    //   const members_completed = task.members_completed;
+    //   if (members_review.includes(member_uuid)) {
+    //     members_review = members_review.filter((m) => member_uuid !== m);
+    //   }
+    //   if (!members_completed.includes(member_uuid)) {
+    //     members_completed.push(member_uuid);
+    //   }
+    //   await this.taskRepository.findOneAndUpdate(
+    //     { uuid: task_uuid, status: true },
+    //     { members_review, members_completed },
+    //   );
+
+    //   //send the reward to the user's wallet
+    //   const memberDetails = await firstValueFrom(
+    //     this.authClientproxy.send('get_user', { uuid: member_uuid }),
+    //   );
+    //   let newcampaignAmount = task.campaign_amount;
+
+    //   //check if user is a member of this brand
+    //   const rewardPerEngagement: string = task.reward_per_engagement;
+    //   let rewardPrice: number = 0;
+    //   //check if task contains membership or non membership rewards.
+
+    //   newcampaignAmount = newcampaignAmount - Number(rewardPerEngagement);
+    //   rewardPrice = Number.parseInt(rewardPerEngagement);
+
+    //   //senf the reward to the member wallet
+    //   this.walletClientproxy.emit('send_award', {
+    //     amount: rewardPrice,
+    //     reward_type: task.reward_type,
+    //     wallet_uuid: memberDetails.wallet_uuid,
+    //     receiver: member_uuid,
+    //     task: task,
+    //   });
+
+    //   // update the task with the new campaign amount balance amount
+    //   await this.taskRepository.findOneAndUpdate(
+    //     { _id: task._id, status: true },
+    //     { campaign_amount: newcampaignAmount },
+    //   );
+    // } else {
+    //   let members_review: string[] = task.members_review;
+    //   if (members_review.includes(member_uuid)) {
+    //     members_review = members_review.filter((m) => member_uuid !== m);
+    //   }
+
+    //   await this.taskRepository.findOneAndUpdate(
+    //     { uuid: task_uuid, status: true },
+    //     { members_review },
+    //   );
+
+    //   const payload = {
+    //     to: member_uuid,
+    //     from: { isBrand: true, sender: task.brand },
+    //     title: `${task.campaign_title} Task Submission was rejected`,
+    //     type: 'task',
+    //     body: reason,
+    //     metadata: {},
+    //   };
+    //   this.notificationClientProxy.emit('create_notification', { ...payload });
+    // }
+    // return this.taskRepository.findOne({ uuid: task_uuid, status: true });
   }
 
-  async approveSubmission(
+  async rejectSubmission(
     user: UserDocument,
-    input: { [key: string]: string },
+    payload: { submission_uuid: string; rejectionReason: string },
   ) {
-    if (user.account_type === 'user') {
-      throw new BadRequestException(
-        'Action not supported on the account type.',
-      );
-    }
+    if (user?.account_type !== AccountType.business)
+      throw new ForbiddenException('Not allowed');
 
-    const { task_uuid, member_uuid, is_approved, reason } = input;
-
-    const task = await this.taskRepository.findOne({
-      uuid: task_uuid,
-      brand: user.brand_uuid,
-      members_review: { $in: [member_uuid] },
-      status: true,
+    const Submission = await this.submissionRepository.findOne({
+      uuid: payload?.submission_uuid,
     });
-    if (is_approved) {
-      let members_review: string[] = task.members_review;
-      const members_completed = task.members_completed;
-      if (members_review.includes(member_uuid)) {
-        members_review = members_review.filter((m) => member_uuid !== m);
-      }
-      if (!members_completed.includes(member_uuid)) {
-        members_completed.push(member_uuid);
-      }
-      await this.taskRepository.findOneAndUpdate(
-        { uuid: task_uuid, status: true },
-        { members_review, members_completed },
+
+    const SubTask = await this.subTaskRepository.findOne({
+      uuid: Submission?.sub_task_uuid,
+    });
+
+    const Tracker = await this.subTaskTrackerRepository.findOne({
+      campaign_uuid: SubTask.campaign_uuid,
+      sub_task_id: SubTask?.uuid,
+      user_uuid: Submission?.user_uuid,
+    });
+
+    if (Tracker?.submissionStatus !== 'pending')
+      throw new BadRequestException(
+        'This submission has been previously reviewed',
       );
 
-      //send the reward to the user's wallet
-      const memberDetails = await firstValueFrom(
-        this.authClientproxy.send('get_user', { uuid: member_uuid }),
-      );
-      let newcampaignAmount = task.campaign_amount;
+    if (!payload?.rejectionReason)
+      throw new BadRequestException('Please add a rejection reason');
 
-      //check if user is a member of this brand
-      const rewardPerEngagement: string = task.reward_per_engagement;
-      let rewardPrice: number = 0;
-      //check if task contains membership or non membership rewards.
+    await this.subTaskTrackerRepository.findOneAndUpdate(
+      { uuid: Tracker.uuid },
+      {
+        submissionStatus: 'rejected' as SubmissionStatus,
+        rejectionReason: payload?.rejectionReason,
+        reviewed_at: new Date().toISOString(),
+      },
+    );
 
-      newcampaignAmount = newcampaignAmount - Number(rewardPerEngagement);
-      rewardPrice = Number.parseInt(rewardPerEngagement);
-
-      //senf the reward to the member wallet
-      this.walletClientproxy.emit('send_award', {
-        amount: rewardPrice,
-        reward_type: task.reward_type,
-        wallet_uuid: memberDetails.wallet_uuid,
-        receiver: member_uuid,
-        task: task,
-      });
-
-      // update the task with the new campaign amount balance amount
-      await this.taskRepository.findOneAndUpdate(
-        { _id: task._id, status: true },
-        { campaign_amount: newcampaignAmount },
-      );
-    } else {
-      let members_review: string[] = task.members_review;
-      if (members_review.includes(member_uuid)) {
-        members_review = members_review.filter((m) => member_uuid !== m);
-      }
-
-      await this.taskRepository.findOneAndUpdate(
-        { uuid: task_uuid, status: true },
-        { members_review },
-      );
-
-      const payload = {
-        to: member_uuid,
-        from: { isBrand: true, sender: task.brand },
-        title: `${task.campaign_title} Task Submission was rejected`,
-        type: 'task',
-        body: reason,
-        metadata: {},
-      };
-      this.notificationClientProxy.emit('create_notification', { ...payload });
-    }
-    return this.taskRepository.findOne({ uuid: task_uuid, status: true });
+    this.notificationClientProxy.emit(NotificationPattern.CreateNotification, {
+      from: { isBrand: true, sender: SubTask?.brand_uuid },
+      title: `Submission for task rejected`,
+      type: 'task_rejected',
+      body: `Reason: ${payload?.rejectionReason}`,
+      to: Tracker?.user_uuid,
+      metadata: {
+        sub_task_uuid: SubTask?.uuid,
+        campaign_uuid: Tracker?.campaign_uuid,
+        brand: SubTask?.brand_uuid,
+      },
+    } as CreateNotificationPayload);
   }
 
   async postReaction(payload: Record<string, any>) {
@@ -2010,21 +2766,73 @@ export class AppService {
 
   async getBrandsByIndustry(input: Record<string, any>) {
     const page: number = input.page || 1;
+
     const first: number = input.first || 20;
 
-    const industries: string[] = input.industries.map((e: string) =>
-      caseInsensitiveRegex(e),
+    const industries: string[] = input?.industries?.map((i: string) =>
+      caseInsensitiveRegex(i),
     );
-    const countIndustries = await this.industryRepository.countDocs({
-      name: { $in: industries },
-    });
-    if (countIndustries < industries.length) {
-      return { status: false, result: 'invalid selected industries' };
-    }
-    const { data, paginationInfo } =
-      await this.brandRepository.getPaginatedDocuments(first, page, {
-        industry: { $in: industries },
-      });
-    return { status: true, data, paginationInfo };
+
+    const user: UserDocument = input?.user;
+
+    const result = await this.brandRepository.aggregate([
+      {
+        $match: {
+          industry: {
+            $in: industries,
+          },
+        },
+      },
+      {
+        $lookup: {
+          from: 'userdocuments',
+          localField: 'uuid',
+          foreignField: 'brand_uuid',
+          as: 'brand_user',
+          pipeline: [
+            {
+              $project: {
+                avatar: 1,
+                username: 1,
+              },
+            },
+          ],
+        },
+      },
+      {
+        $unwind: {
+          path: '$brand_user',
+          preserveNullAndEmptyArrays: true,
+        },
+      },
+      {
+        $lookup: {
+          from: 'memberdocuments',
+          localField: 'uuid',
+          foreignField: 'brand',
+          as: 'members',
+        },
+      },
+      {
+        $addFields: {
+          isSubscribed: {
+            $in: [user?.uuid, '$members.member_uuid'],
+          },
+        },
+      },
+      {
+        $project: {
+          brand_name: 1,
+          uuid: 1,
+          avatar: '$brand_user.avatar',
+          username: '$brand_user.username',
+          isSubscribed: 1,
+          subscribersCount: { $size: '$members' },
+        },
+      },
+      ...aggregationPaginationHelper({ page, first }),
+    ]);
+
+    return result?.data[0] || noDataDefault;
   }
 }

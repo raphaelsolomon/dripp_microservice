@@ -12,6 +12,29 @@ import { VerifyMailDto } from './dto/verify-email.dto';
 import { CurrentUser, JwtAuthGuard, UserDto } from '@app/common';
 import { Request } from 'express';
 
+export enum NotificationPattern {
+  CreateNotification = 'create_notification',
+  ResetPassword = 'reset_password',
+  SendFund = 'send_fund',
+  CampaignCreated = 'campaign_created',
+  MailVerify = 'mail_verify',
+  MembershipMail = 'membership_mail',
+}
+
+export type NotificationType = 'task_approved' | 'task_rejected';
+
+export interface CreateNotificationPayload {
+  to: string;
+  from: {
+    isBrand: boolean;
+    sender: string;
+  };
+  title: string;
+  body: string;
+  type: NotificationType;
+  metadata?: any;
+}
+
 @Controller('notifications')
 export class NotificationController {
   constructor(private readonly notificationService: NotificationService) {}
@@ -36,7 +59,7 @@ export class NotificationController {
 
   @UsePipes(new ValidationPipe())
   @EventPattern('create_notification')
-  async createNotification(@Payload() data: { [key: string]: any }) {
+  async createNotification(@Payload() data: CreateNotificationPayload) {
     this.notificationService.createNotification(data);
   }
 

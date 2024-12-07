@@ -1,4 +1,4 @@
-import { PipelineOptions } from 'stream';
+import { PipelineStage } from 'mongoose';
 
 export function generateRandomCode(length: number): string {
   let result = '';
@@ -14,6 +14,8 @@ export function generateRandomCode(length: number): string {
 }
 
 export const caseInsensitiveRegex = (e: string) => new RegExp(`^${e}$`, 'i');
+
+export const partialMatchInsensitiveRegex = (e: string) => new RegExp(e, 'i');
 
 interface ISuccessReponseParams {
   statusCode: number;
@@ -46,6 +48,8 @@ export const aggregationPaginationHelper = ({
   page: number | string;
 }) => {
   const skip = Number(first) * (Number(page) - 1 || 0);
+
+  const pageInNumber = Number(page);
   return [
     {
       $facet: {
@@ -61,6 +65,7 @@ export const aggregationPaginationHelper = ({
     {
       $unwind: '$totalDocs',
     },
+
     {
       $project: {
         paginationInfo: {
@@ -68,6 +73,15 @@ export const aggregationPaginationHelper = ({
           totalPages: {
             $ceil: { $divide: ['$totalDocs.total', Number(first)] },
           },
+          hasMorePages: {
+            $lt: [
+              Number(page),
+              {
+                $ceil: { $divide: ['$totalDocs.total', Number(first)] },
+              },
+            ],
+          },
+          currentPage: page,
         },
         data: 1,
       },
@@ -82,3 +96,21 @@ export const noDataDefault = {
   },
   data: [],
 };
+
+export const getTasksAndTotalTasksAmount = [
+  {
+    $lookup: {
+      from: 'subtaskdocuments',
+      localField: 'uuid',
+      foreignField: 'campaign_uuid',
+      as: 'tasks',
+    },
+  },
+  {
+    $addFields: {
+      total_engagement_reward: {
+        $sum: '$tasks.reward_amount',
+      },
+    },
+  },
+] as PipelineStage[];

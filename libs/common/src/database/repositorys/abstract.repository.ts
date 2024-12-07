@@ -1,9 +1,12 @@
 import {
   AggregateOptions,
   FilterQuery,
+  InsertManyOptions,
   Model,
   PipelineStage,
   ProjectionType,
+  QueryOptions,
+  SaveOptions,
   Types,
   UpdateQuery,
   UpdateWriteOpResult,
@@ -12,16 +15,38 @@ import { AbstractDocument } from '../models/abstract.schema';
 import { Logger, NotFoundException } from '@nestjs/common';
 import { PopulateDto } from '@app/common/dto';
 
+interface CreateDocumentArgs {
+  saveOptions: SaveOptions;
+}
+
+interface FindOneAndUpdateDocumentArgs {
+  queryOptions: QueryOptions;
+}
+
+interface InsertManyDocumentsArgs {
+  insertManyOptions: InsertManyOptions;
+}
+
+interface FindOneAndUpdateOrCreateArgs {
+  queryOptions?: QueryOptions;
+  saveOptions?: SaveOptions;
+}
+
 export abstract class AbstractRepository<TDocument extends AbstractDocument> {
   protected abstract readonly logger: Logger;
   constructor(protected readonly model: Model<TDocument>) {}
 
-  async create(document: Omit<TDocument, '_id'>): Promise<TDocument> {
+  async create(
+    document: Omit<TDocument, '_id'>,
+    options?: CreateDocumentArgs,
+  ): Promise<TDocument> {
     const createdDocument = new this.model({
       ...document,
       _id: new Types.ObjectId(),
     });
-    return (await createdDocument.save()).toJSON() as unknown as TDocument;
+    return (
+      await createdDocument.save(options?.saveOptions)
+    ).toJSON() as unknown as TDocument;
   }
 
   async findOne(
@@ -37,7 +62,11 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
       .populate(populate)
       .lean<TDocument>(true);
     if (!document && throwError) {
-      this.logger.warn('Document was not found with filterquery', filterQuery);
+      console.log(throwError, 'THROW ERRO', filterQuery);
+      this.logger.warn(
+        'Document was not found with filterquery on findOne',
+        filterQuery,
+      );
       throw new NotFoundException('Document was not found');
     }
     return document;
@@ -46,14 +75,19 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
   async findOneAndUpdate(
     filterQuery: FilterQuery<TDocument>,
     update: UpdateQuery<TDocument>,
+    options?: FindOneAndUpdateDocumentArgs,
   ): Promise<TDocument> {
     const document = await this.model
       .findOneAndUpdate(filterQuery, update, {
         new: true,
+        ...options?.queryOptions,
       })
       .lean<TDocument>(true);
     if (!document) {
-      this.logger.warn('Document was not found with filterquery', filterQuery);
+      this.logger.warn(
+        'Document was not found with filterquery on findOneAndUpdate',
+        filterQuery,
+      );
       throw new NotFoundException('Document was not found');
     }
     return document;
@@ -154,6 +188,28 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
     return this.model.create({ ...document, _id: new Types.ObjectId() });
   }
 
+  async findOneAndUpdateOrCreate(
+    filterQuery: FilterQuery<TDocument>,
+    update: Partial<TDocument>,
+    options?: FindOneAndUpdateOrCreateArgs,
+  ) {
+    const doc = await this.model.findOneAndUpdate(
+      filterQuery,
+      { ...update },
+      options?.queryOptions,
+    );
+
+    if (doc) return doc;
+
+    const createdDocument = new this.model({
+      ...update,
+      _id: new Types.ObjectId(),
+    });
+    return (
+      await createdDocument.save(options?.saveOptions)
+    ).toJSON() as unknown as TDocument;
+  }
+
   async distinct(field: string, filter?: FilterQuery<TDocument>) {
     const documentRecord = await this.model.distinct(field, filter);
     return documentRecord;
@@ -168,5 +224,17 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
 
   async countDocs(filter?: FilterQuery<TDocument>): Promise<number> {
     return this.model.countDocuments(filter);
+  }
+
+  async insertMany(
+    documents: Omit<TDocument, '_id'>[],
+    options?: InsertManyDocumentsArgs,
+  ): Promise<TDocument[]> {
+    const res = this.model.insertMany(
+      documents?.map((d) => ({ ...d })),
+      options?.insertManyOptions,
+    );
+
+    return res as unknown as TDocument[];
   }
 }

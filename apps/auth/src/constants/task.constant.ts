@@ -1,3 +1,8 @@
+import {
+  SubmissionType,
+  TaskCategory,
+} from 'apps/brand/src/dto/task/create-task.dto';
+
 interface IBrandDetails {
   _id: string;
   brand_name: string;
@@ -20,6 +25,20 @@ export interface ITask {
   total_task: number;
   brand: IBrandDetails;
   uuid: string;
+}
+
+export interface ICampaignTask {
+  url?: string;
+  instructions: string;
+  submissionType: SubmissionType;
+  socialMediaPlatform?: string; // required only if the category id is social media
+  reward_amount: number | string;
+  _id?: string;
+  uuid?: string;
+  categoryId?: TaskCategory;
+  categoryName?: string;
+  brand_uuid?: string;
+  campaign_uuid: string;
 }
 
 interface ITaskDetails {

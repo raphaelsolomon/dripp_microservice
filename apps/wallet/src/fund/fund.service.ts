@@ -10,6 +10,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { InitiatePaymentDto } from '../dto/intiate-payment.dto';
 import { TransactionRepository } from '../repositories/transaction.repository';
 import { WalletRepository } from '../repositories/wallet.repository';
+import { CurrencyCode } from '../models/wallet.schema';
 
 @Injectable()
 export class FundService {
@@ -138,12 +139,17 @@ export class FundService {
         transaction_details: { ...details },
         transaction: 'credit',
       });
-      const wallet = await this.walletRepository.findOne({ uuid: wallet_uuid });
-      let { amount_in_fiat } = wallet;
-      amount_in_fiat = amount_in_fiat + transaction.data.amount_settled;
+
+      const amount_settled = transaction.data.amount_settled;
+
       await this.walletRepository.findOneAndUpdate(
-        { uuid: wallet_uuid },
-        { amount_in_fiat },
+        { uuid: wallet_uuid, 'balances.code': 'ngn' as CurrencyCode },
+        {
+          $inc: {
+            'balances.$.amount': amount_settled,
+          },
+          $set: { 'balances.$.updated_at': new Date().toISOString() },
+        },
       );
     }
     return this.transactionDetails(transaction, res);
@@ -163,7 +169,9 @@ export class FundService {
     initiatePaymentDto: InitiatePaymentDto,
     user: UserDto,
   ) {
+    console.log('REACHED');
     try {
+      console.log('REQUESTING...');
       const response = await axios.request({
         method: 'POST',
         url: this.configService.get<string>('FLUTTERWAVE_URL') + '/payments',
@@ -183,12 +191,15 @@ export class FundService {
           },
         },
       });
+
+      console.log(response, 'RESponse');
       if (response?.data?.status?.toLowerCase() === 'success') {
         return { redirect_url: response.data.data.link };
       } else {
         return response.data;
       }
     } catch (e) {
+      console.log(e, 'error occured');
       return { status: false, message: e };
     }
   }
